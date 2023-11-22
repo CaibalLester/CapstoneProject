@@ -208,7 +208,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
+                                <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
                                     <i class="bi-wallet me-2"></i>
                                     Manage
                                 </a>
@@ -671,11 +671,6 @@
                         <div class="container">
                             <div class="row">
                                 
-                                <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">Copyright © Mini Finance 2048 
-                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
-                                </div>
-
                             </div>
                         </div>
                     </footer>
