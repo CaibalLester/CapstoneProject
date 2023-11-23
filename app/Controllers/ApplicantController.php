@@ -4,15 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Form1Model;
-use App\Models\UserModel;
+
 class ApplicantController extends BaseController
 {
     private $form1;
-    private $user;
+   
     public function __construct()
     {
         $this->form1 = new Form1Model();
-        $this->user = new UserModel();
     }
     public function index()
     {
@@ -101,76 +100,6 @@ class ApplicantController extends BaseController
         return redirect()->to('Form1');
     }
 
-    public function register()
-    {
-        helper(['form']);
-        $data = [];
-        return view("Applicants/register");
-    }
-
-    public function Authreg()
-    {
-        helper(['form']);
-        $rules = [
-            'email' => 'required|min_length[6]|max_length[100]',
-            'password' => 'required|min_length[6]|max_length[50]',
-            'confirmpassword' => 'matches[password]'
-        ];
-
-        if ($this->validate($rules)) {
-            $userModel = new UserModel();
-            $data = [
-                'email' => $this->request->getVar('email'),
-                'role' => 'applicant',
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
-            ];
-            $userModel->save($data);
-            return redirect()->to('/login');
-            // echo 'sucsses';
-        } else {
-            $data['validation'] = $this->validator;
-            echo view('Applicants/register', $data);
-            // echo 'may mali';
-        }
-    }
-
-    public function login()
-    {
-        helper(['form']);
-        $data = [];
-        return view("Applicants/login");
-    }
-
-    public function authlog()
-    {
-        $session = session();
-        $userModel = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-
-        $data = $userModel->where('email', $email)->first();
-        if ($data) {
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if ($authenticatePassword) {
-                $ses_data = [
-
-                    'id' => $data['id'],
-                    'email' => $data['email'],
-                    'role'=> 'applicant',
-                    'IsAppLog' => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('/ApplicantHome');
-                // return view('Applicants/dashboard');
-            } else {
-                $session->setFlashdata('msg', 'Password is incorrect.');
-                return redirect('/login');
-            }
-        } else {
-            $session->setFlashdata('msg', 'Email does not exist.');
-            return redirect('/login');
-        }
-    }
+    
     
 }
