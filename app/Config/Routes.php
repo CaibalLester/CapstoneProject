@@ -16,7 +16,15 @@ $routes->get('/AdHelp', 'AdminController::AdHelp');
 
 $routes->get('/', 'HomepageController::index');
 
-$routes->get('/ApplicantHome', 'ApplicantController::index');
-$routes->get('/Form1', 'ApplicantController::form1');
+
+$routes->get('/register', 'ApplicantController::register');
+$routes->post('/Authreg', 'ApplicantController::Authreg');
+
+$routes->get('/login', 'ApplicantController::login');
+$routes->post('/authlog', 'ApplicantController::authlog');
+$routes->get('/logout', 'HomepageController::logout');
+
+$routes->get('/ApplicantHome', 'ApplicantController::index', ['filter' => 'authGuard']);
+$routes->get('/Form1', 'ApplicantController::form1', ['filter' => 'authGuard']);
 $routes->post('/form1sv', 'ApplicantController::form1sv');
 
