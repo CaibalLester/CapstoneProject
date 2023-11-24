@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Tooplate">
 
-        <title>Recruitment System</title>
+        <title>ALLIANZ PNB</title>
     
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,13 +15,13 @@
         <link href="AdminInfo/css/bootstrap-icons.css" rel="stylesheet">
         <link href="AdminInfo/css/apexcharts.css" rel="stylesheet">
         <link href="AdminInfo/css/tooplate-mini-finance.css" rel="stylesheet">
+        <link rel="shortcut icon" href="home/images/allianzlogo1.png" />
     </head>
     
     <body>
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-                <a class="navbar-brand" href="index.html">
-                    <i class="bi-box"></i>
+                <a class="navbar-brand" href="#">
                     ALLIANZ ADMIN
                 </a>
             </div>
@@ -183,7 +183,7 @@
                             </li>
 
                             <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="/AdDash">
+                                <a class="dropdown-item ms-0 me-0" href="/">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
@@ -251,7 +251,7 @@
                             </li>
 
                             <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="/AdDash">
+                                <a class="nav-link" href="/">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>

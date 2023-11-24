@@ -11,10 +11,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap.min.css" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="AdminInfo/css/apexcharts.css" rel="stylesheet">
-        <link href="AdminInfo/css/tooplate-mini-finance.css" rel="stylesheet">
+        <link href="AgentInfo/css/bootstrap.min.css" rel="stylesheet">
+        <link href="AgentInfo/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="AgentInfo/css/apexcharts.css" rel="stylesheet">
+        <link href="AgentInfo/css/tooplate-mini-finance.css" rel="stylesheet">
         <link rel="shortcut icon" href="home/images/allianzlogo1.png" />
     </head>
     
@@ -22,7 +22,7 @@
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="#">
-                 ALLIANZ ADMIN
+                 ALLIANZ AGENT
                 </a>
             </div>
 
@@ -101,42 +101,42 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/search.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Google</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/spotify.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Spotify</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/telegram.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Telegram</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/snapchat.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Snapchat</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/tiktok.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Tiktok</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/youtube.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Youtube</span>
                                         </a>
                                     </div>
@@ -147,12 +147,12 @@
 
                     <div class="dropdown px-3">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
+                            <img src="AgentInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
+                                    <img src="AgentInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
 
                                     <div class="d-flex flex-column">
                                         <small>Thomas</small>
@@ -201,50 +201,28 @@
                         <ul class="nav flex-column h-100">
                             
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/AdDash">
+                                <a class="nav-link " aria-current="page" href="/AgDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
-                                </a>
-                                <div class="collapse" id="manageDropdown">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
-                                            </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AdProfile">
+                                <a class="nav-link active" href="/AgProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdSetting">
+                                <a class="nav-link" href="/AgSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
+                                <a class="nav-link" href="/AgHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
@@ -375,14 +353,12 @@
                         </div>
                     </footer>
                 </main>
-
-            </div>
-        </div>
+        </div></div>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="AdminInfo/js/jquery.min.js"></script>
-        <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-        <script src="AdminInfo/js/custom.js"></script>
+        <script src="AgentInfo/js/jquery.min.js"></script>
+        <script src="AgentInfo/js/bootstrap.bundle.min.js"></script>
+        <script src="AgentInfo/js/custom.js"></script>
 
     </body>
 </html>

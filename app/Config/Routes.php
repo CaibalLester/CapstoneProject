@@ -25,6 +25,12 @@ $routes->get('/AppForm4', 'AppController::AppForm4');
 $routes->get('/AppForm5', 'AppController::AppForm5');
 
 
+$routes->get('/AgDash', 'AgentController::AgDash');
+$routes->get('/AgProfile', 'AgentController::AgProfile');
+$routes->get('/AgSetting', 'AgentController::AgSetting');
+$routes->get('/AgHelp', 'AgentController::AgHelp');
+
+
 
 
 $routes->get('/', 'HomepageController::home');

@@ -15,14 +15,14 @@
         <link href="AdminInfo/css/bootstrap-icons.css" rel="stylesheet">
         <link href="AdminInfo/css/apexcharts.css" rel="stylesheet">
         <link href="AdminInfo/css/tooplate-mini-finance.css" rel="stylesheet">
+        <link rel="shortcut icon" href="home/images/allianzlogo1.png" />
     </head>
     
     <body>
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="index.html">
-                    <i class="bi-box"></i>
-                    ALLIANZ APPLICANT
+                  ALLIANZ APPLICANT
                 </a>
             </div>
 
@@ -217,26 +217,25 @@
                                         <li class="nav-item">
                                             <span><a class="nav-link active" href="/AppForm1">
                                                 <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">Form 1</span>
+                                                <span class="align-middle">LIFE CHANGER</span>
                                             </a></span><br>
                                             <a class="nav-link" href="/AppForm2">
                                                 <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">Form 2</span>
+                                                <span class="align-middle">AIAL</span>
                                             </a><br>
                                             <a class="nav-link" href="/AppForm3">
                                                 <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">Form 3</span>
+                                                <span class="align-middle">GROUP LIFE INSURANCE</span>
                                             </a><br>
                                             <a class="nav-link" href="/AppForm4">
                                                 <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">Form 4</span>
+                                                <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
                                             </a><br>
                                             <a class="nav-link" href="/AppForm5">
                                                 <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">Form 5</span>
+                                                <span class="align-middle">STATEMENT OF UNDERTAKING</span>
                                             </a>
-                                        </li>
-                                        
+                                        </li> 
                                     </ul>
                                 </div>
                             </li>

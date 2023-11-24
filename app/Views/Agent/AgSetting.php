@@ -11,10 +11,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap.min.css" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="AdminInfo/css/apexcharts.css" rel="stylesheet">
-        <link href="AdminInfo/css/tooplate-mini-finance.css" rel="stylesheet">
+        <link href="AgentInfo/css/bootstrap.min.css" rel="stylesheet">
+        <link href="AgentInfo/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="AgentInfo/css/apexcharts.css" rel="stylesheet">
+        <link href="AgentInfo/css/tooplate-mini-finance.css" rel="stylesheet">
         <link rel="shortcut icon" href="home/images/allianzlogo1.png" />
     </head>
     
@@ -22,14 +22,14 @@
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="#">
-                 ALLIANZ ADMIN
+                 ALLIANZ AGENT
                 </a>
             </div>
 
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
                 <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
             </form>
@@ -101,42 +101,42 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/search.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Google</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/spotify.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Spotify</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/telegram.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Telegram</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/snapchat.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Snapchat</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/tiktok.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Tiktok</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <img src="AgentInfo/images/social/youtube.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Youtube</span>
                                         </a>
                                     </div>
@@ -147,12 +147,12 @@
 
                     <div class="dropdown px-3">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
+                            <img src="AgentInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
+                                    <img src="AgentInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
 
                                     <div class="d-flex flex-column">
                                         <small>Thomas</small>
@@ -201,50 +201,28 @@
                         <ul class="nav flex-column h-100">
                             
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/AdDash">
+                                <a class="nav-link " aria-current="page" href="/AgDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
-                                </a>
-                                <div class="collapse" id="manageDropdown">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
-                                            </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AdProfile">
+                                <a class="nav-link" href="/AgProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdSetting">
+                                <a class="nav-link active" href="/AgSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
+                                <a class="nav-link " href="/AgHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
@@ -259,92 +237,106 @@
                         </ul>
                     </div>
                 </nav>
-
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">Profile</h1>
+                        <h1 class="h2 mb-0">Settings</h1>
                     </div>
 
                     <div class="row my-4">
                         <div class="col-lg-7 col-12">
-                            <div class="custom-block custom-block-profile">
-                                <div class="row">
-                                    <div class="col-lg-12 col-12 mb-3">
-                                        <h6>General</h6>
+                            <div class="custom-block bg-white">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Profile</button>
+                                    </li>
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="false">Password</button>
+                                    </li>
+
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">Notification</button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                        <h6 class="mb-4">Admin Profile</h6>
+
+                                        <form class="custom-form profile-form" action="#" method="post" role="form">
+                                            <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="John Doe">
+
+                                            <input class="form-control" type="email" name="profile-email" id="profile-email" placeholder="Johndoe@gmail.com">
+
+                                            <div class="input-group mb-1">
+                                                <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+
+                                                <input type="file" class="form-control" id="inputGroupFile02">
+                                            </div>
+
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">
+                                                    Reset
+                                                </button>
+
+                                                <button type="submit" class="form-control ms-2">
+                                                    Update
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
 
-                                    <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                        <div class="custom-block-profile-image-wrap">
-                                            <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                    <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
+                                        <h6 class="mb-4">Password</h6>
 
-                                            <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
-                                        </div>
+                                        <form class="custom-form password-form" action="#" method="post" role="form">
+                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Current Password" required="">
+
+                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
+
+                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Confirm Password" required="">
+
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">
+                                                    Reset
+                                                </button>
+
+                                                <button type="submit" class="form-control ms-2">
+                                                    Update Password
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
 
-                                    <div class="col-lg-9 col-12">
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Name:</strong>
+                                    <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
+                                        <h6 class="mb-4">Notification</h6>
 
-                                            <span>Thomas Edison</span>
-                                        </p>
+                                        <form class="custom-form notification-form" action="#" method="post" role="form">
 
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Email:</strong>
-                                            
-                                            <a href="#">
-                                                thomas@site.com
-                                            </a>
-                                        </p>
+                                            <div class="form-check form-switch d-flex mb-3 ps-0">
+                                                <label class="form-check-label" for="flexSwitchCheckCheckedOne">Account activity</label>
 
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Phone:</strong>
+                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedOne" checked>
+                                            </div>
 
-                                            <a href="#">
-                                                (60) 12 345 6789
-                                            </a>
-                                        </p>
+                                            <div class="form-check form-switch d-flex mb-3 ps-0">
+                                                <label class="form-check-label" for="flexSwitchCheckCheckedTwo">Payment updated</label>
 
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Birthday:</strong>
+                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedTwo" checked>
+                                            </div>
 
-                                            <span>March 5, 1992</span>
-                                        </p>
+                                            <div class="d-flex mt-4">
+                                                <button type="button" class="form-control me-3">
+                                                    Reset
+                                                </button>
 
-                                        <p class="d-flex flex-wrap">
-                                            <strong>Address:</strong>
-
-                                            <span>551 Swanston Street, Melbourne</span>
-                                        </p>
+                                                <button type="submit" class="form-control ms-2">
+                                                    Update Password
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="custom-block custom-block-profile bg-white">
-                                <h6 class="mb-4">Card Information</h6>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>User ID:</strong>
-
-                                    <span>012 395 8647</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Type:</strong>
-
-                                    <span>Personal</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Created:</strong>
-
-                                    <span>July 19, 2020</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Valid Date:</strong>
-
-                                    <span>July 18, 2032</span>
-                                </p>
                             </div>
                         </div>
 
@@ -375,14 +367,12 @@
                         </div>
                     </footer>
                 </main>
+        </div></div>
 
-            </div>
-        </div>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="AdminInfo/js/jquery.min.js"></script>
-        <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-        <script src="AdminInfo/js/custom.js"></script>
+       <!-- JAVASCRIPT FILES -->
+       <script src="AgentInfo/js/jquery.min.js"></script>
+        <script src="AgentInfo/js/bootstrap.bundle.min.js"></script>
+        <script src="AgentInfo/js/custom.js"></script>
 
     </body>
 </html>
