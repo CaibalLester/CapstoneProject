@@ -11,10 +11,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap.min.css" rel="stylesheet">
-        <link href="AdminInfo/css/bootstrap-icons.css" rel="stylesheet">
-        <link href="AdminInfo/css/apexcharts.css" rel="stylesheet">
-        <link href="AdminInfo/css/tooplate-mini-finance.css" rel="stylesheet">
+        <link href="Applicants/css/bootstrap.min.css" rel="stylesheet">
+        <link href="Applicants/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="Applicants/css/apexcharts.css" rel="stylesheet">
+        <link href="Applicants/css/tooplate-mini-finance.css" rel="stylesheet">
     </head>
     
     <body>
@@ -22,7 +22,7 @@
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
                 <a class="navbar-brand" href="index.html">
                     <i class="bi-box"></i>
-                    ALLIANZ ADMIN
+                    ALLIANZ APPLICANT
                 </a>
             </div>
 
@@ -101,42 +101,42 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/search.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/search.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Google</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/spotify.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/spotify.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Spotify</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/telegram.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/telegram.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Telegram</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/snapchat.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/snapchat.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Snapchat</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/tiktok.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/tiktok.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Tiktok</span>
                                         </a>
                                     </div>
 
                                     <div class="col-lg-4 col-md-4 col-4">
                                         <a class="dropdown-item text-center" href="#">
-                                            <img src="AdminInfo/images/social/youtube.png" class="profile-image img-fluid" alt="">
+                                            <img src="Applicants/images/social/youtube.png" class="profile-image img-fluid" alt="">
                                             <span class="d-block">Youtube</span>
                                         </a>
                                     </div>
@@ -147,12 +147,12 @@
 
                     <div class="dropdown px-3">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
+                            <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
+                                    <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
 
                                     <div class="d-flex flex-column">
                                         <small>Thomas</small>
@@ -162,28 +162,28 @@
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdProfile">
+                                <a class="dropdown-item" href="/AppProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdSetting">
+                                <a class="dropdown-item" href="/AppSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdHelp">
+                                <a class="dropdown-item" href="/AppHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help
                                 </a>
                             </li>
 
                             <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="/AdDash">
+                                <a class="dropdown-item ms-0 me-0" href="/AppDash">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
@@ -201,7 +201,7 @@
                         <ul class="nav flex-column h-100">
                             
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/AdDash">
+                                <a class="nav-link active" aria-current="page" href="/AppDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
@@ -209,19 +209,31 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
+                                    <i class="bi-book me-2"></i>
+                                    Forms
                                 </a>
                                 <div class="collapse" id="manageDropdown">
                                     <ul class="nav">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
+                                            <span><a class="nav-link" href="/AppForm1">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 1</span>
+                                            </a></span><br>
+                                            <a class="nav-link" href="/AppForm2">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 2</span>
                                             </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
+                                            <a class="nav-link" href="/AppForm3">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 3</span>
+                                            </a><br>
+                                            <a class="nav-link" href="/AppForm4">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 4</span>
+                                            </a><br>
+                                            <a class="nav-link" href="/AppForm5">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 5</span>
                                             </a>
                                         </li>
                                         
@@ -230,21 +242,21 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdProfile">
+                                <a class="nav-link" href="/AppProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdSetting">
+                                <a class="nav-link" href="/AppSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
+                                <a class="nav-link" href="/AppHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
@@ -309,7 +321,7 @@
 
                                 <div class="d-flex align-items-center border-bottom pb-3 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/flag/united-states.png" class="exchange-image img-fluid" alt="">
+                                        <img src="Applicants/images/flag/united-states.png" class="exchange-image img-fluid" alt="">
 
                                         <div>
                                             <p>USD</p>
@@ -330,7 +342,7 @@
 
                                 <div class="d-flex align-items-center border-bottom pb-3 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/flag/singapore.png" class="exchange-image img-fluid" alt="">
+                                        <img src="Applicants/images/flag/singapore.png" class="exchange-image img-fluid" alt="">
 
                                         <div>
                                             <p>SGD</p>
@@ -351,7 +363,7 @@
 
                                 <div class="d-flex align-items-center border-bottom pb-3 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/flag/united-kingdom.png" class="exchange-image img-fluid" alt="">
+                                        <img src="Applicants/images/flag/united-kingdom.png" class="exchange-image img-fluid" alt="">
 
                                         <div>
                                             <p>GPD</p>
@@ -372,7 +384,7 @@
 
                                 <div class="d-flex align-items-center border-bottom pb-3 mb-3">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/flag/australia.png" class="exchange-image img-fluid" alt="">
+                                        <img src="Applicants/images/flag/australia.png" class="exchange-image img-fluid" alt="">
 
                                         <div>
                                             <p>AUD</p>
@@ -393,7 +405,7 @@
 
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/flag/european-union.png" class="exchange-image img-fluid" alt="">
+                                        <img src="Applicants/images/flag/european-union.png" class="exchange-image img-fluid" alt="">
 
                                         <div>
                                             <p>EUR</p>
@@ -417,7 +429,7 @@
                         <div class="col-lg-5 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                    <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
 
                                     <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                                 </div>
@@ -484,7 +496,7 @@
 
                                 <div class="d-flex flex-wrap align-items-center mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+                                        <img src="Applicants/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
 
                                         <div>
                                             <p>
@@ -503,7 +515,7 @@
 
                                 <div class="d-flex flex-wrap align-items-center mb-4">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
+                                        <img src="Applicants/images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
 
                                         <div>
                                             <p>
@@ -522,7 +534,7 @@
 
                                 <div class="d-flex flex-wrap align-items-center">
                                     <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
+                                        <img src="Applicants/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
 
                                         <div>
                                             <p><a href="transation-detail.html">Store</a></p>
@@ -549,15 +561,15 @@
                                 <h5 class="text-white mb-4">Send Money</h5>
 
                                 <a href="#">
-                                    <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
+                                    <img src="Applicants/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
                                 </a>
 
                                 <a href="#">
-                                    <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
+                                    <img src="Applicants/images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
                                 </a>
 
                                 <a href="#">
-                                    <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
+                                    <img src="Applicants/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
                                 </a>
 
                                 <div class="profile-rounded">
@@ -583,10 +595,10 @@
         </div>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="AdminInfo/js/jquery.min.js"></script>
-        <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-        <script src="AdminInfo/js/apexcharts.min.js"></script>
-        <script src="AdminInfo/js/custom.js"></script>
+        <script src="Applicants/js/jquery.min.js"></script>
+        <script src="Applicants/js/bootstrap.bundle.min.js"></script>
+        <script src="Applicants/js/apexcharts.min.js"></script>
+        <script src="Applicants/js/custom.js"></script>
 
         <script type="text/javascript">
             var options = {

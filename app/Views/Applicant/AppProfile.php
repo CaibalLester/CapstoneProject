@@ -147,12 +147,12 @@
 
                     <div class="dropdown px-3">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
+                            <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
+                                    <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
 
                                     <div class="d-flex flex-column">
                                         <small>Thomas</small>
@@ -162,28 +162,28 @@
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdProfile">
+                                <a class="dropdown-item" href="/AppProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdSetting">
+                                <a class="dropdown-item" href="/AppSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="/AdHelp">
+                                <a class="dropdown-item" href="/AppHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help
                                 </a>
                             </li>
 
                             <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="/AdDash">
+                                <a class="dropdown-item ms-0 me-0" href="/AppDash">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
@@ -201,7 +201,7 @@
                         <ul class="nav flex-column h-100">
                             
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/AdDash">
+                                <a class="nav-link " aria-current="page" href="/AppDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
@@ -209,19 +209,31 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
+                                    <i class="bi-book me-2"></i>
+                                    Forms
                                 </a>
                                 <div class="collapse" id="manageDropdown">
                                     <ul class="nav">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
+                                            <span><a class="nav-link" href="/AppForm1">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 1</span>
+                                            </a></span><br>
+                                            <a class="nav-link" href="/AppForm2">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 2</span>
                                             </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
+                                            <a class="nav-link" href="/AppForm3">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 3</span>
+                                            </a><br>
+                                            <a class="nav-link" href="/AppForm4">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 4</span>
+                                            </a><br>
+                                            <a class="nav-link" href="/AppForm5">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">Form 5</span>
                                             </a>
                                         </li>
                                         
@@ -230,21 +242,21 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="/AdProfile">
+                                <a class="nav-link active" href="/AppProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdSetting">
+                                <a class="nav-link" href="/AppSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
+                                <a class="nav-link" href="/AppHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>

@@ -218,7 +218,7 @@
                                             <a class="nav-link" href="/ManageAgent">
                                                 <i class="bi-person me-2"></i>
                                                 <span class="align-middle">Agents</span>
-                                            </a>
+                                            </a><br>
                                             <a class="nav-link" href="ManageApplicant">
                                                 <i class="bi-person me-2"></i>
                                                 <span class="align-middle">Applicants</span>
@@ -284,7 +284,7 @@
 
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                        <h6 class="mb-4">User Profile</h6>
+                                        <h6 class="mb-4">Admin Profile</h6>
 
                                         <form class="custom-form profile-form" action="#" method="post" role="form">
                                             <input class="form-control" type="text" name="profile-name" id="profile-name" placeholder="John Doe">

@@ -14,6 +14,19 @@ $routes->get('/AdSetting', 'AdminController::AdSetting');
 $routes->get('/AdHelp', 'AdminController::AdHelp');
 
 
+$routes->get('/AppDash', 'AppController::AppDash');
+$routes->get('/AppProfile', 'AppController::AppProfile');
+$routes->get('/AppSetting', 'AppController::AppSetting');
+$routes->get('/AppHelp', 'AppController::AppHelp');
+$routes->get('/AppForm1', 'AppController::AppForm1');
+$routes->get('/AppForm2', 'AppController::AppForm2');
+$routes->get('/AppForm3', 'AppController::AppForm3');
+$routes->get('/AppForm4', 'AppController::AppForm4');
+$routes->get('/AppForm5', 'AppController::AppForm5');
+
+
+
+
 $routes->get('/', 'HomepageController::home');
 
 

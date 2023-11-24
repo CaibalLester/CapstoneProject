@@ -218,7 +218,7 @@
                                             <a class="nav-link active" href="/ManageAgent">
                                                 <i class="bi-person me-2"></i>
                                                 <span class="align-middle">Agents</span>
-                                            </a>
+                                            </a><br>
                                             <a class="nav-link" href="ManageApplicant">
                                                 <i class="bi-person me-2"></i>
                                                 <span class="align-middle">Applicants</span>
