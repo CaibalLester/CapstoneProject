@@ -1,0 +1,12 @@
+CRITICAL - 2023-12-03 11:41:43 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\AppForm1.php on line 28.
+ 1 APPPATH\Views\Applicant\AppForm1.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneProject\\app\\Views\\Applicant\\AppForm1.php', 28)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneProject\\app\\Views\\Applicant\\AppForm1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppForm1', [], true)
+ 5 APPPATH\Controllers\AppController.php(87): view('Applicant/AppForm1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppForm1()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneProject\\public\\index.php')

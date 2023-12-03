@@ -16,11 +16,33 @@ class HomepageController extends BaseController
     {
         return view('Home/home');
     }
+    // public function logout()
+    // {
+    //     $session = session();
+    //     $session->destroy(); // Destroy the user's session data
+    //     return redirect()->to('/'); // Redirect to the login page or any other page you prefer
+    // }
     public function logout()
     {
         $session = session();
-        $session->destroy(); // Destroy the user's session data
-        return redirect()->to('/'); // Redirect to the login page or any other page you prefer
+
+        // Store the role before destroying the session
+        $role = $session->get('role');
+
+        // Destroy the session
+        $session->destroy();
+
+        // Redirect based on the user's role after logout
+        switch ($role) {
+            case 'admin':
+                return redirect()->to('/login');
+            case 'applicant':
+                return redirect()->to('/login');
+            case 'agent':
+                return redirect()->to('/login');
+            default:
+                return redirect()->to('/login');
+        }
     }
 
     public function register()
@@ -44,6 +66,7 @@ class HomepageController extends BaseController
             $data = [
                 'email' => $this->request->getVar('email'),
                 'role' => 'applicant',
+                'status' => 'active',
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $userModel->save($data);
@@ -62,36 +85,68 @@ class HomepageController extends BaseController
         $data = [];
         return view("Home/login");
     }
-
+    // public function authlog()
+    // {
+    //     $session = session();
+    //     $userModel = new UserModel();
+    //     $email = $this->request->getVar('email');
+    //     $password = $this->request->getVar('password');
+    //     $data = $userModel->where('email', $email)->first();
+    //     if ($data) {
+    //         $pass = $data['password'];
+    //         $authenticatePassword = password_verify($password, $pass);
+    //         if ($authenticatePassword) {
+    //             $ses_data = [
+    //                 'id' => $data['id'],
+    //                 'email' => $data['email'],
+    //                 'role'=> 'applicant',
+    //                 'IsAppLog' => TRUE
+    //             ];
+    //             $session->set($ses_data);
+    //             return redirect()->to('/AppDash');
+    //             // return view('Applicants/dashboard');
+    //         } else {
+    //             $session->setFlashdata('error', 'Password is incorrect.');
+    //             return redirect()->to('/login');
+    //         }
+    //     } else {
+    //         $session->setFlashdata('error', 'Email does not exist.');
+    //         return redirect()->to('/login');
+    //     }
+    // }
     public function authlog()
-    {
-        $session = session();
-        $userModel = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+{
+    $session = session();
+    $userModel = new UserModel();
+    $email = $this->request->getVar('email');
+    $password = $this->request->getVar('password');
 
-        $data = $userModel->where('email', $email)->first();
-        if ($data) {
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
-            if ($authenticatePassword) {
-                $ses_data = [
+    $user = $userModel->where('email', $email)->first();
 
-                    'id' => $data['id'],
-                    'email' => $data['email'],
-                    'role'=> 'applicant',
-                    'IsAppLog' => TRUE
-                ];
-                $session->set($ses_data);
-                return redirect()->to('/ApplicantHome');
-                // return view('Applicants/dashboard');
-            } else {
-                $session->setFlashdata('msg', 'Password is incorrect.');
-                return redirect('/login');
-            }
-        } else {
-            $session->setFlashdata('msg', 'Email does not exist.');
-            return redirect('/login');
+    if ($user && password_verify($password, $user['password'])) {
+        $sessionData = [
+            'id' => $user['id'],
+            'role' => $user['role'],
+            'IsAppLog' => true,
+        ];
+
+        $session->set($sessionData);
+
+        // Redirect based on the fetched role
+        if ($user['role'] == 'admin') {
+            return redirect()->to('/AdDash');
+        } elseif ($user['role'] == 'applicant') {
+            return redirect()->to('/AppDash');
+        } elseif ($user['role'] == 'agent') {
+            return redirect()->to('/AgDash');
         }
+    } else {
+        $session->setFlashdata('error', 'Invalid email or password.');
+        return redirect()->to('/login');
     }
+}
+
+
+
+
 }

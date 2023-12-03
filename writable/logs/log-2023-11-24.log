@@ -8,3 +8,23 @@ in SYSTEMPATH\HTTP\RedirectResponse.php on line 60.
  6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneProject\\public\\index.php')
+CRITICAL - 2023-11-24 12:40:04 --> Invalid file: "Applicants/dashboard.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Applicants/dashboard.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicants/dashboard', [], true)
+ 3 APPPATH\Controllers\ApplicantController.php(18): view('Applicants/dashboard')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ApplicantController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ApplicantController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneProject\\public\\index.php')
+CRITICAL - 2023-11-24 12:40:41 --> Invalid file: "Applicants/AppDash.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Applicants/AppDash.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicants/AppDash', [], true)
+ 3 APPPATH\Controllers\ApplicantController.php(18): view('Applicants/AppDash')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ApplicantController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ApplicantController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneProject\\public\\index.php')

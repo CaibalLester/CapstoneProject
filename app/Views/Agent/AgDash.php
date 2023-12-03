@@ -183,7 +183,7 @@
                             </li>
 
                             <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="/">
+                                <a class="dropdown-item ms-0 me-0" href="">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>

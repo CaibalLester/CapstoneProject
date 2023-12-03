@@ -14,6 +14,7 @@ class Form1Model extends Model
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
+        'user_id',
         'position',
         'preferredArea',
         'referral',
