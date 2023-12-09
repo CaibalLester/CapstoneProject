@@ -27,7 +27,7 @@
                                                 <input type="text" id="position" name="positionApplying"
                                                     class="form-control"
                                                     value="<?= isset($lifechangerform['position']) ? $lifechangerform['position'] : 'Agent' ?>"
-                                                    required disabled>
+                                                    required readonly>
                                                 <label for="preferredArea">Preferred area:</label>
                                                 <input type="text" id="preferredArea" name="preferredArea"
                                                     class="form-control"
@@ -42,9 +42,14 @@
 
 
                                                 <label for="referralBy">by whom:</label>
-                                                <input type="text" id="referralBy" name="referralBy"
-                                                    class="form-control"
-                                                    value="<?= isset($lifechangerform['referralBy']) ? $lifechangerform['referralBy'] : '' ?>">
+                                                <select id="referralBy" name="referralBy" class="form-control">
+    <option value="">Select Agent</option>
+    <?php foreach ($agents as $agent): ?>
+        <option value="<?= $agent['agent_id']; ?>" <?= (isset($lifechangerform['referralBy']) && $lifechangerform['referralBy'] == $agent['agent_id']) ? 'selected' : ''; ?>>
+            <?= $agent['Agentfullname']; ?>
+        </option>
+    <?php endforeach; ?>
+</select>
 
                                                 <input type="checkbox" id="onlineAd" name="onlineAd"
                                                     value="Online Advertisement" <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
@@ -95,6 +100,7 @@
                                                 <label for="bloodType">Blood Type:</label>
                                                 <select id="bloodType" name="bloodType" class="form-control" required>
                                                     <option value="">Select</option>
+                                                    <option value="N/A" <?= isset($lifechangerform['bloodType']) && $lifechangerform['bloodType'] === 'N/A' ? 'selected' : '' ?>>N/A
                                                     <option value="A+" <?= isset($lifechangerform['bloodType']) && $lifechangerform['bloodType'] === 'A+' ? 'selected' : '' ?>>A+
                                                     </option>
                                                     <option value="A-" <?= isset($lifechangerform['bloodType']) && $lifechangerform['bloodType'] === 'A-' ? 'selected' : '' ?>>A-

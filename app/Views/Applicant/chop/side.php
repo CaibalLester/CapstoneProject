@@ -25,7 +25,7 @@
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">AIAL</span>
                                             </a><br>
-                                            <a class="nav-link" href="/AppForm3">
+                                            <!-- <a class="nav-link" href="/AppForm3">
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">GROUP LIFE INSURANCE</span>
                                             </a><br>
@@ -36,7 +36,7 @@
                                             <a class="nav-link" href="/AppForm5">
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">STATEMENT OF UNDERTAKING</span>
-                                            </a>
+                                            </a> -->
                                         </li>
                                     </ul>
                                 </div>

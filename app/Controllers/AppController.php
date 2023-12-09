@@ -3,28 +3,40 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use \App\Models\UserModel;
-
+use \App\Models\AgentModel;
 class AppController extends BaseController
 {
     private $form1;
     private $user;
+    private $applicant;
     public function __construct()
     {
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
+        $this->applicant = new ApplicantModel();
     }
+   
     public function AppDash()
     {
-        $data = $this->getData();
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
 
+        $data = $this->getData();
         return view('Applicant/AppDash', $data);
     }
 
-
     public function AppProfile()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
+
         $data = $this->getData();
 
         return view('Applicant/AppProfile', $data);
@@ -52,53 +64,104 @@ class AppController extends BaseController
         return $data;
     }
 
+    private function getDataApp()
+    {
+        $session = session();
+
+        // Get the user ID from the session
+        $userId = $session->get('id');
+
+        // Load the User model
+        $applicantModel = new ApplicantModel();
+
+        // Find the user by ID
+        $data['applicant'] = $applicantModel->where('applicant_id', $userId)
+        ->orderBy('id', 'desc')
+        ->first();
+
+        return $data;
+    }
+
     private function getform1Data()
-{
-    $session = session();
+    {
+        $session = session();
 
-    // Get the user ID from the session
-    $userId = $session->get('id');
+        // Get the user ID from the session
+        $userId = $session->get('id');
 
-    // Load the Form1Model
-    $form1Model = new Form1Model();
+        // Load the Form1Model
+        $form1Model = new Form1Model();
 
-    // Find the latest form data based on the user ID
-    $data['lifechangerform'] = $form1Model->where('user_id', $userId)
-                                         ->orderBy('id', 'desc')
-                                         ->first();
-
-    return $data;
-}
-
-
+        // Find the latest form data based on the user ID
+        $data['lifechangerform'] = $form1Model->where('user_id', $userId)
+            ->first();
+        return $data;
+    }
 
     public function AppSetting()
     {
-        $data = $this->getData();
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
+
+        $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppSetting', $data);
+    }
+
+    public function svap()
+    {
+        $session = session();
+
+        $userId = $session->get('id');
+        $data = [
+            'applicant_id' => $userId,
+            'Applicantfullname' => $this->request->getVar('Applicantfullname'),
+            'number' => $this->request->getVar('number'),
+            'email' => $this->request->getVar('email'),
+            'birthday' => $this->request->getVar('birthday'),
+        ];
+
+        // $this->applicant->insert($data);
+        $this->applicant->set($data)->where('applicant_id', $userId)->update();
+        return redirect()->to('/AppSetting');
     }
     public function AppHelp()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
+
         $data = $this->getData();
         return view('Applicant/AppHelp', $data);
     }
 
     public function AppForm1()
-    {
-        $data = array_merge($this->getData(), $this->getform1Data());
-        return view('Applicant/AppForm1', $data);
+{
+    $session = session();
+    if ($session->get('role') !== 'applicant') {
+        return redirect()->to('/');
     }
+
+    $agent = new AgentModel();
+    $data['agents'] = $agent->findAll();
+
+    // Merge arrays while retaining the 'agents' key
+    $data = array_merge($this->getData(), $this->getform1Data(), $data);
+
+    return view('Applicant/AppForm1', $data);
+}
+
 
     public function form1sv()
     {
         $session = session();
-
-        // Check if the user is logged in
-        if (!$session->get('IsAppLog')) {
-            // Redirect to the login page if the user is not logged in
-            return redirect()->to('/login');
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
         }
 
+        $session = session();
         // Retrieve user_id from the session
         $userId = $session->get('id');
 
@@ -108,7 +171,7 @@ class AppController extends BaseController
             return redirect()->to('/login');
         }
         $data = [
-            'user_id' => $userId,
+            // 'user_id' => $userId,
             'position' => $this->request->getVar('positionApplying'),
             'preferredArea' => $this->request->getVar('preferredArea'),
             'referral' => $this->request->getVar('referral') ?? 'No',
@@ -180,23 +243,40 @@ class AppController extends BaseController
             'ifnoProvdtls' => $this->request->getVar('ifnoProvdtls') ?? 'N/A',
         ];
 
-        $this->form1->insert($data);
+        // $this->form1->insert($data);
+        $this->form1->set($data)->where('user_id', $userId)->update();
         return redirect()->to('/AppForm1');
     }
     public function AppForm2()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
         return view('Applicant/AppForm2');
     }
     public function AppForm3()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
         return view('Applicant/AppForm3');
     }
     public function AppForm4()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
         return view('Applicant/AppForm4');
     }
     public function AppForm5()
     {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
         return view('Applicant/AppForm5');
     }
 

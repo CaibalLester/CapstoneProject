@@ -31,9 +31,9 @@
 
                                     <div class="col-lg-9 col-12">
                                         <p class="d-flex flex-wrap mb-2">
-                                            <strong>Name:</strong>
+                                            <strong>User Name:</strong>
 
-                                            <span>Thomas Edison</span>
+                                            <span><?= $user['username'] ?></span>
                                         </p>
 
                                         <p class="d-flex flex-wrap mb-2">

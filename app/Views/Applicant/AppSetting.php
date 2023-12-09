@@ -45,27 +45,29 @@
                                     aria-labelledby="profile-tab" tabindex="0">
                                     <h6 class="mb-4">Applicant Profile</h6>
 
-                                    <form class="custom-form profile-form" action="#" method="post" role="form">
-                                        <input class="form-control" type="text" name="profile-name" id="profile-name"
-                                            placeholder="John Doe">
-
-                                        <input class="form-control" type="email" name="profile-email" id="profile-email"
-                                            value="<?= $user['email'] ?>">
-
+                                    <form class="custom-form profile-form" action="/svap" method="post" role="form">
+                                        <input style="color: black" class="form-control" type="text" name="username"
+                                            id="profile-name" placeholder="Full name"
+                                            value="<?= isset($applicant['username']) ? $applicant['username'] : '' ?>">
+                                        <input style="color: black" class="form-control" type="email" name="email"
+                                            placeholder="Email"
+                                            value="<?= isset($applicant['email']) ? $applicant['email'] : '' ?>">
+                                        <input style="color: black" class="form-control" type="text" name="number"
+                                            placeholder="Please Enter Your Number"
+                                            value="<?= isset($applicant['number']) ? $applicant['number'] : '' ?>">
+                                        <input style="color: black" class="form-control" type="text" name="birthday"
+                                            placeholder="Please Enter your Birthday mm/dd/yyyy"
+                                            value="<?= isset($applicant['birthday']) ? $applicant['birthday'] : '' ?>">
+                                        <input style="color: black" class="form-control" type="text" name="branch"
+                                            placeholder="Branch" value="<?= $user['branch']; ?>" readonly>
                                         <div class="input-group mb-1">
                                             <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg"
                                                 class="profile-image img-fluid" alt="">
-
                                             <input type="file" class="form-control" id="inputGroupFile02">
                                         </div>
-
                                         <div class="d-flex">
-                                            <button type="button" class="form-control me-3">
-                                                Reset
-                                            </button>
-
                                             <button type="submit" class="form-control ms-2">
-                                                Update
+                                                Save
                                             </button>
                                         </div>
                                     </form>
