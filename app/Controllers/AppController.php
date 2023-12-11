@@ -7,6 +7,7 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use \App\Models\UserModel;
 use \App\Models\AgentModel;
+
 class AppController extends BaseController
 {
     private $form1;
@@ -18,7 +19,7 @@ class AppController extends BaseController
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
     }
-   
+
     public function AppDash()
     {
         $session = session();
@@ -26,7 +27,7 @@ class AppController extends BaseController
             return redirect()->to('/');
         }
 
-        $data = $this->getData();
+        $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppDash', $data);
     }
 
@@ -37,8 +38,7 @@ class AppController extends BaseController
             return redirect()->to('/');
         }
 
-        $data = $this->getData();
-
+        $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppProfile', $data);
     }
 
@@ -76,8 +76,8 @@ class AppController extends BaseController
 
         // Find the user by ID
         $data['applicant'] = $applicantModel->where('applicant_id', $userId)
-        ->orderBy('id', 'desc')
-        ->first();
+            ->orderBy('id', 'desc')
+            ->first();
 
         return $data;
     }
@@ -97,7 +97,6 @@ class AppController extends BaseController
             ->first();
         return $data;
     }
-
     public function AppSetting()
     {
         $session = session();
@@ -112,20 +111,49 @@ class AppController extends BaseController
     public function svap()
     {
         $session = session();
-
         $userId = $session->get('id');
-        $data = [
-            'applicant_id' => $userId,
-            'Applicantfullname' => $this->request->getVar('Applicantfullname'),
+
+        // Initialize $data array
+        $data = [];
+
+        // Check if a file is uploaded
+        if ($imageFile = $this->request->getFile('profile')) {
+            // Check if the file is valid
+            if ($imageFile->isValid() && !$imageFile->hasMoved()) {
+                // Generate a unique name for the uploaded image
+                $imageName = $imageFile->getRandomName();
+
+                // Set the path to the upload directory
+                $uploadPath = FCPATH . 'uploads/';
+
+                // Move the uploaded image to the upload directory
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    // Image upload successful, store the image filename in the database
+                    $data['profile'] = $imageName;
+                } else {
+                    $error = $imageFile->getError();
+                    // Handle the error as needed
+                }
+            }
+        }
+
+        // Add other form data to the data array
+        $data += [
+            'username' => $this->request->getVar('username'),
             'number' => $this->request->getVar('number'),
             'email' => $this->request->getVar('email'),
             'birthday' => $this->request->getVar('birthday'),
         ];
 
-        // $this->applicant->insert($data);
-        $this->applicant->set($data)->where('applicant_id', $userId)->update();
+        // Check if $data array is not empty before updating the database
+        if (!empty($data)) {
+            // Update the applicant data
+            $this->applicant->set($data)->where('applicant_id', $userId)->update();
+        }
+
         return redirect()->to('/AppSetting');
     }
+
     public function AppHelp()
     {
         $session = session();
@@ -133,25 +161,24 @@ class AppController extends BaseController
             return redirect()->to('/');
         }
 
-        $data = $this->getData();
+        $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppHelp', $data);
     }
 
     public function AppForm1()
-{
-    $session = session();
-    if ($session->get('role') !== 'applicant') {
-        return redirect()->to('/');
+    {
+        $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
+        $agent = new AgentModel();
+        $data['agents'] = $agent->findAll();
+
+        // Merge arrays while retaining the 'agents' key
+        $data = array_merge($this->getData(), $this->getDataApp(), $this->getform1Data(), $data);
+
+        return view('Applicant/AppForm1', $data);
     }
-
-    $agent = new AgentModel();
-    $data['agents'] = $agent->findAll();
-
-    // Merge arrays while retaining the 'agents' key
-    $data = array_merge($this->getData(), $this->getform1Data(), $data);
-
-    return view('Applicant/AppForm1', $data);
-}
 
 
     public function form1sv()

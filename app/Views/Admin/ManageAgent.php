@@ -1,432 +1,122 @@
 <!doctype html>
 <html lang="en">
-<?= view('Admin/chop/head')?>
-    
-    <body>
-    <?= view('Admin/chop/header')?>
+<?= view('Admin/chop/head') ?>
 
-        <div class="container-fluid">
-            <div class="row">
-            <?= view('Admin/chop/side')?>
+<body>
+    <?= view('Admin/chop/header') ?>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                    <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">Agent Information</h1>
-                    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <?= view('Admin/chop/side') ?>
 
-                    <div class="row my-4">
-                        <div class="col-lg-12 col-12">
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <div class="title-group mb-3">
+                    <h1 class="h2 mb-0">Agent Information</h1>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block bg-white">
+                            <h5 class="mb-4">Account Activities</h5>
+
                             <div class="custom-block bg-white">
-                                <h5 class="mb-4">Account Activities</h5>
-
-                                <div class="table-responsive">
-                                    <table class="account-table table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Date</th>
-
-                                                <th scope="col">Description</th>
-
-                                                <th scope="col">Payment Type</th>
-
-                                                <th scope="col">Amount</th>
-
-                                                <th scope="col">Balance</th>
-
-                                                <th scope="col">Status</th>
-
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <tr>
-                                                <td scope="row">July 5, 2023</td>
-
-                                                <td scope="row">10:00 PM</td>
-
-                                                <td scope="row">Shopping</td>
-
-                                                <td scope="row">C2C Transfer</td>
-
-                                                <td class="text-danger" scope="row">
-                                                    <span class="me-1">-</span>
-                                                    $100.00
-                                                </td>
-
-                                                <td scope="row">$5,500.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">July 2, 2023</td>
-
-                                                <td scope="row">10:42 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                    <span class="me-1">+</span>
-                                                    $250
-                                                </td>
-
-                                                <td scope="row">$5,600.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 28, 2023</td>
-
-                                                <td scope="row">8:20 PM</td>
-
-                                                <td scope="row">Billing</td>
-
-                                                <td scope="row">Goverment</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$5,350.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 24, 2023</td>
-
-                                                <td scope="row">10:48 PM</td>
-
-                                                <td scope="row">Shopee</td>
-
-                                                <td scope="row">QR Code</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$380</td>
-
-                                                <td scope="row">$5,300.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-dark">
-                                                        Cancelled
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">June 12, 2023</td>
-
-                                                <td scope="row">12:30 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$250</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 31, 2023</td>
-
-                                                <td scope="row">2:40 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 22, 2023</td>
-
-                                                <td scope="row">8:50 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">May 20, 2023</td>
-
-                                                <td scope="row">6:45 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-danger" scope="row">
-                                                <span class="me-2">-</span>$500</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 28, 2023</td>
-
-                                                <td scope="row">11:20 AM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$856</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-success">
-                                                        Success
-                                                    </span>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td scope="row">April 16, 2023</td>
-
-                                                <td scope="row">11:00 PM</td>
-
-                                                <td scope="row">Food Delivery</td>
-
-                                                <td scope="row">Mobile Reload</td>
-
-                                                <td class="text-success" scope="row">
-                                                <span class="me-2">+</span>$50</td>
-
-                                                <td scope="row">$4,920.00</td>
-
-                                                <td scope="row">
-                                                    <span class="badge text-bg-danger">
-                                                        Pending
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <form class="custom-form search-form" action="/agentSearch" method="post" role="form">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-12">
+                                            <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text" placeholder="Search by Agents Name" aria-label="Search" required>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-12">
+                                            <button type="submit" class="form-control">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form><br>
+
+                                <div class="row">
+                                    <?php foreach ($agent as $ag): ?>
+                                        <div class="col-lg-4 col-12 mb-3">
+                                            <div
+                                                class="custom-block custom-block-profile-front custom-block-profile text-center bg-white p-4">
+                                                <div class="custom-block-profile-image-wrap mb-4">
+                                                    <a href="http://" data-bs-toggle="modal"
+                                                        data-bs-target="#verticalycentered<?= $ag['agent_id']; ?>">
+                                                        <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
+                                                            class="profile-image img-fluid" alt=""></a>
+                                                </div>
+                                                <strong class="mb-3">
+                                                    <?= $ag['Agentfullname']; ?>
+                                                </strong>
+                                                <p class="mb-2">
+                                                    <?= $ag['email']; ?>
+                                                </p>
+                                                <p class="mb-2">
+                                                    <?= $ag['number']; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal for each agent -->
+                                        <div class="modal fade" id="verticalycentered<?= $ag['agent_id']; ?>" tabindex="-1">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">
+                                                            <?= $ag['Agentfullname']; ?>
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="text-center">
+                                                            <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
+                                                                class="profile-image img-fluid" alt="Agent Image">
+                                                        </div>
+                                                        <br>
+                                                        <p><strong>User Name:</strong>
+                                                            <?= $ag['username']; ?>
+                                                        </p>
+                                                        <p><strong>Email:</strong>
+                                                            <?= $ag['email']; ?>
+                                                        </p>
+                                                        <p><strong>Phone:</strong>
+                                                            <?= $ag['number']; ?>
+                                                        </p>
+                                                        <!-- <p><strong>Rank:</strong>
+                                                            <?= $ag['rank']; ?>
+                                                        </p> -->
+                                                        <!-- Add more details if needed -->
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- End Modal -->
+                                    <?php endforeach; ?>
                                 </div>
 
-                                <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center mb-0">
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Previous">
-                                                    <span aria-hidden="true">Prev</span>
-                                                </a>
-                                            </li>
-
-                                            <li class="page-item active" aria-current="page">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">3</a>
-                                            </li>
-
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">4</a>
-                                            </li>
-                                            
-                                            <li class="page-item">
-                                                <a class="page-link" href="#" aria-label="Next">
-                                                    <span aria-hidden="true">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block custom-block-balance">
-                                <small>Your Balance</small>
-
-                                <h2 class="mt-2 mb-3">$254,800</h2>
-
-                                <div class="custom-block-numbers d-flex align-items-center">
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <span>****</span>
-                                    <p>2560</p>
-                                </div>
-
-                                <div class="d-flex">
-                                    <div>
-                                        <small>Valid Date</small>
-                                        <p>12/2028</p>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>Card Holder</small>
-                                        <p>Thomas</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="custom-block custom-block-bottom d-flex flex-wrap">
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-wallet"></i>
-
-                                        <small>Top up</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-upc-scan"></i>
-
-                                        <small>Scan & Pay</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-send"></i>
-
-                                        <small>Send</small>
-                                    </a>
-                                </div>
-
-                                <div class="custom-block-bottom-item">
-                                    <a href="#" class="d-flex flex-column">
-                                        <i class="custom-block-icon bi-arrow-down"></i>
-
-                                        <small>Request</small>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-transations">
-                                <h5 class="mb-4">Recent Transations</h5>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.html">Daniel Jones</a>
-                                            </p>
-
-                                            <small class="text-muted">C2C Transfer</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>05/12/2023</small>
-                                        <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p>
-                                                <a href="transation-detail.html">Public Bank</a>
-                                            </p>
-
-                                            <small class="text-muted">Mobile Reload</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap align-items-center">
-                                    <div class="d-flex align-items-center">
-                                        <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg" class="profile-image img-fluid" alt="">
-
-                                        <div>
-                                            <p><a href="transation-detail.html">Store</a></p>
-
-                                            <small class="text-muted">Payment Received</small>
-                                        </div>
-                                    </div>
-
-                                    <div class="ms-auto">
-                                        <small>22/8/2023</small>
-                                        <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                    </div>
-                                </div>
-                            </div>
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
 
                         </div>
                     </div>
+                </footer>
+            </main>
 
-                    <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                
-                            </div>
-                        </div>
-                    </footer>
-                </main>
-
-            </div>
         </div>
+    </div>
 
-        <!-- JAVASCRIPT FILES -->
-        <?= view('Admin/chop/js')?>
-    </body>
+    <!-- JAVASCRIPT FILES -->
+    <?= view('Admin/chop/js') ?>
+</body>
+
 </html>

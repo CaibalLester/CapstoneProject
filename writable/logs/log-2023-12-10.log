@@ -1,0 +1,211 @@
+CRITICAL - 2023-12-10 00:34:16 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168456_c677f2d4d70f64eaade6')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:34:53 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168493_1fd807f8f49c750805bf')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:35:05 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168505_af4002741c5a66533b55')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:35:19 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168519_f9fcc9269320a8e06e21')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:36:01 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168561_232d45912806bcfc9ae1')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:36:38 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702168598_1d3c76e4fae05555feba')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:43:47 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702169027_5f23169a24f38cc8bb14')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:44:16 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702169056_0a062c1ca8f775294305')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 00:47:23 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 146.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(146): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\AppController.php(129): CodeIgniter\HTTP\Files\UploadedFile->move('D:\\ProjectSystem\\public\\uploads/', '1702169243_cc47aab197ba91f2ed56')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->svap()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 01:02:43 --> Undefined variable $user
+in APPPATH\Views\Admin\chop\header.php on line 137.
+ 1 APPPATH\Views\Admin\chop\header.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'D:\\ProjectSystem\\app\\Views\\Admin\\chop\\header.php', 137)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/chop/header', [], true)
+ 5 APPPATH\Views\Admin\ManageApplicant.php(7): view('Admin/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\ManageApplicant.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/ManageApplicant', [], true)
+ 9 APPPATH\Controllers\AdminController.php(69): view('Admin/ManageApplicant', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->userSearch()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+ERROR - 2023-12-10 05:16:54 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\ProjectSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 D:\ProjectSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 D:\ProjectSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\ProjectSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\ProjectSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\ProjectSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\ProjectSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 D:\ProjectSystem\app\Controllers\HomepageController.php(130): CodeIgniter\BaseModel->first()
+#7 D:\ProjectSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#8 D:\ProjectSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#9 D:\ProjectSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\ProjectSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\ProjectSystem\system\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSyste...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\ProjectSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 D:\ProjectSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\ProjectSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\ProjectSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\ProjectSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\ProjectSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 D:\ProjectSystem\app\Controllers\HomepageController.php(130): CodeIgniter\BaseModel->first()
+#6 D:\ProjectSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#7 D:\ProjectSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#8 D:\ProjectSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\ProjectSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 D:\ProjectSystem\system\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSyste...')
+#11 {main}
+CRITICAL - 2023-12-10 05:16:54 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\HomepageController.php(130): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 05:16:56 --> Undefined variable $user
+in APPPATH\Views\Agent\chop\header.php on line 137.
+ 1 APPPATH\Views\Agent\chop\header.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'D:\\ProjectSystem\\app\\Views\\Agent\\chop\\header.php', 137)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/chop/header', [], true)
+ 5 APPPATH\Views\Agent\AgDash.php(6): view('Agent/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgDash.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgDash', [], true)
+ 9 APPPATH\Controllers\AgentController.php(26): view('Agent/AgDash')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgDash()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 05:32:09 --> Undefined variable $user
+in APPPATH\Views\Admin\chop\header.php on line 137.
+ 1 APPPATH\Views\Admin\chop\header.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'D:\\ProjectSystem\\app\\Views\\Admin\\chop\\header.php', 137)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/chop/header', [], true)
+ 5 APPPATH\Views\Agent\AgProfile.php(6): view('Admin/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 9 APPPATH\Controllers\AgentController.php(31): view('Agent/AgProfile')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 05:56:07 --> Undefined array key "birtday"
+in APPPATH\Views\Agent\AgProfile.php on line 61.
+ 1 APPPATH\Views\Agent\AgProfile.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "birtday"', 'D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php', 61)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(35): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 06:16:38 --> Undefined array key "agent_id"
+in APPPATH\Views\Agent\AgProfile.php on line 84.
+ 1 APPPATH\Views\Agent\AgProfile.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "agent_id"', 'D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php', 84)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(35): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-10 06:17:34 --> Undefined array key "AgentCode"
+in APPPATH\Views\Agent\AgProfile.php on line 91.
+ 1 APPPATH\Views\Agent\AgProfile.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "AgentCode"', 'D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php', 91)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(35): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')

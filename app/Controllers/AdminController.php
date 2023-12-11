@@ -17,7 +17,7 @@ class AdminController extends BaseController
     {
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
-        $this->applicant = new AgentModel();
+        $this->agent = new AgentModel();
     }
     public function AdDash()
     {
@@ -26,20 +26,62 @@ class AdminController extends BaseController
     }
     public function ManageAgent()
     {
-
+        // Assuming that AgentModel is the correct model for managing agents
+        $agentModel = new AgentModel();
         $data = $this->getData();
+
+        // Use the model to fetch all records
+        $data['agent'] = $agentModel->findAll();
+
         return view('Admin/ManageAgent', $data);
     }
-
-    // Controller method
 
     public function ManageApplicant()
     {
         $appmodel = new ApplicantModel();
         $data = $this->getData();
-        $data['applicant'] = $appmodel->paginate();
+
+        // Add a where condition to retrieve only records with status = 'confirmed'
+        $applicants = $appmodel->where('status', 'pending')->paginate();
+
+        $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
+
         return view('Admin/ManageApplicant', $data);
+    }
+
+    public function userSearch()
+    {
+        $appmodel = new ApplicantModel();
+        $data = $this->getData();
+
+        // Get the search input from the form
+        $filterUser = $this->request->getPost('filterUser');
+
+        // Add a where condition to filter records based on the search input and status
+        $applicants = $appmodel->like('username', $filterUser)->where('status', 'pending')->paginate();
+
+        $data['applicant'] = $applicants;
+        $data['pager'] = $appmodel->pager;
+
+        return view('Admin/ManageApplicant', $data);
+    }
+
+    // Controller method for searching agents by full name
+    public function agentSearch()
+    {
+        $agentModel = new AgentModel();
+        $data = $this->getData();
+
+        // Get the search input from the form
+        $filterUser = $this->request->getPost('filterAgent');
+
+        // Add a where condition to filter records based on the search input
+        $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
+
+        $data['agent'] = $agents;
+
+        return view('Admin/ManageAgent', $data);
     }
 
     public function AdProfile()
@@ -101,25 +143,36 @@ class AdminController extends BaseController
         $agent = new AgentModel();
         $userModel = new UserModel();
         $appmodel = new ApplicantModel();
+        $userId = $this->request->getVar('user_id');
 
+        $applicantData = $appmodel->where('applicant_id', $userId)->first();
         $data = [
             'agent_id' => $this->request->getVar('user_id'),
+            'getId' => $this->request->getVar('user_id'),
             'AgentCode' => $this->generateRandomCode(),
             'Agentfullname' => $this->request->getVar('Agentfullname'),
             'FA' => $this->request->getVar('referralBy'),
             'branch' => $this->request->getVar('preferredArea'),
+            'email' => $applicantData['email'],
+            'agentprofile' => $applicantData['profile'],
+            'number' => $applicantData['number'],
+
+            'birthday' => $this->request->getVar('birthdate'),
+            'address' => $this->request->getVar('homeAddress'),
+            'username' => $applicantData['username'],
         ];
 
         // Save agent data
         $agent->save($data);
 
-        $userId = $this->request->getVar('user_id');
-        //Update status to confirmed
-        $appmodel->update($userId, ['status' => 'confirmed']);
-        // Update user role to 'agent'
+        // Update status to confirmed using raw query
+        $query = "UPDATE applicant SET status = 'confirmed' WHERE applicant_id = ?";
+        $appmodel->query($query, [$userId]);
+
+        // Update user role to 'agent' in the UserModel
         $userModel->update($userId, ['role' => 'agent']);
 
         return redirect()->to('/ManageApplicant');
     }
-    
+
 }

@@ -21,12 +21,12 @@
                             <h5 class="mb-4">Application Details</h5>
                             <!-- Search Bar -->
 
-                            <div class="input-group mb-3">
+                            <!-- <div class="input-group mb-3">
                                 <input type="text" id="searchInput" class="form-control"
                                     placeholder="Search for Applicant Username" onkeyup="performSearch()">
-                            </div>
+                            </div> -->
 
-                            <div class="table-responsive">
+                            <!-- <div class="table-responsive">
                                 <table class="account-table table">
                                     <thead>
                                         <tr>
@@ -50,7 +50,8 @@
                                                 <td scope="row" class="text-center">
                                                     <?= date('M j, Y', strtotime($app['created_at'])); ?>
                                                 </td>
-                                                <td scope="row" class="text-center"><a href="/ViewAppForm/<?= $app['applicant_id']; ?>">
+                                                <td scope="row" class="text-center"><a
+                                                        href="/ViewAppForm/<?= $app['applicant_id']; ?>">
                                                         <?= $app['username']; ?>
                                                     </a></td>
                                                 <td scope="row" class="text-center">
@@ -61,7 +62,7 @@
                                                 </td>
                                                 <td scope="row" class="text-center">
                                                     <span class="badge text-bg-danger">
-                                                        Pending
+                                                        <?= $app['status']; ?>
                                                     </span>
                                                 </td>
                                                 <td class="text-center"><a href="#"><i class="fas fa-download"></i></a></td>
@@ -69,16 +70,15 @@
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> -->
                             <!-- Pagination Links -->
-                            <nav aria-label="Page navigation example">
+                            <!-- <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center mb-0">
                                     <li class="page-item">
                                         <?= $pager->links() ?>
                                     </li>
                                 </ul>
-                            </nav>
-
+                            </nav> -->
 
                             <!-- <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center mb-0">
@@ -111,149 +111,84 @@
                                     </li>
                                 </ul>
                             </nav> -->
-                        </div>
-                    </div>
+                            <div class="custom-block bg-white">
 
-                    <div class="col-lg-7 col-12">
-                        <div class="custom-block custom-block-balance">
-                            <small>Your Balance</small>
-
-                            <h2 class="mt-2 mb-3">$254,800</h2>
-
-                            <div class="custom-block-numbers d-flex align-items-center">
-                                <span>****</span>
-                                <span>****</span>
-                                <span>****</span>
-                                <p>2560</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <div>
-                                    <small>Valid Date</small>
-                                    <p>12/2028</p>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>Card Holder</small>
-                                    <p>Thomas</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="custom-block custom-block-bottom d-flex flex-wrap">
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-wallet"></i>
-
-                                    <small>Top up</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-upc-scan"></i>
-
-                                    <small>Scan & Pay</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-send"></i>
-
-                                    <small>Send</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-arrow-down"></i>
-
-                                    <small>Request</small>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 col-12">
-                        <div class="custom-block custom-block-transations">
-                            <h5 class="mb-4">Recent Transations</h5>
-
-                            <div class="d-flex flex-wrap align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg"
-                                        class="profile-image img-fluid" alt="">
-
-                                    <div>
-                                        <p>
-                                            <a href="transation-detail.html">Daniel Jones</a>
-                                        </p>
-
-                                        <small class="text-muted">C2C Transfer</small>
+                                <!-- <form action="/userSearch" method="post">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="filterUser" id="searchInput" class="form-control"
+                                            placeholder="Search for Applicant Username">
+                                        <input type="submit" value="search" class="btn btn-primary">
                                     </div>
-                                </div>
+                                </form> -->
 
-                                <div class="ms-auto">
-                                    <small>05/12/2023</small>
-                                    <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-wrap align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg"
-                                        class="profile-image img-fluid" alt="">
-
-                                    <div>
-                                        <p>
-                                            <a href="transation-detail.html">Public Bank</a>
-                                        </p>
-
-                                        <small class="text-muted">Mobile Reload</small>
+                                <form class="custom-form search-form" action="/userSearch" method="post" role="form">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-8 col-12">
+                                            <input class="form-control mb-lg-0 mb-md-0" name="filterUser" type="text" placeholder="Search for Applicant Username" aria-label="Search">
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-12">
+                                            <button type="submit" class="form-control">
+                                                Submit
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form><br>
 
-                                <div class="ms-auto">
-                                    <small>22/8/2023</small>
-                                    <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                </div>
-                            </div>
+                                <div class="row">
+                                    <?php foreach ($applicant as $app): ?>
+                                        <div class="col-lg-4 col-12 mb-3">
+                                            <div
+                                                class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
+                                                <div class="custom-block-profile-image-wrap mb-4">
+                                                    <a href="/ViewAppForm/<?= $app['applicant_id']; ?>">
+                                                        <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
+                                                            class="profile-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                                <strong class="mb-3">
+                                                    <?= $app['username']; ?>
+                                                </strong>
+                                                <strong class="mb-2">
+                                                    <?= $app['email']; ?>
+                                                </strong>
+                                                <strong class="mb-2">
+                                                    <?= $app['number']; ?>
+                                                </strong>
 
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg"
-                                        class="profile-image img-fluid" alt="">
+                                                <!-- <div class="text-start">
+                                                    <p class="mb-2">
+                                                        <strong>Name:</strong>
+                                                        <?= $app['username']; ?>
+                                                    </p>
 
-                                    <div>
-                                        <p><a href="transation-detail.html">Store</a></p>
+                                                    <p class="mb-2">
+                                                        <strong>Email:</strong>
+                                                        <a href="mailto:<?= $app['email']; ?>">
+                                                            <?= $app['email']; ?>
+                                                        </a>
+                                                    </p>
 
-                                        <small class="text-muted">Payment Received</small>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>22/8/2023</small>
-                                    <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
+                                                    <p class="mb-0">
+                                                        <strong>Phone:</strong>
+                                                        <a href="tel:<?= $app['number']; ?>">
+                                                            <?= $app['number']; ?>
+                                                        </a>
+                                                    </p>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
-                    </div>
-                </footer>
             </main>
 
         </div>
     </div>
     <!-- Add this script at the bottom of your HTML, just before the closing </body> tag -->
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             const searchInput = document.getElementById('searchInput');
             const tableRows = document.querySelectorAll('.account-table tbody tr');
@@ -273,7 +208,30 @@
                 });
             });
         });
-    </script>
+    </script> -->
+
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById('searchInput');
+            const profileBlocks = document.querySelectorAll('.custom-block-profile');
+
+            searchInput.addEventListener('input', function () {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                profileBlocks.forEach(function (profileBlock) {
+                    const usernameElement = profileBlock.querySelector('p:nth-child(1)');
+                    const username = usernameElement.textContent.trim().toLowerCase();
+
+                    if (username.includes(searchTerm)) {
+                        profileBlock.style.display = '';  // Show the block
+                    } else {
+                        profileBlock.style.display = 'none';  // Hide the block
+                    }
+                });
+            });
+        });
+    </script> -->
+
 
     <?= view('Admin/chop/js') ?>
 </body>

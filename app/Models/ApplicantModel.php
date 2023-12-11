@@ -13,7 +13,7 @@ class ApplicantModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['applicant_id', 'username', 'number', 'email', 'birthday', 'branch','status'];
+    protected $allowedFields    = ['profile','applicant_id', 'username', 'number', 'email', 'birthday', 'branch','status'];
 
 
     // Dates
@@ -39,4 +39,6 @@ class ApplicantModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    
 }

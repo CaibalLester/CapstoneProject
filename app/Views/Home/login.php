@@ -25,8 +25,14 @@
 
                                 <!-- Add this section to display validation alerts -->
                                 <?php if (session()->getFlashdata('error')): ?>
-                                    <div class="alert alert-danger mt-3" role="alert">
+                                    <div class="alert alert-danger mt-3 text-center" role="alert" >
                                         <?= session()->getFlashdata('error') ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (session()->getFlashdata('success')): ?>
+                                    <div class="alert alert-success mt-3 text-center" role="alert" >
+                                        <?= session()->getFlashdata('success') ?>
                                     </div>
                                 <?php endif; ?>
 
@@ -60,11 +66,13 @@
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100" type="submit">Login</button>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <p class="small mb-0">Don't have an account? <a href="/register">Create an account</a></p>
                                     </div>
+                                    <div class="col-6">
+                                        <p class="small mb-0">Have You Forgot your password? <a href="/forgot">Forgot</a></p>
+                                    </div>
                                 </form>
-
                             </div>
                         </div>
 
@@ -76,6 +84,7 @@
 
     </div>
 </main>
+<!-- Add this script to show the modal -->
 
 <?= view('/Home/chop/script'); ?>
 </body>

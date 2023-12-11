@@ -75,7 +75,7 @@
                 </ul>
             </div>
 
-            <div class="dropdown ps-1">
+            <!-- <div class="dropdown ps-1">
                 <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <i class="bi-three-dots-vertical"></i>
@@ -134,19 +134,17 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="dropdown px-3">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="Applicants/images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid"
-                        alt="">
+                    <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>" class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
                     <li>
                         <div class="dropdown-menu-profile-thumb d-flex">
-                            <img src="Applicants/images/medium-shot-happy-man-smiling.jpg"
-                                class="profile-image img-fluid me-3" alt="">
+                        <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>" class="profile-image img-fluid" alt="">
 
                             <div class="d-flex flex-column">
                                 <small>
