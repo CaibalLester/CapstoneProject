@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                                        <button class="btn btn-primary w-100" type="submit" onclick="showConfirmation()">Login</button>
                                     </div>
                                     <div class="col-6">
                                         <p class="small mb-0">Don't have an account? <a href="/register">Create an account</a></p>
@@ -87,6 +87,16 @@
 <!-- Add this script to show the modal -->
 
 <?= view('/Home/chop/script'); ?>
+<script>
+  function showConfirmation() {
+    var confirmation = confirm("Are you sure you want to Log In?");
+    if (confirmation) {
+      document.querySelector('form').submit();
+    } else {
+      
+    }
+  }
+</script>
 </body>
 
 </html>
