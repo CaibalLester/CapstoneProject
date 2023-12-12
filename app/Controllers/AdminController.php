@@ -42,11 +42,11 @@ class AdminController extends BaseController
         // Count the number of applicants with status 'pending'
         $pendingApplicants = $applicantModel->where('status', 'pending')->countAllResults();
 
-        $data = $this->getData();
+        $data = array_merge($this->getData(), $this->getDataAd());
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
-        
+
         return view('Admin/AdDash', $data);
     }
     public function ManageAgent()

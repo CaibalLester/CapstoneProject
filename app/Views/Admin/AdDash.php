@@ -34,23 +34,23 @@
                     <div class="col-lg-5 col-12">
                         <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
-                                <img src="AdminInfo/images/medium-shot-happy-man-smiling.jpg"
+                                <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
 
                                 <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                             </div>
 
                             <p class="d-flex flex-wrap mb-2">
-                                <strong>Name:</strong>
+                                <strong>User Name</strong>
 
-                                <span>Thomas Edison</span>
+                                <span><?= $admin['username'] ?></span>
                             </p>
 
                             <p class="d-flex flex-wrap mb-2">
                                 <strong>Email:</strong>
 
                                 <a href="#">
-                                    thomas@site.com
+                                <?= $admin['email'] ?>
                                 </a>
                             </p>
 
@@ -58,7 +58,7 @@
                                 <strong>Phone:</strong>
 
                                 <a href="#">
-                                    (60) 12 345 6789
+                                <?= $admin['number'] ?>
                                 </a>
                             </p>
                         </div>
