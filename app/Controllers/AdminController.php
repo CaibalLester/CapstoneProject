@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AdminModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
@@ -10,17 +11,25 @@ use App\Models\AgentModel;
 
 class AdminController extends BaseController
 {
+
     private $agent;
     private $user;
     private $applicant;
+    private $admin;
     public function __construct()
     {
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
         $this->agent = new AgentModel();
+        $this->admin = new AdminModel();
     }
     public function AdDash()
     {
+        $session = session();
+        if ($session->get('role') !== 'admin') {
+            return redirect()->to('/');
+        }
+        
         $data = $this->getData();
         return view('Admin/AdDash', $data);
     }
@@ -83,16 +92,33 @@ class AdminController extends BaseController
 
         return view('Admin/ManageAgent', $data);
     }
+    private function getDataAd()
+    {
+        $session = session();
 
+        // Get the user ID from the session
+        $userId = $session->get('id');
+
+        // Load the User model
+        $adminModel = new AdminModel();
+
+        // Find the user by ID
+        $data['admin'] = $adminModel->where('admin_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        return $data;
+    }
     public function AdProfile()
     {
-        $data = $this->getData();
+        
+         $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdProfile', $data);
     }
 
     public function AdSetting()
     {
-        $data = $this->getData();
+        $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdSetting', $data);
     }
 
@@ -174,5 +200,54 @@ class AdminController extends BaseController
 
         return redirect()->to('/ManageApplicant');
     }
+
+    public function svad()
+    {
+        $session = session();
+        $userId = $session->get('id');
+    
+        // Initialize $data array
+        $data = [];
+    
+        // Check if a file is uploaded
+        if ($imageFile = $this->request->getFile('adminProfile')) {
+            // Check if the file is valid
+            if ($imageFile->isValid() && !$imageFile->hasMoved()) {
+                // Generate a unique name for the uploaded image
+                $imageName = $imageFile->getRandomName();
+    
+                // Set the path to the upload directory
+                $uploadPath = FCPATH . 'uploads/';
+    
+                // Move the uploaded image to the upload directory
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    // Image upload successful, store the image filename in the database
+                    $data['adminProfile'] = $imageName;
+                } else {
+                    $error = $imageFile->getError();
+                    // Handle the error as needed
+                }
+            }
+        }
+        // Add other form data to the data array
+        $data += [
+            'Adminfullname' => $this->request->getVar('Adminfullname'),
+            'email' => $this->request->getVar('email'),
+            'birthday' => $this->request->getVar('birthday'),
+            'username' => $this->request->getVar('username'),
+            'division' => $this->request->getVar('division'),
+            'address' => $this->request->getVar('address'),
+            'number' => $this->request->getVar('number'),
+        ];
+    
+        // Check if $data array is not empty before updating the database
+        if (!empty($data)) {
+            // Update the applicant data
+            $this->admin->set($data)->where('admin_id', $userId)->update();
+        }
+    
+        return redirect()->to('/AdSetting');
+    }
+    
 
 }

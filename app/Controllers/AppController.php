@@ -85,6 +85,10 @@ class AppController extends BaseController
     private function getform1Data()
     {
         $session = session();
+        if ($session->get('role') !== 'applicant') {
+            return redirect()->to('/');
+        }
+        // $session = session();
 
         // Get the user ID from the session
         $userId = $session->get('id');

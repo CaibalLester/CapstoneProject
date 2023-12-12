@@ -30,16 +30,28 @@ class AgentController extends BaseController
     
     public function AgProfile()
     {
+        $session = session();
+        if ($session->get('role') !== 'agent') {
+            return redirect()->to('/');
+        }
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgProfile',$data);
     }
     public function AgSetting()
     {
+        $session = session();
+        if ($session->get('role') !== 'agent') {
+            return redirect()->to('/');
+        }
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgSetting',$data);
     }
     public function AgHelp()
     {
+        $session = session();
+        if ($session->get('role') !== 'agent') {
+            return redirect()->to('/');
+        }
         return view('Agent/AgHelp');
     }
     private function getData()
@@ -67,6 +79,11 @@ class AgentController extends BaseController
     public function subagent()
 {
     $session = session();
+        if ($session->get('role') !== 'agent') {
+            return redirect()->to('/');
+        }
+
+    // $session = session();
     $userId = $session->get('id');
     
     // Assuming that AgentModel is the correct model for managing agents
@@ -81,6 +98,11 @@ class AgentController extends BaseController
 
 public function agentSearch()
 {
+    $session = session();
+        if ($session->get('role') !== 'agent') {
+            return redirect()->to('/');
+        }
+
     $agentModel = new AgentModel();
     $data = $this->getData();
 
