@@ -10,7 +10,7 @@
     <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
             <div class="d-flex justify-content-center py-4">
               <a href="index.html" class="logo d-flex align-items-center w-auto">
@@ -29,7 +29,6 @@
                 </div>
 
                 <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg">
-                  
 
                   <div class="col-12">
                     <label for="yourUsername" class="form-label">Username</label>
@@ -77,19 +76,24 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100" type="button" onclick="showConfirmation()">Create Account</button>
- 
+                    <button class="btn btn-primary w-100" type="submit" onclick="showConfirmation()">Create Account</button>
                   </div>
                   <div class="col-12">
                     <p class="small mb-0">Already have an account? <a href="/login">Log in</a></p>
                   </div>
                 </form>
+
               </div>
             </div>
+
+
+
           </div>
         </div>
       </div>
+
     </section>
+
   </div>
 </main><!-- End #main -->
 
@@ -98,46 +102,20 @@
 <?= view('/Home/chop/script'); ?>
 <!-- Template Main JS File -->
 <script>
-  // Add an event listener to the form on submission
-  document.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('.needs-validation');
-    form.addEventListener('submit', function (event) {
-      // Get the password and confirmed password fields
-      var password = form.querySelector('#yourPassword');
-      var confirmPassword = form.querySelector('input[name="confirmpassword"]');
-
-      // Get the error message element
-      var errorElement = confirmPassword.nextElementSibling;
-
-      // Check if the passwords match
-      if (password.value !== confirmPassword.value) {
-        // Prevent form submission
-        event.preventDefault();
-
-        // Show error message
-        errorElement.textContent = 'Passwords do not match';
-
-        // Add 'is-invalid' class to the password and confirmed password fields
-        password.classList.add('is-invalid');
-        confirmPassword.classList.add('is-invalid');
-      } else {
-        // Reset error message and remove 'is-invalid' class
-        errorElement.textContent = 'Please enter your password!';
-        password.classList.remove('is-invalid');
-        confirmPassword.classList.remove('is-invalid');
-      }
-    });
-  });
-</script>
-<script>
-  function showConfirmation() {
-    var confirmation = confirm("Are you sure you want to create an account?");
-    if (confirmation) {
-      document.querySelector('form').submit();
-    } else {
-    
+    function showConfirmation() {
+        // Check if the form is valid
+        if (document.querySelector('form').checkValidity()) {
+            var confirmation = confirm("Are you sure you want to create an account?");
+            if (confirmation) {
+                document.querySelector('form').submit();
+                window.location.href = '/login';
+            }
+        } else {
+            // If the form is not valid, it will show the validation error messages
+            // You can customize this part based on your requirements
+            alert("Please fill out the required fields correctly before submitting.");
+        }
     }
-  }
 </script>
 </body>
 
