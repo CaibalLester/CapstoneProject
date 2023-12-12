@@ -36,19 +36,19 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#about">About</a>
 						</li>
-						<li class="nav-item">
+						<!--<li class="nav-item">
 							<a class="nav-link" href="#projects">Projects</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#team">Team</a>
-						</li>
-            <li class="nav-item">
+						</li>-->
+            			<li class="nav-item">
 							<a class="nav-link" href="#contact">Contact</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link btn btn-secondary" href="/login">Login</a>
 						</li>
-            <li class="nav-item">
+            			<li class="nav-item">
 							<a class="nav-link btn btn-secondary" href="/register">Register</a>
 						</li>
 					</ul>
@@ -66,11 +66,13 @@
 										<div class="banner">
 												<h3 class="font-weight-medium">Securing Your Tomorrow, Today. Choose Allianz PNB for a Future of Confidence.</h3>
 										</div>
-										<p class="mt-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+										<p class="mt-3">Allianz PNB Agency is a leading name in the insurance industry, providing services since its inception.
 
 											<br>
-											Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+											With a rich history dating back to the 1500s, Allianz PNB Agency has set the industry standard for excellence and innovation.
+											<br><br><br><br><br><br><br>
 										</p>
+
 										<a href="/login" class="btn btn-secondary mt-3">Get Started!</a>
 									</div>
 									<div class="mt-5 mt-lg-0">
@@ -86,103 +88,90 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h5 class="text-dark">We’re offering</h5>
-							<h3 class="font-weight-medium text-dark mb-5">Creative Digital Agency</h3>
+							<h5 class="text-dark">Discover our Services</h5>
+							<h3 class="font-weight-medium text-dark mb-5">Allianz PNB Agency Solutions</h3>
 						</div>
 					</div>
 					<div class="row" data-aos="fade-up">
+						<!-- Service 1: Integrated Marketing -->
 						<div class="col-sm-4 text-center text-lg-left">
 							<div class="services-box" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/integrated-marketing.svg" alt="integrated-marketing" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Integrated 
-									Marketing
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Integrated Marketing</h6>
+								<p>Allianz PNB Agency offers comprehensive integrated marketing solutions to elevate your brand.</p>
 							</div>
 						</div>
+
+						<!-- Service 2: Design & Development -->
 						<div class="col-sm-4 text-center text-lg-left">
-							<div class="services-box"   data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+							<div class="services-box" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/design-development.svg" alt="design-development" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Design & 
-									Development
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Design & Development</h6>
+								<p>We specialize in creating innovative designs and robust development to meet your unique needs.</p>
 							</div>
 						</div>
+
+						<!-- Service 3: Digital Strategy -->
 						<div class="col-sm-4 text-center text-lg-left">
 							<div class="services-box" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/digital-strategy.svg" alt="digital-strategy" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital 
-									Strategy
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital Strategy</h6>
+								<p>Allianz PNB Agency crafts effective digital strategies to drive your business forward.</p>
 							</div>
 						</div>
 					</div>
+
 					<div class="row" data-aos="fade-up">
+						<!-- Service 4: Digital Marketing -->
 						<div class="col-sm-4 text-center text-lg-left">
-							<div class="services-box  pb-lg-0" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+							<div class="services-box pb-lg-0" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/digital-marketing.svg" alt="digital-marketing" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital 
-									Marketing
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital Marketing</h6>
+								<p>Boost your online presence with Allianz PNB Agency's tailored digital marketing strategies.</p>
 							</div>
 						</div>
+
+						<!-- Service 5: Growth Strategy -->
 						<div class="col-sm-4 text-center text-lg-left">
 							<div class="services-box pb-lg-0" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/growth-strategy.svg" alt="growth-strategy" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Growth 
-									Strategy
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Growth Strategy</h6>
+								<p>Drive sustainable growth with Allianz PNB Agency's strategic planning and execution.</p>
 							</div>
 						</div>
+
+						<!-- Service 6: Saving Strategy -->
 						<div class="col-sm-4 text-center text-lg-left">
 							<div class="services-box pb-0" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
 								<img src="home/images/saving-strategy.svg" alt="saving-strategy" data-aos="zoom-in">
-								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Saving 
-									Strategy
-								</h6>
-								<p>Lorem ipsum dolor sit amet, 
-									pretium pretium tempor.Lorem ipsum 
-								</p>
+								<h6 class="text-dark mb-3 mt-4 font-weight-medium">Saving Strategy</h6>
+								<p>Allianz PNB Agency helps you build a secure financial future with effective saving strategies.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+
 			<section class="our-process" id="about">
+				<br><br><br>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6" data-aos="fade-up">
-							<h5 class="text-dark">Our work process</h5>
-							<h3 class="font-weight-medium text-dark">Discover New Idea With Us!</h3>
-							<h5 class="text-dark mb-3">Imagination will take us everywhere</h5>
-							<p class="font-weight-medium mb-4">Lorem ipsum dolor sit amet, <br> 
-								pretium pretium tempor.Lorem ipsum dolor sit amet, consectetur
-							</p>
+							<h5 class="text-dark">Our Work Process</h5>
+							<h3 class="font-weight-medium text-dark">Discover Innovative Solutions with Allianz PNB Agency!</h3>
+							<h5 class="text-dark mb-3">Empowering Your Financial Journey</h5>
+							<p class="font-weight-medium mb-4">At Allianz PNB Agency, we embrace the boundless potential of creative thinking to shape a brighter financial future. Our commitment is to provide tailored and exceptional solutions, addressing the distinctive needs of our clients with precision and dedication.</p>
 							<div class="d-flex justify-content-start mb-3">
-								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon"  >
-								<p class="mb-0">Lorem ipsum dolor sit amet, pretium pretium</p>
+								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
+								<p class="mb-0">Collaborate with us to unlock the full potential of your financial goals.</p>
 							</div>
 							<div class="d-flex justify-content-start mb-3">
-								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon"  >
-								<p class="mb-0">Lorem ipsum dolor sit amet, pretium pretium</p>
+								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
+								<p class="mb-0">Experience unparalleled service crafted to elevate your financial well-being.</p>
 							</div>
 							<div class="d-flex justify-content-start">
-								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon"  >
-								<p class="mb-0">Lorem ipsum dolor sit amet, pretium pretium</p>
+								<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
+								<p class="mb-0">Join us in the journey towards lasting financial success and security.</p>
 							</div>
 						</div>
 						<div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
@@ -191,7 +180,8 @@
 					</div>
 				</div>
 			</section>
-			<section class="our-projects" id="projects">
+
+			<!--<section class="our-projects" id="projects">
 				<div class="container">
 					<div class="row mb-5">
 						<div class="col-sm-12">
@@ -355,7 +345,8 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section>-->
+
 			<section class="contactus" id="contact">
 				<div class="container">
 					<div class="row mb-5 pb-5">

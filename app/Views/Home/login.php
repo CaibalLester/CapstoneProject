@@ -87,14 +87,19 @@
 
 <?= view('/Home/chop/script'); ?>
 <script>
-  function showConfirmation() {
-    var confirmation = confirm("Are you sure you want to Log In?");
-    if (confirmation) {
-      document.querySelector('form').submit();
-    } else {
-      
+    function showConfirmation() {
+        // Check if the form is valid
+        if (document.querySelector('form').checkValidity()) {
+            var confirmation = confirm("Are you sure you want to Log In?");
+            if (confirmation) {
+                document.querySelector('form').submit();
+            }
+        } else {
+            // If the form is not valid, it will show the validation error messages
+            // You can customize this part based on your requirements
+            alert("Please fill out the required fields correctly before submitting.");
+        }
     }
-  }
 </script>
 </body>
 
