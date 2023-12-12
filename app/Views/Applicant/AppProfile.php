@@ -129,21 +129,17 @@
                                         <strong>Phone:</strong>
 
                                         <a href="#">
-                                            (60) 12 345 6789
+                                        <?= $applicant['number'] ?>
                                         </a>
                                     </p>
 
                                     <p class="d-flex flex-wrap mb-2">
                                         <strong>Birthday:</strong>
 
-                                        <span>March 5, 1992</span>
+                                        <?= $applicant['birthday'] ?>
                                     </p>
 
-                                    <p class="d-flex flex-wrap">
-                                        <strong>Address:</strong>
-
-                                        <span>551 Swanston Street, Melbourne</span>
-                                    </p>
+                                    
                                 </div>
                             </div>
                         </div>

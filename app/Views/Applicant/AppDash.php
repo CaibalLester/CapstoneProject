@@ -95,7 +95,12 @@
                     </div>
 
                     <div class="row my-4">
-                        
+                    <div class="col-lg-7 col-12">
+                        <!-- Chart for Pending Applicants -->
+                        <div class="custom-block bg-white">
+                            <div id="pendingApplicantChart"></div>
+                        </div>
+                    </div>
                         <div class="col-lg-5 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
@@ -128,17 +133,44 @@
                                     </a>
                                 </p>
                             </div>
+
+
+                            <div class="custom-block custom-block-profile bg-white">
+                            <h6 class="mb-4">Applicant Status</h6>
+
+                            <p class="d-flex flex-wrap mb-2">
+                                <strong>Status:</strong>
+
+                                <span>
+                                    <?= $user['status'] ?>
+                                </span>
+                            </p>
+
+                            <p class="d-flex flex-wrap mb-2">
+                                <strong>Role:</strong>
+
+                                <span>
+                                    <?= $user['role'] ?>
+                                </span>
+                            </p>
+
+                            <p class="d-flex flex-wrap mb-2">
+                                <strong>Created:</strong>
+
+                                <span>
+                                    <?= date('M j, Y', strtotime($user['created_at'])); ?>
+                                </span>
+                            </p>
+
+                            <!-- <p class="d-flex flex-wrap mb-2">
+                                    <strong>Valid Date:</strong>
+
+                                    <span>July 18, 2032</span>
+                                </p> -->
+                        </div>
                         </div>
 
-                        <div class="col-lg-5 col-12">
-                        <div class="custom-block primary-bg">
-                                <h5 class="text-white mb-4">Your Status:</h5>
-                                <h6 class="text-white mb-4"> <?= $user['role'] ?></h6>
-                                <h6 class="text-white mb-4"> <?= $user['status'] ?></h6>
-                            </div>
-                        </div>
-                    </div>
-
+                   
                     <footer class="site-footer">
                         <div class="container">
                             <div class="row">
@@ -153,5 +185,74 @@
 
         <!-- JAVASCRIPT FILES -->
         <?= view('Applicant/chop/js'); ?>
+        <script type="text/javascript">
+    // Function to create a chart
+    function createChart(chartId, data, title) {
+        var options = {
+            series: [{
+                name: title,
+                data: data.map(entry => entry.agent_count || entry.applicant_count)
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: data.map(entry => entry.month),
+            },
+            yaxis: {
+                title: {
+                    text: title
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + " " + title.toLowerCase();
+                    }
+                }
+            }
+        };
+
+        // Create and render the chart
+        var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
+        chart.render();
+    }
+
+    // Fetch dynamic data from the server for agents
+    fetch('/monthlyAgentCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('agentChart', data, 'Agents');
+        })
+        .catch(error => console.error('Error fetching data for agents:', error));
+
+    // Fetch dynamic data from the server for pending applicants
+    fetch('/monthlyPendingApplicantCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('pendingApplicantChart', data, 'Applicants');
+        })
+        .catch(error => console.error('Error fetching data for pending applicants:', error));
+</script>
+
     </body>
 </html>
