@@ -626,3 +626,477 @@ WHERE `agent_id` = :agent_id:', [...], false)
  8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 10:37:50 --> Undefined variable $applicant
+in APPPATH\Views\Agent\AgDash.php on line 49.
+ 1 APPPATH\Views\Agent\AgDash.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicant', 'D:\\ProjectSystem\\app\\Views\\Agent\\AgDash.php', 49)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgDash', [], true)
+ 5 APPPATH\Controllers\AgentController.php(28): view('Agent/AgDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 10:42:29 --> Undefined array key "agentCode"
+in APPPATH\Views\Agent\AgDash.php on line 180.
+ 1 APPPATH\Views\Agent\AgDash.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "agentCode"', 'D:\\ProjectSystem\\app\\Views\\Agent\\AgDash.php', 180)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Agent\\AgDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgDash', [], true)
+ 5 APPPATH\Controllers\AgentController.php(28): view('Agent/AgDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:01:32 --> Call to undefined method App\Models\AgentModel::countAgents
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\AdminController.php(40): CodeIgniter\Model->__call('countAgents', [])
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:20:14 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 365.
+ 1 APPPATH\Views\Admin\AdDash.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 365)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:20:47 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 365.
+ 1 APPPATH\Views\Admin\AdDash.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 365)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:20:48 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 365.
+ 1 APPPATH\Views\Admin\AdDash.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 365)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:20:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 365.
+ 1 APPPATH\Views\Admin\AdDash.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 365)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:20:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 365.
+ 1 APPPATH\Views\Admin\AdDash.php(365): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 365)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:21:31 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 33.
+ 1 APPPATH\Views\Admin\AdDash.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 33)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:22:43 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:48 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:23:49 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:24:12 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:24:12 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:24:13 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:24:13 --> Undefined variable $applicantCount
+in APPPATH\Views\Admin\AdDash.php on line 363.
+ 1 APPPATH\Views\Admin\AdDash.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $applicantCount', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 363)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:25 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:55 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:56 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:56 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:56 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:26:56 --> Undefined variable $day
+in APPPATH\Views\Admin\AdDash.php on line 37.
+ 1 APPPATH\Views\Admin\AdDash.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $day', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 37)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+ERROR - 2023-12-12 11:54:31 --> mysqli_sql_exception: Table 'erecruit.your_table_name' doesn't exist in D:\ProjectSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\ProjectSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(ag...', 0)
+#1 D:\ProjectSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(ag...')
+#2 D:\ProjectSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(ag...')
+#3 D:\ProjectSystem\app\Controllers\AdminController.php(90): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(ag...')
+#4 D:\ProjectSystem\app\Controllers\AdminController.php(72): App\Controllers\AdminController->totalMonthlyAgents()
+#5 D:\ProjectSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+#6 D:\ProjectSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#7 D:\ProjectSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\ProjectSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 D:\ProjectSystem\system\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSyste...')
+#10 {main}
+CRITICAL - 2023-12-12 11:54:31 --> Table 'erecruit.your_table_name' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 APPPATH\Controllers\AdminController.php(90): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(agent_id) as total_agents, MONTH(created_at) as month 
+                         FROM your_table_name 
+                         GROUP BY MONTH(created_at)')
+ 2 APPPATH\Controllers\AdminController.php(72): App\Controllers\AdminController->totalMonthlyAgents()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 11:54:49 --> Undefined variable $graphData
+in APPPATH\Views\Admin\AdDash.php on line 143.
+ 1 APPPATH\Views\Admin\AdDash.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $graphData', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 143)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(81): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:00:48 --> Undefined variable $monthlyAgentData
+in APPPATH\Views\Admin\AdDash.php on line 139.
+ 1 APPPATH\Views\Admin\AdDash.php(139): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $monthlyAgentData', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 139)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:01:03 --> Undefined variable $graphData
+in APPPATH\Views\Admin\AdDash.php on line 145.
+ 1 APPPATH\Views\Admin\AdDash.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $graphData', 'D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php', 145)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 5 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:07:26 --> Unknown database 'erecruitment'
+in APPPATH\Controllers\ChartsController.php on line 18.
+ 1 APPPATH\Controllers\ChartsController.php(18): mysqli->__construct('localhost', 'root', '', 'erecruitment')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ChartsController->monthlyAgentCount()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ChartsController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:08:59 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '// Replace with your actual table name
+              GROUP BY 
+               ' at line 5
+in APPPATH\Controllers\ChartsController.php on line 34.
+ 1 APPPATH\Controllers\ChartsController.php(34): mysqli->query('SELECT 
+                MONTH(created_at) AS month,
+                COUNT(id) AS agent_count
+              FROM 
+                your_table_name  // Replace with your actual table name
+              GROUP BY 
+                month 
+              ORDER BY 
+                month')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ChartsController->monthlyAgentCount()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ChartsController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:09:13 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '// Replace with your actual table name
+              GROUP BY 
+               ' at line 5
+in APPPATH\Controllers\ChartsController.php on line 34.
+ 1 APPPATH\Controllers\ChartsController.php(34): mysqli->query('SELECT 
+                MONTH(created_at) AS month,
+                COUNT(id) AS agent_count
+              FROM 
+                agent  // Replace with your actual table name
+              GROUP BY 
+                month 
+              ORDER BY 
+                month')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ChartsController->monthlyAgentCount()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ChartsController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:09:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '// Replace with your actual table name
+              GROUP BY 
+               ' at line 5
+in APPPATH\Controllers\ChartsController.php on line 34.
+ 1 APPPATH\Controllers\ChartsController.php(34): mysqli->query('SELECT 
+                MONTH(created_at) AS month,
+                COUNT(id) AS agent_count
+              FROM 
+                agent  // Replace with your actual table name
+              GROUP BY 
+                month 
+              ORDER BY 
+                month')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ChartsController->monthlyAgentCount()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ChartsController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:09:14 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '// Replace with your actual table name
+              GROUP BY 
+               ' at line 5
+in APPPATH\Controllers\ChartsController.php on line 34.
+ 1 APPPATH\Controllers\ChartsController.php(34): mysqli->query('SELECT 
+                MONTH(created_at) AS month,
+                COUNT(id) AS agent_count
+              FROM 
+                agent  // Replace with your actual table name
+              GROUP BY 
+                month 
+              ORDER BY 
+                month')
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ChartsController->monthlyAgentCount()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ChartsController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-12 12:14:24 --> Invalid file: "Admin/Chart/Agents/month.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Admin/Chart/Agents/month.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Chart/Agents/month', [], true)
+ 3 APPPATH\Views\Admin\AdDash.php(22): view('Admin/Chart/Agents/month')
+ 4 SYSTEMPATH\View\View.php(226): include('D:\\ProjectSystem\\app\\Views\\Admin\\AdDash.php')
+ 5 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdDash', [], true)
+ 7 APPPATH\Controllers\AdminController.php(50): view('Admin/AdDash', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\ProjectSystem\\public\\index.php')

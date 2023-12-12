@@ -29,8 +29,24 @@ class AdminController extends BaseController
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        
+
+        $agentModel = new AgentModel();
+        $applicantModel = new ApplicantModel();
+
+        // Calculate the total number of agents
+        $totalAgents = count($agentModel->findAll());
+
+        // Calculate the total number of applicants
+        $totalApplicants = count($applicantModel->findAll());
+
+        // Count the number of applicants with status 'pending'
+        $pendingApplicants = $applicantModel->where('status', 'pending')->countAllResults();
+
         $data = $this->getData();
+        $data['totalAgents'] = $totalAgents;
+        $data['totalApplicants'] = $totalApplicants;
+        $data['pendingApplicants'] = $pendingApplicants;
+        
         return view('Admin/AdDash', $data);
     }
     public function ManageAgent()
@@ -111,8 +127,8 @@ class AdminController extends BaseController
     }
     public function AdProfile()
     {
-        
-         $data = array_merge($this->getData(), $this->getDataAd());
+
+        $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdProfile', $data);
     }
 
@@ -205,20 +221,20 @@ class AdminController extends BaseController
     {
         $session = session();
         $userId = $session->get('id');
-    
+
         // Initialize $data array
         $data = [];
-    
+
         // Check if a file is uploaded
         if ($imageFile = $this->request->getFile('adminProfile')) {
             // Check if the file is valid
             if ($imageFile->isValid() && !$imageFile->hasMoved()) {
                 // Generate a unique name for the uploaded image
                 $imageName = $imageFile->getRandomName();
-    
+
                 // Set the path to the upload directory
                 $uploadPath = FCPATH . 'uploads/';
-    
+
                 // Move the uploaded image to the upload directory
                 if ($imageFile->move($uploadPath, $imageName)) {
                     // Image upload successful, store the image filename in the database
@@ -239,15 +255,15 @@ class AdminController extends BaseController
             'address' => $this->request->getVar('address'),
             'number' => $this->request->getVar('number'),
         ];
-    
+
         // Check if $data array is not empty before updating the database
         if (!empty($data)) {
             // Update the applicant data
             $this->admin->set($data)->where('admin_id', $userId)->update();
         }
-    
+
         return redirect()->to('/AdSetting');
     }
-    
+
 
 }

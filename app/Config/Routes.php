@@ -50,5 +50,6 @@ $routes->post('send-reset-link', 'HomepageController::sendResetLink');
 $routes->get('reset-password/(:segment)', 'HomepageController::resetPassword/$1');
 $routes->post('reset-password/(:segment)', 'HomepageController::processResetPassword/$1');
 
-
+$routes->get('/monthlyAgentCount', 'ChartsController::monthlyAgentCount',['filter' => 'authGuard']);
+$routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingApplicantCount',['filter' => 'authGuard']);
 // $routes->get('/emailtest', 'HomepageController::emailtest');

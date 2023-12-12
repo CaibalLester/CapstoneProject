@@ -17,7 +17,7 @@
 
                     <div class="row my-4">
                         <div class="col-lg-7 col-12">
-                            <div class="custom-block custom-block-balance">
+                            <!-- <div class="custom-block custom-block-balance">
                                 <small>Your Balance</small>
 
                                 <h2 class="mt-2 mb-3">$254,800</h2>
@@ -40,19 +40,19 @@
                                         <p>Thomas</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="custom-block bg-white">
+                            <!-- <div class="custom-block bg-white">
                                 <h5 class="mb-4">History</h5>
 
                                 <div id="pie-chart"></div>
-                            </div>
+                            </div> -->
 
                             <div class="custom-block bg-white">
                                 <div id="chart"></div>
                             </div>
 
-                            <div class="custom-block custom-block-exchange">
+                            <!-- <div class="custom-block custom-block-exchange">
                                 <h5 class="mb-4">Exchange Rate</h5>
 
                                 <div class="d-flex align-items-center border-bottom pb-3 mb-3">
@@ -159,41 +159,50 @@
                                         <h6>1.1010</h6>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="col-lg-5 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                 <div class="custom-block-profile-image-wrap mb-4">
-                                    <img src="AgentInfo/images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
+                                    <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>" class="custom-block-profile-image img-fluid" alt="">
 
                                     <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                                 </div>
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Agent ID:</strong>
+
+                                    <span><?=$agent['agent_id']?></span>
+                                </p>
+                                <p class="d-flex flex-wrap mb-2">
+                                    <strong>Agent Code:</strong>
+
+                                    <span><?=$agent['AgentCode']?></span>
+                                </p>
 
                                 <p class="d-flex flex-wrap mb-2">
-                                    <strong>Name:</strong>
+                                    <strong>User Name:</strong>
 
-                                    <span>Thomas Edison</span>
+                                    <span><?=$agent['username']?></span>
                                 </p>
 
                                 <p class="d-flex flex-wrap mb-2">
                                     <strong>Email:</strong>
                                     
                                     <a href="#">
-                                        thomas@site.com
+                                    <?=$agent['email']?>
                                     </a>
                                 </p>
 
                                 <p class="d-flex flex-wrap mb-0">
                                     <strong>Phone:</strong>
-
                                     <a href="#">
-                                        (60) 12 345 6789
+                                    <?=$agent['number']?>
                                     </a>
                                 </p>
                             </div>
 
-                            <div class="custom-block custom-block-bottom d-flex flex-wrap">
+                            <!-- <div class="custom-block custom-block-bottom d-flex flex-wrap">
                                 <div class="custom-block-bottom-item">
                                     <a href="#" class="d-flex flex-column">
                                         <i class="custom-block-icon bi-wallet"></i>
@@ -225,9 +234,9 @@
                                         <small>Request</small>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="custom-block custom-block-transations">
+                            <!-- <div class="custom-block custom-block-transations">
                                 <h5 class="mb-4">Recent Transations</h5>
 
                                 <div class="d-flex flex-wrap align-items-center mb-4">
@@ -291,9 +300,9 @@
                                         <i class="bi-arrow-up-right-circle-fill ms-2"></i>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="custom-block primary-bg">
+                            <!-- <div class="custom-block primary-bg">
                                 <h5 class="text-white mb-4">Send Money</h5>
 
                                 <a href="#">
@@ -313,7 +322,7 @@
                                         <i class="profile-rounded-icon bi-plus"></i>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>

@@ -18,157 +18,19 @@
                 </div>
 
                 <div class="row my-4">
+                    <!-- Agents monthlyAgentCount -->
                     <div class="col-lg-7 col-12">
-                        <div class="custom-block custom-block-balance">
-                            <small>Your Balance</small>
-
-                            <h2 class="mt-2 mb-3">$254,800</h2>
-
-                            <div class="custom-block-numbers d-flex align-items-center">
-                                <span>****</span>
-                                <span>****</span>
-                                <span>****</span>
-                                <p>2560</p>
-                            </div>
-
-                            <div class="d-flex">
-                                <div>
-                                    <small>Valid Date</small>
-                                    <p>12/2028</p>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>Card Holder</small>
-                                    <p>Thomas</p>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- First Chart for Agents -->
                         <div class="custom-block bg-white">
-                            <h5 class="mb-4">History</h5>
-
-                            <div id="pie-chart"></div>
+                            <div id="agentChart"></div>
                         </div>
 
+                        <!-- Second Chart for Pending Applicants -->
                         <div class="custom-block bg-white">
-                            <div id="chart"></div>
+                            <div id="pendingApplicantChart"></div>
                         </div>
 
-                        <div class="custom-block custom-block-exchange">
-                            <h5 class="mb-4">Exchange Rate</h5>
-
-                            <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/flag/united-states.png" class="exchange-image img-fluid"
-                                        alt="">
-
-                                    <div>
-                                        <p>USD</p>
-                                        <h6>1 US Dollar</h6>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto me-4">
-                                    <small>Sell</small>
-                                    <h6>1.0931</h6>
-                                </div>
-
-                                <div>
-                                    <small>Buy</small>
-                                    <h6>1.0821</h6>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/flag/singapore.png" class="exchange-image img-fluid"
-                                        alt="">
-
-                                    <div>
-                                        <p>SGD</p>
-                                        <h6>1 Singapore Dollar</h6>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto me-4">
-                                    <small>Sell</small>
-                                    <h6>0.6901</h6>
-                                </div>
-
-                                <div>
-                                    <small>Buy</small>
-                                    <h6>0.6201</h6>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/flag/united-kingdom.png" class="exchange-image img-fluid"
-                                        alt="">
-
-                                    <div>
-                                        <p>GPD</p>
-                                        <h6>1 British Pound</h6>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto me-4">
-                                    <small>Sell</small>
-                                    <h6>1.1520</h6>
-                                </div>
-
-                                <div>
-                                    <small>Buy</small>
-                                    <h6>1.1412</h6>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center border-bottom pb-3 mb-3">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/flag/australia.png" class="exchange-image img-fluid"
-                                        alt="">
-
-                                    <div>
-                                        <p>AUD</p>
-                                        <h6>1 Australian Dollar</h6>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto me-4">
-                                    <small>Sell</small>
-                                    <h6>0.6110</h6>
-                                </div>
-
-                                <div>
-                                    <small>Buy</small>
-                                    <h6>0.5110</h6>
-                                </div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/flag/european-union.png" class="exchange-image img-fluid"
-                                        alt="">
-
-                                    <div>
-                                        <p>EUR</p>
-                                        <h6>1 Euro</h6>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto me-4">
-                                    <small>Sell</small>
-                                    <h6>1.1020</h6>
-                                </div>
-
-                                <div>
-                                    <small>Buy</small>
-                                    <h6>1.1010</h6>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
                     <div class="col-lg-5 col-12">
                         <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
@@ -201,134 +63,19 @@
                             </p>
                         </div>
 
-                        <div class="custom-block custom-block-bottom d-flex flex-wrap">
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-wallet"></i>
-
-                                    <small>Top up</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-upc-scan"></i>
-
-                                    <small>Scan & Pay</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-send"></i>
-
-                                    <small>Send</small>
-                                </a>
-                            </div>
-
-                            <div class="custom-block-bottom-item">
-                                <a href="#" class="d-flex flex-column">
-                                    <i class="custom-block-icon bi-arrow-down"></i>
-
-                                    <small>Request</small>
-                                </a>
-                            </div>
+                        <div class="custom-block custom-block-balance">
+                            <small>Total Agents</small>
+                            <h2 class="mt-2 mb-3">
+                                <?= $totalAgents ?>
+                            </h2>
                         </div>
 
-                        <div class="custom-block custom-block-transations">
-                            <h5 class="mb-4">Recent Transations</h5>
-
-                            <div class="d-flex flex-wrap align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg"
-                                        class="profile-image img-fluid" alt="">
-
-                                    <div>
-                                        <p>
-                                            <a href="transation-detail.html">Daniel Jones</a>
-                                        </p>
-
-                                        <small class="text-muted">C2C Transfer</small>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>05/12/2023</small>
-                                    <strong class="d-block text-danger"><span class="me-1">-</span> $250</strong>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-wrap align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg"
-                                        class="profile-image img-fluid" alt="">
-
-                                    <div>
-                                        <p>
-                                            <a href="transation-detail.html">Public Bank</a>
-                                        </p>
-
-                                        <small class="text-muted">Mobile Reload</small>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>22/8/2023</small>
-                                    <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                </div>
-                            </div>
-
-                            <div class="d-flex flex-wrap align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg"
-                                        class="profile-image img-fluid" alt="">
-
-                                    <div>
-                                        <p><a href="transation-detail.html">Store</a></p>
-
-                                        <small class="text-muted">Payment Received</small>
-                                    </div>
-                                </div>
-
-                                <div class="ms-auto">
-                                    <small>22/8/2023</small>
-                                    <strong class="d-block text-success"><span class="me-1">+</span> $280</strong>
-                                </div>
-                            </div>
-
-                            <div class="border-top pt-4 mt-4 text-center">
-                                <a class="btn custom-btn" href="wallet.html">
-                                    View all transations
-                                    <i class="bi-arrow-up-right-circle-fill ms-2"></i>
-                                </a>
-                            </div>
+                        <div class="custom-block custom-block-balance">
+                            <small>Total Applicants</small>
+                            <h2 class="mt-2 mb-3">
+                                <?= $pendingApplicants ?>
+                            </h2>
                         </div>
-
-                        <div class="custom-block primary-bg">
-                            <h5 class="text-white mb-4">Send Money</h5>
-
-                            <a href="#">
-                                <img src="AdminInfo/images/profile/young-woman-with-round-glasses-yellow-sweater.jpg"
-                                    class="profile-image img-fluid" alt="">
-                            </a>
-
-                            <a href="#">
-                                <img src="AdminInfo/images/profile/young-beautiful-woman-pink-warm-sweater.jpg"
-                                    class="profile-image img-fluid" alt="">
-                            </a>
-
-                            <a href="#">
-                                <img src="AdminInfo/images/profile/senior-man-white-sweater-eyeglasses.jpg"
-                                    class="profile-image img-fluid" alt="">
-                            </a>
-
-                            <div class="profile-rounded">
-                                <a href="#">
-                                    <i class="profile-rounded-icon bi-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -345,41 +92,12 @@
     </div>
     <?= view('Admin/chop/js'); ?>
     <script type="text/javascript">
-        var options = {
-            series: [13, 43, 22],
-            chart: {
-                width: 380,
-                type: 'pie',
-            },
-            labels: ['Balance', 'Expense', 'Credit Loan',],
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200
-                    },
-                    legend: {
-                        position: 'bottom'
-                    }
-                }
-            }]
-        };
-
-        var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
-        chart.render();
-    </script>
-
-    <script type="text/javascript">
+    // Function to create a chart
+    function createChart(chartId, data, title) {
         var options = {
             series: [{
-                name: 'Income',
-                data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-            }, {
-                name: 'Expense',
-                data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-            }, {
-                name: 'Transfer',
-                data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+                name: title,
+                data: data.map(entry => entry.agent_count || entry.applicant_count)
             }],
             chart: {
                 type: 'bar',
@@ -401,11 +119,11 @@
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                categories: data.map(entry => entry.month),
             },
             yaxis: {
                 title: {
-                    text: '$ (thousands)'
+                    text: title
                 }
             },
             fill: {
@@ -414,15 +132,34 @@
             tooltip: {
                 y: {
                     formatter: function (val) {
-                        return "$ " + val + " thousands"
+                        return val + " " + title.toLowerCase();
                     }
                 }
             }
         };
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        // Create and render the chart
+        var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
         chart.render();
-    </script>
+    }
+
+    // Fetch dynamic data from the server for agents
+    fetch('/monthlyAgentCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('agentChart', data, 'Agents');
+        })
+        .catch(error => console.error('Error fetching data for agents:', error));
+
+    // Fetch dynamic data from the server for pending applicants
+    fetch('/monthlyPendingApplicantCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('pendingApplicantChart', data, 'Applicants');
+        })
+        .catch(error => console.error('Error fetching data for pending applicants:', error));
+</script>
+
 
 </body>
 

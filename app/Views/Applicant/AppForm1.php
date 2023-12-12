@@ -121,14 +121,13 @@
 
                                                 <select id="referralBy" name="referralBy" class="form-control" required>
                                                 <option value="" disabled selected>Select Agent</option>
-                                                <select id="referralBy" name="referralBy" class="form-control">
-                                                    <option value="">Select Agent</option>
                                                     <?php foreach ($agents as $agent): ?>
                                                         <option value="<?= $agent['agent_id']; ?>" <?= (isset($lifechangerform['referralBy']) && $lifechangerform['referralBy'] == $agent['agent_id']) ? 'selected' : ''; ?>>
                                                             <?= $agent['Agentfullname']; ?>
                                                         </option>
                                                     <?php endforeach; ?>
                                                 </select>
+
                                                 <input type="checkbox" id="onlineAd" name="onlineAd"
                                                     value="Online Advertisement" <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
                                                 <label for="onlineAd">Online Advertisement</label>
