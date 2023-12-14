@@ -17,6 +17,7 @@ $routes->get('/ManageApplicant', 'AdminController::ManageApplicant', ['filter' =
 $routes->post('/userSearch', 'AdminController::userSearch', ['filter' => 'authGuard']);
 $routes->post('/agentSearch', 'AdminController::agentSearch', ['filter' => 'authGuard']);
 $routes->post('/svad', 'AdminController::svad', ['filter' => 'authGuard']);
+$routes->get('/RTC', 'AdminController::RTC', ['filter' => 'authGuard']);
 
 $routes->get('/AppDash', 'AppController::AppDash',['filter' => 'authGuard']);
 $routes->get('/AppProfile', 'AppController::AppProfile',['filter' => 'authGuard']);

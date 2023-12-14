@@ -264,6 +264,9 @@ class AdminController extends BaseController
 
         return redirect()->to('/AdSetting');
     }
-
-
+    public function RTC()
+    {
+        $data = array_merge($this->getData(), $this->getDataAd());
+        return view('Admin/chat',$data);
+    }
 }

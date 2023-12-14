@@ -973,7 +973,6 @@ message-area
                                                     </span> -->
                                                 </li>
                                             <?php endforeach; ?>
-                                            
                                         </ul>
                                     </div>
                                 </div>
