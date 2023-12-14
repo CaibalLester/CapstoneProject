@@ -40,24 +40,11 @@
                             <div>
                                 <span>Your account has been created successfuly.</span>
 
-                                <p>12 days ago</p>
+                                <p><?= date('M j, Y', strtotime($user['created_at'])); ?></p>
                             </div>
                         </a>
                     </li>
 
-                    <li class="notifications-block border-bottom pb-2 mb-2">
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <div class="notifications-icon-wrap bg-info">
-                                <i class="notifications-icon bi-folder"></i>
-                            </div>
-
-                            <div>
-                                <span>Please check. We have sent a Daily report.</span>
-
-                                <p>10 days ago</p>
-                            </div>
-                        </a>
-                    </li>
 
                     <li class="notifications-block">
                         <a class="dropdown-item d-flex align-items-center" href="#">
@@ -66,9 +53,8 @@
                             </div>
 
                             <div>
-                                <span>Account verification failed.</span>
+                                <span>Account verification is <?= $applicant['status'] ?>.</span>
 
-                                <p>1 hour ago</p>
                             </div>
                         </a>
                     </li>
