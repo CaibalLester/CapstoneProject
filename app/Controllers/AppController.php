@@ -184,7 +184,6 @@ class AppController extends BaseController
         return view('Applicant/AppForm1', $data);
     }
 
-
     public function form1sv()
     {
         $session = session();

@@ -4,11 +4,9 @@
 <?= view('Admin/chop/head') ?>
 
 <body>
-
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-
             <?= view('Admin/chop/side') ?>
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">

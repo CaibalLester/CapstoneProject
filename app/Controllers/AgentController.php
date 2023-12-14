@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use \App\Models\AgentModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
+
 class AgentController extends BaseController
 {
     private $user;
@@ -27,7 +28,7 @@ class AgentController extends BaseController
 
         return view('Agent/AgDash', $data);
     }
-    
+
     public function AgProfile()
     {
         $session = session();
@@ -35,7 +36,7 @@ class AgentController extends BaseController
             return redirect()->to('/');
         }
         $data = array_merge($this->getData(), $this->getDataAge());
-        return view('Agent/AgProfile',$data);
+        return view('Agent/AgProfile', $data);
     }
     public function AgSetting()
     {
@@ -44,7 +45,7 @@ class AgentController extends BaseController
             return redirect()->to('/');
         }
         $data = array_merge($this->getData(), $this->getDataAge());
-        return view('Agent/AgSetting',$data);
+        return view('Agent/AgSetting', $data);
     }
     public function AgHelp()
     {
@@ -77,69 +78,68 @@ class AgentController extends BaseController
     }
 
     public function subagent()
-{
-    $session = session();
+    {
+        $session = session();
         if ($session->get('role') !== 'agent') {
             return redirect()->to('/');
         }
 
-    // $session = session();
-    $userId = $session->get('id');
-    
-    // Assuming that AgentModel is the correct model for managing agents
-    $agentModel = new AgentModel();
-    $data = $this->getData();
+        $userId = $session->get('id');
 
-    // Use the model to fetch sub-agents where FA is equal to userId
-    $data['agent'] = $agentModel->where('FA', $userId)->findAll();
+        // Assuming that AgentModel is the correct model for managing agents
+        $agentModel = new AgentModel();
+        $data = $this->getDataAge();
 
-    return view('Agent/subagents', $data);
-}
+        // Fetch the agent data
+        $data['agents'] = $agentModel->where('FA', $userId)->findAll();
 
-public function agentSearch()
-{
-    $session = session();
+        // Fetch the user data
+       
+        $userModel = new UserModel();
+        $data['user'] = $userModel->find($userId);
+        return view('Agent/subagents', $data);
+    }
+
+    public function subagentSearch()
+    {
+        $session = session();
         if ($session->get('role') !== 'agent') {
             return redirect()->to('/');
         }
+        $userId = $session->get('id');
 
-    $agentModel = new AgentModel();
-    $data = $this->getData();
+        $agentModel = new AgentModel();
+        $data = $this->getDataAge();
 
-    // Get the search input from the form
-    $filterUser = $this->request->getPost('filterAgent');
+        $filterUser = $this->request->getPost('filterAgent');
+        
+        $agents = $agentModel->like('Agentfullname', $filterUser)
+            ->where('FA', $userId)
+            ->findAll();
 
-    // Get the current user's ID
-    $userId = session()->get('id');
+        $data['agents'] = $agents;
 
-    // Add a where condition to filter records based on the search input and FA = userId
-    $agents = $agentModel->like('Agentfullname', $filterUser)
-                         ->where('FA', $userId)
-                         ->findAll();
+        $userModel = new UserModel();
+        $data['user'] = $userModel->find($userId);
 
-    $data['agent'] = $agents;
-
-    return view('Agent/subagents', $data);
-}
-
+        return view('Agent/subagents', $data);
+    }
 
     private function getDataAge()
     {
         $session = session();
 
-        // Get the user ID from the session
         $userId = $session->get('id');
 
-        // Load the User model
-        $agentmode = new AgentModel();
+        $agentModel = new AgentModel();
 
-        // Find the user by ID
-        $data['agent'] = $agentmode->where('agent_id', $userId)
-            ->orderBy('id', 'desc')
+        $data['agent'] = $agentModel->where('agent_id', $userId)
+            // ->orderBy('id', 'desc')
             ->first();
 
         return $data;
     }
+
     public function svag()
     {
         $session = session();

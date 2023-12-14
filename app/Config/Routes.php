@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/AdDash', 'AdminController::AdDash',['filter' => 'authGuard']);
 $routes->get('/ManageAgent', 'AdminController::ManageAgent',['filter' => 'authGuard']);
-// $routes->get('/ManageApplicant', 'AdminController::ManageApplicant',['filter' => 'authGuard']);
 $routes->get('/AdProfile', 'AdminController::AdProfile',['filter' => 'authGuard']);
 $routes->get('/AdSetting', 'AdminController::AdSetting',['filter' => 'authGuard']);
 $routes->get('/AdHelp', 'AdminController::AdHelp',['filter' => 'authGuard']);
@@ -37,6 +36,7 @@ $routes->get('/AgSetting', 'AgentController::AgSetting',['filter' => 'authGuard'
 $routes->get('/AgHelp', 'AgentController::AgHelp',['filter' => 'authGuard']);
 $routes->post('/svag', 'AgentController::svag',['filter' => 'authGuard']);
 $routes->get('/subagent', 'AgentController::subagent',['filter' => 'authGuard']);
+$routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' => 'authGuard']);
 
 $routes->get('/', 'HomepageController::home');
 $routes->get('/register', 'HomepageController::register');
@@ -53,3 +53,9 @@ $routes->post('reset-password/(:segment)', 'HomepageController::processResetPass
 $routes->get('/monthlyAgentCount', 'ChartsController::monthlyAgentCount',['filter' => 'authGuard']);
 $routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingApplicantCount',['filter' => 'authGuard']);
 // $routes->get('/emailtest', 'HomepageController::emailtest');
+
+
+$routes->get('/homechat', 'RTCController::homechat');
+$routes->post('/chat', 'RTCController::chat');
+
+$routes->get('/send', 'RTCController::send');

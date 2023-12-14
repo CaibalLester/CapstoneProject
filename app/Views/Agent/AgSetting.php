@@ -4,10 +4,56 @@
 
 <body>
     <?= view('Agent/chop/header') ?>
-
     <div class="container-fluid">
         <div class="row">
-            <?= view('Agent/chop/side') ?>
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/AgDash">
+                                <i class="bi-house-fill me-2"></i>
+                                Overview
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AgProfile">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/subagent">
+                                <i class="bi-person me-2"></i>
+                                Sub Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/AgSetting">
+                                <i class="bi-gear me-2"></i>
+                                Settings
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AgHelp">
+                                <i class="bi-question-circle me-2"></i>
+                                Help Center
+                            </a>
+                        </li>
+
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="/logout">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Settings</h1>
@@ -41,7 +87,8 @@
                                             placeholder="Full name"
                                             value="<?= isset($agent['Agentfullname']) ? $agent['Agentfullname'] : '' ?>">
 
-                                            <input class="form-control" type="username" name="username" placeholder="Username"
+                                        <input class="form-control" type="username" name="username"
+                                            placeholder="Username"
                                             value="<?= isset($agent['username']) ? $agent['username'] : '' ?>">
 
                                         <input class="form-control" type="email" name="email" placeholder="Email"
