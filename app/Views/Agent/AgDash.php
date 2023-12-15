@@ -214,7 +214,7 @@
                                 <div class="custom-block-profile-image-wrap mb-4">
                                     <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>" class="custom-block-profile-image img-fluid" alt="">
 
-                                    <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
+                                    <a href="/AgSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                                 </div>
                                 <p class="d-flex flex-wrap mb-2">
                                     <strong>Agent ID:</strong>

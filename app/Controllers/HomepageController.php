@@ -117,7 +117,7 @@ class HomepageController extends BaseController
                 // return redirect()->to('/AgDash');
                 return redirect()->to('/AgDash')->with('success', 'Account Login' . $user['role']);
             }
-            
+
         } else {
             $session->setFlashdata('error', 'Invalid email or password.');
             return redirect()->to('/login');
@@ -167,38 +167,53 @@ class HomepageController extends BaseController
 
     public function sendResetLink()
 {
-    $email = $this->request->getVar('email');
+    $userEmail = $this->request->getVar('email');
 
     // Generate a random token
     $token = bin2hex(random_bytes(16));
 
     // Save the token to the database
     $userModel = new UserModel();
-    $user = $userModel->where('email', $email)->first();
+    $user = $userModel->where('email', $userEmail)->first();
 
     if ($user) {
         $userModel->update($user['id'], ['token' => $token]);
-        
-        // Send email with a link containing the token for password reset
-        $resetLink = site_url("reset-password/{$token}");
 
-        // Define email parameters
-        $to = $email;
-        $subject = 'Password Reset Link';
-        $message = "Click the link to reset your password: $resetLink";
-        $headers = 'From: Allianz PNB Life'; // Replace with your actual email address
+        // Load Email Library and configure SMTP
+        $email = \Config\Services::email();
+        $config = array(
+            'protocol' => 'smtp',
+            'SMTPHost' => 'smtp.gmail.com',
+            'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
+            'SMTPPass' => 'glvwgdahdbexhvim',
+            'SMTPPort' => 587,
+            'SMTPCrypto' => 'tls',
+            'mailType' => 'html',
+            'charset' => 'utf-8'
+        );
+        $email->initialize($config);
+
+        // Set Email Parameters
+        $email->setFrom('Allianz PNB Recruitment', 'ADMIN'); // Replace with your Gmail address and name
+        $email->setTo($userEmail);
+        $email->setSubject('Password Reset Link');
+        $resetLink = site_url("reset-password/{$token}");
+        $email->setMessage("Click the link to reset your password: $resetLink");
 
         // Send the email
-        if (mail($to, $subject, $message, $headers)) {
+        if ($email->send()) {
             echo 'Reset link sent successfully.';
         } else {
-            echo 'Failed to send reset link.';
+            $data['error'] = $email->printDebugger(['headers']);
+            echo 'Failed to send reset link. Error: ' . $data['error'];
         }
     } else {
         // Email not found in the database
         echo 'Invalid email address';
     }
 }
+
+
 
 
     public function resetPassword($token)
@@ -214,34 +229,34 @@ class HomepageController extends BaseController
     }
 
     public function processResetPassword($token)
-{
-    helper(['form']);
-    $rules = [
-        'new_password' => 'required|min_length[6]|max_length[50]',
-        'confirm_new_password' => 'matches[new_password]',
-    ];
+    {
+        helper(['form']);
+        $rules = [
+            'new_password' => 'required|min_length[6]|max_length[50]',
+            'confirm_new_password' => 'matches[new_password]',
+        ];
 
-    if ($this->validate($rules)) {
-        $userModel = new UserModel();
+        if ($this->validate($rules)) {
+            $userModel = new UserModel();
 
-        // Get the user based on the reset token
-        $user = $userModel->where('token', $token)->first();
+            // Get the user based on the reset token
+            $user = $userModel->where('token', $token)->first();
 
-        if (!$user) {
-            return redirect()->to('/login')->with('error', 'Invalid reset token.');
+            if (!$user) {
+                return redirect()->to('/login')->with('error', 'Invalid reset token.');
+            }
+
+            // Update the password and remove the token from the database
+            $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
+            $userModel->update($user['id'], ['password' => $newPassword, 'token' => null]);
+
+            return redirect()->to('/login')->with('success', 'Password reset successful. You can now log in with your new password.');
+        } else {
+            $data['token'] = $token; // Add this line to pass the token to the view
+            $data['vali'] = $this->validator;
+            echo view('Home/reset_password', $data);
         }
-
-        // Update the password and remove the token from the database
-        $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
-        $userModel->update($user['id'], ['password' => $newPassword, 'token' => null]);
-
-        return redirect()->to('/login')->with('success', 'Password reset successful. You can now log in with your new password.');
-    } else {
-        $data['token'] = $token; // Add this line to pass the token to the view
-        $data['vali'] = $this->validator;
-        echo view('Home/reset_password', $data);
     }
-}
 
 
     // public function emailtest()
