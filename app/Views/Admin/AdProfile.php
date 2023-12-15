@@ -40,7 +40,7 @@
                                 </ul>
                             </div>
                         </li>
-                        
+
 
                         <li class="nav-item">
                             <a class="nav-link active" href="/AdProfile">
@@ -182,10 +182,10 @@
                                 </p> -->
                         </div>
                     </div>
-                    
+
                 </div>
-                
-                
+
+
 
                 <footer class="site-footer">
                     <div class="container">

@@ -26,7 +26,7 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'allianzpnb.info',
+        'hostname'     => 'localhost',
         'username'     => 'u775902507_PNBALLIANZ',
         'password'     => 'PNBallianz2023',
         'database'     => 'u775902507_erecruitment',

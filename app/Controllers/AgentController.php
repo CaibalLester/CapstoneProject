@@ -94,7 +94,7 @@ class AgentController extends BaseController
         $data['agents'] = $agentModel->where('FA', $userId)->findAll();
 
         // Fetch the user data
-       
+
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
         return view('Agent/subagents', $data);
@@ -112,7 +112,7 @@ class AgentController extends BaseController
         $data = $this->getDataAge();
 
         $filterUser = $this->request->getPost('filterAgent');
-        
+
         $agents = $agentModel->like('Agentfullname', $filterUser)
             ->where('FA', $userId)
             ->findAll();

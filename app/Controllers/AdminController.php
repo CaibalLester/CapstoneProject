@@ -267,6 +267,6 @@ class AdminController extends BaseController
     public function RTC()
     {
         $data = array_merge($this->getData(), $this->getDataAd());
-        return view('Admin/chat',$data);
+        return view('Admin/chat', $data);
     }
 }
