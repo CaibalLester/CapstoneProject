@@ -49,7 +49,7 @@ class HomepageController extends BaseController
             'confirmpassword' => 'matches[password]',
             'branch' => 'required|min_length[3]|max_length[50]',
         ];
-
+        $verificationToken = bin2hex(random_bytes(16));
         if ($this->validate($rules)) {
             $userModel = new UserModel();
             $applicantModel = new ApplicantModel();
@@ -61,7 +61,8 @@ class HomepageController extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'branch' => $this->request->getVar('branch'),
                 'role' => 'applicant',
-                'status' => 'active',
+                'status' => 'pending',
+                'verification_token' => $verificationToken,
             ];
 
             // Insert user data into the users table
@@ -84,6 +85,13 @@ class HomepageController extends BaseController
                 'user_id' => $userId,
             ];
             $form1->save($formdata);
+
+            // Send verification email
+            $verificationLink = site_url("verify-email/{$verificationToken}");
+            $emailSubject = 'Email Verification';
+            $emailMessage = "Click the link to verify your email: $verificationLink";
+            $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
+// var_dump($verificationLink);
             return redirect()->to('/login')->with('success', 'Account Registered! You can now log in with your Accounts.');
         } else {
             $data['validation'] = $this->validator;
@@ -91,38 +99,119 @@ class HomepageController extends BaseController
         }
     }
 
-    public function authlog()
+    private function sendVerificationEmail($to, $subject, $message)
     {
-        $session = session();
-        $userModel = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
-
-        $user = $userModel->where('email', $email)->first();
-
-        if ($user && password_verify($password, $user['password'])) {
-            $sessionData = [
-                'id' => $user['id'],
-                'role' => $user['role'],
-                'IsAppLog' => true,
-            ];
-            $session->set($sessionData);
-
-            // Redirect based on the fetched role
-            if ($user['role'] == 'admin') {
-                return redirect()->to('/AdDash');
-            } elseif ($user['role'] == 'applicant') {
-                return redirect()->to('/AppDash')->with('success', 'Account Login' . $user['username']);
-            } elseif ($user['role'] == 'agent') {
-                // return redirect()->to('/AgDash');
-                return redirect()->to('/AgDash')->with('success', 'Account Login' . $user['role']);
-            }
-
+        // Load Email Library
+        $email = \Config\Services::email();
+    
+        // SMTP Configuration (replace with your actual SMTP settings)
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'smtp.gmail.com',
+            'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
+            'SMTPPass' => 'glvwgdahdbexhvim',
+            'SMTPPort' => 587,
+            'SMTPCrypto' => 'tls',
+            'mailType' => 'html',
+            'charset' => 'utf-8'
+        ];
+        $email->initialize($config);
+    
+        // Set Email Parameters
+        $email->setTo($to);
+        $email->setFrom('ALLIANZ PNB', 'CALAPAN'); // Set the "From" address and name
+        $email->setSubject($subject);
+        $email->setMessage($message);
+    
+        // Try sending the email
+        if ($email->send()) {
+            echo 'Email sent successfully.';
         } else {
-            $session->setFlashdata('error', 'Invalid email or password.');
-            return redirect()->to('/login');
+            echo 'Error: ' . $email->printDebugger(['headers']);
         }
     }
+    
+
+
+    public function verifyEmail($token)
+    {
+        $userModel = new UserModel();
+
+        // Find user by verification token
+        $user = $userModel->where('verification_token', $token)
+            ->where('status', 'pending')
+            ->first();
+
+        if ($user) {
+            // Update user status to 'verified'
+            $userModel->update($user['id'], [
+                'status' => 'verified',
+                'verification_token' => null
+            ]);
+
+            // Redirect to a success page or login page
+            return redirect()->to('/login')->with('success', 'Email verified! You can now log in with your account.');
+        } else {
+            // Invalid or expired token
+            return redirect()->to('/login')->with('error', 'Invalid or expired verification token.');
+        }
+    }
+
+
+
+    public function authlog()
+{
+    $session = session();
+    $userModel = new UserModel();
+    $email = $this->request->getVar('email');
+    $password = $this->request->getVar('password');
+
+    // Check if the email is valid
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $session->setFlashdata('error', 'Invalid email address.');
+        return redirect()->to('/login');
+    }
+
+    $user = $userModel->where('email', $email)->first();
+
+    // Check if the user exists
+    if ($user) {
+        // Check if the user's status is 'verified'
+        if ($user['status'] == 'verified') {
+            // Check if the password matches
+            if (password_verify($password, $user['password'])) {
+                $sessionData = [
+                    'id' => $user['id'],
+                    'role' => $user['role'],
+                    'IsAppLog' => true,
+                ];
+                $session->set($sessionData);
+
+                // Redirect based on the fetched role
+                if ($user['role'] == 'admin') {
+                    return redirect()->to('/AdDash');
+                } elseif ($user['role'] == 'applicant') {
+                    return redirect()->to('/AppDash')->with('success', 'Account Login: ' . $user['username']);
+                } elseif ($user['role'] == 'agent') {
+                    return redirect()->to('/AgDash')->with('success', 'Account Login: ' . $user['role']);
+                }
+            } else {
+                // Password mismatch
+                $session->setFlashdata('error', 'Invalid password.');
+                return redirect()->to('/login');
+            }
+        } else {
+            // User status is not 'verified'
+            $session->setFlashdata('error', 'Your account is not verified. Please check your email for verification.');
+            return redirect()->to('/login');
+        }
+    } else {
+        // User not found
+        $session->setFlashdata('error', 'Email address not found.');
+        return redirect()->to('/login');
+    }
+}
+
 
     public function updatePassword()
     {
@@ -159,60 +248,58 @@ class HomepageController extends BaseController
         }
     }
 
-
     public function forgot()
     {
         return view("Home/forgot");
     }
 
     public function sendResetLink()
-{
-    $userEmail = $this->request->getVar('email');
+    {
+        $userEmail = $this->request->getVar('email');
 
-    // Generate a random token
-    $token = bin2hex(random_bytes(16));
+        // Generate a random token
+        $token = bin2hex(random_bytes(16));
 
-    // Save the token to the database
-    $userModel = new UserModel();
-    $user = $userModel->where('email', $userEmail)->first();
+        // Save the token to the database
+        $userModel = new UserModel();
+        $user = $userModel->where('email', $userEmail)->first();
 
-    if ($user) {
-        $userModel->update($user['id'], ['token' => $token]);
+        if ($user) {
+            $userModel->update($user['id'], ['token' => $token]);
 
-        // Load Email Library and configure SMTP
-        $email = \Config\Services::email();
-        $config = array(
-            'protocol' => 'smtp',
-            'SMTPHost' => 'smtp.gmail.com',
-            'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
-            'SMTPPass' => 'glvwgdahdbexhvim',
-            'SMTPPort' => 587,
-            'SMTPCrypto' => 'tls',
-            'mailType' => 'html',
-            'charset' => 'utf-8'
-        );
-        $email->initialize($config);
+            // Load Email Library and configure SMTP
+            $email = \Config\Services::email();
+            $config = array(
+                'protocol' => 'smtp',
+                'SMTPHost' => 'smtp.gmail.com',
+                'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
+                'SMTPPass' => 'glvwgdahdbexhvim',
+                'SMTPPort' => 587,
+                'SMTPCrypto' => 'tls',
+                'mailType' => 'html',
+                'charset' => 'utf-8'
+            );
+            $email->initialize($config);
 
-        // Set Email Parameters
-        $email->setFrom('Allianz PNB Recruitment', 'ADMIN'); // Replace with your Gmail address and name
-        $email->setTo($userEmail);
-        $email->setSubject('Password Reset Link');
-        $resetLink = site_url("reset-password/{$token}");
-        $email->setMessage("Click the link to reset your password: $resetLink");
+            // Set Email Parameters
+            $email->setFrom('Allianz PNB Recruitment', 'ADMIN'); // Replace with your Gmail address and name
+            $email->setTo($userEmail);
+            $email->setSubject('Password Reset Link');
+            $resetLink = site_url("reset-password/{$token}");
+            $email->setMessage("Click the link to reset your password: $resetLink");
 
-        // Send the email
-        if ($email->send()) {
-            echo 'Reset link sent successfully.';
+            // Send the email
+            if ($email->send()) {
+                echo 'Reset link sent successfully.';
+            } else {
+                $data['error'] = $email->printDebugger(['headers']);
+                echo 'Failed to send reset link. Error: ' . $data['error'];
+            }
         } else {
-            $data['error'] = $email->printDebugger(['headers']);
-            echo 'Failed to send reset link. Error: ' . $data['error'];
+            // Email not found in the database
+            echo 'Invalid email address';
         }
-    } else {
-        // Email not found in the database
-        echo 'Invalid email address';
     }
-}
-
 
 
 
