@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'erecruit',
+        'hostname'     => 'allianzpnb.info',
+        'username'     => 'u775902507_PNBALLIANZ',
+        'password'     => 'PNBallianz2023',
+        'database'     => 'u775902507_erecruitment',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,

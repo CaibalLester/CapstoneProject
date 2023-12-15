@@ -91,7 +91,7 @@ class HomepageController extends BaseController
             $emailSubject = 'Email Verification';
             $emailMessage = "Click the link to verify your email: $verificationLink";
             $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
-// var_dump($verificationLink);
+            // var_dump($verificationLink);
             return redirect()->to('/login')->with('success', 'Account Registered! You can now log in with your Accounts.');
         } else {
             $data['validation'] = $this->validator;
@@ -103,7 +103,7 @@ class HomepageController extends BaseController
     {
         // Load Email Library
         $email = \Config\Services::email();
-    
+
         // SMTP Configuration (replace with your actual SMTP settings)
         $config = [
             'protocol' => 'smtp',
@@ -116,13 +116,13 @@ class HomepageController extends BaseController
             'charset' => 'utf-8'
         ];
         $email->initialize($config);
-    
+
         // Set Email Parameters
         $email->setTo($to);
         $email->setFrom('ALLIANZ PNB', 'CALAPAN'); // Set the "From" address and name
         $email->setSubject($subject);
         $email->setMessage($message);
-    
+
         // Try sending the email
         if ($email->send()) {
             echo 'Email sent successfully.';
@@ -130,7 +130,7 @@ class HomepageController extends BaseController
             echo 'Error: ' . $email->printDebugger(['headers']);
         }
     }
-    
+
 
 
     public function verifyEmail($token)
@@ -160,58 +160,57 @@ class HomepageController extends BaseController
 
 
     public function authlog()
-{
-    $session = session();
-    $userModel = new UserModel();
-    $email = $this->request->getVar('email');
-    $password = $this->request->getVar('password');
+    {
+        $session = session();
+        $userModel = new UserModel();
+        $email = $this->request->getVar('email');
+        $password = $this->request->getVar('password');
 
-    // Check if the email is valid
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $session->setFlashdata('error', 'Invalid email address.');
-        return redirect()->to('/login');
-    }
+        // Check if the email is valid
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $session->setFlashdata('error', 'Invalid email address.');
+            return redirect()->to('/login');
+        }
 
-    $user = $userModel->where('email', $email)->first();
+        $user = $userModel->where('email', $email)->first();
 
-    // Check if the user exists
-    if ($user) {
-        // Check if the user's status is 'verified'
-        if ($user['status'] == 'verified') {
-            // Check if the password matches
-            if (password_verify($password, $user['password'])) {
-                $sessionData = [
-                    'id' => $user['id'],
-                    'role' => $user['role'],
-                    'IsAppLog' => true,
-                ];
-                $session->set($sessionData);
+        // Check if the user exists
+        if ($user) {
+            // Check if the user's status is 'verified'
+            if ($user['status'] == 'verified') {
+                // Check if the password matches
+                if (password_verify($password, $user['password'])) {
+                    $sessionData = [
+                        'id' => $user['id'],
+                        'role' => $user['role'],
+                        'IsAppLog' => true,
+                    ];
+                    $session->set($sessionData);
 
-                // Redirect based on the fetched role
-                if ($user['role'] == 'admin') {
-                    return redirect()->to('/AdDash');
-                } elseif ($user['role'] == 'applicant') {
-                    return redirect()->to('/AppDash')->with('success', 'Account Login: ' . $user['username']);
-                } elseif ($user['role'] == 'agent') {
-                    return redirect()->to('/AgDash')->with('success', 'Account Login: ' . $user['role']);
+                    // Redirect based on the fetched role
+                    if ($user['role'] == 'admin') {
+                        return redirect()->to('/AdDash');
+                    } elseif ($user['role'] == 'applicant') {
+                        return redirect()->to('/AppDash')->with('success', 'Account Login: ' . $user['username']);
+                    } elseif ($user['role'] == 'agent') {
+                        return redirect()->to('/AgDash')->with('success', 'Account Login: ' . $user['role']);
+                    }
+                } else {
+                    // Password mismatch
+                    $session->setFlashdata('error', 'Invalid password.');
+                    return redirect()->to('/login');
                 }
             } else {
-                // Password mismatch
-                $session->setFlashdata('error', 'Invalid password.');
+                // User status is not 'verified'
+                $session->setFlashdata('error', 'Your account is not verified. Please check your email for verification.');
                 return redirect()->to('/login');
             }
         } else {
-            // User status is not 'verified'
-            $session->setFlashdata('error', 'Your account is not verified. Please check your email for verification.');
+            // User not found
+            $session->setFlashdata('error', 'Email address not found.');
             return redirect()->to('/login');
         }
-    } else {
-        // User not found
-        $session->setFlashdata('error', 'Email address not found.');
-        return redirect()->to('/login');
     }
-}
-
 
     public function updatePassword()
     {
