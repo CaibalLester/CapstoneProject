@@ -119,7 +119,7 @@ class HomepageController extends BaseController
 
         // Set Email Parameters
         $email->setTo($to);
-        $email->setFrom('ALLIANZ PNB', 'CALAPAN'); // Set the "From" address and name
+        $email->setFrom('alejandrogino950@gmail.com', 'ALLIANZ PNB CALAPAN'); // Set the "From" address and name
         $email->setSubject($subject);
         $email->setMessage($message);
 
@@ -281,7 +281,7 @@ class HomepageController extends BaseController
             $email->initialize($config);
 
             // Set Email Parameters
-            $email->setFrom('Allianz PNB Recruitment', 'ADMIN'); // Replace with your Gmail address and name
+            $email->setFrom('alejandrogino950@gmail.com', 'ALLIANZ PNB CALAPAN'); // Replace with your Gmail address and name
             $email->setTo($userEmail);
             $email->setSubject('Password Reset Link');
             $resetLink = site_url("reset-password/{$token}");
@@ -299,8 +299,6 @@ class HomepageController extends BaseController
             echo 'Invalid email address';
         }
     }
-
-
 
     public function resetPassword($token)
     {
