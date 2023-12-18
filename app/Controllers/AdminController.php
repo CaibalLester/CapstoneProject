@@ -55,14 +55,12 @@ class AdminController extends BaseController
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        $userId = $session->get('id');
         $agentModel = new AgentModel();
-        $data = $this->getDataAd();
+        $data = $this->usermerge();
 
         // Use the model to fetch all records
         $data['agent'] = $agentModel->findAll();
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
+
         return view('Admin/ManageAgent', $data);
     }
 
@@ -72,9 +70,8 @@ class AdminController extends BaseController
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        $userId = $session->get('id');
         $appmodel = new ApplicantModel();
-        $data = $this->getDataAd();
+        $data = $this->usermerge();
 
         // Add a where condition to retrieve only records with status = 'confirmed'
         $applicants = $appmodel->where('status', 'pending')->paginate();
@@ -82,11 +79,19 @@ class AdminController extends BaseController
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
 
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
+
         return view('Admin/ManageApplicant', $data);
     }
-
+    private function usermerge()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data = $this->getDataAd();
+        $userModel = new UserModel();
+        $data['user'] = $userModel->find($userId);
+        return $data;
+    }
+    
     public function userSearch()
     {
         $session = session();
@@ -95,7 +100,7 @@ class AdminController extends BaseController
         }
         $userId = $session->get('id');
         $appmodel = new ApplicantModel();
-        $data = $this->getDataAd();
+        $data = $this->usermerge();
 
         // Get the search input from the form
         $filterUser = $this->request->getPost('filterUser');
@@ -106,11 +111,9 @@ class AdminController extends BaseController
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
 
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
-
         return view('Admin/ManageApplicant', $data);
     }
+    
 
     // Controller method for searching agents by full name
     public function agentSearch()
@@ -119,9 +122,9 @@ class AdminController extends BaseController
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        $userId = $session->get('id');
+
         $agentModel = new AgentModel();
-        $data = $this->getDataAd();
+        $data = $this->usermerge();
 
         // Get the search input from the form
         $filterUser = $this->request->getPost('filterAgent');
@@ -130,8 +133,6 @@ class AdminController extends BaseController
         $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
 
         $data['agent'] = $agents;
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
         return view('Admin/ManageAgent', $data);
     }
     private function getDataAd()
@@ -151,6 +152,7 @@ class AdminController extends BaseController
 
         return $data;
     }
+    
     public function AdProfile()
     {
         $session = session();
