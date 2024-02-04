@@ -9045,8 +9045,8 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
-  height: auto;
+  max-width: 430px;
+  max-height: 500px;
 }
 
 .img-thumbnail {
@@ -10828,8 +10828,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #1998ff;
-  border-color: #1998ff;
+  background-color: #013781;
+  border-color: #013781;
 }
 
 .btn-secondary:hover {
@@ -18619,8 +18619,8 @@ html {
 
 .home {
   background: url("../images/banner-bg.svg");
-  background-repeat-y: no-repeat;
-  background-position: 0 -50px;
+ 
+  background-position: 0 -75px;
   padding-top: 103px;
 }
 
@@ -18631,7 +18631,7 @@ html {
 }
 
 .main-banner {
-  padding: 4.2rem 0 14rem 0;
+  padding: 4.2rem 0 10.25rem 0;
   color: #ffffff;
   background-size: cover;
 }

@@ -23,7 +23,8 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 					<div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
-						<img src="home/images/logo-dark.svg" class="logo-mobile-menu" alt="logo">
+					<h3 class="font-weight-medium">ALLIANZ PNB</h3>
+						
 						<a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
 					</div>
 					<ul class="navbar-nav ml-auto align-items-center">
@@ -60,20 +61,16 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<div class="main-banner"><br><br>
+							<div class="main-banner">
 								<div class="d-sm-flex justify-content-between">
-									<div data-aos="zoom-in-up">
+									<div data-aos="zoom-in-up"><br>
 										<div class="banner">
-												<h3 class="font-weight-medium">Securing Your Tomorrow, Today. Choose Allianz PNB for a Future of Confidence.</h3>
+												<br><br><h3 class="font-weight-medium">Securing Your Tomorrow, Today. Choose Allianz PNB for a Future of Confidence.</h3>
 										</div>
 										<p class="mt-3">Allianz PNB Agency is a leading name in the insurance industry, providing services since its inception.
-
 											<br>
-											With a rich history dating back to the 1500s, Allianz PNB Agency has set the industry standard for excellence and innovation.
-											<br><br><br><br><br><br><br>
 										</p>
-
-										<a href="/login" class="btn btn-secondary mt-3">Get Started!</a>
+										<a href="/login" class="btn btn-secondary mt-3" >Get Started!</a>
 									</div>
 									<div class="mt-5 mt-lg-0">
 										<img src="home/images/allianzlogo2.png" alt="contact" class="img-fluid" data-aos="zoom-in-up">
@@ -355,7 +352,7 @@
 						</div>
 						<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
 							<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">Got A Problem</h3>
-							<h5 class="text-dark mb-5">Lorem ipsum dolor sit amet, consectetur pretium</h5>
+							<h5 class="text-dark mb-5">If you have any questions, you can contact us.</h5>
 							<form>
 								<div class="row">
 									<div class="col-sm-6">
@@ -385,7 +382,7 @@
 		</div>
 		<footer class="footer">
 			<div class="footer-top">
-				<div class="container">
+				<!--<div class="container">
 					<div class="row">
 						<div class="col-sm-6">
 							<address>
@@ -397,7 +394,7 @@
 								</div>
 								<div class="d-flex align-items-center">
 									<p class="mr-4 mb-0">+1 222 345 342</p>
-									<a href="mailto:Marshmallow@yourmail.com" class="footer-link">Marshmallow@yourmail.com</a>
+									<a href="allianzpnb@gmail.com" class="footer-link">allianzpnb@gmail.com</a>
 								</div>
 							</address>
 							<div class="social-icons">
@@ -445,7 +442,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 			
 		</footer>
