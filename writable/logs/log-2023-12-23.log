@@ -1,0 +1,16 @@
+CRITICAL - 2023-12-23 11:46:26 --> Undefined array key "status"
+in APPPATH\Controllers\HomepageController.php on line 180.
+ 1 APPPATH\Controllers\HomepageController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\laragon\\www\\ProjectSystem\\app\\Controllers\\HomepageController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ProjectSystem\\public\\index.php')
+CRITICAL - 2023-12-23 11:47:07 --> Undefined array key "status"
+in APPPATH\Controllers\HomepageController.php on line 180.
+ 1 APPPATH\Controllers\HomepageController.php(180): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "status"', 'C:\\laragon\\www\\ProjectSystem\\app\\Controllers\\HomepageController.php', 180)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ProjectSystem\\public\\index.php')

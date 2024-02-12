@@ -61,3 +61,8 @@ $routes->get('/homechat', 'RTCController::homechat');
 $routes->post('/chat', 'RTCController::chat');
 
 $routes->get('/send', 'RTCController::send');
+
+
+// In your routes file
+$routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
+

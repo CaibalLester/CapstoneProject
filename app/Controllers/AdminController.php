@@ -9,6 +9,9 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\AgentModel;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class AdminController extends BaseController
 {
 
@@ -16,12 +19,14 @@ class AdminController extends BaseController
     private $user;
     private $applicant;
     private $admin;
+    private $form;
     public function __construct()
     {
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
+        $this->form = new Form1Model();
     }
     public function AdDash()
     {
@@ -91,7 +96,7 @@ class AdminController extends BaseController
         $data['user'] = $userModel->find($userId);
         return $data;
     }
-    
+
     public function userSearch()
     {
         $session = session();
@@ -113,7 +118,7 @@ class AdminController extends BaseController
 
         return view('Admin/ManageApplicant', $data);
     }
-    
+
 
     // Controller method for searching agents by full name
     public function agentSearch()
@@ -152,7 +157,7 @@ class AdminController extends BaseController
 
         return $data;
     }
-    
+
     public function AdProfile()
     {
         $session = session();
@@ -309,6 +314,45 @@ class AdminController extends BaseController
 
         return redirect()->to('/AdSetting');
     }
+
+    public function generatePdf($id)
+    {
+        // Load the Form1Model
+        $form1Model = new Form1Model();
+
+        // Find the form data based on the user ID
+        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
+
+        // Check if the data is found
+        if (!$lifechangerFormData) {
+            // Handle the case where data is not found, redirect, or show an error
+            return redirect()->to('/'); // Change the URL or handle as needed
+        }
+
+        // Load your view content into a variable
+        $data['lifechangerform'] = $lifechangerFormData;
+        $html = view('Admin/details', $data);
+
+        // Create an instance of Dompdf
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
+
+        $dompdf = new Dompdf($options);
+
+        // Load HTML content to Dompdf
+        $dompdf->loadHtml($html);
+
+        // Set paper size
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF (first step)
+        $dompdf->render();
+
+        // Output PDF
+        $dompdf->stream('document.pdf', array('Attachment' => 0));
+    }
+
     public function RTC()
     {
         $data = array_merge($this->getData(), $this->getDataAd());
