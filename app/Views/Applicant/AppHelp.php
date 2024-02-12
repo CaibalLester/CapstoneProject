@@ -8,70 +8,45 @@
         <div class="container-fluid">
             <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                <ul class="nav flex-column h-100">         
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/AppDash">
+                                <a class="nav-link " aria-current="page" href="/AdDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-book me-2"></i>
-                                    Forms
-                                </a>
-                                <div class="collapse" id="manageDropdown">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <span><a class="nav-link" href="/AppForm1">
-                                                <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">LIFE CHANGER</span>
-                                            </a></span><br>
-                                            <a class="nav-link" href="/AppForm2">
-                                                <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">AIAL</span>
-                                            </a><br>
-                                            <a class="nav-link" href="/AppForm3">
-                                                <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">GROUP LIFE INSURANCE</span>
-                                            </a><br>
-                                            <a class="nav-link" href="/AppForm4">
-                                                <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
-                                            </a><br>
-                                            <a class="nav-link" href="/AppForm5">
-                                                <i class="bi-pen me-2"></i>
-                                                <span class="align-middle">STATEMENT OF UNDERTAKING</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li> -->
+
                             <li class="nav-item">
-                                <a class="nav-link" href="/AppForm1">
-                                <i class="bi-book me-2"></i>
-                                   Applicantion Form
+                                <a class="nav-link " aria-current="page" href="/ManageAgent">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Agents
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AppProfile">
+                                <a class="nav-link " aria-current="page" href="/ManageApplicant">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Applicants
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/AdProfile">
                                     <i class="bi-person me-2"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AppSetting">
+                                <a class="nav-link" href="/AdSetting">
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="/AppHelp">
+                                <a class="nav-link " href="/AdHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
@@ -84,8 +59,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </nav>
+                </div>
+            </nav>
 
                 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
@@ -94,45 +69,27 @@
 
                     <div class="row my-4">
                         <div class="col-lg-7 col-12">
-                            <div class="custom-block bg-white">
-                                <form class="custom-form search-form" action="#" method="post" role="form">
-                                    <div class="row">
-                                        <div class="col-lg-12 mb-2">
-                                            <h6>Search for the topics</h6>
-                                        </div>
-
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <input class="form-control mb-lg-0 mb-md-0" name="search" type="text" placeholder="Search" aria-label="Search">
-                                        </div>
-
-                                        <div class="col-lg-4 col-md-4 col-12">
-                                            <button type="submit" class="form-control">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                           
 
                             <div class="custom-block custom-block-faq">
-                                <h5 class="mb-4">Frequently Asked Questions</h5>
+                            <h5 class="mb-4">Frequently Asked Questions</h5>
 
-                                <strong class="d-block mb-2">What is Mini Finance Template?</strong>
+                            <strong class="d-block mb-2">What is Allianz PNB?</strong>
 
-                                <p>Mini Finance Template includes total 6 HTML pages for your customizations. It is free of charge provided by Tooplate website.</p>
-                                
-                                <strong class="d-block mt-3 mb-2">What is Free HTML Template?</strong>
+                            <p>Allianz PNB offers comprehensive insurance and investment solutions. With a range of products and services, it caters to diverse financial needs.</p>
 
-                                <p>Free HTML Template is a ready-made web page based on HTML CSS codes.</p>
+                            <strong class="d-block mt-3 mb-2">Does Allianz PNB offer financial planning services?</strong>
 
-                                <strong class="d-block mt-3 mb-2">What is the best code editor?</strong>
+                            <p>Yes, Allianz PNB provides financial planning services to help customers achieve their long-term financial goals.</p>
 
-                                <p>Popular code editors are Dreamweaver, Notepad++, Visual Studio Code, Rapid CSS, Sublime Text and Atom to edit HTML CSS JS codes and put in your own web contents.</p>
+                            <strong class="d-block mt-3 mb-2">How can I contact Allianz PNB for assistance?</strong>
 
-                                 <strong class="d-block mt-3 mb-2">Are all templates free to download?</strong>
+                            <p>You can reach Allianz PNB's customer support team through their hotline, email, or by visiting one of their branches.</p>
 
-                                 <p>Yes, all CSS templates are 100% free to download and use for your websites. You can also use them for learning HTML, CSS, and JavaScripts.</p>
-                            </div>
+                            <strong class="d-block mt-3 mb-2">Is Allianz PNB a reputable company?</strong>
+
+                            <p>Yes, Allianz PNB is a reputable company with a strong track record in providing reliable insurance and investment solutions.</p>
+                        </div>
                         </div>
 
                         <div class="col-lg-5 col-12">

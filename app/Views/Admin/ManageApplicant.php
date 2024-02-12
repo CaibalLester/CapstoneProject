@@ -10,37 +10,28 @@
         <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                     <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            
+                    <ul class="nav flex-column h-100">         
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/AdDash">
+                                <a class="nav-link " aria-current="page" href="/AdDash">
                                     <i class="bi-house-fill me-2"></i>
                                     Overview
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
+                                <a class="nav-link " aria-current="page" href="/ManageAgent">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Agents
                                 </a>
-                                <div class="collapse" id="manageDropdown">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
-                                            </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
                             </li>
-                            
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/ManageApplicant">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Applicants
+                                </a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="/AdProfile">
                                     <i class="bi-person me-2"></i>
@@ -56,7 +47,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
+                                <a class="nav-link " href="/AdHelp">
                                     <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
@@ -204,7 +195,7 @@
                                                 <div class="custom-block-profile-image-wrap mb-4">
                                                     <a href="/ViewAppForm/<?= $app['applicant_id']; ?>">
                                                         <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
-                                                            class="profile-image img-fluid" alt="">
+                                                        class="custom-block-profile-image img-fluid" alt="">
                                                     </a>
                                                 </div>
                                                 <strong class="mb-3">

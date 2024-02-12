@@ -1,163 +1,127 @@
 <!doctype html>
 <html lang="en">
-<?= view('Admin/chop/head') ?>
+<?= view('Admin/chop/head'); ?>
+    
+    <body>
+    <?= view('Admin/chop/header'); ?>
 
-<body>
-    <?= view('Admin/chop/header') ?>
-
-    <div class="container-fluid">
-        <div class="row">
+        <div class="container-fluid">
+            <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
-                    <ul class="nav flex-column h-100">
+                <ul class="nav flex-column h-100">         
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="/AdDash">
+                                    <i class="bi-house-fill me-2"></i>
+                                    Overview
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AdDash">
-                                <i class="bi-house-fill me-2"></i>
-                                Overview
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="/ManageAgent">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Agents
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown"
-                                aria-expanded="false">
-                                <i class="bi-wallet me-2"></i>
-                                Manage
-                            </a>
-                            <div class="collapse" id="manageDropdown">
-                                <ul class="nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/ManageAgent">
-                                            <i class="bi-person me-2"></i>
-                                            <span class="align-middle">Agents</span>
-                                        </a><br>
-                                        <a class="nav-link" href="ManageApplicant">
-                                            <i class="bi-person me-2"></i>
-                                            <span class="align-middle">Applicants</span>
-                                        </a>
-                                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="/ManageApplicant">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Applicants
+                                </a>
+                            </li>
 
-                                </ul>
-                            </div>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="/AdProfile">
+                                    <i class="bi-person me-2"></i>
+                                    Profile
+                                </a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="/AdSetting">
+                                    <i class="bi-gear me-2"></i>
+                                    Settings
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AdProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/AdHelp">
+                                    <i class="bi-question-circle me-2"></i>
+                                    Help Center
+                                </a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AdSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/AdHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
-                            </a>
-                        </li>
-
-                        <li class="nav-item border-top mt-auto pt-2">
-                            <a class="nav-link" href="/logout">
-                                <i class="bi-box-arrow-left me-2"></i>
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
+                            <li class="nav-item border-top mt-auto pt-2">
+                                <a class="nav-link" href="/logout">
+                                    <i class="bi-box-arrow-left me-2"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
                 </div>
             </nav>
 
-            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">How can we help?</h1>
-                </div>
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                    <div class="title-group mb-3">
+                        <h1 class="h2 mb-0">How can we help?</h1>
+                    </div>
 
-                <div class="row my-4">
-                    <div class="col-lg-7 col-12">
-                        <div class="custom-block bg-white">
-                            <form class="custom-form search-form" action="#" method="post" role="form">
-                                <div class="row">
-                                    <div class="col-lg-12 mb-2">
-                                        <h6>Search for the topics</h6>
-                                    </div>
+                    <div class="row my-4">
+                        <div class="col-lg-7 col-12">
+                           
 
-                                    <div class="col-lg-8 col-md-8 col-12">
-                                        <input class="form-control mb-lg-0 mb-md-0" name="search" type="text"
-                                            placeholder="Search" aria-label="Search">
-                                    </div>
-
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <button type="submit" class="form-control">
-                                            Submit
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="custom-block custom-block-faq">
+                            <div class="custom-block custom-block-faq">
                             <h5 class="mb-4">Frequently Asked Questions</h5>
 
-                            <strong class="d-block mb-2">What is Mini Finance Template?</strong>
+                            <strong class="d-block mb-2">What is Allianz PNB?</strong>
 
-                            <p>Mini Finance Template includes total 6 HTML pages for your customizations. It is free of
-                                charge provided by Tooplate website.</p>
+                            <p>Allianz PNB offers comprehensive insurance and investment solutions. With a range of products and services, it caters to diverse financial needs.</p>
 
-                            <strong class="d-block mt-3 mb-2">What is Free HTML Template?</strong>
+                            <strong class="d-block mt-3 mb-2">Does Allianz PNB offer financial planning services?</strong>
 
-                            <p>Free HTML Template is a ready-made web page based on HTML CSS codes.</p>
+                            <p>Yes, Allianz PNB provides financial planning services to help customers achieve their long-term financial goals.</p>
 
-                            <strong class="d-block mt-3 mb-2">What is the best code editor?</strong>
+                            <strong class="d-block mt-3 mb-2">How can I contact Allianz PNB for assistance?</strong>
 
-                            <p>Popular code editors are Dreamweaver, Notepad++, Visual Studio Code, Rapid CSS, Sublime
-                                Text and Atom to edit HTML CSS JS codes and put in your own web contents.</p>
+                            <p>You can reach Allianz PNB's customer support team through their hotline, email, or by visiting one of their branches.</p>
 
-                            <strong class="d-block mt-3 mb-2">Are all templates free to download?</strong>
+                            <strong class="d-block mt-3 mb-2">Is Allianz PNB a reputable company?</strong>
 
-                            <p>Yes, all CSS templates are 100% free to download and use for your websites. You can also
-                                use them for learning HTML, CSS, and JavaScripts.</p>
+                            <p>Yes, Allianz PNB is a reputable company with a strong track record in providing reliable insurance and investment solutions.</p>
                         </div>
-                    </div>
+                        </div>
 
-                    <div class="col-lg-5 col-12">
-                        <div class="custom-block custom-block-contact">
-                            <h6 class="mb-4">Still can’t find what you looking for?</h6>
+                        <div class="col-lg-5 col-12">
+                            <div class="custom-block custom-block-contact">
+                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
 
-                            <p>
-                                <strong>Call us:</strong>
-                                <a href="tel: 305-240-9671" class="ms-2">
-                                    (60)
-                                    305-240-9671
+                                <p>
+                                    <strong>Call us:</strong>
+                                    <a href="tel: 305-240-9671" class="ms-2">
+                                        (60) 
+                                        305-240-9671
+                                    </a>
+                                </p>
+
+                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
+                                    Chat with us
                                 </a>
-                            </p>
-
-                            <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                Chat with us
-                            </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                
+                            </div>
                         </div>
-                    </div>
-                </footer>
-            </main>
+                    </footer>
+                </main>
 
+            </div>
         </div>
-    </div>
-
-    <?= view('Admin/chop/js') ?>
-</body>
-
+        <?= view('Admin/chop/js'); ?>
+    </body>
 </html>

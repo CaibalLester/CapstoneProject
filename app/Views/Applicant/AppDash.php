@@ -91,7 +91,7 @@
                     <div class="title-group mb-3">
                         <h1 class="h2 mb-0">Overview</h1>
 
-                        <small class="text-muted">Hello  <a href="#"><?= $user['username'] ?></a>, welcome back!</small>
+                        <small class="text-muted">Hello  <a href="#"><?= $user['username'] ?></a>, welcome!</small>
                     </div>
 
                     <div class="row my-4">

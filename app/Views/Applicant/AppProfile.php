@@ -103,7 +103,8 @@
                                 <div class="col-lg-3 col-12 mb-4 mb-lg-0">
                                     <div class="custom-block-profile-image-wrap">
                                         <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
-                                            class="profile-image img-fluid" alt="">
+                                            class="custom-block-profile-image img-fluid" alt="">
+                                            <a href="/AppSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                                         <!-- <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a> -->
                                     </div>
                                 </div>

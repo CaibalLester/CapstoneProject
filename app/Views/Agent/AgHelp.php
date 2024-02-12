@@ -265,24 +265,24 @@
                             </div>
 
                             <div class="custom-block custom-block-faq">
-                                <h5 class="mb-4">Frequently Asked Questions</h5>
+                            <h5 class="mb-4">Frequently Asked Questions</h5>
 
-                                <strong class="d-block mb-2">What is Mini Finance Template?</strong>
+                            <strong class="d-block mb-2">What is Allianz PNB?</strong>
 
-                                <p>Mini Finance Template includes total 6 HTML pages for your customizations. It is free of charge provided by Tooplate website.</p>
-                                
-                                <strong class="d-block mt-3 mb-2">What is Free HTML Template?</strong>
+                            <p>Allianz PNB offers comprehensive insurance and investment solutions. With a range of products and services, it caters to diverse financial needs.</p>
 
-                                <p>Free HTML Template is a ready-made web page based on HTML CSS codes.</p>
+                            <strong class="d-block mt-3 mb-2">Does Allianz PNB offer financial planning services?</strong>
 
-                                <strong class="d-block mt-3 mb-2">What is the best code editor?</strong>
+                            <p>Yes, Allianz PNB provides financial planning services to help customers achieve their long-term financial goals.</p>
 
-                                <p>Popular code editors are Dreamweaver, Notepad++, Visual Studio Code, Rapid CSS, Sublime Text and Atom to edit HTML CSS JS codes and put in your own web contents.</p>
+                            <strong class="d-block mt-3 mb-2">How can I contact Allianz PNB for assistance?</strong>
 
-                                 <strong class="d-block mt-3 mb-2">Are all templates free to download?</strong>
+                            <p>You can reach Allianz PNB's customer support team through their hotline, email, or by visiting one of their branches.</p>
 
-                                 <p>Yes, all CSS templates are 100% free to download and use for your websites. You can also use them for learning HTML, CSS, and JavaScripts.</p>
-                            </div>
+                            <strong class="d-block mt-3 mb-2">Is Allianz PNB a reputable company?</strong>
+
+                            <p>Yes, Allianz PNB is a reputable company with a strong track record in providing reliable insurance and investment solutions.</p>
+                        </div>
                         </div>
 
                         <div class="col-lg-5 col-12">

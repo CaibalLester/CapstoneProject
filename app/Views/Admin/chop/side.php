@@ -1,7 +1,6 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                     <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            
+                    <ul class="nav flex-column h-100">         
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/AdDash">
                                     <i class="bi-house-fill me-2"></i>
@@ -10,25 +9,17 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
-                                    <i class="bi-wallet me-2"></i>
-                                    Manage
+                                <a class="nav-link " aria-current="page" href="/ManageAgent">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Agents
                                 </a>
-                                <div class="collapse" id="manageDropdown">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="/ManageAgent">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Agents</span>
-                                            </a><br>
-                                            <a class="nav-link" href="ManageApplicant">
-                                                <i class="bi-person me-2"></i>
-                                                <span class="align-middle">Applicants</span>
-                                            </a>
-                                        </li>
-                                        
-                                    </ul>
-                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="/ManageApplicant">
+                                    <i class="bi-person me-2"></i>
+                                    Manage Applicants
+                                </a>
                             </li>
 
                             <li class="nav-item">
@@ -43,7 +34,7 @@
                                     <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
-                            </li>
+                            </li> 
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/AdHelp">

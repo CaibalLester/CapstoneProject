@@ -180,7 +180,7 @@ class AdminController extends BaseController
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        $data = $this->getData();
+        $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdHelp', $data);
     }
     private function getData()

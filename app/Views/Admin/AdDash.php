@@ -12,7 +12,7 @@
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Overview</h1>
 
-                    <small class="text-muted">Hello Thomas, welcome back!</small>
+                    <small class="text-muted">Hello <?= $admin['username'] ?>, welcome back!</small>
                 </div>
 
                 <div class="row my-4">
@@ -34,7 +34,6 @@
                             <div class="custom-block-profile-image-wrap mb-4">
                                 <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
-
                                 <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
                             </div>
 
