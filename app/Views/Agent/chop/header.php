@@ -1,5 +1,5 @@
 <header class="navbar sticky-top flex-md-nowrap">
-    <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+    <div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
         <a class="navbar-brand" href="#">
             ALLIANZ AGENT
         </a>
@@ -12,7 +12,7 @@
 
     <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#"
         method="get" role="form">
-        <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
+        
     </form>
 
     <div class="navbar-nav me-lg-2">
