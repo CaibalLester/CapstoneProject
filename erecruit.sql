@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 15, 2023 at 06:42 AM
+-- Generation Time: Feb 17, 2024 at 03:55 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -30,24 +30,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int NOT NULL,
   `admin_id` int DEFAULT NULL,
-  `adminCode` varchar(255) DEFAULT NULL,
-  `username` varchar(255) NOT NULL,
-  `Adminfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `adminProfile` varchar(255) NOT NULL,
-  `number` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `branch` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `adminCode` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Adminfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `adminProfile` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `branch` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `email`, `adminProfile`, `number`, `address`, `birthday`, `division`, `branch`) VALUES
-(1, 92, 'RTRV24', 'Chris', 'Chrispin Tabirara', 'chris@gmail.com', '1702373569_7941ed27b651b5754d09.jpg', '09366581432', 'Lumangbayan Calapan City', '01/26/2003', 'Calapan', 'Calapan');
+(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'chris@gmail.com', '1702373569_7941ed27b651b5754d09.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'Mindoro', 'Calapan');
 
 -- --------------------------------------------------------
 
@@ -58,29 +58,30 @@ INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`,
 CREATE TABLE `agent` (
   `id` int NOT NULL,
   `agent_id` int DEFAULT NULL,
-  `AgentCode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `Agentfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `rank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `agentprofile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `AgentCode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Agentfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `agentprofile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'def.jpg',
   `FA` int DEFAULT NULL,
-  `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `agent`
 --
 
 INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `birthday`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`) VALUES
-(30, 103, 'TYT454', 'ellen@gmail.com', NULL, 'Ellen Leido Afable', NULL, '', NULL, NULL, NULL, NULL, 'Calapan', '2023-12-12 11:39:08'),
-(33, 102, 'OKC32H', 'jandeleido@gmail.com', 'Jandel123', 'Escalera, Jandel L.', '01/26/2003', '09366581432', 'Lumangbayan Calapan City', 'Diamond\r\n', '1702140511_b07ec347fa2c28deea57.jpg', 103, 'Calapan', '2023-12-12 11:39:08'),
+(30, 103, 'TYT454', 'ellen@gmail.com', 'Ellen', 'Ellen Leido Afable', NULL, '', NULL, NULL, 'def.jpg', NULL, 'Calapan', '2023-12-12 11:39:08'),
+(33, 102, 'OKC32H', 'jandeleido@gmail.com', 'Jandel123', 'Jandel Escalera', '2024-02-17', '09366581432', '123 street', 'Diamond\r\n', '1702140511_b07ec347fa2c28deea57.jpg', 103, 'Calapan', '2023-12-12 11:39:08'),
 (34, 106, 'OCAR39', 'jansen@gmail.com', 'Jansen', 'Jansen L. Afable', '04/28/2013', '09366581432', 'Lumangbayan Calapan City', NULL, '1702170998_824c36db020d0813d117.jpg', 102, 'Calapan', '2023-12-12 11:39:08'),
-(37, 108, '8CUXDJ', 'Lester@gmail.com', 'Lester', 'Lester Caibal', '2023-12-12', '09366581432', 'Lumangbayan calapan City', NULL, '1702299921_3d6289ce70e0f1850862.jpg', 102, 'Calapan', '2023-12-12 11:39:08');
+(37, 108, '8CUXDJ', 'Lester@gmail.com', 'Lester', 'Lester Caibal', '2023-12-12', '09366581432', 'Lumangbayan calapan City', NULL, '1702299921_3d6289ce70e0f1850862.jpg', 102, 'Calapan', '2023-12-12 11:39:08'),
+(38, 123, 'PFK1DR', 'alejandrogino950@gmail.com', 'Gino', 'Gino Alejandro', '2003-01-26', '09366581432', 'Lumangbayan calapan City', NULL, 'def.jpg', 102, 'Calapan', '2023-12-23 12:11:12');
 
 -- --------------------------------------------------------
 
@@ -91,32 +92,32 @@ INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentf
 CREATE TABLE `aial` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
-  `nonlife` varchar(255) DEFAULT NULL,
-  `life` varchar(255) DEFAULT NULL,
-  `varlife` varchar(255) DEFAULT NULL,
-  `accaAndHealth` varchar(255) DEFAULT NULL,
-  `othercb` varchar(255) DEFAULT NULL,
-  `othertb` varchar(255) DEFAULT NULL,
-  `agencyname` varchar(255) DEFAULT NULL,
-  `fname` varchar(255) DEFAULT NULL,
-  `nickname` varchar(255) DEFAULT NULL,
-  `birthday` varchar(255) NOT NULL,
-  `placeOfBirth` varchar(255) DEFAULT NULL,
-  `gender` varchar(10) DEFAULT NULL,
-  `bloodType` varchar(5) DEFAULT NULL,
-  `homeAddress` varchar(255) DEFAULT NULL,
-  `mobileNo` varchar(15) DEFAULT NULL,
-  `landline` varchar(15) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `citizenship` varchar(255) DEFAULT NULL,
-  `othersCitizenship` varchar(255) DEFAULT NULL,
-  `naturalizationInfo` varchar(255) DEFAULT NULL,
-  `maritalStatus` varchar(20) DEFAULT NULL,
-  `maidenName` varchar(255) DEFAULT NULL,
-  `spouseName` varchar(255) DEFAULT NULL,
-  `sssNo` varchar(20) DEFAULT NULL,
-  `tin` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nonlife` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `life` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `varlife` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `accaAndHealth` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `othercb` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `othertb` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `agencyname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nickname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `birthday` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `placeOfBirth` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `gender` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bloodType` varchar(5) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `homeAddress` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mobileNo` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `landline` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `citizenship` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `othersCitizenship` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `naturalizationInfo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maritalStatus` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maidenName` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `spouseName` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sssNo` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tin` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `aial`
@@ -135,33 +136,28 @@ INSERT INTO `aial` (`id`, `user_id`, `nonlife`, `life`, `varlife`, `accaAndHealt
 CREATE TABLE `applicant` (
   `id` int NOT NULL,
   `applicant_id` int NOT NULL,
-  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `number` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `birthday` varchar(255) NOT NULL,
-  `branch` varchar(255) NOT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'pending',
-  `profile` varchar(255) DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `applicantfullname` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `birthday` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `branch` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pending',
+  `profile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'def.jpg',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `number`, `email`, `birthday`, `branch`, `status`, `profile`, `created_at`) VALUES
-(14, 102, 'Escalera Jandel Leido', '09366581432', 'jandeleido@gmail.com', '04/23/1971', 'Calapan', 'confirmed', '1702140511_b07ec347fa2c28deea57.jpg', '2023-12-09 16:14:41'),
-(18, 105, 'Jeff', '09366581432', 'jefframos@gmail.com', '04/23/1971', 'Calapan', 'confirmed', '1702169305_eb9da4b981fca946528e.jpg', '2023-12-10 00:26:50'),
-(20, 106, 'Jansen', '09366581432', 'jansen@gmail.com', '04/28/2013', 'Calapan', 'confirmed', '1702170998_824c36db020d0813d117.jpg', '2023-12-10 01:15:07'),
-(21, 107, 'macmacsantos', '09366581432', 'mac@gmail.com', '', 'Calapan', 'pending', '1702374979_8b10bbfe889637eb635c.jpg', '2023-12-11 08:40:48'),
-(22, 108, 'Lester', '09366581432', 'Lester@gmail.com', '04/23/1971', 'Calapan', 'confirmed', '1702299921_3d6289ce70e0f1850862.jpg', '2023-12-11 13:04:44'),
-(29, 112, 'Gino', '', 'alejandrogino950@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 04:55:46'),
-(30, 116, 'Smith', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:04:15'),
-(31, 117, 'Smith', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:06:19'),
-(32, 118, 'Smith', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:15:16'),
-(33, 119, 'janz', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:17:35'),
-(34, 120, 'admin', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:27:30'),
-(35, 121, 'admin', '', 'smithlednaj@gmail.com', '', 'Calapan', 'pending', NULL, '2023-12-15 06:30:11');
+INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `applicantfullname`, `number`, `email`, `birthday`, `branch`, `status`, `profile`, `created_at`) VALUES
+(14, 102, 'Escalera Jandel Leido', '', '09366581432', 'jandeleido@gmail.com', '', 'Calapan', 'confirmed', '1702140511_b07ec347fa2c28deea57.jpg', '2023-12-09 16:14:41'),
+(18, 105, 'Jeff', '', '09366581432', 'jefframos@gmail.com', '', 'Calapan', 'confirmed', '1702169305_eb9da4b981fca946528e.jpg', '2023-12-10 00:26:50'),
+(22, 108, 'Lester', '', '09366581432', 'Lester@gmail.com', '', 'Calapan', 'confirmed', '1702299921_3d6289ce70e0f1850862.jpg', '2023-12-11 13:04:44'),
+(37, 123, 'Gino', '', '09366581432', 'alejandrogino950@gmail.com', '', 'Calapan', 'confirmed', 'def.jpg', '2023-12-23 12:07:09'),
+(38, 124, 'Jansen1', '', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'Calapan', 'pending', '1708178522_888f94df79b88c411264.webp', '2024-02-02 12:03:03'),
+(41, 129, 'water', 'Jandel Escalera', '09366581432', 'qwe@gmail.com', '2024-02-13', 'Calapan', 'pending', 'def.jpg', '2024-02-17 13:12:40');
 
 -- --------------------------------------------------------
 
@@ -172,10 +168,10 @@ INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `number`, `email`, `b
 CREATE TABLE `chat` (
   `id` int NOT NULL,
   `sender` int NOT NULL,
-  `message` varchar(1000) DEFAULT NULL,
+  `message` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `recipient` int NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `chat`
@@ -205,71 +201,71 @@ CREATE TABLE `lifechangerform` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `position` varchar(255) DEFAULT NULL,
-  `preferredArea` varchar(255) DEFAULT NULL,
+  `position` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `preferredArea` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `referralBy` int DEFAULT NULL,
-  `referral` varchar(255) DEFAULT NULL,
-  `onlineAd` varchar(255) DEFAULT NULL,
-  `walkIn` varchar(255) DEFAULT NULL,
-  `othersRef` varchar(255) DEFAULT NULL,
-  `fname` varchar(255) DEFAULT NULL,
-  `nickname` varchar(255) DEFAULT NULL,
+  `referral` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `onlineAd` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `walkIn` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `othersRef` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nickname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
-  `placeOfBirth` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `bloodType` varchar(255) DEFAULT NULL,
-  `homeAddress` varchar(255) DEFAULT NULL,
-  `mobileNo` varchar(255) DEFAULT NULL,
-  `landline` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `citizenship` varchar(255) DEFAULT NULL,
-  `othersCitizenship` varchar(255) DEFAULT NULL,
-  `naturalizationInfo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'N/A',
-  `maritalStatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `maidenName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `spouseName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `sssNo` varchar(255) DEFAULT NULL,
-  `tin` varchar(255) DEFAULT NULL,
-  `lifeInsuranceExperience` varchar(50) DEFAULT NULL,
-  `traditional` varchar(50) DEFAULT NULL,
-  `variable` varchar(50) DEFAULT NULL,
-  `recentInsuranceCompany` varchar(50) DEFAULT NULL,
-  `highSchool` varchar(50) NOT NULL,
-  `highSchoolCourse` varchar(50) NOT NULL,
-  `highSchoolYear` varchar(50) NOT NULL,
-  `college` varchar(50) NOT NULL,
-  `collegeCourse` varchar(50) NOT NULL,
-  `collegeYear` varchar(50) NOT NULL,
-  `graduateSchool` varchar(50) NOT NULL,
-  `graduateCourse` varchar(50) NOT NULL,
-  `graduateYear` varchar(50) NOT NULL,
-  `companyName1` varchar(50) NOT NULL,
-  `position1` varchar(50) NOT NULL,
-  `employmentFrom1` varchar(50) NOT NULL,
-  `employmentTo1` varchar(50) NOT NULL,
-  `reason1` varchar(50) NOT NULL,
-  `companyName2` varchar(50) NOT NULL,
-  `position2` varchar(50) NOT NULL,
-  `employmentFrom2` varchar(50) NOT NULL,
-  `employmentTo2` varchar(50) NOT NULL,
-  `reason2` varchar(50) NOT NULL,
-  `companyName3` varchar(50) NOT NULL,
-  `position3` varchar(50) NOT NULL,
-  `employmentFrom3` varchar(50) NOT NULL,
-  `employmentTo3` varchar(50) NOT NULL,
-  `reason3` varchar(50) NOT NULL,
-  `companyName` varchar(50) NOT NULL,
-  `resposition` varchar(50) NOT NULL,
-  `contactName` varchar(50) NOT NULL,
-  `contactPosition` varchar(50) NOT NULL,
-  `emailAddress` varchar(50) NOT NULL,
-  `contactNumber` varchar(50) NOT NULL,
-  `yescuremployed` varchar(50) NOT NULL,
-  `nocuremployed` varchar(50) NOT NULL,
-  `allowed` varchar(50) NOT NULL,
-  `notallowed` varchar(50) NOT NULL,
-  `ifnoProvdtls` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `placeOfBirth` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `bloodType` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `homeAddress` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mobileNo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `landline` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `citizenship` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `othersCitizenship` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `naturalizationInfo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'N/A',
+  `maritalStatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `maidenName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `spouseName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sssNo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tin` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lifeInsuranceExperience` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `traditional` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `variable` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `recentInsuranceCompany` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `highSchool` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `highSchoolCourse` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `highSchoolYear` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `college` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `collegeCourse` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `collegeYear` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `graduateSchool` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `graduateCourse` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `graduateYear` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `companyName1` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `position1` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentFrom1` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentTo1` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `reason1` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `companyName2` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `position2` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentFrom2` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentTo2` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `reason2` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `companyName3` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `position3` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentFrom3` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `employmentTo3` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `reason3` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `companyName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `resposition` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `contactName` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `contactPosition` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `emailAddress` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `contactNumber` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `yescuremployed` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nocuremployed` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `allowed` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `notallowed` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `ifnoProvdtls` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `lifechangerform`
@@ -279,11 +275,9 @@ INSERT INTO `lifechangerform` (`id`, `user_id`, `created_at`, `position`, `prefe
 (135, 102, '2023-12-09 16:14:41', 'Agent', 'Calapan', 103, 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
 (137, 105, '2023-12-10 00:26:50', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Jeff Ramos', 'Jeff', '2023-12-13', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jefframos@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
 (138, 106, '2023-12-10 01:15:07', 'Agent', 'Calapan City', 102, 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansen@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'yes', 'No', 'variable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(139, 107, '2023-12-11 08:40:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
 (140, 108, '2023-12-11 13:04:44', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Lester Caibal', 'Lester', '2023-12-12', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'Lester@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(148, 119, '2023-12-15 06:17:35', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(149, 120, '2023-12-15 06:27:30', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(150, 121, '2023-12-15 06:30:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+(152, 123, '2023-12-23 12:07:09', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Gino Alejandro', 'Gino', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'alejandrogino950@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(153, 124, '2024-02-02 12:03:03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -293,16 +287,16 @@ INSERT INTO `lifechangerform` (`id`, `user_id`, `created_at`, `position`, `prefe
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
-  `email` text NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `password` text NOT NULL,
-  `role` text NOT NULL,
-  `branch` varchar(255) NOT NULL,
-  `status` text NOT NULL,
-  `token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `verification_token` varchar(255) NOT NULL,
+  `email` text COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` text COLLATE utf8mb4_general_ci NOT NULL,
+  `role` text COLLATE utf8mb4_general_ci NOT NULL,
+  `branch` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` text COLLATE utf8mb4_general_ci NOT NULL,
+  `token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `verification_token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -310,14 +304,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `branch`, `status`, `token`, `verification_token`, `created_at`) VALUES
 (92, 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', 'admin', 'Calapan', 'verified', NULL, '', '2023-12-09 16:58:18'),
-(102, 'jandeleido@gmail.com', 'Jandel', '$2y$10$4th1siGkqQfP/DQ47qyjSuQ4qgTL6vupu0wuo0t1sAamq9WxNbze.', 'agent', 'Calapan', 'verified', '76789c3cc6d2900ea289388dc5d34340', '', '2023-12-09 16:58:18'),
-(103, 'ellenleido@gmail.com', 'Ellen', '123123', 'agent', 'Calapan', 'verified', 'f6d43fb8df04b24a6094d113eeb988ba', '', '2023-12-09 16:58:18'),
+(102, 'jandeleido@gmail.com', 'Jandel', '$2y$10$d8vLbog1/OGADVKskx6gEujIDWFbVBZBR9YXFMRhaG/EaJRoWULEO', 'agent', 'Calapan', 'verified', '821e4f0072f3a10b1aa7f8891ca16ffb', '', '2023-12-09 16:58:18'),
+(103, 'ellenleido@gmail.com', 'Ellen', '$2y$10$DSUPPIBHTNLGTrlG7NBtx.CboXb9RER5.3VimJVRaLeEuDik5LU26', 'agent', 'Calapan', 'verified', '5f1b5bcc9cbaedd571cf2444295a823d', '', '2023-12-09 16:58:18'),
 (105, 'jefframos@gmail.com', 'Jeff', '$2y$10$OfGZYKOXkC.bMd7.PuuouuRqtCu4Vhu2BSQS9yrTz8O1gmleULKBa', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-10 00:26:50'),
-(106, 'jansen@gmail.com', 'Jansen', '$2y$10$eMvTGRqwIQq79yxC0ULFquuKOqn9XaBmRgCgwzBThiGatFaHFTAy.', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-10 01:15:07'),
-(107, 'mac@gmail.com', 'macmac', '$2y$10$Z7NlizJl/pJ1wxx7ugZ3V.TzWAOFUdxhVrH0ls.S3X6wB9AeGQcQu', 'applicant', 'Calapan', 'verified', NULL, '', '2023-12-11 08:40:48'),
 (108, 'Lester@gmail.com', 'Lester', '$2y$10$0pmJA1g4hfxCOVUsh0EZLOoZlG2qNcLasmRRyv6lYlVCCGoYcf8.y', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-11 13:04:44'),
-(112, 'alejandrogino950@gmail.com', 'Gino', '$2y$10$kpSBmnC3nPA5NnrcFxpO8.K6GXi2yAEDd5V72M65HBl2wvL8/QgL2', 'applicant', 'Calapan', 'verified', '3d6ce594a93bb0ff855a106dc3ba9f30', '', '2023-12-15 04:55:46'),
-(121, 'smithlednaj@gmail.com', 'admin', '$2y$10$gT6tSS8G94WCAGaG0i0seOyoFKFcxINOxezQvR/PSCQS8RxyRq1Cm', 'applicant', 'Calapan', 'verified', NULL, '', '2023-12-15 06:30:11');
+(123, 'alejandrogino950@gmail.com', 'Gino', '$2y$10$oEEDwC5rGI56xiQp6gj6AeFqjE6G7LV/qgDmAnELclYf6yW25wX3S', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-23 12:07:09'),
+(124, 'escalerajandel@gmail.com', 'Jansen123123', '$2y$10$gjpsPbZEdnxz4v0URYBlUOZsYuB1/Jvb4LVv8cdaPVECd50Y3.vQK', 'applicant', 'Calapan', 'verified', NULL, '', '2024-02-02 12:03:03'),
+(125, 'test@gmail.com', 'test123', '$2y$10$is9GRwv55RVeVCK.G/cGq.jDxqWbIFlrMLJeAMbt8SuvRNlZkcGZq', 'applicant', 'Calapan', 'verified', '5646424aa32b9bf8fead8343ad49d9cd', '', '2024-02-04 11:33:15'),
+(129, 'qwe@gmail.com', 'qwe', '$2y$10$tNFMlc5lq2hZ2wW3wRtfOuj0Oz.Pyt3hCp53G34y49zk1T7KBM.x2', 'applicant', 'Calapan', 'verified', '3d195daf9fbdc3f10a8bdfe2e4d7d149', '', '2024-02-17 13:12:40');
 
 --
 -- Indexes for dumped tables
@@ -390,7 +384,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `aial`
@@ -402,7 +396,7 @@ ALTER TABLE `aial`
 -- AUTO_INCREMENT for table `applicant`
 --
 ALTER TABLE `applicant`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -414,13 +408,13 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `lifechangerform`
 --
 ALTER TABLE `lifechangerform`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- Constraints for dumped tables

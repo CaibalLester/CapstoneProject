@@ -143,6 +143,7 @@ class AppController extends BaseController
 
         // Add other form data to the data array
         $data += [
+            'applicantfullname' => $this->request->getVar('applicantfullname'),
             'username' => $this->request->getVar('username'),
             'number' => $this->request->getVar('number'),
             'email' => $this->request->getVar('email'),

@@ -8,17 +8,17 @@
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/AppDash">
-                                    <i class="bi-house-fill me-2"></i>
-                                    Overview
-                                </a>
-                            </li>
-                            <!-- <li class="nav-item">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/AppDash">
+                                <i class="bi-house-fill me-2"></i>
+                                Overview
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
                                     <i class="bi-book me-2"></i>
                                     Forms
@@ -50,43 +50,43 @@
                                     </ul>
                                 </div>
                             </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppForm1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppForm1">
                                 <i class="bi-book me-2"></i>
-                                   Applicantion Form
-                                </a>
-                            </li>
+                                Applicantion Form
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppProfile">
-                                    <i class="bi-person me-2"></i>
-                                    Profile
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppProfile">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AppSetting">
-                                    <i class="bi-gear me-2"></i>
-                                    Settings
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/AppSetting">
+                                <i class="bi-gear me-2"></i>
+                                Settings
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppHelp">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help Center
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppHelp">
+                                <i class="bi-question-circle me-2"></i>
+                                Help Center
+                            </a>
+                        </li>
 
-                            <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="/logout">
-                                    <i class="bi-box-arrow-left me-2"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="/logout">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
@@ -124,55 +124,73 @@
                                     <h6 class="mb-4">Applicant Profile</h6>
 
                                     <form class="custom-form profile-form" action="/svap" method="post"
-                                        enctype="multipart/form-data">
-                                        <input class="form-control" type="text" name="username" id="profile-name"
-                                            placeholder="Full name"
-                                            value="<?= isset($applicant['username']) ? $applicant['username'] : '' ?>">
-                                        <input class="form-control" type="email" name="email" placeholder="Email"
-                                            value="<?= isset($applicant['email']) ? $applicant['email'] : '' ?>">
-                                        <input class="form-control" type="text" name="number"
-                                            placeholder="Please Enter Your Number"
-                                            value="<?= isset($applicant['number']) ? $applicant['number'] : '' ?>">
-                                        <input class="form-control" type="text" name="birthday"
-                                            placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                            value="<?= isset($applicant['birthday']) ? $applicant['birthday'] : '' ?>">
-                                        <input class="form-control" type="text" name="branch" placeholder="Branch"
-                                            value="<?= $user['branch']; ?>" readonly>
+                                        enctype="multipart/form-data" onsubmit="return confirmSubmit()">
 
-                                        <div class="input-group mb-1">
-                                            <img id="preview-image"
-                                                src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
-                                                class="profile-image img-fluid" alt="">
-
-                                            <input type="file" name="profile" class="form-control" id="inputGroupFile02"
-                                                onchange="previewImage()">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input class="form-control" type="text" name="username"
+                                                    id="profile-name" placeholder="Full name"
+                                                    value="<?= isset($applicant['username']) ? $applicant['username'] : '' ?>">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label for="applicantfullname" class="form-label">Full Name</label>
+                                                <input class="form-control" type="text" name="applicantfullname"
+                                                    id="profile-name" placeholder="Full name"
+                                                    value="<?= isset($applicant['applicantfullname']) ? $applicant['applicantfullname'] : '' ?>">
+                                            </div>
                                         </div>
 
-                                        <div class="d-flex">
-                                            <button type="submit" class="form-control ms-2">Save</button>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="number" class="form-label">Number</label>
+                                                <input class="form-control" type="text" name="number"
+                                                    placeholder="Please Enter Your Number"
+                                                    value="<?= isset($applicant['number']) ? $applicant['number'] : '' ?>">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input class="form-control" type="email" name="email"
+                                                    placeholder="Email"
+                                                    value="<?= isset($applicant['email']) ? $applicant['email'] : '' ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="birthday" class="form-label">Birthday</label>
+                                                <input class="form-control" type="date" name="birthday"
+                                                    placeholder="Please Enter your Birthday mm/dd/yyyy"
+                                                    value="<?= isset($applicant['birthday']) ? $applicant['birthday'] : '' ?>">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="branch" class="form-label">Branch</label>
+                                                <input class="form-control" type="text" name="branch"
+                                                    placeholder="Branch" value="<?= $user['branch']; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-1">
+                                                    <img id="preview-image"
+                                                        src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                                        class="profile-image img-fluid" alt="">
+                                                    <input type="file" name="profile" class="form-control"
+                                                        id="inputGroupFile02" onchange="previewImage()">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex">
+                                                    <button type="submit" class="form-control ms-2">Save</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
-
-                                    <script>
-                                        function previewImage() {
-                                            const input = document.getElementById('inputGroupFile02');
-                                            const preview = document.getElementById('preview-image');
-
-                                            const file = input.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onloadend = function () {
-                                                preview.src = reader.result;
-                                            };
-
-                                            if (file) {
-                                                reader.readAsDataURL(file);
-                                            } else {
-                                                preview.src = 'default_path_here';
-                                            }
-                                        }
-                                    </script>
-
                                 </div>
 
                                 <div class="tab-pane fade" id="password-tab-pane" role="tabpanel"
@@ -180,7 +198,7 @@
                                     <h6 class="mb-4">Password</h6>
 
                                     <form class="custom-form password-form" action="/updatePassword" method="post"
-                                        role="form">
+                                        role="form" onsubmit="return confirmSubmitpassword()">
                                         <input type="password" name="current_password" id="current_password"
                                             pattern="[0-9a-zA-Z]{4,10}" class="form-control"
                                             placeholder="Current Password" required="">
@@ -202,7 +220,7 @@
                                 </div>
 
 
-                                <!-- <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel"
+                                <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel"
                                     aria-labelledby="notification-tab" tabindex="0">
                                     <h6 class="mb-4">Notification</h6>
 
@@ -236,26 +254,10 @@
                                             </button>
                                         </div>
                                     </form>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="col-lg-5 col-12">
-                        <div class="custom-block custom-block-contact">
-                            <h6 class="mb-4">Still can't find what you looking for?</h6>
-                            <p>
-                                <strong>Call us:</strong>
-                                <a href="tel: 305-240-9671" class="ms-2">
-                                    (60)
-                                    305-240-9671
-                                </a>
-                            </p>
-                            <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                Chat with us
-                            </a>
-                        </div>
-                    </div> -->
                 </div>
                 <footer class="site-footer">
                     <div class="container">
@@ -269,7 +271,31 @@
     </div>
 
     <?= view('Applicant/chop/js'); ?>
+    <script>
+        function confirmSubmit() {
+            return confirm("Are you sure you want to update your Profile?");
+        }
+        function confirmSubmitpassword() {
+            return confirm("Are you sure you want to update your Password?");
+        }
+        function previewImage() {
+            const input = document.getElementById('inputGroupFile02');
+            const preview = document.getElementById('preview-image');
 
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = 'default_path_here';
+            }
+        }
+    </script>
 </body>
 
 </html>

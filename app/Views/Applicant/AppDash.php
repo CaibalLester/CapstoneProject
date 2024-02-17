@@ -91,7 +91,7 @@
                     <div class="title-group mb-3">
                         <h1 class="h2 mb-0">Overview</h1>
 
-                        <small class="text-muted">Hello  <a href="#"><?= $user['username'] ?></a>, welcome!</small>
+                        <small class="text-muted">Hello  <a href="#"><?= $applicant['username'] ?></a>, welcome!</small>
                     </div>
 
                     <div class="row my-4">
@@ -113,7 +113,7 @@
                                     <strong>Name:</strong>
 
                                     <a href="#">
-                                    <?= $user['username'] ?>
+                                    <?= $applicant['username'] ?>
                                     </a>
                                 </p>
 
@@ -121,7 +121,7 @@
                                     <strong>Email:</strong>
                                     
                                     <a href="#">
-                                    <?= $user['email'] ?>
+                                    <?= $applicant['email'] ?>
                                     </a>
                                 </p>
 

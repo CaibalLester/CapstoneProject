@@ -50,6 +50,7 @@ class HomepageController extends BaseController
             'branch' => 'required|min_length[3]|max_length[50]',
         ];
         $verificationToken = bin2hex(random_bytes(16));
+        $Token = bin2hex(random_bytes(16));
         if ($this->validate($rules)) {
             $userModel = new UserModel();
             $applicantModel = new ApplicantModel();
@@ -60,9 +61,9 @@ class HomepageController extends BaseController
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'branch' => $this->request->getVar('branch'),
-                'role' => 'applicant',
-                'status' => 'pending',
-                'verification_token' => $verificationToken,
+                'role' => $this->request->getVar('role'),
+                'status' => 'verified',
+                'token' => $Token,
             ];
 
             // Insert user data into the users table
@@ -76,7 +77,12 @@ class HomepageController extends BaseController
                 'username' => $this->request->getVar('username'),
                 'email' => $this->request->getVar('email'),
                 'branch' => $this->request->getVar('branch'),
+                'applicantfullname' => $this->request->getVar('firstname') . ' ' . $this->request->getVar('lastname'),
+                'birthday' => $this->request->getVar('birthday'),
+                'number' => $this->request->getVar('number'),
+                'token' => $Token,
             ];
+            //Insert here the customer logic to save information
 
             // Insert applicant data into the applicant table
             $applicantModel->save($applicantData);
@@ -132,7 +138,6 @@ class HomepageController extends BaseController
     }
 
 
-
     public function verifyEmail($token)
     {
         $userModel = new UserModel();
@@ -156,7 +161,6 @@ class HomepageController extends BaseController
             return redirect()->to('/login')->with('error', 'Invalid or expired verification token.');
         }
     }
-
 
 
     public function authlog()
@@ -237,7 +241,14 @@ class HomepageController extends BaseController
 
                 $userModel->update($userId, ['password' => $newPassword]);
 
-                return redirect()->to('/AgSetting');
+                if ($userData['role'] == 'applicant') {
+                    return redirect()->to('/AppSetting');
+                } elseif (($userData['role'] == 'agent')){
+                    return redirect()->to('/AgSetting');
+                } elseif (($userData['role'] == 'admin')){
+                    return redirect()->to('/AdSetting');
+                }
+
             } else {
                 echo 'Current password is incorrect.';
             }
@@ -251,7 +262,6 @@ class HomepageController extends BaseController
     {
         return view("Home/forgot");
     }
-
     public function sendResetLink()
     {
         $userEmail = $this->request->getVar('email');

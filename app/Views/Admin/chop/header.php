@@ -142,10 +142,10 @@
 
                             <div class="d-flex flex-column">
                                 <small>
-                                    <?= $user['username'] ?>
+                                    <?= $admin['username'] ?>
                                 </small>
                                 <a href="">
-                                    <?= $user['email'] ?>
+                                    <?= $admin['email'] ?>
                                 </a>
                             </div>
                         </div>

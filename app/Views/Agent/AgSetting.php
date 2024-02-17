@@ -82,65 +82,82 @@
                                     <h6 class="mb-4">Applicant Profile</h6>
 
                                     <form class="custom-form profile-form" action="/svag" method="post"
-                                        enctype="multipart/form-data">
-                                        <input class="form-control" type="text" name="Agentfullname" id="profile-name"
-                                            placeholder="Full name"
-                                            value="<?= isset($agent['Agentfullname']) ? $agent['Agentfullname'] : '' ?>">
+                                        enctype="multipart/form-data" onsubmit="return confirmSubmit()">
 
-                                        <input class="form-control" type="username" name="username"
-                                            placeholder="Username"
-                                            value="<?= isset($agent['username']) ? $agent['username'] : '' ?>">
-
-                                        <input class="form-control" type="email" name="email" placeholder="Email"
-                                            value="<?= isset($agent['email']) ? $agent['email'] : '' ?>">
-
-                                        <input class="form-control" type="text" name="number"
-                                            placeholder="Please Enter Your Number"
-                                            value="<?= isset($agent['number']) ? $agent['number'] : '' ?>">
-                                        <input class="form-control" type="text" name="birthday"
-                                            placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                            value="<?= isset($agent['birthday']) ? $agent['birthday'] : '' ?>">
-
-                                        <input class="form-control" type="text" name="address"
-                                            placeholder="Please Enter your Adress"
-                                            value="<?= isset($agent['address']) ? $agent['address'] : '' ?>">
-
-                                        <input class="form-control" type="text" name="branch" placeholder="Branch"
-                                            value="<?= isset($agent['branch']) ? $agent['branch'] : '' ?>" readonly>
-
-                                        <div class="input-group mb-1">
-                                            <img id="preview-image"
-                                                src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>"
-                                                class="profile-image img-fluid" alt="">
-
-                                            <input type="file" name="profile" class="form-control" id="inputGroupFile02"
-                                                onchange="previewImage()">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input class="form-control" type="username" name="username"
+                                                    placeholder="Username"
+                                                    value="<?= isset($agent['username']) ? $agent['username'] : '' ?>">
+                                            </div>
+                                            <div class="col-md-9">
+                                                <label for="applicantfullname" class="form-label">Full Name</label>
+                                                <input class="form-control" type="text" name="Agentfullname"
+                                                    id="profile-name" placeholder="Full name"
+                                                    value="<?= isset($agent['Agentfullname']) ? $agent['Agentfullname'] : '' ?>">
+                                            </div>
                                         </div>
 
-                                        <div class="d-flex">
-                                            <button type="submit" class="form-control ms-2">Save</button>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="number" class="form-label">Number</label>
+                                                <input class="form-control" type="text" name="number"
+                                                    placeholder="Please Enter Your Number"
+                                                    value="<?= isset($agent['number']) ? $agent['number'] : '' ?>">
+                                            </div>
+
+                                            <div class="col-md-5">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input class="form-control" type="email" name="email"
+                                                    placeholder="Email"
+                                                    value="<?= isset($agent['email']) ? $agent['email'] : '' ?>">
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <label for="birthday" class="form-label">Birthday</label>
+                                                <input class="form-control" type="date" name="birthday"
+                                                    placeholder="Please Enter your Birthday mm/dd/yyyy"
+                                                    value="<?= isset($agent['birthday']) ? $agent['birthday'] : '' ?>">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="address" class="form-label">Complete Address</label>
+                                                <input class="form-control" type="text" name="address"
+                                                    placeholder="Address"
+                                                    value="<?= isset($agent['address']) ? $agent['address'] : '' ?>">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="branch" class="form-label">Branch</label>
+                                                <input class="form-control" type="text" name="branch"
+                                                    placeholder="Branch" value="<?= $user['branch']; ?>" readonly>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="input-group mb-1">
+                                                    <img id="preview-image"
+                                                        src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>"
+                                                        class="profile-image img-fluid" alt="">
+                                                    <input type="file" name="profile" class="form-control"
+                                                        id="inputGroupFile02" onchange="previewImage()">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="d-flex">
+                                                    <button type="submit" class="form-control ms-2">Save</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
-
-                                    <script>
-                                        function previewImage() {
-                                            const input = document.getElementById('inputGroupFile02');
-                                            const preview = document.getElementById('preview-image');
-
-                                            const file = input.files[0];
-                                            const reader = new FileReader();
-
-                                            reader.onloadend = function () {
-                                                preview.src = reader.result;
-                                            };
-
-                                            if (file) {
-                                                reader.readAsDataURL(file);
-                                            } else {
-                                                preview.src = 'default_path_here';
-                                            }
-                                        }
-                                    </script>
 
                                 </div>
 
@@ -149,7 +166,7 @@
                                     <h6 class="mb-4">Password</h6>
 
                                     <form class="custom-form password-form" action="/updatePassword" method="post"
-                                        role="form">
+                                        role="form" onsubmit="return confirmSubmitpassword()">
                                         <input type="password" name="current_password" id="current_password"
                                             pattern="[0-9a-zA-Z]{4,10}" class="form-control"
                                             placeholder="Current Password" required="">
@@ -163,7 +180,8 @@
                                             placeholder="Confirm Password" required="">
 
                                         <div class="d-flex">
-                                            <button type="button" class="form-control me-3">Reset</button>
+                                            <button type="button" class="form-control me-3"
+                                                onclick="resetPasswordFields()">Clear</button>
 
                                             <button type="submit" class="form-control ms-2">Update Password</button>
                                         </div>
@@ -187,7 +205,40 @@
 
     <!-- JAVASCRIPT FILES -->
     <?= view('Agent/chop/js') ?>
+    <script>
 
+        function resetPasswordFields() {
+            document.getElementById('current_password').value = '';
+            document.getElementById('new_password').value = '';
+            document.getElementById('confirm_new_password').value = '';
+        }
+
+        function confirmSubmit() {
+            return confirm("Are you sure you want to update your Profile?");
+        }
+
+        function confirmSubmitpassword() {
+            return confirm("Are you sure you want to update your Password?");
+        }
+
+        function previewImage() {
+            const input = document.getElementById('inputGroupFile02');
+            const preview = document.getElementById('preview-image');
+
+            const file = input.files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                preview.src = reader.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = 'default_path_here';
+            }
+        }
+    </script>
 </body>
 
 </html>

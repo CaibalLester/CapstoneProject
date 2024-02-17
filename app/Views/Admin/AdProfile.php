@@ -92,6 +92,14 @@
                                     </p>
 
                                     <p class="d-flex flex-wrap mb-2">
+                                        <strong>Full Name:</strong>
+
+                                        <span>
+                                            <?= $admin['Adminfullname'] ?>
+                                        </span>
+                                    </p>
+
+                                    <p class="d-flex flex-wrap mb-2">
                                         <strong>Email:</strong>
 
                                         <a href="#">

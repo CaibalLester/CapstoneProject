@@ -114,7 +114,15 @@
                                         <strong>User Name:</strong>
 
                                         <span>
-                                            <?= $user['username'] ?>
+                                            <?= $applicant['username'] ?>
+                                        </span>
+                                    </p>
+
+                                    <p class="d-flex flex-wrap mb-2">
+                                        <strong>Full Name:</strong>
+
+                                        <span>
+                                            <?= $applicant['applicantfullname'] ?>
                                         </span>
                                     </p>
 
@@ -122,7 +130,7 @@
                                         <strong>Email:</strong>
 
                                         <a href="#">
-                                            <?= $user['email'] ?>
+                                            <?= $applicant['email'] ?>
                                         </a>
                                     </p>
 
@@ -137,10 +145,9 @@
                                     <p class="d-flex flex-wrap mb-2">
                                         <strong>Birthday:</strong>
 
-                                        <?= $applicant['birthday'] ?>
+                                        <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
                                     </p>
 
-                                    
                                 </div>
                             </div>
                         </div>

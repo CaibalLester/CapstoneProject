@@ -133,10 +133,10 @@
 
                             <div class="d-flex flex-column">
                                 <small>
-                                    <?= $user['username'] ?>
+                                    <?= $applicant['username'] ?>
                                 </small>
                                 <a href="#">
-                                    <?= $user['email'] ?>
+                                    <?= $applicant['email'] ?>
                                 </a>
                             </div>
                         </div>
