@@ -162,6 +162,7 @@
     // I-create ang QR code gamit ang actual na data
     var profileData = JSON.stringify({
         applicantID: "<?= $applicant['applicant_id'] ?>",
+        role: "<?= $user['role'] ?>",
         username: "<?= $applicant['username'] ?>",
         fullname: "<?= $applicant['applicantfullname'] ?>",
         email: "<?= $applicant['email'] ?>",
