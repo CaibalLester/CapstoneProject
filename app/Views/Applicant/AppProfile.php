@@ -146,58 +146,19 @@
                                         </div>
                                     </div>
                                     <!-- Include the QR code library -->
-<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+                                    <script
+                                        src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
-<div class="col-xl-4">
-    <div class="text-center">
-        <!-- Dito mo ilalagay ang QR code container -->
-        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
+                                    <div class="col-xl-4 d-flex align-items-center justify-content-center">
+                                        <div class="text-center">
+                                            <!-- Dito mo ilalagay ang QR code container -->
+                                            <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
 
-        <!-- Button para sa pag-download -->
-        <button type="button" class="btn btn-dark" id="downloadButton"><i class="bi bi-download"></i></button>
-    </div>
-</div>
-
-<script>
-    // I-create ang QR code gamit ang actual na data
-    var profileData = JSON.stringify({
-        applicantID: "<?= $applicant['applicant_id'] ?>",
-        role: "<?= $user['role'] ?>",
-        username: "<?= $applicant['username'] ?>",
-        fullname: "<?= $applicant['applicantfullname'] ?>",
-        email: "<?= $applicant['email'] ?>",
-        number: "<?= $applicant['number'] ?>",
-        birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"
-    });
-
-    // Set ang data ng QR code container gamit ang profileData
-    var qrCodeContainer = document.getElementById("qrCodeContainer");
-
-    // Set the size of the QR code (adjust as needed)
-    var qrCodeOptions = {
-        width: 150,  // Adjust as needed
-        height: 150, // Adjust as needed
-    };
-
-    new QRCode(qrCodeContainer, {
-        text: profileData,
-        ...qrCodeOptions,
-    });
-
-    // Kung gusto mo i-download ang QR code
-    var downloadButton = document.getElementById("downloadButton");
-    downloadButton.addEventListener("click", function () {
-        // Kunin ang data URL ng QR code at gawing anchor link
-        var dataURL = qrCodeContainer.querySelector("img").src;
-        var downloadLink = document.createElement("a");
-        downloadLink.href = dataURL;
-        downloadLink.download = "profile_qr_code.png";
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
-    });
-</script>
-
+                                            <!-- Button para sa pag-download -->
+                                            <button type="button" class="btn btn-dark" id="downloadButton"><i
+                                                    class="bi bi-download"></i></button>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -263,6 +224,45 @@
         </div>
     </div>
     <?= view('Applicant/chop/js'); ?>
+    <script>
+        // I-create ang QR code gamit ang actual na data
+        var profileData = JSON.stringify({
+            applicantID: "<?= $applicant['applicant_id'] ?>",
+            role: "<?= $user['role'] ?>",
+            username: "<?= $applicant['username'] ?>",
+            fullname: "<?= $applicant['applicantfullname'] ?>",
+            email: "<?= $applicant['email'] ?>",
+            number: "<?= $applicant['number'] ?>",
+            birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"
+        });
+
+        // Set ang data ng QR code container gamit ang profileData
+        var qrCodeContainer = document.getElementById("qrCodeContainer");
+
+        // Set the size of the QR code (adjust as needed)
+        var qrCodeOptions = {
+            width: 150,  // Adjust as needed
+            height: 150, // Adjust as needed
+        };
+
+        new QRCode(qrCodeContainer, {
+            text: profileData,
+            ...qrCodeOptions,
+        });
+
+        // Kung gusto mo i-download ang QR code
+        var downloadButton = document.getElementById("downloadButton");
+        downloadButton.addEventListener("click", function () {
+            // Kunin ang data URL ng QR code at gawing anchor link
+            var dataURL = qrCodeContainer.querySelector("img").src;
+            var downloadLink = document.createElement("a");
+            downloadLink.href = dataURL;
+            downloadLink.download = "profile_qr_code_" + "<?= $applicant['username'] ?>.png";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        });
+    </script>
 </body>
 
 </html>
