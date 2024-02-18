@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="en">
 <?= view('Applicant/chop/head'); ?>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
 
 <body>
     <?= view('Applicant/chop/header'); ?>
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
-                            
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/AppDash">
-                                    <i class="bi-house-fill me-2"></i>
-                                    Overview
-                                </a>
-                            </li>
-                            <!-- <li class="nav-item">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/AppDash">
+                                <i class="bi-house-fill me-2"></i>
+                                Overview
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
                                     <i class="bi-book me-2"></i>
                                     Forms
@@ -49,145 +51,201 @@
                                     </ul>
                                 </div>
                             </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppForm1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppForm1">
                                 <i class="bi-book me-2"></i>
-                                   Applicantion Form
-                                </a>
-                            </li>
+                                Applicantion Form
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AppProfile">
-                                    <i class="bi-person me-2"></i>
-                                    Profile
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/AppProfile">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppSetting">
-                                    <i class="bi-gear me-2"></i>
-                                    Settings
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppSetting">
+                                <i class="bi-gear me-2"></i>
+                                Settings
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AppHelp">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help Center
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AppHelp">
+                                <i class="bi-question-circle me-2"></i>
+                                Help Center
+                            </a>
+                        </li>
 
-                            <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="/logout">
-                                    <i class="bi-box-arrow-left me-2"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="/logout">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Profile</h1>
                 </div>
 
-                <div class="row my-4">
-                    <div class="col-lg-7 col-12">
-                        <div class="custom-block custom-block-profile">
-                            <div class="row">
-                                <div class="col-lg-12 col-12 mb-3">
-                                    <h6>General</h6>
+                <div class="row">
+                    <!-- <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center text-center">
+                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                    alt="Profile" class="rounded-circle" style="width: 150px; height: 150px;">
+                                <h2>
+                                    <?= $applicant['applicantfullname'] ?>
+                                </h2>
+                                <div class="social-links mt-2">
+                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                                 </div>
+                            </div>
+                        </div>
+                    </div> -->
 
-                                <div class="col-lg-3 col-12 mb-4 mb-lg-0">
-                                    <div class="custom-block-profile-image-wrap">
-                                        <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
-                                            class="custom-block-profile-image img-fluid" alt="">
-                                            <a href="/AppSetting" class="bi-pencil-square custom-block-edit-icon"></a>
-                                        <!-- <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a> -->
+
+                    <!-- <div class="col-xl-6">
+                                        <div class="text-center">
+                                            <div class="qr-code-container mt-3 mb-3">
+                                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
+                                                    alt="QR Code">
+                                            </div>
+                                            <button type="file" class="btn btn-dark"><i
+                                                    class="bi bi-folder"></i></button>
+                                        </div>
+                                    </div> -->
+
+
+
+
+
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body pt-3">
+                                <div class="row">
+                                    <!-- First Column -->
+                                    <div class="col-xl-7"> <!-- I-update ang class na ito -->
+                                        <div
+                                            class="card-body profile-card pt-4 d-flex flex-column align-items-center text-center">
+                                            <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                                alt="Profile" class="rounded-circle"
+                                                style="width: 150px; height: 150px;">
+                                            <h2>
+                                                <?= $applicant['applicantfullname'] ?>
+                                            </h2>
+                                        </div>
                                     </div>
-                                </div>
+                                    <!-- Include the QR code library -->
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
-                                <div class="col-lg-9 col-12">
-                                    <p class="d-flex flex-wrap mb-2">
-                                        <strong>User Name:</strong>
+<div class="col-xl-4">
+    <div class="text-center">
+        <!-- Dito mo ilalagay ang QR code container -->
+        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
 
-                                        <span>
-                                            <?= $applicant['username'] ?>
-                                        </span>
-                                    </p>
+        <!-- Button para sa pag-download -->
+        <button type="button" class="btn btn-dark" id="downloadButton"><i class="bi bi-download"></i></button>
+    </div>
+</div>
 
-                                    <p class="d-flex flex-wrap mb-2">
-                                        <strong>Full Name:</strong>
+<script>
+    // I-create ang QR code gamit ang actual na data
+    var profileData = JSON.stringify({
+        applicantID: "<?= $applicant['applicant_id'] ?>",
+        username: "<?= $applicant['username'] ?>",
+        fullname: "<?= $applicant['applicantfullname'] ?>",
+        email: "<?= $applicant['email'] ?>",
+        number: "<?= $applicant['number'] ?>",
+        birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"
+    });
 
-                                        <span>
-                                            <?= $applicant['applicantfullname'] ?>
-                                        </span>
-                                    </p>
+    // Set ang data ng QR code container gamit ang profileData
+    var qrCodeContainer = document.getElementById("qrCodeContainer");
 
-                                    <p class="d-flex flex-wrap mb-2">
-                                        <strong>Email:</strong>
+    // Set the size of the QR code (adjust as needed)
+    var qrCodeOptions = {
+        width: 150,  // Adjust as needed
+        height: 150, // Adjust as needed
+    };
 
-                                        <a href="#">
-                                            <?= $applicant['email'] ?>
-                                        </a>
-                                    </p>
+    new QRCode(qrCodeContainer, {
+        text: profileData,
+        ...qrCodeOptions,
+    });
 
-                                    <p class="d-flex flex-wrap mb-2">
-                                        <strong>Phone:</strong>
+    // Kung gusto mo i-download ang QR code
+    var downloadButton = document.getElementById("downloadButton");
+    downloadButton.addEventListener("click", function () {
+        // Kunin ang data URL ng QR code at gawing anchor link
+        var dataURL = qrCodeContainer.querySelector("img").src;
+        var downloadLink = document.createElement("a");
+        downloadLink.href = dataURL;
+        downloadLink.download = "profile_qr_code.png";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    });
+</script>
 
-                                        <a href="#">
-                                        <?= $applicant['number'] ?>
-                                        </a>
-                                    </p>
-
-                                    <p class="d-flex flex-wrap mb-2">
-                                        <strong>Birthday:</strong>
-
-                                        <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
-                                    </p>
 
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
 
-                    <div class="col-lg-5 col-12">
-                        <div class="custom-block custom-block-profile bg-white">
-                            <h6 class="mb-4">Card Information</h6>
-
-                            <p class="d-flex flex-wrap mb-2">
-                                <strong>User ID:</strong>
-
-                                <span>
-                                    <?= $user['id'] ?>
-                                </span>
-                            </p>
-
-                            <p class="d-flex flex-wrap mb-2">
-                                <strong>Role:</strong>
-
-                                <span>
-                                    <?= $user['role'] ?>
-                                </span>
-                            </p>
-
-                            <p class="d-flex flex-wrap mb-2">
-                                <strong>Created:</strong>
-
-                                <span>
-                                    <?= date('M j, Y', strtotime($user['created_at'])); ?>
-                                </span>
-                            </p>
-
-                            <!-- <p class="d-flex flex-wrap mb-2">
-                                    <strong>Valid Date:</strong>
-
-                                    <span>July 18, 2032</span>
-                                </p> -->
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-lg-9 col-8">
+                                    <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                        <h5 class="card-title">Applicant Details</h5>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">User Name</th>
+                                                    <td>
+                                                        <?= $applicant['username'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Full Name</th>
+                                                    <td>
+                                                        <?= $applicant['applicantfullname'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Email</th>
+                                                    <td>
+                                                        <?= $applicant['email'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Number</th>
+                                                    <td>
+                                                        <?= $applicant['number'] ?>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Birthday</th>
+                                                    <td>
+                                                        <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
