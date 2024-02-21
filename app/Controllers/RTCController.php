@@ -27,7 +27,7 @@ class RTCController extends BaseController
     }
     
     public function homechat()
-    {
+    { 
         $session = session();
         $userId = $session->get('id');
         $chatModel = new RTCModel();
