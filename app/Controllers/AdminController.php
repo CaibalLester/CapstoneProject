@@ -27,7 +27,13 @@ class AdminController extends BaseController
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
+
+        // if (session()->get('role') != "admin") {
+        //     echo 'Access denied';
+        //     exit;
+        // }
     }
+
     public function AdDash()
     {
         $session = session();
@@ -188,6 +194,7 @@ class AdminController extends BaseController
         $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdHelp', $data);
     }
+    
     private function getData()
     {
         $session = session();
@@ -217,6 +224,7 @@ class AdminController extends BaseController
         // Pass the fetched data to the view
         return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
     }
+
     public function generateRandomCode($length = 6)
     {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';

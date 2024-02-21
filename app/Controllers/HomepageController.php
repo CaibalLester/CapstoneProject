@@ -89,6 +89,7 @@ class HomepageController extends BaseController
 
             $formdata = [
                 'user_id' => $userId,
+                'token' => $Token,
             ];
             $form1->save($formdata);
 
@@ -104,7 +105,6 @@ class HomepageController extends BaseController
             echo view('Home/register', $data);
         }
     }
-
     private function sendVerificationEmail($to, $subject, $message)
     {
         // Load Email Library
@@ -137,7 +137,6 @@ class HomepageController extends BaseController
         }
     }
 
-
     public function verifyEmail($token)
     {
         $userModel = new UserModel();
@@ -161,7 +160,6 @@ class HomepageController extends BaseController
             return redirect()->to('/login')->with('error', 'Invalid or expired verification token.');
         }
     }
-
 
     public function authlog()
     {
@@ -188,16 +186,20 @@ class HomepageController extends BaseController
                         'id' => $user['id'],
                         'role' => $user['role'],
                         'IsAppLog' => true,
+                        'token' => $user['token'],
                     ];
                     $session->set($sessionData);
 
                     // Redirect based on the fetched role
                     if ($user['role'] == 'admin') {
                         return redirect()->to('/AdDash');
+                        // return redirect()->to(base_url('admin'));
                     } elseif ($user['role'] == 'applicant') {
                         return redirect()->to('/AppDash')->with('success', 'Account Login: ' . $user['username']);
+                        // return redirect()->to(base_url('applicant'));
                     } elseif ($user['role'] == 'agent') {
                         return redirect()->to('/AgDash')->with('success', 'Account Login: ' . $user['role']);
+                        // return redirect()->to(base_url('agent'));
                     }
                 } else {
                     // Password mismatch

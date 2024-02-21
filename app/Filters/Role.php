@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AuthGuard implements FilterInterface
+class Role implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -25,21 +25,21 @@ class AuthGuard implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('IsAppLog')) {
-            return redirect()->to('/login');
+        if (session()->get('isLoggedIn')) {
+
+			if (session()->get('role') == "admin") {
+				return redirect()->to(base_url('AgDash'));
+			}
+
+			if (session()->get('role') == "agent") {
+				return redirect()->to(base_url('agent'));
+			}
+
+            if (session()->get('role') == "applicant") {
+				return redirect()->to(base_url('applicant'));
+			}
+            
         }
-
-        // $currentRole = session()->get('role');
-
-        // if ($currentRole == "admin") {
-        //     return redirect()->to(base_url('admin'));
-        // } elseif ($currentRole == "applicant") {
-        //     return $request; // Continue to the requested route for applicants
-        // } elseif ($currentRole == "agent") {
-        //     return redirect()->to(base_url('agent'));
-        // } else {
-        //     return redirect()->to('/login'); // Redirect if the role is not recognized
-        // }
     }
 
     /**

@@ -78,7 +78,6 @@
                                 Help Center
                             </a>
                         </li>
-
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
                                 <i class="bi-box-arrow-left me-2"></i>
@@ -88,47 +87,11 @@
                     </ul>
                 </div>
             </nav>
-
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Profile</h1>
                 </div>
-
                 <div class="row">
-                    <!-- <div class="col-xl-4">
-                        <div class="card">
-                            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center text-center">
-                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
-                                    alt="Profile" class="rounded-circle" style="width: 150px; height: 150px;">
-                                <h2>
-                                    <?= $applicant['applicantfullname'] ?>
-                                </h2>
-                                <div class="social-links mt-2">
-                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-                    <!-- <div class="col-xl-6">
-                                        <div class="text-center">
-                                            <div class="qr-code-container mt-3 mb-3">
-                                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
-                                                    alt="QR Code">
-                                            </div>
-                                            <button type="file" class="btn btn-dark"><i
-                                                    class="bi bi-folder"></i></button>
-                                        </div>
-                                    </div> -->
-
-
-
-
-
                     <div class="col-xl-6">
                         <div class="card">
                             <div class="card-body pt-3">
@@ -211,7 +174,6 @@
                         </div>
                     </div>
                 </div>
-
                 <footer class="site-footer">
                     <div class="container">
                         <div class="row">
@@ -220,14 +182,12 @@
                     </div>
                 </footer>
             </main>
-
         </div>
     </div>
     <?= view('Applicant/chop/js'); ?>
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({
-            applicantID: "<?= $applicant['applicant_id'] ?>",
             role: "<?= $user['role'] ?>",
             username: "<?= $applicant['username'] ?>",
             fullname: "<?= $applicant['applicantfullname'] ?>",
