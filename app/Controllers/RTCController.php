@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\RTCModel;
+use App\Models\AdminModel;
+use App\Models\UserModel;
+
 
 class RTCController extends BaseController
 {
@@ -12,15 +15,30 @@ class RTCController extends BaseController
     {
         $this->chat = new RTCModel();
     }
-
+    private function getUserData()
+    {
+        $session = session();
+        $userId = $session->get('id');
+    
+        $userModel = new UserModel();
+        $data['user'] = $userModel->find($userId);
+    
+        return $data;
+    }
+    
     public function homechat()
     {
         $session = session();
         $userId = $session->get('id');
         $chatModel = new RTCModel();
+    
+        // Call the getUserData() method instead of usermerge()
+        $data = $this->getUserData();
+    
         $data['chat'] = $chatModel->where('recipient', $userId)->findAll();
         return view('chat', $data);
     }
+    
 
     public function chat() //dito ka mag sesend ng message
     {

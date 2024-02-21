@@ -979,7 +979,7 @@ message-area
 
                                 <div class="send-box">
                                     <form action="chat" method="post">
-                                        <input type="hidden" name="sendto" value="107">
+                                        <input type="hidden" name="sendto" value="<?= $user['id']?>">
                                         <input type="text" class="form-control" name="message" aria-label="message…"
                                             placeholder="Write message…">
 

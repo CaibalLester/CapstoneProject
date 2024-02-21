@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AuthGuard implements FilterInterface
+class AdminFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -25,11 +25,12 @@ class AuthGuard implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        $currentRoute = current_url(true)->getPath();
-        if (!session()->get('IsAppLog') && $currentRoute !== 'login') {
+        if (!session()->get('IsAppLog')) {
             return redirect()->to('/login');
         }
-       
+        if (!session()->get('role') !== 'admin') {
+            return redirect()->to('/login');
+        }
     }
 
     /**

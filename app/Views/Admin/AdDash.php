@@ -7,70 +7,70 @@
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
-                    <ul class="nav flex-column h-100">         
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/AdDash">
-                                    <i class="bi-house-fill me-2"></i>
-                                    Overview
-                                </a>
-                            </li>
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+                <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <ul class="nav flex-column h-100">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/AdDash">
+                                <i class="bi-house-fill me-2"></i>
+                                Overview
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/ManageAgent">
-                                    <i class="bi-person me-2"></i>
-                                    Manage Agents
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/ManageAgent">
+                                <i class="bi-person me-2"></i>
+                                Manage Agents
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="/ManageApplicant">
-                                    <i class="bi-person me-2"></i>
-                                    Manage Applicants
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/ManageApplicant">
+                                <i class="bi-person me-2"></i>
+                                Manage Applicants
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AdProfile">
-                                    <i class="bi-person me-2"></i>
-                                    Profile
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdProfile">
+                                <i class="bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AdSetting">
-                                    <i class="bi-gear me-2"></i>
-                                    Settings
-                                </a>
-                            </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdSetting">
+                                <i class="bi-gear me-2"></i>
+                                Settings
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/AdHelp">
-                                    <i class="bi-question-circle me-2"></i>
-                                    Help Center
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdHelp">
+                                <i class="bi-question-circle me-2"></i>
+                                Help Center
+                            </a>
+                        </li>
 
-                            <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="/logout">
-                                    <i class="bi-box-arrow-left me-2"></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                        <li class="nav-item border-top mt-auto pt-2">
+                            <a class="nav-link" href="/logout">
+                                <i class="bi-box-arrow-left me-2"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Overview</h1>
 
-                    <small class="text-muted">Hello <?= $admin['username'] ?>, welcome back!</small>
+                    <small class="text-muted">Hello <?= $user['role'] ?>, welcome back! <?= $admin['username'] ?></small>
                 </div>
 
                 <div class="row my-4">
                     <!-- Agents monthlyAgentCount -->
-                    <div class="col-lg-7 col-12">
+                    <div class="col-lg-8 col-12">
                         <!-- First Chart for Agents -->
                         <div class="custom-block bg-white">
                             <div id="agentChart"></div>
@@ -82,8 +82,8 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-5 col-12">
-                        <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
+                    <div class="col-lg-4 col-12">
+                        <!-- <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
                                 <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
@@ -113,21 +113,24 @@
                                     <?= $admin['number'] ?>
                                 </a>
                             </p>
-                        </div>
+                        </div> -->
 
-                        <div class="custom-block custom-block-balance">
+                        <div class="custom-block">
+                            <i class="fas fa-users"></i>
                             <small>Total Agents</small>
                             <h2 class="mt-2 mb-3">
                                 <?= $totalAgents ?>
                             </h2>
                         </div>
 
-                        <div class="custom-block custom-block-balance">
+                        <div class="custom-block">
+                            <i class="fas fa-user-tie"></i>
                             <small>Total Applicants</small>
                             <h2 class="mt-2 mb-3">
                                 <?= $pendingApplicants ?>
                             </h2>
                         </div>
+
                     </div>
                 </div>
                 <footer class="site-footer">
@@ -181,7 +184,7 @@
                 },
                 tooltip: {
                     y: {
-                        formatter: function (val) {
+                        formatter: function(val) {
                             return val + " " + title.toLowerCase();
                         }
                     }
