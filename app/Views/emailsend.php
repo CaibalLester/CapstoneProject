@@ -9,9 +9,14 @@
     <style>
         body {
             background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* 100% of the viewport height */
+            margin: 0;
         }
         .container {
-            margin-top: 100px;
+            text-align: center;
         }
     </style>
 </head>
@@ -23,12 +28,12 @@
         <p>Your email has been sent successfully. Check your inbox for further instructions.</p>
         <hr>
         <p class="mb-0">Thank you for using our service.</p>
+        
+        <!-- Go to Login Button -->
+        <a href="/login" class="btn btn-primary mt-3">Go to Login</a>
     </div>
 </div>
 
 <!-- Bootstrap JS and dependencies (optional) -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-rAfZR5Ik2KE2qRRAH3U5S2eu8C4lKc3r2mLiP3RbOFvqLYovJ+UqLz6Lr6Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-eU4oX73FVhBDXRsmvNztA9rL1xf6wo8Mv4N2gHce02n1rjO7VMkkbC2ZLmABfuA3" crossorigin="anonymous"></script>
-
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-eU4oX73FVhBDXRsmvNztA9

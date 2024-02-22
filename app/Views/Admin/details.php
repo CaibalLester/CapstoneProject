@@ -245,6 +245,7 @@
                     </form>
                 </div>
                 <div class="fixed-bottom text-center mb-3">
+                <!-- //Change this to token -->
                     <a href="<?= base_url('generatePdf/' . $lifechangerform['user_id']) ?>" class="btn btn-success"><i class="fas fa-download"></i></a>
                 </div>
             </div>

@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class AdminFilter implements FilterInterface
+class AgentFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -29,7 +29,7 @@ class AdminFilter implements FilterInterface
             return redirect()->to('/login');
         }
         $session = session();
-        if ($session->get('role') !== 'admin') {
+        if ($session->get('role') !== 'agent') {
             return redirect()->to('/');
         }    
     }

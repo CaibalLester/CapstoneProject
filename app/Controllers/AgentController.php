@@ -17,71 +17,25 @@ class AgentController extends BaseController
         $this->agent = new AgentModel();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
-
-        if (session()->get('role') != "agent") {
-            ?>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Access Denied</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        text-align: center;
-                        padding: 50px;
-                    }
-        
-                    .access-denied {
-                        background-color: #ffcccc;
-                        padding: 20px;
-                        border-radius: 8px;
-                        margin: 20px auto;
-                        max-width: 400px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    }
-        
-                    h1 {
-                        color: #d9534f;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="access-denied">
-                    <h1>Access Denied</h1>
-                    <p>Sorry, you do not have permission to access this page.</p>
-                </div>
-            </body>
-            </html>
-            <?php
-            exit;
-        }
     }
     public function AgDash()
     {
-        $session = session();
         $data = array_merge($this->getData(), $this->getDataAge());
-
         return view('Agent/AgDash', $data);
     }
 
     public function AgProfile()
     {
-        $session = session();
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgProfile', $data);
     }
     public function AgSetting()
     {
-        $session = session();
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgSetting', $data);
     }
     public function AgHelp()
     {
-        $session = session();
         return view('Agent/AgHelp');
     }
     private function getData()
@@ -93,16 +47,12 @@ class AgentController extends BaseController
             // Redirect or handle the case where the user is not logged in
             return redirect()->to('login');
         }
-
         // Get the user ID from the session
         $userId = $session->get('id');
-
         // Load the User model
         $userModel = new UserModel();
-
         // Find the user by ID
         $data['user'] = $userModel->find($userId);
-
         return $data;
     }
 
@@ -151,26 +101,19 @@ class AgentController extends BaseController
     private function getDataAge()
     {
         $session = session();
-
         $userId = $session->get('id');
-
         $agentModel = new AgentModel();
-
         $data['agent'] = $agentModel->where('agent_id', $userId)
             // ->orderBy('id', 'desc')
             ->first();
-
         return $data;
     }
-
     public function svag()
     {
         $session = session();
         $userId = $session->get('id');
-
         // Initialize $data array
         $data = [];
-
         // Check if a file is uploaded
         if ($imageFile = $this->request->getFile('agentprofile')) {
             // Check if the file is valid
@@ -191,7 +134,6 @@ class AgentController extends BaseController
                 }
             }
         }
-
         // Add other form data to the data array
         $data += [
             'Agentfullname' => $this->request->getVar('Agentfullname'),

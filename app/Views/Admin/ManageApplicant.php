@@ -193,6 +193,7 @@
                                             <div
                                                 class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                                                 <div class="custom-block-profile-image-wrap mb-4">
+                                                <!-- //Change this to token -->
                                                     <a href="/ViewAppForm/<?= $app['applicant_id']; ?>">
                                                         <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
                                                         class="custom-block-profile-image img-fluid" alt="">

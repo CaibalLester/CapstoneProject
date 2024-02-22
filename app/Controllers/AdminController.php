@@ -28,50 +28,6 @@ class AdminController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
 
-        if (session()->get('role') != "admin") {
-            ?>
-            <!DOCTYPE html>
-            <html lang="en">
-
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Access Denied</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        text-align: center;
-                        padding: 50px;
-                    }
-
-                    .access-denied {
-                        background-color: #ffcccc;
-                        padding: 20px;
-                        border-radius: 8px;
-                        margin: 20px auto;
-                        max-width: 400px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    }
-
-                    h1 {
-                        color: #d9534f;
-                    }
-                </style>
-            </head>
-
-            <body>
-                <div class="access-denied">
-                    <h1>Access Denied</h1>
-                    <p>Sorry, you do not have permission to access this page.</p>
-                </div>
-            </body>
-
-            </html>
-            <?php
-            exit;
-        }
-
     }
 
     public function AdDash()
@@ -133,21 +89,12 @@ class AdminController extends BaseController
 
     public function userSearch()
     {
-        $session = session();
-        // if ($session->get('role') !== 'admin') {
-        //     return redirect()->to('/');
-        // }
-
-        $userId = $session->get('id');
         $appmodel = new ApplicantModel();
         $data = $this->usermerge();
-
         // Get the search input from the form
         $filterUser = $this->request->getPost('filterUser');
-
         // Add a where condition to filter records based on the search input and status
         $applicants = $appmodel->like('username', $filterUser)->where('status', 'pending')->paginate();
-
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
 
@@ -222,16 +169,16 @@ class AdminController extends BaseController
         return $data;
     }
     public function viewAppForm($id)
-{
-    // Load the Form1Model
-    $form1Model = new Form1Model();
-    
-    // Find the form data based on the user ID
-    $lifechangerFormData = $form1Model->where('user_id', $id)->first();
-    
-    // Pass the fetched data to the view
-    return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
-}
+    {
+        // Load the Form1Model
+        $form1Model = new Form1Model();
+
+        // Find the form data based on the user ID
+        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
+
+        // Pass the fetched data to the view
+        return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
+    }
 
 
     public function generateRandomCode($length = 6)

@@ -18,47 +18,6 @@ class AppController extends BaseController
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
-
-        if (session()->get('role') != "applicant") {
-            ?>
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Access Denied</title>
-                <style>
-                    body {
-                        font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        text-align: center;
-                        padding: 50px;
-                    }
-        
-                    .access-denied {
-                        background-color: #ffcccc;
-                        padding: 20px;
-                        border-radius: 8px;
-                        margin: 20px auto;
-                        max-width: 400px;
-                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                    }
-        
-                    h1 {
-                        color: #d9534f;
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="access-denied">
-                    <h1>Access Denied</h1>
-                    <p>Sorry, you do not have permission to access this page.</p>
-                </div>
-            </body>
-            </html>
-            <?php
-            exit;
-        }
     }
 
     public function AppDash()

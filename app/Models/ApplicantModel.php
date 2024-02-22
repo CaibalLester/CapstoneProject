@@ -13,7 +13,7 @@ class ApplicantModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['profile','applicant_id', 'username', 'number', 'email', 'birthday', 'branch', 'status' , 'applicantfullname'];
+    protected $allowedFields    = ['profile','applicant_id', 'username', 'number', 'email', 'birthday', 'branch', 'status' , 'applicantfullname' , 'token'];
 
 
     // Dates

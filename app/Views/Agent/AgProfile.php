@@ -125,6 +125,12 @@
                                                         <?= $agent['number'] ?>
                                                     </td>
                                                 </tr>
+                                                <!-- <tr>
+                                                    <th scope="row">Referal Code</th>
+                                                    <td>
+                                                        <?= $agent['AgentCode'] ?>
+                                                    </td>
+                                                </tr> -->
                                                 <tr>
                                                     <th scope="row">Birthday</th>
                                                     <td>
