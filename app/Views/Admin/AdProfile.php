@@ -98,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3">
+                    <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="col-lg-9 col-8">

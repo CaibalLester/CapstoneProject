@@ -18,26 +18,57 @@ class AppController extends BaseController
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
+
+        if (session()->get('role') != "applicant") {
+            ?>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Access Denied</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        text-align: center;
+                        padding: 50px;
+                    }
+        
+                    .access-denied {
+                        background-color: #ffcccc;
+                        padding: 20px;
+                        border-radius: 8px;
+                        margin: 20px auto;
+                        max-width: 400px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+        
+                    h1 {
+                        color: #d9534f;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="access-denied">
+                    <h1>Access Denied</h1>
+                    <p>Sorry, you do not have permission to access this page.</p>
+                </div>
+            </body>
+            </html>
+            <?php
+            exit;
+        }
     }
 
     public function AppDash()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-
         $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppDash', $data);
     }
 
     public function AppProfile()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-
         $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppProfile', $data);
     }
@@ -67,10 +98,8 @@ class AppController extends BaseController
     private function getDataApp()
     {
         $session = session();
-
         // Get the user ID from the session
         $userId = $session->get('id');
-
         // Load the User model
         $applicantModel = new ApplicantModel();
 
@@ -85,10 +114,6 @@ class AppController extends BaseController
     private function getform1Data()
     {
         $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-        // $session = session();
 
         // Get the user ID from the session
         $userId = $session->get('id');
@@ -103,11 +128,6 @@ class AppController extends BaseController
     }
     public function AppSetting()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-
         $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppSetting', $data);
     }
@@ -116,10 +136,8 @@ class AppController extends BaseController
     {
         $session = session();
         $userId = $session->get('id');
-
         // Initialize $data array
         $data = [];
-
         // Check if a file is uploaded
         if ($imageFile = $this->request->getFile('profile')) {
             // Check if the file is valid
@@ -161,21 +179,12 @@ class AppController extends BaseController
 
     public function AppHelp()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-
         $data = array_merge($this->getData(), $this->getDataApp());
         return view('Applicant/AppHelp', $data);
     }
 
     public function AppForm1()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
         $agent = new AgentModel();
         $data['agents'] = $agent->findAll();
 
@@ -187,11 +196,6 @@ class AppController extends BaseController
 
     public function form1sv()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
-
         $session = session();
         // Retrieve user_id from the session
         $userId = $session->get('id');
@@ -280,34 +284,18 @@ class AppController extends BaseController
     }
     public function AppForm2()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
         return view('Applicant/AppForm2');
     }
     public function AppForm3()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
         return view('Applicant/AppForm3');
     }
     public function AppForm4()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
         return view('Applicant/AppForm4');
     }
     public function AppForm5()
     {
-        $session = session();
-        if ($session->get('role') !== 'applicant') {
-            return redirect()->to('/');
-        }
         return view('Applicant/AppForm5');
     }
 

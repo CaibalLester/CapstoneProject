@@ -26,7 +26,7 @@ class AuthGuard implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $currentRoute = current_url(true)->getPath();
-        if (!session()->get('IsAppLog') && $currentRoute !== 'login') {
+        if (!session()->get('IsLoggin') && $currentRoute !== 'login') {
             return redirect()->to('/login');
         }
        

@@ -56,7 +56,7 @@ $routes->get('verify-email/(:segment)', 'HomepageController::verifyEmail/$1');
 
 
 // // Admin Routes
-// $routes->group('admin', ['filter' => 'authGuard'], function ($routes) {
+// $routes->group('admin', ['filter' => 'adminFilter'], function ($routes) {
 //     $routes->get('AdDash', 'AdminController::AdDash');
 //     $routes->get('ManageAgent', 'AdminController::ManageAgent');
 //     $routes->get('AdProfile', 'AdminController::AdProfile');

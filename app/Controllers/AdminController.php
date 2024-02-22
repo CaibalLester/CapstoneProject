@@ -28,18 +28,54 @@ class AdminController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
 
-        // if (session()->get('role') != "admin") {
-        //     echo 'Access denied';
-        //     exit;
-        // }
+        if (session()->get('role') != "admin") {
+            ?>
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Access Denied</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f4f4f4;
+                        text-align: center;
+                        padding: 50px;
+                    }
+
+                    .access-denied {
+                        background-color: #ffcccc;
+                        padding: 20px;
+                        border-radius: 8px;
+                        margin: 20px auto;
+                        max-width: 400px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    }
+
+                    h1 {
+                        color: #d9534f;
+                    }
+                </style>
+            </head>
+
+            <body>
+                <div class="access-denied">
+                    <h1>Access Denied</h1>
+                    <p>Sorry, you do not have permission to access this page.</p>
+                </div>
+            </body>
+
+            </html>
+            <?php
+            exit;
+        }
+
     }
 
     public function AdDash()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
 
         $agentModel = new AgentModel();
         $applicantModel = new ApplicantModel();
@@ -62,10 +98,6 @@ class AdminController extends BaseController
     }
     public function ManageAgent()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
         $agentModel = new AgentModel();
         $data = $this->usermerge();
 
@@ -77,10 +109,6 @@ class AdminController extends BaseController
 
     public function ManageApplicant()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
         $appmodel = new ApplicantModel();
         $data = $this->usermerge();
 
@@ -106,9 +134,10 @@ class AdminController extends BaseController
     public function userSearch()
     {
         $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
+        // if ($session->get('role') !== 'admin') {
+        //     return redirect()->to('/');
+        // }
+
         $userId = $session->get('id');
         $appmodel = new ApplicantModel();
         $data = $this->usermerge();
@@ -125,15 +154,9 @@ class AdminController extends BaseController
         return view('Admin/ManageApplicant', $data);
     }
 
-
     // Controller method for searching agents by full name
     public function agentSearch()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
-
         $agentModel = new AgentModel();
         $data = $this->usermerge();
 
@@ -166,35 +189,22 @@ class AdminController extends BaseController
 
     public function AdProfile()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
-
         $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdProfile', $data);
     }
 
     public function AdSetting()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
         $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdSetting', $data);
     }
 
     public function AdHelp()
     {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
         $data = array_merge($this->getData(), $this->getDataAd());
         return view('Admin/AdHelp', $data);
     }
-    
+
     private function getData()
     {
         $session = session();
@@ -211,19 +221,18 @@ class AdminController extends BaseController
         $data['user'] = $userModel->find($userId);
         return $data;
     }
-    public function ViewAppForm($id)
-    {
-        $session = session();
-        if ($session->get('role') !== 'admin') {
-            return redirect()->to('/');
-        }
-        // Load the Form1Model
-        $form1Model = new Form1Model();
-        // Find the form data based on the user ID
-        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
-        // Pass the fetched data to the view
-        return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
-    }
+    public function viewAppForm($id)
+{
+    // Load the Form1Model
+    $form1Model = new Form1Model();
+    
+    // Find the form data based on the user ID
+    $lifechangerFormData = $form1Model->where('user_id', $id)->first();
+    
+    // Pass the fetched data to the view
+    return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
+}
+
 
     public function generateRandomCode($length = 6)
     {
@@ -239,7 +248,6 @@ class AdminController extends BaseController
 
     public function newAgent()
     {
-
         $agent = new AgentModel();
         $userModel = new UserModel();
         $appmodel = new ApplicantModel();
@@ -324,46 +332,45 @@ class AdminController extends BaseController
     }
 
     public function generatePdf($id)
-{
-    // Load the Form1Model
-    $form1Model = new Form1Model();
+    {
+        // Load the Form1Model
+        $form1Model = new Form1Model();
 
-    // Find the form data based on the user ID
-    $lifechangerFormData = $form1Model->where('user_id', $id)->first();
+        // Find the form data based on the user ID
+        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
 
-    // Check if the data is found
-    if (!$lifechangerFormData) {
-        // Handle the case where data is not found, redirect, or show an error
-        return redirect()->to('/'); // Change the URL or handle as needed
+        // Check if the data is found
+        if (!$lifechangerFormData) {
+            // Handle the case where data is not found, redirect, or show an error
+            return redirect()->to('/'); // Change the URL or handle as needed
+        }
+
+        // Load your view content into a variable
+        $data['lifechangerform'] = $lifechangerFormData;
+        $html = view('Admin/details', $data);
+
+        // Create an instance of Dompdf
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
+
+        $dompdf = new Dompdf($options);
+
+        // Load HTML content to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF (first step)
+        $dompdf->render();
+
+        // Save PDF to a file (optional)
+        // $dompdf->output('path/to/store/file.pdf');
+
+        // Output PDF to the browser
+        $dompdf->stream('document.pdf', array('Attachment' => 0));
     }
-
-    // Load your view content into a variable
-    $data['lifechangerform'] = $lifechangerFormData;
-    $html = view('Admin/details', $data);
-
-    // Create an instance of Dompdf
-    $options = new Options();
-    $options->set('isHtml5ParserEnabled', true);
-    $options->set('isPhpEnabled', true);
-
-    $dompdf = new Dompdf($options);
-
-    // Load HTML content to Dompdf
-    $dompdf->loadHtml($html);
-
-    // (Optional) Setup the paper size and orientation
-    $dompdf->setPaper('A4', 'portrait');
-
-    // Render PDF (first step)
-    $dompdf->render();
-
-    // Save PDF to a file (optional)
-    // $dompdf->output('path/to/store/file.pdf');
-
-    // Output PDF to the browser
-    $dompdf->stream('document.pdf', array('Attachment' => 0));
-}
-
 
     public function RTC()
     {

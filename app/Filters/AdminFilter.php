@@ -25,12 +25,12 @@ class AdminFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->get('IsAppLog')) {
+        if (!session()->get('IsLoggin')) {
             return redirect()->to('/login');
         }
         if (!session()->get('role') !== 'admin') {
             return redirect()->to('/login');
-        }
+        }        
     }
 
     /**

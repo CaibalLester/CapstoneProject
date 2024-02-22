@@ -7,7 +7,7 @@
                     <form class="container mt-5" method="post" action="/newAgent">
                         <fieldset>
                             <h2><?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?></h2>
-                            <h3>Applicant ID: <?= isset($lifechangerform['user_id']) ? $lifechangerform['user_id'] : '' ?></h3>
+                            <h3>Applicant Name: <?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?></h3>
                             <input type="hidden" name="id" class="btn btn-success" value="<?= isset($lifechangerform['id']) ? $lifechangerform['id'] : '' ?>">
                             <input type="hidden" name="user_id" class="btn btn-success" value="<?= isset($lifechangerform['user_id']) ? $lifechangerform['user_id'] : '' ?>">
                             <a href="/ManageApplicant" class="btn btn-primary">Back</a>
