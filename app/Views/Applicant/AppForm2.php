@@ -276,279 +276,275 @@
 
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h2>AIAL FORM</h2>
+                        <h3>APPLICATION FOR INSURANCE AGENT’S LICENSE</h3>
                     </div>
 
                     
                     <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-           
-            <form class="container mt-5" method="post" action="/form1sv">
-              <fieldset>
-                <div class="form-group">
-                  <label for="position">Position applying for:</label>
-                  <input type="text" id="position" name="positionApplying" class="form-control" required>
-                  <label for="preferredArea">Preferred area:</label>
-                  <input type="text" id="preferredArea" name="preferredArea" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Source:</label><br>
-                  <input type="checkbox" id="referral" name="referral" value="yes">
-                  <label for="referral">Referral</label>
-                  <label for="referralBy">by whom:</label>
-                  <input type="text" id="referralBy" name="referralBy" class="form-control">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                <div class="card-body">
+                            
+                            <form class="container mt-5" method="post" action="/form2sv">
+                                <fieldset>
+                                    <div class="form-group">
+                                    <h6>To the Insurance Commissioner:</h6>
+                                    <p>The undersigned hereby applies for a license under the provisions of Chapter IV, Title I of the Insurance Code, to act as insurance/general agent of Allianz PNB Life Insurance, Inc. in respect of the kind of insurance indicated herein:</p>
 
-                  <input type="checkbox" id="onlineAd" name="onlineAd" value="Online Advertisement">
-                  <label for="onlineAd">Online Advertisement</label>
+                                    <input type="checkbox" id="nonLife" name="nonLife" value="Non-Life">
+                                    <label for="nonLife">Non-Life</label><br>
+                                    <input type="checkbox" id="life" name="life" value="Life">
+                                    <label for="life">Life</label><br>
+                                    <input type="checkbox" id="variableLife" name="variableLife" value="Variable Life">
+                                    <label for="variableLife">Variable Life</label><br>
+                                    <input type="checkbox" id="accidentAndHealth" name="accidentAndHealth" value="Accident and Health">
+                                    <label for="accidentAndHealth">Accident and Health</label><br>                                  
+                                    <input type="checkbox" id="others" name="others" value="Others">
+                                    <label for="others">Others (please specify)</label><br>                                    
+                                    <input type="text" id="othersSpecification" name="othersSpecification" class="form-control" ><br>                                   
+                                    <p>and for that purpose submits the following statements and information required herein.</p>                                    
+                                    <label for="agencyName" >Agency Name (if any):</label>
+                                    <input type="text" id="agencyName" name="agencyName" class="form-control"><br><br> 
+                                </div>
 
-                  <input type="checkbox" id="walkIn" name="walkIn" value="yes">
-                  <label for="walkIn">Walk-In</label>
+                                <div class="form-group">
+                                    <label>1. Name of applicant:</label><br>
+                                    <label for="surname">Surname:</label>
+                                    <input type="text" id="surname" name="surname" class="form-control">
+                                    <label for="firstName">First Name:</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control">
+                                    <label for="middleName">Middle Name:</label>
+                                    <input type="text" id="middleName" name="middleName" class="form-control"><br><br>
+                                </div>
 
-                  <input type="checkbox" id="others" name="others" value="yes">
-                  <label for="others">Others</label><br><br>
-                </div>
+                                <div class="form-group">
+                                    <label>2. Agent Type:</label><br>
+                                    <input type="radio" id="ordinaryAgent" name="agentType" value="Ordinary Agent">
+                                    <label for="ordinaryAgent">Ordinary Agent</label>
+                                    <input type="radio" id="generalAgent" name="agentType" value="General Agent">
+                                    <label for="generalAgent">General Agent</label><br><br>
+                                </div>
 
-                <div class="form-group">
-                  <h2>Personal information</h2>
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="fullname" class="form-control" required><br>
-
-                  <label for="nickname">Nickname:</label>
-                  <input type="text" id="nickname" name="nickname" class="form-control"><br>
-
-                  <label for="birthdate">Birth date:</label>
-                  <input type="date" id="birthdate" name="birthdate" class="form-control" required><br>
-
-                  <label for="placeOfBirth">Place of birth:</label>
-                  <input type="text" id="placeOfBirth" name="placeOfBirth" class="form-control" required><br>
-
-                  <label for="gender">Gender:</label>
-                                    <select id="gender" name="gender" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select><br>
-
-                                    <label for="bloodType">Blood Type:</label>
-                                    <select id="bloodType" name="bloodType" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB-">AB-</option>
-                                    </select><br>
-
-                  <label for="homeAddress">Home address:</label>
-                  <input type="text" id="homeAddress" name="homeAddress" class="form-control" required><br>
-
-                  <label for="mobileNo">Mobile Number:</label>
-                  <input type="text" id="mobileNo" name="mobileNo" class="form-control" required><br>
-
-                  <label for="landline">Landline:</label>
-                  <input type="text" id="landline" name="landline" class="form-control"><br>
-
-                  <label for="email">Email Address:</label>
-                  <input type="email" id="email" name="email" class="form-control"><br>
-                </div>
-                <div class="form-group">
-                  <label for="citizenship">Citizenship:</label><br>
-                  <input type="checkbox" id="citizenship" name="citizenship" value="Filipino">
-                  <label for="filipino">Filipino</label>
-                  <label for="others">Others, please specify</label>
-                  <input type="text" id="others" name="others" class="form-control"><br>
-
-                  <label for="naturalizationInfo">If naturalized citizen of the Philippines, give date and place of
-                    naturalization and attached photocopy of certificate of naturalization:</label>
-                  <input type="text" id="naturalizationInfo" name="naturalizationInfo" class="form-control"><br>
-
-                  <label for="maritalStatus">Marital Status:</label>
-                                    <select id="maritalStatus" name="maritalStatus" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Divorced">Divorced</option>
-                                        <option value="Widowed">Widowed</option>
-                                    </select><br>
-
-                  <div id="ifMarried">
-                    <label for="maidenName">If Married, a) Maiden Name</label>
-                    <input type="text" id="maidenName" name="maidenName" class="form-control"><br>
-
-                    <label for="spouseName">b) Name of Spouse:</label>
-                    <input type="text" id="spouseName" name="spouseName" class="form-control"><br>
-                  </div>
-
-                  <label for="sssNo">SSS No.:</label>
-                  <input type="text" id="sssNo" name="sssNo" class="form-control"><br>
-
-                  <label for="tin">Tax Identification No.:</label>
-                  <input type="text" id="tin" name="tin" class="form-control"><br>
-
-                  <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
-                  <input type="checkbox" id="yesLife" name="lifeInsuranceExperience" value="Yes">
-                  <label for="yesLife">Yes</label><br><br>
-
-                  <input type="checkbox" id="noLife" name="lifeInsuranceExperience" value="No">
-                  <label for="noLife">No</label><br><br>
-
-                  <label for="insuranceType">If yes, check the type:</label><br>
-                  <input type="checkbox" id="traditional" name="traditional" value="Traditional">
-                  <label for="traditional">Traditional</label>
-
-                  <input type="checkbox" id="variable" name="variable" value="Variable">
-                  <label for="variable">Variable</label><br><br>
-
-                  <label for="recentInsuranceCompany">Most recent Life Insurance Company:</label>
-                  <input type="text" id="recentInsuranceCompany" name="recentInsuranceCompany" class="form-control"><br>
-                </div>
-
-                <h2>Educational Background</h2>
-                <div class="table-responsive">
-                <table class="table table-bordered">
-                  <tr>
-                    <th></th>
-                    <th class="text-center">SCHOOL</th>
-                    <th class="text-center">COURSE</th>
-                    <th class="text-center">YEAR GRADUATED</th>
-                  </tr>
-                  <tr>
-                    <td>High School</td>
-                    <td><input type="text" name="highSchool" class="form-control text-center"></td>
-                    <td><input type="text" name="highSchoolCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="highSchoolYear" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>College</td>
-                    <td><input type="text" name="college" class="form-control text-center"></td>
-                    <td><input type="text" name="collegeCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="collegeYear" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>Graduate School</td>
-                    <td><input type="text" name="graduateSchool" class="form-control text-center"></td>
-                    <td><input type="text" name="graduateCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="graduateYear" class="form-control text-center"></td>
-                  </tr>
-                </table>
-                </div>
-
-                <h2>Employment History</h2>
-                <div class="table-responsive">
-                <table class="table table-bordered">
-                  <tr>
-                    <th class="text-center">NAME AND ADDRESS OF EMPLOYER</th>
-                    <th class="text-center">POSITION</th>
-                    <th class="text-center" colspan="2">EMPLOYMENT DATE</th>
-                    <th class="text-center">REASON FOR LEAVING</th>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName1" class="form-control text-center"></td>
-                    <td><input type="text" name="position1" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom1" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo1" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason1" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName2" class="form-control text-center"></td>
-                    <td><input type="text" name="position2" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom2" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo2" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason2" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName3" class="form-control text-center"></td>
-                    <td><input type="text" name="position3" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom3" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo3" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason3" class="form-control text-center"></td>
-                  </tr>
-                </table>
-                </div>
+                                <div class="form-group">
+                                    <label>Home Address:</label><br>
+                                    <textarea id="homeAddress" name="homeAddress" rows="3" class="form-control"></textarea>
+                                    <label>Zip code:</label>
+                                    <input type="text" id="zipCode" name="zipCode" class="form-control">
+                                    <label>Business Address:</label>
+                                    <textarea id="businessAddress" name="businessAddress" rows="3" class="form-control"></textarea>
+                                    <label>TIN:</label>
+                                    <input type="text" id="tin" name="tin" class="form-control">
+                                    <label>Email Address:</label>
+                                    <input type="email" id="email" name="email" class="form-control">
+                                    <label>Mobile Number:</label>
+                                    <input type="tel" id="mobileNumber" name="mobileNumber" class="form-control"><br><br>
+                                </div>
 
 
-                <h2>Most recent employer's contact details</h2>
-                <table class="table" border="1">
-                  <tr>
-                    <td>Company Name:<input type="text" name="companyName" class="form-control"></td>
-                    <td>Position:<input type="text" name="resposition" class="form-control"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2" style="text-align: center;">Employer's contact details:</td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="contactName" class="form-control" placeholder="Contact Name:"></td>
-                    <td><input type="text" name="contactPosition" class="form-control" placeholder="Position:"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="emailAddress" class="form-control" placeholder="Email Address:"></td>
-                    <td><input type="text" name="contactNumber" class="form-control" placeholder="Contact Number:"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">If currently employed, have you already tendered your resignation?
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="yesCheckbox">Yes</label>
-                        <input type="checkbox" name="yescuremployed" class="form-check-input" value="Yes">
+                                <div class="form-group">
+                                    <label>4. Birth:</label>
+                                    <label>a) Date:</label>
+                                    <input type="date" id="birthDate" name="birthDate" class="form-control">
+                                    <label>b) Place:</label>
+                                    <input type="text" id="birthPlace" name="birthPlace" class="form-control"><br><br>
+                                    <label>5. Citizenship:</label>
+                                    <input type="text" id="citizenship" name="citizenship" class="form-control">
+                                    <label>Sex:</label>
+                                    <select id="sex" name="sex" class="form-control">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                    <label>Civil Status:</label>
+                                    <input type="text" id="civilStatus" name="civilStatus" class="form-control"><br><br>
+                                    <label>6. If married:</label><br>
+                                    <label>a) Maiden Name:</label>
+                                    <input type="text" id="maidenName" name="maidenName" class="form-control">
+                                    <label>b) Husband’s Name:</label>
+                                    <input type="text" id="husbandsName" name="husbandsName" class="form-control"><br><br>
+                                    <label>7. If naturalized citizen of the Philippines, give date and place of naturalization and attach photocopy of certificate of naturalization.</label>
+                                    <input type="text" id="naturalizationDetails" name="naturalizationDetails" class="form-control" placeholder="N/A"><br><br>
+                                </div>
 
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="noCheckbox">No</label>
-                        <input type="checkbox" name="nocuremployed" class="form-check-input" value="No">
+                                <div class="form-group">
+                                    <label>8. If applicant is a foreigner, give serial number, date and place of issue of alien certificate of registration (ACR) and the immigrant certificate of residence (ICR) for the current year and attach photocopy of each thereof:</label>
+                                    <input type="text" id="foreignerDetails" name="foreignerDetails" class="form-control" placeholder="N/A"><br><br>
 
-                      </div>
-                    </td>
+                                    <label>9. If applicant is a partnership, association or corporation:</label><br>
+                                    
+                                    <label>a) Attach a certified true copy of the certificate of registration, articles of partnership, association or incorporation and by-laws:</label>
+                                    <input type="text" id="certifiedCopyDetails" name="certifiedCopyDetails" class="form-control" placeholder="N/A">
+                                    
+                                    <label>b) State percentage of Filipino participation in the partnership, association or corporation:</label>
+                                    <input type="text" id="filipinoParticipation" name="filipinoParticipation" class="form-control" placeholder="N/A"><br><br>
+                                </div>
 
-                  </tr>
-                  <tr>
-                    <td colspan="2">1. If answer is No, are we allowed to conduct the employment verification?
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="yesCheckbox">Yes</label>
-                        <input type="checkbox" name="allowed" class="form-check-input" value="Yes">
+                                <div class="form-group">
+                                <label>10. Any license previously granted to act as insurance/general agent in this country? State name of insurance company represented.</label>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>License Type</th>
+                                        <th>License No.</th>
+                                        <th>Year issued/renewed</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="text" id="company1" name="company1" class="form-control" placeholder="N/A"></td>
+                                        <td><input type="text" id="licenseType1" name="licenseType1" class="form-control"></td>
+                                        <td><input type="text" id="licenseNo1" name="licenseNo1" class="form-control"></td>
+                                        <td><input type="text" id="yearIssued1" name="yearIssued1" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="company2" name="company2" class="form-control" placeholder="N/A"></td>
+                                        <td><input type="text" id="licenseType2" name="licenseType2" class="form-control"></td>
+                                        <td><input type="text" id="licenseNo2" name="licenseNo2" class="form-control"></td>
+                                        <td><input type="text" id="yearIssued2" name="yearIssued2" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="company3" name="company3" class="form-control" placeholder="N/A"></td>
+                                        <td><input type="text" id="licenseType3" name="licenseType3" class="form-control"></td>
+                                        <td><input type="text" id="licenseNo3" name="licenseNo3" class="form-control"></td>
+                                        <td><input type="text" id="yearIssued3" name="yearIssued3" class="form-control"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
 
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="noCheckbox">No</label>
-                        <input type="checkbox" name="notallowed" class="form-check-input" value="No">
+                            
+                            <div class="form-group">
+                                    <label>11. Have you filed your income tax return for the preceding year?</label>
+                                    <input type="text" id="taxReturnFiled" name="taxReturnFiled" class="form-control" value="NO" readonly>
 
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><input type="text" name="ifnoProvdtls" class="form-control"
-                        placeholder="2. If answer in number 1 is no, please provide details "></td>
-                  </tr>
-                </table>
-                <input type="submit" value="Submit" class="btn btn-primary">
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                                    <label>If not, give reason:</label>
+                                    <input type="text" id="taxReturnNotFiledReason" name="taxReturnNotFiledReason" class="form-control" value="PANDEMIC" readonly><br><br>
+                                </div>
+
+
+                            <div class="form-group">
+                                <label>12. In the blanks below, state your last (2) employers.</label>
+                                <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Name of Employer</th>
+                                        <th>Position</th>
+                                        <th>Inclusive Dates</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="text" id="employer1" name="employer1" class="form-control"></td>
+                                        <td><input type="text" id="position1" name="position1" class="form-control"></td>
+                                        <td><input type="date" id="dates1" name="dates1" class="form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="employer2" name="employer2" class="form-control"></td>
+                                        <td><input type="text" id="position2" name="position2" class="form-control"></td>
+                                        <td><input type="date" id="dates2" name="dates2" class="form-control"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>13. Are you an official or an employee of an insurance company or broker?</label><br>
+                                    <input type="text" id="insuranceEmployee" name="insuranceEmployee" class="form-control" value="NO" readonly>
+
+                                    <label>If yes, give the position held:</label>
+                                    <input type="text" id="positionHeld" name="positionHeld" class="form-control" value="N/A" readonly><br><br>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label>14. Are you a government employee?</label>
+                                    <input type="text" id="governmentEmployee" name="governmentEmployee" class="form-control" value="NO" readonly>
+                                    <label>If yes, attach the necessary clearance/permission from the Head of the Department or Agency in accordance with Section 18, of Memorandum Circular No. 15, series of 1999 of the Civil Service Commission.</label><br><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>
+                                    Executed this 
+                                    <input type="text" id="date" name="date" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="date"> 
+                                    day of <input type="text" id="month" name="month" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="month">, 
+                                    <input type="text" id="year" name="year" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="year">, at 
+                                    <input type="text" id="place" name="place" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="place">, Philippines.
+                                    </label><br><br>
+                                
+                                    <label><input type="text" id="applicantName" name="applicantName" class="form-control" placeholder="applicant"></label><br>
+                                    <label for="applicant">Applicant</label>
+                                </div><br><br><br>
+
+                                <div class="form-group">
+                                    <h4>AFFIDAVIT OF VERIFICATION</h4>
+
+                                    <p>Republic of the Philippines)<br>
+                                    Province/City of <input type="text" id="provinceCity" name="provinceCity"  style="width: 40%;  padding:5px 5px; border-radius: 13px;" placeholder="Province/City" > S.S.</p>
+
+                                    <p>I, <input type="text" id="applicantName" name="applicantName" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="Name" >, being duly sworn, depose and say that I am the person named in and who signed the foregoing application; that I know the contents thereof and the statements made and answers to question therein are true.</p><br>
+
+                                    <p><input type="text" id="affiant" name="affiant" class="form-control"  placeholder="Affiant">
+                                    Affiant</p><br>
+
+                                    <p>TIN <input type="text" id="tin" name="tin" class="form-control">
+                                    SSS No. <input type="text" id="sss" name="sss" class="form-control" ></p>
+
+                                    <p>SUBSCRIBED AND SWORN TO before me this <input type="text" id="day" name="day" style="width: 100px;  padding:5px 5px; border-radius: 13px;" > day of <input type="text" id="month" name="month" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="month" >,
+                                    <input type="text" id="year" name="year" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="year" >,<br>
+                                    Affiant/s exhibited to me his/her TIN/SSS/Passport/Postal/LTO/  <input type="text" id="exhibit" name="exhibit" style="width: 100px;  padding:5px 5px; border-radius: 13px;" >.</p><br><br>
+
+                                    <p>APPROVED AND COUNTERSIGNED for Allianz PNB Life Insurance, Inc. for the solicitation or procurement of application for life/variable/non-life insurance</p>
+                                </div>
+
+                                <div class="form-group">
+                                    <h4>CERTIFICATE OF WAIVER</h4>
+
+                                    <p>WE HEREBY CERTIFY:</p>
+
+                                    <p>That we know the applicant <input type="text" id="applicant" name="applicant" class="form-control" placeholder="textbox for applicant">, that a thorough investigation has been made into his/her character, conduct and fitness; he/she is of good moral character and worthy of a Certificate of Authority, and that he/she has had experience in each of the kinds of insurance he/she proposes to write or solicit under the Certificate of Authority applied for.</p>
+
+                                    <p>That we have communicated with the former and present employees of the applicant and the replies have been satisfactory.</p>
+
+                                    <p>That to the best of our knowledge, information and belief, all statements and answer contained in the application have been in the handwriting of the applicant with respect to the questions applicable to him/her.</p>
+
+                                    <p>If and when the agency is terminated, written notice thereof will be given forthwith to the Insurance Commission together with the reason therefore.</p>
+
+                                    <p>In consideration of the Certificate of Authority to be issued to the above-mentioned applicant, under the provision of Section 299 of the Insurance Code, we hereby waive, on behalf of –</p>
+
+                                    <p><input type="text" id="companyName" name="companyName" class="form-control" value="ALLIANZ PNB LIFE INSURANCE, INC." readonly> (Company Name)</p>
+
+                                    <p>the right to appeal to the Secretary of Finance in case of revocation by the Insurance Commissioner of the certificate to be issued in favor of the above-mentioned applicant and agree to cancel at once the contract of agency between said applicant and the company upon receipt of the notice of revocation.</p>
+
+                                    <p>Executed in <input type="text" id="place" name="place" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="place"> on <input type="text" id="date" name="date" style="width: 100px;  padding:5px 5px; border-radius: 13px;"  placeholder="date"> TIN 204-145-589-000.</p><br>
+                                </div>
+                                <p>By <input type="text" id="authorizedRepresentative" name="authorizedRepresentative" style="width: 40%;  padding:5px 5px; border-radius: 13px;" placeholder="Province/City"><br> Authorized Representative of the Company</p><br><br>
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </fieldset>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
 
                     <footer class="site-footer">
                         <div class="container">
                             <div class="row">
-                                
                             </div>
                         </div>
                     </footer>
                 </main>
-
             </div>
         </div>
-
        <!-- JAVASCRIPT FILES -->
        <script src="AdminInfo/js/jquery.min.js"></script>
         <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
         <script src="AdminInfo/js/custom.js"></script>
-
     </body>
 </html>

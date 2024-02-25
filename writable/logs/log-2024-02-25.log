@@ -1,0 +1,16 @@
+CRITICAL - 2024-02-25 12:32:42 --> Undefined variable $user
+in APPPATH\Views\Applicant\chop\header.php on line 42.
+ 1 APPPATH\Views\Applicant\chop\header.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppForm3.php(6): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\AppForm3.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppForm3', [], true)
+ 9 APPPATH\Controllers\AppController.php(250): view('Applicant/AppForm3')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppForm3()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

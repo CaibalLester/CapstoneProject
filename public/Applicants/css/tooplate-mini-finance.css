@@ -899,6 +899,10 @@ strong {
   border-color: var(--secondary-color);
 }
 
+.formko{
+  border-radius: 10px;
+  width: 45%; 
+}
 
 /*---------------------------------------
   CUSTOM FORM               
@@ -912,6 +916,7 @@ strong {
   outline: none;
   transition: all 0.3s;
 }
+
 
 .form-check-input:checked {
   background-color: var(--custom-btn-bg-hover-color);
