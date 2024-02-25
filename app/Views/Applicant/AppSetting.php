@@ -65,6 +65,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link active" href="/AppSetting">
                                 <i class="bi-gear me-2"></i>
                                 Settings

@@ -116,6 +116,7 @@ class AdminController extends BaseController
         $data['agent'] = $agents;
         return view('Admin/ManageAgent', $data);
     }
+    
     private function getDataAd()
     {
         $session = session();
@@ -319,9 +320,4 @@ class AdminController extends BaseController
         $dompdf->stream('document.pdf', array('Attachment' => 0));
     }
 
-    public function RTC()
-    {
-        $data = array_merge($this->getData(), $this->getDataAd());
-        return view('Admin/chat', $data);
-    }
 }

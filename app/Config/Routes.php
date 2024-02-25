@@ -11,6 +11,7 @@ $routes->get('/ManageAgent', 'AdminController::ManageAgent', ['filter' => 'admin
 $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilter']);
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
+// $routes->get('/AdChat', 'RTCController::AdChat');
 
 $routes->get('/ViewAppForm/(:segment)', 'AdminController::ViewAppForm/$1');
 
@@ -32,6 +33,8 @@ $routes->get('/AppForm2', 'AppController::AppForm2', ['filter' => 'applicantFilt
 $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm4', 'AppController::AppForm4', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm5', 'AppController::AppForm5', ['filter' => 'applicantFilter']);
+$routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applicantFilter']);
+
 
 $routes->get('/AgDash', 'AgentController::AgDash', ['filter' => 'agentFilter']);
 $routes->get('/AgProfile', 'AgentController::AgProfile', ['filter' => 'agentFilter']);
@@ -121,7 +124,7 @@ $routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingA
 // $routes->get('/emailtest', 'HomepageController::emailtest');
 
 
-$routes->get('/homechat', 'RTCController::homechat');
+$routes->get('/homechat', 'RTCController::RTC');
 $routes->post('/chat', 'RTCController::chat');
 
 $routes->get('/send', 'RTCController::send');

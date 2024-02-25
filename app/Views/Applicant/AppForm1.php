@@ -62,6 +62,13 @@
                                     Profile
                                 </a>
                             </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+                            
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/AppSetting">

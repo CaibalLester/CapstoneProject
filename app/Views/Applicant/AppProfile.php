@@ -66,6 +66,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
                                 <i class="bi-gear me-2"></i>
                                 Settings
@@ -103,26 +110,24 @@
                                             <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
                                                 alt="Profile" class="rounded-circle"
                                                 style="width: 150px; height: 150px;">
-                                            <h2>
+                                            <h4>
                                                 <?= $applicant['applicantfullname'] ?>
-                                            </h2>
+                                            </h4>
                                         </div>
                                     </div>
+                                    
                                     <!-- Include the QR code library -->
-                                    <script
-                                        src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+                                    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
                                     <div class="col-xl-4 d-flex align-items-center justify-content-center">
                                         <div class="text-center">
-                                            <!-- Dito mo ilalagay ang QR code container -->
+                                            <!-- QR code container -->
                                             <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
-
-                                            <!-- Button para sa pag-download -->
+                                            <!-- Button download -->
                                             <button type="button" class="btn btn-dark" id="downloadButton"><i
                                                     class="bi bi-download"></i></button>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

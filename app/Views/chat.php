@@ -899,78 +899,27 @@ message-area
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-4">
-                                            <ul class="moreoption">
-                                                <li class="navbar nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                            class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li>
-                                                            <hr class="dropdown-divider">
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div> -->
                                     </div>
                                 </div>
-
 
                                 <div class="modal-body">
                                     <div class="msg-body">
                                         <ul>
-                                            <li class="sender">
-                                                <p> Hey, Are you there? </p>
-                                                <span class="time">10:06 am</span>
-                                            </li>
-                                            <li class="sender">
-                                                <p> Hey, Are you there? </p>
-                                                <span class="time">10:16 am</span>
-                                            </li>
-                                            <li class="repaly">
-                                                <p>yes!</p>
-                                                <span class="time">10:20 am</span>
-                                            </li>
-                                            <li class="sender">
-                                                <p> Hey, Are you there? </p>
-                                                <span class="time">10:26 am</span>
-                                            </li>
-                                            <li class="sender">
-                                                <p> Hey, Are you there? </p>
-                                                <span class="time">10:32 am</span>
-                                            </li>
-                                            <li class="repaly">
-                                                <p>How are you?</p>
-                                                <span class="time">10:35 am</span>
-                                            </li>
-                                            <li>
-                                                <div class="divider">
-                                                    <h6>Today</h6>
-                                                </div>
-                                            </li>
+                                            <?php
+                                            $combinedMessages = array_merge($chat, $recieve);
+                                            usort($combinedMessages, function ($a, $b) {
+                                                return strtotime($a['created_at']) - strtotime($b['created_at']);
+                                            });
 
-                                            <li class="repaly">
-                                                <p> yes, tell me</p>
-                                                <span class="time">10:36 am</span>
-                                            </li>
-                                            <li class="repaly">
-                                                <p>yes... on it</p>
-                                                <span class="time">junt now</span>
-                                            </li>
-
-                                            <?php foreach ($chat as $message): ?>
-                                                <li class="repaly">
+                                            foreach ($combinedMessages as $message):
+                                                ?>
+                                                <li class="<?= $message['recipient'] == $userId ? 'sender' : 'repaly'; ?>">
                                                     <p>
                                                         <?= $message['message']; ?>
                                                     </p>
-                                                    <!-- <span class="time">
-                                                        <?= date('H:i', strtotime($message['created_at'])); ?>
-                                                    </span> -->
+                                                    <span class="time">
+
+                                                    </span>
                                                 </li>
                                             <?php endforeach; ?>
                                         </ul>
@@ -979,7 +928,8 @@ message-area
 
                                 <div class="send-box">
                                     <form action="chat" method="post">
-                                        <input type="hidden" name="sendto" value="<?= $user['id']?>">
+                                        <!--  -->
+                                        <input type="hidden" name="sendto" value="107">
                                         <input type="text" class="form-control" name="message" aria-label="message…"
                                             placeholder="Write message…">
 

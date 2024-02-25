@@ -258,4 +258,47 @@ class AppController extends BaseController
         return view('Applicant/AppForm5');
     }
 
+    // public function FA()
+    // {
+    //     $agentModel = new AgentModel();
+    //     $data = array_merge($this->getData(), $this->getDataApp());
+    //     $data['agents'] = $agentModel->findAll();
+    //     return view('Applicant/FA' , $data);
+    // }
+
+    // public function searchfa()
+    // {
+    //     $agentModel = new AgentModel();
+    //     $data = array_merge($this->getData(), $this->getDataApp());
+    //     // Get the search input from the form
+    //     $filterUser = $this->request->getPost('searchfa');
+
+    //     // Add a where condition to filter records based on the search input
+    //     $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
+
+    //     $data['agents'] = $agents;
+    //     return view('Applicant/FA', $data);
+    // }
+
+    public function FA()
+    {
+        $agentModel = new AgentModel();
+        $data = array_merge($this->getData(), $this->getDataApp());
+
+        // Get the search input from the form
+        $filterUser = $this->request->getPost('searchfa');
+
+        // If $filterUser is not empty, add a where condition to filter records
+        if (!empty($filterUser)) {
+            $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
+            $data['agents'] = $agents;
+        } else {
+            // If no filter, retrieve all agents
+            $data['agents'] = $agentModel->findAll();
+        }
+
+        return view('Applicant/FA', $data);
+    }
+
+
 }

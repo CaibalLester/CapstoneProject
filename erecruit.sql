@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 17, 2024 at 03:55 PM
+-- Generation Time: Feb 25, 2024 at 01:12 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -39,15 +39,16 @@ CREATE TABLE `admin` (
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `branch` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `branch` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `email`, `adminProfile`, `number`, `address`, `birthday`, `division`, `branch`) VALUES
-(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'chris@gmail.com', '1702373569_7941ed27b651b5754d09.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'Mindoro', 'Calapan');
+INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `email`, `adminProfile`, `number`, `address`, `birthday`, `division`, `branch`, `token`) VALUES
+(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'chris@gmail.com', '1702373569_7941ed27b651b5754d09.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'Mindoro', 'Calapan', '');
 
 -- --------------------------------------------------------
 
@@ -69,19 +70,20 @@ CREATE TABLE `agent` (
   `agentprofile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'def.jpg',
   `FA` int DEFAULT NULL,
   `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `birthday`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`) VALUES
-(30, 103, 'TYT454', 'ellen@gmail.com', 'Ellen', 'Ellen Leido Afable', NULL, '', NULL, NULL, 'def.jpg', NULL, 'Calapan', '2023-12-12 11:39:08'),
-(33, 102, 'OKC32H', 'jandeleido@gmail.com', 'Jandel123', 'Jandel Escalera', '2024-02-17', '09366581432', '123 street', 'Diamond\r\n', '1702140511_b07ec347fa2c28deea57.jpg', 103, 'Calapan', '2023-12-12 11:39:08'),
-(34, 106, 'OCAR39', 'jansen@gmail.com', 'Jansen', 'Jansen L. Afable', '04/28/2013', '09366581432', 'Lumangbayan Calapan City', NULL, '1702170998_824c36db020d0813d117.jpg', 102, 'Calapan', '2023-12-12 11:39:08'),
-(37, 108, '8CUXDJ', 'Lester@gmail.com', 'Lester', 'Lester Caibal', '2023-12-12', '09366581432', 'Lumangbayan calapan City', NULL, '1702299921_3d6289ce70e0f1850862.jpg', 102, 'Calapan', '2023-12-12 11:39:08'),
-(38, 123, 'PFK1DR', 'alejandrogino950@gmail.com', 'Gino', 'Gino Alejandro', '2003-01-26', '09366581432', 'Lumangbayan calapan City', NULL, 'def.jpg', 102, 'Calapan', '2023-12-23 12:11:12');
+INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `birthday`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`, `token`) VALUES
+(30, 103, 'TYT454', 'ellen@gmail.com', 'Ellen', 'Ellen Leido Afable', NULL, '', NULL, NULL, 'def.jpg', NULL, 'Calapan', '2023-12-12 11:39:08', ''),
+(33, 102, 'OKC32H', 'jandeleido@gmail.com', 'Jandel123', 'Jandel Escalera', '2024-02-17', '09366581432', '123 street', 'Diamond\r\n', '1702140511_b07ec347fa2c28deea57.jpg', 103, 'Calapan', '2023-12-12 11:39:08', ''),
+(34, 106, 'OCAR39', 'jansen@gmail.com', 'Jansen', 'Jansen L. Afable', '04/28/2013', '09366581432', 'Lumangbayan Calapan City', NULL, '1702170998_824c36db020d0813d117.jpg', 102, 'Calapan', '2023-12-12 11:39:08', ''),
+(37, 108, '8CUXDJ', 'Lester@gmail.com', 'Lester', 'Lester Caibal', '2023-12-12', '09366581432', 'Lumangbayan calapan City', NULL, '1702299921_3d6289ce70e0f1850862.jpg', 102, 'Calapan', '2023-12-12 11:39:08', ''),
+(38, 123, 'PFK1DR', 'alejandrogino950@gmail.com', 'Gino', 'Gino Alejandro', '2003-01-26', '09366581432', 'Lumangbayan calapan City', NULL, 'def.jpg', 102, 'Calapan', '2023-12-23 12:11:12', '');
 
 -- --------------------------------------------------------
 
@@ -144,20 +146,21 @@ CREATE TABLE `applicant` (
   `branch` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pending',
   `profile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'def.jpg',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `applicantfullname`, `number`, `email`, `birthday`, `branch`, `status`, `profile`, `created_at`) VALUES
-(14, 102, 'Escalera Jandel Leido', '', '09366581432', 'jandeleido@gmail.com', '', 'Calapan', 'confirmed', '1702140511_b07ec347fa2c28deea57.jpg', '2023-12-09 16:14:41'),
-(18, 105, 'Jeff', '', '09366581432', 'jefframos@gmail.com', '', 'Calapan', 'confirmed', '1702169305_eb9da4b981fca946528e.jpg', '2023-12-10 00:26:50'),
-(22, 108, 'Lester', '', '09366581432', 'Lester@gmail.com', '', 'Calapan', 'confirmed', '1702299921_3d6289ce70e0f1850862.jpg', '2023-12-11 13:04:44'),
-(37, 123, 'Gino', '', '09366581432', 'alejandrogino950@gmail.com', '', 'Calapan', 'confirmed', 'def.jpg', '2023-12-23 12:07:09'),
-(38, 124, 'Jansen1', '', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'Calapan', 'pending', '1708178522_888f94df79b88c411264.webp', '2024-02-02 12:03:03'),
-(41, 129, 'water', 'Jandel Escalera', '09366581432', 'qwe@gmail.com', '2024-02-13', 'Calapan', 'pending', 'def.jpg', '2024-02-17 13:12:40');
+INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `applicantfullname`, `number`, `email`, `birthday`, `branch`, `status`, `profile`, `created_at`, `token`) VALUES
+(14, 102, 'Escalera Jandel Leido', '', '09366581432', 'jandeleido@gmail.com', '', 'Calapan', 'confirmed', '1702140511_b07ec347fa2c28deea57.jpg', '2023-12-09 16:14:41', ''),
+(18, 105, 'Jeff', '', '09366581432', 'jefframos@gmail.com', '', 'Calapan', 'confirmed', '1702169305_eb9da4b981fca946528e.jpg', '2023-12-10 00:26:50', ''),
+(22, 108, 'Lester', '', '09366581432', 'Lester@gmail.com', '', 'Calapan', 'confirmed', '1702299921_3d6289ce70e0f1850862.jpg', '2023-12-11 13:04:44', ''),
+(37, 123, 'Gino', '', '09366581432', 'alejandrogino950@gmail.com', '', 'Calapan', 'confirmed', 'def.jpg', '2023-12-23 12:07:09', ''),
+(38, 124, 'Jansen1', '', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'Calapan', 'pending', '1708178522_888f94df79b88c411264.webp', '2024-02-02 12:03:03', '2c146a1f23cfa6e8e414b8f112466bef'),
+(41, 129, 'ap', 'Applicant Lednaj', '09366581432', 'qwe@gmail.com', '2003-01-26', 'Calapan', 'pending', 'def.jpg', '2024-02-17 13:12:40', '3d195daf9fbdc3f10a8bdfe2e4d7d149');
 
 -- --------------------------------------------------------
 
@@ -178,18 +181,10 @@ CREATE TABLE `chat` (
 --
 
 INSERT INTO `chat` (`id`, `sender`, `message`, `recipient`, `created_at`) VALUES
-(4, 107, 'hi', 107, '2023-12-13 16:44:40'),
-(5, 107, 'qwe', 107, '2023-12-13 16:44:40'),
-(6, 107, 'PUTANG INA MO', 107, '2023-12-13 16:44:40'),
-(7, 107, 'Heell', 107, '2022-11-13 16:49:08'),
-(8, 107, 'Heell', 107, '2022-11-13 16:49:08'),
-(9, 107, NULL, 107, '2023-12-14 01:00:33'),
-(10, 107, 'hii', 107, '2023-12-14 01:01:18'),
-(11, 107, 'qwe', 107, '2023-12-14 01:08:28'),
-(12, 107, 'Hi Jandel', 107, '2023-12-14 01:08:53'),
-(13, 107, 'asd', 107, '2023-12-14 01:11:59'),
-(14, 107, 'HELLO LES AND JEFF', 107, '2023-12-14 01:12:57'),
-(15, 92, 'Heell', 107, '2023-12-14 02:59:44');
+(1, 92, 'Hi', 107, '2024-02-24 16:18:58'),
+(2, 92, 'This Is Admin', 107, '2024-02-24 16:19:05'),
+(3, 107, 'Hi Admin this Is other user', 92, '2024-02-24 16:20:13'),
+(4, 92, 'Welcome ALLIANZ PNB', 107, '2024-02-24 16:20:29');
 
 -- --------------------------------------------------------
 
@@ -200,6 +195,7 @@ INSERT INTO `chat` (`id`, `sender`, `message`, `recipient`, `created_at`) VALUES
 CREATE TABLE `lifechangerform` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
+  `token` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `position` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `preferredArea` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -271,13 +267,14 @@ CREATE TABLE `lifechangerform` (
 -- Dumping data for table `lifechangerform`
 --
 
-INSERT INTO `lifechangerform` (`id`, `user_id`, `created_at`, `position`, `preferredArea`, `referralBy`, `referral`, `onlineAd`, `walkIn`, `othersRef`, `fname`, `nickname`, `birthdate`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`, `lifeInsuranceExperience`, `traditional`, `variable`, `recentInsuranceCompany`, `highSchool`, `highSchoolCourse`, `highSchoolYear`, `college`, `collegeCourse`, `collegeYear`, `graduateSchool`, `graduateCourse`, `graduateYear`, `companyName1`, `position1`, `employmentFrom1`, `employmentTo1`, `reason1`, `companyName2`, `position2`, `employmentFrom2`, `employmentTo2`, `reason2`, `companyName3`, `position3`, `employmentFrom3`, `employmentTo3`, `reason3`, `companyName`, `resposition`, `contactName`, `contactPosition`, `emailAddress`, `contactNumber`, `yescuremployed`, `nocuremployed`, `allowed`, `notallowed`, `ifnoProvdtls`) VALUES
-(135, 102, '2023-12-09 16:14:41', 'Agent', 'Calapan', 103, 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(137, 105, '2023-12-10 00:26:50', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Jeff Ramos', 'Jeff', '2023-12-13', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jefframos@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(138, 106, '2023-12-10 01:15:07', 'Agent', 'Calapan City', 102, 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansen@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'yes', 'No', 'variable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(140, 108, '2023-12-11 13:04:44', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Lester Caibal', 'Lester', '2023-12-12', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'Lester@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(152, 123, '2023-12-23 12:07:09', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Gino Alejandro', 'Gino', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'alejandrogino950@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(153, 124, '2024-02-02 12:03:03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `lifechangerform` (`id`, `user_id`, `token`, `created_at`, `position`, `preferredArea`, `referralBy`, `referral`, `onlineAd`, `walkIn`, `othersRef`, `fname`, `nickname`, `birthdate`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`, `lifeInsuranceExperience`, `traditional`, `variable`, `recentInsuranceCompany`, `highSchool`, `highSchoolCourse`, `highSchoolYear`, `college`, `collegeCourse`, `collegeYear`, `graduateSchool`, `graduateCourse`, `graduateYear`, `companyName1`, `position1`, `employmentFrom1`, `employmentTo1`, `reason1`, `companyName2`, `position2`, `employmentFrom2`, `employmentTo2`, `reason2`, `companyName3`, `position3`, `employmentFrom3`, `employmentTo3`, `reason3`, `companyName`, `resposition`, `contactName`, `contactPosition`, `emailAddress`, `contactNumber`, `yescuremployed`, `nocuremployed`, `allowed`, `notallowed`, `ifnoProvdtls`) VALUES
+(135, 102, NULL, '2023-12-09 16:14:41', 'Agent', 'Calapan', 103, 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(137, 105, NULL, '2023-12-10 00:26:50', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Jeff Ramos', 'Jeff', '2023-12-13', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jefframos@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(138, 106, NULL, '2023-12-10 01:15:07', 'Agent', 'Calapan City', 102, 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansen@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'yes', 'No', 'variable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(140, 108, NULL, '2023-12-11 13:04:44', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Lester Caibal', 'Lester', '2023-12-12', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'Lester@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(152, 123, NULL, '2023-12-23 12:07:09', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Gino Alejandro', 'Gino', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'alejandrogino950@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(153, 124, '2c146a1f23cfa6e8e414b8f112466bef', '2024-02-02 12:03:03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(155, 129, '3d195daf9fbdc3f10a8bdfe2e4d7d149', '2024-02-21 14:32:30', 'Agent', 'asd', 102, 'No', 'No', 'No', 'No', 'asd', 'asd', '2024-02-23', 'ad', 'Male', 'O+', 'Lumangbayan calapan City', '09366581432', '123', 'qwe@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123123', '123123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '');
 
 -- --------------------------------------------------------
 
@@ -304,12 +301,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `branch`, `status`, `token`, `verification_token`, `created_at`) VALUES
 (92, 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', 'admin', 'Calapan', 'verified', NULL, '', '2023-12-09 16:58:18'),
-(102, 'jandeleido@gmail.com', 'Jandel', '$2y$10$d8vLbog1/OGADVKskx6gEujIDWFbVBZBR9YXFMRhaG/EaJRoWULEO', 'agent', 'Calapan', 'verified', '821e4f0072f3a10b1aa7f8891ca16ffb', '', '2023-12-09 16:58:18'),
+(102, 'jandeleido@gmail.com', 'Jandel', '$2y$10$VYW4ZrxQdmqwo4Y/VFMFNOPaH0Ds1XYJBH7/ZP53.4OC.U8hGQRPe', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-09 16:58:18'),
 (103, 'ellenleido@gmail.com', 'Ellen', '$2y$10$DSUPPIBHTNLGTrlG7NBtx.CboXb9RER5.3VimJVRaLeEuDik5LU26', 'agent', 'Calapan', 'verified', '5f1b5bcc9cbaedd571cf2444295a823d', '', '2023-12-09 16:58:18'),
 (105, 'jefframos@gmail.com', 'Jeff', '$2y$10$OfGZYKOXkC.bMd7.PuuouuRqtCu4Vhu2BSQS9yrTz8O1gmleULKBa', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-10 00:26:50'),
 (108, 'Lester@gmail.com', 'Lester', '$2y$10$0pmJA1g4hfxCOVUsh0EZLOoZlG2qNcLasmRRyv6lYlVCCGoYcf8.y', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-11 13:04:44'),
 (123, 'alejandrogino950@gmail.com', 'Gino', '$2y$10$oEEDwC5rGI56xiQp6gj6AeFqjE6G7LV/qgDmAnELclYf6yW25wX3S', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-23 12:07:09'),
-(124, 'escalerajandel@gmail.com', 'Jansen123123', '$2y$10$gjpsPbZEdnxz4v0URYBlUOZsYuB1/Jvb4LVv8cdaPVECd50Y3.vQK', 'applicant', 'Calapan', 'verified', NULL, '', '2024-02-02 12:03:03'),
+(124, 'escalerajandel@gmail.com', 'Jansen123123', '$2y$10$gjpsPbZEdnxz4v0URYBlUOZsYuB1/Jvb4LVv8cdaPVECd50Y3.vQK', 'applicant', 'Calapan', 'verified', '2c146a1f23cfa6e8e414b8f112466bef', '', '2024-02-02 12:03:03'),
 (125, 'test@gmail.com', 'test123', '$2y$10$is9GRwv55RVeVCK.G/cGq.jDxqWbIFlrMLJeAMbt8SuvRNlZkcGZq', 'applicant', 'Calapan', 'verified', '5646424aa32b9bf8fead8343ad49d9cd', '', '2024-02-04 11:33:15'),
 (129, 'qwe@gmail.com', 'qwe', '$2y$10$tNFMlc5lq2hZ2wW3wRtfOuj0Oz.Pyt3hCp53G34y49zk1T7KBM.x2', 'applicant', 'Calapan', 'verified', '3d195daf9fbdc3f10a8bdfe2e4d7d149', '', '2024-02-17 13:12:40');
 
@@ -402,13 +399,13 @@ ALTER TABLE `applicant`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `lifechangerform`
 --
 ALTER TABLE `lifechangerform`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
 
 --
 -- AUTO_INCREMENT for table `users`

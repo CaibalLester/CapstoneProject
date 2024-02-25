@@ -4,9 +4,8 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\RTCModel;
-use App\Models\AdminModel;
 use App\Models\UserModel;
-
+use App\Models\AdminModel;
 
 class RTCController extends BaseController
 {
@@ -15,68 +14,71 @@ class RTCController extends BaseController
     {
         $this->chat = new RTCModel();
     }
-    private function getUserData()
-    {
-        $session = session();
-        $userId = $session->get('id');
-    
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
-    
-        return $data;
-    }
-    
-    public function homechat()
-    { 
-        $session = session();
-        $userId = $session->get('id');
-        $chatModel = new RTCModel();
-    
-        // Call the getUserData() method instead of usermerge()
-        $data = $this->getUserData();
-    
-        $data['chat'] = $chatModel->where('recipient', $userId)->findAll();
-        return view('chat', $data);
-    }
-    
 
-    public function chat() //dito ka mag sesend ng message
+
+    // public function homechat()
+    // { 
+    //     $session = session();
+    //     $userId = $session->get('id');
+    //     $chatModel = new RTCModel();
+
+    //     // Call the getUserData() method instead of usermerge()
+    //     $data = $this->getUserData();
+
+    //     $data['chat'] = $chatModel->where('recipient', $userId)->findAll();
+    //     return view('chat', $data);
+    // }
+
+    // public function chat() //dito ka mag sesend ng message
+    // {
+    //     $session = session();
+    //     $userId = $session->get('id');
+
+    //     $chatModel = new RTCModel();
+    //     $data['chat'] = $chatModel->where('recipient', $userId)->orderBy('id', 'desc')->get();
+    //     $data = [
+    //         'sender' => $userId,
+    //         'recipient' => $this->request->getVar('sendto'),
+    //         'message' => $this->request->getVar('message'),
+    //     ];
+    //     $this->chat->insert($data);
+    //     return redirect()->to('/homechat');
+    // }
+
+    public function chat()
     {
         $session = session();
         $userId = $session->get('id');
-        
-        $chatModel = new RTCModel();
-        $data['chat'] = $chatModel->where('recipient', $userId)->orderBy('id', 'desc')->get();
+
         $data = [
             'sender' => $userId,
             'recipient' => $this->request->getVar('sendto'),
             'message' => $this->request->getVar('message'),
         ];
+
+        // Assuming $this->chat is your model, you can retrieve the chat messages like this
+        $chatModel = new RTCModel();
+
+        $data['chat'] = $chatModel->where('sender', $userId)->orderBy('id', 'desc')->get();
+        
+        // Insert the new message
         $this->chat->insert($data);
+
+        // Redirect back to the chat page
         return redirect()->to('/homechat');
     }
-
-//        public function send() //dito makikita yung sinend mo
-//    {
-//         $session = session();
-//         $userId = $session->get('id');
-//         $chatModel = new RTCModel();
-//         $data['chat'] = $chatModel->where('recipient' , $userId)->findAll();
-//         return view('rec',$data);
-//    }
-
-    public function send()
+    public function RTC()
     {
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->getUserData());
         $session = session();
         $userId = $session->get('id');
         $chatModel = new RTCModel();
+        $data['userId'] = $userId;
 
-        // var_dump($userId);
-        // Fetch chat messages for the recipient
-        $data['chats'] = $chatModel->where('recipient', $userId)->findAll();
+        $data['chat'] = $chatModel->where('recipient', $userId)->findAll();
+        $data['recieve'] = $chatModel->where('sender', $userId)->findAll();
 
-        // Calculate the time difference for each chat message
-        foreach ($data['chats'] as &$chat) {
+        foreach ($data['chat'] as &$chat) {
             // Convert created_at to DateTime object
             $createdAt = new \DateTime($chat['created_at']);
 
@@ -87,8 +89,7 @@ class RTCController extends BaseController
             // Add the time difference to the chat array
             $chat['time_diff'] = $this->formatTimeDifference($diff);
         }
-
-        return view('rec', $data);
+        return view('Admin/AdChat', $data);
     }
 
     // Helper function to format time difference
@@ -117,7 +118,48 @@ class RTCController extends BaseController
 
         return $formattedDiff;
     }
+    private function getDataAd()
+    {
+        $session = session();
 
+        // Get the user ID from the session
+        $userId = $session->get('id');
 
+        // Load the User model
+        $adminModel = new AdminModel();
 
+        // Find the user by ID
+        $data['admin'] = $adminModel->where('admin_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        return $data;
+    }
+    private function getData()
+    {
+        $session = session();
+        //Check if the user is logged in
+        if (!$session->get('id')) {
+            // Redirect or handle the case where the user is not logged in
+            return redirect()->to('login');
+        }
+        // Get the user ID from the session
+        $userId = $session->get('id');
+        // Load the User model
+        $userModel = new UserModel();
+        // Find the user by ID
+        $data['user'] = $userModel->find($userId);
+        return $data;
+    }
+    private function getUserData()
+    {
+        $session = session();
+        $userId = $session->get('id');
+
+        $userModel = new UserModel();
+        $data['user'] = $userModel->find($userId);
+
+        return $data;
+    }
+    
 }

@@ -31,6 +31,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
                                 <i class="bi-gear me-2"></i>
                                 Settings
@@ -83,7 +90,7 @@
                                 <strong>Name:</strong>
 
                                 <a href="#">
-                                    <?= $applicant['username'] ?>
+                                    <?= $applicant['applicantfullname'] ?>
                                 </a>
                             </p>
 
