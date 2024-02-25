@@ -9,7 +9,7 @@
         <div class="row">
         <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                     <div class="position-sticky py-4 px-3 sidebar-sticky">
-                        <ul class="nav flex-column h-100">
+                    <ul class="nav flex-column h-100">
                             
                             <li class="nav-item">
                                 <a class="nav-link " aria-current="page" href="/AppDash">
@@ -17,19 +17,20 @@
                                     Overview
                                 </a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown" aria-expanded="false">
                                     <i class="bi-book me-2"></i>
                                     Forms
                                 </a>
                                 <div class="collapse" id="manageDropdown">
                                     <ul class="nav">
                                         <li class="nav-item">
-                                            <span><a class="nav-link" href="/AppForm1">
+                                            <span><a class="nav-link active" href="/AppForm1">
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">LIFE CHANGER</span>
                                             </a></span><br>
-                                            <a class="nav-link" href="/AppForm2">
+                                            <a class="nav-link " href="/AppForm2">
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">AIAL</span>
                                             </a><br>
@@ -45,15 +46,9 @@
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">STATEMENT OF UNDERTAKING</span>
                                             </a>
-                                        </li>
+                                        </li> 
                                     </ul>
                                 </div>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AppForm1">
-                                <i class="bi-book me-2"></i>
-                                   Applicantion Form
-                                </a>
                             </li>
 
                             <li class="nav-item">
@@ -85,7 +80,7 @@
                             </li>
 
                             <li class="nav-item border-top mt-auto pt-2">
-                                <a class="nav-link" href="/logout">
+                                <a class="nav-link" href="/AdDash">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
@@ -96,7 +91,7 @@
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
-                    <h2>LIFE CHANGER FORM</h2>
+                    <h3>LIFE CHANGER FORM</h3>
                 </div>
 
                 <section class="section">
@@ -150,7 +145,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <h2>Personal information</h2>
+                                                <h6>Personal information</h6>
                                                 <label for="name">Name:</label>
                                                 <input type="text" id="name" name="fullname" class="form-control"
                                                     value="<?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>"
@@ -300,7 +295,7 @@
                                                     value="<?= isset($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>"><br>
                                             </div>
 
-                                            <h2>Educational Background</h2>
+                                            <h6>Educational Background</h6>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <tr>
@@ -352,7 +347,7 @@
                                                 </table>
                                             </div>
 
-                                            <h2>Employment History</h2>
+                                            <h6>Employment History</h6>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <tr>
@@ -416,7 +411,7 @@
                                             </div>
 
 
-                                            <h2>Most recent employer's contact details</h2>
+                                            <h6>Most recent employer's contact details</h6>
                                             <table class="table" border="1">
                                                 <tr>
                                                     <td>Company Name:<input type="text" name="companyName"
@@ -488,10 +483,10 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2"><input type="text" name="ifnoProvdtls"
+                                                    <td colspan="2">2. If answer in number 1 is no, please provide details 
+                                                        <input type="text" name="ifnoProvdtls"
                                                     value="<?= isset($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>"
-                                                            class="form-control"
-                                                            placeholder="2. If answer in number 1 is no, please provide details ">
+                                                            class="form-control">
                                                     </td>
                                                 </tr>
                                             </table>
