@@ -84,7 +84,7 @@
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
-                    <h2>LIFE CHANGER FORM</h2>
+                    <h3>LIFE CHANGER FORM</h3>
                 </div>
 
                 <section class="section">
@@ -138,7 +138,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <h2>Personal information</h2>
+                                                <h6>Personal information</h6>
                                                 <label for="name">Name:</label>
                                                 <input type="text" id="name" name="fullname" class="form-control"
                                                     value="<?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>"
@@ -288,7 +288,7 @@
                                                     value="<?= isset($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>"><br>
                                             </div>
 
-                                            <h2>Educational Background</h2>
+                                            <h6>Educational Background</h6>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <tr>
@@ -340,7 +340,7 @@
                                                 </table>
                                             </div>
 
-                                            <h2>Employment History</h2>
+                                            <h6>Employment History</h6>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered">
                                                     <tr>
@@ -404,7 +404,7 @@
                                             </div>
 
 
-                                            <h2>Most recent employer's contact details</h2>
+                                            <h6>Most recent employer's contact details</h6>
                                             <table class="table" border="1">
                                                 <tr>
                                                     <td>Company Name:<input type="text" name="companyName"
@@ -476,10 +476,10 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2"><input type="text" name="ifnoProvdtls"
+                                                    <td colspan="2">2. If answer in number 1 is no, please provide details 
+                                                        <input type="text" name="ifnoProvdtls"
                                                     value="<?= isset($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>"
-                                                            class="form-control"
-                                                            placeholder="2. If answer in number 1 is no, please provide details ">
+                                                            class="form-control">
                                                     </td>
                                                 </tr>
                                             </table>

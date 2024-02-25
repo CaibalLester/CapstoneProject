@@ -14,3 +14,147 @@ in APPPATH\Views\Applicant\chop\header.php on line 42.
 12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-02-25 16:08:11 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\laragon\www\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+#6 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-02-25 16:08:11 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-02-25 16:08:44 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\laragon\www\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+#6 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-02-25 16:08:44 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\HomepageController.php(176): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-02-25 16:09:42 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('caiballester4@g...', 'email', Array, NULL, 'email')
+#6 C:\laragon\www\CapstoneSystem\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('email', 'email', 'caiballester4@g...', Array, Array)
+#7 C:\laragon\www\CapstoneSystem\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(55): CodeIgniter\Controller->validate(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->Authreg()
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#3 C:\laragon\www\CapstoneSystem\system\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\laragon\www\CapstoneSystem\system\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('caiballester4@g...', 'email', Array, NULL, 'email')
+#5 C:\laragon\www\CapstoneSystem\system\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('email', 'email', 'caiballester4@g...', Array, Array)
+#6 C:\laragon\www\CapstoneSystem\system\Controller.php(150): CodeIgniter\Validation\Validation->run()
+#7 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(55): CodeIgniter\Controller->validate(Array)
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->Authreg()
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-02-25 16:09:42 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Validation\StrictRules\Rules.php(206): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\Validation\Validation.php(309): CodeIgniter\Validation\StrictRules\Rules->is_unique('caiballester4@gmail.com', 'email', [...], null, 'email')
+ 5 SYSTEMPATH\Validation\Validation.php(195): CodeIgniter\Validation\Validation->processRules('email', 'email', 'caiballester4@gmail.com', [...], [...])
+ 6 SYSTEMPATH\Controller.php(150): CodeIgniter\Validation\Validation->run()
+ 7 APPPATH\Controllers\HomepageController.php(55): CodeIgniter\Controller->validate([...])
+ 8 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->Authreg()
+ 9 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+10 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

@@ -30,10 +30,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-                <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
-            </form>
-
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     <div class="dropdown ps-3">
@@ -420,9 +416,9 @@
                                                         <th colspan="7" ><input type="text" id="trusteeMinorBeneficiary" name="trusteeMinorBeneficiary" class="form-control"></th>
                                                     </tr>
                                         </tbody>
-                                    </table>
+                                    </table><br>
                                         
-                                    <p>I hereby apply for participation in the group life insurance plan for which I am or may become eligible for subject to the terms and conditions of the Group Policy. I further agree that my insurance shall become effective on the date stated on the certificate to be issued to me by Allianz PNB Life Insurance, Inc. provided that I am actively at work on such date and the premium corresponding to my insurance has been paid. I authorize Allianz PNB Life Insurance, Inc. to process the information I have provided in accordance with the Data Privacy Act.</p>
+                                    <p style="text-align: justify;">I hereby apply for participation in the group life insurance plan for which I am or may become eligible for subject to the terms and conditions of the Group Policy. I further agree that my insurance shall become effective on the date stated on the certificate to be issued to me by Allianz PNB Life Insurance, Inc. provided that I am actively at work on such date and the premium corresponding to my insurance has been paid. I authorize Allianz PNB Life Insurance, Inc. to process the information I have provided in accordance with the Data Privacy Act.</p><br>
                                     <p>Signed at <input type="text" style="width: 100px; border-radius: 7px;" id="place" name="place"> 
                                     this <input type="text" style="width: 50px; border-radius: 7px;" id="day" name="day"> 
                                     day of <input type="text" style="width: 100px; border-radius: 7px;" id="month" name="month">, 

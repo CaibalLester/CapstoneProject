@@ -30,10 +30,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-                <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
-            </form>
-
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     <div class="dropdown ps-3">
@@ -276,267 +272,58 @@
 
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h2>AFFIDAVIT OF NON-FILING FORM</h2>
+                        <h3>AFFIDAVIT OF NON-FILING FORM</h3>
                     </div>
 
                     
                     <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-           
-            <form class="container mt-5" method="post" action="/form1sv">
-              <fieldset>
-                <div class="form-group">
-                  <label for="position">Position applying for:</label>
-                  <input type="text" id="position" name="positionApplying" class="form-control" required>
-                  <label for="preferredArea">Preferred area:</label>
-                  <input type="text" id="preferredArea" name="preferredArea" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label>Source:</label><br>
-                  <input type="checkbox" id="referral" name="referral" value="yes">
-                  <label for="referral">Referral</label>
-                  <label for="referralBy">by whom:</label>
-                  <input type="text" id="referralBy" name="referralBy" class="form-control">
-
-                  <input type="checkbox" id="onlineAd" name="onlineAd" value="Online Advertisement">
-                  <label for="onlineAd">Online Advertisement</label>
-
-                  <input type="checkbox" id="walkIn" name="walkIn" value="yes">
-                  <label for="walkIn">Walk-In</label>
-
-                  <input type="checkbox" id="others" name="others" value="yes">
-                  <label for="others">Others</label><br><br>
-                </div>
-
-                <div class="form-group">
-                  <h2>Personal information</h2>
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="fullname" class="form-control" required><br>
-
-                  <label for="nickname">Nickname:</label>
-                  <input type="text" id="nickname" name="nickname" class="form-control"><br>
-
-                  <label for="birthdate">Birth date:</label>
-                  <input type="date" id="birthdate" name="birthdate" class="form-control" required><br>
-
-                  <label for="placeOfBirth">Place of birth:</label>
-                  <input type="text" id="placeOfBirth" name="placeOfBirth" class="form-control" required><br>
-
-                  <label for="gender">Gender:</label>
-                                    <select id="gender" name="gender" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                    </select><br>
-
-                                    <label for="bloodType">Blood Type:</label>
-                                    <select id="bloodType" name="bloodType" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="A+">A+</option>
-                                        <option value="A-">A-</option>
-                                        <option value="B+">B+</option>
-                                        <option value="B-">B-</option>
-                                        <option value="O+">O+</option>
-                                        <option value="O-">O-</option>
-                                        <option value="AB+">AB+</option>
-                                        <option value="AB-">AB-</option>
-                                    </select><br>
-
-                  <label for="homeAddress">Home address:</label>
-                  <input type="text" id="homeAddress" name="homeAddress" class="form-control" required><br>
-
-                  <label for="mobileNo">Mobile Number:</label>
-                  <input type="text" id="mobileNo" name="mobileNo" class="form-control" required><br>
-
-                  <label for="landline">Landline:</label>
-                  <input type="text" id="landline" name="landline" class="form-control"><br>
-
-                  <label for="email">Email Address:</label>
-                  <input type="email" id="email" name="email" class="form-control"><br>
-                </div>
-                <div class="form-group">
-                  <label for="citizenship">Citizenship:</label><br>
-                  <input type="checkbox" id="citizenship" name="citizenship" value="Filipino">
-                  <label for="filipino">Filipino</label>
-                  <label for="others">Others, please specify</label>
-                  <input type="text" id="others" name="others" class="form-control"><br>
-
-                  <label for="naturalizationInfo">If naturalized citizen of the Philippines, give date and place of
-                    naturalization and attached photocopy of certificate of naturalization:</label>
-                  <input type="text" id="naturalizationInfo" name="naturalizationInfo" class="form-control"><br>
-
-                  <label for="maritalStatus">Marital Status:</label>
-                                    <select id="maritalStatus" name="maritalStatus" class="form-control" required>
-                                        <option value="">Select</option>
-                                        <option value="Single">Single</option>
-                                        <option value="Married">Married</option>
-                                        <option value="Divorced">Divorced</option>
-                                        <option value="Widowed">Widowed</option>
-                                    </select><br>
-
-                  <div id="ifMarried">
-                    <label for="maidenName">If Married, a) Maiden Name</label>
-                    <input type="text" id="maidenName" name="maidenName" class="form-control"><br>
-
-                    <label for="spouseName">b) Name of Spouse:</label>
-                    <input type="text" id="spouseName" name="spouseName" class="form-control"><br>
-                  </div>
-
-                  <label for="sssNo">SSS No.:</label>
-                  <input type="text" id="sssNo" name="sssNo" class="form-control"><br>
-
-                  <label for="tin">Tax Identification No.:</label>
-                  <input type="text" id="tin" name="tin" class="form-control"><br>
-
-                  <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
-                  <input type="checkbox" id="yesLife" name="lifeInsuranceExperience" value="Yes">
-                  <label for="yesLife">Yes</label><br><br>
-
-                  <input type="checkbox" id="noLife" name="lifeInsuranceExperience" value="No">
-                  <label for="noLife">No</label><br><br>
-
-                  <label for="insuranceType">If yes, check the type:</label><br>
-                  <input type="checkbox" id="traditional" name="traditional" value="Traditional">
-                  <label for="traditional">Traditional</label>
-
-                  <input type="checkbox" id="variable" name="variable" value="Variable">
-                  <label for="variable">Variable</label><br><br>
-
-                  <label for="recentInsuranceCompany">Most recent Life Insurance Company:</label>
-                  <input type="text" id="recentInsuranceCompany" name="recentInsuranceCompany" class="form-control"><br>
-                </div>
-
-                <h2>Educational Background</h2>
-                <div class="table-responsive">
-                <table class="table table-bordered">
-                  <tr>
-                    <th></th>
-                    <th class="text-center">SCHOOL</th>
-                    <th class="text-center">COURSE</th>
-                    <th class="text-center">YEAR GRADUATED</th>
-                  </tr>
-                  <tr>
-                    <td>High School</td>
-                    <td><input type="text" name="highSchool" class="form-control text-center"></td>
-                    <td><input type="text" name="highSchoolCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="highSchoolYear" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>College</td>
-                    <td><input type="text" name="college" class="form-control text-center"></td>
-                    <td><input type="text" name="collegeCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="collegeYear" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td>Graduate School</td>
-                    <td><input type="text" name="graduateSchool" class="form-control text-center"></td>
-                    <td><input type="text" name="graduateCourse" class="form-control text-center"></td>
-                    <td><input type="date" name="graduateYear" class="form-control text-center"></td>
-                  </tr>
-                </table>
-                </div>
-
-                <h2>Employment History</h2>
-                <div class="table-responsive">
-                <table class="table table-bordered">
-                  <tr>
-                    <th class="text-center">NAME AND ADDRESS OF EMPLOYER</th>
-                    <th class="text-center">POSITION</th>
-                    <th class="text-center" colspan="2">EMPLOYMENT DATE</th>
-                    <th class="text-center">REASON FOR LEAVING</th>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName1" class="form-control text-center"></td>
-                    <td><input type="text" name="position1" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom1" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo1" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason1" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName2" class="form-control text-center"></td>
-                    <td><input type="text" name="position2" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom2" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo2" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason2" class="form-control text-center"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="companyName3" class="form-control text-center"></td>
-                    <td><input type="text" name="position3" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentFrom3" class="form-control text-center"></td>
-                    <td><input type="date" name="employmentTo3" class="form-control text-center" ></td>
-                    <td><input type="text" name="reason3" class="form-control text-center"></td>
-                  </tr>
-                </table>
-                </div>
-
-
-                <h2>Most recent employer's contact details</h2>
-                <table class="table" border="1">
-                  <tr>
-                    <td>Company Name:<input type="text" name="companyName" class="form-control"></td>
-                    <td>Position:<input type="text" name="resposition" class="form-control"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2" style="text-align: center;">Employer's contact details:</td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="contactName" class="form-control" placeholder="Contact Name:"></td>
-                    <td><input type="text" name="contactPosition" class="form-control" placeholder="Position:"></td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="emailAddress" class="form-control" placeholder="Email Address:"></td>
-                    <td><input type="text" name="contactNumber" class="form-control" placeholder="Contact Number:"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">If currently employed, have you already tendered your resignation?
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="yesCheckbox">Yes</label>
-                        <input type="checkbox" name="yescuremployed" class="form-check-input" value="Yes">
-
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="noCheckbox">No</label>
-                        <input type="checkbox" name="nocuremployed" class="form-check-input" value="No">
-
-                      </div>
-                    </td>
-
-                  </tr>
-                  <tr>
-                    <td colspan="2">1. If answer is No, are we allowed to conduct the employment verification?
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="yesCheckbox">Yes</label>
-                        <input type="checkbox" name="allowed" class="form-check-input" value="Yes">
-
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label" for="noCheckbox">No</label>
-                        <input type="checkbox" name="notallowed" class="form-check-input" value="No">
-
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><input type="text" name="ifnoProvdtls" class="form-control"
-                        placeholder="2. If answer in number 1 is no, please provide details "></td>
-                  </tr>
-                </table>
-                <input type="submit" value="Submit" class="btn btn-primary">
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+                        <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                            <div class="card-body">
+                            
+                                <form class="container mt-5" method="post" action="/form4sv">
+                                <fieldset>
+                                <h6 style="text-align: center;">AFFIDAVIT OF NON-FILING FORM</h6><br>
+                                <p style="text-align: justify;">
+                                        I, <input type="text" id="name" name="name" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="name">, of legal age, single/married, Filipino, and a resident of <input type="text" id="place" name="place" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="place"> after having been duly sworn to in accordance with law, hereby depose and say:
+                                    </p>
+                                    <br>
+                                    <ol style="text-align: justify;">
+                                        <li>I do not have a sufficient source of income/unemployed for <input type="text" id="reason" name="reason" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="">;</li>
+                                        <li>That as a consequence, I did not file my Income Tax Return for the past year;</li>
+                                        <li>That I am executing this affidavit to attest to the truthfulness of the foregoing facts and for all legal intents and purposes.</li>
+                                    </ol>
+                                    <br>
+                                    <p style="text-align: justify;">
+                                        IN WITNESS WHEREOF, I have hereunto set my hands this <input type="text" id="day" name="day" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="day"> day of <input type="text" id="month" name="month" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="month">, <input type="text" id="year" name="year" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="year"> at <input type="text" id="witness_place" name="witness_place" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="place">.
+                                    </p>
+                                    <br><br>
+                                    <p style="text-align: right;">
+                                        <input type="text" id="affiant" name="affiant" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="affiant"><br>
+                                        Affiant
+                                    </p>
+                                    <p style="text-align: right;">
+                                        CTC No. <input type="text" id="ctc_no" name="ctc_no" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder=""><br>
+                                        Issued on <input type="text" id="ctc_issue_date" name="ctc_issue_date" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder=""> <br>
+                                        Issued at <input type="text" id="ctc_issue_place" name="ctc_issue_place" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="">
+                                    </p>
+                                    <br> <br>
+                                    <p style="text-align: justify;">
+                                        SUBSCRIBED AND SWORN to before me this <input type="text" id="sworn_day" name="sworn_day" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="day"> day of <input type="text" id="sworn_month" name="sworn_month" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="month">, <input type="text" id="sworn_year" name="sworn_year" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="year"> at <input type="text" id="sworn_place" name="sworn_place" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="place">, affiant exhibited to me her Community Tax Certificate as indicated above.
+                                    </p><br>
+                                    <input type="submit" value="Submit" class="btn btn-primary">
+                                </fieldset>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
 
                     <footer class="site-footer">
                         <div class="container">
-                            <div class="row">
-                                
+                            <div class="row"> 
                             </div>
                         </div>
                     </footer>

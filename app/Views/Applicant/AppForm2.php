@@ -30,10 +30,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-                <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
-            </form>
-
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     <div class="dropdown ps-3">
@@ -290,7 +286,7 @@
                                 <fieldset>
                                     <div class="form-group">
                                     <h6>To the Insurance Commissioner:</h6>
-                                    <p>The undersigned hereby applies for a license under the provisions of Chapter IV, Title I of the Insurance Code, to act as insurance/general agent of Allianz PNB Life Insurance, Inc. in respect of the kind of insurance indicated herein:</p>
+                                    <p style="text-align: justify;">The undersigned hereby applies for a license under the provisions of Chapter IV, Title I of the Insurance Code, to act as insurance/general agent of Allianz PNB Life Insurance, Inc. in respect of the kind of insurance indicated herein:</p>
 
                                     <input type="checkbox" id="nonLife" name="nonLife" value="Non-Life">
                                     <label for="nonLife">Non-Life</label><br>
@@ -465,7 +461,7 @@
                                     <div class="form-group">
                                     <label>14. Are you a government employee?</label>
                                     <input type="text" id="governmentEmployee" name="governmentEmployee" class="form-control" value="NO" readonly>
-                                    <label>If yes, attach the necessary clearance/permission from the Head of the Department or Agency in accordance with Section 18, of Memorandum Circular No. 15, series of 1999 of the Civil Service Commission.</label><br><br>
+                                    <label style="text-align: justify;">If yes, attach the necessary clearance/permission from the Head of the Department or Agency in accordance with Section 18, of Memorandum Circular No. 15, series of 1999 of the Civil Service Commission.</label><br><br>
                                 </div>
 
                                 <div class="form-group">
@@ -485,9 +481,9 @@
                                     <h4>AFFIDAVIT OF VERIFICATION</h4>
 
                                     <p>Republic of the Philippines)<br>
-                                    Province/City of <input type="text" id="provinceCity" name="provinceCity"  style="width: 40%;  padding:5px 5px; border-radius: 13px;" placeholder="Province/City" > S.S.</p>
+                                    Province/City of <input type="text" id="provinceCity" name="provinceCity"  style="width: 170px;;  padding:5px 5px; border-radius: 13px;" placeholder="Province/City" > S.S.</p>
 
-                                    <p>I, <input type="text" id="applicantName" name="applicantName" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="Name" >, being duly sworn, depose and say that I am the person named in and who signed the foregoing application; that I know the contents thereof and the statements made and answers to question therein are true.</p><br>
+                                    <p>I, <input type="text" id="applicantName" name="applicantName" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="Name" >, being duly sworn, depose and say that I am the person named in and who signed the foregoing application; that I know the contents thereof and the statements made and answers to question therein are true.</p><br>
 
                                     <p><input type="text" id="affiant" name="affiant" class="form-control"  placeholder="Affiant">
                                     Affiant</p><br>
@@ -495,29 +491,29 @@
                                     <p>TIN <input type="text" id="tin" name="tin" class="form-control">
                                     SSS No. <input type="text" id="sss" name="sss" class="form-control" ></p>
 
-                                    <p>SUBSCRIBED AND SWORN TO before me this <input type="text" id="day" name="day" style="width: 100px;  padding:5px 5px; border-radius: 13px;" > day of <input type="text" id="month" name="month" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="month" >,
+                                    <p style="text-align: justify;">SUBSCRIBED AND SWORN TO before me this <input type="text" id="day" name="day" style="width: 100px;  padding:5px 5px; border-radius: 13px;" > day of <input type="text" id="month" name="month" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="month" >,
                                     <input type="text" id="year" name="year" style="width: 100px;  padding:5px 5px; border-radius: 13px;" placeholder="year" >,<br>
-                                    Affiant/s exhibited to me his/her TIN/SSS/Passport/Postal/LTO/  <input type="text" id="exhibit" name="exhibit" style="width: 100px;  padding:5px 5px; border-radius: 13px;" >.</p><br><br>
+                                    Affiant/s exhibited to me his/her TIN/SSS/Passport/Postal/LTO/  <input type="text" id="exhibit" name="exhibit" style="width: 150px;  padding:5px 5px; border-radius: 13px;" >.</p><br><br>
 
-                                    <p>APPROVED AND COUNTERSIGNED for Allianz PNB Life Insurance, Inc. for the solicitation or procurement of application for life/variable/non-life insurance</p>
-                                </div>
+                                    <p style="text-align: justify;">APPROVED AND COUNTERSIGNED for Allianz PNB Life Insurance, Inc. for the solicitation or procurement of application for life/variable/non-life insurance</p>
+                                </div><br><br>
 
                                 <div class="form-group">
                                     <h4>CERTIFICATE OF WAIVER</h4>
 
                                     <p>WE HEREBY CERTIFY:</p>
 
-                                    <p>That we know the applicant <input type="text" id="applicant" name="applicant" class="form-control" placeholder="textbox for applicant">, that a thorough investigation has been made into his/her character, conduct and fitness; he/she is of good moral character and worthy of a Certificate of Authority, and that he/she has had experience in each of the kinds of insurance he/she proposes to write or solicit under the Certificate of Authority applied for.</p>
+                                    <p style="text-align: justify;">That we know the applicant <input type="text" id="applicant" name="applicant" style="width: 150px;  padding:5px 5px; border-radius: 13px;" placeholder="applicant">, that a thorough investigation has been made into his/her character, conduct and fitness; he/she is of good moral character and worthy of a Certificate of Authority, and that he/she has had experience in each of the kinds of insurance he/she proposes to write or solicit under the Certificate of Authority applied for.</p>
 
-                                    <p>That we have communicated with the former and present employees of the applicant and the replies have been satisfactory.</p>
+                                    <p style="text-align: justify;">That we have communicated with the former and present employees of the applicant and the replies have been satisfactory.</p>
 
-                                    <p>That to the best of our knowledge, information and belief, all statements and answer contained in the application have been in the handwriting of the applicant with respect to the questions applicable to him/her.</p>
+                                    <p style="text-align: justify;">That to the best of our knowledge, information and belief, all statements and answer contained in the application have been in the handwriting of the applicant with respect to the questions applicable to him/her.</p>
 
-                                    <p>If and when the agency is terminated, written notice thereof will be given forthwith to the Insurance Commission together with the reason therefore.</p>
+                                    <p style="text-align: justify;">If and when the agency is terminated, written notice thereof will be given forthwith to the Insurance Commission together with the reason therefore.</p>
 
-                                    <p>In consideration of the Certificate of Authority to be issued to the above-mentioned applicant, under the provision of Section 299 of the Insurance Code, we hereby waive, on behalf of –</p>
+                                    <p style="text-align: justify;">In consideration of the Certificate of Authority to be issued to the above-mentioned applicant, under the provision of Section 299 of the Insurance Code, we hereby waive, on behalf of –</p><br>
 
-                                    <p><input type="text" id="companyName" name="companyName" class="form-control" value="ALLIANZ PNB LIFE INSURANCE, INC." readonly> (Company Name)</p>
+                                    <p style="text-align: center;"><input type="text" id="companyName" name="companyName"  style="width: 40%;  padding:5px 5px; border-radius: 13px; text-align: center;" value="ALLIANZ PNB LIFE INSURANCE, INC." readonly><br> (Company Name)</p><br>
 
                                     <p>the right to appeal to the Secretary of Finance in case of revocation by the Insurance Commissioner of the certificate to be issued in favor of the above-mentioned applicant and agree to cancel at once the contract of agency between said applicant and the company upon receipt of the notice of revocation.</p>
 

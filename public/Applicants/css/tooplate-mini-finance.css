@@ -899,10 +899,20 @@ strong {
   border-color: var(--secondary-color);
 }
 
-.formko{
-  border-radius: 10px;
-  width: 45%; 
+.form-control {
+  width: 100%; 
+  max-width: 500px; 
+  margin-bottom: 10px; 
 }
+
+
+@media (max-width: 768px) {
+  .form-control {
+      max-width: 100%;
+      margin-bottom: 10px;  
+  }
+}
+
 
 /*---------------------------------------
   CUSTOM FORM               
