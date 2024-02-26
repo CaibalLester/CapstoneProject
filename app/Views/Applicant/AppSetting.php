@@ -74,12 +74,6 @@
                             </a>
                         </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/AppSetting">
-                                    <i class="bi-gear me-2"></i>
-                                    Settings
-                                </a>
-                            </li>
 
 
                             <li class="nav-item">

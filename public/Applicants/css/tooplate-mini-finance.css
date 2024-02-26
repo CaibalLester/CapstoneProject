@@ -899,20 +899,6 @@ strong {
   border-color: var(--secondary-color);
 }
 
-.form-control {
-  width: 100%; 
-  max-width: 500px; 
-  margin-bottom: 10px; 
-}
-
-
-@media (max-width: 768px) {
-  .form-control {
-      max-width: 100%;
-      margin-bottom: 10px;  
-  }
-}
-
 
 /*---------------------------------------
   CUSTOM FORM               
@@ -926,7 +912,6 @@ strong {
   outline: none;
   transition: all 0.3s;
 }
-
 
 .form-check-input:checked {
   background-color: var(--custom-btn-bg-hover-color);
