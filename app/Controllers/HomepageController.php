@@ -22,10 +22,20 @@ class HomepageController extends BaseController
     }
     public function logout()
     {
+        $updatetoken = bin2hex(random_bytes(24));
         $session = session();
+
+        // Get the user ID from the session
+        $userId = $session->get('id');
+
+        // Update the user's token in the database
+        $userModel = new UserModel(); // Assuming you have a UserModel
+        $userModel->update($userId, ['token' => $updatetoken]);
+
         $session->destroy(); // Destroy the user's session data
         return redirect()->to('/'); // Redirect to the login page or any other page you prefer
     }
+
 
     public function register()
     {
@@ -39,7 +49,7 @@ class HomepageController extends BaseController
         $data = [];
         return view("Home/login");
     }
-
+    //applicant reg
     public function Authreg()
     {
         helper(['form']);
@@ -77,8 +87,11 @@ class HomepageController extends BaseController
             $applicantData = [
                 'applicant_id' => $userId, // Use the retrieved user ID as the applicant_id
                 'username' => $this->request->getVar('username'),
+                'number' => $this->request->getVar('number'),
+                'applicantfullname' => $this->request->getVar('firstname') . ' ' . $this->request->getVar('lastname'),
                 'email' => $this->request->getVar('email'),
                 'branch' => $this->request->getVar('branch'),
+                'app_token' => $usertoken,
             ];
 
             // Insert applicant data into the applicant table
@@ -86,6 +99,7 @@ class HomepageController extends BaseController
 
             $formdata = [
                 'user_id' => $userId,
+                'app_life_token' => $usertoken,
             ];
             $form1->save($formdata);
 
@@ -133,8 +147,6 @@ class HomepageController extends BaseController
             echo 'Error: ' . $email->printDebugger(['headers']);
         }
     }
-
-
 
     public function verifyEmail($token)
     {
@@ -269,7 +281,7 @@ class HomepageController extends BaseController
         $user = $userModel->where('email', $userEmail)->first();
 
         if ($user) {
-            $userModel->update($user['id'], ['token' => $token]);
+            $userModel->update($user['id'], ['pass_token' => $token]);
 
             // Load Email Library and configure SMTP
             $email = \Config\Services::email();
@@ -294,7 +306,7 @@ class HomepageController extends BaseController
 
             // Send the email
             if ($email->send()) {
-               return view('emailsend');
+                return view('emailsend');
             } else {
                 $data['error'] = $email->printDebugger(['headers']);
                 echo 'Failed to send reset link. Error: ' . $data['error'];
@@ -308,13 +320,12 @@ class HomepageController extends BaseController
     public function resetPassword($token)
     {
         $userModel = new UserModel();
-        $user = $userModel->where('token', $token)->first();
+        $user = $userModel->where('pass_token', $token)->first();
 
         if (!$user) {
             return redirect()->to('/login')->with('error', 'Invalid reset token.');
         }
-
-        return view('Home/reset_password', ['token' => $token]);
+        return view('Home/reset_password', ['pass_token' => $token]);
     }
 
     public function processResetPassword($token)
@@ -329,7 +340,7 @@ class HomepageController extends BaseController
             $userModel = new UserModel();
 
             // Get the user based on the reset token
-            $user = $userModel->where('token', $token)->first();
+            $user = $userModel->where('pass_token', $token)->first();
 
             if (!$user) {
                 return redirect()->to('/login')->with('error', 'Invalid reset token.');
@@ -337,11 +348,11 @@ class HomepageController extends BaseController
 
             // Update the password and remove the token from the database
             $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
-            $userModel->update($user['id'], ['password' => $newPassword, 'token' => null]);
+            $userModel->update($user['id'], ['password' => $newPassword, 'pass_token' => null]);
 
             return redirect()->to('/login')->with('success', 'Password reset successful. You can now log in with your new password.');
         } else {
-            $data['token'] = $token; // Add this line to pass the token to the view
+            $data['pass_token'] = $token; // Add this line to pass the token to the view
             $data['vali'] = $this->validator;
             echo view('Home/reset_password', $data);
         }

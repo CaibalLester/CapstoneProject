@@ -27,12 +27,10 @@ class AdminController extends BaseController
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
-
     }
 
     public function AdDash()
     {
-
         $agentModel = new AgentModel();
         $applicantModel = new ApplicantModel();
 
@@ -73,7 +71,6 @@ class AdminController extends BaseController
 
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
-
 
         return view('Admin/ManageApplicant', $data);
     }
@@ -232,52 +229,65 @@ class AdminController extends BaseController
     }
 
     public function svad()
-    {
-        $session = session();
-        $userId = $session->get('id');
+{
+    $session = session();
+    $userId = $session->get('id');
 
-        // Initialize $data array
-        $data = [];
+    // Initialize $data array
+    $data = [];
 
-        // Check if a file is uploaded
-        if ($imageFile = $this->request->getFile('adminProfile')) {
-            // Check if the file is valid
-            if ($imageFile->isValid() && !$imageFile->hasMoved()) {
-                // Generate a unique name for the uploaded image
-                $imageName = $imageFile->getRandomName();
+    // Get the old image file name from the database
+    $oldAdmin = $this->admin->select('adminProfile')->where('admin_id', $userId)->first();
 
-                // Set the path to the upload directory
-                $uploadPath = FCPATH . 'uploads/';
+    // Check if a file is uploaded
+    if ($imageFile = $this->request->getFile('profile')) {
+        // Check if the file is valid
+        if ($imageFile->isValid()) {
+            // Generate a unique name for the uploaded image
+            $imageName = $imageFile->getRandomName();
 
-                // Move the uploaded image to the upload directory
-                if ($imageFile->move($uploadPath, $imageName)) {
-                    // Image upload successful, store the image filename in the database
-                    $data['adminProfile'] = $imageName;
-                } else {
-                    $error = $imageFile->getError();
-                    // Handle the error as needed
+            // Set the path to the upload directory
+            $uploadPath = FCPATH . 'uploads/';
+
+            // Move the uploaded image to the upload directory
+            if ($imageFile->move($uploadPath, $imageName)) {
+                // Image upload successful, store the image filename in the database
+                $data['adminProfile'] = $imageName;
+
+                // Delete the old image file if it exists
+                if (!empty($oldAdmin['adminProfile'])) {
+                    $oldFilePath = $uploadPath . $oldAdmin['adminProfile'];
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
                 }
+            } else {
+                $error = $imageFile->getError();
+                // Handle the error as needed
             }
         }
-        // Add other form data to the data array
-        $data += [
-            'Adminfullname' => $this->request->getVar('Adminfullname'),
-            'email' => $this->request->getVar('email'),
-            'birthday' => $this->request->getVar('birthday'),
-            'username' => $this->request->getVar('username'),
-            'division' => $this->request->getVar('division'),
-            'address' => $this->request->getVar('address'),
-            'number' => $this->request->getVar('number'),
-        ];
-
-        // Check if $data array is not empty before updating the database
-        if (!empty($data)) {
-            // Update the applicant data
-            $this->admin->set($data)->where('admin_id', $userId)->update();
-        }
-
-        return redirect()->to('/AdSetting');
     }
+
+    // Add other form data to the data array
+    $data += [
+        'Adminfullname' => $this->request->getVar('Adminfullname'),
+        'email' => $this->request->getVar('email'),
+        'birthday' => $this->request->getVar('birthday'),
+        'username' => $this->request->getVar('username'),
+        'division' => $this->request->getVar('division'),
+        'address' => $this->request->getVar('address'),
+        'number' => $this->request->getVar('number'),
+    ];
+
+    // Check if $data array is not empty before updating the database
+    if (!empty($data)) {
+        // Update the admin data
+        $this->admin->set($data)->where('admin_id', $userId)->update();
+    }
+
+    return redirect()->to('/AdSetting');
+}
+
 
     public function generatePdf($id)
     {

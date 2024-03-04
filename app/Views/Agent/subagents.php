@@ -67,19 +67,21 @@
                             <h5 class="mb-4">Account Activities</h5>
 
                             <div class="custom-block bg-white">
-                                <form class="custom-form search-form" action="/subagentSearch" method="post" role="form">
+                            <form class="custom-form search-form" action="/subagentSearch" method="post" role="form">
                                     <div class="row">
-                                        <div class="col-lg-8 col-md-8 col-12">
-                                            <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text" placeholder="Search by Agents Name" aria-label="Search" required>
+                                        <div class="col-lg-4 col-md-8 col-12">
+                                            <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text"
+                                                placeholder="Search" aria-label="Search" required>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="col-lg-1 col-md-3 col-12">
                                             <button type="submit" class="form-control">
-                                                Search
+                                                <i class="bi bi-search"></i>
                                             </button>
                                         </div>
                                     </div>
-                                </form><br>
+                                </form>
 
+                                
                                 <div class="row">
                                     <?php foreach ($agents as $ag): ?>
                                         <div class="col-lg-4 col-12 mb-3">

@@ -24,11 +24,24 @@ class AgentController extends BaseController
         return view('Agent/AgDash', $data);
     }
 
+    // public function AgProfile()
+    // {
+    //     $data = array_merge($this->getData(), $this->getDataAge());
+    //     return view('Agent/AgProfile', $data);
+    // }
     public function AgProfile()
     {
+        $agentModel = new AgentModel();
+        
         $data = array_merge($this->getData(), $this->getDataAge());
+
+        $agentid = $data['agent']['agent_id'];
+        // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
+        $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
+
         return view('Agent/AgProfile', $data);
     }
+
     public function AgSetting()
     {
         $data = array_merge($this->getData(), $this->getDataAge());
@@ -109,47 +122,61 @@ class AgentController extends BaseController
         return $data;
     }
     public function svag()
-    {
-        $session = session();
-        $userId = $session->get('id');
-        // Initialize $data array
-        $data = [];
-        // Check if a file is uploaded
-        if ($imageFile = $this->request->getFile('agentprofile')) {
-            // Check if the file is valid
-            if ($imageFile->isValid() && !$imageFile->hasMoved()) {
-                // Generate a unique name for the uploaded image
-                $imageName = $imageFile->getRandomName();
+{
+    $session = session();
+    $userId = $session->get('id');
 
-                // Set the path to the upload directory
-                $uploadPath = FCPATH . 'uploads/';
+    // Initialize $data array
+    $data = [];
 
-                // Move the uploaded image to the upload directory
-                if ($imageFile->move($uploadPath, $imageName)) {
-                    // Image upload successful, store the image filename in the database
-                    $data['agentprofile'] = $imageName;
-                } else {
-                    $error = $imageFile->getError();
-                    // Handle the error as needed
+    // Get the old image file name from the database
+    $oldAgent = $this->agent->select('agentprofile')->where('agent_id', $userId)->first();
+    // Check if a file is uploaded
+    if ($imageFile = $this->request->getFile('profile')) {
+        // Check if the file is valid
+        if ($imageFile->isValid()) {
+            // Generate a unique name for the uploaded image
+            $imageName = $imageFile->getRandomName();
+
+            // Set the path to the upload directory
+            $uploadPath = FCPATH . 'uploads/';
+
+            // Move the uploaded image to the upload directory
+            if ($imageFile->move($uploadPath, $imageName)) {
+                // Image upload successful, store the image filename in the database
+                $data['agentprofile'] = $imageName;
+
+                // Delete the old image file if it exists
+                if (!empty($oldAgent['agentprofile'])) {
+                    $oldFilePath = $uploadPath . $oldAgent['agentprofile'];
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
                 }
+            } else {
+                $error = $imageFile->getError();
+                // Handle the error as needed
             }
         }
-        // Add other form data to the data array
-        $data += [
-            'Agentfullname' => $this->request->getVar('Agentfullname'),
-            'number' => $this->request->getVar('number'),
-            'email' => $this->request->getVar('email'),
-            'birthday' => $this->request->getVar('birthday'),
-            'address' => $this->request->getVar('address'),
-            'username' => $this->request->getVar('username'),
-        ];
-
-        // Check if $data array is not empty before updating the database
-        if (!empty($data)) {
-            // Update the applicant data
-            $this->agent->set($data)->where('agent_id', $userId)->update();
-        }
-
-        return redirect()->to('/AgSetting');
     }
+
+    // Add other form data to the data array
+    $data += [
+        'Agentfullname' => $this->request->getVar('Agentfullname'),
+        'number' => $this->request->getVar('number'),
+        'email' => $this->request->getVar('email'),
+        'birthday' => $this->request->getVar('birthday'),
+        'address' => $this->request->getVar('address'),
+        'username' => $this->request->getVar('username'),
+    ];
+
+    // Check if $data array is not empty before updating the database
+    if (!empty($data)) {
+        // Update the applicant data
+        $this->agent->set($data)->where('agent_id', $userId)->update();
+    }
+
+    return redirect()->to('/AgSetting');
+}
+
 }

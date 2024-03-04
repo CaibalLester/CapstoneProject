@@ -42,7 +42,7 @@
                                         <p class="text-center small">Enter your New Password & Confirm Password</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" novalidate method="post" action="/reset-password/<?= $token ?>">
+                                    <form class="row g-3 needs-validation" novalidate method="post" action="/reset-password/<?= $pass_token ?>">
     <div class="col-12">
         <label for="newPassword" class="form-label">New Password</label>
         <input type="password" name="new_password" class="form-control" id="newPassword" required>

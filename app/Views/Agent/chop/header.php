@@ -143,31 +143,31 @@
 
                             <div class="d-flex flex-column">
                                 <small>
-                                    <?= $user['username'] ?>
+                                    <?= $agent['username'] ?>
                                 </small>
                                 <a href="">
-                                    <?= $user['email'] ?>
+                                    <?= $agent['email'] ?>
                                 </a>
                             </div>
                         </div>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="/AdProfile">
+                        <a class="dropdown-item" href="/AgProfile">
                             <i class="bi-person me-2"></i>
                             Profile
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="/AdSetting">
+                        <a class="dropdown-item" href="/AgSetting">
                             <i class="bi-gear me-2"></i>
                             Settings
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="/AdHelp">
+                        <a class="dropdown-item" href="/AgHelp">
                             <i class="bi-question-circle me-2"></i>
                             Help
                         </a>

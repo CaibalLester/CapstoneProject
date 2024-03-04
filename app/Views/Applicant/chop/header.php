@@ -1,6 +1,6 @@
 <header class="navbar sticky-top flex-md-nowrap">
-    <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-        <a class="navbar-brand" href="#">
+    <div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
+        <a class="navbar-brand" href="/AppDash">
             ALLIANZ APPLICANT
         </a>
     </div>
@@ -53,7 +53,6 @@
 
                             <div>
                                 <span>Account verification is <?= $applicant['status'] ?>.</span>
-
                             </div>
                         </a>
                     </li>

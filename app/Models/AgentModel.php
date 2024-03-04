@@ -13,7 +13,7 @@ class AgentModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['agent_id','Agentfullname','birthday','rank','branch','username','address','AgentCode','FA','email','agentprofile','number'];
+    protected $allowedFields    = ['agent_id','Agentfullname','birthday','rank','branch','username','address','AgentCode','FA','email','agentprofile','number','agent_token'];
 
     // Dates
     protected $useTimestamps = false;

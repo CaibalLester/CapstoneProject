@@ -272,7 +272,7 @@
 
 <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                     <div class="title-group mb-3">
-                        <h3>APPLICATION FOR INSURANCE AGENT’S LICENSE</h3>
+                        <h3>APPLICATION FOR INSURANCE AGENT'S LICENSE</h3>
                     </div>
 
                     

@@ -65,81 +65,160 @@
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Overview</h1>
 
-                    <small class="text-muted">Hello <?= $user['role'] ?>, welcome back! <?= $admin['username'] ?></small>
+                    <small class="text-muted">Hello
+                        <?= $user['role'] ?>, welcome back!
+                        <?= $admin['username'] ?>
+                    </small>
                 </div>
 
-                <div class="row my-4">
-                    <!-- Agents monthlyAgentCount -->
-                    <div class="col-lg-8 col-12">
-                        <!-- First Chart for Agents -->
-                        <div class="custom-block bg-white">
-                            <div id="agentChart"></div>
-                        </div>
+                <div class="row">
+                    <!-- left side columns -->
+                    <div class="col-lg-8">
+                        <div class="row">
 
-                        <!-- Second Chart for Pending Applicants -->
-                        <div class="custom-block bg-white">
-                            <div id="pendingApplicantChart"></div>
-                        </div>
+                            <!-- Agents monthlyAgentCount -->
+                            <div class="col-lg-12 col-12">
+                                <!-- First Chart for Agents -->
+                                <div class="custom-block bg-white">
+                                    <div id="agentChart"></div>
+                                </div>
 
-                    </div>
-                    <div class="col-lg-4 col-12">
-                        <!-- <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
-                            <div class="custom-block-profile-image-wrap mb-4">
-                                <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
-                                    class="custom-block-profile-image img-fluid" alt="">
-                                <a href="/AdSetting" class="bi-pencil-square custom-block-edit-icon"></a>
+                                <!-- Second Chart for Pending Applicants -->
+                                <div class="custom-block bg-white">
+                                    <div id="pendingApplicantChart"></div>
+                                </div>
                             </div>
 
-                            <p class="d-flex flex-wrap mb-2">
-                                <strong>User Name</strong>
 
-                                <span>
-                                    <?= $admin['username'] ?>
-                                </span>
-                            </p>
-
-                            <p class="d-flex flex-wrap mb-2">
-                                <strong>Email:</strong>
-
-                                <a href="#">
-                                    <?= $admin['email'] ?>
-                                </a>
-                            </p>
-
-                            <p class="d-flex flex-wrap mb-0">
-                                <strong>Phone:</strong>
-
-                                <a href="#">
-                                    <?= $admin['number'] ?>
-                                </a>
-                            </p>
-                        </div> -->
-
-                        <div class="custom-block">
-                            <i class="fas fa-users"></i>
-                            <small>Total Agents</small>
-                            <h2 class="mt-2 mb-3">
-                                <?= $totalAgents ?>
-                            </h2>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Table with hoverable rows</h5>
+                                        <!-- Table with hoverable rows -->
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Position</th>
+                                                        <th scope="col">Age</th>
+                                                        <th scope="col">Start Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>Brandon Jacob</td>
+                                                        <td>Designer</td>
+                                                        <td>28</td>
+                                                        <td>2016-05-25</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>Bridie Kessler</td>
+                                                        <td>Developer</td>
+                                                        <td>35</td>
+                                                        <td>2014-12-05</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>Ashleigh Langosh</td>
+                                                        <td>Finance</td>
+                                                        <td>45</td>
+                                                        <td>2011-08-12</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>Angus Grady</td>
+                                                        <td>HR</td>
+                                                        <td>34</td>
+                                                        <td>2012-06-11</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>Raheem Lehner</td>
+                                                        <td>Dynamic Division Officer</td>
+                                                        <td>47</td>
+                                                        <td>2011-04-19</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <!-- End Table with hoverable rows -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="custom-block">
-                            <i class="fas fa-user-tie"></i>
-                            <small>Total Applicants</small>
-                            <h2 class="mt-2 mb-3">
-                                <?= $pendingApplicants ?>
-                            </h2>
-                        </div>
-
                     </div>
-                </div>
-                <footer class="site-footer">
-                    <div class="container">
+                    <!-- end of left side -->
+
+                    <!-- right side columns -->
+                    <div class="col-lg-4">
                         <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-users fa-2x"></i>
+                                        <small class="d-block mt-2">Total Agents</small>
+                                        <h3 class="card-title mt-2">
+                                            <?= $totalAgents ?>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="card mb-3">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-user-tie fa-2x"></i>
+                                        <small class="d-block mt-2">Total Applicants</small>
+                                        <h3 class="card-title mt-2">
+                                            <?= $pendingApplicants ?>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="card mb-3 text-center">
+                                    <h5 class="card-title mt-3">Top 3 agents</h5>
+                                    <div class="card-body">
+                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                            style="width: 80px; height: 80px;">
+                                        <h5 class="card-title mt-2 small">Agent Name</h5>
+                                        <!-- Add other relevant information as needed -->
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                            style="width: 80px; height: 80px;">
+                                        <h5 class="card-title mt-2 small">Agent Name</h5>
+                                        <!-- Add other relevant information as needed -->
+                                    </div>
+                                    <div class="card-body">
+                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                            style="width: 80px; height: 80px;">
+                                        <h5 class="card-title mt-2 small">Agent Name</h5>
+                                        <!-- Add other relevant information as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="card" style="height: 300px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Your Heading</h5>
+                                        <p class="card-text">Your text goes here. You can add more content or
+                                            components.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </footer>
-                <!-- <?= view('Admin/chop/chat') ?> -->
+                    </div><!-- end of right side columns -->
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+
             </main>
         </div>
     </div>
@@ -184,7 +263,7 @@
                 },
                 tooltip: {
                     y: {
-                        formatter: function(val) {
+                        formatter: function (val) {
                             return val + " " + title.toLowerCase();
                         }
                     }
@@ -212,7 +291,6 @@
             })
             .catch(error => console.error('Error fetching data for pending applicants:', error));
     </script>
-
 
 </body>
 

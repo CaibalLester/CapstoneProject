@@ -97,6 +97,8 @@ class AppController extends BaseController
         $userId = $session->get('id');
         // Initialize $data array
         $data = [];
+        // Get the old image file name from the database
+        $oldApp = $this->applicant->select('profile')->where('applicant_id', $userId)->first();
         // Check if a file is uploaded
         if ($imageFile = $this->request->getFile('profile')) {
             // Check if the file is valid
@@ -111,13 +113,21 @@ class AppController extends BaseController
                 if ($imageFile->move($uploadPath, $imageName)) {
                     // Image upload successful, store the image filename in the database
                     $data['profile'] = $imageName;
+
+                    // Delete the old image file if it exists
+                    if (!empty($oldApp['profile'])) {
+                        $oldFilePath = $uploadPath . $oldApp['profile'];
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
+                    }
                 } else {
                     $error = $imageFile->getError();
-                    // Handle the error as needed
+                    echo $error;
                 }
             }
         }
-
+        
         // Add other form data to the data array
         $data += [
             'applicantfullname' => $this->request->getVar('applicantfullname'),

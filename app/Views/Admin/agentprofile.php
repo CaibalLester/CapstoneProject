@@ -1,47 +1,52 @@
 <!doctype html>
 <html lang="en">
-<?= view('Agent/chop/head') ?>
+<?= view('Admin/chop/head') ?>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <body>
-    <?= view('Agent/chop/header') ?>
-
+    <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
-
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AgDash">
+                            <a class="nav-link " aria-current="page" href="/AdDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/AgProfile">
+                            <a class="nav-link active" aria-current="page" href="/ManageAgent">
+                                <i class="bi-person me-2"></i>
+                                Manage Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/ManageApplicant">
+                                <i class="bi-person me-2"></i>
+                                Manage Applicants
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AdProfile">
                                 <i class="bi-person me-2"></i>
                                 Profile
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/subagent">
-                                <i class="bi-person me-2"></i>
-                                Sub Agents
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgSetting">
+                            <a class="nav-link" href="/AdSetting">
                                 <i class="bi-gear me-2"></i>
                                 Settings
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgHelp">
+                            <a class="nav-link " href="/AdHelp">
                                 <i class="bi-question-circle me-2"></i>
                                 Help Center
                             </a>
@@ -59,7 +64,9 @@
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">Profile</h1>
+                    <h1 class="h2 mb-0">
+                        <?= $agent['username'] ?>'s Profile
+                    </h1>
                 </div>
                 <div class="row">
                     <div class="col-xl-4">
@@ -82,6 +89,7 @@
                         </div>
                     </div>
 
+                    <!--QR Modal-->
                     <div class="modal fade" id="profileModal" tabindex="-1">
                         <div class="modal-dialog modal-sm" role="document">
                             <div class="modal-content">
@@ -95,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="col-xl-8">
                         <div class="card">
@@ -112,8 +121,8 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#forms">My
-                                            Forms</button>
+                                        <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#forms">Forms</button>
                                     </li>
 
                                 </ul>
@@ -178,12 +187,13 @@
                                         <h1 class="h2 mb-2">Sub Agents</h1>
                                         <div class="table-responsive">
                                             <!-- Table with hoverable rows -->
-                                            <div class="table-container mx-auto"
-                                                style="max-height: 281px; overflow-y: auto;">
+                                            <div class="table-container mx-auto">
                                                 <table class="table table-hover">
                                                     <thead class="thead-light bg-white">
                                                         <tr>
-                                                            <th scope="col">Name</th>
+                                                            <th scope="col">User Name</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Number</th>
                                                             <th scope="col">Date</th>
                                                             <th scope="col">Action</th>
                                                         </tr>
@@ -192,7 +202,13 @@
                                                         <?php foreach ($FA as $sub): ?>
                                                             <tr>
                                                                 <td>
-                                                                    <?= $sub['Agentfullname'] ?>
+                                                                    <?= $sub['username'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?= $sub['email'] ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?= $sub['number'] ?>
                                                                 </td>
                                                                 <td>
                                                                     <?= date('M j, Y', strtotime($sub['created_at'])); ?>
@@ -203,82 +219,11 @@
                                                             </tr>
                                                         <?php endforeach ?>
                                                     </tbody>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                        <td>TestTestTestTest</td>
-                                                    </tr>
-
                                                 </table>
                                             </div>
                                         </div>
+                                        
                                     </div>
-
                                     <div class="tab-pane fade pt-3" id="forms">
                                         <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
@@ -309,30 +254,26 @@
                             </div>
                         </div>
                     </div>
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
 
-
-                </div>
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
+                            </div>
                         </div>
-                    </div>
-                </footer>
+                    </footer>
             </main>
         </div>
     </div>
 
-    <!-- JAVASCRIPT FILES -->
-    <?= view('Agent/chop/js') ?>
+    <?= view('Admin/chop/js') ?>
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({
-            role: "<?= $user['role'] ?>",
             username: "<?= $agent['username'] ?>",
             fullname: "<?= $agent['Agentfullname'] ?>",
             email: "<?= $agent['email'] ?>",
             number: "<?= $agent['number'] ?>",
+            code: "<?= $agent['AgentCode'] ?>",
             birthday: "<?= date('M j, Y', strtotime($agent['birthday'])); ?>"
         });
 
@@ -358,14 +299,15 @@
             document.body.removeChild(downloadLink);
         });
 
+
         // JavaScript code to show the modal when the profile image is clicked
         $(document).ready(function () {
             $('.profile-card img').on('click', function () {
                 $('#profileModal').modal('show');
             });
         });
-    </script>
 
+    </script>
 </body>
 
 </html>

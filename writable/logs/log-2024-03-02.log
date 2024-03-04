@@ -1,0 +1,429 @@
+CRITICAL - 2024-03-02 20:14:03 --> Trying to access array offset on value of type null
+in APPPATH\Views\Admin\details.php on line 249.
+ 1 APPPATH\Views\Admin\details.php(249): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Views\\Admin\\details.php', 249)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\details.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/details', [], true)
+ 5 APPPATH\Controllers\AdminController.php(178): view('Admin/details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->viewAppForm('135')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:38:26 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:38:33 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:39:19 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:39:40 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:40:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:40:11 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:40:23 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:40:52 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:40:57 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:43:33 --> Undefined variable $agent
+in APPPATH\Views\Admin\AdProfile.php on line 80.
+ 1 APPPATH\Views\Admin\AdProfile.php(80): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php', 80)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdProfile', [], true)
+ 5 APPPATH\Controllers\AdminController.php(138): view('Admin/AdProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:44:50 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:49:28 --> Undefined variable $agent
+in APPPATH\Views\Admin\AdProfile.php on line 195.
+ 1 APPPATH\Views\Admin\AdProfile.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php', 195)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdProfile', [], true)
+ 5 APPPATH\Controllers\AdminController.php(138): view('Admin/AdProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:49:47 --> Undefined variable $agent
+in APPPATH\Views\Admin\AdProfile.php on line 195.
+ 1 APPPATH\Views\Admin\AdProfile.php(195): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php', 195)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdProfile', [], true)
+ 5 APPPATH\Controllers\AdminController.php(138): view('Admin/AdProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:51:01 --> Undefined variable $agent
+in APPPATH\Views\Admin\AdProfile.php on line 265.
+ 1 APPPATH\Views\Admin\AdProfile.php(265): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php', 265)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\AdProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/AdProfile', [], true)
+ 5 APPPATH\Controllers\AdminController.php(138): view('Admin/AdProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:55:32 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:56:59 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:58:02 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 21:58:16 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:01:33 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:06:13 --> Undefined variable $FA
+in APPPATH\Views\Agent\AgProfile.php on line 243.
+ 1 APPPATH\Views\Agent\AgProfile.php(243): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $FA', 'D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php', 243)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(30): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:07:15 --> Undefined variable $FA
+in APPPATH\Views\Agent\AgProfile.php on line 243.
+ 1 APPPATH\Views\Agent\AgProfile.php(243): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $FA', 'D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php', 243)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(30): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:09:09 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AgentController.php on line 34.
+ 1 APPPATH\Controllers\AgentController.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 34)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:09:28 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AgentController.php on line 34.
+ 1 APPPATH\Controllers\AgentController.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 34)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:09:35 --> Undefined variable $FA
+in APPPATH\Views\Agent\AgProfile.php on line 243.
+ 1 APPPATH\Views\Agent\AgProfile.php(243): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $FA', 'D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php', 243)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(39): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:10:05 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AgentController.php on line 34.
+ 1 APPPATH\Controllers\AgentController.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 34)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:11:18 --> Undefined variable $FA
+in APPPATH\Views\Agent\AgProfile.php on line 243.
+ 1 APPPATH\Views\Agent\AgProfile.php(243): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $FA', 'D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php', 243)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(30): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:42:33 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:42:39 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:42:59 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:43:08 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:43:52 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 22:44:29 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:36 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:06:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:07:28 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:07:32 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:07:37 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:09:03 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:10:12 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\ProfileController.php on line 21.
+ 1 APPPATH\Controllers\ProfileController.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Controllers\\ProfileController.php', 21)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->agentprofile('path_to_image')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-02 23:10:39 --> Trying to access array offset on value of type null
+in APPPATH\Views\Admin\details.php on line 249.
+ 1 APPPATH\Views\Admin\details.php(249): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\CapstoneSystem\\app\\Views\\Admin\\details.php', 249)
+ 2 SYSTEMPATH\View\View.php(226): include('D:\\CapstoneSystem\\app\\Views\\Admin\\details.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/details', [], true)
+ 5 APPPATH\Controllers\AdminController.php(178): view('Admin/details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->viewAppForm('135')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-03-02 23:38:38 --> mysqli_sql_exception: Unknown column 'admin_id' in 'where clause' in D:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `agentpr...', 0)
+#1 D:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `agentpr...')
+#2 D:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `agentpr...')
+#3 D:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `agentpr...', Array, false)
+#4 D:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 D:\CapstoneSystem\app\Controllers\AgentController.php(133): CodeIgniter\BaseModel->first()
+#7 D:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AgentController->svag()
+#8 D:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+#9 D:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 D:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-03-02 23:38:38 --> Unknown column 'admin_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `agentprofile`
+FROM `agent`
+WHERE `admin_id` = :admin_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AgentController.php(133): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->svag()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\CapstoneSystem\\public\\index.php')
