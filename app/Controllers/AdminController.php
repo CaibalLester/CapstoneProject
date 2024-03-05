@@ -54,14 +54,8 @@ class AdminController extends BaseController
     {
         $agentModel = new AgentModel();
         $data = $this->usermerge();
-
-        // Use the model to fetch all records
-        
-        // $data['agent'] = $agentModel->findAll();
         $data['agent'] = $agentModel->paginate(10, 'group1'); // Change 10 to the number of items per page
-
         $data['pager'] = $agentModel->pager;
-
         return view('Admin/ManageAgent', $data);
     }
 
@@ -69,9 +63,8 @@ class AdminController extends BaseController
     {
         $appmodel = new ApplicantModel();
         $data = $this->usermerge();
-
         // Add a where condition to retrieve only records with status = 'confirmed'
-        $applicants = $appmodel->where('status', 'pending')->paginate(10 ,'group1');
+        $applicants = $appmodel->where('status', 'pending')->paginate(10, 'group1');
 
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
@@ -96,7 +89,7 @@ class AdminController extends BaseController
         // Get the search input from the form
         $filterUser = $this->request->getPost('filterUser');
         // Add a where condition to filter records based on the search input and status
-        $applicants = $appmodel->like('username', $filterUser)->where('status', 'pending')->paginate();
+        $applicants = $appmodel->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
         $data['pager'] = $appmodel->pager;
 
@@ -113,22 +106,20 @@ class AdminController extends BaseController
         $filterUser = $this->request->getPost('filterAgent');
 
         // Add a where condition to filter records based on the search input
-        $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
-
+        $agents = $agentModel->like('username', $filterUser)->paginate(10, 'group1');
+        $data['pager'] = $agentModel->pager; // Use $agentModel->pager
         $data['agent'] = $agents;
+
         return view('Admin/ManageAgent', $data);
     }
 
     private function getDataAd()
     {
         $session = session();
-
         // Get the user ID from the session
         $userId = $session->get('id');
-
         // Load the User model
         $adminModel = new AdminModel();
-
         // Find the user by ID
         $data['admin'] = $adminModel->where('admin_id', $userId)
             ->orderBy('id', 'desc')

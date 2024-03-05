@@ -127,7 +127,7 @@ class AppController extends BaseController
                 }
             }
         }
-        
+
         // Add other form data to the data array
         $data += [
             // 'applicantfullname' => $this->request->getVar('applicantfullname'),
@@ -303,15 +303,16 @@ class AppController extends BaseController
 
         // If $filterUser is not empty, add a where condition to filter records
         if (!empty($filterUser)) {
-            $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
-            $data['agents'] = $agents;
+            $agents = $agentModel->like('username', $filterUser)->paginate(10, 'group1'); // Adjust the limit as needed
         } else {
-            // If no filter, retrieve all agents
-            $data['agents'] = $agentModel->findAll();
+            // If no filter, retrieve all agents with pagination
+            $agents = $agentModel->paginate(10, 'group1'); // Adjust the limit as needed
         }
+
+        // Correctly assign the pager
+        $data['pager'] = $agentModel->pager;
+        $data['agents'] = $agents;
 
         return view('Applicant/FA', $data);
     }
-
-
 }

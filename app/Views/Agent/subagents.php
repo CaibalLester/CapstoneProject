@@ -64,7 +64,6 @@
                 <div class="row my-4">
                     <div class="col-lg-12 col-12">
                         <div class="custom-block bg-white">
-                            <h5 class="mb-4">Account Activities</h5>
 
                             <div class="custom-block bg-white">
                             <form class="custom-form search-form" action="/subagentSearch" method="post" role="form">
@@ -83,68 +82,22 @@
                                 <hr>
 
                                 <div class="row">
-                                    <?php foreach ($agents as $ag): ?>
-                                        <div class="col-lg-4 col-12 mb-3">
+                                    <?php foreach ($agent as $ag): ?>
+                                        <div class="col-lg-2 col-12 mb-3">
                                             <div
-                                                class="custom-block custom-block-profile-front custom-block-profile text-center bg-white p-4">
+                                                class="custom-block-profile-front text-center p-4">
                                                 <div class="custom-block-profile-image-wrap mb-4">
-                                                    <a href="http://" data-bs-toggle="modal"
-                                                        data-bs-target="#verticalycentered<?= $ag['agent_id']; ?>">
+                                                    <a href="/agentprofile/<?= $ag['agent_token']; ?>">
                                                         <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                            class="profile-image img-fluid" alt=""></a>
+                                                            class="img-fluid" alt=""></a>
                                                 </div>
-                                                <strong class="mb-3">
-                                                    <?= $ag['Agentfullname']; ?>
+                                                <strong>
+                                                    <?= $ag['username']; ?>
                                                 </strong>
-                                                <p class="mb-2">
-                                                    <?= $ag['email']; ?>
-                                                </p>
-                                                <p class="mb-2">
-                                                    <?= $ag['number']; ?>
-                                                </p>
                                             </div>
                                         </div>
-
-                                        <!-- Modal for each agent -->
-                                        <div class="modal fade" id="verticalycentered<?= $ag['agent_id']; ?>" tabindex="-1">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">
-                                                            <?= $ag['Agentfullname']; ?>
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="text-center">
-                                                            <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                                class="profile-image img-fluid" alt="Agent Image">
-                                                        </div>
-                                                        <br>
-                                                        <p><strong>User Name:</strong>
-                                                            <?= $ag['username']; ?>
-                                                        </p>
-                                                        <p><strong>Email:</strong>
-                                                            <?= $ag['email']; ?>
-                                                        </p>
-                                                        <p><strong>Phone:</strong>
-                                                            <?= $ag['number']; ?>
-                                                        </p>
-                                                        <!-- <p><strong>Rank:</strong>
-                                                            <?= $ag['rank']; ?>
-                                                        </p> -->
-                                                        <!-- Add more details if needed -->
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- End Modal -->
                                     <?php endforeach; ?>
+                                    <?= $pager->links('group1', 'page') ?>
                                 </div>
 
                             </div>

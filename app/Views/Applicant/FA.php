@@ -118,24 +118,18 @@
 
                                 <div class="row">
                                     <?php foreach ($agents as $ag): ?>
-                                        <div class="col-lg-4 col-12 mb-3">
-                                            <div
-                                                class="custom-block custom-block-profile-front custom-block-profile text-center bg-white p-4">
+
+                                        <div class="col-lg-2 col-12 mb-3">
+                                            <div class="custom-block-profile-front text-center p-4">
                                                 <div class="custom-block-profile-image-wrap mb-4">
                                                     <a href="http://" data-bs-toggle="modal"
                                                         data-bs-target="#verticalycentered<?= $ag['agent_id']; ?>">
                                                         <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                            class="custom-block-profile-image img-fluid" alt=""></a>
+                                                            class="img-fluid" alt=""></a>
                                                 </div>
-                                                <strong class="mb-3">
-                                                    <?= $ag['Agentfullname']; ?>
+                                                <strong>
+                                                    <?= $ag['username']; ?>
                                                 </strong>
-                                                <p class="mb-2">
-                                                    <?= $ag['email']; ?>
-                                                </p>
-                                                <p class="mb-2">
-                                                    <?= $ag['number']; ?>
-                                                </p>
                                             </div>
                                         </div>
 
@@ -153,8 +147,7 @@
                                                     <div class="modal-body">
                                                         <div class="text-center">
                                                             <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                                class="custom-block-profile-image img-fluid"
-                                                                alt="Agent Image">
+                                                                class="img-fluid" alt="Agent Image">
                                                         </div>
                                                         <br>
                                                         <p><strong>User Name:</strong>
@@ -166,22 +159,24 @@
                                                         <p><strong>Phone:</strong>
                                                             <?= $ag['number']; ?>
                                                         </p>
-                                                        <!-- <p><strong>Rank:</strong>
+                                                        <p><strong>Rank:</strong>
                                                             <?= $ag['rank']; ?>
-                                                        </p> -->
+                                                        </p>
                                                         <!-- Add more details if needed -->
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-
+                                                        <div class="row">
+                                                            <a href="" class="btn btn-primary">
+                                                                <i class="bi bi-envelope-fill"></i> Contact
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div><!-- End Modal -->
                                     <?php endforeach; ?>
+                                    <?= $pager->links('group1', 'page') ?>
                                 </div>
-
                             </div>
                         </div>
                     </div>

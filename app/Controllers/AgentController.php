@@ -32,7 +32,7 @@ class AgentController extends BaseController
     public function AgProfile()
     {
         $agentModel = new AgentModel();
-        
+
         $data = array_merge($this->getData(), $this->getDataAge());
 
         $agentid = $data['agent']['agent_id'];
@@ -80,10 +80,10 @@ class AgentController extends BaseController
         $data = $this->getDataAge();
 
         // Fetch the agent data
-        $data['agents'] = $agentModel->where('FA', $userId)->findAll();
-
+        $agents = $agentModel->where('FA', $userId)->paginate(10, 'group1');
+        $data['pager'] = $agentModel->pager;
+        $data['agent'] = $agents;
         // Fetch the user data
-
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
         return view('Agent/subagents', $data);
@@ -99,11 +99,14 @@ class AgentController extends BaseController
 
         $filterUser = $this->request->getPost('filterAgent');
 
-        $agents = $agentModel->like('Agentfullname', $filterUser)
+        // Use the paginate method to enable pagination
+        $agents = $agentModel->like('username', $filterUser)
             ->where('FA', $userId)
-            ->findAll();
+            ->paginate(10); // Adjust the limit as needed
 
-        $data['agents'] = $agents;
+        // Correctly assign the pager
+        $data['pager'] = $agentModel->pager;
+        $data['agent'] = $agents;
 
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
@@ -122,61 +125,61 @@ class AgentController extends BaseController
         return $data;
     }
     public function svag()
-{
-    $session = session();
-    $userId = $session->get('id');
+    {
+        $session = session();
+        $userId = $session->get('id');
 
-    // Initialize $data array
-    $data = [];
+        // Initialize $data array
+        $data = [];
 
-    // Get the old image file name from the database
-    $oldAgent = $this->agent->select('agentprofile')->where('agent_id', $userId)->first();
-    // Check if a file is uploaded
-    if ($imageFile = $this->request->getFile('profile')) {
-        // Check if the file is valid
-        if ($imageFile->isValid()) {
-            // Generate a unique name for the uploaded image
-            $imageName = $imageFile->getRandomName();
+        // Get the old image file name from the database
+        $oldAgent = $this->agent->select('agentprofile')->where('agent_id', $userId)->first();
+        // Check if a file is uploaded
+        if ($imageFile = $this->request->getFile('profile')) {
+            // Check if the file is valid
+            if ($imageFile->isValid()) {
+                // Generate a unique name for the uploaded image
+                $imageName = $imageFile->getRandomName();
 
-            // Set the path to the upload directory
-            $uploadPath = FCPATH . 'uploads/';
+                // Set the path to the upload directory
+                $uploadPath = FCPATH . 'uploads/';
 
-            // Move the uploaded image to the upload directory
-            if ($imageFile->move($uploadPath, $imageName)) {
-                // Image upload successful, store the image filename in the database
-                $data['agentprofile'] = $imageName;
+                // Move the uploaded image to the upload directory
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    // Image upload successful, store the image filename in the database
+                    $data['agentprofile'] = $imageName;
 
-                // Delete the old image file if it exists
-                if (!empty($oldAgent['agentprofile'])) {
-                    $oldFilePath = $uploadPath . $oldAgent['agentprofile'];
-                    if (file_exists($oldFilePath)) {
-                        unlink($oldFilePath);
+                    // Delete the old image file if it exists
+                    if (!empty($oldAgent['agentprofile'])) {
+                        $oldFilePath = $uploadPath . $oldAgent['agentprofile'];
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
                     }
+                } else {
+                    $error = $imageFile->getError();
+                    // Handle the error as needed
                 }
-            } else {
-                $error = $imageFile->getError();
-                // Handle the error as needed
             }
         }
+
+        // Add other form data to the data array
+        $data += [
+            'Agentfullname' => $this->request->getVar('Agentfullname'),
+            'number' => $this->request->getVar('number'),
+            'email' => $this->request->getVar('email'),
+            'birthday' => $this->request->getVar('birthday'),
+            'address' => $this->request->getVar('address'),
+            'username' => $this->request->getVar('username'),
+        ];
+
+        // Check if $data array is not empty before updating the database
+        if (!empty($data)) {
+            // Update the applicant data
+            $this->agent->set($data)->where('agent_id', $userId)->update();
+        }
+
+        return redirect()->to('/AgSetting');
     }
-
-    // Add other form data to the data array
-    $data += [
-        'Agentfullname' => $this->request->getVar('Agentfullname'),
-        'number' => $this->request->getVar('number'),
-        'email' => $this->request->getVar('email'),
-        'birthday' => $this->request->getVar('birthday'),
-        'address' => $this->request->getVar('address'),
-        'username' => $this->request->getVar('username'),
-    ];
-
-    // Check if $data array is not empty before updating the database
-    if (!empty($data)) {
-        // Update the applicant data
-        $this->agent->set($data)->where('agent_id', $userId)->update();
-    }
-
-    return redirect()->to('/AgSetting');
-}
 
 }
