@@ -220,9 +220,14 @@
                                                         <?php endforeach ?>
                                                     </tbody>
                                                 </table>
+                                                <nav aria-label="Page navigation">
+                                                    <ul class="pagination justify-content-center">
+                                                        <?= $pager->only(['previous', 'first', 'links', 'last', 'next'])->links() ?>
+                                                    </ul>
+                                                </nav>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="tab-pane fade pt-3" id="forms">
                                         <h1 class="h2 mb-0">Forms</h1>

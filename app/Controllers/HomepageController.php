@@ -58,7 +58,7 @@ class HomepageController extends BaseController
             'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
-            'branch' => 'required|min_length[3]|max_length[50]',
+            // 'branch' => 'required|min_length[3]|max_length[50]',
         ];
         $verificationToken = bin2hex(random_bytes(16));
         $usertoken = bin2hex(random_bytes(24));
@@ -71,9 +71,9 @@ class HomepageController extends BaseController
                 'username' => $this->request->getVar('username'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'branch' => $this->request->getVar('branch'),
+                'branch' => 'Calapan',
                 'role' => 'applicant',
-                'status' => 'pending',
+                'status' => 'verified',
                 'verification_token' => $verificationToken,
                 'token' => $usertoken,
             ];
@@ -88,15 +88,18 @@ class HomepageController extends BaseController
                 'applicant_id' => $userId, // Use the retrieved user ID as the applicant_id
                 'username' => $this->request->getVar('username'),
                 'number' => $this->request->getVar('number'),
-                'applicantfullname' => $this->request->getVar('firstname') . ' ' . $this->request->getVar('lastname'),
+                'firstname' => $this->request->getVar('firstname'),
+                'lastname' => $this->request->getVar('lastname'),
+                'middlename' => $this->request->getVar('middlename'),
                 'email' => $this->request->getVar('email'),
-                'branch' => $this->request->getVar('branch'),
+                'branch' => 'Calapan',
                 'app_token' => $usertoken,
             ];
 
             // Insert applicant data into the applicant table
             $applicantModel->save($applicantData);
 
+            //insert id and token in forms
             $formdata = [
                 'user_id' => $userId,
                 'app_life_token' => $usertoken,
@@ -110,10 +113,14 @@ class HomepageController extends BaseController
             $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
             // var_dump($verificationLink);
             return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
+
+            
         } else {
             $data['validation'] = $this->validator;
-            echo view('Home/register', $data);
+            // echo view('Home/register', $data);
+            var_dump($data);
         }
+        
     }
 
     private function sendVerificationEmail($to, $subject, $message)

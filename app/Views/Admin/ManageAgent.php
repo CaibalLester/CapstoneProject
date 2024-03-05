@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <?= view('Admin/chop/head') ?>
+<!-- Add this to your head section -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -92,7 +94,7 @@
                                     <?php foreach ($agent as $ag): ?>
                                         <div class="col-lg-2 col-12 mb-3">
                                             <div
-                                                class="custom-block-profile-front text-center p-4 ">
+                                                class="custom-block-profile-front text-center p-4">
                                                 <div class="custom-block-profile-image-wrap mb-4">
                                                     <a href="/agentprofile/<?= $ag['agent_token']; ?>">
                                                         <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
@@ -105,6 +107,7 @@
                                         </div>
                                     <?php endforeach; ?>
                                 </div>
+                                <?= $pager->links('group1', 'page') ?>
                             </div>
                         </div>
                     </div>

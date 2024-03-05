@@ -126,20 +126,7 @@
                     <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>" class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
-                    <li>
-                        <div class="dropdown-menu-profile-thumb d-flex">
-                        <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>" class="profile-image img-fluid" alt="">
-
-                            <div class="d-flex flex-column">
-                                <small>
-                                    <?= $applicant['username'] ?>
-                                </small>
-                                <a href="#">
-                                    <?= $applicant['email'] ?>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
+                   
 
                     <li>
                         <a class="dropdown-item" href="/AppProfile">

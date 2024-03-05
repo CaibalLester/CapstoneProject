@@ -80,8 +80,8 @@
                                         </div>
                                     </div>
                                 </form>
+                                <hr>
 
-                                
                                 <div class="row">
                                     <?php foreach ($agents as $ag): ?>
                                         <div class="col-lg-4 col-12 mb-3">

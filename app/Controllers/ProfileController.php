@@ -14,16 +14,15 @@ class ProfileController extends BaseController
     public function agentprofile($token)
     {
         $agentModel = new AgentModel();
-
-        // Use the model to fetch a single record where agent_token matches the provided token
         $data = $this->getDataAd();
         $data['agent'] = $agentModel->where('agent_token', $token)->first();
+
         $agentid = $data['agent']['agent_id'];
-        // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
-        $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
+        $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
+
+        $data['pager'] = $agentModel->pager;
 
         return view("Admin/agentprofile", $data);
-        // var_dump($data);
     }
 
     public function ManageAgent()

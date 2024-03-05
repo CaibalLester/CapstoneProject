@@ -14,7 +14,7 @@
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/AppDash">
+                            <a class="nav-link" aria-current="page" href="/AppDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -37,15 +37,15 @@
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AIAL</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm3">
+                                        <a class="nav-link" href="/AppForm3">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">GROUP LIFE INSURANCE</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm4">
+                                        <a class="nav-link" href="/AppForm4">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm5">
+                                        <a class="nav-link" href="/AppForm5">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">STATEMENT OF UNDERTAKING</span>
                                         </a>
@@ -55,19 +55,20 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
                             <a class="nav-link active" href="/AppProfile">
                                 <i class="bi-person me-2"></i>
                                 Profile
                             </a>
                         </li>
 
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/FA">
-                                <i class="bi-person me-2"></i>
-                                Agents
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
@@ -97,83 +98,91 @@
                     <h1 class="h2 mb-0">Profile</h1>
                 </div>
                 <div class="row">
-                    <div class="col-xl-6">
+                    <div class="col-xl-4">
                         <div class="card">
-                            <div class="card-body pt-3">
-                                <div class="row">
-                                    <!-- First Column -->
-                                    <div class="col-xl-7"> <!-- I-update ang class na ito -->
-                                        <div
-                                            class="card-body profile-card pt-4 d-flex flex-column align-items-center text-center">
-                                            <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
-                                                alt="Profile" class="rounded-circle"
-                                                style="width: 150px; height: 150px;">
-                                            <h4>
-                                                <?= $applicant['applicantfullname'] ?>
-                                            </h4>
-                                        </div>
-                                    </div>
-
-                                    <!-- Include the QR code library -->
-                                    <script
-                                        src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-
-                                    <div class="col-xl-4 d-flex align-items-center justify-content-center">
-                                        <div class="text-center">
-                                            <!-- QR code container -->
-                                            <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
-                                            <!-- Button download -->
-                                            <button type="button" class="btn btn-dark" id="downloadButton"><i
-                                                    class="bi bi-download"></i></button>
-                                        </div>
-                                    </div>
+                            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : '' ?>"
+                                    alt="Profile" class="rounded-circle"
+                                    style="width: 150px; height: 150px; cursor: pointer;" data-bs-placement="bottom"
+                                    title="Click to see QR code">
+                                <h5>
+                                    <?= $applicant['username'] ?>
+                                </h5>
+                                <div class="social-links mt-2">
+                                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-xl-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col-lg-9 col-8">
-                                    <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                        <h5 class="card-title">Applicant Details</h5>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">User Name</th>
-                                                    <td>
-                                                        <?= $applicant['username'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Full Name</th>
-                                                    <td>
-                                                        <?= $applicant['applicantfullname'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Email</th>
-                                                    <td>
-                                                        <?= $applicant['email'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Number</th>
-                                                    <td>
-                                                        <?= $applicant['number'] ?>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Birthday</th>
-                                                    <td>
-                                                        <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                    <div class="modal fade" id="profileModal" tabindex="-1">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <div class="text-center">
+                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
+                                        <button type="button" class="btn btn-dark" id="downloadButton"><i
+                                                class="bi bi-download"></i></button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-body pt-3">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active profile-overview">
+                                        <h1 class="h2 mb-0">About</h1>
+                                        <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam
+                                            maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
+                                            Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
+                                            sed ea saepe at unde.</p>
+                                        <h5 class="card-title">Profile Details</h5>
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4 label ">Full Name</div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php if (isset($applicant['lastname']) && isset($applicant['firstname']) && isset($applicant['middlename'])): ?>
+                                                    <?= $applicant['lastname'] ?>,
+                                                    <?= $applicant['firstname'] ?>
+                                                    <?= $applicant['middlename'] ?>
+                                                <?php endif; ?>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4 label">Username</div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?= $applicant['username'] ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4 label">Email</div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?= $applicant['email'] ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4 label">Phone</div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?= $applicant['number'] ?>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-4 label">Birthday</div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End Bordered Tabs -->
                             </div>
                         </div>
                     </div>
@@ -204,14 +213,9 @@
         var qrCodeContainer = document.getElementById("qrCodeContainer");
 
         // Set the size of the QR code (adjust as needed)
-        var qrCodeOptions = {
-            width: 150,  // Adjust as needed
-            height: 150, // Adjust as needed
-        };
 
         new QRCode(qrCodeContainer, {
             text: profileData,
-            ...qrCodeOptions,
         });
 
         // Kung gusto mo i-download ang QR code
@@ -225,6 +229,13 @@
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
+        });
+
+        // JavaScript code to show the modal when the profile image is clicked
+        $(document).ready(function () {
+            $('.profile-card img').on('click', function () {
+                $('#profileModal').modal('show');
+            });
         });
     </script>
 </body>

@@ -1,6 +1,6 @@
 <header class="navbar sticky-top flex-md-nowrap">
     <div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/AgDash">
             ALLIANZ AGENT
         </a>
     </div>
@@ -136,21 +136,7 @@
                         class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
-                    <li>
-                        <div class="dropdown-menu-profile-thumb d-flex">
-                            <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
-                                class="profile-image img-fluid me-3" alt="">
-
-                            <div class="d-flex flex-column">
-                                <small>
-                                    <?= $agent['username'] ?>
-                                </small>
-                                <a href="">
-                                    <?= $agent['email'] ?>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
+                    
 
                     <li>
                         <a class="dropdown-item" href="/AgProfile">
