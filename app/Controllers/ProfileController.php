@@ -25,6 +25,16 @@ class ProfileController extends BaseController
         return view("Admin/agentprofile", $data);
     }
 
+    public function applicantprofile($token)
+    {
+        $appmodel = new ApplicantModel();
+        $data = $this->getDataAd();
+        $data['applicant'] = $appmodel->where('app_token', $token)->first();
+        return view("Admin/applicantprofile", $data);
+    }
+
+
+
     public function ManageAgent()
     {
         $agentModel = new AgentModel();
@@ -46,7 +56,6 @@ class ProfileController extends BaseController
             ->first();
         return $data;
     }
-
 
 
 

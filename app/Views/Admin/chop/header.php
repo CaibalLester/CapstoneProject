@@ -81,21 +81,6 @@
                         class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
-                    <li>
-                        <div class="dropdown-menu-profile-thumb d-flex">
-                            <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
-                                class="profile-image img-fluid me-3" alt="">
-
-                            <div class="d-flex flex-column">
-                                <small>
-                                    <?= $admin['username'] ?>
-                                </small>
-                                <a href="">
-                                    <?= $admin['email'] ?>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
 
                     <li>
                         <a class="dropdown-item" href="/AdProfile">

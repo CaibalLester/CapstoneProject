@@ -162,6 +162,7 @@ class AdminController extends BaseController
         $data['user'] = $userModel->find($userId);
         return $data;
     }
+    
     public function viewAppForm($id)
     {
         // Load the Form1Model
@@ -300,7 +301,7 @@ class AdminController extends BaseController
 
         // Load your view content into a variable
         $data['lifechangerform'] = $lifechangerFormData;
-        $html = view('Admin/details', $data);
+        $html = view('Admin/generatepdf', $data);
 
         // Create an instance of Dompdf
         $options = new Options();
@@ -324,5 +325,41 @@ class AdminController extends BaseController
         // Output PDF to the browser
         $dompdf->stream('document.pdf', array('Attachment' => 0));
     }
+
+    // public function generatePDF($recordId)
+    //     {
+    //         $officerPPEModel = new OfficerModel();
+    //         $inventoryPPEModel = new InventoryModel();
+
+    //         // Perform a join operation to fetch data from both models
+    //         $data = $officerPPEModel->select('officerverifyppe.*, inventoryppe.entityname, inventoryppe.classification, inventoryppe.code, inventoryppe.article, inventoryppe.modelno, inventoryppe.serialno, inventoryppe.fulldescription')
+    //                                 ->join('inventoryppe', 'inventoryppe.particulars = officerverifyppe.particulars', 'left')
+    //                                 ->where('officerverifyppe.id', $recordId)
+    //                                 ->first();
+
+    //         // $record = $data->find($recordId);
+
+    //         if ($data) {
+    //             // Load the MPDF library
+    //             $mpdf = new Mpdf();
+
+    //             // Generate HTML content dynamically based on record data
+    //             $htmlContent = view('pdf_template', ['data' => [$data]]); // Pass the record to the view
+
+    //             // Write HTML content to PDF
+    //             $mpdf->WriteHTML($htmlContent);
+
+
+    //             // Output the PDF
+    //             $mpdf->Output('generated_pdf.pdf', 'D'); // 'D' to force download
+
+    //             exit(); // End script execution after downloading the PDF
+    //         } else {
+    //             // Handle the case where the record is not found
+    //             die("Record with ID $recordId not found.");
+    //         }
+    //         // var_dump($data);
+    //         // return view('pdf_template', ['data' => [$data]]);
+    //     }
 
 }

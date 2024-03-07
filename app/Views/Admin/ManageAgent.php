@@ -13,29 +13,36 @@
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/AdDash">
+                            <a class="nav-link" aria-current="page" href="/AdDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/AdDash">
+                                <i class="fa fa-user me-2"></i>
+                                User Management
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/ManageAgent">
-                                <i class="bi-person me-2"></i>
-                                Manage Agents
+                                <i class="fas fa-user-tie me-2"></i>
+                                Agents
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageApplicant">
-                                <i class="bi-person me-2"></i>
-                                Manage Applicants
+                                <i class="fa fa-users me-2"></i>
+                                Applicants
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdProfile">
-                                <i class="bi-person me-2"></i>
+                                <i class="fa fa-user me-2"></i>
                                 Profile
                             </a>
                         </li>
@@ -48,8 +55,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="/AdHelp">
-                                <i class="bi-question-circle me-2"></i>
+                            <a class="nav-link" href="/AdHelp">
+                                <i class="fas fa-hands-helping me-2"></i>
                                 Help Center
                             </a>
                         </li>
@@ -73,42 +80,39 @@
                     <div class="col-lg-12 col-12">
                         <div class="custom-block bg-white">
 
-                            <div class="custom-block bg-white">
-                                
-                                <form class="custom-form search-form" action="/agentSearch" method="post" role="form">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-8 col-12">
-                                            <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text"
-                                                placeholder="Search" aria-label="Search" required>
-                                        </div>
-                                        <div class="col-lg-1 col-md-3 col-12">
-                                            <button type="submit" class="form-control">
-                                                <i class="bi bi-search"></i>
-                                            </button>
+                            <form class="custom-form search-form" action="/agentSearch" method="post" role="form">
+                                <div class="row">
+                                    <div class="col-lg-4 col-8">
+                                        <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text"
+                                            placeholder="Search" aria-label="Search" required>
+                                    </div>
+                                    <div class="col-lg-1 col-4">
+                                        <button type="submit" class="form-control">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr>
+
+                            <div class="row">
+                                <?php foreach ($agent as $ag): ?>
+                                    <div class="col-lg-2 col-12 mb-3">
+                                        <div class="custom-block-profile-front text-center p-4">
+                                            <div class="custom-block-profile-image-wrap mb-4">
+                                                <a href="/agentprofile/<?= $ag['agent_token']; ?>">
+                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
+                                                        class="img-fluid" alt=""></a>
+                                            </div>
+                                            <strong>
+                                                <?= $ag['username']; ?>
+                                            </strong>
                                         </div>
                                     </div>
-                                </form>
-                                <hr>
-
-                                <div class="row">
-                                    <?php foreach ($agent as $ag): ?>
-                                        <div class="col-lg-2 col-12 mb-3">
-                                            <div
-                                                class="custom-block-profile-front text-center p-4">
-                                                <div class="custom-block-profile-image-wrap mb-4">
-                                                    <a href="/agentprofile/<?= $ag['agent_token']; ?>">
-                                                        <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                            class="img-fluid" alt=""></a>
-                                                </div>
-                                                <strong>
-                                                    <?= $ag['username']; ?>
-                                                </strong>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                                <?= $pager->links('group1', 'page') ?>
+                                <?php endforeach; ?>
                             </div>
+                            <?= $pager->links('group1', 'page') ?>
+
                         </div>
                     </div>
                 </div>
