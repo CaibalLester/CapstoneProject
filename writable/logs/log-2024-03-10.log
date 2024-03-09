@@ -1,0 +1,9 @@
+CRITICAL - 2024-03-10 00:10:27 --> Call to undefined method App\Models\AgentModel::getAll
+in SYSTEMPATH\Model.php on line 873.
+ 1 APPPATH\Controllers\AdminController.php(57): CodeIgniter\Model->__call('getAll', [])
+ 2 APPPATH\Controllers\AdminController.php(52): App\Controllers\AdminController->topagent()
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

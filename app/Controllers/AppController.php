@@ -10,11 +10,13 @@ use \App\Models\AgentModel;
 
 class AppController extends BaseController
 {
+    private $agent;
     private $form1;
     private $user;
     private $applicant;
     public function __construct()
     {
+        $this->agent = new AgentModel();
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
@@ -41,15 +43,10 @@ class AppController extends BaseController
             // Redirect or handle the case where the user is not logged in
             return redirect()->to('login');
         }
-
         // Get the user ID from the session
         $userId = $session->get('id');
-
-        // Load the User model
-        $userModel = new UserModel();
-
         // Find the user by ID
-        $data['user'] = $userModel->find($userId);
+        $data['user'] = $this->user->find($userId);
 
         return $data;
     }
@@ -60,10 +57,8 @@ class AppController extends BaseController
         // Get the user ID from the session
         $userId = $session->get('id');
         // Load the User model
-        $applicantModel = new ApplicantModel();
-
         // Find the user by ID
-        $data['applicant'] = $applicantModel->where('applicant_id', $userId)
+        $data['applicant'] = $this->applicant->where('applicant_id', $userId)
             ->orderBy('id', 'desc')
             ->first();
 
@@ -81,7 +76,7 @@ class AppController extends BaseController
         $form1Model = new Form1Model();
 
         // Find the latest form data based on the user ID
-        $data['lifechangerform'] = $form1Model->where('user_id', $userId)
+        $data['lifechangerform'] = $this->form1->where('user_id', $userId)
             ->first();
         return $data;
     }
@@ -271,27 +266,6 @@ class AppController extends BaseController
         return view('Applicant/AppForm5');
     }
 
-    // public function FA()
-    // {
-    //     $agentModel = new AgentModel();
-    //     $data = array_merge($this->getData(), $this->getDataApp());
-    //     $data['agents'] = $agentModel->findAll();
-    //     return view('Applicant/FA' , $data);
-    // }
-
-    // public function searchfa()
-    // {
-    //     $agentModel = new AgentModel();
-    //     $data = array_merge($this->getData(), $this->getDataApp());
-    //     // Get the search input from the form
-    //     $filterUser = $this->request->getPost('searchfa');
-
-    //     // Add a where condition to filter records based on the search input
-    //     $agents = $agentModel->like('Agentfullname', $filterUser)->findAll();
-
-    //     $data['agents'] = $agents;
-    //     return view('Applicant/FA', $data);
-    // }
 
     public function FA()
     {
@@ -303,14 +277,14 @@ class AppController extends BaseController
 
         // If $filterUser is not empty, add a where condition to filter records
         if (!empty($filterUser)) {
-            $agents = $agentModel->like('username', $filterUser)->paginate(10, 'group1'); // Adjust the limit as needed
+            $agents = $this->agent->like('username', $filterUser)->paginate(10, 'group1'); // Adjust the limit as needed
         } else {
             // If no filter, retrieve all agents with pagination
-            $agents = $agentModel->paginate(10, 'group1'); // Adjust the limit as needed
+            $agents = $this->agent->paginate(10, 'group1'); // Adjust the limit as needed
         }
 
         // Correctly assign the pager
-        $data['pager'] = $agentModel->pager;
+        $data['pager'] = $this->agent->pager;
         $data['agents'] = $agents;
 
         return view('Applicant/FA', $data);

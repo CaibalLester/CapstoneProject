@@ -86,32 +86,32 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
+
                                             <div class="col-lg-3 col-md-4 col-12 mb-2">
-                                                <div class="input-group">
-                                                    <label class="input-group-text" for="filterDropdown"><i
-                                                            class="bi bi-funnel"></i></label>
-                                                    <select class="form-select" id="filterDropdown"
-                                                        name="filterDropdown" onchange="navigateToOption()">
-                                                        <option value="usermanagement">All</option>
-                                                        <option value="clients">Clients</option>
-                                                        <option value="agents">Agents</option>
-                                                        <option value="applicants">Applicants</option>
-                                                        <option value="users">Users</option>
-                                                    </select>
-                                                </div>
+                                                <form id="filterForm" action="usermanagement" method="post" role="form">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text" for="filterDropdown"><i
+                                                                class="bi bi-funnel"></i></label>
+                                                        <select class="form-select" id="filterDropdown"
+                                                            name="filterDropdown" onchange="navigateToOption()">
+                                                            <option value="all">All</option>
+                                                            <option value="client">Clients</option>
+                                                            <option value="agent">Agents</option>
+                                                            <option value="applicant">Applicants</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
                                             </div>
-
-                                            <!-- <script>
+                                            <script>
                                                 function navigateToOption() {
-                                                    var link = document.getElementById('filterDropdown').value;
+                                                    // Your existing logic for navigating or handling dropdown changes
+                                                    console.log("Dropdown value selected");
 
-                                                    // You can customize the URL structure based on your needs
-                                                    var url = 'http://localhost:8080/' + link;
-
-                                                    // Navigate to the selected option's URL
-                                                    window.location.href = url;
+                                                    // Continue with form submission
+                                                    document.getElementById('filterForm').submit();
                                                 }
-                                            </script> -->
+
+                                            </script>
 
                                             <div class="col-lg-9 col-md-12 col-12">
                                                 <form class="custom-form search-form" action="#" method="post"
@@ -132,10 +132,7 @@
                                                 </form>
                                             </div>
                                         </div>
-
                                     </div>
-
-
                                     <hr>
                                     <!-- Table with hoverable rows -->
                                     <div class="table-responsive mx-3">
@@ -151,15 +148,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($users as $user): ?>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td><?= $user['username'] ?></td>
-                                                    <td><?= $user['email'] ?></td>
-                                                    <td><?= $user['role'] ?></td>
-                                                    <td><?= date('M j, Y', strtotime($user['created_at'])); ?></td>
-                                                    <td><a href="<?= $user['token'] ?>" class="btn btn-primary"><li class="fas fa-eye"></li></a></td>
-                                                </tr>
+                                                <?php foreach ($users as $user): ?>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>
+                                                            <?= $user['username'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $user['email'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $user['role'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= date('M j, Y', strtotime($user['created_at'])); ?>
+                                                        </td>
+                                                        <td><a href="<?= $user['token'] ?>" class="btn btn-primary">
+                                                                <li class="fas fa-eye"></li>
+                                                            </a></td>
+                                                    </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -168,8 +175,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <!-- end of left side -->

@@ -25,31 +25,30 @@ class UsersManageController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
     }
-     private function alluser()
+    private function alluser()
     {
         $data['users'] = $this->user->where(['role !=' => 'admin'])->findAll();
         return $data;
     }
-   public function usermanagement()
-   {
-        $data = array_merge($this->getDataAd(), $this->alluser());
-        // $data = $this->getDataAd();
-        return view('Admin/usermanagement' ,$data);
-   }
-   private function getDataAd()
+    public function usermanagement()
     {
-        $session = session();
-        // Get the user ID from the session
-        $userId = $session->get('id');
-        // Load the User model
-        $adminModel = new AdminModel();
-        // Find the user by ID
-        $data['admin'] = $adminModel->where('admin_id', $userId)
-            ->orderBy('id', 'desc')
-            ->first();
+        $data = array_merge($this->getDataAd(), $this->alluser());
 
-        return $data;
+        $filterroles = $this->request->getPost('filterDropdown');
+        if(!empty($filterroles))
+        {
+            $data['users'] = $this->user->where('role',$filterroles)->findAll();
+        }
+        return view('Admin/usermanagement', $data);
     }
 
-   
+    private function getDataAd()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['admin'] = $this->admin->where('admin_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
+        return $data;
+    }
 }

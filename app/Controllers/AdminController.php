@@ -31,17 +31,15 @@ class AdminController extends BaseController
 
     public function AdDash()
     {
-        $agentModel = new AgentModel();
-        $applicantModel = new ApplicantModel();
 
         // Calculate the total number of agents
-        $totalAgents = count($agentModel->findAll());
+        $totalAgents = count($this->agent->findAll());
 
         // Calculate the total number of applicants
-        $totalApplicants = count($applicantModel->findAll());
+        $totalApplicants = count($this->applicant->findAll());
 
         // Count the number of applicants with status 'pending'
-        $pendingApplicants = $applicantModel->where('status', 'pending')->countAllResults();
+        $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
 
         $data = array_merge($this->getData(), $this->getDataAd());
         $data['totalAgents'] = $totalAgents;
@@ -49,7 +47,16 @@ class AdminController extends BaseController
         $data['pendingApplicants'] = $pendingApplicants;
 
         return view('Admin/AdDash', $data);
+        // $data = $this->topagent();
+        // var_dump($data);
     }
+    //Top 3 Agents
+    // private function topagent()
+    // {
+    //     $data['top'] = $this->agent->orderBy('id', 'DESC')->limit(1)->find();
+    //     return $data;
+    // }
+
     public function ManageAgent()
     {
         $agentModel = new AgentModel();
@@ -162,7 +169,7 @@ class AdminController extends BaseController
         $data['user'] = $userModel->find($userId);
         return $data;
     }
-    
+
     public function viewAppForm($id)
     {
         // Load the Form1Model
