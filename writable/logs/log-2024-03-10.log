@@ -7,3 +7,38 @@ in SYSTEMPATH\Model.php on line 873.
  5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-10 13:51:34 --> Object of class App\Controllers\AdminController could not be converted to string
+in APPPATH\Controllers\AdminController.php on line 160.
+ 1 APPPATH\Controllers\AdminController.php(44): App\Controllers\AdminController->getData()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->AdDash()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-10 13:54:46 --> Undefined property: App\Controllers\AdminController::$admina
+in APPPATH\Controllers\AdminController.php on line 125.
+ 1 APPPATH\Controllers\AdminController.php(125): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\AdminController::$admina', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 125)
+ 2 APPPATH\Controllers\AdminController.php(86): App\Controllers\AdminController->getDataAd()
+ 3 APPPATH\Controllers\AdminController.php(72): App\Controllers\AdminController->usermerge()
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->ManageApplicant()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-10 14:07:26 --> Undefined variable $data
+in APPPATH\Controllers\UsersManageController.php on line 45.
+ 1 APPPATH\Controllers\UsersManageController.php(45): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\CapstoneSystem\\app\\Controllers\\UsersManageController.php', 45)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UsersManageController->usermanagement()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersManageController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-10 14:09:48 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in C:\CapstoneSystem\system\Model.php on line 871
+in SYSTEMPATH\Database\BaseBuilder.php on line 983.
+ 1 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->like('username', null)
+ 2 APPPATH\Controllers\UsersManageController.php(45): CodeIgniter\Model->__call('like', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UsersManageController->usermanagement()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersManageController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

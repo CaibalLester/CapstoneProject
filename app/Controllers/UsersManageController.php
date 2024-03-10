@@ -27,20 +27,34 @@ class UsersManageController extends BaseController
     }
     private function alluser()
     {
-        $data['users'] = $this->user->where(['role !=' => 'admin'])->findAll();
+        $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
         return $data;
     }
     public function usermanagement()
     {
         $data = array_merge($this->getDataAd(), $this->alluser());
-
         $filterroles = $this->request->getPost('filterDropdown');
-        if(!empty($filterroles))
-        {
-            $data['users'] = $this->user->where('role',$filterroles)->findAll();
+        $search = $this->request->getPost('searchusers');
+        // Check if filter roles are selected
+        if (!empty($filterroles)) {
+            if ($filterroles == 'all') {
+                // If 'All' is selected, get all users
+                $data['users'] = $this->user->findAll();
+            } else {
+                // If another role is selected, filter by role
+                $data['users'] = $this->user->where('role', $filterroles)->findAll();
+            }
+        }
+        else if (!empty($search)) {
+            // If no filter roles, check if search query is provided
+            $data['users'] = $this->user->like('username', $search)->findAll();
+        } else {
+            // If neither filter roles nor search query is provided, get all users
+            $data['users'] = $this->user->findAll();
         }
         return view('Admin/usermanagement', $data);
     }
+
 
     private function getDataAd()
     {
@@ -51,4 +65,5 @@ class UsersManageController extends BaseController
             ->first();
         return $data;
     }
+
 }

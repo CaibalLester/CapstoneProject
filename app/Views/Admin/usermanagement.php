@@ -86,14 +86,14 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
-
-                                            <div class="col-lg-3 col-md-4 col-12 mb-2">
+                                            <div class="col-lg-3 col-md-4 col-9 mb-2">
                                                 <form id="filterForm" action="usermanagement" method="post" role="form">
                                                     <div class="input-group">
                                                         <label class="input-group-text" for="filterDropdown"><i
                                                                 class="bi bi-funnel"></i></label>
                                                         <select class="form-select" id="filterDropdown"
                                                             name="filterDropdown" onchange="navigateToOption()">
+                                                            <option value="">Filters</option>
                                                             <option value="all">All</option>
                                                             <option value="client">Clients</option>
                                                             <option value="agent">Agents</option>
@@ -102,25 +102,23 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <script>
-                                                function navigateToOption() {
-                                                    // Your existing logic for navigating or handling dropdown changes
-                                                    console.log("Dropdown value selected");
 
-                                                    // Continue with form submission
-                                                    document.getElementById('filterForm').submit();
-                                                }
+                                            <div class="col-lg-2 col-md-2 col-2">
+                                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                    data-bs-target="#myModal">
+                                                    <i class="bi bi-person-plus"></i>
+                                                </button>
+                                            </div>
 
-                                            </script>
-
-                                            <div class="col-lg-9 col-md-12 col-12">
-                                                <form class="custom-form search-form" action="#" method="post"
-                                                    role="form">
+                                            <div class="col-lg-7 col-md-8 col-12">
+                                                <form class="custom-form search-form" action="usermanagement"
+                                                    method="post" role="form">
                                                     <div class="row">
                                                         <div class="col-lg-8 col-8">
                                                             <input class="form-control mb-lg-0 mb-md-0"
-                                                                name="filterAgent" type="text" placeholder="Search"
-                                                                aria-label="Search" required>
+                                                                name="searchusers" type="text"
+                                                                placeholder="Search by username" aria-label="Search"
+                                                                required>
                                                         </div>
 
                                                         <div class="col-lg-2 col-4">
@@ -133,13 +131,67 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <script>
+    function navigateToOption() {
+        console.log("Dropdown value selected");
+        document.getElementById('filterForm').submit();
+    }
+</script>
+                                    <div class="modal fade" id="myModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Add new User</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- Your registration form goes here -->
+                                                    <form action="your_registration_controller/your_registration_method"
+                                                        method="post">
+                                                        <div class="mb-3">
+                                                            <label for="username" class="form-label">User Name</label>
+                                                            <input type="text" class="form-control" id="username"
+                                                                name="username" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="email" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" id="email"
+                                                                name="email" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="role" class="form-label">Role</label>
+                                                            <select class="form-select" id="role" name="role" required>
+                                                                <option value="admin">Applicant</option>
+                                                                <option value="client">Client</option>
+                                                                <option value="agent">Agent</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="password" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" id="password"
+                                                                name="password" value="defailt123" required>
+                                                        </div>
+
+                                                        <!-- Additional form elements go here -->
+
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <hr>
                                     <!-- Table with hoverable rows -->
                                     <div class="table-responsive mx-3">
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">User Name</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Role</th>
@@ -150,7 +202,6 @@
                                             <tbody>
                                                 <?php foreach ($users as $user): ?>
                                                     <tr>
-                                                        <th scope="row">5</th>
                                                         <td>
                                                             <?= $user['username'] ?>
                                                         </td>

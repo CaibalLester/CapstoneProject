@@ -19,14 +19,14 @@ class AdminController extends BaseController
     private $user;
     private $applicant;
     private $admin;
-    private $form;
+    private $form1;
     public function __construct()
     {
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
-        $this->form = new Form1Model();
+        $this->form1 = new Form1Model();
     }
 
     public function AdDash()
@@ -93,12 +93,10 @@ class AdminController extends BaseController
     {
         $appmodel = new ApplicantModel();
         $data = $this->usermerge();
-        // Get the search input from the form
         $filterUser = $this->request->getPost('filterUser');
-        // Add a where condition to filter records based on the search input and status
-        $applicants = $appmodel->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
+        $applicants = $this->applicant->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
-        $data['pager'] = $appmodel->pager;
+        $data['pager'] = $this->applicant->pager;
 
         return view('Admin/ManageApplicant', $data);
     }
@@ -108,27 +106,20 @@ class AdminController extends BaseController
     {
         $agentModel = new AgentModel();
         $data = $this->usermerge();
-
         // Get the search input from the form
         $filterUser = $this->request->getPost('filterAgent');
-
         // Add a where condition to filter records based on the search input
         $agents = $agentModel->like('username', $filterUser)->paginate(10, 'group1');
         $data['pager'] = $agentModel->pager; // Use $agentModel->pager
         $data['agent'] = $agents;
-
         return view('Admin/ManageAgent', $data);
     }
 
     private function getDataAd()
     {
         $session = session();
-        // Get the user ID from the session
         $userId = $session->get('id');
-        // Load the User model
-        $adminModel = new AdminModel();
-        // Find the user by ID
-        $data['admin'] = $adminModel->where('admin_id', $userId)
+        $data['admin'] = $this->admin->where('admin_id', $userId)
             ->orderBy('id', 'desc')
             ->first();
 
@@ -156,30 +147,15 @@ class AdminController extends BaseController
     private function getData()
     {
         $session = session();
-        //Check if the user is logged in
-        if (!$session->get('id')) {
-            // Redirect or handle the case where the user is not logged in
-            return redirect()->to('login');
-        }
-        // Get the user ID from the session
         $userId = $session->get('id');
-        // Load the User model
-        $userModel = new UserModel();
-        // Find the user by ID
-        $data['user'] = $userModel->find($userId);
+        $data['user'] = $this->user->find($userId);
         return $data;
     }
 
     public function viewAppForm($id)
     {
-        // Load the Form1Model
-        $form1Model = new Form1Model();
-
-        // Find the form data based on the user ID
-        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
-
-        // Pass the fetched data to the view
-        return view('Admin/details', ['lifechangerform' => $lifechangerFormData]);
+        $data = $this->form1->where('user_id', $id)->first();
+        return view('Admin/details', ['lifechangerform' => $data]);
     }
 
 
@@ -267,7 +243,6 @@ class AdminController extends BaseController
                     }
                 } else {
                     $error = $imageFile->getError();
-                    // Handle the error as needed
                 }
             }
         }

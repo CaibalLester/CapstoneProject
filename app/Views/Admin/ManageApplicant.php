@@ -19,7 +19,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AdDash">
+                            <a class="nav-link" aria-current="page" href="/usermanagement">
                                 <i class="fa fa-user me-2"></i>
                                 User Management
                             </a>
