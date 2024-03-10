@@ -76,7 +76,7 @@
                     </h1>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 mb-1">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                                 <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"

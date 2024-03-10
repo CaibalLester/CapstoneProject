@@ -94,12 +94,13 @@
                             <hr>
                             <div class="row row-cols-3">
                                 <?php foreach ($applicant as $app): ?>
-                                    <div class="col-lg-2 col-md-8 mb-3">    
-                                        <div class="custom-block-profile-front text-center">
+                                    <div class="col-lg-2 col-md-4 mb-3">    
+                                        <div class="custom-block-profile-front text-center" >
                                             <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/applicantprofile/<?= $app['app_token']; ?>">
-                                                    <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
-                                                        class="img-fluid" alt=""></a>
+                                                <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
+    class="img-fluid" alt="" style="height: 100px; width: auto">
+</a>
                                             </div>
                                             <strong>
                                                 <?= $app['username']; ?>

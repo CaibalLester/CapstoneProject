@@ -96,12 +96,12 @@
                             <hr>
                             <div class="row row-cols-3">
                             <?php foreach ($agent as $ag): ?>
-                                    <div class="col-lg-2 col-md-8 mb-3">    
+                                    <div class="col-lg-2 col-md-4 mb-3">    
                                         <div class="custom-block-profile-front text-center">
                                             <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/agentprofile/<?= $ag['agent_token']; ?>">
                                                     <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']): ''?>"
-                                                        class="img-fluid" alt=""></a>
+                                                        class="img-fluid" alt="" style="height: 100px; width: auto"></a>
                                             </div>
                                             <strong>
                                             <?= $ag['username']; ?>
