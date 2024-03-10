@@ -78,8 +78,6 @@
                 <div class="row my-4">
                     <div class="col-lg-12 col-12">
                         <div class="custom-block bg-white">
-
-
                             <form class="custom-form search-form" action="/userSearch" method="post" role="form">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-8 col-8">
@@ -94,11 +92,11 @@
                                 </div>
                             </form>
                             <hr>
-                            <div class="row">
+                            <div class="row row-cols-3">
                                 <?php foreach ($applicant as $app): ?>
-                                    <div class="col-lg-2 col-12 mb-3">
-                                        <div class="custom-block-profile-front text-center p-4">
-                                            <div class="custom-block-profile-image-wrap mb-4">
+                                    <div class="col-lg-2 col-md-8 mb-3">    
+                                        <div class="custom-block-profile-front text-center">
+                                            <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/applicantprofile/<?= $app['app_token']; ?>">
                                                     <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
                                                         class="img-fluid" alt=""></a>

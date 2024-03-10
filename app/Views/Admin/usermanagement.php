@@ -132,11 +132,11 @@
                                         </div>
                                     </div>
                                     <script>
-    function navigateToOption() {
-        console.log("Dropdown value selected");
-        document.getElementById('filterForm').submit();
-    }
-</script>
+                                        function navigateToOption() {
+                                            console.log("Dropdown value selected");
+                                            document.getElementById('filterForm').submit();
+                                        }
+                                    </script>
                                     <div class="modal fade" id="myModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">

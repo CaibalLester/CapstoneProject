@@ -94,25 +94,23 @@
                                 </div>
                             </form>
                             <hr>
-
-                            <div class="row">
-                                <?php foreach ($agent as $ag): ?>
-                                    <div class="col-lg-2 col-12 mb-3">
-                                        <div class="custom-block-profile-front text-center p-4">
-                                            <div class="custom-block-profile-image-wrap mb-4">
+                            <div class="row row-cols-3">
+                            <?php foreach ($agent as $ag): ?>
+                                    <div class="col-lg-2 col-md-8 mb-3">    
+                                        <div class="custom-block-profile-front text-center">
+                                            <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/agentprofile/<?= $ag['agent_token']; ?>">
-                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
+                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']): ''?>"
                                                         class="img-fluid" alt=""></a>
                                             </div>
                                             <strong>
-                                                <?= $ag['username']; ?>
+                                            <?= $ag['username']; ?>
                                             </strong>
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
                             <?= $pager->links('group1', 'page') ?>
-
                         </div>
                     </div>
                 </div>

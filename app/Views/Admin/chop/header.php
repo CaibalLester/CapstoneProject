@@ -1,5 +1,5 @@
 <header class="navbar sticky-top flex-md-nowrap">
-    <div class="col-md-3 col-lg-3 me-2 px-2">
+<div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
         <a class="navbar-brand" href="#">
             ALLIANZ ADMIN
         </a>
