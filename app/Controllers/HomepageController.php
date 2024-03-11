@@ -53,12 +53,19 @@ class HomepageController extends BaseController
     public function Authreg()
     {
         helper(['form']);
+        // $rules = [
+        //     'username' => 'required|min_length[3]|max_length[50]',
+        //     'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email]',
+        //     'password' => 'required|min_length[6]|max_length[50]',
+        //     'confirmpassword' => 'matches[password]',
+        // ];
         $rules = [
-            'username' => 'required|min_length[3]|max_length[50]',
-            'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email]',
+            'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username,id]',
+            'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email,id]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
         ];
+        
         $verificationToken = bin2hex(random_bytes(16));
         $usertoken = bin2hex(random_bytes(24));
         if ($this->validate($rules)) {
@@ -72,7 +79,7 @@ class HomepageController extends BaseController
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'branch' => 'Calapan',
                 'role' => 'applicant',
-                'status' => 'verified',
+                'status' => 'unverified',
                 'verification_token' => $verificationToken,
                 'token' => $usertoken,
             ];
@@ -115,8 +122,7 @@ class HomepageController extends BaseController
 
         } 
         else {
-            $data['validation'] = $this->validator;
-            // echo view('Home/register', $data);
+            return redirect()->to('/register')->with('error', 'Invalid Input');
         }
     }
 

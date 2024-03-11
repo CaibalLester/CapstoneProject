@@ -1,0 +1,95 @@
+CRITICAL - 2024-03-12 00:00:51 --> Call to a member function getErrors() on null
+in APPPATH\Controllers\UsersManageController.php on line 116.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\UsersManageController->upuser('7016e2843da669497a35b5512b2e47b190b72d4f8ef4c482')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersManageController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-03-12 00:43:56 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2024-03-12 00:43:56 --> 220 smtp.gmail.com ESMTP y3-20020aa78543000000b006e64bda99e2sm4737843pfn.140 - gsmtp
+
+hello: 250-smtp.gmail.com at your service, [139.135.241.4]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+starttls: 220 2.0.0 Ready to start TLS
+
+hello: 250-smtp.gmail.com at your service, [139.135.241.4]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+Failed to authenticate password. Error: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbu
+534-5.7.14 iLUH4qH8zEnu5y2uWiOM-Z_deMFJnmZKbUa_cbPCN0hLIGN3DmgqHNzI2krPEt0Dp2IpG
+534-5.7.14 SJ90Beo3w6lSw2uWUf9mQtUd369EvaHTf-chQe5rua3tbyJPBmj3zFYWV27shCGu>
+534-5.7.14 Please log in via your web browser and then try again.
+534-5.7.14  For more information, go to
+534 5.7.14  https://support.google.com/mail/answer/78754 y3-20020aa78543000000b006e64bda99e2sm4737843pfn.140 - gsmtp
+
+CRITICAL - 2024-03-12 00:49:39 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\chop\header.php on line 42.
+ 1 APPPATH\Views\Applicant\chop\header.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppSetting.php(7): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Applicant\\AppSetting.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppSetting', [], true)
+ 9 APPPATH\Controllers\AppController.php(86): view('Applicant/AppSetting', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppSetting()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-12 00:49:41 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\chop\header.php on line 42.
+ 1 APPPATH\Views\Applicant\chop\header.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppProfile.php(8): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Applicant\\AppProfile.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppProfile', [], true)
+ 9 APPPATH\Controllers\AppController.php(34): view('Applicant/AppProfile', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppProfile()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-03-12 00:53:36 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2024-03-12 00:53:36 --> 220 smtp.gmail.com ESMTP l66-20020a633e45000000b005b7dd356f75sm4611088pga.32 - gsmtp
+
+hello: 250-smtp.gmail.com at your service, [139.135.241.4]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+starttls: 220 2.0.0 Ready to start TLS
+
+hello: 250-smtp.gmail.com at your service, [139.135.241.4]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+Failed to authenticate password. Error: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials l66-20020a633e45000000b005b7dd356f75sm4611088pga.32 - gsmtp
+

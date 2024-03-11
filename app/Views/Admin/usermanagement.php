@@ -85,16 +85,16 @@
                             <div class="col-12 mb-3">
                                 <div class="card">
                                     <div class="card-body">
-                                    <?php if (session()->getFlashdata('error')): ?>
-                                        <div class="alert alert-danger mt-3 text-center" role="alert">
-                                            <?= session()->getFlashdata('error') ?>
-                                        </div>
-                                    <?php endif; ?>
-                                    <?php if (session()->getFlashdata('success')): ?>
-                                        <div class="alert alert-success mt-3 text-center" role="alert">
-                                            <?= session()->getFlashdata('success') ?>
-                                        </div>
-                                    <?php endif; ?>
+                                        <?php if (session()->getFlashdata('error')): ?>
+                                            <div class="alert alert-danger mt-3 text-center" role="alert">
+                                                <?= session()->getFlashdata('error') ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php if (session()->getFlashdata('success')): ?>
+                                            <div class="alert alert-success mt-3 text-center" role="alert">
+                                                <?= session()->getFlashdata('success') ?>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 col-9 mb-2">
                                                 <form id="filterForm" action="usermanagement" method="post" role="form">
@@ -142,7 +142,7 @@
                                         </div>
                                     </div>
 
-                                
+
                                     <script>
                                         function navigateToOption() {
                                             console.log("Dropdown value selected");
@@ -218,8 +218,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                     <hr>
                                     <!-- Table with hoverable rows -->
                                     <div class="table-responsive mx-3">
@@ -248,10 +246,95 @@
                                                         <td>
                                                             <?= date('M j, Y', strtotime($user['created_at'])); ?>
                                                         </td>
-                                                        <td><a href="<?= $user['token'] ?>" class="btn btn-secondary">
+                                                        <td>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#myModal<?= $user['id'] ?>">
+                                                                <i class="fas fa-pen"></i>
+                                                            </button>
+                                                            <a href="<?= $user['token'] ?>" class="btn btn-secondary">
                                                                 <li class="fas fa-eye"></li>
-                                                            </a></td>
+                                                            </a>
+                                                        </td>
                                                     </tr>
+                                                    <!-- Modal for each user -->
+                                                    <div class="modal fade" id="myModal<?= $user['id'] ?>" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">User
+                                                                        Details</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form action="/upuser/<?= $user['token'] ?>" method="post" role="form">
+                                                                        <!-- Your registration form goes here -->
+                                                                        <div class="mb-3">
+                                                                            <label for="upusername" class="form-label">User
+                                                                                Name</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="username" name="upusername"
+                                                                                value="<?= $user['username'] ?>" required>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="upemail"
+                                                                                class="form-label">Email</label>
+                                                                            <input type="email" class="form-control"
+                                                                                id="email" name="upemail"
+                                                                                value="<?= $user['email'] ?>" required>
+                                                                        </div>
+
+                                                                        <div class="mb-3">
+                                                                            <label for="uprole"
+                                                                                class="form-label">Role</label>
+                                                                            <select class="form-select" id="role"
+                                                                                name="uprole" required>
+                                                                                <option value="applicant" <?php echo ($user['role'] == 'applicant') ? 'selected' : ''; ?>>Applicant</option>
+                                                                                <option value="client" <?php echo ($user['role'] == 'client') ? 'selected' : ''; ?>>Client</option>
+                                                                                <option value="agent" <?php echo ($user['role'] == 'agent') ? 'selected' : ''; ?>>Agent</option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="mb-3">
+                                                                            <label for="uppassword"
+                                                                                class="form-label">Password</label>
+                                                                            <div class="input-group">
+                                                                                <input type="password" class="form-control"
+                                                                                    id="password" name="uppassword" value=""
+                                                                                    >
+                                                                                <button class="btn btn-outline-secondary"
+                                                                                    type="button" id="showPasswordToggle">
+                                                                                    <i class="bi bi-eye"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="mb-3">
+                                                                            <label for="upconfirmpassword"
+                                                                                class="form-label">Confirm
+                                                                                Password</label>
+                                                                            <div class="input-group">
+                                                                                <input type="password" class="form-control"
+                                                                                    id="confirmpassword"
+                                                                                    name="upconfirmpassword" value=""
+                                                                                    >
+                                                                                <button class="btn btn-outline-secondary"
+                                                                                    type="button"
+                                                                                    id="showConfirmPasswordToggle">
+                                                                                    <i class="bi bi-eye"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Close</button>
+                                                                            <button type="submit" class="btn btn-primary">Update</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>

@@ -22,7 +22,11 @@
             <div class="card mb-6">
 
               <div class="card-body">
-
+              <?php if (session()->getFlashdata('error')): ?>
+                                            <div class="alert alert-danger mt-3 text-center" role="alert">
+                                                <?= session()->getFlashdata('error') ?>
+                                            </div>
+                                        <?php endif; ?>
                 <div class="pt-4 pb-2">
                   <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                   <p class="text-center small">Enter your personal details to create account</p>

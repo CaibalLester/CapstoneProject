@@ -37,29 +37,26 @@ class UsersManageController extends BaseController
             $data['validation'] = session('validation');
             session()->remove('validation'); // Clear the session variable
         }
-
         $data = array_merge($this->getDataAd(), $this->alluser());
         $filterroles = $this->request->getPost('filterDropdown');
         $search = $this->request->getPost('searchusers');
         // Check if filter roles are selected
         if (!empty($filterroles)) {
             if ($filterroles == 'all') {
-                // If 'All' is selected, get all users
-                $data['users'] = $this->user->findAll();
+                $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
             } else {
                 // If another role is selected, filter by role
-                $data['users'] = $this->user->where('role', $filterroles)->findAll();
+                $data['users'] = $this->user->where('role', $filterroles)->where(['role !=' => 'admin'])->orderBy('username')->findAll();
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided
-            $data['users'] = $this->user->like('username', $search)->findAll();
+            $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->orderBy('username')->findAll();
         } else {
             // If neither filter roles nor search query is provided, get all users
-            $data['users'] = $this->user->findAll();
+            $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
         }
         return view('Admin/usermanagement', $data);
     }
-
 
     private function getDataAd()
     {
@@ -93,8 +90,21 @@ class UsersManageController extends BaseController
             return redirect()->to('usermanagement')->with('success', 'New user added');
         } else {
             session()->setFlashdata('validation', $this->validator->getErrors());
-            // $session->setFlashdata('error', 'Invalid password.');
             return redirect()->to('usermanagement')->with('error', 'Invalid Input Data');
         }
+    }
+    public function upuser($token)
+    {
+        // $toke = $this->request->getPost('token');
+        $newuser = [
+            'username' => $this->request->getVar('upusername'),
+            'email' => $this->request->getVar('upemail'),
+            'role' => $this->request->getVar('uprole'),
+            'password' => password_hash($this->request->getVar('uppassword'), PASSWORD_DEFAULT),
+        ];
+        $this->user->set($newuser)->where('token', $token)->update();
+        return redirect()->to('usermanagement')->with('success', 'Account updated');
+        // var_dump($newuser);
+        // return redirect()->to('usermanagement');
     }
 }
