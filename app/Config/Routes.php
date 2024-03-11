@@ -11,8 +11,10 @@ $routes->get('/ManageAgent', 'AdminController::ManageAgent', ['filter' => 'admin
 $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilter']);
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
+
+
 $routes->match(['get', 'post'],'/usermanagement', 'UsersManageController::usermanagement', ['filter' => 'adminFilter']);
-// $routes->get('/filterusers/(:any)', 'UsersManageController::filterusers/$1', ['filter' => 'adminFilter']);
+$routes->post('/newuser', 'UsersManageController::newuser', ['filter' => 'adminFilter']);
 
 // $routes->get('/AdChat', 'RTCController::AdChat');
 

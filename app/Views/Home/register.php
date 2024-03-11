@@ -27,6 +27,7 @@
                   <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                   <p class="text-center small">Enter your personal details to create account</p>
                 </div>
+                
 
                 <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg"
                   onsubmit="return confirmSubmit()">

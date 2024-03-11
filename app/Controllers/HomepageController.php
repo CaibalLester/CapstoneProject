@@ -58,7 +58,6 @@ class HomepageController extends BaseController
             'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
-            // 'branch' => 'required|min_length[3]|max_length[50]',
         ];
         $verificationToken = bin2hex(random_bytes(16));
         $usertoken = bin2hex(random_bytes(24));
@@ -114,13 +113,11 @@ class HomepageController extends BaseController
             // var_dump($verificationLink);
             return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
 
-            
-        } else {
+        } 
+        else {
             $data['validation'] = $this->validator;
             // echo view('Home/register', $data);
-            var_dump($data);
         }
-        
     }
 
     private function sendVerificationEmail($to, $subject, $message)

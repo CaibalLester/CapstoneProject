@@ -85,6 +85,16 @@
                             <div class="col-12 mb-3">
                                 <div class="card">
                                     <div class="card-body">
+                                    <?php if (session()->getFlashdata('error')): ?>
+                                        <div class="alert alert-danger mt-3 text-center" role="alert">
+                                            <?= session()->getFlashdata('error') ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (session()->getFlashdata('success')): ?>
+                                        <div class="alert alert-success mt-3 text-center" role="alert">
+                                            <?= session()->getFlashdata('success') ?>
+                                        </div>
+                                    <?php endif; ?>
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 col-9 mb-2">
                                                 <form id="filterForm" action="usermanagement" method="post" role="form">
@@ -131,6 +141,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                
                                     <script>
                                         function navigateToOption() {
                                             console.log("Dropdown value selected");
@@ -147,9 +159,9 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
+
                                                     <!-- Your registration form goes here -->
-                                                    <form action="your_registration_controller/your_registration_method"
-                                                        method="post">
+                                                    <form action="/newuser" method="post" role="form">
                                                         <div class="mb-3">
                                                             <label for="username" class="form-label">User Name</label>
                                                             <input type="text" class="form-control" id="username"
@@ -168,10 +180,32 @@
                                                                 <option value="agent">Agent</option>
                                                             </select>
                                                         </div>
+
                                                         <div class="mb-3">
                                                             <label for="password" class="form-label">Password</label>
-                                                            <input type="password" class="form-control" id="password"
-                                                                name="password" value="defailt123" required>
+                                                            <div class="input-group">
+                                                                <input type="password" class="form-control"
+                                                                    id="password" name="password" value="123123"
+                                                                    required>
+                                                                <button class="btn btn-outline-secondary" type="button"
+                                                                    id="showPasswordToggle">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="confirmpassword" class="form-label">Confirm
+                                                                Password</label>
+                                                            <div class="input-group">
+                                                                <input type="password" class="form-control"
+                                                                    id="confirmpassword" name="confirmpassword"
+                                                                    value="123123" required>
+                                                                <button class="btn btn-outline-secondary" type="button"
+                                                                    id="showConfirmPasswordToggle">
+                                                                    <i class="bi bi-eye"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
 
                                                         <!-- Additional form elements go here -->
@@ -214,7 +248,7 @@
                                                         <td>
                                                             <?= date('M j, Y', strtotime($user['created_at'])); ?>
                                                         </td>
-                                                        <td><a href="<?= $user['token'] ?>" class="btn btn-primary">
+                                                        <td><a href="<?= $user['token'] ?>" class="btn btn-secondary">
                                                                 <li class="fas fa-eye"></li>
                                                             </a></td>
                                                     </tr>
@@ -230,7 +264,6 @@
                 </div>
                 <!-- end of left side -->
 
-
                 <footer class="site-footer">
                     <div class="container">
                         <div class="row">
@@ -243,6 +276,27 @@
     </div>
 
     <?= view('Admin/chop/js'); ?>
+    <script>
+        // JavaScript to toggle password visibility
+        const passwordInput = document.getElementById('password');
+        const confirmInput = document.getElementById('confirmpassword');
+        const showPasswordToggle = document.getElementById('showPasswordToggle');
+        const showConfirmPasswordToggle = document.getElementById('showConfirmPasswordToggle');
+
+        function togglePasswordVisibility(input, toggleButton) {
+            const type = input.type === 'password' ? 'text' : 'password';
+            input.type = type;
+            toggleButton.innerHTML = type === 'text' ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+        }
+
+        showPasswordToggle.addEventListener('click', function () {
+            togglePasswordVisibility(passwordInput, showPasswordToggle);
+        });
+
+        showConfirmPasswordToggle.addEventListener('click', function () {
+            togglePasswordVisibility(confirmInput, showConfirmPasswordToggle);
+        });
+    </script>
 
 </body>
 

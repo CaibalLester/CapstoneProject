@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1710167073;_ci_previous_url|s:29:"http://localhost:8080/newuser";id|s:2:"92";role|s:5:"admin";IsLoggin|b:1;validation|a:2:{s:5:"email";s:44:"The email field must contain a unique value.";s:8:"password";s:59:"The password field must be at least 6 characters in length.";}__ci_vars|a:1:{s:10:"validation";s:3:"new";}
