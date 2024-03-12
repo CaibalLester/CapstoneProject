@@ -38,20 +38,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AdProfile">
-                                <i class="fa fa-user me-2"></i>
-                                Profile
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AdSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">
                                 <i class="fas fa-hands-helping me-2"></i>
@@ -431,27 +418,15 @@
                                 </div>
                                 <div class="card mb-3 text-center">
                                     <h5 class="card-title mt-3">Top 3 agents</h5>
+                                    <?php foreach ($top as $topagent): ?>
                                     <div class="card-body">
-                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                        <img src="<?= isset($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
                                             class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
                                             style="width: 80px; height: 80px;">
-                                        <h5 class="card-title mt-2 small">Agent Name</h5>
+                                        <h5 class="card-title mt-2 small"><?=$topagent['username']?></h5>
                                         <!-- Add other relevant information as needed -->
                                     </div>
-                                    <div class="card-body">
-                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
-                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                            style="width: 80px; height: 80px;">
-                                        <h5 class="card-title mt-2 small">Agent Name</h5>
-                                        <!-- Add other relevant information as needed -->
-                                    </div>
-                                    <div class="card-body">
-                                        <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
-                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                            style="width: 80px; height: 80px;">
-                                        <h5 class="card-title mt-2 small">Agent Name</h5>
-                                        <!-- Add other relevant information as needed -->
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="col-lg-12">

@@ -31,38 +31,47 @@ class AdminController extends BaseController
 
     public function AdDash()
     {
-
-        // Calculate the total number of agents
         $totalAgents = count($this->agent->findAll());
-
-        // Calculate the total number of applicants
         $totalApplicants = count($this->applicant->findAll());
-
-        // Count the number of applicants with status 'pending'
         $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
-
-        $data = array_merge($this->getData(), $this->getDataAd());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent());
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
-
         return view('Admin/AdDash', $data);
-        // $data = $this->topagent();
-        // var_dump($data);
     }
     //Top 3 Agents
-    // private function topagent()
-    // {
-    //     $data['top'] = $this->agent->orderBy('id', 'DESC')->limit(1)->find();
-    //     return $data;
-    // }
+    private function topagent()
+    {
+        // Load the database service
+        $builder = \Config\Database::connect()->table('agent a');
+        $builder->select('a.username, a.FA, a.agentprofile, (SELECT COUNT(*) FROM agent b WHERE b.FA = a.agent_id) AS total_fA');
+        $builder->orderBy('total_fa', 'DESC');
+        $builder->limit(3);
+
+        // Get the result as an array
+        $result = $builder->get()->getResultArray();
+
+        // Pass the data to your view or perform any other actions
+        $data['top'] = $result;
+
+        // Return the data
+        return $data;
+
+    }
+
+    private function getagent()
+    {
+        $data['agent'] = $this->agent->findAll();
+        return $data;
+    }
 
     public function ManageAgent()
     {
-        $agentModel = new AgentModel();
+        // $agentModel = new AgentModel();
         $data = $this->usermerge();
-        $data['agent'] = $agentModel->paginate(10, 'group1'); // Change 10 to the number of items per page
-        $data['pager'] = $agentModel->pager;
+        $data['agent'] = $this->agent->paginate(10, 'group1'); // Change 10 to the number of items per page
+        $data['pager'] = $this->agent->pager;
         return view('Admin/ManageAgent', $data);
     }
 
@@ -114,6 +123,8 @@ class AdminController extends BaseController
         $data['agent'] = $agents;
         return view('Admin/ManageAgent', $data);
     }
+
+
 
     private function getDataAd()
     {

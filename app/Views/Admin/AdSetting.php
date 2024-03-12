@@ -38,19 +38,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AdProfile">
-                                <i class="fa fa-user me-2"></i>
-                                Profile
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/AdSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
+                     
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">
