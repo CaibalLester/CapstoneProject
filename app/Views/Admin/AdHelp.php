@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <?= view('Admin/chop/head'); ?>
-    
-    <body>
+
+<body>
     <?= view('Admin/chop/header'); ?>
 
-        <div class="container-fluid">
-            <div class="row">
+    <div class="container-fluid">
+        <div class="row">
             <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
@@ -38,8 +38,6 @@
                             </a>
                         </li>
 
-                        
-
                         <li class="nav-item">
                             <a class="nav-link active" href="/AdHelp">
                                 <i class="fas fa-hands-helping me-2"></i>
@@ -57,66 +55,65 @@
                 </div>
             </nav>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                    <div class="title-group mb-3">
-                        <h1 class="h2 mb-0">How can we help?</h1>
-                    </div>
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <div class="title-group mb-3">
+                    <h1 class="h2 mb-0">How can we help?</h1>
+                </div>
 
-                    <div class="row my-4">
-                        <div class="col-lg-7 col-12">
-                           
+                <div class="row my-4">
+                    <div class="col-lg-7 col-12">
 
-                            <div class="custom-block custom-block-faq">
+                        <div class="custom-block custom-block-faq">
                             <h5 class="mb-4">Frequently Asked Questions</h5>
-
                             <strong class="d-block mb-2">What is Allianz PNB?</strong>
-
-                            <p>Allianz PNB offers comprehensive insurance and investment solutions. With a range of products and services, it caters to diverse financial needs.</p>
-
-                            <strong class="d-block mt-3 mb-2">Does Allianz PNB offer financial planning services?</strong>
-
-                            <p>Yes, Allianz PNB provides financial planning services to help customers achieve their long-term financial goals.</p>
-
+                            <p>Allianz PNB offers comprehensive insurance and investment solutions. With a range of
+                                products and services, it caters to diverse financial needs.</p>
+                            <strong class="d-block mt-3 mb-2">Does Allianz PNB offer financial planning
+                                services?</strong>
+                            <p>Yes, Allianz PNB provides financial planning services to help customers achieve their
+                                long-term financial goals.</p>
                             <strong class="d-block mt-3 mb-2">How can I contact Allianz PNB for assistance?</strong>
 
-                            <p>You can reach Allianz PNB's customer support team through their hotline, email, or by visiting one of their branches.</p>
+                            <p>You can reach Allianz PNB's customer support team through their hotline, email, or by
+                                visiting one of their branches.</p>
 
                             <strong class="d-block mt-3 mb-2">Is Allianz PNB a reputable company?</strong>
 
-                            <p>Yes, Allianz PNB is a reputable company with a strong track record in providing reliable insurance and investment solutions.</p>
-                        </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-contact">
-                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
-
-                                <p>
-                                    <strong>Call us:</strong>
-                                    <a href="tel: 305-240-9671" class="ms-2">
-                                        (60) 
-                                        305-240-9671
-                                    </a>
-                                </p>
-
-                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                    Chat with us
-                                </a>
-                            </div>
+                            <p>Yes, Allianz PNB is a reputable company with a strong track record in providing reliable
+                                insurance and investment solutions.</p>
                         </div>
                     </div>
 
-                    <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                
-                            </div>
-                        </div>
-                    </footer>
-                </main>
+                    <div class="col-lg-5 col-12">
+                        <div class="custom-block custom-block-contact">
+                            <h6 class="mb-4">Still can’t find what you looking for?</h6>
 
-            </div>
+                            <p>
+                                <strong>Call us:</strong>
+                                <a href="tel: 305-240-9671" class="ms-2">
+                                    (60)
+                                    305-240-9671
+                                </a>
+                            </p>
+
+                            <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
+                                Chat with us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </footer>
+            </main>
         </div>
-        <?= view('Admin/chop/js'); ?>
-    </body>
+    </div>
+    <?= view('Admin/chop/js'); ?>
+</body>
+
 </html>

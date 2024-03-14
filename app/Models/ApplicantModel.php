@@ -15,7 +15,12 @@ class ApplicantModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['profile','applicant_id', 'username', 'number', 'email', 'birthday', 'branch', 'status' , 'applicantfullname' , 'app_token', 'firstname',
     'lastname',
-    'middlename'];
+    'middlename', 'region',
+    'province',
+    'city',
+    'barangay',
+    'street',
+];
 
 
     // Dates

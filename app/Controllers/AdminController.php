@@ -7,6 +7,7 @@ use App\Models\AdminModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
+use App\Models\Form3Model;
 use App\Models\AgentModel;
 
 use Dompdf\Dompdf;
@@ -20,6 +21,7 @@ class AdminController extends BaseController
     private $applicant;
     private $admin;
     private $form1;
+    private $form3;
     public function __construct()
     {
         $this->user = new UserModel();
@@ -27,6 +29,7 @@ class AdminController extends BaseController
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
         $this->form1 = new Form1Model();
+        $this->form3 = new Form3Model();
     }
 
     public function AdDash()
@@ -48,18 +51,13 @@ class AdminController extends BaseController
         $builder->select('a.username, a.FA, a.agentprofile, (SELECT COUNT(*) FROM agent b WHERE b.FA = a.agent_id) AS total_fA');
         $builder->orderBy('total_fa', 'DESC');
         $builder->limit(3);
-
         // Get the result as an array
         $result = $builder->get()->getResultArray();
-
         // Pass the data to your view or perform any other actions
         $data['top'] = $result;
-
         // Return the data
         return $data;
-
     }
-
     private function getagent()
     {
         $data['agent'] = $this->agent->findAll();
@@ -163,12 +161,31 @@ class AdminController extends BaseController
         return $data;
     }
 
-    public function viewAppForm($id)
+    public function viewAppForm($token)
     {
-        $data = $this->form1->where('user_id', $id)->first();
-        return view('Admin/details', ['lifechangerform' => $data]);
+        $data = $this->form1->where('app_life_token', $token)->first();
+        return view('Admin/Forms/details', ['lifechangerform' => $data]);
     }
-
+    public function viewAppForm2($token)
+    {
+        $data = $this->form1->where('app_life_token', $token)->first();
+        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+    }
+    public function viewAppForm3($token)
+    {
+        $data = $this->form3->where('app_gli_token', $token)->first();
+        return view('Admin/Forms/details3', ['gli' => $data]);
+    }
+    public function viewAppForm4($token)
+    {
+        $data = $this->form1->where('app_life_token', $token)->first();
+        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+    }
+    public function viewAppForm5($token)
+    {
+        $data = $this->form1->where('app_life_token', $token)->first();
+        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+    }
 
     public function generateRandomCode($length = 6)
     {
@@ -280,11 +297,8 @@ class AdminController extends BaseController
 
     public function generatePdf($id)
     {
-        // Load the Form1Model
-        $form1Model = new Form1Model();
-
-        // Find the form data based on the user ID
-        $lifechangerFormData = $form1Model->where('user_id', $id)->first();
+        $app = $this->applicant->where('applicant_id', $id)->first();
+        $lifechangerFormData = $this->form1->where('user_id', $id)->first();
 
         // Check if the data is found
         if (!$lifechangerFormData) {
@@ -316,43 +330,41 @@ class AdminController extends BaseController
         // $dompdf->output('path/to/store/file.pdf');
 
         // Output PDF to the browser
-        $dompdf->stream('document.pdf', array('Attachment' => 0));
+        $dompdf->stream($data['username'] .  'lifechanger.pdf', array('Attachment' => 0));
     }
 
-    // public function generatePDF($recordId)
-    //     {
-    //         $officerPPEModel = new OfficerModel();
-    //         $inventoryPPEModel = new InventoryModel();
+    public function generatePdf3($id)
+    {
+        $app = $this->applicant->where('applicant_id', $id)->first();
+        $gli = $this->form3->where('applicant_id', $id)->first();
 
-    //         // Perform a join operation to fetch data from both models
-    //         $data = $officerPPEModel->select('officerverifyppe.*, inventoryppe.entityname, inventoryppe.classification, inventoryppe.code, inventoryppe.article, inventoryppe.modelno, inventoryppe.serialno, inventoryppe.fulldescription')
-    //                                 ->join('inventoryppe', 'inventoryppe.particulars = officerverifyppe.particulars', 'left')
-    //                                 ->where('officerverifyppe.id', $recordId)
-    //                                 ->first();
+        // Check if the data is found
+        if (!$gli) {
+            // Handle the case where data is not found, redirect, or show an error
+            return redirect()->to('/'); // Change the URL or handle as needed
+        }
+        // Load your view content into a variable
+        $data['gli'] = $gli;
+        $html = view('Admin/Forms/details3', $data);
 
-    //         // $record = $data->find($recordId);
+        // Create an instance of Dompdf
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
 
-    //         if ($data) {
-    //             // Load the MPDF library
-    //             $mpdf = new Mpdf();
+        $dompdf = new Dompdf($options);
 
-    //             // Generate HTML content dynamically based on record data
-    //             $htmlContent = view('pdf_template', ['data' => [$data]]); // Pass the record to the view
+        // Load HTML content to Dompdf
+        $dompdf->loadHtml($html);
 
-    //             // Write HTML content to PDF
-    //             $mpdf->WriteHTML($htmlContent);
+        // (Optional) Setup the paper size and orientation
+        $dompdf->setPaper('A4', 'landscape');
 
+        // Render PDF (first step)
+        $dompdf->render();
 
-    //             // Output the PDF
-    //             $mpdf->Output('generated_pdf.pdf', 'D'); // 'D' to force download
-
-    //             exit(); // End script execution after downloading the PDF
-    //         } else {
-    //             // Handle the case where the record is not found
-    //             die("Record with ID $recordId not found.");
-    //         }
-    //         // var_dump($data);
-    //         // return view('pdf_template', ['data' => [$data]]);
-    //     }
+        // Output PDF to the browser
+        $dompdf->stream($app['username'] . '-gli.pdf', array('Attachment' => 0));
+    }
 
 }

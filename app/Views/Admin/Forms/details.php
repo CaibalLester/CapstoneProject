@@ -7,8 +7,8 @@
 
 </style> -->
 <section class="section">
-    <div class="row">
-        <div class="col-lg-12">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-7 m-5">
             <div class="card">
                 <div class="card-body">
                     <form class="container mt-5" method="post" action="/newAgent">
@@ -249,8 +249,7 @@
                     </form>
                 </div>
                 <div class="fixed-bottom text-center mb-3">
-                
-                    <a href="<?= base_url('generatePdf/' . $lifechangerform['user_id']) ?>" class="btn btn-success"><i class="fas fa-download"></i></a>
+                    <a href="<?= isset($lifechangerform['user_id']) ? base_url('generatePdf/' . $lifechangerform['user_id']) : '#' ?>" class="btn btn-success"><i class="fas fa-download"></i></a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4 Size</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .page {
+            width: 210mm;
+            /* A4 width */
+            /* height: 297mm; */
+            /* A4 height */
+            margin: 20px auto;
+            /* Centered on the page */
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Adding a shadow for visual effect */
+            padding: 30px;
+            /* Add padding to avoid content touching the edges */
+            box-sizing: border-box;
+            /* Include padding and border in the element's total width and height */
+            position: relative;
+        }
+
+        /* Add additional styles for your content */
+        .content {
+            /* Example styles */
+            color: #333;
+            line-height: 1.5;
+            position: relative;
+            align-items: center;
+            margin-left: 0.5in;
+            margin-right: 0.5in;
+
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .line {
+            /* display: flex; */
+            justify-content: space-between;
+            font-size: 9pt;
+            padding-bottom: 10px;
+            /* background-color: #e3eaf1; */
+        }
+
+        .line strong {
+            background-color: #13385a;
+            color: #f0f0f0;
+            padding: 5px;
+            padding-right: 50px;
+            font-weight: bold;
+        }
+
+        .Life {
+            color: #327bbe;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .logo {
+            color: #327bbe;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .t-bg {
+            background-color: #13385a;
+            display: inline-block;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            color: #f0f0f0;
+        }
+
+        .educationaltable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            /* background-color: #333; */
+            /* text-align: center; */
+            /* justify-content: center; */
+            font-size: 9pt;
+        }
+
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+
+        }
+
+        .educationaltable,
+        .educationaltable,
+        .recentemployertable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .educationaltable th,
+        .employmenthistorytable th,
+        .recentemployertable th {
+            color: rgba(102, 109, 175, 0.986);
+        }
+
+        .educationaltable td:first-child {
+            width: 120px;
+        }
+
+
+        .employmenthistorytable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .employmenthistorytable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
+        }
+
+        .employmenthistorytable td:first-child {
+            width: 120px;
+            height: 50px;
+        }
+
+
+        .recentemployertable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .recentemployertable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
+        }
+
+        .recentemployertable td:first-child {
+            width: 120px;
+            height: 30px;
+        }
+
+        .contactpersontable input[type="text"] {
+            border: none;
+            outline: none;
+        }
+
+
+        /* Media Query for Responsive Design */
+        @media screen and (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                /* Change to column layout on smaller screens */
+                align-items: flex-start;
+                /* Align items to the start */
+                margin-left: 20px;
+                /* Adjust margin for smaller screens */
+                margin-right: 20px;
+                /* Adjust margin for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="content">
+            <div class="head">
+                <div>
+                    <h1 class="Life">LIFE CHANGER FORM</h1>
+                </div>
+                <div>
+                    <!-- <h1 class="logo">Allianz</h1> -->
+                    <img src="logo.png" alt="">
+                </div>
+            </div>
+            <div class="line">
+                <label for="position">Position applying for:</label>
+                <input type="text" id="position" name="positionApplying" value=""
+                    style="margin-right: 55px; width: 177px;" required>
+                <label for="preferredArea">Preferred area:</label>
+                <input type="text" id="preferredArea" name="preferredArea" style="width: 177px;" required>
+            </div>
+            <div class="line">
+                <label>Source:</label><input type="checkbox" id="referral" name="referral" value="yes">
+                <label for="referral">Referral[</label>
+                <label for="referralBy">by whom:</label><input type="text" id="referralBy" name="referralBy">]
+
+                <input type="checkbox" id="onlineAd" name="onlineAd" style="margin-left: 9px ;"
+                    value="Online Advertisement">
+                <label for="onlineAd">Online Advertisement</label>
+
+                <input type="checkbox" id="walkIn" name="walkIn" value="yes">
+                <label for="walkIn">Walk-In</label>
+
+                <input type="checkbox" id="others" name="othersRef" value="yes">
+                <label for="others">Others</label><br><br>
+                <strong>PERSONAL INFORMATION</strong>
+            </div>
+            <div class="line">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Agentfullname" style="width: 400px; margin-right: 20px ;">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" style="width: 100px;">
+                <div
+                    style="justify-content: space-between; display: flex; margin-left: 90px; margin-right: 250px; font-size: 7pt;">
+                    <p>Last Name</p>
+                    <p>First Name</p>
+                    <p>Middle Name</p>
+                </div>
+            </div>
+
+            <div class="line">
+                <label for="birthdate">Birth date:</label>
+                <input type="text" style="width: 100px; margin-right: 20px;" id="birthdate" name="birthdate" required>
+                <label for="placeOfBirth">Place of birth:</label>
+                <input type="text" style="width: 100px; margin-right: 20px;" id="placeOfBirth" name="placeOfBirth"
+                    value="" required>
+
+                <label for="gender">Gender:</label>
+                <input type="text" style="width: 51px; margin-right: 20px;" id="gender" name="gender" value="">
+
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" style="width: 51px;" id="bloodType" name="bloodType" value="">
+            </div>
+            <div class="line">
+                <label for="homeAddress">Home address:</label>
+                <input type="text" style="width: 540px;" id="homeAddress" name="homeAddress" required>
+                <div
+                    style="justify-content: space-between; display: flex; margin-left: 110px; margin-right: 80px; font-size: 7pt;">
+                    <p>No.</p>
+                    <p>Street</p>
+                    <p>Subdivision/Barangay</p>
+                    <p>City/Municipal/Province</p>
+                </div>
+            </div>
+            <div class="line">
+                <label for="mobileNo">Mobile No.:</label>
+                <input type="text" style="width: 140px; margin-right: 20px;" id="mobileNo" name="mobileNo" value=""
+                    required>
+
+                <label for="landline">Landline:</label>
+                <input type="text" style="width: 110px; margin-right: 20px;" id="landline" name="landline" value="">
+
+                <label for="email">Email Address:</label>
+                <input type="text" style="width: 120px;" id="email" name="email" value="">
+            </div>
+            <div class="line">
+                <label for="citizenship">Citizenship:</label>
+                <input type="checkbox" id="citizenship" name="citizenship" value="Filipino">
+                <label for="filipino">Filipino</label>
+                <input type="checkbox" id="others" name="others" value="Filipino">
+                <label for="others" style="margin-right: 62px;">Others, please specify</label>
+                <label for="maritalStatus">Marital Status:</label>
+                <input type="text" style="width: 200px;" id="maritalStatus" name="maritalStatus" value="">
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+                <div style="width: 500px;">
+                    <label for="naturalizationInfo" style="font-size: 8pt; text-align: justify;">
+                        If naturalized citizen of the Philippines, give date and place of<br>
+                        naturalization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;&nbsp; attached
+                        photocopy
+                        of certificate of<br>
+                        naturalization:
+                    </label>
+                    <input type="text" style="width: 220px;" id="naturalizationInfo" name="naturalizationInfo">
+                </div>
+
+                <div style="width: 430px; font-size: 9pt;">
+                    <label for="maidenName">If Married, a) Maiden Name</label>
+                    <input type="text" style="width: 130px;" id="maidenName" name="maidenName" value=""><br>
+                    <label for="spouseName" style="margin-left: 57px;">b) Name of Spouse:</label>
+                    <input type="text" style="width: 100px;" id="spouseName" name="spouseName">
+                </div>
+            </div>
+            <div class="line">
+                <label for="sssNo">SSS No.:</label>
+                <input type="text" style="margin-right: 110px ;" "sssNo" name="sssNo" value="">
+                <label for="tin">Tax Identification No.:</label>
+                <input type="text" id="tin" name="tin" value="">
+            </div>
+            <div class="line">
+                <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
+                <input type="checkbox" id="yesLife" name="lifeInsuranceExperience" value="yes">
+                <label for="yesLife" style="margin-right: 15px;">Yes</label>
+
+                <input type="checkbox" id="noLife" name="lifeInsuranceExperience" value="No">
+                <label for="noLife" style="margin-right: 87px;">No</label>
+
+                <label for="recentInsuranceCompany">Most recent Life Insurance
+                    Company:</label>
+                <input type="text" style="width: 80px;" id="recentInsuranceCompany" name="recentInsuranceCompany"
+                    value="">
+            </div>
+            <div class="line" style="margin-left: 113px;">
+                <label for="insuranceType">If yes,</label>
+                <input type="checkbox" id="traditional" name="traditional" value="traditional">
+                <label for="traditional">Traditional</label>
+
+                <input type="checkbox" id="variable" name="variable" value="variable">
+                <label for="variable">Variable</label>
+
+            </div>
+
+            <div class="line">
+                <strong>EDUCATIONAL BACKGROUND</strong><br>
+                <table class="educationaltable" border="1">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>SCHOOL</th>
+                            <th>COURSE</th>
+                            <th>YEAR GRADUATED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>High School</td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>College</td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>Graduate School</td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="line">
+                <strong>EMPLOYMENT HISTORY</strong>(List your last 3 employers, beginning with the current or most
+                recent one)<br>
+                <table class="employmenthistorytable" border="1">
+                    <thead>
+                        <tr>
+                            <th>NAME AND ADDRESS OF EMPLOYER</th>
+                            <th>POSITION</th>
+                            <th rowspan="2">EMPLOYMENT DATE</th>
+                            <th>REASON FOR LEAVING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 <input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%;" name="" id=""><br>
+                                To: <input type="text" style="width: 70%;" name="" id=""><br>
+                            </td>
+
+                            <td><input type="text" name="" id=""></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>2 <input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%;" name="" id=""><br>
+                                To: <input type="text" style="width: 70%;" name="" id=""><br>
+                            </td>
+
+                            <td><input type="text" name="" id=""></td>
+
+                        </tr>
+                        <tr>
+                            <td>3 <input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%; " name="" id=""><br>
+                                To: <input type="text" style="width: 70%;" name="" id=""><br>
+                            </td>
+
+                            <td><input type="text" name="" id=""></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="line">
+                <strong>Most recent employer's contact details</strong>(Preferably HR, Immediate Supervisor or
+                Supervisor):
+                <table class="recentemployertable" border="1">
+                    <tbody>
+                        <tr>
+                            <td style="width: 55%;">Compony Name:</td>
+                            <td>Position:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">Employer's contact details:</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Name:</td>
+                            <td>Position:</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">1. If currently employed, have you already tendered your resignation?
+                                Yes<input type="text" style="width: 10%;" name="" id="">No<input type="text"
+                                    style="width: 10%;" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">2. If answer in number 1 is no, please provide details: <input type="text"
+                                    style="width: 50%;" name="" id=""></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="line">
+                <strong>CONTACT PERSON</strong> (In case of emergency):
+                <table class="contactpersontable" style="border-collapse: collapse;
+                width: 100%;" border="1">
+                    <tbody>
+                        <tr>
+                            <td>Person to notify in case of emergency: <input type="text" style="width: 40%;" name=""
+                                    id=""></td>
+                            <td>Mobile Number: <input type="text" style="width: 60%;" name="" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

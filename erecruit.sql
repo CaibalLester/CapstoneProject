@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 25, 2024 at 01:12 PM
+-- Generation Time: Mar 12, 2024 at 05:35 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -33,22 +33,30 @@ CREATE TABLE `admin` (
   `adminCode` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `Adminfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `firstname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lastname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `middlename` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `adminProfile` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `region` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `province` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `branch` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `admin_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `email`, `adminProfile`, `number`, `address`, `birthday`, `division`, `branch`, `token`) VALUES
-(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'chris@gmail.com', '1702373569_7941ed27b651b5754d09.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'Mindoro', 'Calapan', '');
+INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `firstname`, `lastname`, `middlename`, `email`, `adminProfile`, `number`, `address`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `division`, `branch`, `admin_token`) VALUES
+(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', NULL, NULL, NULL, 'chris@gmail.com', '1709393806_d613a70a78cdeff37c9a.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', NULL, NULL, NULL, NULL, NULL, NULL, 'Calapan', '01db8ef6e9a868f2a8fbd4c5a114248bd1da227f072ffeb3');
 
 -- --------------------------------------------------------
 
@@ -63,7 +71,15 @@ CREATE TABLE `agent` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Agentfullname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `firstname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lastname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `middlename` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `birthday` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `region` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `province` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `rank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -71,19 +87,16 @@ CREATE TABLE `agent` (
   `FA` int DEFAULT NULL,
   `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `agent_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `birthday`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`, `token`) VALUES
-(30, 103, 'TYT454', 'ellen@gmail.com', 'Ellen', 'Ellen Leido Afable', NULL, '', NULL, NULL, 'def.jpg', NULL, 'Calapan', '2023-12-12 11:39:08', ''),
-(33, 102, 'OKC32H', 'jandeleido@gmail.com', 'Jandel123', 'Jandel Escalera', '2024-02-17', '09366581432', '123 street', 'Diamond\r\n', '1702140511_b07ec347fa2c28deea57.jpg', 103, 'Calapan', '2023-12-12 11:39:08', ''),
-(34, 106, 'OCAR39', 'jansen@gmail.com', 'Jansen', 'Jansen L. Afable', '04/28/2013', '09366581432', 'Lumangbayan Calapan City', NULL, '1702170998_824c36db020d0813d117.jpg', 102, 'Calapan', '2023-12-12 11:39:08', ''),
-(37, 108, '8CUXDJ', 'Lester@gmail.com', 'Lester', 'Lester Caibal', '2023-12-12', '09366581432', 'Lumangbayan calapan City', NULL, '1702299921_3d6289ce70e0f1850862.jpg', 102, 'Calapan', '2023-12-12 11:39:08', ''),
-(38, 123, 'PFK1DR', 'alejandrogino950@gmail.com', 'Gino', 'Gino Alejandro', '2003-01-26', '09366581432', 'Lumangbayan calapan City', NULL, 'def.jpg', 102, 'Calapan', '2023-12-23 12:11:12', '');
+INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `firstname`, `lastname`, `middlename`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`, `agent_token`) VALUES
+(1, 135, 'CBF556', 'ellenleido@gmail.com', 'Ellen', 'Ellen Leido Afable', NULL, NULL, NULL, '2024-03-01', NULL, NULL, NULL, NULL, NULL, '09366581432', 'Lumanbayan', 'Silver', '1709395970_95d866c1ae43570ab923.jpg', NULL, 'Calapan', '2024-02-29 16:57:36', '6c3e88bb1714b7a07d4fa2f9f87540a3677cbd810713d8cc'),
+(2, 133, 'YREP63', 'jandeleido@gmail.com', 'janz', 'Escalera Jandel Leido', NULL, NULL, NULL, '2003-01-26', NULL, NULL, NULL, NULL, NULL, '09366581432', 'Lumangbayan calapan City', NULL, '1709393944_676e93ab4bbbd6e68983.jpg', 135, 'Calapan', '2024-02-29 17:12:37', 'a266d9123f0cd3d99f94ac2565fd3f31790fa08927528388');
 
 -- --------------------------------------------------------
 
@@ -121,13 +134,25 @@ CREATE TABLE `aial` (
   `tin` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `aial`
+-- Table structure for table `aonff`
 --
 
-INSERT INTO `aial` (`id`, `user_id`, `nonlife`, `life`, `varlife`, `accaAndHealth`, `othercb`, `othertb`, `agencyname`, `fname`, `nickname`, `birthday`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`) VALUES
-(1, NULL, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
-(2, NULL, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '123', '123', 'N/A', 'N/A');
+CREATE TABLE `aonff` (
+  `id` int NOT NULL,
+  `applicant_id` int DEFAULT NULL,
+  `app_aonff_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `reason` varchar(255) DEFAULT NULL,
+  `day` int DEFAULT NULL,
+  `affiant` varchar(255) DEFAULT NULL,
+  `ctc_no` int DEFAULT NULL,
+  `ctc_issue_date` date DEFAULT NULL,
+  `ctc_issue_place` varchar(255) DEFAULT NULL,
+  `sworn_day` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -140,27 +165,33 @@ CREATE TABLE `applicant` (
   `applicant_id` int NOT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `applicantfullname` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `firstname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lastname` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `middlename` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `birthday` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `branch` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `region` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `province` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pending',
   `profile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'def.jpg',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `app_token` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `applicantfullname`, `number`, `email`, `birthday`, `branch`, `status`, `profile`, `created_at`, `token`) VALUES
-(14, 102, 'Escalera Jandel Leido', '', '09366581432', 'jandeleido@gmail.com', '', 'Calapan', 'confirmed', '1702140511_b07ec347fa2c28deea57.jpg', '2023-12-09 16:14:41', ''),
-(18, 105, 'Jeff', '', '09366581432', 'jefframos@gmail.com', '', 'Calapan', 'confirmed', '1702169305_eb9da4b981fca946528e.jpg', '2023-12-10 00:26:50', ''),
-(22, 108, 'Lester', '', '09366581432', 'Lester@gmail.com', '', 'Calapan', 'confirmed', '1702299921_3d6289ce70e0f1850862.jpg', '2023-12-11 13:04:44', ''),
-(37, 123, 'Gino', '', '09366581432', 'alejandrogino950@gmail.com', '', 'Calapan', 'confirmed', 'def.jpg', '2023-12-23 12:07:09', ''),
-(38, 124, 'Jansen1', '', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'Calapan', 'pending', '1708178522_888f94df79b88c411264.webp', '2024-02-02 12:03:03', '2c146a1f23cfa6e8e414b8f112466bef'),
-(41, 129, 'ap', 'Applicant Lednaj', '09366581432', 'qwe@gmail.com', '2003-01-26', 'Calapan', 'pending', 'def.jpg', '2024-02-17 13:12:40', '3d195daf9fbdc3f10a8bdfe2e4d7d149');
+INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `applicantfullname`, `firstname`, `lastname`, `middlename`, `number`, `email`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `branch`, `status`, `profile`, `created_at`, `app_token`) VALUES
+(2, 133, 'janz', 'Jandel Escalera', NULL, NULL, NULL, '09366581432', 'jandeleido@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 'Calapan', 'confirmed', '1702140342_0f4bffae9348708e674c.jpg', '2024-02-29 16:41:42', 'a266d9123f0cd3d99f94ac2565fd3f31790fa08927528388'),
+(3, 134, 'Jansen', '', 'Jansen', 'Afable', 'L.', '09366581432', 'jansenafable@gmail.com', '2013-04-28', 'MIMAROPA', 'Oriental Mindoro', 'Calapan City', 'Lumangbayan', 'street 123', 'Calapan', 'pending', '1709394150_a815fc9df645e369a39b.jpg', '2024-02-29 16:46:28', 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b'),
+(6, 138, 'jandel', '', 'Jandel', 'Escalera', 'L', '09366581432', 'escalerajandel@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 'Calapan', 'pending', '1710051491_6b8980d7d5f1379ae034.jpg', '2024-03-10 06:15:55', 'caa38c82e19731ac4db61004ce02c8b6bdb27cad0827c21e'),
+(8, 145, 'Lineth', '', 'May Lineth', 'Candolita', 'F', '09366588812', 'alejandrogino950@gmail.com', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Calero (Pob.)', 'Nable', 'Calapan', 'pending', 'def.jpg', '2024-03-11 16:53:33', 'd6d3ad49b3e64fc98f7cbe16adba3b38894438faa9841df4');
 
 -- --------------------------------------------------------
 
@@ -176,15 +207,69 @@ CREATE TABLE `chat` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `chat`
+-- Table structure for table `gli`
 --
 
-INSERT INTO `chat` (`id`, `sender`, `message`, `recipient`, `created_at`) VALUES
-(1, 92, 'Hi', 107, '2024-02-24 16:18:58'),
-(2, 92, 'This Is Admin', 107, '2024-02-24 16:19:05'),
-(3, 107, 'Hi Admin this Is other user', 92, '2024-02-24 16:20:13'),
-(4, 92, 'Welcome ALLIANZ PNB', 107, '2024-02-24 16:20:29');
+CREATE TABLE `gli` (
+  `id` int NOT NULL,
+  `applicant_id` int DEFAULT NULL,
+  `app_gli_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `middleName` varchar(255) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+  `occupation` varchar(255) DEFAULT NULL,
+  `companyName` varchar(255) DEFAULT NULL,
+  `businessNature` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) NOT NULL,
+  `civilStatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nationality` varchar(255) DEFAULT NULL,
+  `residenceAddress` varchar(255) DEFAULT NULL,
+  `residenceTelephone` int DEFAULT NULL,
+  `businessAddress` varchar(255) DEFAULT NULL,
+  `businessTelephone` int DEFAULT NULL,
+  `firstName1` varchar(255) DEFAULT NULL,
+  `mi1` varchar(255) DEFAULT NULL,
+  `lastName1` varchar(255) DEFAULT NULL,
+  `month1` int DEFAULT NULL,
+  `day1` int DEFAULT NULL,
+  `year1` int DEFAULT NULL,
+  `relationship1` varchar(255) DEFAULT NULL,
+  `remarks1` varchar(255) DEFAULT NULL,
+  `firstName2` varchar(255) DEFAULT NULL,
+  `mi2` varchar(255) DEFAULT NULL,
+  `lastName2` varchar(255) DEFAULT NULL,
+  `month2` int DEFAULT NULL,
+  `day2` int DEFAULT NULL,
+  `year2` int DEFAULT NULL,
+  `relationship2` varchar(255) DEFAULT NULL,
+  `remarks2` varchar(255) DEFAULT NULL,
+  `firstName3` varchar(255) DEFAULT NULL,
+  `mi3` varchar(255) DEFAULT NULL,
+  `lastName3` varchar(255) DEFAULT NULL,
+  `month3` int DEFAULT NULL,
+  `day3` int DEFAULT NULL,
+  `year3` int DEFAULT NULL,
+  `relationship3` varchar(255) DEFAULT NULL,
+  `remarks3` varchar(255) DEFAULT NULL,
+  `firstName4` varchar(255) DEFAULT NULL,
+  `mi4` varchar(255) DEFAULT NULL,
+  `lastName4` varchar(255) DEFAULT NULL,
+  `month4` int DEFAULT NULL,
+  `day4` int DEFAULT NULL,
+  `year4` int DEFAULT NULL,
+  `relationship4` varchar(255) DEFAULT NULL,
+  `remakrs4` varchar(255) DEFAULT NULL,
+  `trusteeMinorBeneficiary` varchar(255) DEFAULT NULL,
+  `place` varchar(255) DEFAULT NULL,
+  `day` int DEFAULT NULL,
+  `month` int DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `applicantSignature` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -195,7 +280,7 @@ INSERT INTO `chat` (`id`, `sender`, `message`, `recipient`, `created_at`) VALUES
 CREATE TABLE `lifechangerform` (
   `id` int NOT NULL,
   `user_id` int DEFAULT NULL,
-  `token` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `app_life_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `position` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `preferredArea` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -267,14 +352,25 @@ CREATE TABLE `lifechangerform` (
 -- Dumping data for table `lifechangerform`
 --
 
-INSERT INTO `lifechangerform` (`id`, `user_id`, `token`, `created_at`, `position`, `preferredArea`, `referralBy`, `referral`, `onlineAd`, `walkIn`, `othersRef`, `fname`, `nickname`, `birthdate`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`, `lifeInsuranceExperience`, `traditional`, `variable`, `recentInsuranceCompany`, `highSchool`, `highSchoolCourse`, `highSchoolYear`, `college`, `collegeCourse`, `collegeYear`, `graduateSchool`, `graduateCourse`, `graduateYear`, `companyName1`, `position1`, `employmentFrom1`, `employmentTo1`, `reason1`, `companyName2`, `position2`, `employmentFrom2`, `employmentTo2`, `reason2`, `companyName3`, `position3`, `employmentFrom3`, `employmentTo3`, `reason3`, `companyName`, `resposition`, `contactName`, `contactPosition`, `emailAddress`, `contactNumber`, `yescuremployed`, `nocuremployed`, `allowed`, `notallowed`, `ifnoProvdtls`) VALUES
-(135, 102, NULL, '2023-12-09 16:14:41', 'Agent', 'Calapan', 103, 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(137, 105, NULL, '2023-12-10 00:26:50', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Jeff Ramos', 'Jeff', '2023-12-13', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jefframos@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(138, 106, NULL, '2023-12-10 01:15:07', 'Agent', 'Calapan City', 102, 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansen@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'yes', 'No', 'variable', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(140, 108, NULL, '2023-12-11 13:04:44', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Lester Caibal', 'Lester', '2023-12-12', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'Lester@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(152, 123, NULL, '2023-12-23 12:07:09', 'Agent', 'Calapan', 102, 'yes', 'No', 'No', 'No', 'Gino Alejandro', 'Gino', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'alejandrogino950@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
-(153, 124, '2c146a1f23cfa6e8e414b8f112466bef', '2024-02-02 12:03:03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(155, 129, '3d195daf9fbdc3f10a8bdfe2e4d7d149', '2024-02-21 14:32:30', 'Agent', 'asd', 102, 'No', 'No', 'No', 'No', 'asd', 'asd', '2024-02-23', 'ad', 'Male', 'O+', 'Lumangbayan calapan City', '09366581432', '123', 'qwe@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123123', '123123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '');
+INSERT INTO `lifechangerform` (`id`, `user_id`, `app_life_token`, `created_at`, `position`, `preferredArea`, `referralBy`, `referral`, `onlineAd`, `walkIn`, `othersRef`, `fname`, `nickname`, `birthdate`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`, `lifeInsuranceExperience`, `traditional`, `variable`, `recentInsuranceCompany`, `highSchool`, `highSchoolCourse`, `highSchoolYear`, `college`, `collegeCourse`, `collegeYear`, `graduateSchool`, `graduateCourse`, `graduateYear`, `companyName1`, `position1`, `employmentFrom1`, `employmentTo1`, `reason1`, `companyName2`, `position2`, `employmentFrom2`, `employmentTo2`, `reason2`, `companyName3`, `position3`, `employmentFrom3`, `employmentTo3`, `reason3`, `companyName`, `resposition`, `contactName`, `contactPosition`, `emailAddress`, `contactNumber`, `yescuremployed`, `nocuremployed`, `allowed`, `notallowed`, `ifnoProvdtls`) VALUES
+(2, 133, 'a266d9123f0cd3d99f94ac2565fd3f31790fa08927528388', '2024-02-29 16:41:42', 'Agent', 'Calapan', 135, 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(3, 134, 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b', '2024-02-29 16:46:28', 'Agent', 'Calapan', 133, 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansenafable@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', ''),
+(6, 138, 'caa38c82e19731ac4db61004ce02c8b6bdb27cad0827c21e', '2024-03-10 06:15:55', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(8, 145, 'd6d3ad49b3e64fc98f7cbe16adba3b38894438faa9841df4', '2024-03-11 16:53:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sou`
+--
+
+CREATE TABLE `sou` (
+  `id` int NOT NULL,
+  `applicant_id` int DEFAULT NULL,
+  `app_sou_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `signature` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -284,31 +380,29 @@ INSERT INTO `lifechangerform` (`id`, `user_id`, `token`, `created_at`, `position
 
 CREATE TABLE `users` (
   `id` int NOT NULL,
+  `token` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email` text COLLATE utf8mb4_general_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `password` text COLLATE utf8mb4_general_ci NOT NULL,
   `role` text COLLATE utf8mb4_general_ci NOT NULL,
   `branch` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `status` text COLLATE utf8mb4_general_ci NOT NULL,
-  `token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `verification_token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `pass_token` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `branch`, `status`, `token`, `verification_token`, `created_at`) VALUES
-(92, 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', 'admin', 'Calapan', 'verified', NULL, '', '2023-12-09 16:58:18'),
-(102, 'jandeleido@gmail.com', 'Jandel', '$2y$10$VYW4ZrxQdmqwo4Y/VFMFNOPaH0Ds1XYJBH7/ZP53.4OC.U8hGQRPe', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-09 16:58:18'),
-(103, 'ellenleido@gmail.com', 'Ellen', '$2y$10$DSUPPIBHTNLGTrlG7NBtx.CboXb9RER5.3VimJVRaLeEuDik5LU26', 'agent', 'Calapan', 'verified', '5f1b5bcc9cbaedd571cf2444295a823d', '', '2023-12-09 16:58:18'),
-(105, 'jefframos@gmail.com', 'Jeff', '$2y$10$OfGZYKOXkC.bMd7.PuuouuRqtCu4Vhu2BSQS9yrTz8O1gmleULKBa', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-10 00:26:50'),
-(108, 'Lester@gmail.com', 'Lester', '$2y$10$0pmJA1g4hfxCOVUsh0EZLOoZlG2qNcLasmRRyv6lYlVCCGoYcf8.y', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-11 13:04:44'),
-(123, 'alejandrogino950@gmail.com', 'Gino', '$2y$10$oEEDwC5rGI56xiQp6gj6AeFqjE6G7LV/qgDmAnELclYf6yW25wX3S', 'agent', 'Calapan', 'verified', NULL, '', '2023-12-23 12:07:09'),
-(124, 'escalerajandel@gmail.com', 'Jansen123123', '$2y$10$gjpsPbZEdnxz4v0URYBlUOZsYuB1/Jvb4LVv8cdaPVECd50Y3.vQK', 'applicant', 'Calapan', 'verified', '2c146a1f23cfa6e8e414b8f112466bef', '', '2024-02-02 12:03:03'),
-(125, 'test@gmail.com', 'test123', '$2y$10$is9GRwv55RVeVCK.G/cGq.jDxqWbIFlrMLJeAMbt8SuvRNlZkcGZq', 'applicant', 'Calapan', 'verified', '5646424aa32b9bf8fead8343ad49d9cd', '', '2024-02-04 11:33:15'),
-(129, 'qwe@gmail.com', 'qwe', '$2y$10$tNFMlc5lq2hZ2wW3wRtfOuj0Oz.Pyt3hCp53G34y49zk1T7KBM.x2', 'applicant', 'Calapan', 'verified', '3d195daf9fbdc3f10a8bdfe2e4d7d149', '', '2024-02-17 13:12:40');
+INSERT INTO `users` (`id`, `token`, `email`, `username`, `password`, `role`, `branch`, `status`, `verification_token`, `created_at`, `pass_token`) VALUES
+(92, '01db8ef6e9a868f2a8fbd4c5a114248bd1da227f072ffeb3', 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', 'admin', 'Calapan', 'verified', '', '2023-12-09 16:58:18', ''),
+(133, 'a266d9123f0cd3d99f94ac2565fd3f31790fa08927528388', 'jandeleido@gmail.com', 'janz', '$2y$10$oUwZett8GQnUkmYHYgd5cOWLTfx0m48hlDbm96e.SblQVW9XGTCAy', 'agent', 'Calapan', 'verified', '99', '2024-02-29 16:41:42', ''),
+(134, 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b', 'jansenafable@gmail.com', 'Jansen', '$2y$10$15KatkX.X04sUNVaUauONutwK8FMzGb4casktDC5ldtP8aDWX.NJG', 'applicant', 'Calapan', 'verified', 'eedc19e7c7097173fd847a42d9a19623', '2024-02-29 16:46:28', ''),
+(135, '6c3e88bb1714b7a07d4fa2f9f87540a3677cbd810713d8cc', 'ellenleido@gmail.com', 'Ellen', '$2y$10$Ypotf4Rphg/pUfGrE8XKOOD94spI5IX01xlRjwsiWv9zsJV5vNUby', 'agent', 'Calapan', 'verified', '', '2024-02-29 16:55:53', ''),
+(138, 'caa38c82e19731ac4db61004ce02c8b6bdb27cad0827c21e', 'escalerajandel@gmail.com', 'jandel', '$2y$10$8mWIbbe.zBLIxYplCxc4uOihTOrG52tUx9UwFdOIg.uurmUefemIS', 'applicant', 'Calapan', 'verified', '921932e9c00eba63493b1226d1491998', '2024-03-10 06:15:55', ''),
+(145, 'd6d3ad49b3e64fc98f7cbe16adba3b38894438faa9841df4', 'alejandrogino950@gmail.com', 'Lineth', '$2y$10$XD54H8NJd2BC4Src4V1IguDbzR5NrClVNvN/Vr9ERYXDlimnMWDze', 'applicant', 'Calapan', 'verified', '43bd99ce34b88bc2a3ed5a4079dd6ec2', '2024-03-11 16:53:33', '');
 
 --
 -- Indexes for dumped tables
@@ -319,7 +413,8 @@ INSERT INTO `users` (`id`, `email`, `username`, `password`, `role`, `branch`, `s
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_admin_user_id` (`admin_id`);
+  ADD KEY `fk_admin_user_id` (`admin_id`),
+  ADD KEY `fk_admin_token` (`admin_token`);
 
 --
 -- Indexes for table `agent`
@@ -328,7 +423,8 @@ ALTER TABLE `agent`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_agent_user_id` (`agent_id`),
   ADD KEY `subagents` (`FA`,`branch`),
-  ADD KEY `fk_agent_branch` (`branch`);
+  ADD KEY `fk_agent_branch` (`branch`),
+  ADD KEY `agent_token` (`agent_token`);
 
 --
 -- Indexes for table `aial`
@@ -340,12 +436,21 @@ ALTER TABLE `aial`
   ADD UNIQUE KEY `user_id_3` (`user_id`);
 
 --
+-- Indexes for table `aonff`
+--
+ALTER TABLE `aonff`
+  ADD KEY `applicant_id` (`applicant_id`,`app_aonff_token`),
+  ADD KEY `fk_aonff_app_token` (`app_aonff_token`);
+
+--
 -- Indexes for table `applicant`
 --
 ALTER TABLE `applicant`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_applicant_user_id` (`applicant_id`),
-  ADD KEY `fk_applicant_branch` (`branch`);
+  ADD KEY `fk_applicant_branch` (`branch`),
+  ADD KEY `fk_app_token` (`app_token`),
+  ADD KEY `fk_appusername` (`username`);
 
 --
 -- Indexes for table `chat`
@@ -354,18 +459,37 @@ ALTER TABLE `chat`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `gli`
+--
+ALTER TABLE `gli`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_gli_app_id` (`applicant_id`),
+  ADD KEY `app_token` (`app_gli_token`);
+
+--
 -- Indexes for table `lifechangerform`
 --
 ALTER TABLE `lifechangerform`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_referralBy` (`referralBy`),
-  ADD KEY `fk_user_id` (`user_id`);
+  ADD KEY `fk_user_id` (`user_id`),
+  ADD KEY `fk_life_app_token` (`app_life_token`);
+
+--
+-- Indexes for table `sou`
+--
+ALTER TABLE `sou`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_sou_app_id` (`applicant_id`),
+  ADD KEY `app_sou_token` (`app_sou_token`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `idx_user_token` (`token`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -381,37 +505,49 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `aial`
 --
 ALTER TABLE `aial`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `applicant`
 --
 ALTER TABLE `applicant`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gli`
+--
+ALTER TABLE `gli`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `lifechangerform`
 --
 ALTER TABLE `lifechangerform`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `sou`
+--
+ALTER TABLE `sou`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- Constraints for dumped tables
@@ -421,33 +557,53 @@ ALTER TABLE `users`
 -- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `fk_admin_user_id` FOREIGN KEY (`admin_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_admin_id` FOREIGN KEY (`admin_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_admin_token` FOREIGN KEY (`admin_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `agent`
 --
 ALTER TABLE `agent`
-  ADD CONSTRAINT `fk_agent_user_id` FOREIGN KEY (`agent_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `fk_foreign_agent` FOREIGN KEY (`FA`) REFERENCES `agent` (`agent_id`);
+  ADD CONSTRAINT `fk_agent_id` FOREIGN KEY (`agent_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_agent_token` FOREIGN KEY (`agent_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_FA` FOREIGN KEY (`FA`) REFERENCES `agent` (`agent_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Constraints for table `aial`
+-- Constraints for table `aonff`
 --
-ALTER TABLE `aial`
-  ADD CONSTRAINT `fk_applicant_id` FOREIGN KEY (`user_id`) REFERENCES `applicant` (`applicant_id`);
+ALTER TABLE `aonff`
+  ADD CONSTRAINT `fk_aonff_app_id` FOREIGN KEY (`applicant_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_aonff_app_token` FOREIGN KEY (`app_aonff_token`) REFERENCES `applicant` (`app_token`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `applicant`
 --
 ALTER TABLE `applicant`
-  ADD CONSTRAINT `fk_applicant_user_id` FOREIGN KEY (`applicant_id`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_app_id` FOREIGN KEY (`applicant_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_app_token` FOREIGN KEY (`app_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_appusername` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `gli`
+--
+ALTER TABLE `gli`
+  ADD CONSTRAINT `fk_gli_app_id` FOREIGN KEY (`applicant_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_gli_app_token` FOREIGN KEY (`app_gli_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `lifechangerform`
 --
 ALTER TABLE `lifechangerform`
-  ADD CONSTRAINT `fk_referralBy` FOREIGN KEY (`referralBy`) REFERENCES `agent` (`agent_id`),
-  ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `applicant` (`applicant_id`);
+  ADD CONSTRAINT `fk_life_app_id` FOREIGN KEY (`user_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_life_app_token` FOREIGN KEY (`app_life_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_referal` FOREIGN KEY (`referralBy`) REFERENCES `agent` (`agent_id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `sou`
+--
+ALTER TABLE `sou`
+  ADD CONSTRAINT `fk_sou_app_id` FOREIGN KEY (`applicant_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `fk_sou_app_token` FOREIGN KEY (`app_sou_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

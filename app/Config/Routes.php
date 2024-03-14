@@ -18,7 +18,13 @@ $routes->post('/newuser', 'UsersManageController::newuser', ['filter' => 'adminF
 $routes->post('/upuser/(:any)', 'UsersManageController::upuser/$1', ['filter' => 'adminFilter']);
 // $routes->get('/AdChat', 'RTCController::AdChat');
 
-$routes->get('/ViewAppForm/(:any)', 'AdminController::ViewAppForm/$1', ['filter' => 'adminFilter']);
+
+$routes->get('/ViewAppForm/(:any)', 'AdminController::ViewAppForm/$1', ['filter' => 'authGuard']);
+$routes->get('/ViewAppForm2/(:any)', 'AdminController::ViewAppForm2/$1', ['filter' => 'authGuard']);
+$routes->get('/ViewAppForm3/(:any)', 'AdminController::ViewAppForm3/$1', ['filter' => 'authGuard']);
+$routes->get('/ViewAppForm4/(:any)', 'AdminController::ViewAppForm4/$1', ['filter' => 'authGuard']);
+$routes->get('/ViewAppForm5/(:any)', 'AdminController::ViewAppForm5/$1', ['filter' => 'authGuard']);
+
 
 $routes->post('/newAgent', 'AdminController::newAgent', ['filter' => 'adminFilter']);
 $routes->get('/ManageApplicant', 'AdminController::ManageApplicant', ['filter' => 'adminFilter']);
@@ -36,7 +42,11 @@ $routes->get('/AppSetting', 'AppController::AppSetting', ['filter' => 'applicant
 $routes->post('/svap', 'AppController::svap');
 $routes->get('/AppHelp', 'AppController::AppHelp', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
+
 $routes->post('/form1sv', 'AppController::form1sv');
+$routes->post('/form2sv', 'AppController::form2sv');
+$routes->post('/form3sv', 'AppController::form3sv');
+
 $routes->get('/AppForm2', 'AppController::AppForm2', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm4', 'AppController::AppForm4', ['filter' => 'applicantFilter']);
@@ -81,4 +91,8 @@ $routes->get('/send', 'RTCController::send');
 
 // In your routes file
 $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
+$routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
+
+
+$routes->get('/add', 'ProfileController::add');
 

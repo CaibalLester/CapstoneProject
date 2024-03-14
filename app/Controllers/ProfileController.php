@@ -57,6 +57,4 @@ class ProfileController extends BaseController
         return $data;
     }
 
-
-
 }

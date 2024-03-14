@@ -1,13 +1,6 @@
 <!doctype html>
 <html lang="en">
 <?= view('Applicant/chop/head'); ?>
-<!-- <style>
-    /* Add this style in your CSS file or within a <style> tag in your HTML */
-    .underline-input {
-        border: none;
-        border-bottom: 1px solid #000; /* You can adjust the color and style */
-    }
-</style> -->
 <body>
     <?= view('Applicant/chop/header'); ?>
 

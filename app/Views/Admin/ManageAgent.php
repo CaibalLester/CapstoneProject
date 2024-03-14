@@ -83,7 +83,7 @@
                             </form>
                             <hr>
                             <div class="row row-cols-3">
-                            <?php foreach ($agent as $ag): ?>
+                                <?php foreach ($agent as $ag): ?>
                                     <div class="col-lg-2 col-md-4 mb-3">    
                                         <div class="custom-block-profile-front text-center">
                                             <div class="custom-block-profile-image-wrap mb-1">
@@ -102,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-
                 <footer class="site-footer">
                     <div class="container">
                         <div class="row">

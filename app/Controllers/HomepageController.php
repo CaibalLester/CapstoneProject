@@ -20,6 +20,7 @@ class HomepageController extends BaseController
     {
         return view('Home/home');
     }
+    
     public function logout()
     {
         $updatetoken = bin2hex(random_bytes(24));

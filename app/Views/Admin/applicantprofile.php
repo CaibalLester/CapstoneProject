@@ -174,7 +174,7 @@
                                         <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
                                             <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm/<?= $applicant['applicant_id'] ?>">
+                                                <a href="/ViewAppForm/<?= $applicant['app_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="Life Changer Form Image">
                                                     LIFE
@@ -188,7 +188,7 @@
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="#">
+                                                <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>"">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="Life Changer Form Image">
                                                     Test

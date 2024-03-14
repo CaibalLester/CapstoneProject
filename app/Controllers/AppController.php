@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
+use App\Models\Form2Model;
+use App\Models\Form3Model;
 use \App\Models\UserModel;
 use \App\Models\AgentModel;
 
@@ -12,12 +14,16 @@ class AppController extends BaseController
 {
     private $agent;
     private $form1;
+    private $form2;
+    private $form3;
     private $user;
     private $applicant;
     public function __construct()
     {
         $this->agent = new AgentModel();
         $this->form1 = new Form1Model();
+        $this->form2 = new Form2Model();
+        $this->form3 = new Form3Model();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
     }
@@ -54,32 +60,55 @@ class AppController extends BaseController
     private function getDataApp()
     {
         $session = session();
-        // Get the user ID from the session
         $userId = $session->get('id');
-        // Load the User model
-        // Find the user by ID
         $data['applicant'] = $this->applicant->where('applicant_id', $userId)
             ->orderBy('id', 'desc')
             ->first();
-
         return $data;
     }
 
     private function getform1Data()
     {
         $session = session();
-
-        // Get the user ID from the session
         $userId = $session->get('id');
-
-        // Load the Form1Model
-        $form1Model = new Form1Model();
-
-        // Find the latest form data based on the user ID
         $data['lifechangerform'] = $this->form1->where('user_id', $userId)
             ->first();
         return $data;
     }
+    private function getform2Data()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['aial'] = $this->form2->where('user_id', $userId)
+            ->first();
+        return $data;
+    }
+    private function getform3Data()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['gli'] = $this->form3->where('applicant_id', $userId)
+            ->first();
+        return $data;
+    }
+
+    private function getform4Data()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['aonff'] = $this->form1->where('user_id', $userId)
+            ->first();
+        return $data;
+    }
+    private function getform5Data()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['sou'] = $this->form1->where('user_id', $userId)
+            ->first();
+        return $data;
+    }
+
     public function AppSetting()
     {
         $data = array_merge($this->getData(), $this->getDataApp());
@@ -133,6 +162,11 @@ class AppController extends BaseController
             'number' => $this->request->getVar('number'),
             'email' => $this->request->getVar('email'),
             'birthday' => $this->request->getVar('birthday'),
+            'region' => $this->request->getVar('region_text'),
+            'province' => $this->request->getVar('province_text'),
+            'city' => $this->request->getVar('city_text'),
+            'barangay' => $this->request->getVar('barangay_text'),
+            'street' => $this->request->getVar('street'),
         ];
 
         // Check if $data array is not empty before updating the database
@@ -152,15 +186,11 @@ class AppController extends BaseController
 
     public function AppForm1()
     {
-        $agent = new AgentModel();
-        $data['agents'] = $agent->findAll();
-
+        $data['agents'] = $this->agent->findAll();
         // Merge arrays while retaining the 'agents' key
         $data = array_merge($this->getData(), $this->getDataApp(), $this->getform1Data(), $data);
-
         return view('Applicant/AppForm1', $data);
     }
-
     public function form1sv()
     {
         $session = session();
@@ -249,23 +279,98 @@ class AppController extends BaseController
         $this->form1->set($data)->where('user_id', $userId)->update();
         return redirect()->to('/AppForm1');
     }
+
+    public function form3sv()
+    {
+        $session = session();
+        // Retrieve user_id from the session
+        $userId = $session->get('id');
+
+        // Check if user_id is available
+        if (!$userId) {
+            // Redirect or handle the case when user_id is not available
+            return redirect()->to('/login');
+        }
+        $data = [
+            'applicant_id' => $this->request->getVar('applicant_id'),
+            'app_gli_token' => $this->request->getVar('app_gli_token'),
+            'lastName' => $this->request->getVar('lastName'),
+            'firstName' => $this->request->getVar('firstName'),
+            'middleName ' => $this->request->getVar('middleName '),
+            'dateOfBirth' => $this->request->getVar('dateOfBirth'),
+            'occupation' => $this->request->getVar('occupation'),
+            'companyName' => $this->request->getVar('companyName'),
+            'businessNature' => $this->request->getVar('businessNature'),
+            'sex' => $this->request->getVar('sex'),
+            'civilStatus ' => $this->request->getVar('civilStatus '),
+            'nationality' => $this->request->getVar('nationality'),
+            'residenceAddress' => $this->request->getVar('residenceAddress'),
+            'residenceTelephone' => $this->request->getVar('residenceTelephone'),
+            'businessAddress' => $this->request->getVar('businessAddress'),
+            'businessTelephone' => $this->request->getVar('businessTelephone'),
+            'firstName1' => $this->request->getVar('firstName1'),
+            'mi1' => $this->request->getVar('mi1'),
+            'lastName1 ' => $this->request->getVar('lastName1 '),
+            'month1' => $this->request->getVar('month1'),
+            'day1' => $this->request->getVar('day1'),
+            'year1' => $this->request->getVar('year1'),
+            'relationship1' => $this->request->getVar('relationship1'),
+            'remarks1 ' => $this->request->getVar('remarks1 '),
+            'firstName2 ' => $this->request->getVar('firstName2 '),
+            'mi2 ' => $this->request->getVar('mi2 '),
+            'lastName2 ' => $this->request->getVar('lastName2 '),
+            'month2' => $this->request->getVar('month2'),
+            'day2' => $this->request->getVar('day2'),
+            'year2' => $this->request->getVar('year2'),
+            'relationship2' => $this->request->getVar('relationship2'),
+            'remarks2' => $this->request->getVar('remarks2'),
+            'firstName3 ' => $this->request->getVar('firstName3 '),
+            'mi3 ' => $this->request->getVar('mi3 '),
+            'astName3' => $this->request->getVar('astName3'),
+            'month3' => $this->request->getVar('month3'),
+            'day3' => $this->request->getVar('day3'),
+            'year3' => $this->request->getVar('year3'),
+            'relationship3 ' => $this->request->getVar('relationship3 '),
+            'remarks3 ' => $this->request->getVar('remarks3 '),
+            'firstName4' => $this->request->getVar('firstName4'),
+            'mi4 ' => $this->request->getVar('mi4 '),
+            'lastName4' => $this->request->getVar('lastName4'),
+            'month4' => $this->request->getVar('month4'),
+            'day4' => $this->request->getVar('day4'),
+            'year4' => $this->request->getVar('year4'),
+            'relationship4' => $this->request->getVar('relationship4'),
+            'remakrs4 ' => $this->request->getVar('remakrs4 '),
+            'trusteeMinorBenefic' => $this->request->getVar('trusteeMinorBenefic'),
+            'place ' => $this->request->getVar('place '),
+            'day' => $this->request->getVar('day'),
+            'month' => $this->request->getVar('month'),
+            'year' => $this->request->getVar('year'),
+            'applicantSignature' => $this->request->getVar('applicantSignature'),
+        ];
+        $this->form3->set($data)->where('applicant_id', $userId)->update();
+        return redirect()->to('/AppForm3');
+        // var_dump($data);
+    }
     public function AppForm2()
     {
-        return view('Applicant/AppForm2');
+        $data = array_merge($this->getData(), $this->getDataApp());
+        return view('Applicant/AppForm2', $data);
     }
     public function AppForm3()
     {
-        return view('Applicant/AppForm3');
+        $data = array_merge($this->getData(), $this->getDataApp(), $this->getform3Data());
+        return view('Applicant/AppForm3', $data);
     }
     public function AppForm4()
     {
-        return view('Applicant/AppForm4');
+        $data = array_merge($this->getData(), $this->getDataApp());
+        return view('Applicant/AppForm4', $data);
     }
     public function AppForm5()
     {
-        return view('Applicant/AppForm5');
+        $data = array_merge($this->getData(), $this->getDataApp());
+        return view('Applicant/AppForm5', $data);
     }
-
 
     public function FA()
     {
