@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /* background-color: #f0f0f0; */
+    }
+
+    .thick-underline {
+        border-bottom: 2px solid #000;
+        /* 2px solid underline with black color */
+    }
+
+
+    .dashed-hr {
+        border-top: 1px dashed #000;
+        /* 1px dashed border with black color */
+        margin: 20px 0;
+        /* Adjust margin as needed */
+    }
+
+    .page {
+        width: 210mm;
+        /* A4 width */
+        /* height: 297mm;   */
+        /* A4 height */
+        margin: 20px auto;
+        /* Centered on the page */
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* Adding a shadow for visual effect */
+        padding: 30px;
+        /* Add padding to avoid content touching the edges */
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width and height */
+        position: relative;
+    }
+
+    /* Add additional styles for your content */
+    .content {
+        /* Example styles */
+        color: #333;
+        line-height: 1.5;
+        position: relative;
+        align-items: center;
+        margin-left: 0.5in;
+        margin-right: 0.5in;
+        font-size: 11pt;
+    }
+
+    /* Media Query for Responsive Design */
+    @media screen and (max-width: 768px) {
+        .content {
+            flex-direction: column;
+            /* Change to column layout on smaller screens */
+            align-items: flex-start;
+            /* Align items to the start */
+            margin-left: 20px;
+            /* Adjust margin for smaller screens */
+            margin-right: 20px;
+            /* Adjust margin for smaller screens */
+        }
+    }
+
+    .top {
+        justify-content: center;
+        text-align: center;
+        font-size: 11pt;
+    }
+
+    .topdown {
+        justify-content: center;
+        text-align: center;
+        font-size: 11pt;
+    }
+
+    .insurancecheck label {
+        margin-right: 41px;
+        font-size: 11pt;
+    }
+
+    input[type="text"] {
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+
+    }
+
+    .IConly {
+        border: 1px solid #000;
+        /* 1px solid border with black color */
+        padding: 5px;
+        /* Add padding to create space around the content */
+        padding-bottom: 70px;
+    }
+</style>
+
+<body>
+    <div class="page">
+        <div class="content">
+            <div class="top">
+                Department of Finance<br>
+                INSURANCE COMMISSION
+            </div><br>
+            <div class="topdown">
+                <strong>APPLICATION FOR INSURANCE AGENT,S LICENSE</strong><br>
+                <strong style="font-weight: lighter;">(Under Chapter IV, Title I of the Insurance Code)</strong>
+            </div>
+            <br>
+            <hr>
+            <div>
+                <p>To the Insurance Commissioner:</p>
+                <p>The undersigned hereby applies for a license under the provisions of Chapter IV, Title I of the
+                    Insurance Code, to act as insurance/general agent of <ins style="font-weight:bold;">Allianz PNB Life
+                        Insurance, Inc</ins> in respect of the kind of insurance indicated herein:
+                </p>
+            </div>
+            <div class="insurancecheck">
+                <input type="checkbox" name="" id=""> <label for="">NON-LIFE</label>
+                <input type="checkbox" name="" id="" checked> <label for="">LIFE</label>
+                <input type="checkbox" name="" id="" checked> <label for="">VARIABLE LIFE</label>
+                <input type="checkbox" name="" id=""> <label for="">ACCIDENT AND HEALTH</label>
+
+                <input type="checkbox" name="" id="" style="margin-left: 140px;"><label for=""
+                    style="margin-right: 0;">Others (please specify)</label> <input type="text" name="" id="">
+            </div>
+            <div>
+                <p>and for that purpose submits the following statements and information required herein.</p>
+                <div style="justify-items: center; text-align: center;">
+                    <input type="text" name="" id="" style="width: 300px;"><br>
+                    <label for="">(Agency Name if any)</label>
+                </div>
+            </div>
+            <div style="justify-content: space-between;">
+                <span>1. </span><label for="">Name of Applicant:</label><input type="text" name="" id=""
+                    style="width: 495px;">
+                <div style="display: flex;align-items: stretch; margin-left: 180px; font-size: 9pt;">
+                    <div style="margin-right: 70px;">(Last Name)</div>
+                    <div style="margin-right: 70px;">(First Name)</div>
+                    <div style="margin-right: 70px;">(Middle Name)</div>
+                </div>
+                <span>2. </span><label for="" style="margin-right: 0.5in;">Agent Type:</label>
+
+                <label for="">Ordinary Agent</label>[<input type="checkbox" name="" id="" checked>]
+                <label for="" style="margin-left: 1in;">General Agent</label>[<input type="checkbox" name="" id="">]
+            </div>
+            <div>
+                <span>3. </span><label for="">Home Address: </label>
+                <input type="text" name="" id="" style="width: 395px;">
+                <label for="">Zip: </label>
+                <input type="text" name="" id="" style="width: 80px;">
+            </div>
+            <div>
+                <ul><label for="">Business address:</label><input type="text" name="" id="" style="width: 470px;"></ul>
+                <ul><label for="">TIN: </label><input type="text" name="" id=""
+                        style="margin-right: 20px; width: 220px">
+                    <label for="">Email Adress:</label><input type="text" name="" id="" style="width: 220px;">
+                </ul>
+            </div>
+            <div style="text-align: right;">
+                <label for="">Mobile Number: </label> <input type="text" name="" id="" style="width: 226px;">
+            </div>
+            <div>
+                <span>4. </span><label for="">Birth a) Date:</label><input type="text" name="" id=""
+                    style="width: 220px;">
+                <label for="">b) Place:</label><input type="text" name="" id="" style="width: 245px;">
+            </div>
+            <div>
+                <span>5. </span><label for="">Citizenship: </label><input type="text" name="" id=""
+                    style="width: 120px;">
+                <label for="">Sex: </label><input type="text" name="" id="" style="width: 100px;">
+                <label for="">Civil Status: </label><input type="text" name="" id="" style="width: 186px;">
+            </div>
+            <div>
+                <span>6. </span><label for="">If married, a) Maiden Name:</label><input type="text" name="" id=""
+                    style="width: 435px;">
+            </div>
+            <div>
+                <div style="margin-left: 85px;">
+                    <label for="">b) Husband's Name: </label> <input type="text" name="" id="" style="width: 230px;">
+                </div>
+            </div>
+            <div>
+                <label for="" style="font-size: 10.5pt;">7. If naturalized citizen of the Philippines, give date and
+                    place of
+                    naturalization and attach photocopy &nbsp;&nbsp;&nbsp;&nbsp;of certificate of naturalization.
+                </label> <input type="text" name="" id="" value="N/A">
+            </div>
+            <hr class="dashed-hr">
+            <div class="IConly">
+                <strong><span class="thick-underline">FOR IC USE ONLY</span></strong>
+                <div style="margin-top: 10px;">
+                    <label for="">Verified by:</label><input type="text" name="" id="" style="width: 150px;">
+                    <label for="">Date:</label><input type="text" name="" id="" style="width: 55px;">
+                    <label for="">Processed by:</label><input type="text" name="" id="" style="width: 100px;">
+                    <label for="">Date:</label><input type="text" name="" id="" style="width: 55px;">
+                </div>
+                <div>
+                    <label for="">Approved by:</label><input type="text" name="" id="" style="width: 170px;">
+                    <label for="">Date:</label><input type="text" name="" id="" style="width: 80px;">
+                </div>
+                <div>
+                    <label for="">License Fee: </label><label for="">Date:</label><input type="text" name="" id="" style="width: 70px;">
+                    <label for="">OR No.</label><input type="text" name="" id="" style="width: 100px;">
+                    <label for="">Date:</label><input type="text" name="" id="" style="width: 55px;">
+                    <label for="">CA No.</label><input type="text" name="" id="" style="width: 100px;">
+                    
+                </div>
+                <div>
+                    REMARKS:
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

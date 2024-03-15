@@ -312,7 +312,7 @@ class AdminController extends BaseController
 
         // Create an instance of Dompdf
         $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isHtml4ParserEnabled', true);
         $options->set('isPhpEnabled', true);
 
         $dompdf = new Dompdf($options);
@@ -330,7 +330,7 @@ class AdminController extends BaseController
         // $dompdf->output('path/to/store/file.pdf');
 
         // Output PDF to the browser
-        $dompdf->stream($data['username'] .  'lifechanger.pdf', array('Attachment' => 0));
+        $dompdf->stream('lifechanger.pdf', array('Attachment' => 0));
     }
 
     public function generatePdf3($id)

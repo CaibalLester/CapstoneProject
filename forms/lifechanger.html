@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            /* background-color: #f0f0f0; */
         }
 
         .page {
@@ -56,15 +56,16 @@
         }
 
         .line strong {
-            background-color: #13385a;
-            color: #f0f0f0;
+            background-color: #002161;
+            color: #ffffff;
             padding: 5px;
             padding-right: 50px;
+            padding-bottom: 5px;
             font-weight: bold;
         }
 
         .Life {
-            color: #327bbe;
+            color: #002161;
             line-height: 1.5;
             margin: 0;
         }
@@ -73,16 +74,6 @@
             color: #327bbe;
             line-height: 1.5;
             margin: 0;
-        }
-
-        .t-bg {
-            background-color: #13385a;
-            display: inline-block;
-            margin: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            padding: 5px 10px;
-            color: #f0f0f0;
         }
 
         .educationaltable input[type="text"] {
@@ -111,8 +102,9 @@
 
         .educationaltable th,
         .employmenthistorytable th,
-        .recentemployertable th {
-            color: rgba(102, 109, 175, 0.986);
+        .recentemployertable th,
+        .characterreftable th {
+            color: #002161;
         }
 
         .educationaltable td:first-child {
@@ -138,7 +130,6 @@
             height: 50px;
         }
 
-
         .recentemployertable {
             border-collapse: collapse;
             width: 100%;
@@ -160,6 +151,19 @@
         .contactpersontable input[type="text"] {
             border: none;
             outline: none;
+        }
+
+        .characterreftable {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .characterreftable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
         }
 
 
@@ -220,11 +224,11 @@
                 <input type="text" id="name" name="Agentfullname" style="width: 400px; margin-right: 20px ;">
                 <label for="nickname">Nickname:</label>
                 <input type="text" id="nickname" name="nickname" style="width: 100px;">
-                <div
-                    style="justify-content: space-between; display: flex; margin-left: 90px; margin-right: 250px; font-size: 7pt;">
-                    <p>Last Name</p>
-                    <p>First Name</p>
-                    <p>Middle Name</p>
+                <div style=" display: flex;align-items: stretch; margin-left: 60px; font-size: 7pt;">
+                    <div style="margin-right: 70px;">Last Name</div>
+                    <div style="margin-right: 70px;">First Name</div>
+                    <div style="margin-right: 70px;">Middle Name</div>
+                    <div style="margin-right: 70px;">Sufix</div>
                 </div>
             </div>
 
@@ -244,14 +248,29 @@
             <div class="line">
                 <label for="homeAddress">Home address:</label>
                 <input type="text" style="width: 540px;" id="homeAddress" name="homeAddress" required>
-                <div
-                    style="justify-content: space-between; display: flex; margin-left: 110px; margin-right: 80px; font-size: 7pt;">
-                    <p>No.</p>
-                    <p>Street</p>
-                    <p>Subdivision/Barangay</p>
-                    <p>City/Municipal/Province</p>
+
+                <div style=" display: flex;
+                    align-items: stretch; margin-left: 110px; margin-right: 80px; font-size: 7pt;">
+
+                    <div style="
+                    margin-right: 80px;
+                    
+                    ">No.</div>
+                    <div style="
+                    margin-right: 80px;
+                    
+                    ">Street</div>
+                    <div style="
+                    margin-right: 80px;
+                    
+                    ">Subdivision/Barangay</div>
+                    <div style="
+                    margin-right: 80px;
+                    
+                    ">City/Municipal/Province</div>
                 </div>
             </div>
+
             <div class="line">
                 <label for="mobileNo">Mobile No.:</label>
                 <input type="text" style="width: 140px; margin-right: 20px;" id="mobileNo" name="mobileNo" value=""
@@ -273,9 +292,10 @@
                 <input type="text" style="width: 200px;" id="maritalStatus" name="maritalStatus" value="">
             </div>
 
-            <div style="display: flex; justify-content: space-between;">
-                <div style="width: 500px;">
-                    <label for="naturalizationInfo" style="font-size: 8pt; text-align: justify;">
+            <div style="display: flex;
+                align-items: stretch;">
+                <div>
+                    <label for="naturalizationInfo" style="font-size: 8pt;">
                         If naturalized citizen of the Philippines, give date and place of<br>
                         naturalization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;&nbsp; attached
                         photocopy
@@ -285,13 +305,14 @@
                     <input type="text" style="width: 220px;" id="naturalizationInfo" name="naturalizationInfo">
                 </div>
 
-                <div style="width: 430px; font-size: 9pt;">
+                <div style=" font-size: 9pt; margin-left: 50px;">
                     <label for="maidenName">If Married, a) Maiden Name</label>
                     <input type="text" style="width: 130px;" id="maidenName" name="maidenName" value=""><br>
                     <label for="spouseName" style="margin-left: 57px;">b) Name of Spouse:</label>
                     <input type="text" style="width: 100px;" id="spouseName" name="spouseName">
                 </div>
             </div>
+
             <div class="line">
                 <label for="sssNo">SSS No.:</label>
                 <input type="text" style="margin-right: 110px ;" "sssNo" name="sssNo" value="">
@@ -318,7 +339,6 @@
 
                 <input type="checkbox" id="variable" name="variable" value="variable">
                 <label for="variable">Variable</label>
-
             </div>
 
             <div class="line">
@@ -451,6 +471,163 @@
                     </tbody>
                 </table>
             </div>
+            <div class="line">
+                <strong>CHARACTER REFERENCES </strong> (Non-relative, not residing in the same address)
+                <table class="characterreftable" border="1">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>POSITION / COMPANY</th>
+                            <th>CONTACT NUMBER</th>
+                            <th>EMAIL ADDRESS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="line">
+                <strong>GENERAL INFORMATION</strong>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+
+                    </div>
+
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been accused, investigated/arrested, indicated or convicted of any
+                            criminal or civil
+                            case? If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 300px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever declared bankruptcy and/or have you ever been declared bankruptcy by
+                            regulators/authorities? If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 220px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been investigated for any administrative case?<br>
+                            If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 330px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px;; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been terminated or forced to resign from any employment or
+                            affiliates of any Insurance
+                            Company or Financial Institution? If yes, please provide details: <input type="text" name=""
+                                id="" style="width: 180px;"></label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="line" style="font-size: 8pt;">
+                <p style="font-size: 9pt; font-weight: bold;">That I hereby expressly authorize Allianz PNB Life
+                    Insurance, Inc.:</p>
+
+                <ol>to use and process, whether manually or via electronic channels, any and all information I have
+                    provided above, including
+                    Personal and Sensitive Personal Information, to facilitate, monitor, and improve matters pursuant to
+                    my application.
+                </ol>
+                <ol>
+                    to share, transfer, and/or disclose the said information to any of its intermediaries, subsidiaries,
+                    affiliates, service
+                    providers, partners and government agencies for the said purposes
+                </ol>
+                <ol>
+                    I likewise promise to inform Allianz PNB Life Insurance, Inc. of any change relating to my personal
+                    information.
+                </ol>
+                <p style="font-size: 8pt; justify-content: center;">I further understand and acknowledge that such
+                    Personal Information may be used by AZPNBL to comply with its legal or
+                    regulatory obligations under applicable local or foreign laws, rules and regulations relating to
+                    matters including but not limited to
+                    anti-money laundering and tax monitoring/review/reporting.</p>
+            </div>
+
+            <div class="line" style="border-style: solid; border-width: 1px; padding: 2px; font-size: 9pt ;">
+
+                I declare that all information supplied above and all other records and documents submitted by me in
+                support of this
+                application are true and correct to the best of my knowledge and belief. I agree that any false record
+                on information
+                supplied may result in rejection of this application or if already accepted termination of my contract.
+                I agree that a
+                photographic copy of this authorization and waiver shall be valid as the original.
+
+            </div>
+            <div class="line">
+                <div style="margin-top: 10px; text-align: left; float: left;">
+                    <input type="text" name="applicantName" id="applicantName" style="margin-right: 200px;"><br>
+                    Applicant's Printed Name
+                </div>
+
+                <div style="margin-top: 10px; float: left;">
+                    <input type="text" name="date" id="date"><br>
+                    Date
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <br>
+
+            <div class="line">
+                <div style="margin-top: 10px; text-align: left;">
+                    <input type="text" name="" id=""><br>
+                    Signitarure
+                </div>
+            </div>
+
         </div>
     </div>
 
