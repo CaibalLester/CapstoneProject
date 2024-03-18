@@ -14,6 +14,24 @@
         /* background-color: #f0f0f0; */
     }
 
+    div {
+        margin-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 630px;
+        font-size: 9pt;
+    }
+
+    table input[type="text"] {
+        border: none;
+        outline: none;
+        width: 98%;
+        font-size: 9pt;
+        /* background-color: #333; */
+    }
+
     .thick-underline {
         border-bottom: 2px solid #000;
         /* 2px solid underline with black color */
@@ -140,17 +158,21 @@
                 </div>
             </div>
             <div style="justify-content: space-between;">
-                <span>1. </span><label for="">Name of Applicant:</label><input type="text" name="" id=""
-                    style="width: 495px;">
-                <div style="display: flex;align-items: stretch; margin-left: 180px; font-size: 9pt;">
-                    <div style="margin-right: 70px;">(Last Name)</div>
-                    <div style="margin-right: 70px;">(First Name)</div>
-                    <div style="margin-right: 70px;">(Middle Name)</div>
-                </div>
-                <span>2. </span><label for="" style="margin-right: 0.5in;">Agent Type:</label>
-
-                <label for="">Ordinary Agent</label>[<input type="checkbox" name="" id="" checked>]
-                <label for="" style="margin-left: 1in;">General Agent</label>[<input type="checkbox" name="" id="">]
+                <ol start="1" style="padding-left: 15px;">
+                    <li>Name of Applicant:<input type="text" name="" id="" style="width: 495px;"></li>
+                    <div style="display: flex;align-items: stretch; margin-left: 180px; font-size: 9pt;">
+                        <div style="margin-right: 70px;">(Last Name)</div>
+                        <div style="margin-right: 70px;">(First Name)</div>
+                        <div style="margin-right: 70px;">(Middle Name)</div>
+                    </div>
+                </ol>
+                <ol start="2" style="padding-left: 15px;">
+                    <li>Agent Type: <label for="" style="margin-left: 40px;">Ordinary Agent</label>[<input
+                            type="checkbox" name="" id="" checked>]
+                        <label for="" style="margin-left: 1in;">General Agent</label>[<input type="checkbox" name=""
+                            id="">]
+                    </li>
+                </ol>
             </div>
             <div>
                 <span>3. </span><label for="">Home Address: </label>
@@ -165,8 +187,8 @@
                     <label for="">Email Adress:</label><input type="text" name="" id="" style="width: 220px;">
                 </ul>
             </div>
-            <div style="text-align: right;">
-                <label for="">Mobile Number: </label> <input type="text" name="" id="" style="width: 226px;">
+            <div style="margin-left: 320px;">
+                <label for="">Mobile Number:</label><input type="text" name="" id="" style="width: 200px;">
             </div>
             <div>
                 <span>4. </span><label for="">Birth a) Date:</label><input type="text" name="" id=""
@@ -188,11 +210,13 @@
                     <label for="">b) Husband's Name: </label> <input type="text" name="" id="" style="width: 230px;">
                 </div>
             </div>
-            <div style="text-align: justify;">
-                <label for="" style="font-size: 10.5pt;">7. If naturalized citizen of the Philippines, give date and
-                    place of
-                    naturalization and attach photocopy &nbsp;&nbsp;&nbsp;&nbsp;of certificate of naturalization.
-                </label> <input type="text" name="" id="" value="N/A">
+            <div>
+                <ol start="7" style="padding-left: 15px;">
+                    <li>If naturalized citizen of the Philippines, give date and
+                        place of
+                        naturalization and attach photocopy of certificate of naturalization. <input type="text" name=""
+                            id="" value="N/A"></li>
+                </ol>
             </div>
             <hr class="dashed-hr">
             <div class="IConly">
@@ -224,13 +248,149 @@
                     Insurance Commission
                 </p>
             </div>
-            <div style="text-align: justify;">
-                <span>8. </span><label for="">If applicant is a foreigner, give serial number, date and place of issue of alien certificate of
+            <ol start="8" style="padding-left: 15px;">
+                <li>If applicant is a foreigner, give serial number, date and place of issue
+                    of alien certificate of
                     registration (ACR) and the immigrant certificate of residence (ICR) for the current year and attach
-                    photocopy of each thereof</label><input type="text" name="" id="" value="N/A">
+                    photocopy of each thereof</label><input type="text" name="" id="" value="N/A"> </li>
+            </ol>
+            <span>9. </span>If applicant is a partnership, association or corporation:
+            <div style="margin-left: .2in;">
+                <ol type="a">
+                    <li> Attach a certified true copy of the certificate of registration, articles of partnership,
+                        association or incorporation and by-laws: <input type="text" name="" id="" value="N/A"
+                            style="width: 280px;"></li>
+                    <li>State percentage of Filipino participation in the partnership, association or corporation:
+                    </li>
+                    <input type="text" name="" id="" value="N/A" style="width: 550px;">
+                </ol>
             </div>
-        </div>
+            <ol start="10" style="padding-left: 15px;">
+                <li>Any license previously granted to act as insurance/general agent in this country? State name of
+                    insurance company represented.</li>
+            </ol>
 
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th style="width: 206px;">Company</th>
+                        <th>License Type</th>
+                        <th>License No.</th>
+                        <th>Year issued/renewed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="" id="" value="N/A"></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" id="" value="N/A"></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" id="" value="N/A"></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ol start="11" style="padding-left: 15px;">
+                <li>Have your filed your income tax return for the preceding year?<input type="text" name="" id=""
+                        value="NO" style="width: 40px;">
+                    If not give reason.<input type="text" name="" id="" value="PANDEMIC" style="width: 380px;">.</li>
+            </ol>
+            <ol start="12" style="padding-left: 15px;">
+                <li>in the blanks below, state your last (2) employers</li>
+            </ol>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th style="width: 300px;">Name of Employer</th>
+                        <th>Position</th>
+                        <th>Inclusive Dates</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="" id="" value=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="" id="" value=""></td>
+                        <td><input type="text" name="" id=""></td>
+                        <td><input type="text" name="" id=""></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ol start="13" style="padding-left: 15px;">
+                <li>Are you an official or an employee of an insurance company or broker?<input type="text" name=""
+                        id="" value="NO" style="width: 40px;">
+                    If yes, give the position held:<input type="text" name="" id="" value="N/A" style="width: 380px;">.
+                </li>
+            </ol>
+            <ol start="12" style="padding-left: 15px;">
+                <li>Are you a government employee?<input type="text" name="" id="" value="NO" style="width: 40px;">
+                    ; if yes, attach the necessary clearance/permission from
+                    the Head of the Department or Agency in accordance with Section 18, of Memorandum Circular No.
+                    15, series of 1999 of the Civil Service Commission
+                </li>
+            </ol>
+            <div>
+                Executed this<input type="text" name="" id="" style="width: 50px;">day of <input type="text" name=""
+                    id="" style="width: px;">20<input type="text" name="" id="" style="width: 50px;">, at <input
+                    type="text" name="" id="" style="width: 180px;">
+            </div>
+            <br>
+            <br>
+            <div style="text-align: right;">
+                <input type="text" name="" id="" style="width: 190px;"><br>
+                <span style="margin-right: 65px;">Applicant</span>
+            </div>
+
+
+            <br><br><br><br>
+            <div>
+                <p style="font-size: 10pt;">Application for Insurance Agent's License <br>
+                    Insurance Commission</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 80px; margin-bottom: 20px;">
+                <strong><ins>AFFIDAVIT OF VERIFICATION</ins></strong>
+            </div>
+            <div>
+                Republic of the Philippines) <br>
+                Province/City of <input type="text" name="" id="" style="width: 65px;">)S.S
+            </div>
+            <div>
+                I. <input type="text" name="" id="" style="width: 280px;">, being duly sworn, depose and say that I am
+                the
+                person named in and who signed the foregoing application; that I know the contents thereof and the
+                statements made and answers to question therein are true.
+            </div>
+            <div style="text-align: right;">
+                <input type="text" name="" id="" style="width: 190px;"><br>
+                <span style="margin-right: 70px;">Affiant</span>
+            </div>
+            <div style="text-align: right;">
+                <label for="">TIN</label>
+                <input type="text" name="" id="" style="width: 160px;">
+            </div>
+            <div style="text-align: right;">
+                <label for="">SSS No.</label>
+                <input type="text" name="" id="" style="width: 126px;">
+            </div>
+            <p style="text-indent: 40px;">SUBSCRIBED AND SWORN TO before me this <input type="text" name="" id=""
+                    style="width: 40px;"> day of <input type="text" name="" id="" style="width: 120px;">20 <input
+                    type="text" name="" id="" style="width: 40px;">Affiant/s exhibited to me his/her
+                TIN/SSS/Passport/Postal/LTO/<input type="text" name="" id="" style="width: 225px;"></p>
+        </div>
     </div>
 </body>
 
