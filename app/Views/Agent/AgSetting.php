@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="row my-4">
-                    <div class="col-lg-10 col-12">
+                    <div class="col-lg-11 col-12">
                         <div class="custom-block bg-white">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -79,82 +79,153 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel"
                                     aria-labelledby="profile-tab" tabindex="0">
-                                    <h6 class="mb-4">Applicant Profile</h6>
+                                    <h6 class="mb-4 fs-8">Applicant Profile</h6>
 
                                     <form class="custom-form profile-form" action="/svag" method="post"
                                         enctype="multipart/form-data" onsubmit="return confirmSubmit()">
 
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="username" class="form-label">Username</label>
-                                                <input class="form-control" type="username" name="username"
-                                                    placeholder="Username"
-                                                    value="<?= isset($agent['username']) ? $agent['username'] : '' ?>">
+                                            <div class="col-md-4 text-center">
+                                                <label for="lastname" class="small">Last Name</label>
+                                                <input class="form-control text-center" type="text" name="lastname"
+                                                    id="profile-name" placeholder="Last Name"
+                                                    value="<?= isset ($agent['lastname']) ? $agent['lastname'] : '' ?>">
                                             </div>
-                                            <div class="col-md-9">
-                                                <label for="applicantfullname" class="form-label">Full Name</label>
-                                                <input class="form-control" type="text" name="Agentfullname"
-                                                    id="profile-name" placeholder="Full name"
-                                                    value="<?= isset($agent['Agentfullname']) ? $agent['Agentfullname'] : '' ?>">
+                                            <div class="col-md-5 text-center">
+                                                <label for="firstname" class="small">First Name</label>
+                                                <input class="form-control text-center" type="text" name="firstname"
+                                                    id="profile-name" placeholder="First Name"
+                                                    value="<?= isset ($agent['firstname']) ? $agent['firstname'] : '' ?>">
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label for="number" class="form-label">Number</label>
-                                                <input class="form-control" type="text" name="number"
-                                                    placeholder="Please Enter Your Number"
-                                                    value="<?= isset($agent['number']) ? $agent['number'] : '' ?>">
-                                            </div>
-
-                                            <div class="col-md-5">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input class="form-control" type="email" name="email"
-                                                    placeholder="Email"
-                                                    value="<?= isset($agent['email']) ? $agent['email'] : '' ?>">
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="birthday" class="form-label">Birthday</label>
-                                                <input class="form-control" type="date" name="birthday"
-                                                    placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                                    value="<?= isset($agent['birthday']) ? $agent['birthday'] : '' ?>">
+                                            <div class="col-md-3 text-center">
+                                                <label for="middlename" class="small">Middle Name</label>
+                                                <input class="form-control text-center" type="text" name="middlename"
+                                                    id="profile-name" placeholder="Middle Name"
+                                                    value="<?= isset ($agent['middlename']) ? $agent['middlename'] : '' ?>"">
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="address" class="form-label">Complete Address</label>
-                                                <input class="form-control" type="text" name="address"
-                                                    placeholder="Address"
-                                                    value="<?= isset($agent['address']) ? $agent['address'] : '' ?>">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="branch" class="form-label">Branch</label>
-                                                <input class="form-control" type="text" name="branch"
-                                                    placeholder="Branch" value="<?= $user['branch']; ?>" readonly>
-                                            </div>
-                                        </div>
+                                        <div class=" row">
+                                                <div class="col-md-3 text-center">
+                                                    <label for="number" class="small">Number</label>
+                                                    <input class="form-control text-center" type="text" name="number"
+                                                        placeholder="Please Enter Your Number"
+                                                        value="<?= isset ($agent['number']) ? $agent['number'] : '' ?>">
+                                                </div>
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="input-group mb-1">
-                                                    <img id="preview-image"
-                                                        src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>"
-                                                        class="profile-image img-fluid" alt="">
-                                                    <input type="file" name="profile" class="form-control"
-                                                        id="inputGroupFile02" onchange="previewImage()">
+                                                <div class="col-md-4 text-center">
+                                                    <label for="email" class="small">Email</label>
+                                                    <input class="form-control text-center" type="email" name="email"
+                                                        placeholder="Email"
+                                                        value="<?= isset ($agent['email']) ? $agent['email'] : '' ?>">
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="birthday" class="small">Birthday</label>
+                                                    <input class="form-control text-center text-center" type="date"
+                                                        name="birthday"
+                                                        placeholder="Please Enter your Birthday mm/dd/yyyy"
+                                                        value="<?= isset ($agent['birthday']) ? $agent['birthday'] : '' ?>">
+                                                </div>
+
+                                                <div class="col-md-2 text-center">
+                                                    <label for="username" class="small">Username</label>
+                                                    <input class="form-control text-center" type="text" name="username"
+                                                        id="profile-name" placeholder="Full name"
+                                                        value="<?= isset ($agent['username']) ? $agent['username'] : '' ?>">
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="d-flex">
-                                                    <button type="submit" class="form-control ms-2">Save</button>
+
+                                            <div class="row">
+                                                <div class="col-md-3 text-center">
+                                                    <label for="region" class="small">Region</label>
+                                                    <select class="form-control text-center" name="region" id="region">
+                                                        <option
+                                                            value="<?= isset ($agent['region']) ? $agent['region'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($agent['region']) ? $agent['region'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="region_text"
+                                                        value="<?= isset ($agent['region']) ? $agent['region'] : '' ?>"
+                                                        id="region-text" required>
+                                                </div>
+
+                                                <div class="col-md-3 text-center">
+                                                    <label for="province" class="small">Province</label>
+                                                    <select class="form-control text-center" name="province"
+                                                        id="province">
+                                                        <option
+                                                            value="<?= isset ($agent['province']) ? $agent['province'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($agent['province']) ? $agent['province'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="province_text"
+                                                        value="<?= isset ($agent['province']) ? $agent['province'] : '' ?>"
+                                                        id="province-text" required>
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="city" class="small">City/Municipality</label>
+                                                    <select class="form-control text-center" name="city" id="city">
+                                                        <option
+                                                            value="<?= isset ($agent['city']) ? $agent['city'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($agent['city']) ? $agent['city'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="city_text"
+                                                        value="<?= isset ($agent['city']) ? $agent['city'] : '' ?>"
+                                                        id="city-text" required>
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="barangay" class="small">Barangay</label>
+                                                    <select class="form-control text-center" name="barangay"
+                                                        id="barangay">
+                                                        <option
+                                                            value="<?= isset ($agent['barangay']) ? $agent['barangay'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($agent['barangay']) ? $agent['barangay'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="barangay_text"
+                                                        value="<?= isset ($agent['barangay']) ? $agent['barangay'] : '' ?>"
+                                                        id="barangay-text" required>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <label for="street" class="small">Street (optional)</label>
+                                                    <input class="form-control text-center" type="text" name="street"
+                                                        value="<?= isset ($agent['street']) ? $agent['street'] : '' ?>"
+                                                        id="street" placeholder="Street">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-1">
+                                                        <img id="preview-image"
+                                                            src="<?= isset ($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : 'default_path_here' ?>"
+                                                            class="profile-image img-fluid" alt="">
+                                                        <input type="file" name="profile" class="form-control"
+                                                            id="inputGroupFile02" onchange="previewImage()">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="d-flex">
+                                                        <button type="submit" class="form-control ms-2">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     </form>
 
                                 </div>
@@ -237,6 +308,8 @@
             }
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php base_url() ?>address/ph-address-selector.js"></script>
 </body>
 
 </html>

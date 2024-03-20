@@ -308,7 +308,7 @@ class AdminController extends BaseController
 
         // Load your view content into a variable
         $data['lifechangerform'] = $lifechangerFormData;
-        $html = view('Admin/generatepdf', $data);
+        $html = view('Admin/Forms/details', $data);
 
         // Create an instance of Dompdf
         $options = new Options();

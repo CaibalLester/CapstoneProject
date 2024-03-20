@@ -165,12 +165,19 @@ class AgentController extends BaseController
 
         // Add other form data to the data array
         $data += [
-            'Agentfullname' => $this->request->getVar('Agentfullname'),
+            'lastname' => $this->request->getVar('lastname'),
+            'firstname' => $this->request->getVar('firstname'),
+            'middlename' => $this->request->getVar('middlename'),
+            'username' => $this->request->getVar('username'),
             'number' => $this->request->getVar('number'),
             'email' => $this->request->getVar('email'),
             'birthday' => $this->request->getVar('birthday'),
-            'address' => $this->request->getVar('address'),
-            'username' => $this->request->getVar('username'),
+            'region' => $this->request->getVar('region_text'),
+            'province' => $this->request->getVar('province_text'),
+            'city' => $this->request->getVar('city_text'),
+            'barangay' => $this->request->getVar('barangay_text'),
+            'street' => $this->request->getVar('street'),
+            
         ];
 
         // Check if $data array is not empty before updating the database

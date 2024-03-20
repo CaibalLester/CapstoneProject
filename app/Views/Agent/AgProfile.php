@@ -125,52 +125,51 @@
                                             Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
                                             sed ea saepe at unde.</p>
                                         <h5 class="card-title">Profile Details</h5>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['Agentfullname'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php if (isset($agent['lastname']) && isset($agent['firstname']) && isset($agent['middlename'])): ?>
+                                                    <?= $agent['lastname'] ?>,
+                                                    <?= $agent['firstname'] ?>
+                                                    <?= $agent['middlename'] ?>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['username'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($agent['username']) ? $agent['username']: '' ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-4 label">Agent Code</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['AgentCode'] ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-4 label">Address</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['address'] ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Email</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['email'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($agent['email']) ? $agent['email']: '' ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Phone</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $agent['number'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($agent['number']) ? $agent['number']: '' ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Birthday</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= date('M j, Y', strtotime($agent['birthday'])); ?>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset($agent['birthday']) ? date('M j, Y', strtotime($agent['birthday'])) : ''; ?>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Adress</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?= isset ($agent['province']) ? $agent['province'] : '' ?>, 
+                                            <?= isset ($agent['city']) ? $agent['city'] : '' ?>,
+                                            <?= isset ($agent['barangay']) ? $agent['barangay'] : '' ?>,
+                                            <?= isset ($agent['street']) ? $agent['street'] : '' ?>
                                             </div>
                                         </div>
                                     </div>

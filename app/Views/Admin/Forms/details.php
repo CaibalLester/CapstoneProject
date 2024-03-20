@@ -1,611 +1,758 @@
-<!-- <style>
-    .form-group input[type="text"] {
-    border: none; /* Remove default border */
-    border-bottom: 1px solid #000; /* Add underline */
-    background-color: transparent; /* Optional: Set background color to transparent */
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFE CHANGER FORM</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            /* background-color: #f0f0f0; */
+        }
+        .download-button-container {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    z-index: 1000; /* Ensure the button appears above other content */
 }
 
-</style> -->
-<section class="section">
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-7 m-5">
-            <div class="card">
-                <div class="card-body">
-                    <form class="container mt-5" method="post" action="/newAgent">
-                        <fieldset>
-                            <h3><?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?></h3>
-                            <input type="hidden" name="id" class="btn btn-success" value="<?= isset($lifechangerform['id']) ? $lifechangerform['id'] : '' ?>">
-                            <input type="hidden" name="user_id" class="btn btn-success" value="<?= isset($lifechangerform['user_id']) ? $lifechangerform['user_id'] : '' ?>">
-                            <div class="form-group">
-                                <label for="position">Position applying for:</label>
-                                <input type="text" readonly id="position" name="positionApplying" class="form-control" value="<?= isset($lifechangerform['position']) ? $lifechangerform['position'] : 'Agent' ?>" required readonly>
-                                <label for="preferredArea">Preferred area:</label>
-                                <input type="text" readonly id="preferredArea" name="preferredArea" class="form-control" value="<?= isset($lifechangerform['preferredArea']) ? $lifechangerform['preferredArea'] : '' ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Source:</label><br>
-                                <input type="checkbox" disabled id="referral" name="referral" value="yes" <?= isset($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
-                                <label for="referral">Referral</label>
+.download-btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #28a745; /* Green color for success */
+    border: none;
+    transition: background-color 0.3s ease;
+}
 
-                                <label for="referralBy">by whom:</label>
-                                <input type="text" readonly id="referralBy" name="referralBy" class="form-control" value="<?= isset($lifechangerform['referralBy']) ? $lifechangerform['referralBy'] : '' ?>">
+.download-btn:hover {
+    background-color: #218838; /* Darker green color on hover */
+}
 
-                                <input type="checkbox" disabled id="onlineAd" name="onlineAd" value="Online Advertisement" <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
-                                <label for="onlineAd">Online Advertisement</label>
 
-                                <input type="checkbox" disabled id="walkIn" name="walkIn" value="yes" <?= isset($lifechangerform['walkIn']) && $lifechangerform['walkIn'] === 'yes' ? 'checked' : '' ?>>
-                                <label for="walkIn">Walk-In</label>
+        .page {
+            width: 210mm;
+            /* A4 width */
+            /* height: 297mm; */
+            /* A4 height */
+            margin: 20px auto;
+            /* Centered on the page */
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+            /* Adding a shadow for visual effect */
+            padding: 30px;
+            /* Add padding to avoid content touching the edges */
+            box-sizing: border-box;
+            /* Include padding and border in the element's total width and height */
+            position: relative;
+        }
 
-                                <input type="checkbox" disabled id="others" name="othersRef" value="yes" <?= isset($lifechangerform['othersRef']) && $lifechangerform['othersRef'] === 'yes' ? 'checked' : '' ?>>
-                                <label for="others">Others</label><br><br>
-                            </div>
+        /* Add additional styles for your content */
+        .content {
+            /* Example styles */
+            color: #333;
+            line-height: 1.5;
+            position: relative;
+            align-items: center;
+            margin-left: 0.5in;
+            margin-right: 0.5in;
 
-                            <div class="form-group">
-                                <h2>Personal information</h2>
-                                <label for="name">Name:</label>
-                                <input type="text" readonly id="name" name="Agentfullname" class="form-control" value="<?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>" required><br>
+        }
 
-                                <label for="nickname">Nickname:</label>
-                                <input type="text" readonly id="nickname" name="nickname" class="form-control" value="<?= isset($lifechangerform['nickname']) ? $lifechangerform['nickname'] : '' ?>"><br>
+        .head {
+            display: flex;
+            justify-content: space-between;
+        }
 
-                                <label for="birthdate">Birth date:</label>
-                                <input type="date" readonly id="birthdate" name="birthdate" class="form-control" value="<?= isset($lifechangerform['birthdate']) ? $lifechangerform['birthdate'] : '' ?>" required><br>
+        .line {
+            /* display: flex; */
+            justify-content: space-between;
+            font-size: 9pt;
+            padding-bottom: 10px;
+            /* background-color: #e3eaf1; */
+        }
 
-                                <label for="placeOfBirth">Place of birth:</label>
-                                <input type="text" readonly id="placeOfBirth" name="placeOfBirth" class="form-control" value="<?= isset($lifechangerform['placeOfBirth']) ? $lifechangerform['placeOfBirth'] : '' ?>" required><br>
+        .line strong {
+            background-color: #002161;
+            color: #ffffff;
+            padding: 5px;
+            padding-right: 50px;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
 
-                                <label for="gender">Gender</label>
-                                <input type="text" id="gender" name="gender" class="form-control" value="<?= isset($lifechangerform['gender']) ? $lifechangerform['gender'] : '' ?>" readonly>
-                                <br>
-                                <label for="bloodType">bloodType</label>
-                                <input type="text" id="bloodType" name="bloodType" class="form-control" value="<?= isset($lifechangerform['bloodType']) ? $lifechangerform['bloodType'] : '' ?>" readonly>
+        .Life {
+            color: #002161;
+            line-height: 1.5;
+            margin: 0;
+        }
 
-                                <br>
+        .logo {
+            color: #327bbe;
+            line-height: 1.5;
+            margin: 0;
+        }
 
-                                <label for="homeAddress">Home address:</label>
-                                <input type="text" readonly id="homeAddress" name="homeAddress" class="form-control" value="<?= isset($lifechangerform['homeAddress']) ? $lifechangerform['homeAddress'] : '' ?>" required><br>
+        .educationaltable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            /* background-color: #333; */
+            /* text-align: center; */
+            /* justify-content: center; */
+            font-size: 9pt;
+        }
 
-                                <label for="mobileNo">Mobile Number:</label>
-                                <input type="text" readonly id="mobileNo" name="mobileNo" class="form-control" value="<?= isset($lifechangerform['mobileNo']) ? $lifechangerform['mobileNo'] : '' ?>" required><br>
+        input[type="text"] {
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
 
-                                <label for="landline">Landline:</label>
-                                <input type="text" readonly id="landline" name="landline" value="<?= isset($lifechangerform['landline']) ? $lifechangerform['landline'] : '' ?>" class="form-control"><br>
+        }
 
-                                <label for="email">Email Address:</label>
-                                <input type="email" readonly id="email" name="email" class="form-control" value="<?= isset($lifechangerform['email']) ? $lifechangerform['email'] : '' ?>"><br>
-                            </div>
-                            <div class="form-group">
-                                <label for="citizenship">Citizenship:</label><br>
-                                <input type="checkbox" disabled id="citizenship" name="citizenship" value="Filipino" <?= isset($lifechangerform['citizenship']) && $lifechangerform['citizenship'] === 'Filipino' ? 'checked' : '' ?>>
-                                <label for="filipino">Filipino</label>
-                                <label for="others">Others, please specify</label>
-                                <input type="text" readonly id="others" name="others" class="form-control" value="<?= isset($lifechangerform['othersCitizenship']) ? $lifechangerform['othersCitizenship'] : '' ?>"><br>
+        .educationaltable,
+        .educationaltable,
+        .recentemployertable {
+            border-collapse: collapse;
+            width: 630px;
+        }
 
-                                <label for="naturalizationInfo">If naturalized citizen of the
-                                    Philippines, give date and place of
-                                    naturalization and attached photocopy of certificate of
-                                    naturalization:</label>
-                                <input type="text" readonly id="naturalizationInfo" name="naturalizationInfo" class="form-control"><br>
-                                <label for="maritalStatus">Marital Status</label>
-                                <input type="text" id="maritalStatus" name="maritalStatus" class="form-control" value="<?= isset($lifechangerform['maritalStatus']) ? $lifechangerform['maritalStatus'] : '' ?>" readonly>
+        .educationaltable th,
+        .employmenthistorytable th,
+        .recentemployertable th,
+        .characterreftable th {
+            color: #002161;
+        }
 
-                                <br>
+        .educationaltable td:first-child {
+            width: 140px;
+        }
 
-                                <div id="ifMarried">
-                                    <label for="maidenName">If Married, a) Maiden Name</label>
-                                    <input type="text" readonly id="maidenName" name="maidenName" class="form-control" value="<?= isset($lifechangerform['maidenName']) ? $lifechangerform['maidenName'] : '' ?>"><br>
 
-                                    <label for="spouseName">b) Name of Spouse:</label>
-                                    <input type="text" readonly id="spouseName" name="spouseName" class="form-control" value="<?= isset($lifechangerform['spouseName']) ? $lifechangerform['spouseName'] : '' ?>"><br>
-                                </div>
+        .employmenthistorytable {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-                                <label for="sssNo">SSS No.:</label>
-                                <input type="text" readonly id="sssNo" name="sssNo" class="form-control" value="<?= isset($lifechangerform['sssNo']) ? $lifechangerform['sssNo'] : '' ?>"><br>
+        .employmenthistorytable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
+        }
 
-                                <label for="tin">Tax Identification No.:</label>
-                                <input type="text" readonly id="tin" name="tin" class="form-control" value="<?= isset($lifechangerform['tin']) ? $lifechangerform['tin'] : '' ?>"><br>
+        .employmenthistorytable td:first-child {
+            width: 120px;
+            height: 50px;
+        }
 
-                                <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
-                                <input type="checkbox" disabled id="yesLife" name="lifeInsuranceExperience" value="yes" <?= isset($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'yes' ? 'checked' : '' ?>>
-                                <label for="yesLife">Yes</label><br><br>
+        .recentemployertable {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-                                <input type="checkbox" disabled id="noLife" name="lifeInsuranceExperience" value="No" <?= isset($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'No' ? 'checked' : '' ?>>
-                                <label for="noLife">No</label><br><br>
+        .recentemployertable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
+        }
 
-                                <label for="insuranceType">If yes, check the type:</label><br>
-                                <input type="checkbox" disabled id="traditional" name="traditional" value="traditional" <?= isset($lifechangerform['traditional']) && $lifechangerform['traditional'] === 'traditional' ? 'checked' : '' ?>>
-                                <label for="traditional">Traditional</label>
+        .recentemployertable td:first-child {
+            width: 120px;
+            height: 30px;
+        }
 
-                                <input type="checkbox" disabled id="variable" name="variable" value="variable" <?= isset($lifechangerform['variable']) && $lifechangerform['variable'] === 'variable' ? 'checked' : '' ?>>
-                                <label for="variable">Variable</label><br><br>
+        .contactpersontable input[type="text"] {
+            border: none;
+            outline: none;
+        }
 
-                                <label for="recentInsuranceCompany">Most recent Life Insurance
-                                    Company:</label>
-                                <input type="text" readonly id="recentInsuranceCompany" name="recentInsuranceCompany" class="form-control" value="<?= isset($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>"><br>
-                            </div>
+        .characterreftable {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-                            <h2>Educational Background</h2>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th></th>
-                                        <th class="text-center">SCHOOL</th>
-                                        <th class="text-center">COURSE</th>
-                                        <th class="text-center">YEAR GRADUATED</th>
-                                    </tr>
-                                    <tr>
-                                        <td>High School</td>
-                                        <td><input type="text" readonly name="highSchool" class="form-control text-center" value="<?= isset($lifechangerform['highSchool']) ? $lifechangerform['highSchool'] : '' ?>">
-                                        </td>
-                                        <td><input type="text" readonly name="highSchoolCourse" class="form-control text-center" value="<?= isset($lifechangerform['highSchoolCourse']) ? $lifechangerform['highSchoolCourse'] : '' ?>">
-                                        </td>
-                                        <td><input type="date" readonly name="highSchoolYear" class="form-control text-center" value="<?= isset($lifechangerform['highSchoolYear']) ? $lifechangerform['highSchoolYear'] : '' ?>">
-                                        </td>
-                                    </tr>
+        .characterreftable input[type="text"] {
+            border: none;
+            outline: none;
+            width: 98%;
+            font-size: 9pt;
+            /* background-color: #333; */
+        }
 
-                                    <tr>
-                                        <td>College</td>
-                                        <td><input type="text" readonly name="college" value="<?= isset($lifechangerform['college']) ? $lifechangerform['college'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="collegeCourse" value="<?= isset($lifechangerform['collegeCourse']) ? $lifechangerform['collegeCourse'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="collegeYear" value="<?= isset($lifechangerform['collegeYear']) ? $lifechangerform['collegeYear'] : '' ?>" class="form-control text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Graduate School</td>
-                                        <td><input type="text" readonly name="graduateSchool" value="<?= isset($lifechangerform['graduateSchool']) ? $lifechangerform['graduateSchool'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="graduateCourse" value="<?= isset($lifechangerform['graduateCourse']) ? $lifechangerform['graduateCourse'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="graduateYear" value="<?= isset($lifechangerform['graduateYear']) ? $lifechangerform['graduateYear'] : '' ?>" class="form-control text-center"></td>
-                                    </tr>
-                                </table>
-                            </div>
 
-                            <h2>Employment History</h2>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th class="text-center">NAME AND ADDRESS OF EMPLOYER</th>
-                                        <th class="text-center">POSITION</th>
-                                        <th class="text-center" colspan="2">EMPLOYMENT DATE</th>
-                                        <th class="text-center">REASON FOR LEAVING</th>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="text" readonly name="companyName1" value="<?= isset($lifechangerform['companyName1']) ? $lifechangerform['companyName1'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="position1" value="<?= isset($lifechangerform['position1']) ? $lifechangerform['position1'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentFrom1" value="<?= isset($lifechangerform['employmentFrom1']) ? $lifechangerform['employmentFrom1'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentTo1" value="<?= isset($lifechangerform['employmentTo1']) ? $lifechangerform['employmentTo1'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="reason1" value="<?= isset($lifechangerform['reason1']) ? $lifechangerform['reason1'] : '' ?>" class="form-control text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="text" readonly name="companyName2" value="<?= isset($lifechangerform['companyName2']) ? $lifechangerform['companyName2'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="position2" value="<?= isset($lifechangerform['position2']) ? $lifechangerform['position2'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentFrom2" value="<?= isset($lifechangerform['employmentFrom2']) ? $lifechangerform['employmentFrom2'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentTo2" value="<?= isset($lifechangerform['employmentTo2']) ? $lifechangerform['employmentTo2'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="reason2" value="<?= isset($lifechangerform['reason2']) ? $lifechangerform['reason2'] : '' ?>" class="form-control text-center"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="text" readonly name="companyName3" value="<?= isset($lifechangerform['companyName3']) ? $lifechangerform['companyName3'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="position3" value="<?= isset($lifechangerform['position3']) ? $lifechangerform['position3'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentFrom3" value="<?= isset($lifechangerform['employmentFrom3']) ? $lifechangerform['employmentFrom3'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="date" readonly name="employmentTo3" value="<?= isset($lifechangerform['employmentTo3']) ? $lifechangerform['employmentTo3'] : '' ?>" class="form-control text-center"></td>
-                                        <td><input type="text" readonly name="reason3" value="<?= isset($lifechangerform['reason3']) ? $lifechangerform['reason3'] : '' ?>" class="form-control text-center"></td>
-                                    </tr>
-                                </table>
-                            </div>
+        /* Media Query for Responsive Design */
+        @media screen and (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                /* Change to column layout on smaller screens */
+                align-items: flex-start;
+                /* Align items to the start */
+                margin-left: 20px;
+                /* Adjust margin for smaller screens */
+                margin-right: 20px;
+                /* Adjust margin for smaller screens */
+            }
+        }
+    </style>
+</head>
 
-                            <h2>Most recent employer's contact details</h2>
-                            <table class="table" border="1">
-                                <tr>
-                                    <td>Company Name:<input type="text" readonly name="companyName" value="<?= isset($lifechangerform['companyName']) ? $lifechangerform['companyName'] : '' ?>" class="form-control"></td>
-                                    <td>Position:<input type="text" readonly name="resposition" value="<?= isset($lifechangerform['resposition']) ? $lifechangerform['resposition'] : '' ?>" class="form-control"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" style="text-align: center;">Employer's contact
-                                        details:</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" readonly name="contactName" class="form-control" value="<?= isset($lifechangerform['contactName']) ? $lifechangerform['contactName'] : '' ?>" placeholder="Contact Name:"></td>
-                                    <td><input type="text" readonly name="contactPosition" class="form-control" value="<?= isset($lifechangerform['contactPosition']) ? $lifechangerform['contactPosition'] : '' ?>" placeholder="Position:"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="email" readonly name="emailAddress" class="form-control" value="<?= isset($lifechangerform['emailAddress']) ? $lifechangerform['emailAddress'] : '' ?>" placeholder="Email Address:"></td>
-                                    <td><input type="text" readonly name="contactNumber" class="form-control" value="<?= isset($lifechangerform['contactNumber']) ? $lifechangerform['contactNumber'] : '' ?>" placeholder="Contact Number:"></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">If currently employed, have you already tendered
-                                        your resignation?
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="yesCheckbox">Yes</label>
-                                            <input type="checkbox" disabled name="yescuremployed" class="form-check-input" value="yes" <?= isset($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'yes' ? 'checked' : '' ?>>
+<body>
 
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="noCheckbox">No</label>
-                                            <input type="checkbox" disabled name="yescuremployed" class="form-check-input" value="no" <?= isset($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'no' ? 'checked' : '' ?>>
-
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td colspan="2">1. If answer is No, are we allowed to conduct the
-                                        employment verification?
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="yesCheckbox">Yes</label>
-                                            <input type="checkbox" disabled name="allowed" class="form-check-input" value="yes" <?= isset($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'yes' ? 'checked' : '' ?>>
-
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <label class="form-check-label" for="noCheckbox">No</label>
-                                            <input type="checkbox" disabled name="allowed" class="form-check-input" value="no" <?= isset($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'no' ? 'checked' : '' ?>>
-
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><input type="text" readonly name="ifnoProvdtls" value="<?= isset($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>" class="form-control" placeholder="2. If answer in number 1 is no, please provide details ">
-                                    </td>
-                                </tr>
-                            </table>
-                        </fieldset>
-                    </form>
+    <div class="page">
+        <div class="content">
+            
+            <div class="head">
+                <div>
+                    <h1 class="Life">LIFE CHANGER FORM</h1>
                 </div>
-                <div class="fixed-bottom text-center mb-3">
-                    <a href="<?= isset($lifechangerform['user_id']) ? base_url('generatePdf/' . $lifechangerform['user_id']) : '#' ?>" class="btn btn-success"><i class="fas fa-download"></i></a>
+                <div>
+                    <!-- <h1 class="logo">Allianz</h1> -->
+                    <img src="logo.png" alt="">
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+            <div class="line">
+                <label for="position">Position applying for:</label>
+                <input type="text" id="position" name="positionApplying" readonly
+                    value="<?= isset ($lifechangerform['position']) ? $lifechangerform['position'] : 'Agent' ?>"
+                    style="margin-right: 55px; width: 177px;" required>
+                <label for="preferredArea">Preferred area:</label>
+                <input type="text" id="preferredArea" name="preferredArea" readonly
+                    value="<?= isset ($lifechangerform['preferredArea']) ? $lifechangerform['preferredArea'] : '' ?>"
+                    style="width: 177px;" required>
+            </div>
+            <div class="line">
+                <label>Source:</label><input type="checkbox" id="referral" name="referral" readonly value="yes"
+                    <?= isset ($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
+                <label for="referral">Referral[</label>
+                <label for="referralBy">by whom:</label><input type="text" readonly
+                    value="<?= isset ($lifechangerform['referralBy']) ? $lifechangerform['referralBy'] : '' ?>"
+                    id="referralBy" name="referralBy">]
 
+                <input type="checkbox" id="onlineAd" name="onlineAd" readonly value="Online Advertisement"
+                    style="margin-left: 9px ;" readonly value="Online Advertisement"
+                    <?= isset ($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
+                <label for="onlineAd">Online Advertisement</label>
 
+                <input type="checkbox" id="walkIn" name="walkIn" readonly value="yes"
+                    <?= isset ($lifechangerform['walkIn']) && $lifechangerform['walkIn'] === 'yes' ? 'checked' : '' ?>>
+                <label for="walkIn">Walk-In</label>
 
+                <input type="checkbox" id="others" name="othersRef" readonly value="yes"
+                    <?= isset ($lifechangerform['othersRef']) && $lifechangerform['othersRef'] === 'yes' ? 'checked' : '' ?>>
+                <label for="others">Others</label><br><br>
+                <strong>PERSONAL INFORMATION</strong>
+            </div>
+            <div class="line">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Agentfullname" style="width: 400px; margin-right: 20px ;" readonly
+                    value="<?= isset ($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" style="width: 100px;" readonly
+                    value="<?= isset ($lifechangerform['nickname']) ? $lifechangerform['nickname'] : '' ?>">
+                <div style=" display: flex;align-items: stretch; margin-left: 60px; font-size: 7pt;">
+                    <div style="margin-right: 70px;">Last Name</div>
+                    <div style="margin-right: 70px;">First Name</div>
+                    <div style="margin-right: 70px;">Middle Name</div>
+                    <div style="margin-right: 70px;">Sufix</div>
+                </div>
+            </div>
 
+            <div class="line">
+                <label for="birthdate">Birth date:</label>
+                <input type="text" style="width: 100px; margin-right: 20px;" id="birthdate" name="birthdate" readonly
+                    value="<?= isset ($lifechangerform['birthdate']) ? $lifechangerform['birthdate'] : '' ?>" required>
+                <label for="placeOfBirth">Place of birth:</label>
+                <input type="text" style="width: 100px; margin-right: 20px;" id="placeOfBirth" name="placeOfBirth"
+                    readonly
+                    value="<?= isset ($lifechangerform['placeOfBirth']) ? $lifechangerform['placeOfBirth'] : '' ?>"
+                    required>
 
+                <label for="gender">Gender:</label>
+                <input type="text" style="width: 51px; margin-right: 20px;" id="gender" name="gender" readonly
+                    value="<?= isset ($lifechangerform['gender']) ? $lifechangerform['gender'] : '' ?>">
 
-<?= view('Admin/chop/head') ?>
-<!-- <style>
-    .form-group input[type="text"] {
-    border: none; /* Remove default border */
-    border-bottom: 1px solid #000; /* Add underline */
-    background-color: transparent; /* Optional: Set background color to transparent */
-}
+                <label for="bloodType">Blood Type:</label>
+                <input type="text" style="width: 51px;" id="bloodType" name="bloodType" readonly
+                    value="<?= isset ($lifechangerform['bloodType']) ? $lifechangerform['bloodType'] : '' ?>">
+            </div>
+            <div class="line">
+                <label for="homeAddress">Home address:</label>
+                <input type="text" style="width: 540px;" id="homeAddress" name="homeAddress" readonly
+                    value="<?= isset ($lifechangerform['homeAddress']) ? $lifechangerform['homeAddress'] : '' ?>"
+                    required>
 
-</style> -->
-<!-- <section>
-    <div>
-        <div>
-            <div>
+                <div style=" display: flex;
+                    align-items: stretch; margin-left: 110px; margin-right: 80px; font-size: 7pt;">
+
+                    <div style="margin-right: 80px;">No.</div>
+                    <div style="margin-right: 80px;">Street</div>
+                    <div style="margin-right: 80px;">Subdivision/Barangay</div>
+                    <div style="margin-right: 80px;">City/Municipal/Province</div>
+                </div>
+            </div>
+
+            <div class="line">
+                <label for="mobileNo">Mobile No.:</label>
+                <input type="text" style="width: 140px; margin-right: 20px;" id="mobileNo" name="mobileNo" readonly
+                    value="<?= isset ($lifechangerform['mobileNo']) ? $lifechangerform['mobileNo'] : '' ?>" required>
+
+                <label for="landline">Landline:</label>
+                <input type="text" style="width: 90px; margin-right: 20px;" id="landline" name="landline" readonly
+                    value="<?= isset ($lifechangerform['landline']) ? $lifechangerform['landline'] : '' ?>">
+
+                <label for="email">Email Address:</label>
+                <input type="text" style="width: 140px;" id="email" name="email" readonly
+                    value="<?= isset ($lifechangerform['email']) ? $lifechangerform['email'] : '' ?>">
+            </div>
+            <div class="line">
+                <label for="citizenship">Citizenship:</label>
+                <input type="checkbox" id="citizenship" name="citizenship" readonly value="Filipino"
+                    <?= isset ($lifechangerform['citizenship']) && $lifechangerform['citizenship'] === 'Filipino' ? 'checked' : '' ?>>
+                <label for="filipino">Filipino</label>
+                <input type="checkbox" id="othersCitizenship" name="othersCitizenship" readonly
+                    value="othersCitizenship" <?= isset ($lifechangerform['others']) && $lifechangerform['others'] === 'othersCitizenship' ? 'checked' : '' ?>>
+                <label for="others" style="margin-right: 62px;">Others, please specify</label>
+                <label for="maritalStatus">Marital Status:</label>
+                <input type="text" style="width: 200px;" id="maritalStatus" name="maritalStatus" readonly
+                    value="<?= isset ($lifechangerform['maritalStatus']) ? $lifechangerform['maritalStatus'] : '' ?>">
+            </div>
+
+            <div style="display: flex;
+                align-items: stretch;">
                 <div>
-                    <div>
-                        <h3>
-                            <?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>
-                        </h3>
-                        <div>
-                            <label for="position">Position applying for:</label>
-                            <input type="text" readonly id="position" name="positionApplying"
-                                value="<?= isset($lifechangerform['position']) ? $lifechangerform['position'] : 'Agent' ?>"
-                                required readonly>
-                            <label for="preferredArea">Preferred area:</label>
-                            <input type="text" readonly id="preferredArea" name="preferredArea"
-                                value="<?= isset($lifechangerform['preferredArea']) ? $lifechangerform['preferredArea'] : '' ?>"
-                                required>
-                        </div>
-                        <div>
-                            <label>Source:</label><br>
-                            <input type="checkbox" disabled id="referral" name="referral" value="yes"
-                                <?= isset($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
-                            <label for="referral">Referral</label>
+                    <label for="naturalizationInfo" style="font-size: 8pt;">
+                        If naturalized citizen of the Philippines, give date and place of<br>
+                        naturalization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and &nbsp;&nbsp;&nbsp;&nbsp; attached
+                        photocopy
+                        of certificate of<br>
+                        naturalization:
+                    </label>
+                    <input type="text" style="width: 220px;" id="naturalizationInfo" name="naturalizationInfo">
+                </div>
 
-                            <label for="referralBy">by whom:</label>
-                            <input type="text" readonly id="referralBy" name="referralBy"
-                                value="<?= isset($lifechangerform['referralBy']) ? $lifechangerform['referralBy'] : '' ?>">
+                <div style=" font-size: 9pt; margin-left: 50px;">
+                    <label for="maidenName">If Married, a) Maiden Name</label>
+                    <input type="text" style="width: 130px;" id="maidenName" name="maidenName" readonly
+                        value="<?= isset ($lifechangerform['maidenName']) ? $lifechangerform['maidenName'] : '' ?>"><br>
+                    <label for="spouseName" style="margin-left: 57px;">b) Name of Spouse:</label>
+                    <input type="text" style="width: 100px;" id="spouseName" name="spouseName" readonly
+                        value="<?= isset ($lifechangerform['spouseName']) ? $lifechangerform['spouseName'] : '' ?>">
+                </div>
+            </div>
 
-                            <input type="checkbox" disabled id="onlineAd" name="onlineAd" value="Online Advertisement"
-                                <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
-                            <label for="onlineAd">Online Advertisement</label>
+            <div class="line">
+                <label for="sssNo">SSS No.:</label>
+                <input type="text" style="margin-right: 110px ;" name="sssNo" readonly
+                    value="<?= isset ($lifechangerform['sssNo']) ? $lifechangerform['sssNo'] : '' ?>">
+                <label for="tin">Tax Identification No.:</label>
+                <input type="text" id="tin" name="tin" readonly
+                    value="<?= isset ($lifechangerform['tin']) ? $lifechangerform['tin'] : '' ?>">
+            </div>
+            <div class="line">
+                <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
+                <input type="checkbox" id="yesLife" name="lifeInsuranceExperience" readonly value="yes"
+                    <?= isset ($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'yes' ? 'checked' : '' ?>>
+                <label for="yesLife" style="margin-right: 15px;">Yes</label>
 
-                            <input type="checkbox" disabled id="walkIn" name="walkIn" value="yes"
-                                <?= isset($lifechangerform['walkIn']) && $lifechangerform['walkIn'] === 'yes' ? 'checked' : '' ?>>
-                            <label for="walkIn">Walk-In</label>
+                <input type="checkbox" id="noLife" name="lifeInsuranceExperience" readonly value="No"
+                    <?= isset ($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'No' ? 'checked' : '' ?>>
+                <label for="noLife" style="margin-right: 87px;">No</label>
 
-                            <input type="checkbox" disabled id="others" name="othersRef" value="yes"
-                                <?= isset($lifechangerform['othersRef']) && $lifechangerform['othersRef'] === 'yes' ? 'checked' : '' ?>>
-                            <label for="others">Others</label><br><br>
-                        </div>
+                <label for="recentInsuranceCompany">Most recent Life Insurance
+                    Company:</label>
+                <input type="text" style="width: 80px;" id="recentInsuranceCompany" name="recentInsuranceCompany"
+                    readonly
+                    value="<?= isset ($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>">
+            </div>
+            <div class="line" style="margin-left: 113px;">
+                <label for="insuranceType">If yes,</label>
+                <input type="checkbox" id="traditional" name="traditional" readonly value="traditional"
+                    <?= isset ($lifechangerform['traditional']) && $lifechangerform['traditional'] === 'traditional' ? 'checked' : '' ?>>
+                <label for="traditional">Traditional</label>
 
-                        <div>
-                            <h2>Personal information</h2>
-                            <label for="name">Name:</label>
-                            <input type="text" readonly id="name" name="Agentfullname"
-                                value="<?= isset($lifechangerform['fname']) ? $lifechangerform['fname'] : '' ?>"
-                                required><br>
+                <input type="checkbox" id="variable" name="variable" readonly value="variable"
+                    <?= isset ($lifechangerform['variable']) && $lifechangerform['variable'] === 'variable' ? 'checked' : '' ?>>
+                <label for="variable">Variable</label>
+            </div>
 
-                            <label for="nickname">Nickname:</label>
-                            <input type="text" readonly id="nickname" name="nickname"
-                                value="<?= isset($lifechangerform['nickname']) ? $lifechangerform['nickname'] : '' ?>"><br>
+            <div class="line">
+                <strong>EDUCATIONAL BACKGROUND</strong><br>
+                <table class="educationaltable" border="1">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>SCHOOL</th>
+                            <th>COURSE</th>
+                            <th>YEAR GRADUATED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>High School</td>
+                            <td><input type="text" name="highSchool" readonly
+                                    value="<?= isset ($lifechangerform['highSchool']) ? $lifechangerform['highSchool'] : '' ?>">
+                            </td>
+                            <td><input type="text" name="highSchoolCourse" readonly
+                                    value="<?= isset ($lifechangerform['highSchoolCourse']) ? $lifechangerform['highSchoolCourse'] : '' ?>">
+                            </td>
+                            <td><input type="text" name="highSchoolYear" readonly
+                                    value="<?= isset ($lifechangerform['highSchoolYear']) ? $lifechangerform['highSchoolYear'] : '' ?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>College</td>
+                            <td><input type="text" name="college" readonly
+                                    value="<?= isset ($lifechangerform['college']) ? $lifechangerform['college'] : '' ?>"
+                                    class="form-control text-center"></td>
+                            <td><input type="text" name="collegeCourse" readonly
+                                    value="<?= isset ($lifechangerform['collegeCourse']) ? $lifechangerform['collegeCourse'] : '' ?>"
+                                    class="form-control text-center"></td>
+                            <td><input type="text" name="collegeYear" readonly
+                                    value="<?= isset ($lifechangerform['collegeYear']) ? $lifechangerform['collegeYear'] : '' ?>"
+                                    class="form-control text-center"></td>
+                        </tr>
+                        <tr>
+                            <td>Graduate School</td>
+                            <td><input type="text" name="graduateSchool" readonly
+                                    value="<?= isset ($lifechangerform['graduateSchool']) ? $lifechangerform['graduateSchool'] : '' ?>"
+                                    class="form-control text-center"></td>
+                            <td><input type="text" name="graduateCourse" readonly
+                                    value="<?= isset ($lifechangerform['graduateCourse']) ? $lifechangerform['graduateCourse'] : '' ?>"
+                                    class="form-control text-center"></td>
+                            <td><input type="text" name="graduateYear" readonly
+                                    value="<?= isset ($lifechangerform['graduateYear']) ? $lifechangerform['graduateYear'] : '' ?>"
+                                    class="form-control text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                            <label for="birthdate">Birth date:</label>
-                            <input type="date" readonly id="birthdate" name="birthdate"
-                                value="<?= isset($lifechangerform['birthdate']) ? $lifechangerform['birthdate'] : '' ?>"
-                                required><br>
+            <div class="line">
+                <strong>EMPLOYMENT HISTORY</strong>(List your last 3 employers, beginning with the current or most
+                recent one)<br>
+                <table class="employmenthistorytable" border="1">
+                    <thead>
+                        <tr>
+                            <th>NAME AND ADDRESS OF EMPLOYER</th>
+                            <th>POSITION</th>
+                            <th>EMPLOYMENT DATE</th>
+                            <th>REASON FOR LEAVING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 <input type="text" name="companyName1" readonly
+                                    value="<?= isset ($lifechangerform['companyName1']) ? $lifechangerform['companyName1'] : '' ?>">
+                            </td>
+                            <td><input type="text" name="position1" readonly
+                                    value="<?= isset ($lifechangerform['position1']) ? $lifechangerform['position1'] : '' ?>">
+                            </td>
 
-                            <label for="placeOfBirth">Place of birth:</label>
-                            <input type="text" readonly id="placeOfBirth" name="placeOfBirth"
-                                value="<?= isset($lifechangerform['placeOfBirth']) ? $lifechangerform['placeOfBirth'] : '' ?>"
-                                required><br>
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%;" name="employmentFrom1" readonly
+                                    value="<?= isset ($lifechangerform['employmentFrom1']) ? $lifechangerform['employmentFrom1'] : '' ?>"><br>
+                                To: <input type="text" style="width: 70%;" name="employmentTo1" readonly
+                                    value="<?= isset ($lifechangerform['employmentTo1']) ? $lifechangerform['employmentTo1'] : '' ?>"><br>
+                            </td>
 
-                            <label for="gender">Gender</label>
-                            <input type="text" id="gender" name="gender"
-                                value="<?= isset($lifechangerform['gender']) ? $lifechangerform['gender'] : '' ?>"
-                                readonly>
-                            <br>
-                            <label for="bloodType">bloodType</label>
-                            <input type="text" id="bloodType" name="bloodType"
-                                value="<?= isset($lifechangerform['bloodType']) ? $lifechangerform['bloodType'] : '' ?>"
-                                readonly>
+                            <td><input type="text" name="reason1" readonly
+                                    value="<?= isset ($lifechangerform['reason1']) ? $lifechangerform['reason1'] : '' ?>">
+                            </td>
 
-                            <br>
+                        </tr>
 
-                            <label for="homeAddress">Home address:</label>
-                            <input type="text" readonly id="homeAddress" name="homeAddress"
-                                value="<?= isset($lifechangerform['homeAddress']) ? $lifechangerform['homeAddress'] : '' ?>"
-                                required><br>
+                        <tr>
+                            <td>2 <input type="text" name="companyName1" readonly
+                                    value="<?= isset ($lifechangerform['companyName2']) ? $lifechangerform['companyName2'] : '' ?>">
+                            </td>
+                            <td><input type="text" name="position1" readonly
+                                    value="<?= isset ($lifechangerform['position2']) ? $lifechangerform['position2'] : '' ?>">
+                            </td>
 
-                            <label for="mobileNo">Mobile Number:</label>
-                            <input type="text" readonly id="mobileNo" name="mobileNo"
-                                value="<?= isset($lifechangerform['mobileNo']) ? $lifechangerform['mobileNo'] : '' ?>"
-                                required><br>
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%;" name="employmentFrom1" readonly
+                                    value="<?= isset ($lifechangerform['employmentFrom2']) ? $lifechangerform['employmentFrom2'] : '' ?>"><br>
+                                To: <input type="text" style="width: 70%;" name="employmentTo1" readonly
+                                    value="<?= isset ($lifechangerform['employmentTo2']) ? $lifechangerform['employmentTo2'] : '' ?>"><br>
+                            </td>
 
-                            <label for="landline">Landline:</label>
-                            <input type="text" readonly id="landline" name="landline"
-                                value="<?= isset($lifechangerform['landline']) ? $lifechangerform['landline'] : '' ?>"><br>
+                            <td><input type="text" name="reason1" readonly
+                                    value="<?= isset ($lifechangerform['reason1']) ? $lifechangerform['reason2'] : '' ?>">
+                            </td>
 
-                            <label for="email">Email Address:</label>
-                            <input type="email" readonly id="email" name="email"
-                                value="<?= isset($lifechangerform['email']) ? $lifechangerform['email'] : '' ?>"><br>
-                        </div>
-                        <div>
-                            <label for="citizenship">Citizenship:</label><br>
-                            <input type="checkbox" disabled id="citizenship" name="citizenship" value="Filipino"
-                                <?= isset($lifechangerform['citizenship']) && $lifechangerform['citizenship'] === 'Filipino' ? 'checked' : '' ?>>
-                            <label for="filipino">Filipino</label>
-                            <label for="others">Others, please specify</label>
-                            <input type="text" readonly id="others" name="others"
-                                value="<?= isset($lifechangerform['othersCitizenship']) ? $lifechangerform['othersCitizenship'] : '' ?>"><br>
+                        </tr>
+                        <tr>
+                            <td>3 <input type="text" name="companyName1" readonly
+                                    value="<?= isset ($lifechangerform['companyName3']) ? $lifechangerform['companyName3'] : '' ?>">
+                            </td>
+                            <td><input type="text" name="position1" readonly
+                                    value="<?= isset ($lifechangerform['position3']) ? $lifechangerform['position3'] : '' ?>">
+                            </td>
 
-                            <label for="naturalizationInfo">If naturalized citizen of the
-                                Philippines, give date and place of
-                                naturalization and attached photocopy of certificate of
-                                naturalization:</label>
-                            <input type="text" readonly id="naturalizationInfo" name="naturalizationInfo"><br>
-                            <label for="maritalStatus">Marital Status</label>
-                            <input type="text" id="maritalStatus" name="maritalStatus"
-                                value="<?= isset($lifechangerform['maritalStatus']) ? $lifechangerform['maritalStatus'] : '' ?>"
-                                readonly>
+                            <td rowspan="1">
+                                From: <input type="text" style="width: 70%;" name="employmentFrom1" readonly
+                                    value="<?= isset ($lifechangerform['employmentFrom3']) ? $lifechangerform['employmentFrom3'] : '' ?>"><br>
+                                To: <input type="text" style="width: 70%;" name="employmentTo1" readonly
+                                    value="<?= isset ($lifechangerform['employmentTo3']) ? $lifechangerform['employmentTo3'] : '' ?>"><br>
+                            </td>
 
-                            <br>
+                            <td><input type="text" name="reason1" readonly
+                                    value="<?= isset ($lifechangerform['reason1']) ? $lifechangerform['reason3'] : '' ?>">
+                            </td>
 
-                            <div id="ifMarried">
-                                <label for="maidenName">If Married, a) Maiden Name</label>
-                                <input type="text" readonly id="maidenName" name="maidenName"
-                                    value="<?= isset($lifechangerform['maidenName']) ? $lifechangerform['maidenName'] : '' ?>"><br>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                                <label for="spouseName">b) Name of Spouse:</label>
-                                <input type="text" readonly id="spouseName" name="spouseName"
-                                    value="<?= isset($lifechangerform['spouseName']) ? $lifechangerform['spouseName'] : '' ?>"><br>
-                            </div>
+            <div class="line">
+                <strong>Most recent employer's contact details</strong>(Preferably HR, Immediate Supervisor or
+                Supervisor):
+                <table class="recentemployertable" border="1">
+                    <tbody>
+                        <tr>
+                            <td style="width: 55%;">Compony Name: <input type="text" name="companyName" readonly
+                                    value="<?= isset ($lifechangerform['companyName']) ? $lifechangerform['companyName'] : '' ?>">
+                            </td>
+                            <td>Position: <input type="text" name="resposition" readonly
+                                    value="<?= isset ($lifechangerform['resposition']) ? $lifechangerform['resposition'] : '' ?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;">Employer's contact details:</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Name: <input type="text" name="contactName" readonly
+                                    value="<?= isset ($lifechangerform['contactName']) ? $lifechangerform['contactName'] : '' ?>"
+                                    placeholder="Contact Name:"></td>
+                            <td>Position: <input type="text" name="contactPosition" readonly
+                                    value="<?= isset ($lifechangerform['contactPosition']) ? $lifechangerform['contactPosition'] : '' ?>"
+                                    placeholder="Position:"></td>
+                        </tr>
+                        <tr>
+                            <td>Email Address:: <input type="text" name="emailAddress" class="form-control" readonly
+                                    value="<?= isset ($lifechangerform['emailAddress']) ? $lifechangerform['emailAddress'] : '' ?>"
+                                    placeholder="Email Address:"></td>
+                            <td>Contact Number: <input type="text" name="contactNumber" class="form-control" readonly
+                                    value="<?= isset ($lifechangerform['contactNumber']) ? $lifechangerform['contactNumber'] : '' ?>"
+                                    placeholder="Contact Number:"></td>
+                        </tr>
 
-                            <label for="sssNo">SSS No.:</label>
-                            <input type="text" readonly id="sssNo" name="sssNo"
-                                value="<?= isset($lifechangerform['sssNo']) ? $lifechangerform['sssNo'] : '' ?>"><br>
+                        <tr>
+                            <td colspan="2">If currently employed, have you already tendered your resignation?
+                                Yes<input type="text" style="width: 10%;" name="yescuremployed" id="" readonly
+                                    value="<?= isset ($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'yes' ? 'checked' : '' ?>">No<input
+                                    type="text" style="width: 10%;" name="yescuremployed" id="" readonly
+                                    value="<?= isset ($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'no' ? 'checked' : '' ?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">1. If answer is No, are we allowed to conduct the employment verification?
+                                Yes<input type="text" style="width: 10%;" name="yescuremployed" id="" readonly
+                                    value="<?= isset ($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'yes' ? 'checked' : '' ?>">No<input
+                                    type="text" style="width: 10%;" name="yescuremployed" id="" readonly
+                                    value="<?= isset ($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'no' ? 'checked' : '' ?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">2. If answer in number 1 is no, please provide details: <input type="text"
+                                    style="width: 50%;" name="ifnoProvdtls" readonly
+                                    value="<?= isset ($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="line">
+                <strong>CONTACT PERSON</strong> (In case of emergency):
+                <table class="contactpersontable" style="border-collapse: collapse;
+                width: 100%;" border="1">
+                    <tbody>
+                        <tr>
+                            <td>Person to notify in case of emergency: <input type="text" style="width: 40%;" name=""
+                                    id=""></td>
+                            <td>Mobile Number: <input type="text" style="width: 60%;" name="" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="line">
+                <strong>CHARACTER REFERENCES </strong> (Non-relative, not residing in the same address)
+                <table class="characterreftable" border="1">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>POSITION / COMPANY</th>
+                            <th>CONTACT NUMBER</th>
+                            <th>EMAIL ADDRESS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="line">
+                <strong>GENERAL INFORMATION</strong>
+                <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
 
-                            <label for="tin">Tax Identification No.:</label>
-                            <input type="text" readonly id="tin" name="tin"
-                                value="<?= isset($lifechangerform['tin']) ? $lifechangerform['tin'] : '' ?>"><br>
+                    </div>
 
-                            <label for="lifeInsuranceExperience">Life Insurance Experience:</label>
-                            <input type="checkbox" disabled id="yesLife" name="lifeInsuranceExperience" value="yes"
-                                <?= isset($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'yes' ? 'checked' : '' ?>>
-                            <label for="yesLife">Yes</label><br><br>
-
-                            <input type="checkbox" disabled id="noLife" name="lifeInsuranceExperience" value="No"
-                                <?= isset($lifechangerform['lifeInsuranceExperience']) && $lifechangerform['lifeInsuranceExperience'] === 'No' ? 'checked' : '' ?>>
-                            <label for="noLife">No</label><br><br>
-
-                            <label for="insuranceType">If yes, check the type:</label><br>
-                            <input type="checkbox" disabled id="traditional" name="traditional" value="traditional"
-                                <?= isset($lifechangerform['traditional']) && $lifechangerform['traditional'] === 'traditional' ? 'checked' : '' ?>>
-                            <label for="traditional">Traditional</label>
-
-                            <input type="checkbox" disabled id="variable" name="variable" value="variable"
-                                <?= isset($lifechangerform['variable']) && $lifechangerform['variable'] === 'variable' ? 'checked' : '' ?>>
-                            <label for="variable">Variable</label><br><br>
-
-                            <label for="recentInsuranceCompany">Most recent Life Insurance
-                                Company:</label>
-                            <input type="text" readonly id="recentInsuranceCompany" name="recentInsuranceCompany"
-                                value="<?= isset($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>"><br>
-                        </div>
-
-                        <h2>Educational Background</h2>
-                        <div>
-                            <table>
-                                <tr>
-                                    <th></th>
-                                    <th>SCHOOL</th>
-                                    <th>COURSE</th>
-                                    <th>YEAR GRADUATED</th>
-                                </tr>
-                                <tr>
-                                    <td>High School</td>
-                                    <td><input type="text" readonly name="highSchool"
-                                            value="<?= isset($lifechangerform['highSchool']) ? $lifechangerform['highSchool'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="highSchoolCourse"
-                                            value="<?= isset($lifechangerform['highSchoolCourse']) ? $lifechangerform['highSchoolCourse'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="highSchoolYear"
-                                            value="<?= isset($lifechangerform['highSchoolYear']) ? $lifechangerform['highSchoolYear'] : '' ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>College</td>
-                                    <td><input type="text" readonly name="college"
-                                            value="<?= isset($lifechangerform['college']) ? $lifechangerform['college'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="collegeCourse"
-                                            value="<?= isset($lifechangerform['collegeCourse']) ? $lifechangerform['collegeCourse'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="collegeYear"
-                                            value="<?= isset($lifechangerform['collegeYear']) ? $lifechangerform['collegeYear'] : '' ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Graduate School</td>
-                                    <td><input type="text" readonly name="graduateSchool"
-                                            value="<?= isset($lifechangerform['graduateSchool']) ? $lifechangerform['graduateSchool'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="graduateCourse"
-                                            value="<?= isset($lifechangerform['graduateCourse']) ? $lifechangerform['graduateCourse'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="graduateYear"
-                                            value="<?= isset($lifechangerform['graduateYear']) ? $lifechangerform['graduateYear'] : '' ?>">
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <h2>Employment History</h2>
-                        <div>
-                            <table>
-                                <tr>
-                                    <th>NAME AND ADDRESS OF EMPLOYER</th>
-                                    <th>POSITION</th>
-                                    <th colspan="2">EMPLOYMENT DATE</th>
-                                    <th>REASON FOR LEAVING</th>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" readonly name="companyName1"
-                                            value="<?= isset($lifechangerform['companyName1']) ? $lifechangerform['companyName1'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="position1"
-                                            value="<?= isset($lifechangerform['position1']) ? $lifechangerform['position1'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentFrom1"
-                                            value="<?= isset($lifechangerform['employmentFrom1']) ? $lifechangerform['employmentFrom1'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentTo1"
-                                            value="<?= isset($lifechangerform['employmentTo1']) ? $lifechangerform['employmentTo1'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="reason1"
-                                            value="<?= isset($lifechangerform['reason1']) ? $lifechangerform['reason1'] : '' ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" readonly name="companyName2"
-                                            value="<?= isset($lifechangerform['companyName2']) ? $lifechangerform['companyName2'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="position2"
-                                            value="<?= isset($lifechangerform['position2']) ? $lifechangerform['position2'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentFrom2"
-                                            value="<?= isset($lifechangerform['employmentFrom2']) ? $lifechangerform['employmentFrom2'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentTo2"
-                                            value="<?= isset($lifechangerform['employmentTo2']) ? $lifechangerform['employmentTo2'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="reason2"
-                                            value="<?= isset($lifechangerform['reason2']) ? $lifechangerform['reason2'] : '' ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" readonly name="companyName3"
-                                            value="<?= isset($lifechangerform['companyName3']) ? $lifechangerform['companyName3'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="position3"
-                                            value="<?= isset($lifechangerform['position3']) ? $lifechangerform['position3'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentFrom3"
-                                            value="<?= isset($lifechangerform['employmentFrom3']) ? $lifechangerform['employmentFrom3'] : '' ?>">
-                                    </td>
-                                    <td><input type="date" readonly name="employmentTo3"
-                                            value="<?= isset($lifechangerform['employmentTo3']) ? $lifechangerform['employmentTo3'] : '' ?>">
-                                    </td>
-                                    <td><input type="text" readonly name="reason3"
-                                            value="<?= isset($lifechangerform['reason3']) ? $lifechangerform['reason3'] : '' ?>">
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <h2>Most recent employer's contact details</h2>
-                        <table border="1">
-                            <tr>
-                                <td>Company Name:<input type="text" readonly name="companyName"
-                                        value="<?= isset($lifechangerform['companyName']) ? $lifechangerform['companyName'] : '' ?>">
-                                </td>
-                                <td>Position:<input type="text" readonly name="resposition"
-                                        value="<?= isset($lifechangerform['resposition']) ? $lifechangerform['resposition'] : '' ?>">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="text-align: center;">Employer's contact
-                                    details:</td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" readonly name="contactName"
-                                        value="<?= isset($lifechangerform['contactName']) ? $lifechangerform['contactName'] : '' ?>"
-                                        placeholder="Contact Name:"></td>
-                                <td><input type="text" readonly name="contactPosition"
-                                        value="<?= isset($lifechangerform['contactPosition']) ? $lifechangerform['contactPosition'] : '' ?>"
-                                        placeholder="Position:"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="email" readonly name="emailAddress"
-                                        value="<?= isset($lifechangerform['emailAddress']) ? $lifechangerform['emailAddress'] : '' ?>"
-                                        placeholder="Email Address:"></td>
-                                <td><input type="text" readonly name="contactNumber"
-                                        value="<?= isset($lifechangerform['contactNumber']) ? $lifechangerform['contactNumber'] : '' ?>"
-                                        placeholder="Contact Number:"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">If currently employed, have you already tendered
-                                    your resignation?
-                                    <div>
-                                        <label for="yesCheckbox">Yes</label>
-                                        <input type="checkbox" disabled name="yescuremployed" value="yes"
-                                            <?= isset($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'yes' ? 'checked' : '' ?>>
-                                    </div>
-                                    <div>
-                                        <label for="noCheckbox">No</label>
-                                        <input type="checkbox" disabled name="yescuremployed" value="no"
-                                            <?= isset($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'no' ? 'checked' : '' ?>>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">1. If answer is No, are we allowed to conduct the
-                                    employment verification?
-                                    <div>
-                                        <label for="yesCheckbox">Yes</label>
-                                        <input type="checkbox" disabled name="allowed" value="yes"
-                                            <?= isset($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'yes' ? 'checked' : '' ?>>
-
-                                    </div>
-                                    <div>
-                                        <label for="noCheckbox">No</label>
-                                        <input type="checkbox" disabled name="allowed" value="no"
-                                            <?= isset($lifechangerform['allowed']) && $lifechangerform['allowed'] === 'no' ? 'checked' : '' ?>>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><input type="text" readonly name="ifnoProvdtls"
-                                        value="<?= isset($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>"
-                                        placeholder="2. If answer in number 1 is no, please provide details ">
-                                </td>
-                            </tr>
-                        </table>
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been accused, investigated/arrested, indicated or convicted of any
+                            criminal or civil
+                            case? If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 300px;"></label>
                     </div>
                 </div>
             </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever declared bankruptcy and/or have you ever been declared bankruptcy by
+                            regulators/authorities? If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 220px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been investigated for any administrative case?<br>
+                            If yes, please provide details: <input type="text" name="" id=""
+                                style="width: 330px;"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="line">
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="width: 120px; font-size: 11pt; margin: 10px;">
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">YES</label>
+                        <input type="checkbox" id="" name="" value="">
+                        <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
+                    </div>
+                    <div style="width: 500px;; font-size: 8pt;  margin-top: 5px;">
+                        <label for="">Have you ever been terminated or forced to resign from any employment or
+                            affiliates of any Insurance
+                            Company or Financial Institution? If yes, please provide details: <input type="text" name=""
+                                id="" style="width: 180px;"></label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="line" style="font-size: 8pt;">
+                <p style="font-size: 9pt; font-weight: bold;">That I hereby expressly authorize Allianz PNB Life
+                    Insurance, Inc.:</p>
+
+                <ol>to use and process, whether manually or via electronic channels, any and all information I have
+                    provided above, including
+                    Personal and Sensitive Personal Information, to facilitate, monitor, and improve matters pursuant to
+                    my application.
+                </ol>
+                <ol>
+                    to share, transfer, and/or disclose the said information to any of its intermediaries, subsidiaries,
+                    affiliates, service
+                    providers, partners and government agencies for the said purposes
+                </ol>
+                <ol>
+                    I likewise promise to inform Allianz PNB Life Insurance, Inc. of any change relating to my personal
+                    information.
+                </ol>
+                <p style="font-size: 8pt; justify-content: center;">I further understand and acknowledge that such
+                    Personal Information may be used by AZPNBL to comply with its legal or
+                    regulatory obligations under applicable local or foreign laws, rules and regulations relating to
+                    matters including but not limited to
+                    anti-money laundering and tax monitoring/review/reporting.</p>
+            </div>
+
+            <div class="line" style="border-style: solid; border-width: 1px; padding: 2px; font-size: 9pt ;">
+
+                I declare that all information supplied above and all other records and documents submitted by me in
+                support of this
+                application are true and correct to the best of my knowledge and belief. I agree that any false record
+                on information
+                supplied may result in rejection of this application or if already accepted termination of my contract.
+                I agree that a
+                photographic copy of this authorization and waiver shall be valid as the original.
+
+            </div>
+            <div class="line">
+                <div style="margin-top: 10px; text-align: left; float: left;">
+                    <input type="text" name="applicantName" id="applicantName" style="margin-right: 200px;"><br>
+                    Applicant's Printed Name
+                </div>
+
+                <div style="margin-top: 10px; float: left;">
+                    <input type="text" name="date" id="date"><br>
+                    Date
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <br>
+
+            <div class="line">
+                <div style="margin-top: 10px; text-align: left;">
+                    <input type="text" name="" id=""><br>
+                    Signitarure
+                </div>
+            </div>
+
         </div>
-</section> -->
+        <div class="download-button-container">
+    <a href="<?= isset ($lifechangerform['user_id']) ? base_url('generatePdf/' . $lifechangerform['user_id']) : '#' ?>"
+       class="btn btn-success download-btn">Click to Download</a>
+</div>
+        
+    </div>
+
+    
+
+
+</body>
+
+</html>

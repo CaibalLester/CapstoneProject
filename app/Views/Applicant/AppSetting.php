@@ -98,7 +98,7 @@
                 </div>
 
                 <div class="row my-4">
-                    <div class="col-lg-12 col-12">
+                    <div class="col-lg-10 col-12">
                         <div class="custom-block bg-white">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -113,7 +113,7 @@
                                         aria-controls="password-tab-pane" aria-selected="false">Password</button>
                                 </li>
 
-                                <li class="nav-item" role="presentation">
+                                <!-- <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="contacts-tab" data-bs-toggle="tab"
                                         data-bs-target="#contacts-tab-pane" type="button" role="tab"
                                         aria-controls="contacts-tab-pane" aria-selected="false">Contacts</button>
@@ -122,7 +122,7 @@
                                     <button class="nav-link" id="address-tab" data-bs-toggle="tab"
                                         data-bs-target="#address-tab-pane" type="button" role="tab"
                                         aria-controls="address-tab-pane" aria-selected="false">Address</button>
-                                </li>
+                                </li> -->
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
@@ -138,49 +138,49 @@
                                                 <label for="lastname" class="small">Last Name</label>
                                                 <input class="form-control text-center" type="text" name="lastname"
                                                     id="profile-name" placeholder="Last Name"
-                                                    value="<?= isset($applicant['lastname']) ? $applicant['lastname'] : '' ?>">
+                                                    value="<?= isset ($applicant['lastname']) ? $applicant['lastname'] : '' ?>">
                                             </div>
                                             <div class="col-md-5 text-center">
                                                 <label for="firstname" class="small">First Name</label>
                                                 <input class="form-control text-center" type="text" name="firstname"
                                                     id="profile-name" placeholder="First Name"
-                                                    value="<?= isset($applicant['firstname']) ? $applicant['firstname'] : '' ?>">
+                                                    value="<?= isset ($applicant['firstname']) ? $applicant['firstname'] : '' ?>">
                                             </div>
                                             <div class="col-md-3 text-center">
                                                 <label for="middlename" class="small">Middle Name</label>
                                                 <input class="form-control text-center" type="text" name="middlename"
                                                     id="profile-name" placeholder="Middle Name"
-                                                    value="<?= isset($applicant['middlename']) ? $applicant['middlename'] : '' ?>"">
+                                                    value="<?= isset ($applicant['middlename']) ? $applicant['middlename'] : '' ?>"">
                                             </div>
                                         </div>
 
-                                        <div class=" row">
+                                            <div class=" row">
                                                 <div class="col-md-3 text-center">
                                                     <label for="number" class="small">Number</label>
                                                     <input class="form-control text-center" type="text" name="number"
                                                         placeholder="Please Enter Your Number"
-                                                        value="<?= isset($applicant['number']) ? $applicant['number'] : '' ?>">
+                                                        value="<?= isset ($applicant['number']) ? $applicant['number'] : '' ?>">
                                                 </div>
 
                                                 <div class="col-md-4 text-center">
                                                     <label for="email" class="small">Email</label>
                                                     <input class="form-control text-center" type="email" name="email"
                                                         placeholder="Email"
-                                                        value="<?= isset($applicant['email']) ? $applicant['email'] : '' ?>">
+                                                        value="<?= isset ($applicant['email']) ? $applicant['email'] : '' ?>">
                                                 </div>
                                                 <div class="col-md-3 text-center">
                                                     <label for="birthday" class="small">Birthday</label>
                                                     <input class="form-control text-center text-center" type="date"
                                                         name="birthday"
                                                         placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                                        value="<?= isset($applicant['birthday']) ? $applicant['birthday'] : '' ?>">
+                                                        value="<?= isset ($applicant['birthday']) ? $applicant['birthday'] : '' ?>">
                                                 </div>
 
                                                 <div class="col-md-2 text-center">
                                                     <label for="username" class="small">Username</label>
                                                     <input class="form-control text-center" type="text" name="username"
                                                         id="profile-name" placeholder="Full name"
-                                                        value="<?= isset($applicant['username']) ? $applicant['username'] : '' ?>">
+                                                        value="<?= isset ($applicant['username']) ? $applicant['username'] : '' ?>">
                                                 </div>
                                             </div>
 
@@ -189,45 +189,44 @@
                                                     <label for="region" class="small">Region</label>
                                                     <select class="form-control text-center" name="region" id="region">
                                                         <option
-                                                            value="<?= isset($applicant['region']) ? $applicant['region'] : '' ?>"
+                                                            value="<?= isset ($applicant['region']) ? $applicant['region'] : '' ?>"
                                                             selected>
-                                                            <?= isset($applicant['region']) ? $applicant['region'] : '' ?>
+                                                            <?= isset ($applicant['region']) ? $applicant['region'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="region_text"
-                                                        value="<?= isset($applicant['region']) ? $applicant['region'] : '' ?>"
+                                                        value="<?= isset ($applicant['region']) ? $applicant['region'] : '' ?>"
                                                         id="region-text" required>
                                                 </div>
-
 
                                                 <div class="col-md-3 text-center">
                                                     <label for="province" class="small">Province</label>
                                                     <select class="form-control text-center" name="province"
                                                         id="province">
                                                         <option
-                                                            value="<?= isset($applicant['province']) ? $applicant['province'] : '' ?>"
+                                                            value="<?= isset ($applicant['province']) ? $applicant['province'] : '' ?>"
                                                             selected>
-                                                            <?= isset($applicant['province']) ? $applicant['province'] : '' ?>
+                                                            <?= isset ($applicant['province']) ? $applicant['province'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="province_text"
-                                                        value="<?= isset($applicant['province']) ? $applicant['province'] : '' ?>"
+                                                        value="<?= isset ($applicant['province']) ? $applicant['province'] : '' ?>"
                                                         id="province-text" required>
                                                 </div>
                                                 <div class="col-md-3 text-center">
                                                     <label for="city" class="small">City/Municipality</label>
                                                     <select class="form-control text-center" name="city" id="city">
                                                         <option
-                                                            value="<?= isset($applicant['city']) ? $applicant['city'] : '' ?>"
+                                                            value="<?= isset ($applicant['city']) ? $applicant['city'] : '' ?>"
                                                             selected>
-                                                            <?= isset($applicant['city']) ? $applicant['city'] : '' ?>
+                                                            <?= isset ($applicant['city']) ? $applicant['city'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="city_text"
-                                                        value="<?= isset($applicant['city']) ? $applicant['city'] : '' ?>"
+                                                        value="<?= isset ($applicant['city']) ? $applicant['city'] : '' ?>"
                                                         id="city-text" required>
                                                 </div>
                                                 <div class="col-md-3 text-center">
@@ -235,14 +234,14 @@
                                                     <select class="form-control text-center" name="barangay"
                                                         id="barangay">
                                                         <option
-                                                            value="<?= isset($applicant['barangay']) ? $applicant['barangay'] : '' ?>"
+                                                            value="<?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>"
                                                             selected>
-                                                            <?= isset($applicant['barangay']) ? $applicant['barangay'] : '' ?>
+                                                            <?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="barangay_text"
-                                                        value="<?= isset($applicant['barangay']) ? $applicant['barangay'] : '' ?>"
+                                                        value="<?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>"
                                                         id="barangay-text" required>
                                                 </div>
                                             </div>
@@ -251,7 +250,7 @@
                                                 <div class="col-md-12 text-center">
                                                     <label for="street" class="small">Street (optional)</label>
                                                     <input class="form-control text-center" type="text" name="street"
-                                                        value="<?= isset($applicant['street']) ? $applicant['street'] : '' ?>"
+                                                        value="<?= isset ($applicant['street']) ? $applicant['street'] : '' ?>"
                                                         id="street" placeholder="Street">
                                                 </div>
                                             </div>
@@ -260,7 +259,7 @@
                                                 <div class="col-lg-6 col-6">
                                                     <div class="input-group mb-1">
                                                         <img id="preview-image"
-                                                            src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                                            src="<?= isset ($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
                                                             class="profile-image img-fluid" alt="profile">
                                                         <input type="file" name="profile" class="form-control"
                                                             id="inputGroupFile02" onchange="previewImage()">
@@ -281,25 +280,24 @@
 
                                     <form class="custom-form password-form" action="/updatePassword" method="post"
                                         role="form" onsubmit="return confirmSubmitpassword()">
-                                        <div class="col-md-8 mb-3 col-lg-12"> 
+                                        <div class="col-md-12 mb-3 col-lg-8">
                                             <!-- Added col-md-8 class -->
                                             <input type="password" name="current_password" id="current_password"
                                                 pattern="[0-9a-zA-Z]{4,10}" class="form-control"
-                                                placeholder="Current Password" required="">
+                                                placeholder="Current Password" required>
 
                                             <input type="password" name="new_password" id="new_password"
                                                 pattern="[0-9a-zA-Z]{4,10}" class="form-control"
-                                                placeholder="New Password" required="">
+                                                placeholder="New Password" required>
 
                                             <input type="password" name="confirm_new_password" id="confirm_new_password"
                                                 pattern="[0-9a-zA-Z]{4,10}" class="form-control"
-                                                placeholder="Confirm Password" required="">
+                                                placeholder="Confirm Password" required>
 
                                             <div class="d-flex">
                                                 <button type="button" class="form-control me-3">Reset</button>
-                                                <button type="submit" class="form-control ms-2">Update Password</button>
+                                                <button type="submit" class="form-control ms-2">Update</button>
                                             </div>
-
                                         </div>
                                     </form>
                                 </div>
