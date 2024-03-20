@@ -8,3 +8,15 @@ in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
  8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-03-20 13:08:58 --> Undefined array key "agent_token"
+in APPPATH\Views\Admin\ManageAgent.php on line 90.
+ 1 APPPATH\Views\Admin\ManageAgent.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "agent_token"', 'C:\\laragon\\www\\ProjectSystem\\app\\Views\\Admin\\ManageAgent.php', 90)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\ProjectSystem\\app\\Views\\Admin\\ManageAgent.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/ManageAgent', [], true)
+ 5 APPPATH\Controllers\AdminController.php(73): view('Admin/ManageAgent', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->ManageAgent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\ProjectSystem\\public\\index.php')

@@ -13,7 +13,19 @@ class AdminModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['admin_id','adminCode','adminProfile','Adminfullname','email','division','branch','username','birthday','address','number'];
+    protected $allowedFields    = [
+        'admin_id', 'adminCode', 'adminProfile', 'Adminfullname', 'email', 'division', 'branch', 'username', 'birthday', 'address', 'number',
+        'admin_token',
+        'firstname',
+        'lastname',
+        'middlename',
+        'region',
+        'province',
+        'city',
+        'barangay',
+        'street',
+
+    ];
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';

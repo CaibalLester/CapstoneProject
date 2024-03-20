@@ -87,62 +87,126 @@
                                         enctype="multipart/form-data" onsubmit="return confirmSubmit()">
 
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="username" class="form-label">Username</label>
-                                                <input class="form-control" type="username" name="username"
-                                                    placeholder="Username"
-                                                    value="<?= isset($admin['username']) ? $admin['username'] : '' ?>">
+                                            <div class="col-md-4 text-center">
+                                                <label for="lastname" class="small">Last Name</label>
+                                                <input class="form-control text-center" type="text" name="lastname"
+                                                    id="profile-name" placeholder="Last Name"
+                                                    value="<?= isset ($admin['lastname']) ? $admin['lastname'] : '' ?>">
                                             </div>
-                                            <div class="col-md-9">
-                                                <label for="addminfullname" class="form-label">Full Name</label>
-                                                <input class="form-control" type="text" name="Adminfullname"
-                                                    id="profile-name" placeholder="Full name"
-                                                    value="<?= isset($admin['Adminfullname']) ? $admin['Adminfullname'] : '' ?>">
+                                            <div class="col-md-5 text-center">
+                                                <label for="firstname" class="small">First Name</label>
+                                                <input class="form-control text-center" type="text" name="firstname"
+                                                    id="profile-name" placeholder="First Name"
+                                                    value="<?= isset ($admin['firstname']) ? $admin['firstname'] : '' ?>">
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label for="number" class="form-label">Number</label>
-                                                <input class="form-control" type="text" name="number"
-                                                    placeholder="Please Enter Your Number"
-                                                    value="<?= isset($admin['number']) ? $admin['number'] : '' ?>">
-                                            </div>
-
-                                            <div class="col-md-5">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input class="form-control" type="email" name="email"
-                                                    placeholder="Email"
-                                                    value="<?= isset($admin['email']) ? $admin['email'] : '' ?>">
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="birthday" class="form-label">Birthday</label>
-                                                <input class="form-control" type="date" name="birthday"
-                                                    placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                                    value="<?= isset($admin['birthday']) ? $admin['birthday'] : '' ?>">
+                                            <div class="col-md-3 text-center">
+                                                <label for="middlename" class="small">Middle Name</label>
+                                                <input class="form-control text-center" type="text" name="middlename"
+                                                    id="profile-name" placeholder="Middle Name"
+                                                    value="<?= isset ($admin['middlename']) ? $admin['middlename'] : '' ?>"">
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="address" class="form-label">Complete Address</label>
-                                                <input class="form-control" type="text" name="address"
-                                                    placeholder="address" value="<?= isset($admin['address']) ? $admin['address'] : '' ?>">
-                                            </div>
-                                            
-                                            <div class="col-md-3">
-                                                <label for="branch" class="form-label">Branch</label>
-                                                <input class="form-control" type="text" name="branch"
-                                                    placeholder="Branch" value="<?= $user['branch']; ?>" readonly>
+                                        <div class=" row">
+                                                <div class="col-md-3 text-center">
+                                                    <label for="number" class="small">Number</label>
+                                                    <input class="form-control text-center" type="text" name="number"
+                                                        placeholder="Please Enter Your Number"
+                                                        value="<?= isset ($admin['number']) ? $admin['number'] : '' ?>">
+                                                </div>
+
+                                                <div class="col-md-4 text-center">
+                                                    <label for="email" class="small">Email</label>
+                                                    <input class="form-control text-center" type="email" name="email"
+                                                        placeholder="Email"
+                                                        value="<?= isset ($admin['email']) ? $admin['email'] : '' ?>">
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="birthday" class="small">Birthday</label>
+                                                    <input class="form-control text-center text-center" type="date"
+                                                        name="birthday"
+                                                        placeholder="Please Enter your Birthday mm/dd/yyyy"
+                                                        value="<?= isset ($admin['birthday']) ? $admin['birthday'] : '' ?>">
+                                                </div>
+
+                                                <div class="col-md-2 text-center">
+                                                    <label for="username" class="small">Username</label>
+                                                    <input class="form-control text-center" type="text" name="username"
+                                                        id="profile-name" placeholder="Full name"
+                                                        value="<?= isset ($admin['username']) ? $admin['username'] : '' ?>">
+                                                </div>
                                             </div>
 
-                                            <div class="col-md-3">
-                                                <label for="division" class="form-label">Division</label>
-                                                <input class="form-control" type="text" name="branch"
-                                                    placeholder="Division" value="<?= $admin['division']; ?>" readonly>
+                                            <div class="row">
+                                                <div class="col-md-3 text-center">
+                                                    <label for="region" class="small">Region</label>
+                                                    <select class="form-control text-center" name="region" id="region">
+                                                        <option
+                                                            value="<?= isset ($admin['region']) ? $admin['region'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($admin['region']) ? $admin['region'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="region_text"
+                                                        value="<?= isset ($admin['region']) ? $admin['region'] : '' ?>"
+                                                        id="region-text" required>
+                                                </div>
+
+                                                <div class="col-md-3 text-center">
+                                                    <label for="province" class="small">Province</label>
+                                                    <select class="form-control text-center" name="province"
+                                                        id="province">
+                                                        <option
+                                                            value="<?= isset ($admin['province']) ? $admin['province'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($admin['province']) ? $admin['province'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="province_text"
+                                                        value="<?= isset ($admin['province']) ? $admin['province'] : '' ?>"
+                                                        id="province-text" required>
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="city" class="small">City/Municipality</label>
+                                                    <select class="form-control text-center" name="city" id="city">
+                                                        <option
+                                                            value="<?= isset ($admin['city']) ? $admin['city'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($admin['city']) ? $admin['city'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="city_text"
+                                                        value="<?= isset ($admin['city']) ? $admin['city'] : '' ?>"
+                                                        id="city-text" required>
+                                                </div>
+                                                <div class="col-md-3 text-center">
+                                                    <label for="barangay" class="small">Barangay</label>
+                                                    <select class="form-control text-center" name="barangay"
+                                                        id="barangay">
+                                                        <option
+                                                            value="<?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>"
+                                                            selected>
+                                                            <?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>
+                                                        </option>
+                                                    </select>
+                                                    <input type="hidden" class="form-control form-control-md"
+                                                        name="barangay_text"
+                                                        value="<?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>"
+                                                        id="barangay-text" required>
+                                                </div>
                                             </div>
-                                        </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <label for="street" class="small">Street (optional)</label>
+                                                    <input class="form-control text-center" type="text" name="street"
+                                                        value="<?= isset ($admin['street']) ? $admin['street'] : '' ?>"
+                                                        id="street" placeholder="Street">
+                                                </div>
+                                            </div>
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -241,6 +305,8 @@
             }
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php base_url() ?>add/ph-address-selector.js"></script>
 </body>
 
 </html>
