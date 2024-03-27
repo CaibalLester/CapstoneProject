@@ -90,13 +90,13 @@
             </nav>
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3">
+                <div class="title-group mb-3 text-center">
                     <h3>LIFE CHANGER FORM</h3>
                 </div>
 
                 <section class="section">
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
                             <div class="card">
                                 <div class="card-body">
 
@@ -352,7 +352,7 @@
                                                     </div>
 
                                                     <h6>Educational Background</h6>
-                                                    <div class="table-responsive">
+                                                    <div class="table-responsive" style="font-size: 10pt">
                                                         <table class="table table-bordered">
                                                             <tr>
                                                                 <th></th>
@@ -404,7 +404,7 @@
                                                     </div>
 
                                                     <h6>Employment History</h6>
-                                                    <div class="table-responsive">
+                                                    <div class="table-responsive" style="font-size: 10pt">
                                                         <table class="table table-bordered">
                                                             <tr>
                                                                 <th class="text-center">NAME AND ADDRESS OF EMPLOYER

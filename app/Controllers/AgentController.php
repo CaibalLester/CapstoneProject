@@ -29,6 +29,7 @@ class AgentController extends BaseController
     //     $data = array_merge($this->getData(), $this->getDataAge());
     //     return view('Agent/AgProfile', $data);
     // }
+    
     public function AgProfile()
     {
         $agentModel = new AgentModel();

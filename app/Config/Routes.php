@@ -11,12 +11,11 @@ $routes->get('/ManageAgent', 'AdminController::ManageAgent', ['filter' => 'admin
 $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilter']);
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
-
+$routes->get('/add', 'ProfileController::add', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'],'/usermanagement', 'UsersManageController::usermanagement', ['filter' => 'adminFilter']);
 $routes->post('/newuser', 'UsersManageController::newuser', ['filter' => 'adminFilter']);
 $routes->post('/upuser/(:any)', 'UsersManageController::upuser/$1', ['filter' => 'adminFilter']);
-// $routes->get('/AdChat', 'RTCController::AdChat');
 
 
 $routes->get('/ViewAppForm/(:any)', 'AdminController::ViewAppForm/$1', ['filter' => 'authGuard']);
@@ -35,6 +34,9 @@ $routes->get('/RTC', 'AdminController::RTC', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'], '/agentprofile/(:any)', 'ProfileController::agentprofile/$1', ['filter' => 'adminFilter']);
 $routes->match(['get', 'post'], '/applicantprofile/(:any)', 'ProfileController::applicantprofile/$1', ['filter' => 'adminFilter']);
+
+
+
 
 $routes->get('/AppDash', 'AppController::AppDash', ['filter' => 'applicantFilter']);
 $routes->get('/AppProfile', 'AppController::AppProfile', ['filter' => 'applicantFilter']);
@@ -65,11 +67,12 @@ $routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' =>
 $routes->get('/', 'HomepageController::home');
 $routes->get('/register', 'HomepageController::register');
 $routes->post('/Authreg', 'HomepageController::Authreg');
-$routes->post('/updatePassword', 'HomepageController::updatePassword');
+$routes->post('/updatePassword', 'HomepageController::updatePassword', ['filter' => 'authGuard']);
 $routes->get('/login', 'HomepageController::login');
 $routes->post('/authlog', 'HomepageController::authlog');
 // $routes->match(['get', 'post'], 'login', 'HomepageController::authlog', ["filter" => "role"]);
 
+//home
 $routes->get('/logout', 'HomepageController::logout');
 $routes->get('/forgot', 'HomepageController::forgot');
 $routes->post('send-reset-link', 'HomepageController::sendResetLink');
@@ -77,22 +80,29 @@ $routes->get('reset-password/(:segment)', 'HomepageController::resetPassword/$1'
 $routes->post('reset-password/(:segment)', 'HomepageController::processResetPassword/$1');
 $routes->get('verify-email/(:segment)', 'HomepageController::verifyEmail/$1');
 
-
+//charts
 $routes->get('/monthlyAgentCount', 'ChartsController::monthlyAgentCount', ['filter' => 'authGuard']);
 $routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingApplicantCount', ['filter' => 'authGuard']);
 // $routes->get('/emailtest', 'HomepageController::emailtest');
 
-
+//RTC
 $routes->get('/homechat', 'RTCController::RTC');
 $routes->post('/chat', 'RTCController::chat');
-
 $routes->get('/send', 'RTCController::send');
 
-
-// In your routes file
+//pdf
 $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
 
-$routes->get('/add', 'ProfileController::add');
+
+
+//Clientt
+$routes->get('/ClientPage', 'ClientController::index');
+
+$routes->get('/ClientRegister', 'ClientController::register');
+
+$routes->get('/ClientLogin', 'ClientController::login');
+
+
 

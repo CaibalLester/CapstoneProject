@@ -11,7 +11,7 @@
                 class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="/" class="logo d-flex align-items-center w-auto">
@@ -20,7 +20,7 @@
                                 </a>
                             </div><!-- End Logo -->
 
-                            <div class="card mb-3">
+                            <div class="card mb-3 small">
 
                                 <div class="card-body">
 
@@ -68,6 +68,7 @@
                                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                                             </div>
                                         </div>
+                                        
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit"
                                                 onclick="showConfirmation()">Login</button>

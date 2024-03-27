@@ -100,7 +100,8 @@ class UsersManageController extends BaseController
             'username' => $this->request->getVar('upusername'),
             'email' => $this->request->getVar('upemail'),
             'role' => $this->request->getVar('uprole'),
-            'password' => password_hash($this->request->getVar('uppassword'), PASSWORD_DEFAULT),
+            'accountStatus' => $this->request->getPost('accountStatus'),
+
         ];
         $this->user->set($newuser)->where('token', $token)->update();
         return redirect()->to('usermanagement')->with('success', 'Account updated');

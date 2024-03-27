@@ -59,17 +59,14 @@ class RTCController extends BaseController
         // Assuming $this->chat is your model, you can retrieve the chat messages like this
         $chatModel = new RTCModel();
 
-        $data['chat'] = $chatModel->where('sender', $userId)->orderBy('id', 'desc')->get();
-        
+        $data['chat'] = $this->chat->where('sender', $userId)->orderBy('id', 'desc')->get();
+
         // Insert the new message
         $this->chat->insert($data);
-
-        // Redirect back to the chat page
-        return redirect()->to('/homechat');
     }
+
     public function RTC()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->getUserData());
         $session = session();
         $userId = $session->get('id');
         $chatModel = new RTCModel();
@@ -78,44 +75,45 @@ class RTCController extends BaseController
         $data['chat'] = $chatModel->where('recipient', $userId)->findAll();
         $data['recieve'] = $chatModel->where('sender', $userId)->findAll();
 
+        // Calculate time difference for each message
         foreach ($data['chat'] as &$chat) {
-            // Convert created_at to DateTime object
             $createdAt = new \DateTime($chat['created_at']);
-
-            // Calculate the time difference
             $now = new \DateTime();
             $diff = $now->diff($createdAt);
-
-            // Add the time difference to the chat array
             $chat['time_diff'] = $this->formatTimeDifference($diff);
         }
-        return view('Admin/AdChat', $data);
+        foreach ($data['recieve'] as &$receive) {
+            $createdAt = new \DateTime($receive['created_at']);
+            $now = new \DateTime();
+            $diff = $now->diff($createdAt);
+            $receive['time_diff'] = $this->formatTimeDifference($diff);
+        }
+        return $data;
     }
+
 
     // Helper function to format time difference
     private function formatTimeDifference($diff)
     {
         $formattedDiff = '';
-
         if ($diff->y > 0) {
-            $formattedDiff .= $diff->y . ' year(s) ';
+            $formattedDiff .= $diff->y . 'y';
         }
         if ($diff->m > 0) {
-            $formattedDiff .= $diff->m . ' month(s) ';
+            $formattedDiff .= $diff->m . 'mon';
         }
         if ($diff->d > 0) {
-            $formattedDiff .= $diff->d . ' day(s) ';
+            $formattedDiff .= $diff->d . 'd' . ' ' ;
         }
         if ($diff->h > 0) {
-            $formattedDiff .= $diff->h . ' hour(s) ';
+            $formattedDiff .= $diff->h . 'h' . ' ' ;
         }
         if ($diff->i > 0) {
-            $formattedDiff .= $diff->i . ' minute(s) ';
+            $formattedDiff .= $diff->i . 'm' . ' ';
         }
         if ($diff->s > 0) {
-            $formattedDiff .= $diff->s . ' second(s) ';
+            $formattedDiff .= $diff->s . 's';
         }
-
         return $formattedDiff;
     }
     private function getDataAd()
@@ -161,5 +159,5 @@ class RTCController extends BaseController
 
         return $data;
     }
-    
+
 }

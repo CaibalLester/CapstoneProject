@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\RTCController;
 use App\Models\AdminModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
@@ -15,7 +16,7 @@ use Dompdf\Options;
 
 class AdminController extends BaseController
 {
-
+    private $rtc;
     private $agent;
     private $user;
     private $applicant;
@@ -24,6 +25,7 @@ class AdminController extends BaseController
     private $form3;
     public function __construct()
     {
+        $this->rtc = new RTCController();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
         $this->agent = new AgentModel();

@@ -3,24 +3,27 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\ClientModel;
 use App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 
 class HomepageController extends BaseController
 {
+    private $client;
     private $user;
     private $form1;
     public function __construct()
     {
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
+        $this->client = new ClientModel();
     }
     public function home()
     {
         return view('Home/home');
     }
-    
+
     public function logout()
     {
         $updatetoken = bin2hex(random_bytes(24));
@@ -54,19 +57,13 @@ class HomepageController extends BaseController
     public function Authreg()
     {
         helper(['form']);
-        // $rules = [
-        //     'username' => 'required|min_length[3]|max_length[50]',
-        //     'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email]',
-        //     'password' => 'required|min_length[6]|max_length[50]',
-        //     'confirmpassword' => 'matches[password]',
-        // ];
         $rules = [
             'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username,id]',
             'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email,id]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
         ];
-        
+
         $verificationToken = bin2hex(random_bytes(16));
         $usertoken = bin2hex(random_bytes(24));
         if ($this->validate($rules)) {
@@ -79,9 +76,10 @@ class HomepageController extends BaseController
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'branch' => 'Calapan',
-                'role' => 'applicant',
+                'role' => $this->request->getVar('role'),
                 'status' => 'unverified',
                 'verification_token' => $verificationToken,
+                'accountStatus' => 'active',
                 'token' => $usertoken,
             ];
 
@@ -91,39 +89,59 @@ class HomepageController extends BaseController
             // Retrieve the ID of the newly inserted user
             $userId = $userModel->insertID();
 
-            $applicantData = [
-                'applicant_id' => $userId, // Use the retrieved user ID as the applicant_id
-                'username' => $this->request->getVar('username'),
-                'number' => $this->request->getVar('number'),
-                'firstname' => $this->request->getVar('firstname'),
-                'lastname' => $this->request->getVar('lastname'),
-                'middlename' => $this->request->getVar('middlename'),
-                'email' => $this->request->getVar('email'),
-                'branch' => 'Calapan',
-                'app_token' => $usertoken,
-            ];
+            if ($this->request->getVar('role') === 'applicant') {
+                // Prepare applicant data
+                $applicantData = [
+                    'applicant_id' => $userId, // Use the retrieved user ID as the applicant_id
+                    'username' => $this->request->getVar('username'),
+                    'number' => $this->request->getVar('number'),
+                    'firstname' => $this->request->getVar('firstname'),
+                    'lastname' => $this->request->getVar('lastname'),
+                    'middlename' => $this->request->getVar('middlename'),
+                    'email' => $this->request->getVar('email'),
+                    'branch' => 'Calapan',
+                    'app_token' => $usertoken,
+                ];
 
-            // Insert applicant data into the applicant table
-            $applicantModel->save($applicantData);
+                // Insert applicant data into the applicant table using the applicant model
+                $applicantModel->save($applicantData);
 
-            //insert id and token in forms
-            $formdata = [
-                'user_id' => $userId,
-                'app_life_token' => $usertoken,
-            ];
-            $form1->save($formdata);
+                // Insert user ID and token in forms table using form1 model
+                $formdata = [
+                    'user_id' => $userId,
+                    'app_life_token' => $usertoken,
+                ];
+                $form1->save($formdata);
+            }
+            if ($this->request->getVar('role') === 'client') {
+                $clientData = [
+                    'client_id' => $userId, // Use the retrieved user ID as the applicant_id
+                    'username' => $this->request->getVar('username'),
+                    'number' => $this->request->getVar('number'),
+                    'firstname' => $this->request->getVar('firstname'),
+                    'lastname' => $this->request->getVar('lastname'),
+                    'middlename' => $this->request->getVar('middlename'),
+                    'email' => $this->request->getVar('email'),
+                    'client_token' => $usertoken,
+                ];
+
+                $this->client->save($clientData);
+                // var_dump($clientData);
+            }
 
             // Send verification email
             $verificationLink = site_url("verify-email/{$verificationToken}");
             $emailSubject = 'Email Verification';
             $emailMessage = "Click the link to verify your email: $verificationLink";
             $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
-            // var_dump($verificationLink);
             return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
 
-        } 
-        else {
-            return redirect()->to('/register')->with('error', 'Invalid Input');
+        } else {
+            if ($this->request->getVar('role') === 'client') {
+                return redirect()->to('/ClientRegister')->with('error', 'Invalid Input');
+            } else {
+                return redirect()->to('/register')->with('error', 'Invalid Input');
+            }
         }
     }
 
@@ -137,7 +155,7 @@ class HomepageController extends BaseController
             'protocol' => 'smtp',
             'SMTPHost' => 'smtp.gmail.com',
             'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
-            'SMTPPass' => 'glvwgdahdbexhvim',
+            'SMTPPass' => 'ktngmlxxdppfemnx',
             'SMTPPort' => 587,
             'SMTPCrypto' => 'tls',
             'mailType' => 'html',
@@ -165,7 +183,7 @@ class HomepageController extends BaseController
 
         // Find user by verification token
         $user = $userModel->where('verification_token', $token)
-            ->where('status', 'pending')
+            ->where('status', 'unverified')
             ->first();
 
         if ($user) {
@@ -174,7 +192,6 @@ class HomepageController extends BaseController
                 'status' => 'verified',
                 'verification_token' => null
             ]);
-
             // Redirect to a success page or login page
             return redirect()->to('/login')->with('success', 'Email verified! You can now log in with your account.');
         } else {
@@ -197,7 +214,6 @@ class HomepageController extends BaseController
         }
 
         $user = $userModel->where('email', $email)->first();
-
         // Check if the user exists
         if ($user) {
             // Check if the user's status is 'verified'
@@ -208,37 +224,38 @@ class HomepageController extends BaseController
                         'id' => $user['id'],
                         'role' => $user['role'],
                         'IsLoggin' => true,
-
+                        'accountStatus' => $user['accountStatus'],
                     ];
                     $session->set($sessionData);
-
-                    // Debugging statements
-                    // var_dump($sessionData);  // Check if session data is correct
 
                     if ($user['role'] == 'admin') {
                         return redirect()->to('/AdDash');
                     } elseif ($user['role'] == 'applicant') {
-                        return redirect()->to('/AppDash')->with('success', 'Account Login: ' . $user['username']);
+                        return redirect()->to('/AppDash');
                     } elseif ($user['role'] == 'agent') {
-                        return redirect()->to('/AgDash')->with('success', 'Account Login: ' . $user['role']);
+                        return redirect()->to('/AgDash');
+                    } elseif ($user['role'] == 'client') {
+                        return redirect()->to('/ClientPage');
                     }
+
                 } else {
                     // Password mismatch
                     $session->setFlashdata('error', 'Invalid password.');
                     return redirect()->to('/login');
                 }
+
             } else {
                 // User status is not 'verified'
                 $session->setFlashdata('error', 'Your account is not verified. Please check your email for verification.');
                 return redirect()->to('/login');
             }
+
         } else {
             // User not found
             $session->setFlashdata('error', 'Email address not found.');
             return redirect()->to('/login');
         }
     }
-
 
     public function updatePassword()
     {
@@ -300,7 +317,7 @@ class HomepageController extends BaseController
                 'protocol' => 'smtp',
                 'SMTPHost' => 'smtp.gmail.com',
                 'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
-                'SMTPPass' => 'glvwgdahdbexhvim',
+                'SMTPPass' => 'ktngmlxxdppfemnx',
                 'SMTPPort' => 587,
                 'SMTPCrypto' => 'tls',
                 'mailType' => 'html',
@@ -361,7 +378,7 @@ class HomepageController extends BaseController
             $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
             $userModel->update($user['id'], ['password' => $newPassword, 'pass_token' => null]);
 
-            return redirect()->to('/login')->with('success', 'Password reset successful. You can now log in with your new password.');
+            return redirect()->to('/login')->with('success', 'Password reset successful');
         } else {
             $data['pass_token'] = $token; // Add this line to pass the token to the view
             $data['vali'] = $this->validator;

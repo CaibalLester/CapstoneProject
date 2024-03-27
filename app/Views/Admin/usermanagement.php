@@ -137,7 +137,7 @@
                                     </script>
                                     <div class="modal fade" id="myModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog modal-md">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Add new User</h5>
@@ -171,8 +171,7 @@
                                                             <label for="password" class="form-label">Password</label>
                                                             <div class="input-group">
                                                                 <input type="password" class="form-control"
-                                                                    id="password" name="password" value="123123"
-                                                                    required>
+                                                                    id="password" name="password" required>
                                                                 <button class="btn btn-outline-secondary" type="button"
                                                                     id="showPasswordToggle">
                                                                     <i class="bi bi-eye"></i>
@@ -186,7 +185,7 @@
                                                             <div class="input-group">
                                                                 <input type="password" class="form-control"
                                                                     id="confirmpassword" name="confirmpassword"
-                                                                    value="123123" required>
+                                                                    required>
                                                                 <button class="btn btn-outline-secondary" type="button"
                                                                     id="showConfirmPasswordToggle">
                                                                     <i class="bi bi-eye"></i>
@@ -212,6 +211,7 @@
                                                 <tr>
                                                     <th scope="col">User Name</th>
                                                     <th scope="col">Email</th>
+                                                    <th scope="col">Status</th>
                                                     <th scope="col">Role</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Action</th>
@@ -226,6 +226,25 @@
                                                         <td>
                                                             <?= $user['email'] ?>
                                                         </td>
+                                                        <td style="color: 
+                                                                <?php
+                                                                switch ($user['accountStatus']) {
+                                                                    case 'active':
+                                                                        echo 'green';
+                                                                        break;
+                                                                    case 'inactive':
+                                                                        echo 'yellow';
+                                                                        break;
+                                                                    case 'restricted':
+                                                                        echo 'red';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'black'; // Default color if status is not recognized
+                                                                }
+                                                                ?>
+                                                            ">
+                                                            <?= $user['accountStatus'] ?>
+                                                        </td>
                                                         <td>
                                                             <?= $user['role'] ?>
                                                         </td>
@@ -238,15 +257,15 @@
                                                                 data-bs-target="#myModal<?= $user['id'] ?>">
                                                                 <i class="fas fa-pen"></i>
                                                             </button>
-                                                            <a href="<?= $user['token'] ?>" class="btn btn-secondary">
+                                                            <!-- <a href="<?= $user['token'] ?>" class="btn btn-secondary">
                                                                 <li class="fas fa-eye"></li>
-                                                            </a>
+                                                            </a> -->
                                                         </td>
                                                     </tr>
                                                     <!-- Modal for each user -->
                                                     <div class="modal fade" id="myModal<?= $user['id'] ?>" tabindex="-1"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
+                                                        <div class="modal-dialog modal-sm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title" id="exampleModalLabel">User
@@ -254,9 +273,10 @@
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
+
                                                                 <div class="modal-body">
-                                                                    <form action="/upuser/<?= $user['token'] ?>" method="post" role="form">
-                                                                        <!-- Your registration form goes here -->
+                                                                    <form action="/upuser/<?= $user['token'] ?>"
+                                                                        method="post" role="form">
                                                                         <div class="mb-3">
                                                                             <label for="upusername" class="form-label">User
                                                                                 Name</label>
@@ -273,6 +293,20 @@
                                                                         </div>
 
                                                                         <div class="mb-3">
+                                                                            <label for="accountStatus"
+                                                                                class="form-label">Status</label>
+                                                                            <select class="form-select" id="accountStatus"
+                                                                                name="accountStatus" required>
+                                                                                <option value="active"
+                                                                                    <?= $user['accountStatus'] === 'active' ? 'selected' : '' ?>>Active</option>
+                                                                                <option value="inactive"
+                                                                                    <?= $user['accountStatus'] === 'inactive' ? 'selected' : '' ?>>Inactive</option>
+                                                                                <option value="restricted"
+                                                                                    <?= $user['accountStatus'] === 'restricted' ? 'selected' : '' ?>>Restricted</option>
+                                                                            </select>
+                                                                        </div>
+
+                                                                        <div class="mb-3">
                                                                             <label for="uprole"
                                                                                 class="form-label">Role</label>
                                                                             <select class="form-select" id="role"
@@ -282,40 +316,10 @@
                                                                                 <option value="agent" <?php echo ($user['role'] == 'agent') ? 'selected' : ''; ?>>Agent</option>
                                                                             </select>
                                                                         </div>
-
-                                                                        <div class="mb-3">
-                                                                            <label for="uppassword"
-                                                                                class="form-label">Password</label>
-                                                                            <div class="input-group">
-                                                                                <input type="password" class="form-control"
-                                                                                    id="password" name="uppassword" value=""
-                                                                                    >
-                                                                                <button class="btn btn-outline-secondary"
-                                                                                    type="button" id="showPasswordToggle">
-                                                                                    <i class="bi bi-eye"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="mb-3">
-                                                                            <label for="upconfirmpassword"
-                                                                                class="form-label">Confirm
-                                                                                Password</label>
-                                                                            <div class="input-group">
-                                                                                <input type="password" class="form-control"
-                                                                                    id="confirmpassword"
-                                                                                    name="upconfirmpassword" value=""
-                                                                                    >
-                                                                                <button class="btn btn-outline-secondary"
-                                                                                    type="button"
-                                                                                    id="showConfirmPasswordToggle">
-                                                                                    <i class="bi bi-eye"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-bs-dismiss="modal">Close</button>
-                                                                            <button type="submit" class="btn btn-primary">Update</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Update</button>
                                                                     </form>
                                                                 </div>
                                                             </div>

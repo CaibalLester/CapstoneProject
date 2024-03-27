@@ -114,7 +114,7 @@
                     <div class="col-lg-5 col-12">
                         <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
-                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                <img src="<?= isset ($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
 
                                 <a href="/AppSetting" class="bi-pencil-square custom-block-edit-icon"></a>
@@ -173,15 +173,8 @@
                                 </span>
                             </p>
 
-                            <!-- <p class="d-flex flex-wrap mb-2">
-                                    <strong>Valid Date:</strong>
-
-                                    <span>July 18, 2032</span>
-                                </p> -->
                         </div>
                     </div>
-
-
                     <footer class="site-footer">
                         <div class="container">
                             <div class="row">
@@ -189,8 +182,9 @@
                             </div>
                         </div>
                     </footer>
+                </div>
+                <?= view('rtc/chat'); ?>
             </main>
-
         </div>
     </div>
 

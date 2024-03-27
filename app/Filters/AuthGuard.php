@@ -29,7 +29,12 @@ class AuthGuard implements FilterInterface
         if (!session()->get('IsLoggin') && $currentRoute !== 'login') {
             return redirect()->to('/login');
         }
-       
+        
+        $session = session();
+        if ($session->get('accountStatus') == 'restricted') {
+            $session->setFlashdata('error', 'Your account has been restricted. Please contact customer service for assistance.');
+            return redirect()->to('/login');
+        }
     }
 
     /**

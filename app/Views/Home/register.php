@@ -51,6 +51,8 @@
                     </div>
                   </div>
 
+                  <input type="hidden" name="role" class="form-control " id="role" value="applicant">
+
                   <div class="col-md-5 col-5">
                     <label for="firstname" class="form-label">First Name</label>
                     <div class="input-group has-validation">

@@ -7,7 +7,7 @@
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
@@ -38,7 +38,7 @@
                             </a>
                         </li>
 
-                        
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">
@@ -65,7 +65,7 @@
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                <img src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                <img src="<?= isset ($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
                                     alt="Profile" class="rounded-circle"
                                     style="width: 150px; height: 150px; cursor: pointer;" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Click to see QR code">
@@ -105,52 +105,51 @@
                                     Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
                                     sed ea saepe at unde.</p>
                                 <h5 class="card-title">Profile Details</h5>
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['Adminfullname'] ?>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php if (isset ($admin['lastname']) && isset ($admin['firstname']) && isset ($admin['middlename'])): ?>
+                                            <?= $admin['lastname'] ?>,
+                                            <?= $admin['firstname'] ?>
+                                            <?= $admin['middlename'] ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Username</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['username'] ?>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php echo isset ($admin['username']) ? $admin['username'] : '' ?>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Agent Code</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['adminCode'] ?>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Address</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['address'] ?>
-                                    </div>
-                                </div>
-
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['email'] ?>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php echo isset ($admin['email']) ? $admin['email'] : '' ?>
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= $admin['number'] ?>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php echo isset ($admin['number']) ? $admin['number'] : '' ?>
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Birthday</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        <?= date('M j, Y', strtotime($admin['birthday'])); ?>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php echo isset ($admin['birthday']) ? date('M j, Y', strtotime($admin['birthday'])) : ''; ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-3 col-md-4 label">Adress</div>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?= isset ($admin['province']) ? $admin['province'] : '' ?>,
+                                        <?= isset ($admin['city']) ? $admin['city'] : '' ?>,
+                                        <?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>,
+                                        <?= isset ($admin['street']) ? $admin['street'] : '' ?>
                                     </div>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Controllers\RTCController;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\Form2Model;
@@ -12,6 +13,7 @@ use \App\Models\AgentModel;
 
 class AppController extends BaseController
 {
+    private $RTC;
     private $agent;
     private $form1;
     private $form2;
@@ -25,13 +27,15 @@ class AppController extends BaseController
         $this->form2 = new Form2Model();
         $this->form3 = new Form3Model();
         $this->user = new UserModel();
+        $this->RTC = new RTCController();
         $this->applicant = new ApplicantModel();
     }
 
     public function AppDash()
     {
-        $data = array_merge($this->getData(), $this->getDataApp());
+        $data = array_merge($this->getData(), $this->getDataApp(), $this->RTC->RTC());
         return view('Applicant/AppDash', $data);
+        // var_dump($data);
     }
 
     public function AppProfile()
@@ -75,6 +79,7 @@ class AppController extends BaseController
             ->first();
         return $data;
     }
+
     private function getform2Data()
     {
         $session = session();
@@ -83,6 +88,7 @@ class AppController extends BaseController
             ->first();
         return $data;
     }
+
     private function getform3Data()
     {
         $session = session();
@@ -100,6 +106,7 @@ class AppController extends BaseController
             ->first();
         return $data;
     }
+    
     private function getform5Data()
     {
         $session = session();
