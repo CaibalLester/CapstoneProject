@@ -559,6 +559,9 @@
                                                     </table>
                                                     <input type="submit" value="Save" class="btn btn-primary">
                                         </fieldset>
+                                        <!-- Sa iyong view file -->
+                                        <div class="col-lg-3" id="signature" style="border-style: solid"></div>
+                                        <button onclick="saveSignature()">Save Signature</button>
                                     </form>
                                 </div>
                             </div>
@@ -566,13 +569,6 @@
                     </div>
                 </section>
 
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
-                    </div>
-                </footer>
             </main>
 
         </div>
@@ -582,3 +578,29 @@
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jSignature/2.1.2/jSignature.min.js"></script>
+
+<!-- Sa iyong view file -->
+<script>
+    // Initialize jSignature
+    var $sigdiv = $("#signature");
+    $sigdiv.jSignature();
+
+    // Function to save signature
+    function saveSignature() {
+        var data = $sigdiv.jSignature("getData", "image");
+
+        // Send the signature data to your CI4 controller using AJAX
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('controller/save_signature') ?>", // Replace 'controller/save_signature' with your actual controller method
+            data: { signatureData: data },
+            success: function(response) {
+                alert("Signature saved successfully!");
+            },
+            error: function(xhr, status, error) {
+                alert("Error saving signature!");
+            }
+        });
+    }
+</script>

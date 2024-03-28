@@ -68,7 +68,7 @@
                                                 <label class="form-check-label" for="rememberMe">Remember me</label>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit"
                                                 onclick="showConfirmation()">Login</button>
@@ -97,6 +97,31 @@
             return confirm("Are you sure you want to LogIn?");
         }
     </script>
+    <!-- <script>
+        function showOfflineModal() {
+            const modal = document.getElementById('offline-modal');
+            modal.style.display = 'block';
+        }
+
+        function hideOfflineModal() {
+            const modal = document.getElementById('offline-modal');
+            modal.style.display = 'none';
+        }
+
+        function checkOnlineStatus() {
+            if (!navigator.onLine) {
+                showOfflineModal();
+            } else {
+                hideOfflineModal();
+            }
+        }
+
+        window.addEventListener('online', checkOnlineStatus);
+        window.addEventListener('offline', checkOnlineStatus);
+
+        document.addEventListener('DOMContentLoaded', checkOnlineStatus);
+
+    </script> -->
 </body>
 
 </html>

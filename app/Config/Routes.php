@@ -25,7 +25,9 @@ $routes->get('/ViewAppForm4/(:any)', 'AdminController::ViewAppForm4/$1', ['filte
 $routes->get('/ViewAppForm5/(:any)', 'AdminController::ViewAppForm5/$1', ['filter' => 'authGuard']);
 
 
-$routes->post('/newAgent', 'AdminController::newAgent', ['filter' => 'adminFilter']);
+$routes->get('/newAgent/(:any)', 'AdminController::newAgent/$1', ['filter' => 'adminFilter']);
+$routes->match(['get', 'post'], '/promotion', 'AdminController::promotion', ['filter' => 'adminFilter']);
+
 $routes->get('/ManageApplicant', 'AdminController::ManageApplicant', ['filter' => 'adminFilter']);
 $routes->post('/userSearch', 'AdminController::userSearch', ['filter' => 'adminFilter']);
 $routes->post('/agentSearch', 'AdminController::agentSearch', ['filter' => 'adminFilter']);
@@ -93,8 +95,6 @@ $routes->get('/send', 'RTCController::send');
 //pdf
 $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
-
-
 
 
 //Clientt

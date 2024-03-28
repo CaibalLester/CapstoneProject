@@ -7,7 +7,7 @@
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
@@ -25,6 +25,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/promotion">
+                                <i class="fa fa-user me-2"></i>
+                                Promotion
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents
@@ -38,7 +45,7 @@
                             </a>
                         </li>
 
-                        
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">
@@ -127,7 +134,9 @@
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
                                             <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['lastname'] ?> ,<?= $applicant['firstname'] ?> <?= $applicant['middlename'] ?>.
+                                                <?= $applicant['lastname'] ?> ,
+                                                <?= $applicant['firstname'] ?>
+                                                <?= $applicant['middlename'] ?>.
                                             </div>
                                         </div>
 
@@ -142,9 +151,11 @@
                                         <div class="row">
                                             <div class="col-lg-3 col-md-4 label">Address</div>
                                             <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['region'] ?> , <?= $applicant['province'] ?> , 
-                                                <?= $applicant['city'] ?> , 
-                                                <?= $applicant['barangay'] ?> , <?= $applicant['street'] ?>
+                                                <?= $applicant['region'] ?> ,
+                                                <?= $applicant['province'] ?> ,
+                                                <?= $applicant['city'] ?> ,
+                                                <?= $applicant['barangay'] ?> ,
+                                                <?= $applicant['street'] ?>
                                             </div>
                                         </div>
 
@@ -169,7 +180,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="tab-pane fade pt-3" id="forms">
                                         <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
@@ -189,8 +200,8 @@
                                             </div>
                                             <div class="col-xl-2 my-3">
                                                 <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>"">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
+                                                    <img src=" <?= base_url(); ?>uploads/folder.png"
+                                                    class="card-img-top" alt="Life Changer Form Image">
                                                     Test
                                                 </a>
                                             </div>
@@ -216,8 +227,7 @@
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({
             username: "<?= $applicant['username'] ?>",
-            fullname: "<?= $applicant['lastname'] ?> ,<?= $applicant['firstname'] ?> <?= $applicant['middlename'] ?>.
-",
+            fullname: "<?= $applicant['lastname'] ?> ,<?= $applicant['firstname'] ?> <?= $applicant['middlename'] ?>",
             email: "<?= $applicant['email'] ?>",
             number: "<?= $applicant['number'] ?>",
             birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"

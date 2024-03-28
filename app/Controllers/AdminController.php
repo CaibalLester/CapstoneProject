@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Controllers\RTCController;
 use App\Models\AdminModel;
-use \App\Models\UserModel;
+use App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\Form3Model;
@@ -155,6 +155,20 @@ class AdminController extends BaseController
         return view('Admin/AdHelp', $data);
     }
 
+    public function promotion()
+    {
+        $data = array_merge($this->getData(), $this->getDataAd());
+        $search = $this->request->getPost('searchusers');
+        if (!empty($search))
+        {
+            $data['applicant'] = $this->applicant->like('username', $search)->findAll();
+        } else{
+            $data['applicant'] = $this->applicant->where('status', 'pending')->paginate(10, 'group1'); 
+            $data['pager'] = $this->applicant->pager;
+        }
+        return view('Admin/promotion', $data);
+    }
+
     private function getData()
     {
         $session = session();
@@ -166,6 +180,7 @@ class AdminController extends BaseController
     public function viewAppForm($token)
     {
         $data = $this->form1->where('app_life_token', $token)->first();
+        
         return view('Admin/Forms/details', ['lifechangerform' => $data]);
     }
     public function viewAppForm2($token)
@@ -189,7 +204,7 @@ class AdminController extends BaseController
         return view('Admin/Forms/details', ['lifechangerform' => $data]);
     }
 
-    public function generateRandomCode($length = 6)
+    public function random($length = 6)
     {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $code = '';
@@ -201,42 +216,35 @@ class AdminController extends BaseController
         return $code;
     }
 
-    public function newAgent()
+    public function newAgent($app_token)
     {
-        $agent = new AgentModel();
-        $userModel = new UserModel();
-        $appmodel = new ApplicantModel();
-        $userId = $this->request->getVar('user_id');
-
-        $applicantData = $appmodel->where('applicant_id', $userId)->first();
-        $data = [
-            'agent_id' => $this->request->getVar('user_id'),
-            'getId' => $this->request->getVar('user_id'),
-            'AgentCode' => $this->generateRandomCode(),
-            'Agentfullname' => $this->request->getVar('Agentfullname'),
-            'FA' => $this->request->getVar('referralBy'),
-            'branch' => $this->request->getVar('preferredArea'),
-            'email' => $applicantData['email'],
-            'agentprofile' => $applicantData['profile'],
-            'number' => $applicantData['number'],
-
-            'birthday' => $this->request->getVar('birthdate'),
-            'address' => $this->request->getVar('homeAddress'),
-            'username' => $applicantData['username'],
-            
+        $data['applicant'] = $this->applicant->where('app_token', $app_token)->first();
+        $username = $data['applicant']['username'];
+        $agentCode = $this->random();
+        $appdata = [
+            'agent_id' => $data['applicant']['applicant_id'],
+            'username' => $data['applicant']['username'],
+            'email' => $data['applicant']['email'],
+            'firstname' => $data['applicant']['firstname'],
+            'lastname' => $data['applicant']['lastname'],
+            'middlename' => $data['applicant']['middlename'],
+            'province' => $data['applicant']['province'],
+            'region' => $data['applicant']['region'],
+            'birthday' => $data['applicant']['birthday'],
+            'barangay' => $data['applicant']['barangay'],
+            'street' => $data['applicant']['street'],
+            'number' => $data['applicant']['number'],
+            'profile' => $data['applicant']['profile'],
+            'agent_token' => $data['applicant']['app_token'],
+            'AgentCode' => $agentCode,
         ];
 
-        // Save agent data
-        $agent->save($data);
+        $this->agent->save($appdata);
 
-        // Update status to confirmed using raw query
-        $query = "UPDATE applicant SET status = 'confirmed' WHERE applicant_id = ?";
-        $appmodel->query($query, [$userId]);
-
-        // Update user role to 'agent' in the UserModel
-        $userModel->update($userId, ['role' => 'agent']);
-
-        return redirect()->to('/ManageApplicant');
+        $this->applicant->set('status', 'confirmed')->where('app_token', $app_token)->update();
+        $this->user->set('role', 'agent')->where('token', $app_token)->update();
+     
+        return redirect()->to('promotion')->with('success', "$username was Promoted To Agent");
     }
 
     public function svad()

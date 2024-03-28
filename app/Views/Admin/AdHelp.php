@@ -25,6 +25,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/usermanagement">
+                                <i class="fa fa-user me-2"></i>
+                                Promotion
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents

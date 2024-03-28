@@ -25,6 +25,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/promotion">
+                                <i class="fa fa-user me-2"></i>
+                                Promotion
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents
@@ -57,10 +64,6 @@
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Account Management</h1>
-
-                    <small class="text-muted">Welcome back!
-                        <?= $admin['username'] ?>
-                    </small>
                 </div>
 
                 <div class="row">
@@ -135,6 +138,7 @@
                                             document.getElementById('filterForm').submit();
                                         }
                                     </script>
+
                                     <div class="modal fade" id="myModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-md">
@@ -192,9 +196,6 @@
                                                                 </button>
                                                             </div>
                                                         </div>
-
-                                                        <!-- Additional form elements go here -->
-
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -306,16 +307,6 @@
                                                                             </select>
                                                                         </div>
 
-                                                                        <div class="mb-3">
-                                                                            <label for="uprole"
-                                                                                class="form-label">Role</label>
-                                                                            <select class="form-select" id="role"
-                                                                                name="uprole" required>
-                                                                                <option value="applicant" <?php echo ($user['role'] == 'applicant') ? 'selected' : ''; ?>>Applicant</option>
-                                                                                <option value="client" <?php echo ($user['role'] == 'client') ? 'selected' : ''; ?>>Client</option>
-                                                                                <option value="agent" <?php echo ($user['role'] == 'agent') ? 'selected' : ''; ?>>Agent</option>
-                                                                            </select>
-                                                                        </div>
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-bs-dismiss="modal">Close</button>
                                                                         <button type="submit"
@@ -328,6 +319,7 @@
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
+                                        <?= $pager->links('group1', 'page') ?>
                                         <!-- End Table with hoverable rows -->
                                     </div>
                                 </div>
@@ -336,14 +328,12 @@
                     </div>
                 </div>
                 <!-- end of left side -->
-
                 <footer class="site-footer">
                     <div class="container">
                         <div class="row">
                         </div>
                     </div>
                 </footer>
-
             </main>
         </div>
     </div>
