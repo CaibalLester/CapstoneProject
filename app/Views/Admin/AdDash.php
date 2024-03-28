@@ -432,7 +432,7 @@
                                     </div>
                                 </div>
                                 <div class="card mb-3 text-center">
-                                    <h5 class="card-title mt-3">Top 3 agents</h5>
+                                    <h5 class="card-title mt-3">Top 3 Recruiters</h5>
                                     <?php foreach ($top as $topagent): ?>
                                         <div class="card-body">
                                             <img src="<?= isset ($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
@@ -440,6 +440,7 @@
                                                 style="width: 80px; height: 80px;">
                                             <h5 class="card-title mt-2 small">
                                                 <?= $topagent['username'] ?>
+                                                <?= $topagent['total_fA'] ?>
                                             </h5>
                                             <!-- Add other relevant information as needed -->
                                         </div>
@@ -458,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                
+                <?= view('rtc/chat'); ?>
             </main>
         </div>
     </div>

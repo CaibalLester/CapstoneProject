@@ -52,7 +52,7 @@
             <form action="chat" method="post">
                 <div class="input-group">
                     <input type="hidden" name="sendto" value="92">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                    <input type="text" name="message" placeholder="Type Message ..." class="form-control" required>
                     <span class="input-group-btn">
                         <!-- <button type="button" class="btn btn-warning btn-flat">Send</button> -->
                         <input type="submit" class="btn btn-primary" value="Send">

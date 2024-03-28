@@ -39,7 +39,7 @@ class AdminController extends BaseController
         $totalAgents = count($this->agent->findAll());
         $totalApplicants = count($this->applicant->findAll());
         $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent(), $this->rtc->RTC());
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
