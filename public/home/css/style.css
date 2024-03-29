@@ -8559,8 +8559,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-  --blue: #5E50F9;
-  --indigo: #6610f2;
+  --blue: #203864;
+  --indigo: #203864;
   --purple: #6a008a;
   --pink: #E91E63;
   --red: #f96868;
@@ -8572,8 +8572,8 @@
   --white: #ffffff;
   --gray: #6c757d;
   --gray-dark: #0f1531;
-  --blue: #5E50F9;
-  --indigo: #6610f2;
+  --blue: #203864;
+  --indigo: #203864;
   --purple: #6a008a;
   --pink: #E91E63;
   --red: #f96868;
@@ -8588,7 +8588,7 @@
   --gray-lighter: #e8eff4;
   --gray-lightest: #e6e9ed;
   --black: #000000;
-  --primary: #3c37f1;
+  --primary: #203864;
   --secondary: #1998ff;
   --success: #00d663;
   --info: #00b3ff;
@@ -8632,6 +8632,7 @@ body {
   text-align: left;
   background-color: #fff;
 }
+
 
 [tabindex="-1"]:focus {
   outline: 0 !important;
@@ -8721,13 +8722,13 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #203864;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #203864;
   text-decoration: underline;
 }
 
@@ -10794,14 +10795,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3c37f1;
-  border-color: #3c37f1;
+  background-color: #203864;
+  border-color: #203864;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #1913ee;
-  border-color: #1610e5;
+  background-color: #203864;
+  border-color: #203864;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -10844,8 +10845,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary.disabled, .btn-secondary:disabled {
   color: #fff;
-  background-color: #1998ff;
-  border-color: #1998ff;
+  background-color: #203864;
+  border-color: #203864;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
@@ -12463,7 +12464,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #203864;
 }
 
 .nav-fill .nav-item {
@@ -18777,7 +18778,7 @@ section {
 }
 
 .pricing-box {
-  border-radius: 4px;
+  border-radius: 30px;
   border: solid 1px #f1efef;
   background-color: #ffffff;
   padding: 47px;

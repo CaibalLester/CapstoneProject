@@ -40,12 +40,12 @@
 						<a class="nav-link" href="#services">Services</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="#product">Product</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="#about">About</a>
 					</li>
-					<!--<li class="nav-item">
-							<a class="nav-link" href="#projects">Projects</a>
-						</li>
-						<li class="nav-item">
+						<!--<li class="nav-item">
 							<a class="nav-link" href="#team">Team</a>
 						</li>-->
 					<li class="nav-item">
@@ -164,6 +164,39 @@
 							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Saving Strategy</h6>
 							<p>Allianz PNB Agency helps you build a secure financial future with effective saving
 								strategies.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="pricing-list" id="product">
+			<div class="container">
+				<div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-500">
+					<div class="col-sm-12">
+						<div class="d-sm-flex justify-content-between align-items-center mb-2">
+							<div>
+								<h3 class="font-weight-medium text-dark">ALLIANZ HEALTH SOLUTIONS</h3>
+								<h5 class="text-dark">Comprehensive health insurance plans that provide the highest coverage, allowing individuals and their families to *preferred medical providers and *gain access to the best medical facilities in the Philippines or anywhere in the world.</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
+					<div class="col-sm-4">
+						<div class="pricing-box">
+							<img src="home/images/compass.jpg" alt="starter" style="max-width: 100%; height: auto; ">
+							<h6 class="font-weight-medium title-text">Allianz Well</h6>
+							<h5 class="text-amount mb-4 mt-2">100M Coverage</h5>
+							<a href="/ClientRegister" class="btn btn-outline-primary">Purchase Now</a>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="pricing-box">
+							<img src="home/images/well.jpg" alt="starter" style="max-width: 100%; height: auto;">
+							<h6 class="font-weight-medium title-text">Allianz Compass</h6>
+							<h5 class="text-amount mb-4 mt-2">200M Coverage</h5>
+							<a href="/ClientRegister" class="btn btn-outline-primary">Purchase Now</a>
 						</div>
 					</div>
 				</div>
@@ -309,69 +342,7 @@
 		</section>
 
 
-		<section class="pricing-list" id="team">
-			<div class="container">
-				<div class="row" data-aos="fade-up" data-aos-offset="-500">
-					<div class="col-sm-12">
-						<div class="d-sm-flex justify-content-between align-items-center mb-2">
-							<div>
-								<h3 class="font-weight-medium text-dark ">ALLIANZ Mindoro Managing Team</h3>
-								<h5 class="text-dark ">Allianz boasts a dedicated and experienced team committed to
-									delivering unparalleled financial and insurance solutions, ensuring the security and
-									prosperity of their clients. </h5>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row" data-aos="fade-up" data-aos-offset="-300">
-					<div class="col-sm-4">
-						<div class="pricing-box">
-							<img src="home/images/starter.svg" alt="starter">
-							<h6 class="font-weight-medium title-text">Starter Business</h6>
-							<h1 class="text-amount mb-4 mt-2">$23</h1>
-							<ul class="pricing-list">
-								<li>Create a free website</li>
-								<li>Connect Domain</li>
-								<li>Business and ecommerce</li>
-								<li>Idea for smaller professional websites</li>
-								<li>Web space</li>
-							</ul>
-							<a href="#" class="btn btn-outline-primary">Puchase Now</a>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="pricing-box selected">
-							<img src="home/images/proffessional.svg" alt="starter">
-							<h6 class="font-weight-medium title-text">Professional</h6>
-							<h1 class="text-amount mb-4 mt-2">$45</h1>
-							<ul class="pricing-list">
-								<li>Create a free website</li>
-								<li>Connect Domain</li>
-								<li>Business and ecommerce</li>
-								<li>Idea for smaller professional websites</li>
-								<li>Web space</li>
-							</ul>
-							<a href="#" class="btn btn-primary">Puchase Now</a>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="pricing-box">
-							<img src="home/images/premium.svg" alt="starter">
-							<h6 class="font-weight-medium title-text">Premium</h6>
-							<h1 class="text-amount mb-4 mt-2">$87</h1>
-							<ul class="pricing-list">
-								<li>Create a free website</li>
-								<li>Connect Domain</li>
-								<li>Business and ecommerce</li>
-								<li>Idea for smaller professional websites</li>
-								<li>Web space</li>
-							</ul>
-							<a href="#" class="btn btn-outline-primary">Puchase Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 
 		<section class="contactus" id="contact">
 			<div class="container">

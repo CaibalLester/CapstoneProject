@@ -15,9 +15,17 @@ class ClientController extends BaseController
         $this->user = new UserModel();
         $this->client = new ClientModel();
     }
-    public function index()
+    public function ClientPage()
     {
-        return view('Client/homepage');
+        return view('Client/ClientPage');
+    }
+    public function ClientWell()
+    {
+        return view('Client/ClientWell');
+    }
+    public function ClientCompass()
+    {
+        return view('Client/ClientCompass');
     }
 
     public function register()

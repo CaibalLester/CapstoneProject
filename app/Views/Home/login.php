@@ -4,7 +4,6 @@
 <?= view('/Home/chop/head'); ?>
 
 <body>
-
     <main>
         <div class="container">
             <section
