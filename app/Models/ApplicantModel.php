@@ -20,6 +20,7 @@ class ApplicantModel extends Model
     'city',
     'barangay',
     'street',
+    'referal'
 ];
 
 

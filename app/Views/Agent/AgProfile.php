@@ -95,6 +95,20 @@
                             </div>
                         </div>
                     </div>
+                    <!-- <div class="modal fade" id="profileModal" tabindex="-1">
+                        <div class="modal-dialog modal-sm" role="document">
+                            <div class="modal-content">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <div class="text-center">
+                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
+                alt="QR Code" style="width: 150px; height: 150px;"></div>
+                                        <button type="button" class="btn btn-dark" id="downloadButton"><i
+                                                class="bi bi-download"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
                     <div class="col-xl-8">
                         <div class="card">
@@ -327,12 +341,9 @@
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({
-            role: "<?= $user['role'] ?>",
             username: "<?= $agent['username'] ?>",
-            fullname: "<?= $agent['Agentfullname'] ?>",
-            email: "<?= $agent['email'] ?>",
-            number: "<?= $agent['number'] ?>",
-            birthday: "<?= date('M j, Y', strtotime($agent['birthday'])); ?>"
+            referalCode : "<?= $agent['AgentCode'] ?>",
+            
         });
 
         // Set ang data ng QR code container gamit ang profileData

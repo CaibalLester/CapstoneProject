@@ -5,11 +5,13 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\ClientModel;
 use App\Models\UserModel;
+use App\Models\AgentModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 
 class HomepageController extends BaseController
 {
+    private $agent;
     private $client;
     private $user;
     private $form1;
@@ -18,6 +20,7 @@ class HomepageController extends BaseController
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
         $this->client = new ClientModel();
+        $this->agent = new AgentModel();
     }
     public function home()
     {
@@ -71,21 +74,27 @@ class HomepageController extends BaseController
             $applicantModel = new ApplicantModel();
             $form1 = new Form1Model();
 
-            $userData = [
-                'username' => $this->request->getVar('username'),
-                'email' => $this->request->getVar('email'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'branch' => 'Calapan',
-                'role' => $this->request->getVar('role'),
-                'status' => 'unverified',
-                'verification_token' => $verificationToken,
-                'accountStatus' => 'active',
-                'token' => $usertoken,
-            ];
-
-            // Insert user data into the users table
-            $userModel->save($userData);
-
+            $referralCode = $this->request->getVar('referal');
+            $agent = $this->agent->where('AgentCode', $referralCode)->findAll();
+            if ($agent){
+                $userData = [
+                    'username' => $this->request->getVar('username'),
+                    'email' => $this->request->getVar('email'),
+                    'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                    'branch' => 'Calapan',
+                    'role' => $this->request->getVar('role'),
+                    'status' => 'unverified',
+                    'verification_token' => $verificationToken,
+                    'accountStatus' => 'active',
+                    'token' => $usertoken,
+                ];
+                // Insert user data into the users table
+                $userModel->save($userData); 
+            }
+            else{
+                return redirect()->to('/register')->with('error', 'Invalid Referal Code');
+            }
+            
             // Retrieve the ID of the newly inserted user
             $userId = $userModel->insertID();
 
@@ -99,6 +108,7 @@ class HomepageController extends BaseController
                     'lastname' => $this->request->getVar('lastname'),
                     'middlename' => $this->request->getVar('middlename'),
                     'email' => $this->request->getVar('email'),
+                    'referal' => $this->request->getVar('referal'),
                     'branch' => 'Calapan',
                     'app_token' => $usertoken,
                 ];
@@ -128,7 +138,6 @@ class HomepageController extends BaseController
                 $this->client->save($clientData);
                 // var_dump($clientData);
             }
-
             // Send verification email
             $verificationLink = site_url("verify-email/{$verificationToken}");
             $emailSubject = 'Email Verification';

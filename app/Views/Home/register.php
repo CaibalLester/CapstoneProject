@@ -14,7 +14,7 @@
 <main>
   <div class="container">
 
-    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
@@ -29,17 +29,17 @@
             <div class="card mb-6">
 
               <div class="card-body">
-              <?php if (session()->getFlashdata('error')): ?>
-                                            <div class="alert alert-danger mt-3 text-center" role="alert">
-                                                <?= session()->getFlashdata('error') ?>
-                                            </div>
-                                        <?php endif; ?>
+              <?php 
+              if(isset($validation)){
+                print_r($validation->listErrors());
+              }
+              ?>
+
                 <div class="pt-4 pb-2">
                   <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                   <p class="text-center">Enter your personal details to create account</p>
                 </div>
                 
-
                 <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg"
                   onsubmit="return confirmSubmit()">
 
@@ -81,6 +81,12 @@
                     <label for="number" class="form-label">Number</label>
                     <input type="text" name="number" class="form-control " id="number" required>
                     <div class="invalid-feedback">Please enter a valid number!</div>
+                  </div>
+
+                  <div class="col-md-12 col-12">
+                    <label for="referal" class="form-label">Referal Code</label>
+                    <input type="text" name="referal" class="form-control " id="referal" required>
+                    <div class="invalid-feedback">Please enter a valid Referal Code!</div>
                   </div>
 
                   <div class="col-md-12 col-12">
