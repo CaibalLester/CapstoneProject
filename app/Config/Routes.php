@@ -96,15 +96,23 @@ $routes->get('/send', 'RTCController::send');
 $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
-
 //Clientt
 $routes->get('/ClientPage', 'ClientController::ClientPage');
+
+$routes->get('/services', 'ClientController::services');
+$routes->get('/servicesdetails', 'ClientController::servicesdetails');
+$routes->get('/pricing', 'ClientController::pricing');
+$routes->get('/terms', 'ClientController::terms');
+$routes->get('/contactus', 'ClientController::contactus');
+
+
 $routes->get('/ClientWell', 'ClientController::ClientWell');
+
 $routes->get('/ClientCompass', 'ClientController::ClientCompass');
 
 $routes->get('/ClientRegister', 'ClientController::register');
 
-$routes->get('/ClientLogin', 'ClientController::login');
+
 
 
 

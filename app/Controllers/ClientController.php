@@ -19,6 +19,30 @@ class ClientController extends BaseController
     {
         return view('Client/ClientPage');
     }
+
+    public function services()
+    {
+        return view('Client/services');
+    }
+    
+
+    public function servicesdetails()
+    {
+        return view('Client/servicesdetails');
+    }
+
+    public function pricing()
+    {
+        return view('Client/pricing');
+    }
+
+    public function contactus()
+    {
+        return view('Client/contactus');
+    }
+
+
+
     public function ClientWell()
     {
         return view('Client/ClientWell');

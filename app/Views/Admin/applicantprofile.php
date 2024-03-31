@@ -131,52 +131,51 @@
                                             Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
                                             sed ea saepe at unde.</p>
                                         <h5 class="card-title">Profile Details</h5>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['lastname'] ?> ,
-                                                <?= $applicant['firstname'] ?>
-                                                <?= $applicant['middlename'] ?>.
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php if (isset($applicant['lastname']) && isset($applicant['firstname']) && isset($applicant['middlename'])): ?>
+                                                    <?= $applicant['lastname'] ?>,
+                                                    <?= $applicant['firstname'] ?>
+                                                    <?= $applicant['middlename'] ?>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['username'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($applicant['username']) ? $applicant['username']: '' ?>
                                             </div>
                                         </div>
 
-
-                                        <div class="row">
-                                            <div class="col-lg-3 col-md-4 label">Address</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['region'] ?> ,
-                                                <?= $applicant['province'] ?> ,
-                                                <?= $applicant['city'] ?> ,
-                                                <?= $applicant['barangay'] ?> ,
-                                                <?= $applicant['street'] ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Email</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['email'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($applicant['email']) ? $applicant['email']: '' ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Phone</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= $applicant['number'] ?>
+                                            <div class="col-lg-8 col-md-8">
+                                                <?php echo isset ($applicant['number']) ? $applicant['number']: '' ?>
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Birthday</div>
-                                            <div class="col-lg-9 col-md-8">
-                                                <?= date('M j, Y', strtotime($applicant['birthday'])); ?>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset($applicant['birthday']) ? date('M j, Y', strtotime($applicant['birthday'])) : ''; ?>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Adress</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?= isset ($applicant['province']) ? $applicant['province'] : '' ?>, 
+                                            <?= isset ($applicant['city']) ? $applicant['city'] : '' ?>,
+                                            <?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>,
+                                            <?= isset ($applicant['street']) ? $applicant['street'] : '' ?>
                                             </div>
                                         </div>
                                     </div>
