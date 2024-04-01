@@ -65,6 +65,7 @@ class HomepageController extends BaseController
             'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email,id]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
+            'referal' => 'required'
         ];
 
         $verificationToken = bin2hex(random_bytes(16));
@@ -149,7 +150,10 @@ class HomepageController extends BaseController
             if ($this->request->getVar('role') === 'client') {
                 return redirect()->to('/ClientRegister')->with('error', 'Invalid Input');
             } else {
+                // $data['validation'] = $this->validator;
+                // return view('Home/register', $data);
                 return redirect()->to('/register')->with('error', 'Invalid Input');
+                // var_dump($data);
             }
         }
     }

@@ -17,9 +17,6 @@
                                 Overview
                             </a>
                         </li>
-
-
-
                         <li class="nav-item">
                             <a class="nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown"
                                 aria-expanded="false">
@@ -114,7 +111,7 @@
                     <div class="col-lg-5 col-12">
                         <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
-                                <img src="<?= isset ($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
 
                                 <a href="/AppSetting" class="bi-pencil-square custom-block-edit-icon"></a>
@@ -124,7 +121,11 @@
                                 <strong>Name:</strong>
 
                                 <a href="#">
-                                    <?= $applicant['applicantfullname'] ?>
+                                <?php if (isset($applicant['lastname']) && isset($applicant['firstname']) && isset($applicant['middlename'])): ?>
+                                                    <?= $applicant['lastname'] ?>,
+                                                    <?= $applicant['firstname'] ?>
+                                                    <?= $applicant['middlename'] ?>
+                                                <?php endif; ?>
                                 </a>
                             </p>
 
@@ -132,7 +133,7 @@
                                 <strong>Email:</strong>
 
                                 <a href="#">
-                                    <?= $applicant['email'] ?>
+                                <?php echo isset ($applicant['email']) ? $applicant['email']: '' ?>
                                 </a>
                             </p>
 
@@ -140,7 +141,7 @@
                                 <strong>Phone:</strong>
 
                                 <a href="#">
-                                    <?= $applicant['number'] ?>
+                                <?php echo isset ($applicant['number']) ? $applicant['number']: '' ?>
                                 </a>
                             </p>
                         </div>
@@ -153,7 +154,7 @@
                                 <strong>Status:</strong>
 
                                 <span>
-                                    <?= $user['status'] ?>
+                                    <?= $user['accountStatus'] ?>
                                 </span>
                             </p>
 

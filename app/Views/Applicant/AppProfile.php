@@ -211,9 +211,6 @@
         var profileData = JSON.stringify({
             role: "<?= $user['role'] ?>",
             username: "<?= $applicant['username'] ?>",
-            fullname: "<?= $applicant['applicantfullname'] ?>",
-            email: "<?= $applicant['email'] ?>",
-            number: "<?= $applicant['number'] ?>",
             birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"
         });
 

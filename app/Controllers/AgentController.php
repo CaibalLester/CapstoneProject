@@ -23,13 +23,6 @@ class AgentController extends BaseController
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgDash', $data);
     }
-
-    // public function AgProfile()
-    // {
-    //     $data = array_merge($this->getData(), $this->getDataAge());
-    //     return view('Agent/AgProfile', $data);
-    // }
-    
     public function AgProfile()
     {
         $agentModel = new AgentModel();
@@ -39,7 +32,7 @@ class AgentController extends BaseController
         $agentid = $data['agent']['agent_id'];
         // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
         $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
-
+        $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
         return view('Agent/AgProfile', $data);
     }
 

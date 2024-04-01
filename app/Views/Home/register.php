@@ -4,10 +4,11 @@
 <?= view('/Home/chop/head'); ?>
 
 <style>
-  main{
+  main {
     font-size: 10pt;
   }
-  .form-control{
+
+  .form-control {
     font-size: 10pt;
   }
 </style>
@@ -29,17 +30,23 @@
             <div class="card mb-6">
 
               <div class="card-body">
-              <?php 
-              if(isset($validation)){
-                print_r($validation->listErrors());
-              }
-              ?>
+
+                <?php if (session()->getFlashdata('error')): ?>
+                  <div class="alert alert-danger mt-3 text-center" role="alert">
+                    <?= session()->getFlashdata('error') ?>
+                  </div>
+                <?php endif; ?>
+                <?php if (session()->getFlashdata('success')): ?>
+                  <div class="alert alert-success mt-3 text-center" role="alert">
+                    <?= session()->getFlashdata('success') ?>
+                  </div>
+                <?php endif; ?>
 
                 <div class="pt-4 pb-2">
                   <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
                   <p class="text-center">Enter your personal details to create account</p>
                 </div>
-                
+
                 <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg"
                   onsubmit="return confirmSubmit()">
 
@@ -85,8 +92,8 @@
 
                   <div class="col-md-12 col-12">
                     <label for="referal" class="form-label">Referal Code</label>
-                    <input type="text" name="referal" class="form-control " id="referal" required>
-                    <div class="invalid-feedback">Please enter a valid Referal Code!</div>
+                    <input type="text" name="referal" class="form-control " id="referal">
+                    <!-- <div class="invalid-feedback">Please enter a valid Referal Code!</div> -->
                   </div>
 
                   <div class="col-md-12 col-12">
@@ -103,8 +110,7 @@
 
                   <div class="col-md-6 col-6">
                     <label for="yourPassword" class="form-label">Confirm Password</label>
-                    <input type="password" name="confirmpassword" class="form-control " id="yourPassword"
-                      required>
+                    <input type="password" name="confirmpassword" class="form-control " id="yourPassword" required>
                     <div class="invalid-feedback">Please enter your password!</div>
                   </div>
 
@@ -121,7 +127,7 @@
                       Account</button>
                   </div>
                   <div class="col-md-12">
-                    <p class= mb-0">Already have an account? <a href="/login">Log in</a></p>
+                    <p class="mb-0">Already have an account? <a href="/login">Log in</a></p>
                   </div>
                 </form>
               </div>
