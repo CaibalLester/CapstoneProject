@@ -72,8 +72,8 @@
                                             <button class="btn btn-primary w-100" type="submit"
                                                 onclick="showConfirmation()">Login</button>
                                             <br><br>
-                                            <p class="small mb-0">Don't have an account? <a href="/register">Create an
-                                                    account</a></p>
+                                            <!-- <p class="small mb-0">Don't have an account? <a href="/register">Create an
+                                                    account</a></p> -->
                                             <p class="small mb-0">Have You Forgot your password? <a
                                                     href="/forgot">Forgot</a></p>
                                         </div>

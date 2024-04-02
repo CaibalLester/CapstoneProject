@@ -221,6 +221,11 @@ class AdminController extends BaseController
         $data['applicant'] = $this->applicant->where('app_token', $app_token)->first();
         $username = $data['applicant']['username'];
         $agentCode = $this->random();
+
+        $ref = $data['applicant']['refcode'];
+        $agent = $this->agent->where('AgentCode',$ref)->first();
+        $FA = $agent['agent_id'];
+        
         $appdata = [
             'agent_id' => $data['applicant']['applicant_id'],
             'username' => $data['applicant']['username'],
@@ -237,7 +242,10 @@ class AdminController extends BaseController
             'profile' => $data['applicant']['profile'],
             'agent_token' => $data['applicant']['app_token'],
             'AgentCode' => $agentCode,
+            'FA' => $FA,
         ];
+        // return redirect()->back();
+        // var_dump($appdata);
 
         $this->agent->save($appdata);
 

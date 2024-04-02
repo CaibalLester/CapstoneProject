@@ -43,13 +43,6 @@ class HomepageController extends BaseController
         return redirect()->to('/'); // Redirect to the login page or any other page you prefer
     }
 
-
-    public function register()
-    {
-        helper(['form']);
-        $data = [];
-        return view("Home/register");
-    }
     public function login()
     {
         helper(['form']);
@@ -57,7 +50,14 @@ class HomepageController extends BaseController
         return view("Home/login");
     }
     //applicant reg
-    public function Authreg()
+
+    public function register($ref)
+    {
+        helper(['form']);
+        $data['ref'] = $ref; // Define and pass $ref to the view
+        return view("Home/register", $data);
+    }
+    public function Authreg($ref)
     {
         helper(['form']);
         $rules = [
@@ -65,7 +65,6 @@ class HomepageController extends BaseController
             'email' => 'required|min_length[6]|max_length[100]|valid_email|is_unique[users.email,id]',
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
-            'referal' => 'required'
         ];
 
         $verificationToken = bin2hex(random_bytes(16));
@@ -75,9 +74,8 @@ class HomepageController extends BaseController
             $applicantModel = new ApplicantModel();
             $form1 = new Form1Model();
 
-            $referralCode = $this->request->getVar('referal');
-            $agent = $this->agent->where('AgentCode', $referralCode)->findAll();
-            if ($agent){
+            $agent = $this->agent->where('AgentCode', $ref)->findAll();
+            if ($agent) {
                 $userData = [
                     'username' => $this->request->getVar('username'),
                     'email' => $this->request->getVar('email'),
@@ -89,56 +87,49 @@ class HomepageController extends BaseController
                     'accountStatus' => 'active',
                     'token' => $usertoken,
                 ];
-                // Insert user data into the users table
-                $userModel->save($userData); 
+                $userModel->save($userData);
+            } else {
+                return redirect()->to('/register/' . $ref)->with('error', 'Invalid Referal Code');
             }
-            else{
-                return redirect()->to('/register')->with('error', 'Invalid Referal Code');
-            }
-            
-            // Retrieve the ID of the newly inserted user
             $userId = $userModel->insertID();
 
             if ($this->request->getVar('role') === 'applicant') {
                 // Prepare applicant data
                 $applicantData = [
-                    'applicant_id' => $userId, // Use the retrieved user ID as the applicant_id
+                    'applicant_id' => $userId,
                     'username' => $this->request->getVar('username'),
                     'number' => $this->request->getVar('number'),
                     'firstname' => $this->request->getVar('firstname'),
                     'lastname' => $this->request->getVar('lastname'),
                     'middlename' => $this->request->getVar('middlename'),
                     'email' => $this->request->getVar('email'),
-                    'referal' => $this->request->getVar('referal'),
+                    'refcode' => $ref,
                     'branch' => 'Calapan',
                     'app_token' => $usertoken,
                 ];
-
-                // Insert applicant data into the applicant table using the applicant model
                 $applicantModel->save($applicantData);
-
-                // Insert user ID and token in forms table using form1 model
                 $formdata = [
                     'user_id' => $userId,
                     'app_life_token' => $usertoken,
                 ];
                 $form1->save($formdata);
             }
-            if ($this->request->getVar('role') === 'client') {
-                $clientData = [
-                    'client_id' => $userId, // Use the retrieved user ID as the applicant_id
-                    'username' => $this->request->getVar('username'),
-                    'number' => $this->request->getVar('number'),
-                    'firstname' => $this->request->getVar('firstname'),
-                    'lastname' => $this->request->getVar('lastname'),
-                    'middlename' => $this->request->getVar('middlename'),
-                    'email' => $this->request->getVar('email'),
-                    'client_token' => $usertoken,
-                ];
 
-                $this->client->save($clientData);
-                // var_dump($clientData);
-            }
+            // if ($this->request->getVar('role') === 'client') {
+            //     $clientData = [
+            //         'client_id' => $userId,
+            //         'username' => $this->request->getVar('username'),
+            //         'number' => $this->request->getVar('number'),
+            //         'firstname' => $this->request->getVar('firstname'),
+            //         'lastname' => $this->request->getVar('lastname'),
+            //         'middlename' => $this->request->getVar('middlename'),
+            //         'email' => $this->request->getVar('email'),
+            //         'client_token' => $usertoken,
+            //     ];
+
+            //     $this->client->save($clientData);
+            // }
+
             // Send verification email
             $verificationLink = site_url("verify-email/{$verificationToken}");
             $emailSubject = 'Email Verification';
@@ -152,11 +143,11 @@ class HomepageController extends BaseController
             } else {
                 // $data['validation'] = $this->validator;
                 // return view('Home/register', $data);
-                return redirect()->to('/register')->with('error', 'Invalid Input');
-                // var_dump($data);
+                return redirect()->to('/register/' . $ref)->with('error', 'Invalid Input');
             }
         }
     }
+
 
     private function sendVerificationEmail($to, $subject, $message)
     {

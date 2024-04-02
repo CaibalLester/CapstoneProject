@@ -64,7 +64,7 @@
 
                 <div class="row">
                     <!-- left side columns -->
-                    <div class="col-xl-3 mx-4">
+                    <div class="col-xl-3">
                         <div class="row">
                             <div class="card mb-2">
                                 <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
@@ -83,7 +83,10 @@
                                     <div class="modal-content">
                                         <div class="d-flex align-items-center justify-content-center">
                                             <div class="text-center">
-                                                <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
+                                                <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer">
+                                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
+                                                        alt="QR Code">
+                                                </div>
                                                 <button type="button" class="btn btn-dark" id="downloadButton"><i
                                                         class="bi bi-download"></i></button>
                                             </div>
@@ -119,7 +122,7 @@
                                     }
                                     ?>
                                     <img src="<?= $imageSrc ?>" alt=""
-                                        style="width: 100%; height: 100%; transform: scale(3);">
+                                        style="width: 50%; height: 50%; transform: scale(3); display: block; margin: 0 auto;">
                                 </div>
                                 <!-- Rank text -->
                                 <h5 class="">
@@ -145,8 +148,17 @@
                                 </h5>
                             </div>
                         </div>
+                        <div class="card">
+                            <!-- The hidden input field -->
+                            <input type="text" value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
+                                id="myInput" style="display: none;">
 
-
+                            <!-- The clipboard icon button with tooltip -->
+                            <button class="btn btn-secondary btn-sm" onclick="copyToClipboard()" data-toggle="tooltip"
+                                data-placement="top" title="Copy Verification Code">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
+                        </div>
                         <!-- end of left side -->
                     </div>
                     <div class="col-xl-8">
@@ -259,77 +271,6 @@
                                                                 </tr>
                                                             <?php endforeach ?>
                                                         </tbody>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                            <td>TestTestTestTest</td>
-                                                        </tr>
-
                                                     </table>
                                                 </div>
                                             </div>
@@ -382,32 +323,20 @@
     <!-- JAVASCRIPT FILES -->
     <?= view('Agent/chop/js') ?>
     <script>
-        // I-create ang QR code gamit ang actual na data
-        var profileData = JSON.stringify({
-            username: "<?= $agent['username'] ?>",
-            referalCode: "<?= $agent['AgentCode'] ?>",
-        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const downloadButton = document.getElementById('downloadButton');
+            const qrCodeImage = document.querySelector('#qrCodeContainer img');
 
-        // Set ang data ng QR code container gamit ang profileData
-        var qrCodeContainer = document.getElementById("qrCodeContainer");
-
-        // Set the size of the QR code (adjust as needed)
-
-        new QRCode(qrCodeContainer, {
-            text: profileData,
-        });
-
-        // Kung gusto mo i-download ang QR code
-        var downloadButton = document.getElementById("downloadButton");
-        downloadButton.addEventListener("click", function () {
-            // Kunin ang data URL ng QR code at gawing anchor link
-            var dataURL = qrCodeContainer.querySelector("img").src;
-            var downloadLink = document.createElement("a");
-            downloadLink.href = dataURL;
-            downloadLink.download = "profile_qr_code_" + "<?= $agent['username'] ?>.png";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
+            downloadButton.addEventListener('click', function () {
+                fetch(qrCodeImage.src)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = URL.createObjectURL(blob);
+                        downloadLink.download = 'qr-code.png';
+                        downloadLink.click();
+                    });
+            });
         });
 
         // JavaScript code to show the modal when the profile image is clicked
@@ -416,8 +345,16 @@
                 $('#profileModal').modal('show');
             });
         });
-    </script>
 
+        function copyToClipboard() {
+            var input = document.getElementById('myInput');
+            input.style.display = 'block'; // Make input visible temporarily
+            input.select();
+            document.execCommand('copy');
+            input.style.display = 'none'; // Hide input again after copying
+            alert('Text copied to clipboard: ' + input.value);
+        }
+    </script>
 </body>
 
 </html>

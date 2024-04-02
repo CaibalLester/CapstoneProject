@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
-$routes->get('/AdDash', 'AdminController::AdDash', ['filter' => 'adminFilter']);
+$routes->get('/AdDash', 'AdminController::AdDash', ['filter' => 'adminFilter'] , );
 $routes->get('/ManageAgent', 'AdminController::ManageAgent', ['filter' => 'adminFilter']);
 $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilter']);
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
@@ -67,7 +67,10 @@ $routes->get('/subagent', 'AgentController::subagent', ['filter' => 'agentFilter
 $routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' => 'agentFilter']);
 
 $routes->get('/', 'HomepageController::home');
-$routes->get('/register', 'HomepageController::register');
+
+$routes->get('/register/(:any)', 'HomepageController::register/$1');
+$routes->post('/Authreg/(:any)', 'HomepageController::Authreg/$1');
+
 $routes->post('/Authreg', 'HomepageController::Authreg');
 $routes->post('/updatePassword', 'HomepageController::updatePassword', ['filter' => 'authGuard']);
 $routes->get('/login', 'HomepageController::login');

@@ -209,9 +209,7 @@
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({
-            role: "<?= $user['role'] ?>",
             username: "<?= $applicant['username'] ?>",
-            birthday: "<?= date('M j, Y', strtotime($applicant['birthday'])); ?>"
         });
 
         // Set ang data ng QR code container gamit ang profileData

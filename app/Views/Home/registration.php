@@ -47,7 +47,7 @@
                   <p class="text-center">Enter your personal details to create account</p>
                 </div>
 
-                <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg/<?= $ref ?>"
+                <form class="row g-3 needs-validation" novalidate method="post" action="/registration"
                   onsubmit="return confirmSubmit()">
 
                   <div class="col-md-4 col-4">

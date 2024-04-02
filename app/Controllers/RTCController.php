@@ -49,7 +49,7 @@ class RTCController extends BaseController
     {
         $session = session();
         $userId = $session->get('id');
-
+        $role = $session->get('role');
         $data = [
             'sender' => $userId,
             'recipient' => $this->request->getVar('sendto'),
@@ -63,6 +63,14 @@ class RTCController extends BaseController
 
         // Insert the new message
         $this->chat->insert($data);
+
+        if($role === 'admin'){
+            return redirect()->to('AdDash');
+        } elseif($role === 'agent'){
+            return redirect()->to('AgDash');
+        }elseif($role === 'applicant'){
+            return redirect()->to('AppDash');
+        }
     }
 
     public function RTC()

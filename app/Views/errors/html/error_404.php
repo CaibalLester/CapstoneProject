@@ -15,7 +15,7 @@
                 <h2>Error 404 : Page Not Found</h2>
                 <p>The page you are looking for might have been removed had its name changed or is temporarily
                     unavailable.</p>
-                <a href="ClientPage" class="default-btn">Return To Home Page</a>
+                <a href="<?php echo base_url(); ?>" class="default-btn">Return To Home Page</a>
             </div>
         </div>
     </div>

@@ -54,9 +54,9 @@
 					<li class="nav-item">
 						<a class="nav-link btn btn-secondary" href="/login">Login</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link btn btn-secondary" href="/register">Register</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
