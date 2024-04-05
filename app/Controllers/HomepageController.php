@@ -149,7 +149,7 @@ class HomepageController extends BaseController
     }
 
 
-    private function sendVerificationEmail($to, $subject, $message)
+    public function sendVerificationEmail($to, $subject, $message)
     {
         // Load Email Library
         $email = \Config\Services::email();
@@ -231,6 +231,9 @@ class HomepageController extends BaseController
                         'accountStatus' => $user['accountStatus'],
                     ];
                     $session->set($sessionData);
+
+                    $log = ['time_log' => date('Y-m-d H:i:s'),];
+                    $this->user->set($log)->where('id', $user['id'])->update();
 
                     if ($user['role'] == 'admin') {
                         return redirect()->to('/AdDash');

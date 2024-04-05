@@ -35,6 +35,9 @@ class AgentFilter implements FilterInterface
         if ($session->get('accountStatus') == 'restricted') {
             $session->setFlashdata('error', 'Your account has been restricted. Please contact customer service for assistance.');
             return redirect()->to('/login');
+        } elseif ($session->get('accountStatus') == 'inactive') {
+            $session->setFlashdata('warning', 'Account Inactive. Due to 30 days without login');
+            return redirect()->to('/login');
         }
         
     }

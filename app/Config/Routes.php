@@ -12,6 +12,9 @@ $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilt
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
 $routes->get('/add', 'ProfileController::add', ['filter' => 'adminFilter']);
+$routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
+
+$routes->match(['get', 'post'], '/formsTable/(:any)', 'AdminController::formsTable/$1', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'],'/usermanagement', 'UsersManageController::usermanagement', ['filter' => 'adminFilter']);
 $routes->post('/newuser', 'UsersManageController::newuser', ['filter' => 'adminFilter']);

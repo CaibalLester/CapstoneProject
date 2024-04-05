@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Controllers\RTCController;
+use App\Controllers\HomepageController;
 use App\Models\AdminModel;
 use App\Models\UserModel;
 use App\Models\ApplicantModel;
@@ -16,6 +17,7 @@ use Dompdf\Options;
 
 class AdminController extends BaseController
 {
+    private $homecon;
     private $rtc;
     private $agent;
     private $user;
@@ -32,6 +34,7 @@ class AdminController extends BaseController
         $this->admin = new AdminModel();
         $this->form1 = new Form1Model();
         $this->form3 = new Form3Model();
+        $this->homecon = new HomepageController();
     }
 
     public function AdDash()
@@ -73,6 +76,27 @@ class AdminController extends BaseController
         $data['agent'] = $this->agent->paginate(10, 'group1'); // Change 10 to the number of items per page
         $data['pager'] = $this->agent->pager;
         return view('Admin/ManageAgent', $data);
+    }
+
+    public Function Forms()
+    {
+        $data = array_merge($this->getData(), $this->getDataAd());
+
+        return view('Admin/Forms', $data);
+    }
+
+    public function formsTable($form)
+    {
+        $data = array_merge($this->getData(), $this->getDataAd());
+        $data['user'] = $this->user->where(['role !=' => 'admin'])->Where(['role !=' => 'client'])->findAll();
+        $data['link'] = $form;
+        $search = $this->request->getPost('searchusers');
+
+        if (!empty($search)) {
+            $data['user'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->findAll();
+        } 
+        return view('Admin/formsTable', $data);
+        // var_dump( $search);
     }
 
     public function ManageApplicant()
@@ -251,9 +275,16 @@ class AdminController extends BaseController
 
         $this->applicant->set('status', 'confirmed')->where('app_token', $app_token)->update();
         $this->user->set('role', 'agent')->where('token', $app_token)->update();
-     
+
+        $verificationLink = site_url("login");
+        $emailSubject = 'Promotion';
+        $emailMessage = "Congratulations on your promotion! We're thrilled to see your hard work and dedication pay off. 
+        Please click the link below to login and access your new responsibilities: $verificationLink";
+        $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);    
         return redirect()->to('promotion')->with('success', "$username was Promoted To Agent");
     }
+
+    
 
     public function svad()
     {

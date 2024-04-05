@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <title>LIFE CHANGER FORM</title>
     <style>
         body {
@@ -13,27 +18,65 @@
             /* background-color: #f0f0f0; */
         }
         .download-button-container {
-    position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    z-index: 1000; /* Ensure the button appears above other content */
-}
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 1000; /* Ensure the button appears above other content */
+        }
 
-.download-btn {
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #28a745; /* Green color for success */
-    border: none;
-    transition: background-color 0.3s ease;
-}
+        .download-btn {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #327bbe;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                animation: bounceAnimation 2s infinite;
+            }
 
-.download-btn:hover {
-    background-color: #218838; /* Darker green color on hover */
-}
+        .download-btn:hover {
+            background-color: #327bbe;
+        }
 
+        @keyframes bounceAnimation {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .back-button {
+        background-color: #007bff; /* Blue background color */
+        border: none;
+        color: #fff; /* White text color */
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #0056b3; /* Darker blue color on hover */
+    }
+
+    /* Optional: Add more specific styles for different screen sizes */
+    @media screen and (max-width: 768px) {
+        .back-button {
+            font-size: 14px; /* Adjust font size for smaller screens */
+            padding: 8px 16px; /* Adjust padding for smaller screens */
+        }
+    }
 
         .page {
             width: 210mm;
@@ -207,7 +250,7 @@
 
 <body>
 
-    <div class="page">
+    <div class="page" id="page">
         <div class="content">
             
             <div class="head">
@@ -743,16 +786,51 @@
             </div>
 
         </div>
-        <div class="download-button-container">
-    <a href="<?= isset ($lifechangerform['user_id']) ? base_url('generatePdf/' . $lifechangerform['user_id']) : '#' ?>"
-       class="btn btn-success download-btn">Click to Download</a>
-</div>
         
+        <div class="download-button-container">
+
+
+            <button class="download-btn" onclick="generatePdf()">Download</button>
+            <!-- <button class="btn btn-success download-btn" onclick="generatePDF($lifechangerform['user_id']?? '')" >Download</button> -->
+            <button onclick="goBack()" class="back-button">Back</button>
+
+            <script>
+            function goBack() {
+            window.history.back();
+            }
+            </script>
+        </div>
     </div>
 
+    <script>
+        window.jsPDF = window.jspdf.jsPDF;
+function generatePdf() {
+    let jsPdf = new jsPDF('p', 'pt', 'a4');
+    var htmlElement = document.getElementById('page');
+    // you need to load html2canvas (and dompurify if you pass a string to html)
+    const opt = {
+        callback: function (jsPdf) {
+            jsPdf.save("Life Changer.pdf");
+            // to open the generated PDF in browser window
+            // window.open(jsPdf.output('bloburl'));
+        },
+        // margin: [0, 0, 72, 0],
+        // autoPaging: 'text',
+        // margin: { top: 0, right: 0, bottom: 0.5, left: 0 },
+        autoPaging: true, // Enable auto pagination
+        html2canvas: {
+            allowTaint: true,
+            dpi: 300,
+            letterRendering: true,
+            logging: false,
+            scale: .8
+        }
+    };
+
+    jsPdf.html(htmlElement, opt);
+}
+    </script>
     
-
-
 </body>
 
 </html>

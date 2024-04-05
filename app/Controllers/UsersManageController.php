@@ -46,20 +46,20 @@ class UsersManageController extends BaseController
         if (!empty($filterroles)) {
             if ($filterroles == 'all') {
                 $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
-                
+
             } else {
                 // If another role is selected, filter by role
                 $data['users'] = $this->user->where('role', $filterroles)->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
-                
+
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided
             $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
-            
+
         } else {
             // If neither filter roles nor search query is provided, get all users
             $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
-            
+
         }
         $data['pager'] = $this->user->pager;
         return view('Admin/usermanagement', $data);
@@ -102,16 +102,16 @@ class UsersManageController extends BaseController
     }
     public function upuser($token)
     {
-        // $toke = $this->request->getPost('token');
         $newuser = [
             'username' => $this->request->getVar('upusername'),
             'email' => $this->request->getVar('upemail'),
-           
             'accountStatus' => $this->request->getPost('accountStatus'),
         ];
+        if ($this->request->getPost('accountStatus')== 'active'){
+            $timelog = ['time_log' => date('Y-m-d H:i:s')];
+            $this->user->set($timelog)->where('token', $token)->update();
+        }
         $this->user->set($newuser)->where('token', $token)->update();
         return redirect()->to('usermanagement')->with('success', 'Account updated');
-        // var_dump($newuser);
-        // return redirect()->to('usermanagement');
     }
 }

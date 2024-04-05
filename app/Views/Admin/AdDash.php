@@ -25,6 +25,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Forms">
+                            <i class="bi bi-file-earmark-slides me-2"></i>
+                                Forms
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/promotion">
                                 <i class="fa fa-user me-2"></i>
                                 Promotion

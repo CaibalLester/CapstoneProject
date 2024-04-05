@@ -32,11 +32,6 @@ class AdminFilter implements FilterInterface
         if ($session->get('role') !== 'admin') {
             return redirect()->to('/');
         }
-        if ($session->get('accountStatus') == 'restricted') {
-            $session->setFlashdata('error', 'Your account has been restricted. Please contact customer service for assistance.');
-            return redirect()->to('/login');
-        }
-        
     }
 
     /**
