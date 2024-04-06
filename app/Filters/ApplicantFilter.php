@@ -37,6 +37,9 @@ class ApplicantFilter implements FilterInterface
         } elseif ($session->get('accountStatus') == 'inactive') {
             $session->setFlashdata('warning', 'Account Inactive. Due to 30 days without login');
             return redirect()->to('/login');
+        } elseif ($session->get('confirm') == 'false') {
+            $session->setFlashdata('success', 'Please wait for admin confirmation');
+            return redirect()->to('/login');
         }
     }
 

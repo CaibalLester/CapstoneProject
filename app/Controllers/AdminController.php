@@ -11,12 +11,12 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\Form3Model;
 use App\Models\AgentModel;
-
-use Dompdf\Dompdf;
-use Dompdf\Options;
+use App\Models\ConfirmModel;
 
 class AdminController extends BaseController
 {
+    private $confirm;
+    private $db;
     private $homecon;
     private $rtc;
     private $agent;
@@ -27,6 +27,8 @@ class AdminController extends BaseController
     private $form3;
     public function __construct()
     {
+        $this->db = \Config\Database::connect();
+        $this->confirm = new ConfirmModel();
         $this->rtc = new RTCController();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
@@ -47,6 +49,7 @@ class AdminController extends BaseController
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
         return view('Admin/AdDash', $data);
+
     }
     //Top 3 Agents
     private function topagent()
@@ -63,6 +66,7 @@ class AdminController extends BaseController
         // Return the data
         return $data;
     }
+
     private function getagent()
     {
         $data['agent'] = $this->agent->findAll();
@@ -78,7 +82,7 @@ class AdminController extends BaseController
         return view('Admin/ManageAgent', $data);
     }
 
-    public Function Forms()
+    public function Forms()
     {
         $data = array_merge($this->getData(), $this->getDataAd());
 
@@ -94,7 +98,7 @@ class AdminController extends BaseController
 
         if (!empty($search)) {
             $data['user'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->findAll();
-        } 
+        }
         return view('Admin/formsTable', $data);
         // var_dump( $search);
     }
@@ -148,8 +152,6 @@ class AdminController extends BaseController
         return view('Admin/ManageAgent', $data);
     }
 
-
-
     private function getDataAd()
     {
         $session = session();
@@ -183,11 +185,10 @@ class AdminController extends BaseController
     {
         $data = array_merge($this->getData(), $this->getDataAd());
         $search = $this->request->getPost('searchusers');
-        if (!empty($search))
-        {
+        if (!empty($search)) {
             $data['applicant'] = $this->applicant->like('username', $search)->findAll();
-        } else{
-            $data['applicant'] = $this->applicant->where('status', 'pending')->paginate(10, 'group1'); 
+        } else {
+            $data['applicant'] = $this->applicant->where('status', 'pending')->paginate(10, 'group1');
             $data['pager'] = $this->applicant->pager;
         }
         return view('Admin/promotion', $data);
@@ -204,7 +205,7 @@ class AdminController extends BaseController
     public function viewAppForm($token)
     {
         $data = $this->form1->where('app_life_token', $token)->first();
-        
+
         return view('Admin/Forms/details', ['lifechangerform' => $data]);
     }
     public function viewAppForm2($token)
@@ -247,9 +248,9 @@ class AdminController extends BaseController
         $agentCode = $this->random();
 
         $ref = $data['applicant']['refcode'];
-        $agent = $this->agent->where('AgentCode',$ref)->first();
+        $agent = $this->agent->where('AgentCode', $ref)->first();
         $FA = $agent['agent_id'];
-        
+
         $appdata = [
             'agent_id' => $data['applicant']['applicant_id'],
             'username' => $data['applicant']['username'],
@@ -280,11 +281,9 @@ class AdminController extends BaseController
         $emailSubject = 'Promotion';
         $emailMessage = "Congratulations on your promotion! We're thrilled to see your hard work and dedication pay off. 
         Please click the link below to login and access your new responsibilities: $verificationLink";
-        $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);    
+        $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
         return redirect()->to('promotion')->with('success', "$username was Promoted To Agent");
     }
-
-    
 
     public function svad()
     {
@@ -350,76 +349,74 @@ class AdminController extends BaseController
         return redirect()->to('/AdSetting');
     }
 
-    public function generatePdf($id)
+    public function confirm($token)
     {
-        $app = $this->applicant->where('applicant_id', $id)->first();
-        $lifechangerFormData = $this->form1->where('user_id', $id)->first();
+        $data['applicant'] = $this->confirm->where('token', $token)->first();
+        $form['applicant'] = $this->user->where('token', $token)->first();
+        $verificationToken = bin2hex(random_bytes(16));
+        $appdata = [
+            'applicant_id' => $data['applicant']['applicant_id'],
+            'username' => $data['applicant']['username'],
+            'number' => $data['applicant']['number'],
+            'firstname' => $data['applicant']['firstname'],
+            'lastname' => $data['applicant']['lastname'],
+            'middlename' => $data['applicant']['middlename'],
+            'email' => $data['applicant']['email'],
+            'refcode' => $data['applicant']['refcode'],
+            'app_token' => $data['applicant']['token'],
+        ];
 
-        // Check if the data is found
-        if (!$lifechangerFormData) {
-            // Handle the case where data is not found, redirect, or show an error
-            return redirect()->to('/'); // Change the URL or handle as needed
-        }
+        $this->applicant->save($appdata);
+        $this->confirm->delete($data['applicant']['id']);
 
-        // Load your view content into a variable
-        $data['lifechangerform'] = $lifechangerFormData;
-        $html = view('Admin/Forms/details', $data);
+        $con = ['confirm' => 'true'];
+        $this->user->set($con)->where('token', $token)->update();
 
-        // Create an instance of Dompdf
-        $options = new Options();
-        $options->set('isHtml4ParserEnabled', true);
-        $options->set('isPhpEnabled', true);
+        $formdata = [
+            'user_id' => $form['applicant']['id'],
+            'app_life_token' => $token,
+            'username' => $form['applicant']['username'],
+        ];
 
-        $dompdf = new Dompdf($options);
+        $this->form1->save($formdata);
 
-        // Load HTML content to Dompdf
-        $dompdf->loadHtml($html);
+        // $verificationLink = site_url("login");
+        $verificationLink = site_url("verify-email/{$verificationToken}");
+        $emailSubject = 'Register Confirmation';
+        $emailMessage = "Your Account was Confirmed please click the link to login: $verificationLink";
+        $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
 
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-
-        // Render PDF (first step)
-        $dompdf->render();
-
-        // Save PDF to a file (optional)
-        // $dompdf->output('path/to/store/file.pdf');
-
-        // Output PDF to the browser
-        $dompdf->stream('lifechanger.pdf', array('Attachment' => 0));
+        return redirect()->to('/confirmation')->with('success', 'Acount Confirmed!');
     }
 
-    public function generatePdf3($id)
+    public function deny($token)
     {
-        $app = $this->applicant->where('applicant_id', $id)->first();
-        $gli = $this->form3->where('applicant_id', $id)->first();
+        $data['applicant'] = $this->confirm->where('token', $token)->first();
+        $id = $data['applicant']['id'];
 
-        // Check if the data is found
-        if (!$gli) {
-            // Handle the case where data is not found, redirect, or show an error
-            return redirect()->to('/'); // Change the URL or handle as needed
-        }
-        // Load your view content into a variable
-        $data['gli'] = $gli;
-        $html = view('Admin/Forms/details3', $data);
+        $this->confirm->delete($id);
+        // $verificationLink = site_url("verify-email/{$verificationToken}");
+        $emailSubject = 'Register Deny';
+        $emailMessage = "Your Account was Deny Where sorry to inform you";
+        $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
 
-        // Create an instance of Dompdf
-        $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isPhpEnabled', true);
-
-        $dompdf = new Dompdf($options);
-
-        // Load HTML content to Dompdf
-        $dompdf->loadHtml($html);
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
-
-        // Render PDF (first step)
-        $dompdf->render();
-
-        // Output PDF to the browser
-        $dompdf->stream($app['username'] . '-gli.pdf', array('Attachment' => 0));
+        // var_dump($id);
+        return redirect()->to('/confirmation')->with('warning', 'Acount Denied');
     }
 
+    public function confirmation()
+    {
+        $data = array_merge($this->getData(), $this->getDataAd());
+        $con = $this->confirm->paginate(10, 'group1');
+        $data['applicant'] = $con;
+        $data['pager'] = $this->confirm->pager;
+        $search = $this->request->getPost('searchusers');
+
+        if (!empty($search)){
+            $data['applicant'] = $this->confirm->like('username',$search)->paginate(10, 'group1');
+        }
+        
+        // var_dump($data);
+        return view('Admin/confirmation', $data);
+    }
 }

@@ -8,15 +8,18 @@ use App\Models\UserModel;
 use App\Models\AgentModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
+use App\Models\ConfirmModel;
 
 class HomepageController extends BaseController
 {
+    private $confirm;
     private $agent;
     private $client;
     private $user;
     private $form1;
     public function __construct()
     {
+        $this->confirm = new ConfirmModel();
         $this->form1 = new Form1Model();
         $this->user = new UserModel();
         $this->client = new ClientModel();
@@ -80,7 +83,6 @@ class HomepageController extends BaseController
                     'username' => $this->request->getVar('username'),
                     'email' => $this->request->getVar('email'),
                     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                    'branch' => 'Calapan',
                     'role' => $this->request->getVar('role'),
                     'status' => 'unverified',
                     'verification_token' => $verificationToken,
@@ -104,15 +106,9 @@ class HomepageController extends BaseController
                     'middlename' => $this->request->getVar('middlename'),
                     'email' => $this->request->getVar('email'),
                     'refcode' => $ref,
-                    'branch' => 'Calapan',
-                    'app_token' => $usertoken,
+                    'token' => $usertoken,
                 ];
-                $applicantModel->save($applicantData);
-                $formdata = [
-                    'user_id' => $userId,
-                    'app_life_token' => $usertoken,
-                ];
-                $form1->save($formdata);
+                $this->confirm->save($applicantData);
             }
 
             // if ($this->request->getVar('role') === 'client') {
@@ -131,11 +127,12 @@ class HomepageController extends BaseController
             // }
 
             // Send verification email
-            $verificationLink = site_url("verify-email/{$verificationToken}");
-            $emailSubject = 'Email Verification';
-            $emailMessage = "Click the link to verify your email: $verificationLink";
-            $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
-            return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
+            // $verificationLink = site_url("verify-email/{$verificationToken}");
+            // $emailSubject = 'Email Verification';
+            // $emailMessage = "Click the link to verify your email: $verificationLink";
+            // $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
+            // return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
+            return redirect()->to('/login')->with('success', 'Account Registered!');
 
         } else {
             if ($this->request->getVar('role') === 'client') {
@@ -229,6 +226,7 @@ class HomepageController extends BaseController
                         'role' => $user['role'],
                         'IsLoggin' => true,
                         'accountStatus' => $user['accountStatus'],
+                        'confirm' => $user['confirm'],
                     ];
                     $session->set($sessionData);
 

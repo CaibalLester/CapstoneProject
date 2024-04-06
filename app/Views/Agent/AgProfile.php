@@ -260,7 +260,11 @@
                                                             <?php foreach ($FA as $sub): ?>
                                                                 <tr>
                                                                     <td>
-                                                                        <?= $sub['Agentfullname'] ?>
+                                                                        <?php if (isset($sub['lastname']) && isset($sub['firstname']) && isset($sub['middlename'])): ?>
+                                                                            <?= $sub['lastname'] ?>,
+                                                                            <?= $sub['firstname'] ?>
+                                                                            <?= $sub['middlename'] ?>
+                                                                        <?php endif; ?>
                                                                     </td>
                                                                     <td>
                                                                         <?= date('M j, Y', strtotime($sub['created_at'])); ?>

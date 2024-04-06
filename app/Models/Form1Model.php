@@ -87,7 +87,8 @@ class Form1Model extends Model
         'allowed',
         'notallowed',
         'ifnoProvdtls',
-        'app_life_token'
+        'app_life_token',
+        'username'
     ];
 
     // Dates

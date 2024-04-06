@@ -13,6 +13,11 @@ $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilt
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
 $routes->get('/add', 'ProfileController::add', ['filter' => 'adminFilter']);
 $routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
+// $routes->get('/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
+$routes->get('confirm/(:any)', 'AdminController::confirm/$1', ['filter' => 'adminFilter']);
+$routes->get('deny/(:any)', 'AdminController::deny/$1', ['filter' => 'adminFilter']);
+
+$routes->match(['get', 'post'],'/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'], '/formsTable/(:any)', 'AdminController::formsTable/$1', ['filter' => 'adminFilter']);
 
@@ -41,8 +46,6 @@ $routes->match(['get', 'post'], '/agentprofile/(:any)', 'ProfileController::agen
 $routes->match(['get', 'post'], '/applicantprofile/(:any)', 'ProfileController::applicantprofile/$1', ['filter' => 'adminFilter']);
 
 
-
-
 $routes->get('/AppDash', 'AppController::AppDash', ['filter' => 'applicantFilter']);
 $routes->get('/AppProfile', 'AppController::AppProfile', ['filter' => 'applicantFilter']);
 $routes->get('/AppSetting', 'AppController::AppSetting', ['filter' => 'applicantFilter']);
@@ -50,9 +53,9 @@ $routes->post('/svap', 'AppController::svap');
 $routes->get('/AppHelp', 'AppController::AppHelp', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
 
-$routes->post('/form1sv', 'AppController::form1sv');
-$routes->post('/form2sv', 'AppController::form2sv');
-$routes->post('/form3sv', 'AppController::form3sv');
+$routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'applicantFilter']);
+$routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'applicantFilter']);
+$routes->post('/form3sv', 'AppController::form3sv', ['filter' => 'applicantFilter']);
 
 $routes->get('/AppForm2', 'AppController::AppForm2', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilter']);
@@ -111,12 +114,6 @@ $routes->get('/pricing', 'ClientController::pricing');
 $routes->get('/terms', 'ClientController::terms');
 $routes->get('/contactus', 'ClientController::contactus');
 
-
-$routes->get('/ClientWell', 'ClientController::ClientWell');
-
-$routes->get('/ClientCompass', 'ClientController::ClientCompass');
-
-$routes->get('/ClientRegister', 'ClientController::register');
 
 
 

@@ -25,7 +25,6 @@ class ClientController extends BaseController
         return view('Client/services');
     }
     
-
     public function servicesdetails()
     {
         return view('Client/servicesdetails');
@@ -39,26 +38,5 @@ class ClientController extends BaseController
     public function contactus()
     {
         return view('Client/contactus');
-    }
-
-
-
-    public function ClientWell()
-    {
-        return view('Client/ClientWell');
-    }
-    public function ClientCompass()
-    {
-        return view('Client/ClientCompass');
-    }
-
-    public function register()
-    {
-        return view('Client/register');
-    }
-
-    public function login()
-    {
-        return view('Client/login');
     }
 }

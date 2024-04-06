@@ -45,7 +45,7 @@ class UsersManageController extends BaseController
         // Check if filter roles are selected
         if (!empty($filterroles)) {
             if ($filterroles == 'all') {
-                $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
+                $data['users'] = $this->user->where(['role !=' => 'admin','confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
             } else {
                 // If another role is selected, filter by role
@@ -54,11 +54,11 @@ class UsersManageController extends BaseController
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided
-            $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
+            $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin' , 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         } else {
             // If neither filter roles nor search query is provided, get all users
-            $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
+            $data['users'] = $this->user->where(['role !=' => 'admin','confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         }
         $data['pager'] = $this->user->pager;

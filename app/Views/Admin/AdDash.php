@@ -39,6 +39,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/confirmation">
+                            <i class="bi bi-check-lg me-2"></i>
+                                Confirmation
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents
