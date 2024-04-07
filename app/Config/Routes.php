@@ -107,6 +107,8 @@ $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
 //Clientt
 $routes->get('/ClientPage', 'ClientController::ClientPage');
+$routes->get('/ClientWell', 'ClientController::ClientWell');
+$routes->get('/ClientCompass', 'ClientController::ClientCompass');
 
 $routes->get('/services', 'ClientController::services');
 $routes->get('/servicesdetails', 'ClientController::servicesdetails');

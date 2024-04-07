@@ -19,6 +19,14 @@ class ClientController extends BaseController
     {
         return view('Client/ClientPage');
     }
+    public function ClientWell()
+    {
+        return view('Client/ClientWell');
+    }
+    public function ClientCompass()
+    {
+        return view('Client/ClientCompass');
+    }
 
     public function services()
     {

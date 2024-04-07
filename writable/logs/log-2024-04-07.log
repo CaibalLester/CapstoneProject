@@ -270,3 +270,11 @@ in APPPATH\Views\Admin\confirmation.php on line 135.
  8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-07 23:51:15 --> Undefined array key "confirm"
+in APPPATH\Controllers\HomepageController.php on line 229.
+ 1 APPPATH\Controllers\HomepageController.php(229): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "confirm"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\HomepageController.php', 229)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

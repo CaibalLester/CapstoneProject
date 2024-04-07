@@ -1,457 +1,887 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>ALLIANZ PNB</title>
-	<link rel="stylesheet" href="home/vendors/mdi/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="home/vendors/owl.carousel/css/owl.carousel.css">
-	<link rel="stylesheet" href="home/vendors/owl.carousel/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="home/vendors/aos/css/aos.css">
-	<link rel="stylesheet" href="home/vendors/jquery-flipster/css/jquery.flipster.css">
-	<link rel="stylesheet" href="home/css/style.css">
-	<link rel="shortcut icon" href="home/images/allianzlogo1.png" />
-</head>
+<?= view('Home/chop1/head') ?>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<div id="mobile-menu-overlay"></div>
-	<nav class="navbar navbar-expand-lg fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="#">
-				<h3 class="font-weight-medium">ALLIANZ PNB</h3>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-				aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-				<div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
-					<h3 class="font-weight-medium">ALLIANZ PNB MIMAROPA</h3>
+<body>
 
-					<a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+	<div class="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+
+
+	<div class="header-area">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-sm-3 col-md-3">
+					<div class="header-left-bar-text">
+						<ul class="list-inline">
+							<li>
+								<a href="https://www.facebook.com/" target="_blank">
+									<i class="bx bxl-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/" target="_blank">
+									<i class="bx bxl-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/" target="_blank">
+									<i class="bx bxl-linkedin"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.google.com/" target="_blank">
+									<i class="bx bxl-google"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<ul class="navbar-nav ml-auto align-items-center">
-					<li class="nav-item active">
-						<a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#services">Services</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#product">Product</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About</a>
-					</li>
-						<!--<li class="nav-item">
-							<a class="nav-link" href="#team">Team</a>
-						</li>-->
-					<li class="nav-item">
-						<a class="nav-link" href="#contact">Contact</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link btn btn-secondary" href="/login">Login</a>
-					</li>
-					<!-- <li class="nav-item">
-						<a class="nav-link btn btn-secondary" href="/register">Register</a>
-					</li> -->
-				</ul>
+				<div class="col-lg-6 col-sm-9 col-md-9">
+					<div class="header-right-content text-end">
+						<ul class="list-inline">
+							<li class="d-inline">
+								<img src="allhome/assets/images/phone.svg" alt="Phone">
+								<a href="tel:(+0188)7689870859">(+0188) 768 987 0859</a>
+							</li>
+							<li class="d-inline">
+								<img src="allhome/assets/images/email.svg" alt="Email">
+								<a
+									href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#4e272028210e272021203a262b232b3d602d2123"><span
+										class="__cf_email__"
+										data-cfemail="0940676f6649606766677d616c646c7a276a6664">[email&#160;protected]</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-	</nav>
-	<div class="page-body-wrapper">
-		<section id="home" class="home">
+	</div>
+
+
+	<div class="navbar-area navbar-area-three">
+		<div class="main-responsive-nav">
 			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="main-banner">
-							<div class="d-sm-flex justify-content-between">
-								<div data-aos="zoom-in-up"><br>
-									<div class="banner">
-										<br><br>
-										<h3 class="font-weight-medium">Securing Your Tomorrow, Today. Choose Allianz PNB
-											for a Future of Confidence.</h3>
-									</div>
-									<p class="mt-3">Allianz PNB Agency is a leading name in the insurance industry,
-										providing services since its inception.
-										<br>
-									</p>
-									<a href="/login" class="btn btn-secondary mt-3">Get Started!</a>
-								</div>
-								<div class="mt-5 mt-lg-0">
-									<img src="home/images/allianzlogo2.png" alt="contact" class="img-fluid"
-										data-aos="zoom-in-up">
-								</div>
+				<div class="main-responsive-menu">
+				<div class="logo">
+					<a href="index.html">
+						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+					</a>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-navbar main-navbar-three">
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<a class="navbar-brand" href="index.html">
+						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+					</a>
+					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a href="#" class="nav-link active">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									Pages
+									<i class="bx bx-down-arrow-alt"></i>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item">
+										<a href="#aboutus" class="nav-link">About Us</a>
+									</li>
+									<li class="nav-item">
+										<a href="#services" class="nav-link">
+											Services
+											<i class="bx bx-down-arrow-alt"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a href="/ClientWell" class="nav-link">Allianz Well</a>
+											</li>
+											<li class="nav-item">
+												<a href="/ClientCompass" class="nav-link">Allianz Compass</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a href="#faq" class="nav-link">FAQ</a>
+									</li>
+									<li class="nav-item">
+										<a href="#testimonials" class="nav-link">Testimonials</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											User Pages
+											<i class="bx bx-down-arrow-alt"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a href="my-account.html" class="nav-link">My Account</a>
+											</li>
+											<li class="nav-item">
+												<a href="register.html" class="nav-link">Register</a>
+											</li>
+											<li class="nav-item">
+												<a href="forgot-password.html" class="nav-link">Forgot Password</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+									</li>
+									<li class="nav-item">
+										<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="#comingsoon" class="nav-link">Coming Soon</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="contact.html" class="nav-link">Contact Us</a>
+							</li>
+						</ul>
+						<div class="others-options d-flex align-items-center">
+							<div class="option-item">
+								<button class="searchbtn" type="button">
+									<i class="bx bx-search"></i>
+								</button>
+							</div>
+							<div class="option-item">
+								<a href="/login" class="default-btn navbar-btn-style">Login</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="others-option-for-responsive">
+			<div class="container">
+				<div class="dot-menu">
+					<div class="inner">
+						<div class="circle circle-one"></div>
+						<div class="circle circle-two"></div>
+						<div class="circle circle-three"></div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="option-inner">
+						<div class="others-options d-flex align-items-center">
+							<div class="option-item">
+								<button class="searchbtn" type="button">
+									<i class="bx bx-search"></i>
+								</button>
+							</div>
+							<div class="option-item">
+								<a href="/login" class="default-btn btn-style-2">Login</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<section class="our-services" id="services">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h5 class="text-dark">Discover our Services</h5>
-						<h3 class="font-weight-medium text-dark mb-5">Allianz PNB Agency Solutions</h3>
-					</div>
+		</div>
+	</div>
+
+
+	<div class="search-area">
+		<div class="container">
+			<button type="button" class="close-searchbox">
+				<i class="bx bx-x"></i>
+			</button>
+			<form action="#" class="search-form">
+				<div class="form-group">
+					<input type="search" placeholder="Search Here">
 				</div>
-				<div class="row" data-aos="fade-up">
-					<!-- Service 1: Integrated Marketing -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/integrated-marketing.svg" alt="integrated-marketing"
-								data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Integrated Marketing</h6>
-							<p>Allianz PNB Agency offers comprehensive integrated marketing solutions to elevate your
-								brand.</p>
-						</div>
-					</div>
+			</form>
+		</div>
+	</div>
 
-					<!-- Service 2: Design & Development -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/design-development.svg" alt="design-development" data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Design & Development</h6>
-							<p>We specialize in creating innovative designs and robust development to meet your unique
-								needs.</p>
-						</div>
-					</div>
 
-					<!-- Service 3: Digital Strategy -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/digital-strategy.svg" alt="digital-strategy" data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital Strategy</h6>
-							<p>Allianz PNB Agency crafts effective digital strategies to drive your business forward.
-							</p>
+	<div class="banner-three-area">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-lg-7">
+					<div class="single-banner-three-content">
+						<h1>Securing Your Tomorrow, Today. </h1>
+						<p>Allianz PNB Agency is a leading name in the insurance industry, providing services since its inception.</p>
+						<div class="banner-btn d-flex align-items-center">
+							<a href="#" class="default-btn btn-style-3">Get Started</a>
+							<a href="#" class="default-btn btn-style30">Contact Us</a>
 						</div>
 					</div>
 				</div>
-
-				<div class="row" data-aos="fade-up">
-					<!-- Service 4: Digital Marketing -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box pb-lg-0" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/digital-marketing.svg" alt="digital-marketing" data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Digital Marketing</h6>
-							<p>Boost your online presence with Allianz PNB Agency's tailored digital marketing
-								strategies.</p>
-						</div>
-					</div>
-
-					<!-- Service 5: Growth Strategy -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box pb-lg-0" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/growth-strategy.svg" alt="growth-strategy" data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Growth Strategy</h6>
-							<p>Drive sustainable growth with Allianz PNB Agency's strategic planning and execution.</p>
-						</div>
-					</div>
-
-					<!-- Service 6: Saving Strategy -->
-					<div class="col-sm-4 text-center text-lg-left">
-						<div class="services-box pb-0" data-aos="fade-down" data-aos-easing="linear"
-							data-aos-duration="1500">
-							<img src="home/images/saving-strategy.svg" alt="saving-strategy" data-aos="zoom-in">
-							<h6 class="text-dark mb-3 mt-4 font-weight-medium">Saving Strategy</h6>
-							<p>Allianz PNB Agency helps you build a secure financial future with effective saving
-								strategies.</p>
-						</div>
+				<div class="col-lg-5">
+					<div>
+						<img src="allhome/assets/images/allianzlogo4.png" alt="">
 					</div>
 				</div>
 			</div>
-		</section>
-
-		<section class="pricing-list" id="product">
-			<div class="container">
-				<div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-500">
-					<div class="col-sm-12">
-						<div class="d-sm-flex justify-content-between align-items-center mb-2">
-							<div>
-								<h3 class="font-weight-medium text-dark">ALLIANZ HEALTH SOLUTIONS</h3>
-								<h5 class="text-dark">Comprehensive health insurance plans that provide the highest coverage, allowing individuals and their families to *preferred medical providers and *gain access to the best medical facilities in the Philippines or anywhere in the world.</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center" data-aos="fade-up" data-aos-offset="-300">
-					<div class="col-sm-4">
-						<div class="pricing-box">
-							<img src="home/images/compass.jpg" alt="starter" style="max-width: 100%; height: auto; ">
-							<h6 class="font-weight-medium title-text">Allianz Well</h6>
-							<h5 class="text-amount mb-4 mt-2">100M Coverage</h5>
-							<a href="/ClientRegister" class="btn btn-outline-primary">Purchase Now</a>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="pricing-box">
-							<img src="home/images/well.jpg" alt="starter" style="max-width: 100%; height: auto;">
-							<h6 class="font-weight-medium title-text">Allianz Compass</h6>
-							<h5 class="text-amount mb-4 mt-2">200M Coverage</h5>
-							<a href="/ClientRegister" class="btn btn-outline-primary">Purchase Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="our-process" id="about">
-			<br><br><br>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6" data-aos="fade-up">
-						<h5 class="text-dark">Our Work Process</h5>
-						<h3 class="font-weight-medium text-dark">Discover Innovative Solutions with Allianz PNB Agency!
-						</h3>
-						<h5 class="text-dark mb-3">Empowering Your Financial Journey</h5>
-						<p class="font-weight-medium mb-4">At Allianz PNB Agency, we embrace the boundless potential of
-							creative thinking to shape a brighter financial future. Our commitment is to provide
-							tailored and exceptional solutions, addressing the distinctive needs of our clients with
-							precision and dedication.</p>
-						<div class="d-flex justify-content-start mb-3">
-							<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
-							<p class="mb-0">Collaborate with us to unlock the full potential of your financial goals.
-							</p>
-						</div>
-						<div class="d-flex justify-content-start mb-3">
-							<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
-							<p class="mb-0">Experience unparalleled service crafted to elevate your financial
-								well-being.</p>
-						</div>
-						<div class="d-flex justify-content-start">
-							<img src="home/images/tick.png" alt="tick" class="mr-3 tick-icon">
-							<p class="mb-0">Join us in the journey towards lasting financial success and security.</p>
-						</div>
-					</div>
-					<div class="col-sm-6 text-right" data-aos="flip-left" data-aos-easing="ease-out-cubic"
-						data-aos-duration="2000">
-						<img src="home/images/idea.png" alt="idea" class="img-fluid">
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="our-projects" id="projects">
-			<div class="container">
-				<div class="row mb-5">
-					<div class="col-sm-12">
-						<div class="d-sm-flex justify-content-between align-items-center mb-2">
-							<h3 class="font-weight-medium text-dark ">Below Presents our Plans</h3>
-							<div><a href="#" class="btn btn-outline-primary">View more</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mb-5" data-aos="fade-up">
-				<div class="owl-carousel-projects owl-carousel owl-theme">
-					<div class="item">
-						<img src="home/images/carousel/slider1.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider2.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider3.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider4.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider5.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider1.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider2.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider3.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider4.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider5.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider1.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider2.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider3.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider4.jpg" alt="slider">
-					</div>
-					<div class="item">
-						<img src="home/images/carousel/slider5.jpg" alt="slider">
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<div class="row pt-5 mt-5 pb-5 mb-5">
-					<div class="col-sm-3">
-						<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
-							<img src="home/images/satisfied-client.svg" alt="satisfied-client" class="mr-3">
-							<div>
-								<h4 class="font-weight-bold text-dark mb-0"><span class="scVal">0</span>%</h4>
-								<h5 class="text-dark mb-0">Satisfied clients</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
-							<img src="home/images/finished-project.svg" alt="satisfied-client" class="mr-3">
-							<div>
-								<h4 class="font-weight-bold text-dark mb-0"><span class="fpVal">0</span></h4>
-								<h5 class="text-dark mb-0">Finished Project</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-down">
-							<img src="home/images/team-members.svg" alt="Team Members" class="mr-3">
-							<div>
-								<h4 class="font-weight-bold text-dark mb-0"><span class="tMVal">0</span></h4>
-								<h5 class="text-dark mb-0">Team Members</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="d-flex py-3 my-3 my-lg-0 justify-content-center" data-aos="fade-up">
-							<img src="home/images/our-blog-posts.svg" alt="Our Blog Posts" class="mr-3">
-							<div>
-								<h4 class="font-weight-bold text-dark mb-0"><span class="bPVal">0</span></h4>
-								<h5 class="text-dark mb-0">Our Blog Posts</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
+		</div>
+		<div class="banner-three-img8">
+			<img src="allhome/assets/images/banner/banner-three-img-8.webp" alt="banner-shape">
+			<img src="allhome/assets/images/banner/banner-three-img-8.webp" alt="banner-shape">
+		</div>
 		
+	</div>
 
-		<section class="contactus" id="contact">
-			<div class="container">
-				<div class="row mb-5 pb-5">
-					<div class="col-sm-5" data-aos="fade-up" data-aos-offset="-500">
-						<img src="home/images/contact.jpg" alt="contact" class="img-fluid">
+<section  id="aboutus">
+	<div class="features-area pt-100 pb-70">
+		<div class="container">
+			<div class="section-title">
+				<span class="top-title"></span>
+				<h2>ABOUT US</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-sm-6 col-md-6">
+					<div class="single-features-card">
+						<div class="features-icon">
+							<img src="allhome/assets/images/features/people.svg" alt="features-1">
+						</div>
+						<h3>Integrated Marketing</h3>
+						<p>Allianz PNB Agency offers comprehensive integrated marketing solutions to elevate your brand.</p>
 					</div>
-					<div class="col-sm-7" data-aos="fade-up" data-aos-offset="-500">
-						<h3 class="font-weight-medium text-dark mt-5 mt-lg-0">Got A Problem</h3>
-						<h5 class="text-dark mb-5">If you have any questions, you can contact us.</h5>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6">
+					<div class="single-features-card bg-color-1">
+						<div class="features-icon">
+							<img src="allhome/assets/images/features/paper.svg" alt="features-1">
+						</div>
+						<h3>Saving Strategy</h3>
+						<p>Allianz PNB Agency helps you build a secure financial future with effective saving strategies.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6">
+					<div class="single-features-card bg-color-2">
+						<div class="features-icon">
+							<img src="allhome/assets/images/features/line.svg" alt="features-1">
+						</div>
+						<h3>Growth Strategy</h3>
+						<p>Drive sustainable growth with Allianz PNB Agency's strategic planning and execution.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6">
+					<div class="single-features-card bg-color-3">
+						<div class="features-icon">
+							<img src="allhome/assets/images/features/sword.svg" alt="features-1">
+						</div>
+						<h3>Digital Marketing</h3>
+						<p>Boost your online presence with Allianz PNB Agency's tailored digital marketing strategies.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="services">
+	<div class="team-area pt-100 pb-70">
+		<div class="container">
+			<div class="section-title">
+				<span class="top-title"></span>
+				<h2>Allianz PNB Best Insurance Services</h2>
+			</div>
+				<div class="team-slider owl-carousel owl-theme">
+					<div class="single-team-card">
+						<div class="team-img">
+							<img src="allhome/assets/images/well.png" alt="team">
+						</div>
+							<div class="single-team-content">
+								<h3>ALLIANZ WELL</h3>
+								<p>100M COVERAGE</p>
+								<a href="/ClientWell" class="default-btn btn-style-2">Inquire</a>
+							</div>
+						</div>
+		
+					<div class="single-team-card">
+						<div class="team-img">
+							<img src="allhome/assets/images/compass.png" alt="team">
+						</div>
+							<div class="single-team-content">
+								<h3>ALLIANZ COMPASS</h3>
+								<p>200M COVERAGE</p>
+								<a href="ClientCompass" class="default-btn btn-style-2">Inquire</a>
+							</div>
+						</div>
+					</div>
+				</div>
+</section>
+
+<section id="faq">
+	<div class="insurance-benefits-area pt-100 pb-100">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="insurance-benefits-img">
+						<img src="allhome/assets/images/insurance-benefits.webp" alt="insurance-benefits">
+						<div class="insurance-benefits-shape-1">
+							<img src="allhome/assets/images/insurance-benefits-shape-1.webp" alt="insurance-benefits-shape-1">
+						</div>
+						<div class="insurance-benefits-shape-2">
+							<img src="allhome/assets/images/insurance-benefits-shape-2.webp" alt="insurance-benefits-shape-1">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="single-insurance-benefits-content">
+						<div class="section-title left-title">
+							<span class="top-title">Why Choose Allianz PNB?</span>
+							<h2>Discover the Benefits</h2>
+							<p>Allianz PNB is committed to providing exceptional services and benefits to our customers. Here are some reasons why you should choose us:</p>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-sm-6 col-md-6">
+								<div class="insurance-benefits-card">
+									<div class="insurance-benefits-text d-flex align-items-center">
+										<span>01</span>
+										<h3>100% Secure Services</h3>
+									</div>
+									<p>Rest assured with our 100% secure services. We prioritize the safety and security of your investments and personal information.</p>
+								</div>
+							</div>
+							<div class="col-lg-6 col-sm-6 col-md-6">
+								<div class="insurance-benefits-card">
+									<div class="insurance-benefits-text d-flex align-items-center">
+										<span>02</span>
+										<h3>Anytime Money Back</h3>
+									</div>
+									<p>With Allianz PNB, enjoy the flexibility of anytime money back guarantee. We understand your changing needs and offer hassle-free refunds.</p>
+									<div class="insurance-shape">
+										<img src="allhome/assets/images/insurance-benefits-shape-3.webp" alt="insurance">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="testimonials">
+	<div class="testimonials-area testimonials-two-area pt-100 pb-70">
+		<div class="container">
+			<div class="section-title left-title">
+				<span class="top-title">Testimonials</span>
+				<h2>What Our Customers Says...</h2>
+			</div>
+			<div class="testimonials-three-slider owl-carousel owl-theme">
+				<div class="testimonials-item">
+					<div class="testimonials-client d-flex align-items-center">
+						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
+						<div class="testimonials-text">
+							<h3>Name 1</h3>
+						</div>
+					</div>
+					<div class="testimonials-card testimonials-card-three">
+						<div class="quote-icon">
+							<img src="allhome/assets/images/testimonials/qoutes.jpg" class="quote1" alt="quote">
+							<div class="quote-icon-2">
+								<img src="allhome/assets/images/quote-two.svg" alt="quote">
+							</div>
+						</div>
+						<p>Dito ilalagay yung mga feedbacks nila per user or person</p>
+					</div>
+				</div>
+				<div class="testimonials-item">
+					<div class="testimonials-client d-flex align-items-center">
+						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
+						<div class="testimonials-text">
+							<h3>Name 2</h3>
+						</div>
+					</div>
+					<div class="testimonials-card testimonials-card-three">
+						<div class="quote-icon">
+							<img src="allhome/assets/images/testimonials/qoutes.jpg" class="quote1" alt="quote">
+							<div class="quote-icon-2">
+								<img src="allhome/assets/images/quote-two.svg" alt="quote">
+							</div>
+						</div>
+						<p>Dito ilalagay yung mga feedbacks nila per user or person</p>
+					</div>
+				</div>
+				<div class="testimonials-item">
+					<div class="testimonials-client d-flex align-items-center">
+						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
+						<div class="testimonials-text">
+							<h3>Name 3</h3>
+						</div>
+					</div>
+					<div class="testimonials-card testimonials-card-three">
+						<div class="quote-icon">
+							<img src="allhome/assets/images/testimonials/qoutes.jpg" class="quote1" alt="quote">
+							<div class="quote-icon-2">
+								<img src="allhome/assets/images/quote-two.svg" alt="quote">
+							</div>
+						</div>
+						<p>Dito ilalagay yung mga feedbacks nila per user or person.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="testimonials-3-shape" data-cue="zoomIn" data-duration="2000">
+			<img src="allhome/assets/images/testimonials/testimonials-3-shape.webp" alt="testimonials">
+		</div>
+	</div>
+</section>
+
+<div class="blog-two-area pt-100 pb-70">
+    <div class="container">
+    	<div class="blog-item d-flex align-items-end justify-content-between">
+   			<div class="section-title left-title">
+    			<span class="top-title">Our Blog</span>
+    				<h2>Latest News & Articles</h2>
+    		</div>
+    	</div>
+    		<div class="row">
+    			<div class="col-lg-6 col-md-6">
+    				<div class="single-blog-card blog-card-two">
+    					<div class="blog-img">
+							<a href="blog-details.html">
+							<img src="allhome/assets/images/well.png" alt="blog">
+							</a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-lg-6 col-md-6">
+    				<div class="single-blog-card blog-card-two"><br><br>
+    						<div class="single-blog-content">
+								<h2>ALLIANZ WELL</h2><br>
+								<h5 style="text-align: justify;">Allianz Well! gives you health insurance coverage for in-patient hospitalization for COVID-19 and other illnesses. With an annual plan limit of Php 100 Million, you can now rest assured that you are secured should unforeseen medical expenses strike. </h5><br><br>
+								<select id="agentDropdown" style="padding: 10px; font-size: 16px; border: 2px solid #ccc; border-radius: 5px; width: 200px; outline: none; align-items: center;">
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 1</option>
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 2</option>
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 3</option>
+								</select><br><br>
+
+								<a href="#" class="default-btn btn-style-2">Proceed</a>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+</div>
+	
+
+
+	<div class="free-quote-2-area pt-100 pb-100">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="single-free-quote-form quote-form-three">
+						<div class="section-title left-title">
+							<span class="top-title">Free Quote</span>
+							<h2>Get An Insurance Quote To Get Started</h2>
+						</div>
 						<form>
 							<div class="row">
-								<div class="col-sm-6">
+								<div class="col-lg-12">
 									<div class="form-group">
-										<input type="text" class="form-control" id="name" placeholder="Name*">
+										<input type="text" class="form-control" placeholder="Name">
 									</div>
 								</div>
-								<div class="col-sm-6">
+								<div class="col-lg-12">
 									<div class="form-group">
-										<input type="email" class="form-control" id="mail" placeholder="Email*">
+										<input type="email" class="form-control" placeholder="Email">
 									</div>
 								</div>
-								<div class="col-sm-12">
+								<div class="col-lg-12">
 									<div class="form-group">
-										<textarea name="message" id="message" class="form-control"
-											placeholder="Message*" rows="5"></textarea>
+										<input type="text" class="form-control" placeholder="Select Type Of Insurance">
 									</div>
-								</div>
-								<div class="col-sm-12">
-									<a href="#" class="btn btn-secondary">SEND</a>
 								</div>
 							</div>
+							<div class="form-group">
+								<div class="range-slider">
+									<div class="d-flex justify-content-between">
+										<p>Limits Of Balance:</p>
+										<div class="dolor">
+											<p>$</p>
+											<span class="range-slider__value">12000</span>
+										</div>
+									</div>
+									<input class="range-slider__range" type="range" value="6000" min="0" max="12000">
+								</div>
+							</div>
+							<button type="submit" class="default-btn">Get A Quote Now</button>
 						</form>
 					</div>
 				</div>
-			</div>
-		</section>
-	</div>
-	<footer class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<address>
-							<p>143 castle road 517</p>
-							<p class="mb-4">district, kiyev port south Canada</p>
-							<div class="d-flex align-items-center">
-								<p class="mr-4 mb-0">+3 123 456 789</p>
-								<a href="mailto:info@yourmail.com" class="footer-link">info@yourmail.com</a>
-							</div>
-							<div class="d-flex align-items-center">
-								<p class="mr-4 mb-0">+1 222 345 342</p>
-								<a href="allianzpnb@gmail.com" class="footer-link">allianzpnb@gmail.com</a>
-							</div>
-						</address>
-						<div class="social-icons">
-							<h6 class="footer-title font-weight-bold">
-								Social Share
-							</h6>
-							<div class="d-flex">
-								<a href="#"><i class="mdi mdi-github-circle"></i></a>
-								<a href="#"><i class="mdi mdi-facebook-box"></i></a>
-								<a href="#"><i class="mdi mdi-twitter"></i></a>
-								<a href="#"><i class="mdi mdi-dribbble"></i></a>
-							</div>
+				<div class="col-lg-6">
+					<div class="free-quote-image-three">
+						<img src="allhome/assets/images/free-quote-three.webp" alt="free-quote">
+						<div class="free-quote-three-shape-1">
+							<img src="allhome/assets/images/free-quote-three-shape-1.webp" alt="free-quote">
 						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="row">
-							<div class="col-sm-4">
-								<h6 class="footer-title">Social Share</h6>
-								<ul class="list-footer">
-									<li><a href="#" class="footer-link">Home</a></li>
-									<li><a href="#" class="footer-link">About</a></li>
-									<li><a href="#" class="footer-link">Services</a></li>
-									<li><a href="#" class="footer-link">Portfolio</a></li>
-									<li><a href="#" class="footer-link">Contact</a></li>
-								</ul>
-							</div>
-							<div class="col-sm-4">
-								<h6 class="footer-title">Product</h6>
-								<ul class="list-footer">
-									<li><a href="#" class="footer-link">Digital Marketing</a></li>
-									<li><a href="#" class="footer-link">Web Development</a></li>
-									<li><a href="#" class="footer-link">App Development</a></li>
-									<li><a href="#" class="footer-link">Design</a></li>
-								</ul>
-							</div>
-							<div class="col-sm-4">
-								<h6 class="footer-title">Company</h6>
-								<ul class="list-footer">
-									<li><a href="#" class="footer-link">Partners</a></li>
-									<li><a href="#" class="footer-link">Investors</a></li>
-									<li><a href="#" class="footer-link">Partners</a></li>
-									<li><a href="#" class="footer-link">FAQ</a></li>
-								</ul>
-							</div>
+						<div class="free-quote-three-shape-2">
+							<img src="allhome/assets/images/free-quote-three-shape-2.webp" alt="free-quote">
+						</div>
+						<div class="free-quote-video-play">
+							<a href="https://youtube.com/watch?v=9weZzMRejvo" class="popup-youtube">
+								<i class="bx bx-play"></i>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-	</footer>
-	<script src="home/vendors/base/vendor.bundle.base.js"></script>
-	<script src="home/vendors/owl.carousel/js/owl.carousel.js"></script>
-	<script src="home/vendors/aos/js/aos.js"></script>
-	<script src="home/vendors/jquery-flipster/js/jquery.flipster.min.js"></script>
-	<script src="home/js/template.js"></script>
+
+	<div class="subscribe-two-area pt-100">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-md-6">
+					<div class="section-title left-title">
+						<span class="top-title">Sign Up For Email</span>
+						<h2>Signup Our Newsletter</h2>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="subscribe-from">
+						<form class="newsletter-form" data-toggle="validator">
+							<input type="email" class="form-control" placeholder="Your Email" name="EMAIL" required
+								autocomplete="off">
+							<button class="default-btn" type="submit">
+								Subscribe
+							</button>
+							<div id="validator-newsletter" class="form-result"></div>
+						</form>
+						<div class="subscribe-shape">
+							<img src="allhome/assets/images/subscribe-2-shape-1.webp" alt="subscribe1">
+						</div>
+						<div class="subscribe-shape13">
+							<img src="allhome/assets/images/subscribe-2-shape-2.webp" alt="subscribe1">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="subscribe-shape-2">
+			<img src="allhome/assets/images/subscribe-2-shape-3.webp" alt="subscribe-2-shape-3">
+		</div>
+	</div>
+
+
+	<div class="pricing-plans-area pt-100 pb-70">
+		<div class="container">
+			<div class="section-title">
+				<span class="top-title">Pricing Plans</span>
+				<h2>Choose Our Pricing Plan</h2>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-pricing-plan-card">
+						<h3>Health Insurance</h3>
+						<div class="pricing-box">
+							<h4>$29.00</h4>
+							<p>Per Month</p>
+						</div>
+						<ul class="pricing-list">
+							<li>Individual & Family Doctor</li>
+							<li>Prescription Drug Coverage</li>
+							<li>24/7 Support</li>
+							<li>Medical Consultations</li>
+							<li>Dental Coverage</li>
+						</ul>
+						<a href="pricing.html" class="default-btn">Choose Plan</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-pricing-plan-card">
+						<h3>Vehicle Insurance</h3>
+						<div class="pricing-box">
+							<h4>$39.00</h4>
+							<p>Per Month</p>
+						</div>
+						<ul class="pricing-list">
+							<li>Learner Insurance Provides</li>
+							<li>Comprehensive Insurance</li>
+							<li>Fire And Theft Insurance</li>
+							<li>Cost Of Accidents & Damage</li>
+							<li>24/7 Support</li>
+						</ul>
+						<a href="pricing.html" class="default-btn">Choose Plan</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-pricing-plan-card">
+						<h3>Life Insurance</h3>
+						<div class="pricing-box">
+							<h4>$49.00</h4>
+							<p>Per Month</p>
+						</div>
+						<ul class="pricing-list">
+							<li>Protective Protectionr</li>
+							<li>Transitioning Between Jobs</li>
+							<li>Health Coverage</li>
+							<li>Free Consultations</li>
+							<li>24/7 Support</li>
+						</ul>
+						<a href="pricing.html" class="default-btn">Choose Plan</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<section id="comingsoon">
+	<div class="blog-three-area pt-100 pb-70">
+		<div class="container">
+			<div class="section-title">
+				<span class="top-title">Recent News Feed</span>
+				<h2>Latest News & Articles</h2>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-blog-card blog-card-three">
+						<div class="blog-img">
+							<a href="blog-details.html">
+								<img src="allhome/assets/images/blog/blog-three-img-1.webp" alt="blog">
+							</a>
+						</div>
+						<div class="date">
+							<span>17 November 2022</span>
+						</div>
+						<div class="single-blog-content">
+							<ul class="p-0 m-0">
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/admin.svg" alt="admin">
+									</div>
+									By<a href="author.html">Admin</a>
+								</li>
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/comment.svg" alt="comment">
+									</div>
+									No Comment
+								</li>
+							</ul>
+							<h3>
+								<a href="blog-details.html">
+									Which Allows You To Pay Down Insurance Bills
+								</a>
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-blog-card blog-card-three">
+						<div class="blog-img">
+							<a href="blog-details.html">
+								<img src="allhome/assets/images/blog/blog-three-img-2.webp" alt="blog">
+							</a>
+						</div>
+						<div class="date">
+							<span>19 November 2022</span>
+						</div>
+						<div class="single-blog-content">
+							<ul class="p-0 m-0">
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/admin.svg" alt="admin">
+									</div>
+									By<a href="author.html">Admin</a>
+								</li>
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/comment.svg" alt="comment">
+									</div>
+									No Comment
+								</li>
+							</ul>
+							<h3>
+								<a href="blog-details.html">
+									Where And How To Watch Live Stream Today
+								</a>
+							</h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-blog-card blog-card-three">
+						<div class="blog-img">
+							<a href="blog-details.html">
+								<img src="allhome/assets/images/blog/blog-three-img-3.webp" alt="blog">
+							</a>
+						</div>
+						<div class="date">
+							<span>21 November 2022</span>
+						</div>
+						<div class="single-blog-content">
+							<ul class="p-0 m-0">
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/admin.svg" alt="admin">
+									</div>
+									By<a href="author.html">Admin</a>
+								</li>
+								<li class="list-inline">
+									<div class="admin">
+										<img src="allhome/assets/images/blog/comment.svg" alt="comment">
+									</div>
+									No Comment
+								</li>
+							</ul>
+							<h3>
+								<a href="blog-details.html">
+									2023 Insurance Trends And Possible Challenge
+								</a>
+							</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+	<div class="footer-area pt-100">
+		<div class="container">
+			<div class="row pb-100">
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget">
+						<a href="index.html">
+							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+						</a>
+						<p>Facilis est et expedita distinct libero teor cum soluta nobis est eligendi optio cumque nihil
+							impedit quo minus id quod maxime expedita placeat facere possimus.</p>
+						<ul class="follow-list">
+							<li>
+								<a href="https://www.facebook.com/" target="_blank">
+									<i class="bx bxl-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/" target="_blank">
+									<i class="bx bxl-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/" target="_blank">
+									<i class="bx bxl-linkedin"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.google.com/" target="_blank">
+									<i class="bx bxl-google"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget footer-widget-link2">
+						<h2>About Us</h2>
+						<ul class="footer-widget-list">
+							<li>
+								<a href="index.html"><i class="bx bx-chevron-right"></i>Home</a>
+							</li>
+							<li>
+								<a href="about.html"><i class="bx bx-chevron-right"></i>About Us</a>
+							</li>
+							<li>
+								<a href="about.html"><i class="bx bx-chevron-right"></i>How It Works</a>
+							</li>
+							<li>
+								<a href="blog.html"><i class="bx bx-chevron-right"></i>Blog</a>
+							</li>
+							<li>
+								<a href="contact.html"><i class="bx bx-chevron-right"></i>Contact Us</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget footer-widget-link">
+						<h2>Our Services</h2>
+						<ul class="footer-widget-list">
+							<li>
+								<a href="services-details.html"><i class="bx bx-chevron-right"></i>Bike Insurance</a>
+							</li>
+							<li>
+								<a href="services-details.html"><i class="bx bx-chevron-right"></i>Finances
+									Management</a>
+							</li>
+							<li>
+								<a href="services-details.html"><i class="bx bx-chevron-right"></i>Home Insurance</a>
+							</li>
+							<li>
+								<a href="services-details.html"><i class="bx bx-chevron-right"></i>Health Insurance</a>
+							</li>
+							<li>
+								<a href="services-details.html"><i class="bx bx-chevron-right"></i>General Insurance</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget">
+						<h2>Get In Touch</h2>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-phone.svg" alt="svg">
+							</div>
+							<a href="tel:(800)2162020">(800) 216 2020</a>
+						</div>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-mail.svg" alt="svg">
+							</div>
+							<a
+								href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#c9a1aca5a5a689a0a7a6a7e7aaa6a4"><span
+									class="__cf_email__"
+									data-cfemail="563e333a3a39163f3839387835393b">[email&#160;protected]</span></a>
+						</div>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-map.svg" alt="svg">
+							</div>
+							<p>No. 12, Ribon Building, Walse street, Australia</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-shape-1">
+			<img src="allhome/assets/images/footer-shape-1.webp" alt="footer">
+		</div>
+		<div class="footer-shape-2">
+			<img src="allhome/assets/images/footer-shape-3.webp" alt="footer">
+		</div>
+		<div class="copyright-content">
+			<div class="d-flex align-items-center justify-content-center">
+				<p>© <b>Inon</b> is Proudly Owned by <a href="https://hibootstrap.com/" target="_blank"> HiBootstrap</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="go-top">
+		<i class="bx bxs-chevrons-up"></i>
+		<i class="bx bxs-chevrons-up"></i>
+	</div>
+
+	<?= view('Home/chop/js') ?>
+
+
 </body>
-
 </html>

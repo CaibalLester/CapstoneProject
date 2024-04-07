@@ -1,96 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>ALLIANZ PNB</title>
-	<link rel="stylesheet" href="client/vendors/mdi/css/materialdesignicons.min.css">
-	<link rel="stylesheet" href="client/vendors/owl.carousel/css/owl.carousel.css">
-	<link rel="stylesheet" href="client/vendors/owl.carousel/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="client/vendors/aos/css/aos.css">
-	<link rel="stylesheet" href="client/vendors/jquery-flipster/css/jquery.flipster.css">
-	<link rel="stylesheet" href="client/css/style.css">
-	<link rel="shortcut icon" href="client/images/allianzlogo1.png" />
-	<style>
-		body {
-        background-image: url('home/images/allbg.png');
-        background-size: 1000px; 
-        background-repeat: repeat; 
-		}
-  	</style>
-</head>
+<?= view('client/chop/head') ?>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
-	<div id="mobile-menu-overlay"></div>
-	<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #203864;">
-		<div class="container">
-			<a class="navbar-brand" href="#">
-				<h3 class="font-weight-medium">ALLIANZ PNB</h3>
-			</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-				aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-				<div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
-					<h3 class="font-weight-medium">ALLIANZ PNB MIMAROPA</h3>
+<body style="background-image: url('client/assets/images/allbg.png');background-size: 1000px;background-repeat: repeat;">
 
-					<a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
-				</div>
-				<ul class="navbar-nav ml-auto align-items-center">
-					<li class="nav-item">
-						<a class="nav-link" href="/ClientPage">Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link " href="#offer">Offers</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link btn btn-secondary" href="#">Logout</a>
-					</li>
-				</ul>
-			</div>
+	<div class="preloader">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
 		</div>
-	</nav>
-	<div class="page-body-wrapper">
-		<section class="pricing-list" id="offer">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-sm-4"> <!-- Add class col-sm-4 to create space on the left -->
-						<!-- First pricing box aligned to the left -->
-						<div class="pricing-box">
-							<img src="client/images/compass.jpg" alt="starter" style="max-width: 100%; height: auto;">
-							<h5 class="text-amount mb-4 mt-2">200M Coverage</h5>
-							<h2 class="font-weight-medium title-text">Allianz Compass</h2>
-						</div>
-					</div>
-					<div class="col-sm-8"> <!-- Add class col-sm-4 to create space on the right -->
-						<!-- Second pricing box -->
-						<div class="pricing-box" style="text-align: justify;">
-							<h5 class="text-dark">Allianz Compass is a comprehensive health plan with one of the highest annual plan limits in the country, giving you access to superior medical treatments and the best hospital facilities, both here and abroad.</h5>	
-						</div>
-						<div class="pricing-box">
-							<select id="select-options">
-								<option value="option1">Agent 1</option>
-								<option value="option2">Agent 2</option>
-								<option value="option3">Agent 3</option>
-							</select>
-							<button class="btn btn-primary">Inquire</button>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</section>
-		<br><br><br><br><br><br>
 	</div>
 
-	<script src="client/vendors/base/vendor.bundle.base.js"></script>
-	<script src="client/vendors/owl.carousel/js/owl.carousel.js"></script>
-	<script src="client/vendors/aos/js/aos.js"></script>
-	<script src="client/vendors/jquery-flipster/js/jquery.flipster.min.js"></script>
-	<script src="client/js/template.js"></script>
-</body>
 
+	<div class="header-area">
+		<div class="container-fluid">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-sm-3 col-md-3">
+					<div class="header-left-bar-text">
+						<ul class="list-inline">
+							<li>
+								<a href="https://www.facebook.com/" target="_blank">
+									<i class="bx bxl-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/" target="_blank">
+									<i class="bx bxl-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/" target="_blank">
+									<i class="bx bxl-linkedin"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.google.com/" target="_blank">
+									<i class="bx bxl-google"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-9 col-md-9">
+					<div class="header-right-content text-end">
+						<ul class="list-inline">
+							<li class="d-inline">
+								<img src="client/assets/images/phone.svg" alt="Phone">
+								<a href="tel:(+0188)7689870859">(+0188) 768 987 0859</a>
+							</li>
+							<li class="d-inline">
+								<img src="client/assets/images/email.svg" alt="Email">
+								<a
+									href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#4e272028210e272021203a262b232b3d602d2123"><span
+										class="__cf_email__"
+										data-cfemail="0940676f6649606766677d616c646c7a276a6664">[email&#160;protected]</span></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="navbar-area navbar-area-three">
+		<div class="main-responsive-nav">
+			<div class="container">
+				<div class="main-responsive-menu">
+				<div class="logo">
+					<a href="index.html">
+						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+					</a>
+				</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-navbar main-navbar-three">
+			<div class="container-fluid">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<a class="navbar-brand" href="index.html">
+						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+					</a>
+					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a href="/" class="nav-link">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link active">
+									Pages
+									<i class="bx bx-down-arrow-alt"></i>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item">
+										<a href="#services" class="nav-link">
+											Services
+											<i class="bx bx-down-arrow-alt"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a href="/ClientWell" class="nav-link">Allianz Well</a>
+											</li>
+											<li class="nav-item">
+												<a href="#" class="nav-link active">Allianz Compass</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											User Pages
+											<i class="bx bx-down-arrow-alt"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a href="my-account.html" class="nav-link">My Account</a>
+											</li>
+											<li class="nav-item">
+												<a href="register.html" class="nav-link">Register</a>
+											</li>
+											<li class="nav-item">
+												<a href="forgot-password.html" class="nav-link">Forgot Password</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+									</li>
+									<li class="nav-item">
+										<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+									</li>
+									<li class="nav-item">
+										<a href="#comingsoon" class="nav-link">Coming Soon</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="contact.html" class="nav-link">Contact Us</a>
+							</li>
+						</ul>
+						<div class="others-options d-flex align-items-center">
+							<div class="option-item">
+								<button class="searchbtn" type="button">
+									<i class="bx bx-search"></i>
+								</button>
+							</div>
+							<div class="option-item">
+								<a href="/login" class="default-btn navbar-btn-style">Login</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="others-option-for-responsive">
+			<div class="container">
+				<div class="dot-menu">
+					<div class="inner">
+						<div class="circle circle-one"></div>
+						<div class="circle circle-two"></div>
+						<div class="circle circle-three"></div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="option-inner">
+						<div class="others-options d-flex align-items-center">
+							<div class="option-item">
+								<button class="searchbtn" type="button">
+									<i class="bx bx-search"></i>
+								</button>
+							</div>
+							<div class="option-item">
+								<a href="/login" class="default-btn btn-style-2">Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="search-area">
+		<div class="container">
+			<button type="button" class="close-searchbox">
+				<i class="bx bx-x"></i>
+			</button>
+			<form action="#" class="search-form">
+				<div class="form-group">
+					<input type="search" placeholder="Search Here">
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+<div class="page-banner-area team-page-are">
+<div class="container">
+<div class="single-page-banner-content">
+<h1>Allianz Compass</h1>
+<ul>
+<li>
+<a href="/">Home</a>
+</li>
+<li>Allianz Compass</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="blog-two-area pt-100 pb-70">
+    <div class="container">
+    	<div class="blog-item d-flex align-items-end justify-content-between">
+   			<div class="section-title left-title">
+    		</div>
+    	</div>
+    		<div class="row">
+    			<div class="col-lg-6 col-md-6">
+    				<div class="single-blog-card blog-card-two">
+    					<div class="blog-img">
+							<a href="blog-details.html">
+							<img src="client/assets/images/compass.png" alt="blog">
+							</a>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-lg-6 col-md-6">
+    				<div class="single-blog-card blog-card-two"><br><br>
+    						<div class="single-blog-content">
+								<h2>ALLIANZ Compass</h2><br>
+								<h5 style="text-align: justify;">Allianz Compass is a comprehensive health plan with one of the highest annual plan limits in the country, giving you access to superior medical treatments and the best hospital facilities, both here and abroad.</h5><br><br>
+								<select id="agentDropdown" style="padding: 10px; font-size: 16px; border: 2px solid #ccc; border-radius: 5px; width: 200px; outline: none; align-items: center;">
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 1</option>
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 2</option>
+									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 3</option>
+								</select><br><br>
+
+								<a href="#" class="default-btn btn-style-2">Proceed</a>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+</div><br><br><br><br>
+
+
+
+
+
+<div class="go-top">
+		<i class="bx bxs-chevrons-up"></i>
+		<i class="bx bxs-chevrons-up"></i>
+	</div>
+
+	<?= view('client/chop/js') ?>
+
+
+</body>
 </html>

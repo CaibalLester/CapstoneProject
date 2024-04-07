@@ -810,7 +810,7 @@ function generatePdf() {
     // you need to load html2canvas (and dompurify if you pass a string to html)
     const opt = {
         callback: function (jsPdf) {
-            jsPdf.save("Life Changer.pdf");
+            // jsPdf.save("Life Changer.pdf");
             // to open the generated PDF in browser window
             // window.open(jsPdf.output('bloburl'));
         },
