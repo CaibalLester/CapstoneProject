@@ -9,6 +9,7 @@ use App\Models\AgentModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\ConfirmModel;
+use App\Models\FeedbackModel;
 
 class HomepageController extends BaseController
 {
@@ -17,6 +18,8 @@ class HomepageController extends BaseController
     private $client;
     private $user;
     private $form1;
+    protected $feedbackModel;
+
     public function __construct()
     {
         $this->confirm = new ConfirmModel();
@@ -24,10 +27,13 @@ class HomepageController extends BaseController
         $this->user = new UserModel();
         $this->client = new ClientModel();
         $this->agent = new AgentModel();
+        $this->feedbackModel = new FeedbackModel();
     }
     public function home()
     {
-        return view('Home/home');
+        $feedbackModel = new FeedbackModel();
+        $data['feed'] = $feedbackModel->findAll();
+        return view('Home/home', $data);
     }
 
     public function logout()
@@ -410,5 +416,13 @@ class HomepageController extends BaseController
     {
         return view('Home/contactus');
     }
+
+    public function feedback()
+    {
+        return view('Home/feedback');
+    }
+
+
+
 
 }

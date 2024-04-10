@@ -365,19 +365,22 @@
 	</div>
 </section>
 
+
+	
 <section id="testimonials">
 	<div class="testimonials-area testimonials-two-area pt-100 pb-70">
 		<div class="container">
 			<div class="section-title left-title">
 				<span class="top-title">Allianz PNB Testimonials</span>
-				<h2>What Our Customers Says...</h2>
+				<h2>What Our Customers Say...</h2>
 			</div>
 			<div class="testimonials-three-slider owl-carousel owl-theme">
+				<?php foreach ($feed as $feedback): ?>
 				<div class="testimonials-item">
 					<div class="testimonials-client d-flex align-items-center">
 						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
 						<div class="testimonials-text">
-							<h3>Name 1</h3>
+							<h3><?= $feedback['name'] ?></h3>
 						</div>
 					</div>
 					<div class="testimonials-card testimonials-card-three">
@@ -387,43 +390,11 @@
 								<img src="allhome/assets/images/quote-two.svg" alt="quote">
 							</div>
 						</div>
-						<p>Dito ilalagay yung mga feedbacks nila per user or person</p>
+						<p><?= $feedback['created_at'] ?></p><br><br>
+						<p><?= $feedback['content'] ?></p>
 					</div>
 				</div>
-				<div class="testimonials-item">
-					<div class="testimonials-client d-flex align-items-center">
-						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
-						<div class="testimonials-text">
-							<h3>Name 2</h3>
-						</div>
-					</div>
-					<div class="testimonials-card testimonials-card-three">
-						<div class="quote-icon">
-							<img src="allhome/assets/images/testimonials/qoutes.jpg" class="quote1" alt="quote">
-							<div class="quote-icon-2">
-								<img src="allhome/assets/images/quote-two.svg" alt="quote">
-							</div>
-						</div>
-						<p>Dito ilalagay yung mga feedbacks nila per user or person</p>
-					</div>
-				</div>
-				<div class="testimonials-item">
-					<div class="testimonials-client d-flex align-items-center">
-						<img src="allhome/assets/images/testimonials/def.jpg" alt="testimonials">
-						<div class="testimonials-text">
-							<h3>Name 3</h3>
-						</div>
-					</div>
-					<div class="testimonials-card testimonials-card-three">
-						<div class="quote-icon">
-							<img src="allhome/assets/images/testimonials/qoutes.jpg" class="quote1" alt="quote">
-							<div class="quote-icon-2">
-								<img src="allhome/assets/images/quote-two.svg" alt="quote">
-							</div>
-						</div>
-						<p>Dito ilalagay yung mga feedbacks nila per user or person.</p>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 		<div class="testimonials-3-shape" data-cue="zoomIn" data-duration="2000">
@@ -432,37 +403,50 @@
 	</div>
 </section>
 
+
 	<div class="free-quote-2-area pt-100 pb-100">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="single-free-quote-form quote-form-three">
-						<div class="section-title left-title">
-							<span class="top-title">Hello!</span>
-							<h2>Feedback / Comment</h2>
-						</div>
-						<form>
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="form-group">
-										<input type="email" class="form-control" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="form-group">
-										<textarea class="form-control" placeholder="feedback / comment..."></textarea>
-									</div>
+			<div class="col-lg-6">
+				<div class="single-free-quote-form quote-form-three">
+					<div class="section-title left-title">
+						<span class="top-title">Hello!</span>
+						<h2>Feedback / Comment</h2>
+					</div>
+					<form method="post" action="<?= base_url('feedback/saveFeedback') ?>">
+						<?= csrf_field() ?>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="form-group">
+									<input type="text" name="name" class="form-control" placeholder="Name" value="<?= old('name') ?>" required>
+									<?php if(session()->has('errors')) : ?>
+										<div class="text-danger"><?= session('errors.name') ?></div>
+									<?php endif ?>
 								</div>
 							</div>
-							<button type="submit" class="default-btn">Submit</button>
-						</form>
-					</div>
+							<div class="col-lg-12">
+								<div class="form-group">
+									<input type="email" name="email" class="form-control" placeholder="Email" value="<?= old('email') ?>" required>
+									<?php if(session()->has('errors')) : ?>
+										<div class="text-danger"><?= session('errors.email') ?></div>
+									<?php endif ?>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<div class="form-group">
+									<textarea name="content" class="form-control" placeholder="Feedback / Comment..." required><?= old('content') ?></textarea>
+									<?php if(session()->has('errors')) : ?>
+										<div class="text-danger"><?= session('errors.content') ?></div>
+									<?php endif ?>
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="default-btn">Submit</button>
+					</form>
+
 				</div>
+			</div>
+
 				<div class="col-lg-6">
 					<div class="free-quote-image-three">
 						<img src="allhome/assets/images/free-quote-three.webp" alt="free-quote">

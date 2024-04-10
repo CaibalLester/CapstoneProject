@@ -120,6 +120,11 @@ $routes->get('/terms', 'HomepageController::terms');
 $routes->get('/policy', 'HomepageController::policy');
 $routes->get('/comingsoon', 'HomepageController::comingsoon');
 
+$routes->match(['get', 'post'], '/feedback/saveFeedback', 'FeedbackController::saveFeedback');
+
+
+
+
 
 
 
