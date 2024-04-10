@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from templates.hibootstrap.com/inon/default/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 12:34:49 GMT -->
+<!-- Mirrored from templates.hibootstrap.com/inon/default/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 12:35:05 GMT -->
 
-<?= view('client/chop/head') ?>
+<?=view('Home/chop1/head')?>
 
+<!-- <body style="background-image: url('client/assets/images/allbg.png');background-size: 1000px;background-repeat: repeat;"> -->
 <body>
 
     <div class="preloader">
@@ -56,9 +57,9 @@
                             <li class="d-inline">
                                 <img src="client/assets/images/email.svg" alt="Email">
                                 <a
-                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#432a2d252c032a2d2c2d372b262e26306d202c2e"><span
+                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#fb92959d94bb929594958f939e969e88d5989496"><span
                                         class="__cf_email__"
-                                        data-cfemail="054c6b636a456c6b6a6b716d606860762b666a68">[email&#160;protected]</span></a>
+                                        data-cfemail="90d9fef6ffd0f9fefffee4f8f5fdf5e3bef3fffd">[email&#160;protected]</span></a>
                             </li>
                         </ul>
                     </div>
@@ -66,6 +67,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="navbar-area page-navbar-area">
         <div class="main-responsive-nav">
@@ -107,7 +109,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link active">
+                                <a href="#" class="nav-link">
                                     Pages
                                     <i class="bx bx-down-arrow-alt"></i>
                                 </a>
@@ -119,13 +121,13 @@
                                         <a href="pricing.html" class="nav-link">Pricing</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link active">
+                                        <a href="#" class="nav-link">
                                             Services
                                             <i class="bx bx-down-arrow-alt"></i>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li class="nav-item">
-                                                <a href="services.html" class="nav-link active">Services</a>
+                                                <a href="services.html" class="nav-link">Services</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a href="services-details.html" class="nav-link">Services Details</a>
@@ -216,7 +218,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="contact.html" class="nav-link">Contact Us</a>
+                                <a href="#" class="nav-link active">Contact Us</a>
                             </li>
                         </ul>
                         <div class="others-options d-flex align-items-center">
@@ -275,168 +277,157 @@
     </div>
 
 
-    <div class="page-banner-area">
+    <div class="page-banner-area blog-page-are">
         <div class="container">
             <div class="single-page-banner-content">
-                <h1>Services</h1>
+                <h1>Contact Us</h1>
                 <ul>
                     <li>
                         <a href="index.html">Home</a>
                     </li>
-                    <li>Services</li>
+                    <li>Contact Us</li>
                 </ul>
             </div>
         </div>
     </div>
 
 
-    <div class="services-three-area pt-100 pb-100">
+    <div class="contact-us-area pt-100">
         <div class="container">
             <div class="section-title">
-                <span class="top-title">Our Services</span>
-                <h2>Inon Best Insurance Services</h2>
+                <span class="top-title">Get In Touch</span>
+                <h2>Fill In The Contact Now</h2>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon">
-                                <img src="client/assets/images/services/couple.svg" alt="couple">
-                            </div>
-                            <h3><a href="services-details.html">Life Insurance</a></h3>
+                <div class="col-lg-6">
+                    <div class="single-contact-img">
+                        <div class="contact-main-img">
+                            <img src="client/assets/images/contact-us-img-5.webp" alt="contact-us">
                         </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
+                        <div class="contact-us-img1" data-cue="zoomIn">
+                            <img src="client/assets/images/contact-us-img-1.webp" alt="contact-us">
+                        </div>
+                        <div class="contact-us-img2" data-cue="rotateIn">
+                            <img src="client/assets/images/contact-us-img-2.webp" alt="contact-us">
+                        </div>
+                        <div class="contact-us-img3" data-cue="zoomIn" data-duration="2000">
+                            <img src="client/assets/images/contact-us-img-3.webp" alt="contact-us">
+                        </div>
+                        <div class="contact-us-img4" data-cue="slideInLeft">
+                            <img src="client/assets/images/contact-us-img-4.webp" alt="contact-us">
+                        </div>
+                        <div class="contact-main-image1s">
+                            <img src="client/assets/images/contact-main-bg-img.webp" alt="main">
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon">
-                                <img src="client/assets/images/services/home.svg" alt="home">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="name" class="form-control" placeholder="Name" required
+                                            data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="email" class="form-control" placeholder="Your Email"
+                                            required data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="phone_number" placeholder="Phone" required
+                                            data-error="Please enter your number" class="form-control">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="Subject" placeholder="Subject" required
+                                            data-error="Please enter your subject" class="form-control">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <textarea name="message" type="text" class="form-control" id="message" cols="30"
+                                            rows="5" placeholder="Message" required
+                                            data-error="Write your message"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input name="gridCheck" value="I agree to the terms and privacy policy."
+                                                class="form-check-input" type="checkbox" id="gridCheck" required>
+                                            <label class="form-check-label" for="gridCheck">
+                                                Accept <a href="terms-of-service.html">Terms Of Services</a> And<a
+                                                    href="privacy-policy.html">privacy policy</a>
+                                            </label>
+                                            <div class="help-block with-errors gridCheck-error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <button type="submit" class="default-btn">
+                                        Submit Now
+                                    </button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
                             </div>
-                            <h3><a href="services-details.html">Home Insurance</a></h3>
-                        </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
+                        </form>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon bg-icon-color1">
-                                <img src="client/assets/images/services/heart.svg" alt="heart">
-                            </div>
-                            <h3><a href="services-details.html">Health Insurance</a></h3>
-                        </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon bg-icon-color2">
-                                <img src="client/assets/images/services/car.svg" alt="car">
-                            </div>
-                            <h3><a href="services-details.html">Car Insurance</a></h3>
-                        </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon bg-icon-color">
-                                <img src="client/assets/images/services/lightbulb.svg" alt="lightbulb">
-                            </div>
-                            <h3><a href="services-details.html">Business Insurance</a></h3>
-                        </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="services-three-card services-page-card">
-                        <div class="services-card d-flex align-items-center">
-                            <div class="services-icon bg-icon-color2">
-                                <img src="client/assets/images/services/services-icon-1.svg" alt="lightbulb">
-                            </div>
-                            <h3><a href="services-details.html">Travel Insurance</a></h3>
-                        </div>
-                        <p>Nsectetur adipiscing elit, sed do eiusmod to incididunt ut labore et dolore magna aliqtirt
-                            enim ad minim veniam, quisexercitation.</p>
-                        <a href="services-details.html" class="default-btn">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pagination-area">
-                <a href="services.html" class="prev page-numbers">
-                    <i class="bx bx-chevron-left"></i>
-                </a>
-                <span class="page-numbers current" aria-current="page">01</span>
-                <a href="services.html" class="page-numbers">02</a>
-                <a href="services.html" class="page-numbers">03</a>
-                <a href="services.html" class="prev page-numbers">
-                    <i class="bx bx-chevron-right"></i>
-                </a>
             </div>
         </div>
     </div>
 
 
-    <div class="insurance-benefits-area pt-100 pb-100">
+    <div class="contact-area pt-70">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="insurance-benefits-img">
-                        <img src="client/assets/images/insurance-benefits.webp" alt="insurance-benefits">
-                        <div class="insurance-benefits-shape-1">
-                            <img src="client/assets/images/insurance-benefits-shape-1.webp" alt="insurance-benefits-shape-1">
-                        </div>
-                        <div class="insurance-benefits-shape-2">
-                            <img src="client/assets/images/insurance-benefits-shape-2.webp" alt="insurance-benefits-shape-1">
+            <div class="contact-card-item">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <img src="client/assets/images/contact-phone-2.svg" alt="Phone">
+                            </div>
+                            <h2>Phone Number</h2>
+                            <p><a href="tel:(305) 547-9909">+(305) 547-9909</a></p>
+                            <a href="tel:(305) 547-9908">+(305) 547-9908</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="single-insurance-benefits-content">
-                        <div class="section-title left-title">
-                            <span class="top-title">Insurance Benefits</span>
-                            <h2>We Inspire And Help Our Customers</h2>
-                            <p>Dislike men who are so beguiled and demoralized by the charms of pleasureent, sonded
-                                by desire, that they cannot foresee the pain and trouble that are bound.</p>
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <img src="client/assets/images/contact-email.svg" alt="Email">
+                            </div>
+                            <h2>Sent Us Email</h2>
+                            <p><a
+                                    href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#7c14191010133c15121312521f1311"><span
+                                        class="__cf_email__"
+                                        data-cfemail="761e131a1a19361f1819185815191b">[email&#160;protected]</span></a>
+                            </p>
+                            <a
+                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#2c45424a436c45424342024f4341"><span
+                                    class="__cf_email__"
+                                    data-cfemail="4920272f260920272627672a2624">[email&#160;protected]</span></a>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6 col-md-6">
-                                <div class="insurance-benefits-card">
-                                    <div class="insurance-benefits-text d-flex align-items-center">
-                                        <span>01</span>
-                                        <h3>100% Secure Services</h3>
-                                    </div>
-                                    <p>Latin words consectetur fror ipsum
-                                        passage and going throuk.</p>
-                                </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-md-6">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <img src="client/assets/images/location-icon.svg" alt="images">
                             </div>
-                            <div class="col-lg-6 col-sm-6 col-md-6">
-                                <div class="insurance-benefits-card">
-                                    <div class="insurance-benefits-text d-flex align-items-center">
-                                        <span>02</span>
-                                        <h3>Anytime Money Back</h3>
-                                    </div>
-                                    <p>Latin words consectetur fror ipsum
-                                        passage and going throuk.</p>
-                                    <div class="insurance-shape">
-                                        <img src="client/assets/images/insurance-benefits-shape-3.webp" alt="insurance">
-                                    </div>
-                                </div>
-                            </div>
+                            <h2>Our Location</h2>
+                            <p>382 NE 191st NY Miami, FL 33179-3899</p>
                         </div>
                     </div>
                 </div>
@@ -445,49 +436,11 @@
     </div>
 
 
-    <div class="features-area pt-100 pb-70">
-        <div class="container">
-            <div class="section-title">
-                <span class="top-title">Our Features</span>
-                <h2>We Are Award Wining Company</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-features-card">
-                        <div class="features-icon">
-                            <img src="client/assets/images/features/features-icon-1.svg" alt="features-1">
-                        </div>
-                        <h3>Trustworthy Company</h3>
-                        <p>Placeat facere assumenda est, omnis dolor repellendus poribus autem.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-features-card bg-color-1">
-                        <div class="features-icon">
-                            <img src="client/assets/images/features/features-icon-2.svg" alt="features-1">
-                        </div>
-                        <h3>Money Back Guarantee</h3>
-                        <p>Placeat facere assumenda est, omnis dolor repellendus poribus autem.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-features-card bg-color-2">
-                        <div class="features-icon">
-                            <img src="client/assets/images/features/features-icon-3.svg" alt="features-1">
-                        </div>
-                        <h3>Awesome Support</h3>
-                        <p>Placeat facere assumenda est, omnis dolor repellendus poribus autem.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="single-features-card bg-color-3">
-                        <div class="features-icon">
-                            <img src="client/assets/images/features/features-icon-4.svg" alt="features-1">
-                        </div>
-                        <h3>Anytime Cancellation</h3>
-                        <p>Placeat facere assumenda est, omnis dolor repellendus poribus autem.</p>
-                    </div>
-                </div>
+    <div class="map-area">
+        <div class="container-fluid">
+            <div class="place-map">
+                <iframe class="maps"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830902776!2d-74.11976379633643!3d40.69766374862956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1667807354267!5m2!1sen!2sbd"></iframe>
             </div>
         </div>
     </div>
@@ -587,9 +540,9 @@
                                 <img src="client/assets/images/contact-mail.svg" alt="svg">
                             </div>
                             <a
-                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#e58d8089898aa58c8b8a8bcb868a88"><span
+                                href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#274f424b4b48674e4948490944484a"><span
                                     class="__cf_email__"
-                                    data-cfemail="39515c5555567950575657175a5654">[email&#160;protected]</span></a>
+                                    data-cfemail="4c24292020230c25222322622f2321">[email&#160;protected]</span></a>
                         </div>
                         <div class="touch-content">
                             <div class="contact-icon">
@@ -615,6 +568,104 @@
         </div>
     </div>
 
+    <div class="footer-area pt-100">
+		<div class="container">
+			<div class="row pb-100">
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget">
+						<a href="index.html">
+							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+						</a>
+						<p>Allianz PNB Life may offer flexible insurance solutions that can be customized according to the individual's financial goals, budget, and risk tolerance.</p>
+						<ul class="follow-list">
+							<li>
+								<a href="https://www.facebook.com/" target="_blank">
+									<i class="bx bxl-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/" target="_blank">
+									<i class="bx bxl-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.linkedin.com/" target="_blank">
+									<i class="bx bxl-linkedin"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.google.com/" target="_blank">
+									<i class="bx bxl-google"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget footer-widget-link2">
+						<h2>About Us</h2>
+						<ul class="footer-widget-list">
+							<li>
+								<a href="/"><i class="bx bx-chevron-right"></i>Home</a>
+							</li>
+							<li>
+								<a href="#aboutus"><i class="bx bx-chevron-right"></i>About Us</a>
+							</li>
+							<li>
+								<a href="#testimonials"><i class="bx bx-chevron-right"></i>Testimonials</a>
+							</li>
+							<li>
+								<a href="/terms"><i class="bx bx-chevron-right"></i>Terms and Conditions</a>
+							</li>
+							<li>
+								<a href="contact.html"><i class="bx bx-chevron-right"></i>Contact Us</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget footer-widget-link">
+						<h2>Our Offers</h2>
+						<ul class="footer-widget-list">
+							<li>
+								<a href="/ClientWell"><i class="bx bx-chevron-right"></i>Allianz PNB Well</a>
+							</li>
+							<li>
+								<a href="/ClientCompass"><i class="bx bx-chevron-right"></i>Allianz PNB Compass</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
+					<div class="footer-widget">
+						<h2>Get In Touch</h2>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-phone.svg" alt="svg">
+							</div>
+							<a href="tel:(800)2162020">09927703098</a>
+						</div>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-mail.svg" alt="svg">
+							</div>
+							<a
+								href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#c9a1aca5a5a689a0a7a6a7e7aaa6a4"><span
+									class="__cf_email__"
+									data-cfemail="563e333a3a39163f3839387835393b">chris@gmail.com</span></a>
+						</div>
+						<div class="touch-content">
+							<div class="contact-icon">
+								<img src="allhome/assets/images/contact-map.svg" alt="svg">
+							</div>
+							<p>Lumang Bayan, Calapan City, Oriental Mindoro</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <div class="go-top">
         <i class="bx bxs-chevrons-up"></i>
@@ -622,10 +673,9 @@
     </div>
 
 
-    <?= view('client/chop/js') ?>
-
+<?=view('Home/chop1/js')?>
 </body>
 
-<!-- Mirrored from templates.hibootstrap.com/inon/default/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 12:34:49 GMT -->
+<!-- Mirrored from templates.hibootstrap.com/inon/default/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 12:35:07 GMT -->
 
 </html>

@@ -49,14 +49,14 @@
 						<ul class="list-inline">
 							<li class="d-inline">
 								<img src="client/assets/images/phone.svg" alt="Phone">
-								<a href="tel:(+0188)7689870859">(+0188) 768 987 0859</a>
+								<a href="tel:(+0188)7689870859">09927703098</a>
 							</li>
 							<li class="d-inline">
 								<img src="client/assets/images/email.svg" alt="Email">
 								<a
 									href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#4e272028210e272021203a262b232b3d602d2123"><span
 										class="__cf_email__"
-										data-cfemail="0940676f6649606766677d616c646c7a276a6664">[email&#160;protected]</span></a>
+										data-cfemail="0940676f6649606766677d616c646c7a276a6664"></span></a>
 							</li>
 						</ul>
 					</div>
@@ -116,21 +116,18 @@
 										</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
-												<a href="my-account.html" class="nav-link">My Account</a>
+												<a href="/registers" class="nav-link">Register</a>
 											</li>
 											<li class="nav-item">
-												<a href="register.html" class="nav-link">Register</a>
-											</li>
-											<li class="nav-item">
-												<a href="forgot-password.html" class="nav-link">Forgot Password</a>
+												<a href="/login" class="nav-link">Forgot Password</a>
 											</li>
 										</ul>
 									</li>
 									<li class="nav-item">
-										<a href="terms-of-service.html" class="nav-link">Terms of Service</a>
+										<a href="/terms" class="nav-link">Terms and Conditions</a>
 									</li>
 									<li class="nav-item">
-										<a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+										<a href="/policy" class="nav-link">Privacy Notice</a>
 									</li>
 									<li class="nav-item">
 										<a href="#comingsoon" class="nav-link">Coming Soon</a>

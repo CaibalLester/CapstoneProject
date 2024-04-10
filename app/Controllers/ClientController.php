@@ -15,14 +15,17 @@ class ClientController extends BaseController
         $this->user = new UserModel();
         $this->client = new ClientModel();
     }
+
     public function ClientPage()
     {
         return view('Client/ClientPage');
     }
+
     public function ClientWell()
     {
         return view('Client/ClientWell');
     }
+
     public function ClientCompass()
     {
         return view('Client/ClientCompass');
@@ -43,8 +46,12 @@ class ClientController extends BaseController
         return view('Client/pricing');
     }
 
-    public function contactus()
+    public function registers()
     {
-        return view('Client/contactus');
+        return view('Client/registers');
     }
+
+
+
+
 }

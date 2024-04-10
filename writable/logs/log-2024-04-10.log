@@ -1,0 +1,20 @@
+CRITICAL - 2024-04-10 09:05:01 --> Invalid file: "Client/registers.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client/registers.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/registers', [], true)
+ 3 APPPATH\Controllers\ClientController.php(66): view('Client/registers')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->registers()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-10 09:54:26 --> Invalid file: "Client/terms.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Client/terms.php')
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/terms', [], true)
+ 3 APPPATH\Controllers\ClientController.php(36): view('Client/terms')
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->terms()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

@@ -113,8 +113,12 @@ $routes->get('/ClientCompass', 'ClientController::ClientCompass');
 $routes->get('/services', 'ClientController::services');
 $routes->get('/servicesdetails', 'ClientController::servicesdetails');
 $routes->get('/pricing', 'ClientController::pricing');
-$routes->get('/terms', 'ClientController::terms');
-$routes->get('/contactus', 'ClientController::contactus');
+$routes->get('/registers', 'ClientController::registers');
+
+$routes->get('/contactus', 'HomepageController::contactus');
+$routes->get('/terms', 'HomepageController::terms');
+$routes->get('/policy', 'HomepageController::policy');
+$routes->get('/comingsoon', 'HomepageController::comingsoon');
 
 
 

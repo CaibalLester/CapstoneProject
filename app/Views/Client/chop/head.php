@@ -3,6 +3,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="<?= base_url() ?>home/images/allianzlogo1.png" rel="icon">
+    <link href="<?= base_url() ?>home/images/allianzlogo1.png" rel="apple-touch-icon">
+
     <link rel="stylesheet" href="<?=base_url()?>client/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>client/assets/css/animate.min.css">
     <link rel="stylesheet" href="<?=base_url()?>client/assets/css/boxicons.min.css">

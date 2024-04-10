@@ -391,4 +391,24 @@ class HomepageController extends BaseController
         }
     }
 
+    public function terms()
+    {
+        return view('Home/terms');
+    }
+
+    public function policy()
+    {
+        return view('Home/policy');
+    }
+
+    public function comingsoon()
+    {
+        return view('Home/comingsoon');
+    }
+
+    public function contactus()
+    {
+        return view('Home/contactus');
+    }
+
 }
