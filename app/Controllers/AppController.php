@@ -61,7 +61,7 @@ class AppController extends BaseController
         return $data;
     }
 
-    private function getDataApp()
+    public function getDataApp()
     {
         $session = session();
         $userId = $session->get('id');
@@ -71,7 +71,7 @@ class AppController extends BaseController
         return $data;
     }
 
-    private function getform1Data()
+    public function getform1Data()
     {
         $session = session();
         $userId = $session->get('id');
@@ -80,7 +80,7 @@ class AppController extends BaseController
         return $data;
     }
 
-    private function getform2Data()
+    public function getform2Data()
     {
         $session = session();
         $userId = $session->get('id');
@@ -89,7 +89,7 @@ class AppController extends BaseController
         return $data;
     }
 
-    private function getform3Data()
+    public function getform3Data()
     {
         $session = session();
         $userId = $session->get('id');
@@ -98,7 +98,7 @@ class AppController extends BaseController
         return $data;
     }
 
-    private function getform4Data()
+    public function getform4Data()
     {
         $session = session();
         $userId = $session->get('id');
@@ -106,8 +106,8 @@ class AppController extends BaseController
             ->first();
         return $data;
     }
-    
-    private function getform5Data()
+
+    public function getform5Data()
     {
         $session = session();
         $userId = $session->get('id');
@@ -204,87 +204,132 @@ class AppController extends BaseController
         // Retrieve user_id from the session
         $userId = $session->get('id');
 
-        // Check if user_id is available
-        if (!$userId) {
-            // Redirect or handle the case when user_id is not available
-            return redirect()->to('/login');
+        // Decode the base64 signature data
+        $base64Image = $this->request->getVar('sign');
+        $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Image));
+
+        // Define the upload path and filename
+        $uploadPath = FCPATH . 'uploads/signatures/'; // Adjust the path as needed
+        $filename = 'signature_' . time() . '.png'; // Generate a unique filename
+        if (file_put_contents($uploadPath . $filename, $imageData)) {
+            // Image saved successfully, update the database
+            $data = [
+                // 'user_id' => $userId,
+                'position' => $this->request->getVar('positionApplying'),
+                'preferredArea' => $this->request->getVar('preferredArea'),
+                'referral' => $this->request->getVar('referral') ?? 'No',
+                'referralBy' => $this->request->getVar('referralBy'),
+                'onlineAd' => $this->request->getVar('onlineAd') ?? 'No',
+                'walkIn' => $this->request->getVar('walkIn') ?? 'No',
+                'othersRef' => $this->request->getVar('othersRef') ?? 'No',
+                'fname' => $this->request->getVar('fullname'),
+                'nickname' => $this->request->getVar('nickname'),
+                'birthdate' => $this->request->getVar('birthdate'),
+                'placeOfBirth' => $this->request->getVar('placeOfBirth'),
+                'gender' => $this->request->getVar('gender'),
+                'bloodType' => $this->request->getVar('bloodType'),
+                'homeAddress' => $this->request->getVar('homeAddress'),
+                'mobileNo' => $this->request->getVar('mobileNo'),
+                'landline' => $this->request->getVar('landline') ?? 'N/A',
+                'email' => $this->request->getVar('email'),
+                'citizenship' => $this->request->getVar('citizenship'),
+                'othersCitizenship' => $this->request->getVar('othersCitizenship') ?? 'N/A',
+                'naturalizationInfo' => $this->request->getVar('naturalizationInfo') ?? 'N/A',
+                'maritalStatus' => $this->request->getVar('maritalStatus'),
+                'maidenName' => $this->request->getVar('maidenName') ?? 'N/A',
+                'spouseName' => $this->request->getVar('spouseName') ?? 'N/A',
+                'sssNo' => $this->request->getVar('sssNo'),
+                'tin' => $this->request->getVar('tin'),
+
+                'lifeInsuranceExperience' => $this->request->getVar('lifeInsuranceExperience') ?? 'No',
+                'traditional' => $this->request->getVar('traditional') ?? 'No',
+                'variable' => $this->request->getVar('variable') ?? 'No',
+                'recentInsuranceCompany' => $this->request->getVar('recentInsuranceCompany') ?? 'N/A',
+
+                'highSchool' => $this->request->getVar('highSchool') ?? 'N/A',
+                'highSchoolCourse' => $this->request->getVar('highSchoolCourse') ?? 'N/A',
+                'highSchoolYear' => $this->request->getVar('highSchoolYear') ?? 'N/A',
+
+                'college' => $this->request->getVar('college') ?? 'N/A',
+                'collegeCourse' => $this->request->getVar('collegeCourse') ?? 'N/A',
+                'collegeYear' => $this->request->getVar('collegeYear') ?? 'N/A',
+                'graduateSchool' => $this->request->getVar('graduateSchool') ?? 'N/A',
+                'graduateCourse' => $this->request->getVar('graduateCourse') ?? 'N/A',
+                'graduateYear' => $this->request->getVar('graduateYear') ?? 'N/A',
+
+                'companyName1' => $this->request->getVar('companyName1') ?? 'N/A',
+                'position1' => $this->request->getVar('position1') ?? 'N/A',
+                'employmentFrom1' => $this->request->getVar('employmentFrom1') ?? 'N/A',
+                'employmentTo1' => $this->request->getVar('employmentTo1') ?? 'N/A',
+                'reason1' => $this->request->getVar('reason1') ?? 'N/A',
+                'companyName2' => $this->request->getVar('companyName2') ?? 'N/A',
+                'position2' => $this->request->getVar('position2') ?? 'N/A',
+                'employmentFrom2' => $this->request->getVar('employmentFrom2') ?? 'N/A',
+                'employmentTo2' => $this->request->getVar('employmentTo2') ?? 'N/A',
+                'reason2' => $this->request->getVar('reason2') ?? 'N/A',
+                'companyName3' => $this->request->getVar('companyName3') ?? 'N/A',
+                'position3' => $this->request->getVar('position3') ?? 'N/A',
+                'employmentFrom3' => $this->request->getVar('employmentFrom3') ?? 'N/A',
+                'employmentTo3' => $this->request->getVar('employmentTo3') ?? 'N/A',
+                'reason3' => $this->request->getVar('reason3') ?? 'N/A',
+
+                'companyName' => $this->request->getVar('companyName') ?? 'N/A',
+                'resposition' => $this->request->getVar('position') ?? 'N/A',
+                'contactName' => $this->request->getVar('contactName') ?? 'N/A',
+                'contactPosition' => $this->request->getVar('contactPosition') ?? 'N/A',
+                'emailAddress' => $this->request->getVar('emailAddress') ?? 'N/A',
+                'contactNumber' => $this->request->getVar('contactNumber') ?? 'N/A',
+                'yescuremployed' => $this->request->getVar('yescuremployed') ?? 'N/A',
+                'nocuremployed' => $this->request->getVar('nocuremployed') ?? 'N/A',
+                'allowed' => $this->request->getVar('allowed') ?? 'N/A',
+                'notallowed' => $this->request->getVar('notallowed') ?? 'N/A',
+                'ifnoProvdtls' => $this->request->getVar('ifnoProvdtls') ?? 'N/A',
+
+                'persontonotif' => $this->request->getVar('persontonotif'),
+                'moNo' => $this->request->getVar('moNo'),
+                'n1' => $this->request->getVar('n1'),
+                'p1' => $this->request->getVar('p1'),
+                'c1' => $this->request->getVar('c1'),
+                'e1' => $this->request->getVar('e1'),
+                'n2' => $this->request->getVar('n2'),
+                'p2' => $this->request->getVar('p2'),
+                'c2' => $this->request->getVar('c2'),
+                'e2' => $this->request->getVar('e2'),
+                'n3' => $this->request->getVar('n3'),
+                'p3' => $this->request->getVar('p3'),
+                'c3' => $this->request->getVar('c3'),
+                'e3' => $this->request->getVar('e3'),
+                'g1y' => $this->request->getVar('g1y'),
+                'g1n' => $this->request->getVar('g1n'),
+                'accused' => $this->request->getVar('accused'),
+                'g2y' => $this->request->getVar('g2y'),
+                'g2n' => $this->request->getVar('g2n'),
+                'bankruptcy' => $this->request->getVar('bankruptcy'),
+                'g3y' => $this->request->getVar('g3y'),
+                'g3n' => $this->request->getVar('g3n'),
+                'investigated' => $this->request->getVar('investigated'),
+                'g4y' => $this->request->getVar('g3y'),
+                'g4n' => $this->request->getVar('g3n'),
+                'terminat' => $this->request->getVar('terminated'),
+                'printedName' => $this->request->getVar('printedName'),
+                'botdate' => $this->request->getVar('botdate'),
+                'signature' => $filename,
+            ];
+
+            // Retrieve the old signature filename from the database
+            $oldSign = $this->form1->select('signature')->where('user_id', $userId)->first();
+
+            // Delete the old image file if it exists
+            if (!empty($oldSign['signature'])) {
+                $oldFilePath = $uploadPath . $oldSign['signature'];
+                if (file_exists($oldFilePath)) {
+                    unlink($oldFilePath);
+                }
+            }
+
+            $this->form1->set($data)->where('user_id', $userId)->update();
+            return redirect()->back();
         }
-        $data = [
-            // 'user_id' => $userId,
-            'position' => $this->request->getVar('positionApplying'),
-            'preferredArea' => $this->request->getVar('preferredArea'),
-            'referral' => $this->request->getVar('referral') ?? 'No',
-            'referralBy' => $this->request->getVar('referralBy'),
-            'onlineAd' => $this->request->getVar('onlineAd') ?? 'No',
-            'walkIn' => $this->request->getVar('walkIn') ?? 'No',
-            'othersRef' => $this->request->getVar('othersRef') ?? 'No',
-            'fname' => $this->request->getVar('fullname'),
-            'nickname' => $this->request->getVar('nickname'),
-            'birthdate' => $this->request->getVar('birthdate'),
-            'placeOfBirth' => $this->request->getVar('placeOfBirth'),
-            'gender' => $this->request->getVar('gender'),
-            'bloodType' => $this->request->getVar('bloodType'),
-            'homeAddress' => $this->request->getVar('homeAddress'),
-            'mobileNo' => $this->request->getVar('mobileNo'),
-            'landline' => $this->request->getVar('landline') ?? 'N/A',
-            'email' => $this->request->getVar('email'),
-            'citizenship' => $this->request->getVar('citizenship'),
-            'othersCitizenship' => $this->request->getVar('othersCitizenship') ?? 'N/A',
-            'naturalizationInfo' => $this->request->getVar('naturalizationInfo') ?? 'N/A',
-            'maritalStatus' => $this->request->getVar('maritalStatus'),
-            'maidenName' => $this->request->getVar('maidenName') ?? 'N/A',
-            'spouseName' => $this->request->getVar('spouseName') ?? 'N/A',
-            'sssNo' => $this->request->getVar('sssNo'),
-            'tin' => $this->request->getVar('tin'),
-
-            'lifeInsuranceExperience' => $this->request->getVar('lifeInsuranceExperience') ?? 'No',
-            'traditional' => $this->request->getVar('traditional') ?? 'No',
-            'variable' => $this->request->getVar('variable') ?? 'No',
-            'recentInsuranceCompany' => $this->request->getVar('recentInsuranceCompany') ?? 'N/A',
-
-            'highSchool' => $this->request->getVar('highSchool') ?? 'N/A',
-            'highSchoolCourse' => $this->request->getVar('highSchoolCourse') ?? 'N/A',
-            'highSchoolYear' => $this->request->getVar('highSchoolYear') ?? 'N/A',
-
-            'college' => $this->request->getVar('college') ?? 'N/A',
-            'collegeCourse' => $this->request->getVar('collegeCourse') ?? 'N/A',
-            'collegeYear' => $this->request->getVar('collegeYear') ?? 'N/A',
-            'graduateSchool' => $this->request->getVar('graduateSchool') ?? 'N/A',
-            'graduateCourse' => $this->request->getVar('graduateCourse') ?? 'N/A',
-            'graduateYear' => $this->request->getVar('graduateYear') ?? 'N/A',
-
-            'companyName1' => $this->request->getVar('companyName1') ?? 'N/A',
-            'position1' => $this->request->getVar('position1') ?? 'N/A',
-            'employmentFrom1' => $this->request->getVar('employmentFrom1') ?? 'N/A',
-            'employmentTo1' => $this->request->getVar('employmentTo1') ?? 'N/A',
-            'reason1' => $this->request->getVar('reason1') ?? 'N/A',
-            'companyName2' => $this->request->getVar('companyName2') ?? 'N/A',
-            'position2' => $this->request->getVar('position2') ?? 'N/A',
-            'employmentFrom2' => $this->request->getVar('employmentFrom2') ?? 'N/A',
-            'employmentTo2' => $this->request->getVar('employmentTo2') ?? 'N/A',
-            'reason2' => $this->request->getVar('reason2') ?? 'N/A',
-            'companyName3' => $this->request->getVar('companyName3') ?? 'N/A',
-            'position3' => $this->request->getVar('position3') ?? 'N/A',
-            'employmentFrom3' => $this->request->getVar('employmentFrom3') ?? 'N/A',
-            'employmentTo3' => $this->request->getVar('employmentTo3') ?? 'N/A',
-            'reason3' => $this->request->getVar('reason3') ?? 'N/A',
-
-            'companyName' => $this->request->getVar('companyName') ?? 'N/A',
-            'resposition' => $this->request->getVar('position') ?? 'N/A',
-            'contactName' => $this->request->getVar('contactName') ?? 'N/A',
-            'contactPosition' => $this->request->getVar('contactPosition') ?? 'N/A',
-            'emailAddress' => $this->request->getVar('emailAddress') ?? 'N/A',
-            'contactNumber' => $this->request->getVar('contactNumber') ?? 'N/A',
-            'yescuremployed' => $this->request->getVar('yescuremployed') ?? 'N/A',
-            'nocuremployed' => $this->request->getVar('nocuremployed') ?? 'N/A',
-            'allowed' => $this->request->getVar('allowed') ?? 'N/A',
-            'notallowed' => $this->request->getVar('notallowed') ?? 'N/A',
-            'ifnoProvdtls' => $this->request->getVar('ifnoProvdtls') ?? 'N/A',
-        ];
-
-        // $this->form1->insert($data);
-        $this->form1->set($data)->where('user_id', $userId)->update();
-        return redirect()->to('/AppForm1');
     }
 
     public function form3sv()
@@ -298,6 +343,7 @@ class AppController extends BaseController
             // Redirect or handle the case when user_id is not available
             return redirect()->to('/login');
         }
+
         $data = [
             'applicant_id' => $this->request->getVar('applicant_id'),
             'app_gli_token' => $this->request->getVar('app_gli_token'),
@@ -360,7 +406,7 @@ class AppController extends BaseController
     }
     public function AppForm2()
     {
-        $data = array_merge($this->getData(), $this->getDataApp());
+        $data = array_merge($this->getData(), $this->getDataApp(), $this->getform2Data());
         return view('Applicant/AppForm2', $data);
     }
     public function AppForm3()
@@ -381,7 +427,6 @@ class AppController extends BaseController
 
     public function FA()
     {
-        $agentModel = new AgentModel();
         $data = array_merge($this->getData(), $this->getDataApp());
 
         // Get the search input from the form
@@ -400,5 +445,92 @@ class AppController extends BaseController
         $data['agents'] = $agents;
 
         return view('Applicant/FA', $data);
+    }
+
+    public function form2sv()
+    {
+        $session = session();
+        // Retrieve user_id from the session
+        $userId = $session->get('id');
+
+        // Check if user_id is available
+        if (!$userId) {
+            // Redirect or handle the case when user_id is not available
+            return redirect()->to('/login');
+        }
+        $data = [
+            'nonLife' => $this->request->getVar('nonLife'),
+            'life' => $this->request->getVar('life'),
+            'variableLife' => $this->request->getVar('variableLife'),
+            'accidentAndHealth' => $this->request->getVar('accidentAndHealth'),
+            'others' => $this->request->getVar('others'),
+            'othersSpecification' => $this->request->getVar('othersSpecification'),
+            'agencyName' => $this->request->getVar('agencyName'),
+            'surname' => $this->request->getVar('surname'),
+            'firstName' => $this->request->getVar('firstName'),
+            'middleName' => $this->request->getVar('middleName'),
+            'agentType' => $this->request->getVar('agentType'),
+            'homeAddress' => $this->request->getVar('homeAddress'),
+            'zipCode' => $this->request->getVar('zipCode'),
+            'businessAddress' => $this->request->getVar('businessAddress'),
+            'tin' => $this->request->getVar('tin'),
+            'email' => $this->request->getVar('email'),
+            'mobileNumber' => $this->request->getVar('mobileNumber'),
+            'birthDate' => $this->request->getVar('birthDate'),
+            'birthPlace' => $this->request->getVar('birthPlace'),
+            'citizenship' => $this->request->getVar('citizenship'),
+            'sex' => $this->request->getVar('sex'),
+            'civilStatus' => $this->request->getVar('civilStatus'),
+            'maidenName' => $this->request->getVar('maidenName'),
+            'husbandsName' => $this->request->getVar('husbandsName'),
+            'naturalizationDetails' => $this->request->getVar('naturalizationDetails'),
+            'foreignerDetails' => $this->request->getVar('foreignerDetails'),
+            'certifiedCopyDetails' => $this->request->getVar('certifiedCopyDetails'),
+            'filipinoParticipation' => $this->request->getVar('filipinoParticipation'),
+            'company1' => $this->request->getVar('company1'),
+            'licenseType1' => $this->request->getVar('licenseType1'),
+            'licenseNo1' => $this->request->getVar('licenseNo1'),
+            'yearIssued1' => $this->request->getVar('yearIssued1'),
+            'company2' => $this->request->getVar('company2'),
+            'licenseType2' => $this->request->getVar('licenseType2'),
+            'licenseNo2' => $this->request->getVar('licenseNo2'),
+            'yearIssued2' => $this->request->getVar('yearIssued2'),
+            'company3' => $this->request->getVar('company3'),
+            'licenseType3' => $this->request->getVar('licenseType3'),
+            'licenseNo3' => $this->request->getVar('licenseNo3'),
+            'yearIssued3' => $this->request->getVar('yearIssued3'),
+            'taxReturnFiled' => $this->request->getVar('taxReturnFiled'),
+            'taxReturnNotFiledReason' => $this->request->getVar('taxReturnNotFiledReason'),
+            'employer1' => $this->request->getVar('employer1'),
+            'position1' => $this->request->getVar('position1'),
+            'dates1' => $this->request->getVar('dates1'),
+            'employer2' => $this->request->getVar('employer2'),
+            'position2' => $this->request->getVar('position2'),
+            'dates2' => $this->request->getVar('dates2'),
+            'insuranceEmployee' => $this->request->getVar('insuranceEmployee'),
+            'positionHeld' => $this->request->getVar('positionHeld'),
+            'governmentEmployee' => $this->request->getVar('governmentEmployee'),
+            'date' => $this->request->getVar('date'),
+            'month2' => $this->request->getVar('month2'),
+            'year' => $this->request->getVar('year'),
+            'place' => $this->request->getVar('place'),
+            'applicantName' => $this->request->getVar('applicantName'),
+            'provinceCity' => $this->request->getVar('provinceCity'),
+            'affiant' => $this->request->getVar('affiant'),
+            'tin2' => $this->request->getVar('tin2'),
+            'sss' => $this->request->getVar('sss'),
+
+            'day' => $this->request->getVar('day'),
+            'month' => $this->request->getVar('month'),
+            'year2' => $this->request->getVar('year2'),
+            'exhibit' => $this->request->getVar('exhibit'),
+            'applicant' => $this->request->getVar('applicant'),
+            'companyName' => $this->request->getVar('companyName'),
+            'place2' => $this->request->getVar('place2'),
+            'date2' => $this->request->getVar('date2'),
+            'authorizedRepresentative' => $this->request->getVar('authorizedRepresentative'),
+        ];
+        $this->form2->set($data)->where('user_id', $userId)->update();
+        return redirect()->back(); 
     }
 }

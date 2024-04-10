@@ -1,0 +1,268 @@
+ERROR - 2024-04-08 02:22:01 --> mysqli_sql_exception: Unknown column 'signature' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `signatu...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signatu...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signatu...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signatu...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-08 02:22:01 --> Unknown column 'signature' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signature`
+FROM `applicant`
+WHERE `applicant_id` = :applicant_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-08 02:23:09 --> mysqli_sql_exception: Unknown column 'signature' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `signatu...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signatu...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signatu...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signatu...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-08 02:23:09 --> Unknown column 'signature' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signature`
+FROM `applicant`
+WHERE `applicant_id` = :applicant_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-08 02:23:31 --> mysqli_sql_exception: Unknown column 'signature' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `signatu...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signatu...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signatu...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signatu...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-08 02:23:31 --> Unknown column 'signature' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signature`
+FROM `applicant`
+WHERE `applicant_id` = :applicant_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-08 02:24:26 --> mysqli_sql_exception: Unknown column 'signature' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `signatu...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signatu...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signatu...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signatu...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-08 02:24:26 --> Unknown column 'signature' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signature`
+FROM `applicant`
+WHERE `applicant_id` = :applicant_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-08 02:25:21 --> mysqli_sql_exception: Unknown column 'applicant_id' in 'where clause' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `signatu...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `signatu...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `signatu...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signatu...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-08 02:25:21 --> Unknown column 'applicant_id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `signature`
+FROM `lifechangerform`
+WHERE `applicant_id` = :applicant_id:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AppController.php(213): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 02:25:35 --> Unsupported operand types: string + array
+in APPPATH\Controllers\AppController.php on line 346.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 02:42:31 --> Undefined array key "sign"
+in APPPATH\Views\Applicant\AppForm1.php on line 844.
+ 1 APPPATH\Views\Applicant\AppForm1.php(844): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "sign"', 'C:\\CapstoneSystem\\app\\Views\\Applicant\\AppForm1.php', 844)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Applicant\\AppForm1.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppForm1', [], true)
+ 5 APPPATH\Controllers\AppController.php(199): view('Applicant/AppForm1', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppForm1()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 03:39:13 --> syntax error, unexpected token "echo", expecting "," or ";"
+in APPPATH\Views\Applicant\AppForm1.php on line 811.
+ 1 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppForm1', [], true)
+ 3 APPPATH\Controllers\AppController.php(199): view('Applicant/AppForm1', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppForm1()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 14:11:54 --> file_put_contents(C:\CapstoneSystem\public\uploads/signature/signature_1712556714.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\AppController.php on line 214.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_put_contents(C:\\CapstoneSystem\\public\\uploads/signature/signature_1712556714.png): Failed to open stream: No such file or directory', 'C:\\CapstoneSystem\\app\\Controllers\\AppController.php', 214)
+ 2 APPPATH\Controllers\AppController.php(214): file_put_contents('C:\\CapstoneSystem\\public\\uploads/signature/signature_1712556714.png', 'Šf {úg¶¬{®"T‘ÃB†‚€' . "\0" . '' . "\0" . 'RR€' . "\0" . '' . "\0" . ':À' . "\0" . '' . "\0" . 'Â€' . "\0" . '' . "\0" . '&~€' . "\0" . '' . "\0" . '' . "\0" . '\\Ô‘Ð€+³‡:@' . "\0" . '‹ÒQU»WSb	RD¬žÅ1¦àŒ+æÞPïühÃÂöÜÜÖKà¨ð“¬Áüy4dû3–a=y^˜Pc×± ð½ ¡î{rzY·Œ¿E‘»0èJö8!Q•™]U¯^«ìª¬Ÿ¬Žº´´ôÕ~|Ù_†ddDdB€Ï¬þÁ}G góT0
+È¯!0Šuêè¿Ñ¿"[Ðï¾»=.3Ý’WzÂ3=½äî|BŒÊ3…Y\\áb7’/ø?æú\\AWŠ*Ê‘ütz½#ùEQ	ÙýÃå4‰L=Jø7Á\\ÙaÝ¬ÀR¶)ÒÅ8S°‰Ì Õ¿6QeÞ0ÙiàÖäô `3R³ï¸ŒNãŠœ¸õ
+Ö^`5%^›$åP(ÄhÂ=$O–ç•í‚¦ån!:> @Ó¿Ÿ/R\'F/(×çŸ*z}Ôþ[¨Å	7EÕË@Fý½Þ°U>\'2â
+WšKz•‹]UÎ;Å9†/ß’Qá“6‘©' . "\0" . 'ª¼Œ”shÒn–§‡¼_û7nÿÏ„lmSµÝ©d§vØ‰³¬Tº¥ÜE/ê
+t[Àîj"ìùtëîu‡öžæÒÆý²ê*by˜¢1Þ‚ô¥!®' . "\0" . '>‚@mô½‡tÃ‡aªÓ•“C*7ÐxzÊVd¦€m²w,µ§KüþããM?ÿÒ—ÄðŸë\\¨ÓIÕwM¾ß/Õoe —m“ZTÎBBô¬ncOŠc[èÃ¬`øä6ÊV[ZjuD43ã	HKbsš´ã	I;q7êF°\'cÏz-”º´|ÙÓ÷ÛÍ Î¾ªÄš eûxMê)]kUlQcb±Ë‰Õ	Ù-IÌèúÌ¨[RueÙ3i>·`Ò*Oìê•5u°¯¾ü›|–ªÆU8ØÖÇchŠ$^¿‰(Hhªe4¥¼[ö‰ktqs—Ëlfõ4ª›ø%‚¯$ÍCá®ˆ"Ÿø*ˆ»³…ñ{fë)ïz›ˆ›hÙòäñ·|œví”QüÉ=.Û6{POÓío–†µhS£(§­¤Þ[ï¾Òíè} -¶³±ÑíŽ·)Ã‰ÇwS0 }¡™”É|@»j”}tè»m^	zû¿?¯ÞñÆ”ÄêXò(¨#§‹çÇƒ€t;Ÿe–¢cóå‰ÃîRnüîÛÅ~ð­‰3Ò!a7©á^
+‹´7ŠÚÖhì©¤¹ë3fXÖ–ÖÐÀMîíþ,H¾…h/‚xÀ+:¼€±ó/†KLWìä“›Wö§×óÖ}PaæÃ(/MšÙ²&ž	LtL¢u) Ù©jÌ½
+nØÚn=o47Úmß4Ë@‘¦Æ”¨ÜúhMì™Š›2èÃé\\í­=™	EeuQ~#«BƒØw!sÖ]ùÂåªÏ£îüñ_ödîž	ß­9ú±ßS{ÂÅu@—€¥.H œ+…?’p?lkí«€Ë{åHè3ýÕ}Äc÷î
+Y+]{˜JYo÷{í¦
+à€zP!|]ïxU(†~»9=×ÝoYÞLOØJ=ZÝœ²;YB¥¸E»d“ÎÐåî?¸Kœø!ð¾vläÛÝ4Ñ~¥+VRâzFŠªÁxÔ:J7' . "\0" . 'jrÕž€QB®NB;cPÈÀÜkuƒQ? _¶¢<Ë›)„ø§æº&%™rùôÑ°#–uÍ¸cX }¸é”N¨Pl‘µ£#Î o•DÓæšÊêhÂæÕ”xúV›îÎ´ð‡c\'¦*Ñåj0¨SyÚmÍÑÕ²êpiuý”qRÈÖvp)=áMl‹$ÁÄfú?ì±•NwîÝ*;Xõ¹Ê#LgðM{gßÃ€Žl»³E×æG h /Ð8[öŽ,ñ^é£Dï¼AË%ˆÙÕÑi»7Ð+Ê¥Ý²ŽôÑÈõœ‚Ú\\Ÿ,£L1žâxjšþ™9c†<ù­b)ßi!ßH”˜
+³dU~ÍÙ1#
+Ø6_Ÿ2ÁÙbÔ‚\\ñP7‚Åàku¸$½	Î²ÐæfvÝ™:0‚oó<-I^F£Ò4×öZ&›i«33Ö5vdáÎÏi9XÐ°:z‹p·œ‡Œ\'lUXGß¯C‘©ð\\s)o*S+A ÍÔŒ
+A\'2&„L²|þÖúû$ÌÂŸ4¦–*VU‘þ–5btÒ§¯,Ï/Ø)Åxwôç/Ï³´£Õâ°ù¾;;² Vi%êÏžâO
+|½7fV™5n¹}FZ™kæç$u‚¸/©V®œ¢ÂkTˆ.\\GõÉo“ÈûVuèž+¯m-„Žerù`ÞÎì~$}"eå5C@­rZªïjxÐ‰^D€ºƒÁ>’×õìòw^âßà,»!Î|ôÛ}Ô‹}wŽB²®@È‰÷ÈÖ(7dþÐ¨VRÒ>âèšè[ã>#öÕïªÄ?I·®~°F½Àd]4Ê“µÛªå²*aö‹ëM XÝ}"Ðì…‰ØafØ§PXå¡uãtòçµlˆ¬*Ý”•o¿_/$µa˜Ûï¾ 0bÜ' . "\0" . 'zè5·”²~Ä`{€ž7aÅv}ä>#4ëtÍ¶Ö5É\'Õgn¹7L:#+7vëå³ÙI+?–}ö….<×‘œ¦t„]‘dk˜d*zÕ’•²Ì¯(‡^”7"Ùª‡è­í¡6%j³—@ðùWíïÿîÛ,‘¢7‰t:Ç?ß|µO¾‹càS²f²Õ–,GóAÄcìV¼ƒ Ø€Êûe+zUcÓ$^±Ó­\\€ñÑÎiÝc>»ùÙ5aLûzîÖõ8l“–ÊŒ·öòŸ¯‰c±ÍˆX:ôTT;k?Î^mÚÁˆjëCœáæ™ïÚçVüº†;ÈÜðTüoã%ºk‰àåÛˆJÐì–Ùê•yAxgâú×Èý9(Ã„z#ka=KoW`Ô>f:7/·œ=ëŽ;” =• ãûmö¡m€c¬MH‚•›]4ìäbwy¶âc.ÝÐˆêÕ¢äòë‰æF5utS >¤Á@[Â•¬ããkµ$‹Ôy·ñms¶öDÐØ,²˜ŒÒ®´Æ@¨ÈZÜGÚË¢b¨þ<kgca
+¬–¾öÅ@¶]U‘rbüþIˆÌ¬¦°R8ÎvV›.ÆI„NÂgîòDÑþ·À¨ÉZÑ¶ƒeÕ&prF¶?é$F¡ÐX=-XlLŠë¹^Ò›ÌWÒÆLÃ+ªÈ8àh2‰™çTUnB©eij`’?‘ ‰ZÆ\\~O–aÎ×oYJG8à¦é¢ð	2·xdg‚@µÂYM‚' . "\0" . ' HY()&` $y ' . "\0" . 'µ’¦ŠBYC‚' . "\0" . ' HY()&` $y ' . "\0" . 'µ’¦ŠB?Ûí„e©…mÎ@' . "\0" . '' . "\0" . '' . "\0" . 'QS‘+˜ ')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form1sv()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 15:49:53 --> Trying to access array offset on value of type null
+in APPPATH\Views\Admin\Forms\details.php on line 772.
+ 1 APPPATH\Views\Admin\Forms\details.php(772): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Views\\Admin\\Forms\\details.php', 772)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Admin\\Forms\\details.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Admin/Forms/details', [], true)
+ 5 APPPATH\Controllers\AdminController.php(209): view('Admin/Forms/details', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->viewAppForm('logo.png')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-08 20:41:10 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\HomepageController.php(217): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 C:\CapstoneSystem\app\Controllers\HomepageController.php(217): CodeIgniter\BaseModel->first()
+#6 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#8 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#11 {main}
+CRITICAL - 2024-04-08 20:41:10 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\HomepageController.php(217): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->authlog()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 20:59:49 --> Undefined constant "App\Models\tin"
+in APPPATH\Controllers\AppController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\AppController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-08 21:00:30 --> Undefined constant "App\Models\tin"
+in APPPATH\Controllers\AppController.php on line 27.
+ 1 SYSTEMPATH\CodeIgniter.php(891): App\Controllers\AppController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(485): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

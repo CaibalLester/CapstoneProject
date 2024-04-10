@@ -24,6 +24,12 @@
             z-index: 1000; /* Ensure the button appears above other content */
         }
 
+        input[type="text"],
+    input[type="checkbox"] {
+        pointer-events: none;
+        background-color: #ffffff; /* Optional: change the background color to indicate disabled state */
+    }
+
         .download-btn {
                 display: inline-block;
                 padding: 10px 20px;
@@ -185,7 +191,7 @@
         .employmenthistorytable input[type="text"] {
             border: none;
             outline: none;
-            width: 98%;
+            width: 90%;
             font-size: 9pt;
             /* background-color: #333; */
         }
@@ -273,7 +279,7 @@
                     style="width: 177px;" required>
             </div>
             <div class="line">
-                <label>Source:</label><input type="checkbox" id="referral" name="referral" readonly value="yes"
+                <label>Source:</label><input type="checkbox" id="referral" name="referral" value="yes"
                     <?= isset ($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
                 <label for="referral">Referral[</label>
                 <label for="referralBy">by whom:</label><input type="text" readonly
@@ -312,7 +318,7 @@
             <div class="line">
                 <label for="birthdate">Birth date:</label>
                 <input type="text" style="width: 100px; margin-right: 20px;" id="birthdate" name="birthdate" readonly
-                    value="<?= isset ($lifechangerform['birthdate']) ? $lifechangerform['birthdate'] : '' ?>" required>
+                    value="<?= isset($lifechangerform['birthdate']) ? date('M j, Y', strtotime($lifechangerform['birthdate'])) : '' ?>" required>
                 <label for="placeOfBirth">Place of birth:</label>
                 <input type="text" style="width: 100px; margin-right: 20px;" id="placeOfBirth" name="placeOfBirth"
                     readonly
@@ -485,10 +491,10 @@
                 <table class="employmenthistorytable" border="1">
                     <thead>
                         <tr>
-                            <th>NAME AND ADDRESS OF EMPLOYER</th>
-                            <th>POSITION</th>
-                            <th>EMPLOYMENT DATE</th>
-                            <th>REASON FOR LEAVING</th>
+                            <th style="width: 170px;">NAME AND ADDRESS OF EMPLOYER</th>
+                            <th style="width: 130px;">POSITION</th>
+                            <th style="width: 130px;">EMPLOYMENT DATE</th>
+                            <th style="width: 130px;">REASON FOR LEAVING</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -622,8 +628,8 @@
                     <tbody>
                         <tr>
                             <td>Person to notify in case of emergency: <input type="text" style="width: 40%;" name=""
-                                    id=""></td>
-                            <td>Mobile Number: <input type="text" style="width: 60%;" name="" id=""></td>
+                                    id="" value="<?= isset($lifechangerform['persontonotif']) ? $lifechangerform['persontonotif'] : '' ?>"></td>
+                            <td>Mobile Number: <input type="text" style="width: 60%;" name="" id="" value="<?= isset($lifechangerform['moNo']) ? $lifechangerform['moNo'] : '' ?>"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -641,22 +647,22 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['n1']) ? $lifechangerform['n1'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['p1']) ? $lifechangerform['n1'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['c1']) ? $lifechangerform['n1'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['e1']) ? $lifechangerform['n1'] : '' ?>" ></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['n2']) ? $lifechangerform['n2'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['p2']) ? $lifechangerform['p2'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['c2']) ? $lifechangerform['c2'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['e2']) ? $lifechangerform['e2'] : '' ?>" ></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
-                            <td><input type="text" name="" id=""></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['n3']) ? $lifechangerform['n3'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['p3']) ? $lifechangerform['p3'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['c3']) ? $lifechangerform['c3'] : '' ?>" ></td>
+                            <td><input type="text" name="" id="" value="<?= isset($lifechangerform['e3']) ? $lifechangerform['e3'] : '' ?>" ></td>
                         </tr>
                     </tbody>
                 </table>
@@ -666,17 +672,15 @@
                 <strong>GENERAL INFORMATION</strong>
                 <div style="display: flex; justify-content: space-between; margin-top: 5px;">
                     <div style="width: 120px; font-size: 11pt; margin: 10px;">
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g1y']) && $lifechangerform['g1y'] === 'yes' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">YES</label>
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g1n']) && $lifechangerform['g1n'] === 'no' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
-
                     </div>
-
                     <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
                         <label for="">Have you ever been accused, investigated/arrested, indicated or convicted of any
                             criminal or civil
-                            case? If yes, please provide details: <input type="text" name="" id=""
+                            case? If yes, please provide details: <input type="text" name="" id="" value="<?= isset($lifechangerform['accused']) ? $lifechangerform['accused'] : '' ?>"
                                 style="width: 300px;"></label>
                     </div>
                 </div>
@@ -684,14 +688,14 @@
             <div class="line">
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 120px; font-size: 11pt; margin: 10px;">
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g2y']) && $lifechangerform['g2y'] === 'yes' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">YES</label>
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g2n']) && $lifechangerform['g2n'] === 'no' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
                     </div>
                     <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
                         <label for="">Have you ever declared bankruptcy and/or have you ever been declared bankruptcy by
-                            regulators/authorities? If yes, please provide details: <input type="text" name="" id=""
+                            regulators/authorities? If yes, please provide details: <input type="text" name="" id="" value="<?= isset($lifechangerform['bankruptcy']) ? $lifechangerform['bankruptcy'] : '' ?>"
                                 style="width: 220px;"></label>
                     </div>
                 </div>
@@ -699,14 +703,14 @@
             <div class="line">
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 120px; font-size: 11pt; margin: 10px;">
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g3y']) && $lifechangerform['g3y'] === 'yes' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">YES</label>
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g3n']) && $lifechangerform['g3n'] === 'no' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
                     </div>
                     <div style="width: 500px; font-size: 8pt;  margin-top: 5px;">
                         <label for="">Have you ever been investigated for any administrative case?<br>
-                            If yes, please provide details: <input type="text" name="" id=""
+                            If yes, please provide details: <input type="text" name="" id="" value="<?= isset($lifechangerform['investigated']) ? $lifechangerform['investigated'] : '' ?>"
                                 style="width: 330px;"></label>
                     </div>
                 </div>
@@ -714,15 +718,15 @@
             <div class="line">
                 <div style="display: flex; justify-content: space-between;">
                     <div style="width: 120px; font-size: 11pt; margin: 10px;">
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g4y']) && $lifechangerform['g4y'] === 'yes' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">YES</label>
-                        <input type="checkbox" id="" name="" value="">
+                        <input type="checkbox" id="" name="" value="" <?= isset($lifechangerform['g4n']) && $lifechangerform['g4n'] === 'no' ? 'checked' : '' ?>>
                         <label for="" style="color:#002161; font-weight: bold;">NO</label><br>
                     </div>
                     <div style="width: 500px;; font-size: 8pt;  margin-top: 5px;">
                         <label for="">Have you ever been terminated or forced to resign from any employment or
                             affiliates of any Insurance
-                            Company or Financial Institution? If yes, please provide details: <input type="text" name=""
+                            Company or Financial Institution? If yes, please provide details: <input type="text" name="" value="<?= isset($lifechangerform['terminat']) ? $lifechangerform['terminat'] : '' ?>"
                                 id="" style="width: 180px;"></label>
                     </div>
                 </div>
@@ -766,12 +770,13 @@
             </div>
             <div class="line">
                 <div style="margin-top: 10px; text-align: left; float: left;">
-                    <input type="text" name="applicantName" id="applicantName" style="margin-right: 200px;"><br>
+                    <input type="text" value="<?= isset($lifechangerform['printedName']) ? $lifechangerform['printedName'] : '' ?>" name="applicantName" id="applicantName" style="margin-right: 200px;"><br>
                     Applicant's Printed Name
                 </div>
 
                 <div style="margin-top: 10px; float: left;">
-                    <input type="text" name="date" id="date"><br>
+                    <input type="text" value="<?= isset($lifechangerform['botdate']) ? date('M j, Y', strtotime($lifechangerform['botdate'])) : '' ?>"
+                    name="date" id="date"><br>
                     Date
                 </div>
                 <div style="clear: both;"></div>
@@ -780,15 +785,16 @@
 
             <div class="line">
                 <div style="margin-top: 10px; text-align: left;">
-                    <input type="text" name="" id=""><br>
-                    Signitarure
+                    <div id="signaturePreview" style="width: 200px">
+                        <img id="signatureImage" src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>" style="max-width: 100%; height: auto;">
+                    </div>
+                    <input type="text" name="" id="" style="margin-bottom: 10px;"><br>
+                    <span style="display: block;">Signature</span>
                 </div>
             </div>
-
         </div>
         
         <div class="download-button-container">
-
 
             <button class="download-btn" onclick="generatePdf()">Download</button>
             <!-- <button class="btn btn-success download-btn" onclick="generatePDF($lifechangerform['user_id']?? '')" >Download</button> -->
@@ -804,7 +810,7 @@
 
     <script>
         window.jsPDF = window.jspdf.jsPDF;
-function generatePdf() {
+    function generatePdf() {
     let jsPdf = new jsPDF('p', 'pt', 'a4');
     var htmlElement = document.getElementById('page');
     // you need to load html2canvas (and dompurify if you pass a string to html)
@@ -812,9 +818,9 @@ function generatePdf() {
         callback: function (jsPdf) {
             // jsPdf.save("Life Changer.pdf");
             // to open the generated PDF in browser window
-            // window.open(jsPdf.output('bloburl'));
+            window.open(jsPdf.output('bloburl'));
         },
-        // margin: [0, 0, 72, 0],
+        // margin: [72, 0, 72, 0],
         // autoPaging: 'text',
         // margin: { top: 0, right: 0, bottom: 0.5, left: 0 },
         autoPaging: true, // Enable auto pagination
@@ -823,12 +829,12 @@ function generatePdf() {
             dpi: 300,
             letterRendering: true,
             logging: false,
-            scale: .8
+            // scale: .10
         }
     };
 
     jsPdf.html(htmlElement, opt);
-}
+    }
     </script>
     
 </body>

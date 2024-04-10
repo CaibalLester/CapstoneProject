@@ -62,49 +62,44 @@
                 </div>
 
                 <div class="row my-4">
+                    
                     <div class="col-lg-12 col-12">
                         <div class="custom-block bg-white">
 
-                            <div class="custom-block bg-white">
                             <form class="custom-form search-form" action="/subagentSearch" method="post" role="form">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-8 col-12">
-                                            <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text"
-                                                placeholder="Search" aria-label="Search" required>
-                                        </div>
-                                        <div class="col-lg-1 col-md-3 col-12">
-                                            <button type="submit" class="form-control">
-                                                <i class="bi bi-search"></i>
-                                            </button>
+                                <div class="row">
+                                    <div class="col-lg-4 col-8">
+                                        <input class="form-control mb-lg-0 mb-md-0" name="filterAgent" type="text"
+                                            placeholder="Search" aria-label="Search" required>
+                                    </div>
+                                    <div class="col-lg-1 col-4">
+                                        <button type="submit" class="form-control">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr>
+                            <div class="row row-cols-3">
+                                <?php foreach ($agent as $ag): ?>
+                                    <div class="col-lg-2 col-md-4 mb-3">    
+                                        <div class="custom-block-profile-front text-center">
+                                            <div class="custom-block-profile-image-wrap mb-1">
+                                                <a href="/agentprofile/<?= $ag['agent_token']; ?>">
+                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']): ''?>"
+                                                        class="img-fluid" alt="" style="height: 100px; width: auto"></a>
+                                            </div>
+                                            <strong>
+                                            <?= $ag['username']; ?>
+                                            </strong>
                                         </div>
                                     </div>
-                                </form>
-                                <hr>
-
-                                <div class="row">
-                                    <?php foreach ($agent as $ag): ?>
-                                        <div class="col-lg-2 col-12 mb-3">
-                                            <div
-                                                class="custom-block-profile-front text-center p-4">
-                                                <div class="custom-block-profile-image-wrap mb-4">
-                                                    <a href="/agentprofile/<?= $ag['agent_token']; ?>">
-                                                        <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
-                                                            class="img-fluid" alt=""></a>
-                                                </div>
-                                                <strong>
-                                                    <?= $ag['username']; ?>
-                                                </strong>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                    <?= $pager->links('group1', 'page') ?>
-                                </div>
-
+                                <?php endforeach; ?>
                             </div>
+                            <?= $pager->links('group1', 'page') ?>
                         </div>
                     </div>
                 </div>
-
                 <footer class="site-footer">
                     <div class="container">
                         <div class="row">

@@ -26,7 +26,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/Forms">
-                            <i class="bi bi-file-earmark-slides me-2"></i>
+                                <i class="bi bi-file-earmark-slides me-2"></i>
                                 Forms
                             </a>
                         </li>
@@ -40,7 +40,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/confirmation">
-                            <i class="bi bi-check-lg me-2"></i>
+                                <i class="bi bi-check-lg me-2"></i>
                                 Confirmation
                             </a>
                         </li>
@@ -448,16 +448,16 @@
                                 <div class="card mb-3 text-center">
                                     <h5 class="card-title mt-3">Top 3 Recruiters</h5>
                                     <?php foreach ($top as $topagent): ?>
-                                        <div class="card-body">
-                                            <img src="<?= isset ($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
-                                                class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                                style="width: 80px; height: 80px;">
-                                            <h5 class="card-title mt-2 small">
-                                                <?= $topagent['username'] ?>
-                                                <?= $topagent['total_fA'] ?>
-                                            </h5>
-                                            <!-- Add other relevant information as needed -->
-                                        </div>
+                                    <div class="card-body">
+                                        <img src="<?= isset ($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
+                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                            style="width: 80px; height: 80px;">
+                                        <h5 class="card-title mt-2 small">
+                                            <?= $topagent['username'] ?>
+                                            <?= $topagent['total_fA'] ?>
+                                        </h5>
+                                        <!-- Add other relevant information as needed -->
+                                    </div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -479,72 +479,72 @@
     </div>
     <?= view('Admin/chop/js'); ?>
     <script type="text/javascript">
-        // Function to create a chart
-        function createChart(chartId, data, title) {
-            var options = {
-                series: [{
-                    name: title,
-                    data: data.map(entry => entry.agent_count || entry.applicant_count)
-                }],
-                chart: {
-                    type: 'bar',
-                    height: 350
+    // Function to create a chart
+    function createChart(chartId, data, title) {
+        var options = {
+            series: [{
+                name: title,
+                data: data.map(entry => entry.agent_count || entry.applicant_count)
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
                 },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                    },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: data.map(entry => entry.month),
-                },
-                yaxis: {
-                    title: {
-                        text: title
-                    }
-                },
-                fill: {
-                    opacity: 1
-                },
-                tooltip: {
-                    y: {
-                        formatter: function (val) {
-                            return val + " " + title.toLowerCase();
-                        }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: data.map(entry => entry.month),
+            },
+            yaxis: {
+                title: {
+                    text: title
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + " " + title.toLowerCase();
                     }
                 }
-            };
+            }
+        };
 
-            // Create and render the chart
-            var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
-            chart.render();
-        }
+        // Create and render the chart
+        var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
+        chart.render();
+    }
 
-        // Fetch dynamic data from the server for agents
-        fetch('/monthlyAgentCount')
-            .then(response => response.json())
-            .then(data => {
-                createChart('agentChart', data, 'Agents');
-            })
-            .catch(error => console.error('Error fetching data for agents:', error));
+    // Fetch dynamic data from the server for agents
+    fetch('/monthlyAgentCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('agentChart', data, 'Agents');
+        })
+        .catch(error => console.error('Error fetching data for agents:', error));
 
-        // Fetch dynamic data from the server for pending applicants
-        fetch('/monthlyPendingApplicantCount')
-            .then(response => response.json())
-            .then(data => {
-                createChart('pendingApplicantChart', data, 'Applicants');
-            })
-            .catch(error => console.error('Error fetching data for pending applicants:', error));
+    // Fetch dynamic data from the server for pending applicants
+    fetch('/monthlyPendingApplicantCount')
+        .then(response => response.json())
+        .then(data => {
+            createChart('pendingApplicantChart', data, 'Applicants');
+        })
+        .catch(error => console.error('Error fetching data for pending applicants:', error));
     </script>
 
 </body>

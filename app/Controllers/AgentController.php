@@ -6,14 +6,17 @@ use App\Controllers\BaseController;
 use \App\Models\AgentModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
+use App\Controllers\AppController;
 
 class AgentController extends BaseController
 {
+    private $appcon;
     private $user;
     private $applicant;
     private $agent;
     public function __construct()
     {
+        $this->appcon = new AppController();
         $this->agent = new AgentModel();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
@@ -21,6 +24,9 @@ class AgentController extends BaseController
     public function AgDash()
     {
         $data = array_merge($this->getData(), $this->getDataAge());
+        $agentid = $data['agent']['agent_id'];
+        $data['FA'] = $this->agent->where('FA', $agentid)->findAll();
+        $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
         return view('Agent/AgDash', $data);
     }
     public function AgProfile()
@@ -182,5 +188,33 @@ class AgentController extends BaseController
 
         return redirect()->to('/AgSetting');
     }
+    public function AgForm2()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        return view('Agent/AgForm2', $data);
+    }
+    public function AgForm3()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->appcon->getform3Data(), $this->getDataAge());
+        return view('Agent/AgForm3', $data);
+    }
+    public function AgForm4()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        return view('Agent/AgForm4', $data);
+    }
+    public function AgForm5()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        return view('Agent/AgForm5', $data);
+    }
 
+    public function AgForm1()
+    {
+        $data['agents'] = $this->agent->findAll();
+        // Merge arrays while retaining the 'agents' key
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),
+        $this->appcon->getform1Data(), $data);
+        return view('Agent/AgForm1', $data);
+    }
 }

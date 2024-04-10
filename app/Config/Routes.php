@@ -53,9 +53,9 @@ $routes->post('/svap', 'AppController::svap');
 $routes->get('/AppHelp', 'AppController::AppHelp', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
 
-$routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'applicantFilter']);
-$routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'applicantFilter']);
-$routes->post('/form3sv', 'AppController::form3sv', ['filter' => 'applicantFilter']);
+$routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'authGuard']);
+$routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'authGuard']);
+$routes->post('/form3sv', 'AppController::form3sv', ['filter' => 'authGuard']);
 
 $routes->get('/AppForm2', 'AppController::AppForm2', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilter']);
@@ -71,6 +71,12 @@ $routes->get('/AgHelp', 'AgentController::AgHelp', ['filter' => 'agentFilter']);
 $routes->post('/svag', 'AgentController::svag', ['filter' => 'agentFilter']);
 $routes->get('/subagent', 'AgentController::subagent', ['filter' => 'agentFilter']);
 $routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' => 'agentFilter']);
+$routes->get('/AgForm1', 'AgentController::AgForm1', ['filter' => 'agentFilter']);
+$routes->get('/AgForm2', 'AgentController::AgForm2', ['filter' => 'agentFilter']);
+$routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']);
+$routes->get('/AgForm4', 'AgentController::AgForm4', ['filter' => 'agentFilter']);
+$routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']);
+
 
 $routes->get('/', 'HomepageController::home');
 

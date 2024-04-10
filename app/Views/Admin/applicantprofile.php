@@ -205,7 +205,7 @@
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="#">
+                                                <a href="/ViewAppForm2/<?= $applicant['app_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="AIAL">
                                                     AIAL

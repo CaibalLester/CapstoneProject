@@ -9,6 +9,7 @@ use App\Models\AdminModel;
 use App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
+use App\Models\Form2Model;
 use App\Models\Form3Model;
 use App\Models\AgentModel;
 use App\Models\ConfirmModel;
@@ -24,6 +25,7 @@ class AdminController extends BaseController
     private $applicant;
     private $admin;
     private $form1;
+    private $form2;
     private $form3;
     public function __construct()
     {
@@ -35,6 +37,7 @@ class AdminController extends BaseController
         $this->agent = new AgentModel();
         $this->admin = new AdminModel();
         $this->form1 = new Form1Model();
+        $this->form2 = new Form2Model();
         $this->form3 = new Form3Model();
         $this->homecon = new HomepageController();
     }
@@ -210,8 +213,8 @@ class AdminController extends BaseController
     }
     public function viewAppForm2($token)
     {
-        $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+        $data = $this->form2->where('aial_token', $token)->first();
+        return view('Admin/Forms/details2', ['aial' => $data]);
     }
     public function viewAppForm3($token)
     {
@@ -221,12 +224,12 @@ class AdminController extends BaseController
     public function viewAppForm4($token)
     {
         $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+        return view('Admin/Forms/details4', ['lifechangerform' => $data]);
     }
     public function viewAppForm5($token)
     {
         $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+        return view('Admin/Forms/details5', ['lifechangerform' => $data]);
     }
 
     public function random($length = 6)

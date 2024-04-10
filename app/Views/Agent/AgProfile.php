@@ -97,58 +97,6 @@
                         </div>
 
                         <div class="card">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <!-- Set max-width and max-height to constrain the image within the card body -->
-                                <div class="image-container"
-                                    style="position: relative; max-width: 100%; max-height: 100%; overflow: hidden;">
-                                    <?php
-                                    $imageSrc = '/AgentInfo/rank/bronze.png'; // Default image source
-                                    switch ($ranking) {
-                                        case ($ranking >= 1 && $ranking <= 10):
-                                            $imageSrc = '/AgentInfo/rank/bronze.png';
-                                            break;
-                                        case ($ranking >= 11 && $ranking <= 20):
-                                            $imageSrc = '/AgentInfo/rank/silver.png';
-                                            break;
-                                        case ($ranking >= 21 && $ranking <= 30):
-                                            $imageSrc = '/AgentInfo/rank/gold.png';
-                                            break;
-                                        case ($ranking >= 31 && $ranking <= 40):
-                                            $imageSrc = '/AgentInfo/rank/diamond.png';
-                                            break;
-                                        default:
-                                            $imageSrc = '/AgentInfo/rank/platinum.png';
-                                            break;
-                                    }
-                                    ?>
-                                    <img src="<?= $imageSrc ?>" alt=""
-                                        style="width: 50%; height: 50%; transform: scale(3); display: block; margin: 0 auto;">
-                                </div>
-                                <!-- Rank text -->
-                                <h5 class="">
-                                    <?php
-                                    switch ($ranking) {
-                                        case ($ranking >= 1 && $ranking <= 10):
-                                            echo 'Bronze';
-                                            break;
-                                        case ($ranking >= 11 && $ranking <= 20):
-                                            echo 'Silver';
-                                            break;
-                                        case ($ranking >= 21 && $ranking <= 30):
-                                            echo 'Gold';
-                                            break;
-                                        case ($ranking >= 31 && $ranking <= 40):
-                                            echo 'Diamond';
-                                            break;
-                                        default:
-                                            echo 'Platinum';
-                                            break;
-                                    }
-                                    ?>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="card">
                             <!-- The hidden input field -->
                             <input type="text" value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
                                 id="myInput" style="display: none;">
@@ -198,9 +146,9 @@
                                                 <div class="col-lg-3 col-md-4 label ">Full Name</div>
                                                 <div class="col-lg-8 col-md-8">
                                                     <?php if (isset($agent['lastname']) && isset($agent['firstname']) && isset($agent['middlename'])): ?>
-                                                        <?= $agent['lastname'] ?>,
-                                                        <?= $agent['firstname'] ?>
-                                                        <?= $agent['middlename'] ?>
+                                                    <?= $agent['lastname'] ?>,
+                                                    <?= $agent['firstname'] ?>
+                                                    <?= $agent['middlename'] ?>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
@@ -258,21 +206,21 @@
                                                         </thead>
                                                         <tbody>
                                                             <?php foreach ($FA as $sub): ?>
-                                                                <tr>
-                                                                    <td>
-                                                                        <?php if (isset($sub['lastname']) && isset($sub['firstname']) && isset($sub['middlename'])): ?>
-                                                                            <?= $sub['lastname'] ?>,
-                                                                            <?= $sub['firstname'] ?>
-                                                                            <?= $sub['middlename'] ?>
-                                                                        <?php endif; ?>
-                                                                    </td>
-                                                                    <td>
-                                                                        <?= date('M j, Y', strtotime($sub['created_at'])); ?>
-                                                                    </td>
-                                                                    <td><a
-                                                                            href="<?= base_url(); ?>agentprofile/<?= $sub['agent_token']; ?>">profile</a>
-                                                                    </td>
-                                                                </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <?php if (isset($sub['lastname']) && isset($sub['firstname']) && isset($sub['middlename'])): ?>
+                                                                    <?= $sub['lastname'] ?>,
+                                                                    <?= $sub['firstname'] ?>
+                                                                    <?= $sub['middlename'] ?>
+                                                                    <?php endif; ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?= date('M j, Y', strtotime($sub['created_at'])); ?>
+                                                                </td>
+                                                                <td><a
+                                                                        href="<?= base_url(); ?>agentprofile/<?= $sub['agent_token']; ?>">profile</a>
+                                                                </td>
+                                                            </tr>
                                                             <?php endforeach ?>
                                                         </tbody>
                                                     </table>
@@ -291,17 +239,17 @@
                                                     </a>
                                                 </div>
                                                 <div class="col-xl-2 my-3">
-                                                    <a href="#">
+                                                    <a href="/ViewAppForm2/<?= $agent['agent_token'] ?>">
                                                         <img src="<?= base_url(); ?>uploads/folder.png"
                                                             class="card-img-top" alt="AIAL">
                                                         AIAL
                                                     </a>
                                                 </div>
                                                 <div class="col-xl-2 my-3">
-                                                    <a href="#">
+                                                    <a href="/ViewAppForm3/<?= $agent['agent_token'] ?>">
                                                         <img src="<?= base_url(); ?>uploads/folder.png"
                                                             class="card-img-top" alt="Life Changer Form Image">
-                                                        Test
+                                                        GLI
                                                     </a>
                                                 </div>
                                             </div>
@@ -327,37 +275,37 @@
     <!-- JAVASCRIPT FILES -->
     <?= view('Agent/chop/js') ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const downloadButton = document.getElementById('downloadButton');
-            const qrCodeImage = document.querySelector('#qrCodeContainer img');
+    document.addEventListener('DOMContentLoaded', function() {
+        const downloadButton = document.getElementById('downloadButton');
+        const qrCodeImage = document.querySelector('#qrCodeContainer img');
 
-            downloadButton.addEventListener('click', function () {
-                fetch(qrCodeImage.src)
-                    .then(response => response.blob())
-                    .then(blob => {
-                        const downloadLink = document.createElement('a');
-                        downloadLink.href = URL.createObjectURL(blob);
-                        downloadLink.download = 'qr-code.png';
-                        downloadLink.click();
-                    });
-            });
+        downloadButton.addEventListener('click', function() {
+            fetch(qrCodeImage.src)
+                .then(response => response.blob())
+                .then(blob => {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = URL.createObjectURL(blob);
+                    downloadLink.download = 'qr-code.png';
+                    downloadLink.click();
+                });
         });
+    });
 
-        // JavaScript code to show the modal when the profile image is clicked
-        $(document).ready(function () {
-            $('.profile-card img').on('click', function () {
-                $('#profileModal').modal('show');
-            });
+    // JavaScript code to show the modal when the profile image is clicked
+    $(document).ready(function() {
+        $('.profile-card img').on('click', function() {
+            $('#profileModal').modal('show');
         });
+    });
 
-        function copyToClipboard() {
-            var input = document.getElementById('myInput');
-            input.style.display = 'block'; // Make input visible temporarily
-            input.select();
-            document.execCommand('copy');
-            input.style.display = 'none'; // Hide input again after copying
-            alert('Text copied to clipboard: ' + input.value);
-        }
+    function copyToClipboard() {
+        var input = document.getElementById('myInput');
+        input.style.display = 'block'; // Make input visible temporarily
+        input.select();
+        document.execCommand('copy');
+        input.style.display = 'none'; // Hide input again after copying
+        alert('Text copied to clipboard: ' + input.value);
+    }
     </script>
 </body>
 
