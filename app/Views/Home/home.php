@@ -390,7 +390,7 @@
 								<img src="allhome/assets/images/quote-two.svg" alt="quote">
 							</div>
 						</div>
-						<p><?= $feedback['created_at'] ?></p><br><br>
+						<p><?= date('M j, Y', strtotime($feedback['created_at'])) ?></p><br><br>
 						<p><?= $feedback['content'] ?></p>
 					</div>
 				</div>

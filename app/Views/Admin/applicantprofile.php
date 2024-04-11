@@ -215,7 +215,7 @@
                                                 <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>"">
                                                     <img src=" <?= base_url(); ?>uploads/folder.png"
                                                     class="card-img-top" alt="Life Changer Form Image">
-                                                    Test
+                                                    GLI
                                                 </a>
                                             </div>
                                         </div>

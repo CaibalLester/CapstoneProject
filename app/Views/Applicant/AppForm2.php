@@ -353,7 +353,8 @@
                                                                         class="form-control"
                                                                         value="<?= isset($aial['position1']) ? $aial['position1'] : '' ?>"></td>
                                                                 <td><input type="date" id="dates1" name="dates1"
-                                                                        class="form-control"></td>
+                                                                        class="form-control" 
+                                                                        value="<?= isset($aial['dates1']) ? $aial['dates1'] : '' ?>"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="text" id="employer2" name="employer2"
@@ -363,7 +364,8 @@
                                                                         class="form-control"
                                                                         value="<?= isset($aial['position2']) ? $aial['position2'] : '' ?>"></td>
                                                                 <td><input type="date" id="dates2" name="dates2"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['dates2']) ? $aial['dates2'] : '' ?>"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

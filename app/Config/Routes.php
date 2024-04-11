@@ -17,6 +17,9 @@ $routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
 $routes->get('confirm/(:any)', 'AdminController::confirm/$1', ['filter' => 'adminFilter']);
 $routes->get('deny/(:any)', 'AdminController::deny/$1', ['filter' => 'adminFilter']);
 
+$routes->get('/plans', 'PlanController::plans', ['filter' => 'adminFilter']);
+$routes->post('/newplan', 'PlanController::newplan', ['filter' => 'adminFilter']);
+
 $routes->match(['get', 'post'],'/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'], '/formsTable/(:any)', 'AdminController::formsTable/$1', ['filter' => 'adminFilter']);
@@ -112,7 +115,7 @@ $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
 //Clientt
-$routes->get('/ClientPage', 'ClientController::ClientPage');
+// $routes->get('/ClientPage', 'ClientController::ClientPage');
 $routes->get('/ClientWell', 'ClientController::ClientWell');
 $routes->get('/ClientCompass', 'ClientController::ClientCompass');
 

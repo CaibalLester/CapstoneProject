@@ -8,6 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <title>LIFE CHANGER FORM</title>
     <style>
@@ -30,20 +32,33 @@
         background-color: #ffffff; /* Optional: change the background color to indicate disabled state */
     }
 
-        .download-btn {
-                display: inline-block;
-                padding: 10px 20px;
-                background-color: #327bbe;
-                color: #fff;
-                text-decoration: none;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-                animation: bounceAnimation 2s infinite;
-            }
+    .btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 20px;
+    }
 
-        .download-btn:hover {
-            background-color: #327bbe;
-        }
+    /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: RoyalBlue;
+    }
+
+    .back {
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    /* Darker background on mouse-over */
+    .back:hover {
+        background-color: darkred;
+    }
 
         @keyframes bounceAnimation {
             0% {
@@ -794,11 +809,12 @@
             </div>
         </div>
         
+        
         <div class="download-button-container">
 
-            <button class="download-btn" onclick="generatePdf()">Download</button>
-            <!-- <button class="btn btn-success download-btn" onclick="generatePDF($lifechangerform['user_id']?? '')" >Download</button> -->
-            <button onclick="goBack()" class="back-button">Back</button>
+        <button class="btn fa fa-download" onclick="generatePdf()"></button>
+                <!-- <button class="btn btn-success download-btn" onclick="generatePDF($lifechangerform['user_id']?? '')" >Download</button> -->
+                <button onclick="goBack()" class="back fa fa-backward"></button>
 
             <script>
             function goBack() {
@@ -829,7 +845,7 @@
             dpi: 300,
             letterRendering: true,
             logging: false,
-            // scale: .10
+            scale: .8
         }
     };
 

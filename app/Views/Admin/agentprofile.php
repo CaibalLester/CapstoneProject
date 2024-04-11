@@ -260,17 +260,17 @@
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="#">
+                                                <a href="/ViewAppForm2/<?= $agent['agent_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="AIAL">
                                                     AIAL
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="#">
+                                                <a href="/ViewAppForm3/<?= $agent['agent_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="Life Changer Form Image">
-                                                    Test
+                                                    GLI
                                                 </a>
                                             </div>
                                         </div>

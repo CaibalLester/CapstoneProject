@@ -155,7 +155,7 @@ class AdminController extends BaseController
         return view('Admin/ManageAgent', $data);
     }
 
-    private function getDataAd()
+    public function getDataAd()
     {
         $session = session();
         $userId = $session->get('id');
@@ -197,7 +197,7 @@ class AdminController extends BaseController
         return view('Admin/promotion', $data);
     }
 
-    private function getData()
+    public function getData()
     {
         $session = session();
         $userId = $session->get('id');
