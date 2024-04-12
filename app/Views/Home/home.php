@@ -96,27 +96,27 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
-										<a href="#aboutus" class="nav-link">About Us</a>
-									</li>
-									<li class="nav-item">
-										<a href="#services" class="nav-link">
-											Services
+										<a href="#" class="nav-link">
+											About
 											<i class="bx bx-down-arrow-alt"></i>
 										</a>
 										<ul class="dropdown-menu">
 											<li class="nav-item">
-												<a href="/ClientWell" class="nav-link">Allianz Well</a>
+												<a href="#aboutus" class="nav-link">About Us</a>
 											</li>
 											<li class="nav-item">
-												<a href="/ClientCompass" class="nav-link">Allianz Compass</a>
+												<a href="#faq" class="nav-link">FAQ</a>
+											</li>
+											<li class="nav-item">
+												<a href="#testimonials" class="nav-link">Testimonials</a>
+											</li>
+											<li class="nav-item">
+												<a href="#services" class="nav-link">Offers</a>
 											</li>
 										</ul>
 									</li>
 									<li class="nav-item">
-										<a href="#faq" class="nav-link">FAQ</a>
-									</li>
-									<li class="nav-item">
-										<a href="#testimonials" class="nav-link">Testimonials</a>
+										<a href="/ClientService" class="nav-link">Services</a>
 									</li>
 									<li class="nav-item">
 										<a href="#" class="nav-link">
@@ -294,7 +294,7 @@
 							<div class="single-team-content">
 								<h3>ALLIANZ WELL</h3>
 								<p>100M COVERAGE</p>
-								<a href="/ClientWell" class="default-btn btn-style-2">Inquire</a>
+								<a href="/ClientService" class="default-btn btn-style-2">Inquire</a>
 							</div>
 						</div>
 		
@@ -305,7 +305,7 @@
 							<div class="single-team-content">
 								<h3>ALLIANZ COMPASS</h3>
 								<p>200M COVERAGE</p>
-								<a href="ClientCompass" class="default-btn btn-style-2">Inquire</a>
+								<a href="/ClientService" class="default-btn btn-style-2">Inquire</a>
 							</div>
 						</div>
 					</div>
@@ -467,147 +467,7 @@
 		</div>
 	</div>
 
-
-	<div class="subscribe-two-area pt-100">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6 col-md-6">
-					<div class="section-title left-title">
-						<span class="top-title">Sign Up For Email</span>
-						<h2>Signup Our Allianz PNB</h2>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6">
-					<div class="subscribe-from">
-						<form class="newsletter-form" data-toggle="validator">
-							<input type="email" class="form-control" placeholder="Your Email" name="EMAIL" required
-								autocomplete="off">
-							<button class="default-btn" type="submit">
-								Subscribe
-							</button>
-							<div id="validator-newsletter" class="form-result"></div>
-						</form>
-						<div class="subscribe-shape">
-							<img src="allhome/assets/images/subscribe-2-shape-1.webp" alt="subscribe1">
-						</div>
-						<div class="subscribe-shape13">
-							<img src="allhome/assets/images/subscribe-2-shape-2.webp" alt="subscribe1">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="subscribe-shape-2">
-			<img src="allhome/assets/images/subscribe-2-shape-3.webp" alt="subscribe-2-shape-3">
-		</div>
-	</div>
-
-
-	<div class="footer-area pt-100">
-		<div class="container">
-			<div class="row pb-100">
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget">
-						<a href="index.html">
-							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
-						</a>
-						<p>Allianz PNB Life may offer flexible insurance solutions that can be customized according to the individual's financial goals, budget, and risk tolerance.</p>
-						<ul class="follow-list">
-							<li>
-								<a href="https://www.facebook.com/" target="_blank">
-									<i class="bx bxl-facebook"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/" target="_blank">
-									<i class="bx bxl-twitter"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.linkedin.com/" target="_blank">
-									<i class="bx bxl-linkedin"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.google.com/" target="_blank">
-									<i class="bx bxl-google"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget footer-widget-link2">
-						<h2>About Us</h2>
-						<ul class="footer-widget-list">
-							<li>
-								<a href="/"><i class="bx bx-chevron-right"></i>Home</a>
-							</li>
-							<li>
-								<a href="#aboutus"><i class="bx bx-chevron-right"></i>About Us</a>
-							</li>
-							<li>
-								<a href="#testimonials"><i class="bx bx-chevron-right"></i>Testimonials</a>
-							</li>
-							<li>
-								<a href="/terms"><i class="bx bx-chevron-right"></i>Terms and Conditions</a>
-							</li>
-							<li>
-								<a href="#"><i class="bx bx-chevron-right"></i>Contact Us</a>
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget footer-widget-link">
-						<h2>Our Offers</h2>
-						<ul class="footer-widget-list">
-							<li>
-								<a href="/ClientWell"><i class="bx bx-chevron-right"></i>Allianz PNB Well</a>
-							</li>
-							<li>
-								<a href="/ClientCompass"><i class="bx bx-chevron-right"></i>Allianz PNB Compass</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget">
-						<h2>Get In Touch</h2>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-phone.svg" alt="svg">
-							</div>
-							<a href="tel:(800)2162020">09927703098</a>
-						</div>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-mail.svg" alt="svg">
-							</div>
-							<a
-								href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#c9a1aca5a5a689a0a7a6a7e7aaa6a4"><span
-									class="__cf_email__"
-									data-cfemail="563e333a3a39163f3839387835393b">chris@gmail.com</span></a>
-						</div>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-map.svg" alt="svg">
-							</div>
-							<p>Lumang Bayan, Calapan City, Oriental Mindoro</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="go-top">
-		<i class="bx bxs-chevrons-up"></i>
-		<i class="bx bxs-chevrons-up"></i>
-	</div>
-
+	<?= view('Home/chop1/footer') ?>
 	<?= view('Home/chop1/js') ?>
 
 

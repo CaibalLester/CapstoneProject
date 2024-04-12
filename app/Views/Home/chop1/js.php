@@ -13,3 +13,4 @@
 <script src="<?= base_url(); ?>client/assets/js/scrollCue.min.js"></script>
 <script src="<?= base_url(); ?>client/assets/js/subscribe-custom.js"></script>
 <script src="<?= base_url(); ?>client/assets/js/main.js"></script>
+

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?= view('client/chop/head') ?>
+<?= view('Client/chop/head') ?>
 
-<body style="background-image: url('client/assets/images/allbg.png');background-size: 1000px;background-repeat: repeat;">
+<body>
 
 	<div class="preloader">
 		<div class="lds-ripple">
@@ -80,14 +80,14 @@
 		</div>
 		<div class="main-navbar main-navbar-three">
 			<div class="container-fluid">
-				<nav class="navbar navbar-expand-md navbar-light">
+                <nav class="navbar navbar-expand-md navbar-light">
 					<a class="navbar-brand" href="index.html">
 						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
 					</a>
 					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto">
 							<li class="nav-item">
-								<a href="/" class="nav-link">Home</a>
+								<a href="/" class="nav-link ">Home</a>
 							</li>
 							<li class="nav-item">
 								<a href="#" class="nav-link active">
@@ -96,18 +96,7 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item">
-										<a href="#services" class="nav-link">
-											Services
-											<i class="bx bx-down-arrow-alt"></i>
-										</a>
-										<ul class="dropdown-menu">
-											<li class="nav-item">
-												<a href="/ClientWell" class="nav-link">Allianz Well</a>
-											</li>
-											<li class="nav-item">
-												<a href="#" class="nav-link active">Allianz Compass</a>
-											</li>
-										</ul>
+										<a href="/ClientService" class="nav-link active">Services</a>
 									</li>
 									<li class="nav-item">
 										<a href="#" class="nav-link">
@@ -130,12 +119,12 @@
 										<a href="/policy" class="nav-link">Privacy Notice</a>
 									</li>
 									<li class="nav-item">
-										<a href="#comingsoon" class="nav-link">Coming Soon</a>
+										<a href="/comingsoon" class="nav-link">Coming Soon</a>
 									</li>
 								</ul>
 							</li>
 							<li class="nav-item">
-								<a href="contact.html" class="nav-link">Contact Us</a>
+								<a href="#" class="nav-link">Contact Us</a>
 							</li>
 						</ul>
 						<div class="others-options d-flex align-items-center">
@@ -193,66 +182,81 @@
 		</div>
 	</div>
 
+    <div class="page-banner-area team-page-area">
+        <div class="container">
+            <div class="single-page-banner-content">
+            <h1>Agent</h1>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>Agent</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-<div class="page-banner-area team-page-are">
-<div class="container">
-<div class="single-page-banner-content">
-<h1>Allianz Compass</h1>
-<ul>
-<li>
-<a href="/">Home</a>
-</li>
-<li>Allianz Compass</li>
-</ul>
-</div>
-</div>
-</div>
 
-<div class="blog-two-area pt-100 pb-70">
+<div class="team-page-area pt-100 pb-100">
     <div class="container">
-    	<div class="blog-item d-flex align-items-end justify-content-between">
-   			<div class="section-title left-title">
-    		</div>
-    	</div>
-    		<div class="row">
-    			<div class="col-lg-6 col-md-6">
-    				<div class="single-blog-card blog-card-two">
-    					<div class="blog-img">
-							<a href="blog-details.html">
-							<img src="client/assets/images/compass.png" alt="blog">
-							</a>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-lg-6 col-md-6">
-    				<div class="single-blog-card blog-card-two"><br><br>
-    						<div class="single-blog-content">
-								<h2>ALLIANZ Compass</h2><br>
-								<h5 style="text-align: justify;">Allianz Compass is a comprehensive health plan with one of the highest annual plan limits in the country, giving you access to superior medical treatments and the best hospital facilities, both here and abroad.</h5><br><br>
-								<select id="agentDropdown" style="padding: 10px; font-size: 16px; border: 2px solid #ccc; border-radius: 5px; width: 200px; outline: none; align-items: center;">
-									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 1</option>
-									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 2</option>
-									<option style="padding: 10px; background-color: #f9f9f9; color: #333;">Agent 3</option>
-								</select><br><br>
+        <div class="section-title">
+            <span class="top-title">Our Agent</span>
+            <h2>Meet Our Great Agent</h2>
+        </div>
+            <div class="row">
+            <?php foreach ($agents as $agent): ?>
+                <div class="col-lg-4 col-sm-6 col-md-6">
+                <div class="single-team-card team-page-card">
+                    <div class="team-img">
+                    <img src="<?= isset ($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>" alt="team" >
+                    </div>
+                    <div class="single-team-content">
+                    <h3><?= $agent['Agentfullname'] ?></h3>
+                    <p><?= $agent['email'] ?></p>
+                    <ul class="d-flex align-items-center justify-content-center">
+                        <li class="list-inline">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        </li>
+                        <li class="list-inline">
+                        <a href="https://twitter.com/" target="_blank">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        </li>
+                        <li class="list-inline">
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                        </li>
+                        <li class="list-inline">
+                        <a href="https://www.google.com/" target="_blank">
+                            <i class="bx bxl-google"></i>
+                        </a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            <?php endforeach; ?>
+            </div>
 
-								<a href="#" class="default-btn btn-style-2">Proceed</a>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-</div><br><br><br><br>
+    <div class="pagination-area">
+        <a href="services.html" class="prev page-numbers">
+        <i class="bx bx-chevron-left"></i>
+        </a>
+        <span class="page-numbers current" aria-current="page">01</span>
+        <a href="services.html" class="page-numbers">02</a>
+        <a href="services.html" class="page-numbers">03</a>
+        <a href="services.html" class="prev page-numbers">
+        <i class="bx bx-chevron-right"></i>
+        </a>
+        </div>
+    </div>
+</div><br>
 
-
-
-
-
-<div class="go-top">
-		<i class="bx bxs-chevrons-up"></i>
-		<i class="bx bxs-chevrons-up"></i>
-	</div>
-
-	<?= view('client/chop/js') ?>
+    <?= view('Client/chop/footer') ?>
+	<?= view('Client/chop/js') ?>
 
 
 </body>

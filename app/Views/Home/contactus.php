@@ -85,154 +85,64 @@
         <div class="main-navbar main-navbar-three">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="client/assets/images/black-logo.webp" class="black-logo" alt="image">
-                        <img src="client/assets/images/white-logo.webp" class="white-logo" alt="image">
-                    </a>
-                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Home
-                                    <i class="bx bx-down-arrow-alt"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="index.html" class="nav-link">Home Demo - 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="index-2.html" class="nav-link">Home Demo - 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="index-3.html" class="nav-link">Home Demo - 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Pages
-                                    <i class="bx bx-down-arrow-alt"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="about.html" class="nav-link">About Us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pricing.html" class="nav-link">Pricing</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            Services
-                                            <i class="bx bx-down-arrow-alt"></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a href="services.html" class="nav-link">Services</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="services-details.html" class="nav-link">Services Details</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="faq.html" class="nav-link">FAQ</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="team.html" class="nav-link">Team</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            User Pages
-                                            <i class="bx bx-down-arrow-alt"></i>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item">
-                                                <a href="my-account.html" class="nav-link">My Account</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="login.html" class="nav-link">Login</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="register.html" class="nav-link">Register</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="forgot-password.html" class="nav-link">Forgot Password</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="terms-of-service.html" class="nav-link">Terms of Service</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="error.html" class="nav-link">Error</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="coming-soon.html" class="nav-link">Coming Soon</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Portfolio
-                                    <i class="bx bx-down-arrow-alt"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="portfolio.html" class="nav-link">Portfolio</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="portfolio-details.html" class="nav-link">Portfolio Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    Blog
-                                    <i class="bx bx-down-arrow-alt"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item">
-                                        <a href="blog.html" class="nav-link">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="author.html" class="nav-link">Author</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="categories.html" class="nav-link">Categories</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="tags.html" class="nav-link">Tags</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="search-page.html" class="nav-link">Search Page</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="blog-details.html" class="nav-link">Blog Details</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link active">Contact Us</a>
-                            </li>
-                        </ul>
-                        <div class="others-options d-flex align-items-center">
-                            <div class="option-item">
-                                <button class="searchbtn" type="button">
-                                    <i class="bx bx-search"></i>
-                                </button>
-                            </div>
-                            <div class="option-item">
-                                <a href="contact.html" class="default-btn navbar-btn-style">Get A Quote</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+					<a class="navbar-brand" href="index.html">
+						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+					</a>
+					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a href="/" class="nav-link ">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link">
+									Pages
+									<i class="bx bx-down-arrow-alt"></i>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item">
+										<a href="/ClientService" class="nav-link">Services</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											User Pages
+											<i class="bx bx-down-arrow-alt"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li class="nav-item">
+												<a href="/registers" class="nav-link">Register</a>
+											</li>
+											<li class="nav-item">
+												<a href="/login" class="nav-link">Forgot Password</a>
+											</li>
+										</ul>
+									</li>
+									<li class="nav-item">
+										<a href="/terms" class="nav-link">Terms and Conditions</a>
+									</li>
+									<li class="nav-item">
+										<a href="/policy" class="nav-link">Privacy Notice</a>
+									</li>
+									<li class="nav-item">
+										<a href="/comingsoon" class="nav-link">Coming Soon</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link active">Contact Us</a>
+							</li>
+						</ul>
+						<div class="others-options d-flex align-items-center">
+							<div class="option-item">
+								<button class="searchbtn" type="button">
+									<i class="bx bx-search"></i>
+								</button>
+							</div>
+							<div class="option-item">
+								<a href="/login" class="default-btn navbar-btn-style">Login</a>
+							</div>
+						</div>
+					</div>
+				</nav>
             </div>
         </div>
         <div class="others-option-for-responsive">
@@ -568,114 +478,8 @@
         </div>
     </div>
 
-    <div class="footer-area pt-100">
-		<div class="container">
-			<div class="row pb-100">
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget">
-						<a href="index.html">
-							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
-						</a>
-						<p>Allianz PNB Life may offer flexible insurance solutions that can be customized according to the individual's financial goals, budget, and risk tolerance.</p>
-						<ul class="follow-list">
-							<li>
-								<a href="https://www.facebook.com/" target="_blank">
-									<i class="bx bxl-facebook"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/" target="_blank">
-									<i class="bx bxl-twitter"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.linkedin.com/" target="_blank">
-									<i class="bx bxl-linkedin"></i>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.google.com/" target="_blank">
-									<i class="bx bxl-google"></i>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget footer-widget-link2">
-						<h2>About Us</h2>
-						<ul class="footer-widget-list">
-							<li>
-								<a href="/"><i class="bx bx-chevron-right"></i>Home</a>
-							</li>
-							<li>
-								<a href="#aboutus"><i class="bx bx-chevron-right"></i>About Us</a>
-							</li>
-							<li>
-								<a href="#testimonials"><i class="bx bx-chevron-right"></i>Testimonials</a>
-							</li>
-							<li>
-								<a href="/terms"><i class="bx bx-chevron-right"></i>Terms and Conditions</a>
-							</li>
-							<li>
-								<a href="contact.html"><i class="bx bx-chevron-right"></i>Contact Us</a>
-							</li>
-							
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget footer-widget-link">
-						<h2>Our Offers</h2>
-						<ul class="footer-widget-list">
-							<li>
-								<a href="/ClientWell"><i class="bx bx-chevron-right"></i>Allianz PNB Well</a>
-							</li>
-							<li>
-								<a href="/ClientCompass"><i class="bx bx-chevron-right"></i>Allianz PNB Compass</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
-					<div class="footer-widget">
-						<h2>Get In Touch</h2>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-phone.svg" alt="svg">
-							</div>
-							<a href="tel:(800)2162020">09927703098</a>
-						</div>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-mail.svg" alt="svg">
-							</div>
-							<a
-								href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#c9a1aca5a5a689a0a7a6a7e7aaa6a4"><span
-									class="__cf_email__"
-									data-cfemail="563e333a3a39163f3839387835393b">chris@gmail.com</span></a>
-						</div>
-						<div class="touch-content">
-							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-map.svg" alt="svg">
-							</div>
-							<p>Lumang Bayan, Calapan City, Oriental Mindoro</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-    <div class="go-top">
-        <i class="bx bxs-chevrons-up"></i>
-        <i class="bx bxs-chevrons-up"></i>
-    </div>
-
-
+<?= view('Home/chop1/footer') ?>
 <?=view('Home/chop1/js')?>
+
 </body>
-
-<!-- Mirrored from templates.hibootstrap.com/inon/default/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Mar 2024 12:35:07 GMT -->
-
 </html>
