@@ -19,6 +19,7 @@ $routes->get('deny/(:any)', 'AdminController::deny/$1', ['filter' => 'adminFilte
 
 $routes->get('/plans', 'PlanController::plans', ['filter' => 'adminFilter']);
 $routes->post('/newplan', 'PlanController::newplan', ['filter' => 'adminFilter']);
+$routes->post('/newplanUpdate/(:any)', 'PlanController::newplanUpdate/$1', ['filter' => 'adminFilter']);
 
 $routes->match(['get', 'post'],'/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
 

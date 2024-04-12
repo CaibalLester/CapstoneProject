@@ -312,7 +312,7 @@ class AdminController extends BaseController
                 // Move the uploaded image to the upload directory
                 if ($imageFile->move($uploadPath, $imageName)) {
                     // Image upload successful, store the image filename in the database
-                    $data['adminProfile'] = $imageName;
+                    $img['adminProfile'] = $imageName;
 
                     // Delete the old image file if it exists
                     if (!empty($oldAdmin['adminProfile'])) {
@@ -328,7 +328,7 @@ class AdminController extends BaseController
         }
 
         // Add other form data to the data array
-        $data += [
+        $data = [
             'lastname' => $this->request->getVar('lastname'),
             'firstname' => $this->request->getVar('firstname'),
             'middlename' => $this->request->getVar('middlename'),
@@ -339,6 +339,7 @@ class AdminController extends BaseController
             'region' => $this->request->getVar('region_text'),
             'province' => $this->request->getVar('province_text'),
             'city' => $this->request->getVar('city_text'),
+            'image' => $img,
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
         ];

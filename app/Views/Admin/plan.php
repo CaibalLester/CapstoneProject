@@ -83,38 +83,116 @@
                 </div>
             </nav>
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">Plans</h1>
+                <div class="row">
+                    <div class="col">
+                        <div class="title-group mb-3">
+                            <h1 class="h2 mb-0">Plans</h1>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                            <i class="bi bi-plus-square fs-1"></i>
+                        </button>
+                    </div>
                 </div>
-
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="col-lg-12">
-                                <div class="row">
-
-
-                                    <div class="col-lg-3 col-4 me-2">
-                                        <div class="card justify-content-center text-center">
-                                            <div class="card-body">
-                                                <button type="button" class="btn" data-bs-toggle="modal"
-                                                    data-bs-target="#myModal">
-                                                    <i class="bi bi-plus-square fs-1"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                <div class="row row-cols-2">
 
                                     <?php foreach ($plan as $plans): ?>
-                                        <div class="col-lg-3 me-2">
-                                        <div class="card justify-content-center text-center">
-                                            <div class="card-body">
-                                                <img src="uploads/forms/life_changer.png" class="card-img img-fluid"
-                                                    alt="Card Image">
+                                        <div class="col-lg-3">
+                                            <div class="card justify-content-center text-center">
+                                                <div class="card-body" data-bs-toggle="modal"
+                                                    data-bs-target="#planEdit<?= $plans['id'] ?>" style="cursor: pointer;">
+                                                    <img src="<?= isset($plans['image']) ? base_url('/uploads/plans/' . $plans['image']) : '' ?>"
+                                                        class="card-img img-fluid" alt="Card Image">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+
+                                        <div class="modal fade" id="planEdit<?= $plans['id'] ?>" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Plan Details</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <!-- Your registration form goes here -->
+                                                        <form action="/newplanUpdate/<?= $plans['token'] ?>" method="post"
+                                                            role="form" enctype="multipart/form-data">
+                                                            <div class="mb-1">
+                                                                <label for="plan_name" class="form-label">Plan
+                                                                    Name</label>
+                                                                <input type="text" class="form-control" id="plan_name"
+                                                                    name="plan_name"
+                                                                    value="<?php echo isset($plans['plan_name']) ? $plans['plan_name'] : '' ?>"
+                                                                    required>
+                                                                <input type="hidden" name="id" value="<?= $plans['id'] ?>">
+                                                            </div>
+                                                            <div class="mb-1">
+                                                                <label for="brief_description" class="form-label">Brief
+                                                                    Description</label>
+                                                                <input type="brief_description" class="form-control"
+                                                                    id="brief_description" name="brief_description" required
+                                                                    value="<?php echo isset($plans['brief_description']) ? $plans['brief_description'] : '' ?>">
+                                                            </div>
+
+                                                            <div class="mb-1">
+                                                                <label for="price" class="form-label">Price</label>
+                                                                <input type="number" class="form-control" id="price"
+                                                                    name="price" required
+                                                                    value="<?php echo isset($plans['price']) ? $plans['price'] : '' ?>">
+                                                            </div>
+
+                                                            <div class="mb-1">
+                                                                <label for="com_percentage" class="form-label">Commision
+                                                                    Percentage</label>
+                                                                <input type="number" class="form-control"
+                                                                    id="com_percentage" name="com_percentage"
+                                                                    value="<?php echo isset($plans['com_percentage']) ? $plans['com_percentage'] : '' ?>"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="mb-1">
+                                                                <label for="description"
+                                                                    class="form-label">Description</label>
+                                                                <textarea class="form-control" id="description"
+                                                                    name="description" rows="2"
+                                                                    required><?php echo isset($plans['description']) ? $plans['description'] : ''; ?></textarea>
+                                                            </div>
+
+                                                            <div class="mb-1">
+                                                                <label for="image" class="form-label">Image</label>
+                                                                <input type="file" class="form-control" id="image"
+                                                                    name="image" accept="image/*" required
+                                                                    onchange="previewImageUP(event)">
+                                                            </div>
+                                                            <div class="col-lg-12 p-2 justify-content-center text-center">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div class="mb-1 me-3">
+                                                                            <img class="img-fluid" id="imagePreviewUP"
+                                                                                src="<?= isset($plans['image']) ? base_url('/uploads/plans/' . $plans['image']) : '' ?>"
+                                                                                style="max-width: 100%; max-height: 200px;">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     <?php endforeach ?>
 
                                     <div class="modal fade" id="myModal" tabindex="-1"
@@ -127,9 +205,9 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-
                                                     <!-- Your registration form goes here -->
-                                                    <form action="/newplan" method="post" role="form">
+                                                    <form action="/newplan" method="post" role="form"
+                                                        enctype="multipart/form-data">
                                                         <div class="mb-1">
                                                             <label for="plan_name" class="form-label">Plan Name</label>
                                                             <input type="text" class="form-control" id="plan_name"
@@ -178,14 +256,12 @@
                                                                 <div class="card-body">
                                                                     <div class="mb-1 me-3">
                                                                         <img class="img-fluid" id="imagePreview" src="#"
-                                                                            alt="Image Preview"
                                                                             style="max-width: 100%; max-height: 200px;">
                                                                     </div>
                                                                     <!-- End Image preview -->
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <button type="button" class="btn btn-secondary"
                                                             data-bs-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-primary">Save</button>
@@ -194,8 +270,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -207,6 +281,11 @@
     <script>
         function previewImage(event) {
             const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function previewImageUP(event) {
+            const imagePreview = document.getElementById('imagePreviewUP');
             imagePreview.src = URL.createObjectURL(event.target.files[0]);
         }
     </script>

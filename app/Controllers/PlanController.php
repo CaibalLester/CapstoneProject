@@ -25,19 +25,62 @@ class PlanController extends BaseController
     public function newplan()
     {
         $token = bin2hex(random_bytes(50));
-        $plan = [
+        if ($imageFile = $this->request->getFile('image')) {
+            if ($imageFile->isValid()) {
+                $imageName = $imageFile->getRandomName();
+                $uploadPath = FCPATH . 'uploads/plans';
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    $plan['image'] = $imageName;
+                }
+            }
+        }
+        $data = [
             'plan_name' => $this->request->getVar('plan_name'),
             'brief_description' => $this->request->getVar('brief_description'),
             'description' => $this->request->getVar('description'),
             'price' => $this->request->getVar('price'),
             'token' => $token,
-            'created_at' => $this->request->getVar('created_at'),
-            'image' => $this->request->getVar('image'),
+            'image' => $plan,
             'com_percentage' => $this->request->getVar('com_percentage'),
         ];
-        // var_dump($plan);
-        $this->plan->save($plan);
+            $this->plan->save($data);
+
         return redirect()->to('plans')->with('success', 'new plan added');
+    }
+
+    public function newplanUpdate($token)
+    {
+        $token2 = bin2hex(random_bytes(50));
+        $id = $this->request->getVar('id');
+        $oldproduct = $this->plan->select('image')->where('id', $id)->first();
+        if ($imageFile = $this->request->getFile('image')) {
+            if ($imageFile->isValid()) {
+                $imageName = $imageFile->getRandomName();
+                $uploadPath = FCPATH . 'uploads/plans';
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    $plan['image'] = $imageName;
+                    if (!empty($oldproduct['image'])) {
+                        $oldFilePath = $uploadPath . $oldproduct['image'];
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
+                    }
+                }
+            }
+        }
+        $plan += [
+            'plan_name' => $this->request->getVar('plan_name'),
+            'brief_description' => $this->request->getVar('brief_description'),
+            'description' => $this->request->getVar('description'),
+            'price' => $this->request->getVar('price'),
+            'token' => $token2,
+            'created_at' => $this->request->getVar('created_at'),
+            'com_percentage' => $this->request->getVar('com_percentage'),
+        ];
+
+        // var_dump($plan);
+        $this->plan->set($plan)->where('token', $token)->update();
+        return redirect()->to('plans')->with('success', 'Plan Updated');
     }
 
 }
