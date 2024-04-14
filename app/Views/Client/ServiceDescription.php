@@ -139,7 +139,7 @@
                     </div>
                     <div class="download-app">
                         <h2>Inquire</h2>
-                        <a type="button" href="/ClientAgent" class="default-btn">View Agent</a>
+                        <a href="/ClientAgent/<?= $plans['token']?>" class="default-btn">Get Insurance Now</a>
                     </div>
                     <div class="help-contact-card pb-2">
                         <div class="help-img">

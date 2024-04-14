@@ -14,3 +14,6 @@
 <script src="<?= base_url(); ?>client/assets/js/subscribe-custom.js"></script>
 <script src="<?= base_url(); ?>client/assets/js/main.js"></script>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?= base_url() ?>add/ph-address-selector.js"></script>

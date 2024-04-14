@@ -139,7 +139,6 @@ class HomepageController extends BaseController
         }
     }
 
-
     public function sendVerificationEmail($to, $subject, $message)
     {
         // Load Email Library

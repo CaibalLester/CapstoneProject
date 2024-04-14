@@ -29,6 +29,7 @@ class Filters extends BaseConfig
         'adminFilter'   => \App\Filters\AdminFilter::class,
         'agentFilter'   => \App\Filters\AgentFilter::class,
         'applicantFilter'   => \App\Filters\ApplicantFilter::class,
+        'clientFilter'   => \App\Filters\ClientFilter::class,
     ];
 
     /**

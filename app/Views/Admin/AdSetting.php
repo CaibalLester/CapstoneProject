@@ -7,7 +7,7 @@
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
@@ -26,7 +26,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/Forms">
-                            <i class="bi bi-file-earmark-slides me-2"></i>
+                                <i class="bi bi-file-earmark-slides me-2"></i>
                                 Forms
                             </a>
                         </li>
@@ -40,7 +40,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/confirmation">
-                            <i class="bi bi-check-lg me-2"></i>
+                                <i class="bi bi-check-lg me-2"></i>
                                 Confirmation
                             </a>
                         </li>
@@ -59,7 +59,7 @@
                             </a>
                         </li>
 
-                     
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">
@@ -119,19 +119,19 @@
                                                 <label for="lastname" class="small">Last Name</label>
                                                 <input class="form-control text-center" type="text" name="lastname"
                                                     id="profile-name" placeholder="Last Name"
-                                                    value="<?= isset ($admin['lastname']) ? $admin['lastname'] : '' ?>">
+                                                    value="<?= isset($admin['lastname']) ? $admin['lastname'] : '' ?>">
                                             </div>
                                             <div class="col-md-5 text-center">
                                                 <label for="firstname" class="small">First Name</label>
                                                 <input class="form-control text-center" type="text" name="firstname"
                                                     id="profile-name" placeholder="First Name"
-                                                    value="<?= isset ($admin['firstname']) ? $admin['firstname'] : '' ?>">
+                                                    value="<?= isset($admin['firstname']) ? $admin['firstname'] : '' ?>">
                                             </div>
                                             <div class="col-md-3 text-center">
                                                 <label for="middlename" class="small">Middle Name</label>
                                                 <input class="form-control text-center" type="text" name="middlename"
                                                     id="profile-name" placeholder="Middle Name"
-                                                    value="<?= isset ($admin['middlename']) ? $admin['middlename'] : '' ?>"">
+                                                    value="<?= isset($admin['middlename']) ? $admin['middlename'] : '' ?>"">
                                             </div>
                                         </div>
 
@@ -140,28 +140,28 @@
                                                     <label for="number" class="small">Number</label>
                                                     <input class="form-control text-center" type="text" name="number"
                                                         placeholder="Please Enter Your Number"
-                                                        value="<?= isset ($admin['number']) ? $admin['number'] : '' ?>">
+                                                        value="<?= isset($admin['number']) ? $admin['number'] : '' ?>">
                                                 </div>
 
                                                 <div class="col-md-4 text-center">
                                                     <label for="email" class="small">Email</label>
                                                     <input class="form-control text-center" type="email" name="email"
                                                         placeholder="Email"
-                                                        value="<?= isset ($admin['email']) ? $admin['email'] : '' ?>">
+                                                        value="<?= isset($admin['email']) ? $admin['email'] : '' ?>">
                                                 </div>
                                                 <div class="col-md-3 text-center">
                                                     <label for="birthday" class="small">Birthday</label>
                                                     <input class="form-control text-center text-center" type="date"
                                                         name="birthday"
                                                         placeholder="Please Enter your Birthday mm/dd/yyyy"
-                                                        value="<?= isset ($admin['birthday']) ? $admin['birthday'] : '' ?>">
+                                                        value="<?= isset($admin['birthday']) ? $admin['birthday'] : '' ?>">
                                                 </div>
 
                                                 <div class="col-md-2 text-center">
                                                     <label for="username" class="small">Username</label>
                                                     <input class="form-control text-center" type="text" name="username"
                                                         id="profile-name" placeholder="Full name"
-                                                        value="<?= isset ($admin['username']) ? $admin['username'] : '' ?>">
+                                                        value="<?= isset($admin['username']) ? $admin['username'] : '' ?>">
                                                 </div>
                                             </div>
 
@@ -170,14 +170,14 @@
                                                     <label for="region" class="small">Region</label>
                                                     <select class="form-control text-center" name="region" id="region">
                                                         <option
-                                                            value="<?= isset ($admin['region']) ? $admin['region'] : '' ?>"
+                                                            value="<?= isset($admin['region']) ? $admin['region'] : '' ?>"
                                                             selected>
-                                                            <?= isset ($admin['region']) ? $admin['region'] : '' ?>
+                                                            <?= isset($admin['region']) ? $admin['region'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="region_text"
-                                                        value="<?= isset ($admin['region']) ? $admin['region'] : '' ?>"
+                                                        value="<?= isset($admin['region']) ? $admin['region'] : '' ?>"
                                                         id="region-text" required>
                                                 </div>
 
@@ -186,28 +186,28 @@
                                                     <select class="form-control text-center" name="province"
                                                         id="province">
                                                         <option
-                                                            value="<?= isset ($admin['province']) ? $admin['province'] : '' ?>"
+                                                            value="<?= isset($admin['province']) ? $admin['province'] : '' ?>"
                                                             selected>
-                                                            <?= isset ($admin['province']) ? $admin['province'] : '' ?>
+                                                            <?= isset($admin['province']) ? $admin['province'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="province_text"
-                                                        value="<?= isset ($admin['province']) ? $admin['province'] : '' ?>"
+                                                        value="<?= isset($admin['province']) ? $admin['province'] : '' ?>"
                                                         id="province-text" required>
                                                 </div>
                                                 <div class="col-md-3 text-center">
                                                     <label for="city" class="small">City/Municipality</label>
                                                     <select class="form-control text-center" name="city" id="city">
                                                         <option
-                                                            value="<?= isset ($admin['city']) ? $admin['city'] : '' ?>"
+                                                            value="<?= isset($admin['city']) ? $admin['city'] : '' ?>"
                                                             selected>
-                                                            <?= isset ($admin['city']) ? $admin['city'] : '' ?>
+                                                            <?= isset($admin['city']) ? $admin['city'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="city_text"
-                                                        value="<?= isset ($admin['city']) ? $admin['city'] : '' ?>"
+                                                        value="<?= isset($admin['city']) ? $admin['city'] : '' ?>"
                                                         id="city-text" required>
                                                 </div>
                                                 <div class="col-md-3 text-center">
@@ -215,14 +215,14 @@
                                                     <select class="form-control text-center" name="barangay"
                                                         id="barangay">
                                                         <option
-                                                            value="<?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>"
+                                                            value="<?= isset($admin['barangay']) ? $admin['barangay'] : '' ?>"
                                                             selected>
-                                                            <?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>
+                                                            <?= isset($admin['barangay']) ? $admin['barangay'] : '' ?>
                                                         </option>
                                                     </select>
                                                     <input type="hidden" class="form-control form-control-md"
                                                         name="barangay_text"
-                                                        value="<?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>"
+                                                        value="<?= isset($admin['barangay']) ? $admin['barangay'] : '' ?>"
                                                         id="barangay-text" required>
                                                 </div>
                                             </div>
@@ -231,30 +231,30 @@
                                                 <div class="col-md-12 text-center">
                                                     <label for="street" class="small">Street (optional)</label>
                                                     <input class="form-control text-center" type="text" name="street"
-                                                        value="<?= isset ($admin['street']) ? $admin['street'] : '' ?>"
+                                                        value="<?= isset($admin['street']) ? $admin['street'] : '' ?>"
                                                         id="street" placeholder="Street">
                                                 </div>
                                             </div>
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="input-group mb-1">
-                                                    <img id="preview-image"
-                                                        src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : 'default_path_here' ?>"
-                                                        class="profile-image img-fluid" alt="">
-                                                    <input type="file" name="profile" class="form-control"
-                                                        id="inputGroupFile02" onchange="previewImage()">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group mb-1">
+                                                        <img id="preview-image"
+                                                            src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : 'default_path_here' ?>"
+                                                            class="profile-image img-fluid" alt="">
+                                                        <input type="file" name="profile" class="form-control"
+                                                            id="inputGroupFile02" onchange="previewImage()">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="d-flex">
-                                                    <button type="submit" class="form-control ms-2">Save</button>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="d-flex">
+                                                        <button type="submit" class="form-control ms-2">Save</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </form>
 
                                 </div>
@@ -289,6 +289,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <footer class="site-footer">
                     <div class="container">

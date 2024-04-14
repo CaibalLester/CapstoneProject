@@ -84,12 +84,12 @@ class UsersManageController extends BaseController
             'password' => 'required|min_length[6]|max_length[50]',
             'confirmpassword' => 'matches[password]',
         ];
-        $token = bin2hex(random_bytes(24));
+        $token = bin2hex(random_bytes(50));
         if ($this->validate($rules)) {
             $newuser = [
-                'username' => $this->request->getPost('username'),
-                'email' => $this->request->getPost('email'),
-                'role' => $this->request->getPost('role'),
+                'username' => $this->request->getVar('username'),
+                'email' => $this->request->getVar('email'),
+                'role' => $this->request->getVar('role'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'token' => $token
             ];

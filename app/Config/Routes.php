@@ -108,7 +108,10 @@ $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 // $routes->get('/ClientPage', 'ClientController::ClientPage');
 $routes->get('/ClientService', 'ClientController::ClientService');
 $routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
-$routes->get('/ClientAgent', 'ClientController::ClientAgent');
+
+$routes->get('/ClientAgent/(:any)', 'ClientController::ClientAgent/$1');
+$routes->get('/avail/(:any)', 'ClientController::avail/$1');
+
 $routes->get('/registers', 'ClientController::registers');
 $routes->get('/contactus', 'HomepageController::contactus');
 $routes->get('/terms', 'HomepageController::terms');

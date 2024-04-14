@@ -1,0 +1,56 @@
+CRITICAL - 2024-04-15 00:48:14 --> Undefined variable $user
+in APPPATH\Views\Client\ClientAgent.php on line 115.
+ 1 APPPATH\Views\Client\ClientAgent.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'C:\\CapstoneSystem\\app\\Views\\Client\\ClientAgent.php', 115)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Client\\ClientAgent.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/ClientAgent', [], true)
+ 5 APPPATH\Controllers\ClientController.php(45): view('Client/ClientAgent', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->ClientAgent('7c5cf99bbd71b7c49e13e73d0afbcccf614d554681d932b5f9fa63579702e323d8677c69976fea42bd51e61d516e3d346365')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-15 01:38:22 --> Uncaught CodeIgniter\View\Exceptions\ViewException: Invalid file: "client/chop/head.php" in C:\CapstoneSystem\system\Exceptions\FrameworkException.php:39
+Stack trace:
+#0 C:\CapstoneSystem\system\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('client/chop/hea...')
+#1 C:\CapstoneSystem\system\Common.php(1188): CodeIgniter\View\View->render('client/chop/hea...', Array, true)
+#2 C:\CapstoneSystem\app\Views\errors\html\error_404.php(6): view('client/chop/hea...')
+#3 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(241): include('C:\\CapstoneSyst...')
+#4 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 C:\CapstoneSystem\system\Debug\ExceptionHandler.php(109): CodeIgniter\Debug\BaseExceptionHandler->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404, 'C:\\CapstoneSyst...')
+#6 C:\CapstoneSystem\system\Debug\Exceptions.php(147): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Exceptions\PageNotFoundException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 404, 1)
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#8 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\PageNotFoundException
+Page Not Found
+#0 C:\CapstoneSystem\system\CodeIgniter.php(967): CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(NULL)
+#1 C:\CapstoneSystem\system\CodeIgniter.php(362): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#2 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#3 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#4 {main}
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-15 01:51:55 --> Uncaught CodeIgniter\View\Exceptions\ViewException: Invalid file: "client/chop/head.php" in C:\CapstoneSystem\system\Exceptions\FrameworkException.php:39
+Stack trace:
+#0 C:\CapstoneSystem\system\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('client/chop/hea...')
+#1 C:\CapstoneSystem\system\Common.php(1188): CodeIgniter\View\View->render('client/chop/hea...', Array, true)
+#2 C:\CapstoneSystem\app\Views\errors\html\error_404.php(6): view('client/chop/hea...')
+#3 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(241): include('C:\\CapstoneSyst...')
+#4 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 C:\CapstoneSystem\system\Debug\ExceptionHandler.php(109): CodeIgniter\Debug\BaseExceptionHandler->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404, 'C:\\CapstoneSyst...')
+#6 C:\CapstoneSystem\system\Debug\Exceptions.php(147): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Exceptions\PageNotFoundException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 404, 1)
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#8 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\PageNotFoundException
+Page Not Found
+#0 C:\CapstoneSystem\system\CodeIgniter.php(967): CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(NULL)
+#1 C:\CapstoneSystem\system\CodeIgniter.php(362): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#2 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#3 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#4 {main}
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

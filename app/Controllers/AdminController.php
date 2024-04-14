@@ -52,7 +52,6 @@ class AdminController extends BaseController
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
         return view('Admin/AdDash', $data);
-
     }
     //Top 3 Agents
     private function topagent()
@@ -88,7 +87,6 @@ class AdminController extends BaseController
     public function Forms()
     {
         $data = array_merge($this->getData(), $this->getDataAd());
-
         return view('Admin/Forms', $data);
     }
 
