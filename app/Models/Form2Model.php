@@ -14,6 +14,9 @@ class Form2Model extends Model
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
+        'username',
+        'user_id',
+        'aial_token',
         'nonLife',
         'life',
         'variableLife',

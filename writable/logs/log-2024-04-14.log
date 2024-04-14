@@ -100,3 +100,186 @@ Page Not Found
 #4 {main}
 in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-14 21:57:53 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('40d48c9849c3f3410d23294c12b0792951882b216f5ddd3fd66831ce503c2ff3')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:01:14 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 362.
+ 1 APPPATH\Controllers\AdminController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('40d48c9849c3f3410d23294c12b0792951882b216f5ddd3fd66831ce503c2ff3')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:01:20 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('26f8d7fdb8a8809b162836a6946660dac66ba9005f8b343c8fc716ac30fd7512')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:04:56 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7d21a955dd896c2c8ada8dfb5717720bdaa2518ed311ed08c8445cdda49369ab')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:05:27 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 388.
+ 1 APPPATH\Controllers\AdminController.php(388): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 388)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7d21a955dd896c2c8ada8dfb5717720bdaa2518ed311ed08c8445cdda49369ab')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-14 22:06:09 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`lifechangerform`, CONSTRAINT `fk_life_app_id` FOREIGN KEY (`user_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT) in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `li...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `li...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `li...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `li...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\CapstoneSystem\app\Controllers\AdminController.php(385): CodeIgniter\BaseModel->save(Array)
+#9 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7d21a955dd896c2...')
+#10 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#14 {main}
+CRITICAL - 2024-04-14 22:06:10 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`lifechangerform`, CONSTRAINT `fk_life_app_id` FOREIGN KEY (`user_id`) REFERENCES `applicant` (`applicant_id`) ON DELETE RESTRICT ON UPDATE RESTRICT)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lifechangerform` (`user_id`, `app_life_token`, `username`) VALUES (:user_id:, :app_life_token:, :username:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(385): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7d21a955dd896c2c8ada8dfb5717720bdaa2518ed311ed08c8445cdda49369ab')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:09:30 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('83beb9ddcbdabdd64c12e7269d91a294b588d67a62b27d2f3783abfe5ccabb4b')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-14 22:10:20 --> mysqli_sql_exception: Unknown column 'token' in 'where clause' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(662): CodeIgniter\Model->doFirst()
+#6 C:\CapstoneSystem\app\Controllers\AdminController.php(359): CodeIgniter\BaseModel->first()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('83beb9ddcbdabdd...')
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-04-14 22:10:20 --> Unknown column 'token' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `applicant`
+WHERE `token` = :token:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\AdminController.php(359): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('83beb9ddcbdabdd64c12e7269d91a294b588d67a62b27d2f3783abfe5ccabb4b')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:10:46 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('83beb9ddcbdabdd64c12e7269d91a294b588d67a62b27d2f3783abfe5ccabb4b')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:15:49 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 380.
+ 1 APPPATH\Controllers\AdminController.php(380): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 380)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7b6b5b622d02159b284632e9eccf643a89cac334008943e952a1536e1de567ff')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:19:13 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 768.
+ 1 SYSTEMPATH\BaseModel.php(768): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([], false)
+ 3 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 4 APPPATH\Controllers\AdminController.php(391): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('7b6b5b622d02159b284632e9eccf643a89cac334008943e952a1536e1de567ff')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:22:38 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 768.
+ 1 SYSTEMPATH\BaseModel.php(768): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([], false)
+ 3 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 4 APPPATH\Controllers\AdminController.php(392): CodeIgniter\BaseModel->save([...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('1f2fa8dd691107ddc3afb2592199a707015fcfff67067fc62447b85118d230e8')
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-14 22:28:17 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ai...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ai...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ai...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ai...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\CapstoneSystem\app\Controllers\AdminController.php(392): CodeIgniter\BaseModel->save(Array)
+#9 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('c78b30d9fddfbfb...')
+#10 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#14 {main}
+CRITICAL - 2024-04-14 22:28:17 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `aial` (`user_id`, `aial_token`) VALUES (:user_id:, :aial_token:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(392): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('c78b30d9fddfbfbe50bc71049edd11287d129625e41481b83e33bb6679a03096')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 22:32:36 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AdminController.php on line 362.
+ 1 APPPATH\Controllers\AdminController.php(362): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AdminController.php', 362)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('c78b30d9fddfbfbe50bc71049edd11287d129625e41481b83e33bb6679a03096')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

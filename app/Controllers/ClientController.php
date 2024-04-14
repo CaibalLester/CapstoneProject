@@ -41,6 +41,7 @@ class ClientController extends BaseController
     public function ClientAgent()
     {
         $data = $this->ag();
+        $data['plan'] = $this->plan->findAll();
         return view('Client/ClientAgent', $data);
     }
 
@@ -55,8 +56,5 @@ class ClientController extends BaseController
     {
         return view('Client/registers');
     }
-
-
-
 
 }

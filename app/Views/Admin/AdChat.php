@@ -79,6 +79,7 @@
             </main>
         </div>
     </div>
+
     <?= view('js'); ?>
 
 </body>

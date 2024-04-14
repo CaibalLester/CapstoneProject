@@ -72,13 +72,13 @@
 						<h2>Get In Touch</h2>
 						<div class="touch-content">
 							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-phone.svg" alt="svg">
+								<img src="<?= base_url() ?>allhome/assets/images/contact-phone.svg" alt="svg">
 							</div>
 							<a href="tel:(800)2162020">09927703098</a>
 						</div>
 						<div class="touch-content">
 							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-mail.svg" alt="svg">
+								<img src="<?= base_url() ?>allhome/assets/images/contact-mail.svg" alt="svg">
 							</div>
 							<a
 								href="https://templates.hibootstrap.com/cdn-cgi/l/email-protection#c9a1aca5a5a689a0a7a6a7e7aaa6a4"><span
@@ -87,7 +87,7 @@
 						</div>
 						<div class="touch-content">
 							<div class="contact-icon">
-								<img src="allhome/assets/images/contact-map.svg" alt="svg">
+								<img src="<?= base_url() ?>allhome/assets/images/contact-map.svg" alt="svg">
 							</div>
 							<p>Lumang Bayan, Calapan City, Oriental Mindoro</p>
 						</div>

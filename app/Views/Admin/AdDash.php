@@ -480,7 +480,6 @@
                         </div>
                     </div>
                 </div>
-                <?= view('rtc/chat'); ?>
             </main>
         </div>
     </div>
@@ -552,6 +551,7 @@
             createChart('pendingApplicantChart', data, 'Applicants');
         })
         .catch(error => console.error('Error fetching data for pending applicants:', error));
+
     </script>
 
 </body>

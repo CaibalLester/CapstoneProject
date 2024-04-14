@@ -3,7 +3,6 @@
 <?= view('head') ?>
 
 <body>
-
     <?= view('Agent/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
@@ -116,22 +115,22 @@
                                 <div class="image-container"
                                     style="position: relative; max-width: 100%; max-height: 100%; overflow: hidden;">
                                     <?php
-                                    $imageSrc = '/AgentInfo/rank/bronze.png'; // Default image source
+                                    $imageSrc = '/req/rank/bronze.png'; // Default image source
                                     switch ($ranking) {
                                         case ($ranking >= 1 && $ranking <= 10):
-                                            $imageSrc = '/AgentInfo/rank/bronze.png';
+                                            $imageSrc = '/req/rank/bronze.png';
                                             break;
                                         case ($ranking >= 11 && $ranking <= 20):
-                                            $imageSrc = '/AgentInfo/rank/silver.png';
+                                            $imageSrc = '/req/rank/silver.png';
                                             break;
                                         case ($ranking >= 21 && $ranking <= 30):
-                                            $imageSrc = '/AgentInfo/rank/gold.png';
+                                            $imageSrc = '/req/rank/gold.png';
                                             break;
                                         case ($ranking >= 31 && $ranking <= 40):
-                                            $imageSrc = '/AgentInfo/rank/diamond.png';
+                                            $imageSrc = '/req/rank/diamond.png';
                                             break;
                                         default:
-                                            $imageSrc = '/AgentInfo/rank/platinum.png';
+                                            $imageSrc = '/req/rank/platinum.png';
                                             break;
                                     }
                                     ?>

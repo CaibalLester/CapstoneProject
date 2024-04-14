@@ -1,4 +1,4 @@
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 <div class="fixed-button">
     <button class="btn btn-primary" id="openMessageModal">
         <i class="fas fa-envelope"></i> <!-- Font Awesome message icon -->
@@ -63,4 +63,5 @@
 
     </div>
 </div>
-<?= view('Admin/chop/js') ?>
+
+<?= view('js') ?>

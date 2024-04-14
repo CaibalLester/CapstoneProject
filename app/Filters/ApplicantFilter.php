@@ -40,7 +40,7 @@ class ApplicantFilter implements FilterInterface
         } elseif ($session->get('confirm') == 'false') {
             $session->setFlashdata('success', 'Please wait for admin confirmation');
             return redirect()->to('/login');
-        }
+        } 
     }
 
     /**

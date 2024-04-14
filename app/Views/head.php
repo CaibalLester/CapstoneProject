@@ -14,6 +14,6 @@
         <link href="<?= base_url();?>req/css/bootstrap-icons.css" rel="stylesheet">
         <link href="<?= base_url();?>req/css/apexcharts.css" rel="stylesheet">
         <link href="<?= base_url();?>req/css/tooplate-mini-finance.css" rel="stylesheet">
-        <link href="<?= base_url();?>home/css/chat.css" rel="stylesheet">
+        <link href="<?= base_url();?>req/css/chat.css" rel="stylesheet">
         <link rel="shortcut icon" href="<?= base_url();?>home/images/allianzlogo1.png" />
     </head>

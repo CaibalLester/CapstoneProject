@@ -83,7 +83,7 @@ class HomepageController extends BaseController
             'confirmpassword' => 'matches[password]',
         ];
 
-        $verificationToken = bin2hex(random_bytes(16));
+        $verificationToken = bin2hex(random_bytes(50));
         $usertoken = bin2hex(random_bytes(50));
         if ($this->validate($rules)) {
             $userModel = new UserModel();
@@ -123,28 +123,10 @@ class HomepageController extends BaseController
                 ];
                 $this->confirm->save($applicantData);
             }
-            // if ($this->request->getVar('role') === 'client') {
-            //     $clientData = [
-            //         'client_id' => $userId,
-            //         'username' => $this->request->getVar('username'),
-            //         'number' => $this->request->getVar('number'),
-            //         'firstname' => $this->request->getVar('firstname'),
-            //         'lastname' => $this->request->getVar('lastname'),
-            //         'middlename' => $this->request->getVar('middlename'),
-            //         'email' => $this->request->getVar('email'),
-            //         'client_token' => $usertoken,
-            //     ];
-
-            //     $this->client->save($clientData);
-            // }
-
-            // Send verification email
-            // $verificationLink = site_url("verify-email/{$verificationToken}");
-            // $emailSubject = 'Email Verification';
-            // $emailMessage = "Click the link to verify your email: $verificationLink";
-            // $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
-            // return redirect()->to('/login')->with('success', 'Account Registered! Check your email to Verified');
-            return redirect()->to('/login')->with('success', 'Account Registered!');
+            $emailSubject = "Account Registration Confirmation";
+            $emailMessage = "Thank you for registering! Your account is currently registered. Please wait for confirmation from the admin before you can log in. An email has been sent to your registered email address.";
+            $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
+            return redirect()->to('/login')->with('success', 'Account Registered please be patient. An email has been sent to your registered email address.');
 
         } else {
             if ($this->request->getVar('role') === 'client') {
@@ -263,7 +245,7 @@ class HomepageController extends BaseController
 
             } else {
                 // User status is not 'verified'
-                $session->setFlashdata('error', 'Your account is not verified. Please check your email for verification.');
+                $session->setFlashdata('warning', 'Your account has not been verified. Please check your email for the verification link.');
                 return redirect()->to('/login');
             }
 
@@ -406,35 +388,35 @@ class HomepageController extends BaseController
     public function terms()
     {
         $data['plan'] = $this->plan->findAll();
-        return view('Home/terms' , $data);
+        return view('Home/terms', $data);
     }
 
     public function policy()
     {
         $data['plan'] = $this->plan->findAll();
 
-        return view('Home/policy' , $data);
+        return view('Home/policy', $data);
     }
 
     public function comingsoon()
     {
         $data['plan'] = $this->plan->findAll();
 
-        return view('Home/comingsoon' , $data);
+        return view('Home/comingsoon', $data);
     }
 
     public function contactus()
     {
         $data['plan'] = $this->plan->findAll();
 
-        return view('Home/contactus' , $data);
+        return view('Home/contactus', $data);
     }
 
     public function feedback()
     {
         $data['plan'] = $this->plan->findAll();
 
-        return view('Home/feedback' , $data);
+        return view('Home/feedback', $data);
     }
 
 }

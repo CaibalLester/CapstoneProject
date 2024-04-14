@@ -69,8 +69,8 @@ class ChartsController extends BaseController
                     COUNT(id) AS applicant_count
                   FROM 
                     applicant
-                  WHERE 
-                    status = 'pending'
+                  -- WHERE 
+                  --   status = 'pending'
                   GROUP BY 
                     month 
                   ORDER BY 

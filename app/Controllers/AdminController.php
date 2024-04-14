@@ -356,8 +356,8 @@ class AdminController extends BaseController
     public function confirm($token)
     {
         $data['applicant'] = $this->confirm->where('token', $token)->first();
-        $form['applicant'] = $this->user->where('token', $token)->first();
-        $verificationToken = bin2hex(random_bytes(16));
+        // $form['applicant'] = $this->applicant->where('app_token', $token)->first();
+        $verificationToken = bin2hex(random_bytes(50));
         $appdata = [
             'applicant_id' => $data['applicant']['applicant_id'],
             'username' => $data['applicant']['username'],
@@ -376,21 +376,31 @@ class AdminController extends BaseController
         $con = ['confirm' => 'true'];
         $this->user->set($con)->where('token', $token)->update();
 
-        $formdata = [
-            'user_id' => $form['applicant']['id'],
+        $formdata1 = [
+            'user_id' => $data['applicant']['applicant_id'],
             'app_life_token' => $token,
-            'username' => $form['applicant']['username'],
+            'username' => $data['applicant']['username'],
         ];
 
-        $this->form1->save($formdata);
+        $this->form1->save($formdata1);
 
-        // $verificationLink = site_url("login");
+        $formdata2 = [
+            'user_id' => $data['applicant']['applicant_id'],
+            'aial_token'  => $token,
+        ];
+        
+        $this->form2->save($formdata2);
+
+        $verificationLink = site_url("login");
         $verificationLink = site_url("verify-email/{$verificationToken}");
         $emailSubject = 'Register Confirmation';
-        $emailMessage = "Your Account was Confirmed please click the link to login: $verificationLink";
+        $emailMessage = "Your Account was Confirmed please click the link to login and verify your account: $verificationLink";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
 
         return redirect()->to('/confirmation')->with('success', 'Acount Confirmed!');
+        // var_dump($token);
+        // var_dump($formdata1);
+        // var_dump($formdata2);
     }
 
     public function deny($token)
