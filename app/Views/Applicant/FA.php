@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Applicant/chop/head') ?>
+<?= view('head') ?>
 
 <body>
     <?= view('Applicant/chop/header') ?>
@@ -189,8 +189,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FILES -->
-    <?= view('Applicant/chop/js') ?>
+    <?= view('js') ?>
 </body>
 
 </html>

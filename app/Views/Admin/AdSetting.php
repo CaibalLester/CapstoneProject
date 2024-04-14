@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -65,6 +65,13 @@
                             <a class="nav-link" href="/AdHelp">
                                 <i class="fas fa-hands-helping me-2"></i>
                                 Help Center
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/plans">
+                                <i class="bi bi-hospital me-2"></i>
+                                Plans
                             </a>
                         </li>
 
@@ -295,7 +302,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <?= view('Admin/chop/js') ?>
+    <?= view('js'); ?>
     <script>
         function confirmSubmit() {
             return confirm("Are you sure you want to update your Profile?");

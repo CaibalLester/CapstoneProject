@@ -10,6 +10,8 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\ConfirmModel;
 use App\Models\FeedbackModel;
+use App\Models\PlanModel;
+use App\Controllers\ClientController;
 
 class HomepageController extends BaseController
 {
@@ -18,7 +20,9 @@ class HomepageController extends BaseController
     private $client;
     private $user;
     private $form1;
+    private $plan;
     protected $feedbackModel;
+    private $conclient;
 
     public function __construct()
     {
@@ -27,18 +31,21 @@ class HomepageController extends BaseController
         $this->user = new UserModel();
         $this->client = new ClientModel();
         $this->agent = new AgentModel();
+        $this->plan = new PlanModel();
         $this->feedbackModel = new FeedbackModel();
+        $this->conclient = new ClientController();
     }
     public function home()
     {
-        $feedbackModel = new FeedbackModel();
-        $data['feed'] = $feedbackModel->findAll();
+        $data = $this->conclient->ag();
+        $data['feed'] = $this->feedbackModel->findAll();
+        $data['plan'] = $this->plan->findAll();
         return view('Home/home', $data);
     }
 
     public function logout()
     {
-        $updatetoken = bin2hex(random_bytes(24));
+        $updatetoken = bin2hex(random_bytes(50));
         $session = session();
 
         // Get the user ID from the session
@@ -77,7 +84,7 @@ class HomepageController extends BaseController
         ];
 
         $verificationToken = bin2hex(random_bytes(16));
-        $usertoken = bin2hex(random_bytes(24));
+        $usertoken = bin2hex(random_bytes(50));
         if ($this->validate($rules)) {
             $userModel = new UserModel();
             $applicantModel = new ApplicantModel();
@@ -116,7 +123,6 @@ class HomepageController extends BaseController
                 ];
                 $this->confirm->save($applicantData);
             }
-
             // if ($this->request->getVar('role') === 'client') {
             //     $clientData = [
             //         'client_id' => $userId,
@@ -399,30 +405,36 @@ class HomepageController extends BaseController
 
     public function terms()
     {
-        return view('Home/terms');
+        $data['plan'] = $this->plan->findAll();
+        return view('Home/terms' , $data);
     }
 
     public function policy()
     {
-        return view('Home/policy');
+        $data['plan'] = $this->plan->findAll();
+
+        return view('Home/policy' , $data);
     }
 
     public function comingsoon()
     {
-        return view('Home/comingsoon');
+        $data['plan'] = $this->plan->findAll();
+
+        return view('Home/comingsoon' , $data);
     }
 
     public function contactus()
     {
-        return view('Home/contactus');
+        $data['plan'] = $this->plan->findAll();
+
+        return view('Home/contactus' , $data);
     }
 
     public function feedback()
     {
-        return view('Home/feedback');
+        $data['plan'] = $this->plan->findAll();
+
+        return view('Home/feedback' , $data);
     }
-
-
-
 
 }

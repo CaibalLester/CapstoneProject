@@ -7,8 +7,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url() ?>home/images/allianzlogo1.png" rel="icon">
-  <link href="<?= base_url() ?>home/images/allianzlogo1.png" rel="apple-touch-icon">
+  <link href="<?= base_url() ?>req/allianzlogo1.png" rel="icon">
+  <link href="<?= base_url() ?>req/allianzlogo1.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -35,7 +35,7 @@
   ======================================================== -->
   <style>
     body {
-      background-image: url('home/images/allbg.png');
+      background-image: url('req/allbg.png');
       background-size: cover;
       background-repeat: no-repeat;
     }

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<?= view('Applicant/chop/head'); ?>
+<?= view('head'); ?>
 
 <body>
     <?= view('Applicant/chop/header'); ?>
@@ -190,7 +190,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <?= view('Applicant/chop/js'); ?>
+    <?= view('js'); ?>
     <script type="text/javascript">
         // Function to create a chart
         function createChart(chartId, data, title) {

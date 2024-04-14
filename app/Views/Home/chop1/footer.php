@@ -6,7 +6,7 @@
 					<div class="footer-widget">
 						<a href="index.html">
 							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
-						</a>
+						</a><br>
 						<p>Allianz PNB Life may offer flexible insurance solutions that can be customized according to the individual's financial goals, budget, and risk tolerance.</p>
 						<ul class="follow-list">
 							<li>
@@ -57,14 +57,13 @@
 				</div>
 				<div class="col-lg-3 col-sm-6 col-md-6" data-cue="slideInUp">
 					<div class="footer-widget footer-widget-link">
-						<h2>Our Offers</h2>
+						<h2>Our Services</h2>
 						<ul class="footer-widget-list">
+						<?php foreach ($plan as $plans): ?>
 							<li>
-								<a href="/ClientWell"><i class="bx bx-chevron-right"></i>Allianz PNB Well</a>
+								<a href="<?= base_url() ?>ServiceDescription/<?= $plans['token'] ?>"><i class="bx bx-chevron-right"></i><?= $plans['plan_name'] ?></a>
 							</li>
-							<li>
-								<a href="/ClientCompass"><i class="bx bx-chevron-right"></i>Allianz PNB Compass</a>
-							</li>
+							<?php endforeach ?>
 						</ul>
 					</div>
 				</div>

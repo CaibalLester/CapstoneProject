@@ -25,6 +25,20 @@ class ProfileController extends BaseController
         return view("Admin/agentprofile", $data);
     }
 
+    public function subagentprofile($token)
+    {
+        $agentModel = new AgentModel();
+        $data = $this->getDataAd();
+        $data['agent'] = $agentModel->where('agent_token', $token)->first();
+
+        $agentid = $data['agent']['agent_id'];
+        $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
+
+        $data['pager'] = $agentModel->pager;
+
+        return view("Agent/subagentprofile", $data);
+    }
+
     public function applicantprofile($token)
     {
         $appmodel = new ApplicantModel();

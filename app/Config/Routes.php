@@ -16,36 +16,26 @@ $routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
 // $routes->get('/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
 $routes->get('confirm/(:any)', 'AdminController::confirm/$1', ['filter' => 'adminFilter']);
 $routes->get('deny/(:any)', 'AdminController::deny/$1', ['filter' => 'adminFilter']);
-
 $routes->get('/plans', 'PlanController::plans', ['filter' => 'adminFilter']);
 $routes->post('/newplan', 'PlanController::newplan', ['filter' => 'adminFilter']);
 $routes->post('/newplanUpdate/(:any)', 'PlanController::newplanUpdate/$1', ['filter' => 'adminFilter']);
-
 $routes->match(['get', 'post'],'/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
-
 $routes->match(['get', 'post'], '/formsTable/(:any)', 'AdminController::formsTable/$1', ['filter' => 'adminFilter']);
-
 $routes->match(['get', 'post'],'/usermanagement', 'UsersManageController::usermanagement', ['filter' => 'adminFilter']);
 $routes->post('/newuser', 'UsersManageController::newuser', ['filter' => 'adminFilter']);
 $routes->post('/upuser/(:any)', 'UsersManageController::upuser/$1', ['filter' => 'adminFilter']);
-
-
 $routes->get('/ViewAppForm/(:any)', 'AdminController::ViewAppForm/$1', ['filter' => 'authGuard']);
 $routes->get('/ViewAppForm2/(:any)', 'AdminController::ViewAppForm2/$1', ['filter' => 'authGuard']);
 $routes->get('/ViewAppForm3/(:any)', 'AdminController::ViewAppForm3/$1', ['filter' => 'authGuard']);
 $routes->get('/ViewAppForm4/(:any)', 'AdminController::ViewAppForm4/$1', ['filter' => 'authGuard']);
 $routes->get('/ViewAppForm5/(:any)', 'AdminController::ViewAppForm5/$1', ['filter' => 'authGuard']);
-
-
 $routes->get('/newAgent/(:any)', 'AdminController::newAgent/$1', ['filter' => 'adminFilter']);
 $routes->match(['get', 'post'], '/promotion', 'AdminController::promotion', ['filter' => 'adminFilter']);
-
 $routes->get('/ManageApplicant', 'AdminController::ManageApplicant', ['filter' => 'adminFilter']);
 $routes->post('/userSearch', 'AdminController::userSearch', ['filter' => 'adminFilter']);
 $routes->post('/agentSearch', 'AdminController::agentSearch', ['filter' => 'adminFilter']);
 $routes->post('/svad', 'AdminController::svad', ['filter' => 'adminFilter']);
 $routes->get('/RTC', 'AdminController::RTC', ['filter' => 'adminFilter']);
-
 $routes->match(['get', 'post'], '/agentprofile/(:any)', 'ProfileController::agentprofile/$1', ['filter' => 'adminFilter']);
 $routes->match(['get', 'post'], '/applicantprofile/(:any)', 'ProfileController::applicantprofile/$1', ['filter' => 'adminFilter']);
 
@@ -56,11 +46,9 @@ $routes->get('/AppSetting', 'AppController::AppSetting', ['filter' => 'applicant
 $routes->post('/svap', 'AppController::svap');
 $routes->get('/AppHelp', 'AppController::AppHelp', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
-
 $routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'authGuard']);
 $routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'authGuard']);
 $routes->post('/form3sv', 'AppController::form3sv', ['filter' => 'authGuard']);
-
 $routes->get('/AppForm2', 'AppController::AppForm2', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm4', 'AppController::AppForm4', ['filter' => 'applicantFilter']);
@@ -80,6 +68,7 @@ $routes->get('/AgForm2', 'AgentController::AgForm2', ['filter' => 'agentFilter']
 $routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']);
 $routes->get('/AgForm4', 'AgentController::AgForm4', ['filter' => 'agentFilter']);
 $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']);
+$routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
 
 
 $routes->get('/', 'HomepageController::home');
@@ -118,15 +107,13 @@ $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 //Clientt
 // $routes->get('/ClientPage', 'ClientController::ClientPage');
 $routes->get('/ClientService', 'ClientController::ClientService');
-$routes->get('/ServiceDescription', 'ClientController::ServiceDescription');
+$routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
 $routes->get('/ClientAgent', 'ClientController::ClientAgent');
 $routes->get('/registers', 'ClientController::registers');
-
 $routes->get('/contactus', 'HomepageController::contactus');
 $routes->get('/terms', 'HomepageController::terms');
 $routes->get('/policy', 'HomepageController::policy');
 $routes->get('/comingsoon', 'HomepageController::comingsoon');
-
 $routes->match(['get', 'post'], '/feedback/saveFeedback', 'FeedbackController::saveFeedback');
 
 

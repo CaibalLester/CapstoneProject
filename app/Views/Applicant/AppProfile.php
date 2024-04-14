@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Applicant/chop/head'); ?>
+<?= view('head'); ?>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 
@@ -205,7 +205,7 @@
             </main>
         </div>
     </div>
-    <?= view('Applicant/chop/js'); ?>
+    <?= view('js'); ?>
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({

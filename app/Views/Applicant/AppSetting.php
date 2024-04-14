@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Applicant/chop/head'); ?>
+<?= view('head'); ?>
 
 
 <body>
@@ -438,7 +438,7 @@
         </div>
     </div>
 
-    <?= view('Applicant/chop/js'); ?>
+    <?= view('js'); ?>
     <script>
         function confirmSubmit() {
             return confirm("Are you sure you want to update your Profile?");

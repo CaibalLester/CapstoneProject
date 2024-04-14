@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -80,7 +79,7 @@
             </main>
         </div>
     </div>
-    <?= view('Admin/chop/js'); ?>
+    <?= view('js'); ?>
 
 </body>
 

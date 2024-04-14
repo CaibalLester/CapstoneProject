@@ -13,5 +13,5 @@
     <link href="<?= base_url() ?>Applicants/css/bootstrap-icons.css" rel="stylesheet">
     <link href="<?= base_url() ?>Applicants/css/apexcharts.css" rel="stylesheet">
     <link href="<?= base_url() ?>Applicants/css/tooplate-mini-finance.css" rel="stylesheet">
-    <link rel="shortcut icon" href="<?= base_url() ?>home/images/allianzlogo1.png" />
+    <link rel="shortcut icon" href="<?= base_url() ?>req/allianzlogo1.png" />
 </head>

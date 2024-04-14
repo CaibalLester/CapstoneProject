@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Agent/chop/head'); ?>
+<?= view('head'); ?>
 <body>
     <?= view('Agent/chop/header'); ?>
 
@@ -816,7 +816,7 @@
             </main>
         </div>
     </div>
-    <?= view('Applicant/chop/js'); ?>
+    <?= view('js'); ?>
 </body>
 
 </html>

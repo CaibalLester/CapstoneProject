@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Agent/chop/head') ?>
+<?= view('head') ?>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <body>
@@ -8,7 +8,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -24,6 +24,40 @@
                                 <i class="bi-person me-2"></i>
                                 Profile
                             </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown"
+                                aria-expanded="false">
+                                <i class="bi-book me-2"></i>
+                                My Forms
+                            </a>
+                            <div class="collapse" id="manageDropdown">
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <span><a class="nav-link " href="/AgForm1">
+                                                <i class="bi-pen me-2"></i>
+                                                <span class="align-middle">LIFE CHANGER</span>
+                                            </a></span><br>
+                                        <a class="nav-link " href="/AgForm2">
+                                            <i class="bi-pen me-2"></i>
+                                            <span class="align-middle">AIAL</span>
+                                        </a><br>
+                                        <a class="nav-link" href="/AgForm3">
+                                            <i class="bi-pen me-2"></i>
+                                            <span class="align-middle">GROUP LIFE INSURANCE</span>
+                                        </a><br>
+                                        <a class="nav-link" href="/AgForm4">
+                                            <i class="bi-pen me-2"></i>
+                                            <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
+                                        </a><br>
+                                        <a class="nav-link" href="/AgForm5">
+                                            <i class="bi-pen me-2"></i>
+                                            <span class="align-middle">STATEMENT OF UNDERTAKING</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
                         <li class="nav-item">
@@ -96,17 +130,7 @@
                             </div>
                         </div>
 
-                        <div class="card">
-                            <!-- The hidden input field -->
-                            <input type="text" value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
-                                id="myInput" style="display: none;">
-
-                            <!-- The clipboard icon button with tooltip -->
-                            <button class="btn btn-secondary btn-sm" onclick="copyToClipboard()" data-toggle="tooltip"
-                                data-placement="top" title="Copy Verification Code">
-                                <i class="bi bi-clipboard"></i>
-                            </button>
-                        </div>
+                        
                         <!-- end of left side -->
                     </div>
                     <div class="col-xl-8">
@@ -190,7 +214,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade sub-agents pt-3 text-center" id="sub-agents">
+                                        <div class="tab-pane fade sub-agents pt-3" id="sub-agents">
                                             <h1 class="h2 mb-2">Sub Agents</h1>
                                             <div class="table-responsive">
                                                 <!-- Table with hoverable rows -->
@@ -273,7 +297,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <?= view('Agent/chop/js') ?>
+    <?= view('js') ?>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const downloadButton = document.getElementById('downloadButton');
@@ -298,14 +322,7 @@
         });
     });
 
-    function copyToClipboard() {
-        var input = document.getElementById('myInput');
-        input.style.display = 'block'; // Make input visible temporarily
-        input.select();
-        document.execCommand('copy');
-        input.style.display = 'none'; // Hide input again after copying
-        alert('Text copied to clipboard: ' + input.value);
-    }
+    
     </script>
 </body>
 

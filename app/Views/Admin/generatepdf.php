@@ -1,4 +1,4 @@
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 <!-- <style>
     .form-group input[type="text"] {
     border: none; /* Remove default border */

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -67,7 +67,7 @@
                         </li>
                         <hr>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/AdHelp">
+                            <a class="nav-link active" href="/plans">
                                 <i class="bi bi-hospital me-2"></i>
                                 Plans
                             </a>
@@ -89,7 +89,7 @@
                             <h1 class="h2 mb-0">Plans</h1>
                         </div>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto m-2">
                         <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
                             <i class="bi bi-plus-square fs-1"></i>
                         </button>
@@ -102,7 +102,7 @@
                                 <div class="row row-cols-2">
 
                                     <?php foreach ($plan as $plans): ?>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-3 pb-3">
                                             <div class="card justify-content-center text-center">
                                                 <div class="card-body" data-bs-toggle="modal"
                                                     data-bs-target="#planEdit<?= $plans['id'] ?>" style="cursor: pointer;">
@@ -159,6 +159,14 @@
                                                             </div>
 
                                                             <div class="mb-1">
+                                                                <label for="coverage" class="form-label">Coverage</label>
+                                                                <input type="number" class="form-control" id="coverage"
+                                                                    name="coverage"
+                                                                    value="<?php echo isset($plans['coverage']) ? $plans['coverage'] : '' ?>"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="mb-1">
                                                                 <label for="description"
                                                                     class="form-label">Description</label>
                                                                 <textarea class="form-control" id="description"
@@ -169,7 +177,8 @@
                                                             <div class="mb-1">
                                                                 <label for="image" class="form-label">Image</label>
                                                                 <input type="file" class="form-control" id="image"
-                                                                    name="image" accept="image/*" required
+                                                                    name="image" accept="image/*"
+                                                                    value="<?= isset($plans['image']) ? $plans['image'] : '' ?>"
                                                                     onchange="previewImageUP(event)">
                                                             </div>
                                                             <div class="col-lg-12 p-2 justify-content-center text-center">
@@ -229,6 +238,7 @@
                                                                 name="price" required>
                                                         </div>
 
+
                                                         <div class="mb-1">
                                                             <label for="com_percentage" class="form-label">Commision
                                                                 Percentage</label>
@@ -236,6 +246,11 @@
                                                                 id="com_percentage" name="com_percentage" required>
                                                         </div>
 
+                                                        <div class="mb-1">
+                                                            <label for="coverage" class="form-label">Coverage</label>
+                                                            <input type="number" class="form-control" id="coverage"
+                                                                name="coverage" required>
+                                                        </div>
 
                                                         <div class="mb-1">
                                                             <label for="description"
@@ -290,7 +305,7 @@
         }
     </script>
 
-    <?= view('Admin/chop/js'); ?>
+<?= view('js'); ?>
 </body>
 
 </html>

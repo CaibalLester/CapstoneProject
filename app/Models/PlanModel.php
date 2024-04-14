@@ -21,6 +21,7 @@ class PlanModel extends Model
         'token',
         'image',
         'com_percentage',
+        'coverage',
     ];
 
     // Dates

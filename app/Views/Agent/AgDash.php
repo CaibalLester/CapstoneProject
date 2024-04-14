@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Agent/chop/head') ?>
+<?= view('head') ?>
 
 <body>
 
@@ -161,8 +161,19 @@
                                     ?>
                                 </h5>
                             </div>
+                            <div class="card">
+                            <!-- The hidden input field -->
+                            <input type="text" value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
+                                id="myInput" style="display: none;">
+
+                            <!-- The clipboard icon button with tooltip -->
+                            <button class="btn btn-secondary btn-sm" onclick="copyToClipboard()" data-toggle="tooltip"
+                                data-placement="top" title="Copy Verification Code">
+                                <i class="bi bi-clipboard"></i>
+                            </button>
                         </div>
-                        <div class="card">
+                        </div>
+                        <div class="card mb-2">
                             <div class="card-body text-center">
                                 <i class="fas fa-users fa-2x"></i>
                                 <small class="d-block mt-2">Total Sub Agents</small>
@@ -187,7 +198,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <?= view('Agent/chop/js') ?>
+    <?= view('js') ?>
 
     <script type="text/javascript">
         var options = {
@@ -213,6 +224,7 @@
         var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
         chart.render();
     </script>
+    
 
     <script type="text/javascript">
         var options = {
@@ -267,6 +279,17 @@
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
+    </script>
+
+    <script>
+        function copyToClipboard() {
+        var input = document.getElementById('myInput');
+        input.style.display = 'block'; // Make input visible temporarily
+        input.select();
+        document.execCommand('copy');
+        input.style.display = 'none'; // Hide input again after copying
+        alert('Text copied to clipboard: ' + input.value);
+    }
     </script>
 
 </body>

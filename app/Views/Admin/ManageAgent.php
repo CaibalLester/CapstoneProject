@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 <!-- Add this to your head section -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
@@ -67,6 +67,13 @@
                             <a class="nav-link" href="/AdHelp">
                                 <i class="fas fa-hands-helping me-2"></i>
                                 Help Center
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/plans">
+                                <i class="bi bi-hospital me-2"></i>
+                                Plans
                             </a>
                         </li>
 
@@ -136,7 +143,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <?= view('Admin/chop/js') ?>
+    <?= view('js'); ?>
 </body>
 
 </html>

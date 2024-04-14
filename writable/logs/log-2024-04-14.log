@@ -1,0 +1,102 @@
+CRITICAL - 2024-04-14 02:03:57 --> Undefined variable $plan
+in APPPATH\Views\Home\chop1\footer.php on line 62.
+ 1 APPPATH\Views\Home\chop1\footer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plan', 'C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php', 62)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/chop1/footer', [], true)
+ 5 APPPATH\Views\Home\contactus.php(181): view('Home/chop1/footer')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\contactus.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/contactus', [], true)
+ 9 APPPATH\Controllers\HomepageController.php(423): view('Home/contactus')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->contactus()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 02:04:03 --> Undefined variable $plan
+in APPPATH\Views\Home\chop1\footer.php on line 62.
+ 1 APPPATH\Views\Home\chop1\footer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plan', 'C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php', 62)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/chop1/footer', [], true)
+ 5 APPPATH\Views\Home\contactus.php(181): view('Home/chop1/footer')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\contactus.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/contactus', [], true)
+ 9 APPPATH\Controllers\HomepageController.php(423): view('Home/contactus')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->contactus()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 02:05:10 --> Undefined variable $plan
+in APPPATH\Views\Home\chop1\footer.php on line 62.
+ 1 APPPATH\Views\Home\chop1\footer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plan', 'C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php', 62)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/chop1/footer', [], true)
+ 5 APPPATH\Views\Home\contactus.php(181): view('Home/chop1/footer')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\contactus.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/contactus', [], true)
+ 9 APPPATH\Controllers\HomepageController.php(423): view('Home/contactus')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->contactus()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 02:05:13 --> Undefined variable $plan
+in APPPATH\Views\Home\chop1\footer.php on line 62.
+ 1 APPPATH\Views\Home\chop1\footer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plan', 'C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php', 62)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/chop1/footer', [], true)
+ 5 APPPATH\Views\Home\contactus.php(181): view('Home/chop1/footer')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\contactus.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/contactus', [], true)
+ 9 APPPATH\Controllers\HomepageController.php(423): view('Home/contactus')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->contactus()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 02:06:59 --> Undefined variable $plan
+in APPPATH\Views\Home\chop1\footer.php on line 62.
+ 1 APPPATH\Views\Home\chop1\footer.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $plan', 'C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php', 62)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\chop1\\footer.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/chop1/footer', [], true)
+ 5 APPPATH\Views\Home\terms.php(75): view('Home/chop1/footer')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Home\\terms.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Home/terms', [], true)
+ 9 APPPATH\Controllers\HomepageController.php(408): view('Home/terms')
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->terms()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-14 19:57:36 --> Uncaught CodeIgniter\View\Exceptions\ViewException: Invalid file: "client/chop/head.php" in C:\CapstoneSystem\system\Exceptions\FrameworkException.php:39
+Stack trace:
+#0 C:\CapstoneSystem\system\View\View.php(214): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('client/chop/hea...')
+#1 C:\CapstoneSystem\system\Common.php(1188): CodeIgniter\View\View->render('client/chop/hea...', Array, true)
+#2 C:\CapstoneSystem\app\Views\errors\html\error_404.php(6): view('client/chop/hea...')
+#3 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(241): include('C:\\CapstoneSyst...')
+#4 C:\CapstoneSystem\system\Debug\BaseExceptionHandler.php(244): CodeIgniter\Debug\BaseExceptionHandler->CodeIgniter\Debug\{closure}()
+#5 C:\CapstoneSystem\system\Debug\ExceptionHandler.php(109): CodeIgniter\Debug\BaseExceptionHandler->render(Object(CodeIgniter\Exceptions\PageNotFoundException), 404, 'C:\\CapstoneSyst...')
+#6 C:\CapstoneSystem\system\Debug\Exceptions.php(147): CodeIgniter\Debug\ExceptionHandler->handle(Object(CodeIgniter\Exceptions\PageNotFoundException), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 404, 1)
+#7 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#8 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\PageNotFoundException
+Page Not Found
+#0 C:\CapstoneSystem\system\CodeIgniter.php(967): CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(NULL)
+#1 C:\CapstoneSystem\system\CodeIgniter.php(362): CodeIgniter\CodeIgniter->display404errors(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#2 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#3 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#4 {main}
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

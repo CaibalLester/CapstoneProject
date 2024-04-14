@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <body>
@@ -63,6 +63,13 @@
                             <a class="nav-link" href="/AdHelp">
                                 <i class="fas fa-hands-helping me-2"></i>
                                 Help Center
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/plans">
+                                <i class="bi bi-hospital me-2"></i>
+                                Plans
                             </a>
                         </li>
 
@@ -290,7 +297,7 @@
         </div>
     </div>
 
-    <?= view('Admin/chop/js') ?>
+    <?= view('js'); ?>
     <script>
         // I-create ang QR code gamit ang actual na data
         var profileData = JSON.stringify({

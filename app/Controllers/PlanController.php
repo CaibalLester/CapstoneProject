@@ -41,6 +41,7 @@ class PlanController extends BaseController
             'price' => $this->request->getVar('price'),
             'token' => $token,
             'image' => $plan,
+            'coverage' => $this->request->getVar('coverage'),
             'com_percentage' => $this->request->getVar('com_percentage'),
         ];
             $this->plan->save($data);
@@ -53,6 +54,7 @@ class PlanController extends BaseController
         $token2 = bin2hex(random_bytes(50));
         $id = $this->request->getVar('id');
         $oldproduct = $this->plan->select('image')->where('id', $id)->first();
+        $plan = []; // Idagdag ang pagdeklara ng $plan dito
         if ($imageFile = $this->request->getFile('image')) {
             if ($imageFile->isValid()) {
                 $imageName = $imageFile->getRandomName();
@@ -74,7 +76,7 @@ class PlanController extends BaseController
             'description' => $this->request->getVar('description'),
             'price' => $this->request->getVar('price'),
             'token' => $token2,
-            'created_at' => $this->request->getVar('created_at'),
+            'coverage' => $this->request->getVar('coverage'),
             'com_percentage' => $this->request->getVar('com_percentage'),
         ];
 

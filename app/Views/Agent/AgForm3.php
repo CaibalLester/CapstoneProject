@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<?= view('Agent/chop/head'); ?>
+<?= view('head'); ?>
 <body>
     <?= view('Agent/chop/header'); ?>
 
@@ -341,10 +341,8 @@
             </main>
         </div>
     </div>
-    <!-- JAVASCRIPT FILES -->
-    <script src="AdminInfo/js/jquery.min.js"></script>
-    <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-    <script src="AdminInfo/js/custom.js"></script>
+    <?= view('js') ?>
+
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<?= view('Admin/chop/head') ?>
+<?= view('head') ?>
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -68,6 +68,13 @@
                                 Help Center
                             </a>
                         </li>
+                        <hr>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/plans">
+                                <i class="bi bi-hospital me-2"></i>
+                                Plans
+                            </a>
+                        </li>
 
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
@@ -127,7 +134,7 @@
         </div>
     </div>
 
-    <?= view('Admin/chop/js') ?>
+    <?= view('js'); ?>
 </body>
 
 </html>
