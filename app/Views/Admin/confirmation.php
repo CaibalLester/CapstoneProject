@@ -140,6 +140,7 @@
                                                 <tr>
                                                     <th scope="col">User Name</th>
                                                     <th scope="col">Email</th>
+                                                    <th scope="col">Role</th>
                                                     <th scope="col">Date</th>
                                                     <th scope="col">Action</th>
                                                 </tr>
@@ -152,6 +153,9 @@
                                                         </td>
                                                         <td>
                                                             <?= $app['email'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $app['role'] ?>
                                                         </td>
                                                         <td>
                                                             <?= date('M j, Y', strtotime($app['created_at'])); ?>

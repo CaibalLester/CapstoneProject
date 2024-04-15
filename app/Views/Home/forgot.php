@@ -15,7 +15,7 @@
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="/" class="logo d-flex align-items-center w-auto">
-                                    <img src="home/images/allianzlogo1.png" alt="Allianz PNB Logo">
+                                    <img src="req/allianzlogo1.png" alt="Allianz PNB Logo">
                                     <span class="d-none d-lg-block fs-5 fw-bold">ALLIANZ PNB</span>
                                 </a>
                             </div><!-- End Logo -->

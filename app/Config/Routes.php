@@ -105,14 +105,19 @@ $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
 //Clientt
-// $routes->get('/ClientPage', 'ClientController::ClientPage');
+$routes->get('/ClientPage', 'ClientController::ClientPage');
+$routes->get('/history', 'ClientController::paymenthistory');
+$routes->get('/viewplans', 'ClientController::viewplans');
+$routes->get('/clientprofile', 'ClientController::clientprofile');
+
 $routes->get('/ClientService', 'ClientController::ClientService');
 $routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
 
 $routes->get('/ClientAgent/(:any)', 'ClientController::ClientAgent/$1');
-$routes->get('/avail/(:any)', 'ClientController::avail/$1');
+$routes->get('/applynow', 'ClientController::applynow');
+$routes->post('/avail', 'ClientController::avail');
 
-$routes->get('/registers', 'ClientController::registers');
+// $routes->get('/registers', 'ClientController::registers');
 $routes->get('/contactus', 'HomepageController::contactus');
 $routes->get('/terms', 'HomepageController::terms');
 $routes->get('/policy', 'HomepageController::policy');

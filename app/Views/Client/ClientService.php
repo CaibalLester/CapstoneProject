@@ -24,8 +24,8 @@
     <div class="services-three-area pt-100 pb-100">
         <div class="container">
             <div class="section-title">
-                <span class="top-title">Our Offer</span>
-                <h2>Allianz PNB Best Insurance Offer</h2>
+                <span class="top-title">Our Offers</span>
+                <h2>Find the right insurance plan for you!</h2>
             </div>
             <div class="row">
                 <?php foreach ($plan as $plans): ?>

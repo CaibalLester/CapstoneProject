@@ -4,6 +4,7 @@
 <?= view('/Home/chop/head'); ?>
 
 <body>
+    
     <main>
         <div class="container">
             <section
@@ -18,7 +19,6 @@
                                     <span class="d-none d-lg-block">ALLIANZ PNB</span>
                                 </a>
                             </div><!-- End Logo -->
-
                             <div class="card mb-3 small">
 
                                 <div class="card-body">

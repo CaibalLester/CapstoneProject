@@ -220,14 +220,14 @@
 			</div>
 			<div class="row">
 				<?php foreach ($agents as $agent): ?>
-					<div class="col-lg-4 col-sm-6 col-md-6">
+					<div class="col-lg-3 col-sm-6 col-md-6">
 						<div class="single-team-card team-page-card">
 							<div class="team-img">
 								<img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
 									alt="team">
 							</div>
 							<div class="single-team-content">
-								<h3><?= $agent['lastname'] ?>, <?= $agent['firstname'] ?> <?= $agent['middlename'] ?>.</h3>
+								<h5><?= $agent['lastname'] ?>, <?= $agent['firstname'] ?> <?= $agent['middlename'] ?>.</h5>
 								<p><?= $agent['email'] ?></p>
 								<ul class="d-flex align-items-center justify-content-center">
 									<li class="list-inline">

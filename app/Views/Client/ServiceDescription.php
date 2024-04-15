@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="categories">
-                        <h2>Our Offer</h2>
+                        <h2>Our Offers</h2>
                         <ul>
                             <?php foreach ($plan as $plans): ?>
                                 <li><a href="<?= base_url() ?>ServiceDescription/<?= $plans['token'] ?>"><?= $plans['plan_name'] ?><i
@@ -139,7 +139,7 @@
                     </div>
                     <div class="download-app">
                         <h2>Inquire</h2>
-                        <a href="/ClientAgent/<?= $plans['token']?>" class="default-btn">Get Insurance Now</a>
+                        <a href="/applynow" class="default-btn">Get Insurance Now</a>
                     </div>
                     <div class="help-contact-card pb-2">
                         <div class="help-img">

@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Controllers\RTCController;
 use App\Controllers\HomepageController;
 use App\Models\AdminModel;
+use App\Models\ClientModel;
 use App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
@@ -16,6 +17,7 @@ use App\Models\ConfirmModel;
 
 class AdminController extends BaseController
 {
+    private $client;
     private $confirm;
     private $db;
     private $homecon;
@@ -40,6 +42,7 @@ class AdminController extends BaseController
         $this->form2 = new Form2Model();
         $this->form3 = new Form3Model();
         $this->homecon = new HomepageController();
+        $this->client = new ClientModel();
     }
 
     public function AdDash()
@@ -356,38 +359,60 @@ class AdminController extends BaseController
         $data['applicant'] = $this->confirm->where('token', $token)->first();
         // $form['applicant'] = $this->applicant->where('app_token', $token)->first();
         $verificationToken = bin2hex(random_bytes(50));
-        $appdata = [
-            'applicant_id' => $data['applicant']['applicant_id'],
-            'username' => $data['applicant']['username'],
-            'number' => $data['applicant']['number'],
-            'firstname' => $data['applicant']['firstname'],
-            'lastname' => $data['applicant']['lastname'],
-            'middlename' => $data['applicant']['middlename'],
-            'email' => $data['applicant']['email'],
-            'refcode' => $data['applicant']['refcode'],
-            'app_token' => $data['applicant']['token'],
-        ];
 
-        $this->applicant->save($appdata);
-        $this->confirm->delete($data['applicant']['id']);
+        if ($data['applicant']['role'] != 'client') {
+            $appdata = [
+                'applicant_id' => $data['applicant']['applicant_id'],
+                'username' => $data['applicant']['username'],
+                'number' => $data['applicant']['number'],
+                'firstname' => $data['applicant']['firstname'],
+                'lastname' => $data['applicant']['lastname'],
+                'middlename' => $data['applicant']['middlename'],
+                'email' => $data['applicant']['email'],
+                'refcode' => $data['applicant']['refcode'],
+                'app_token' => $data['applicant']['token'],
+            ];
 
-        $con = ['confirm' => 'true'];
-        $this->user->set($con)->where('token', $token)->update();
+            $this->applicant->save($appdata);
 
-        $formdata1 = [
-            'user_id' => $data['applicant']['applicant_id'],
-            'app_life_token' => $token,
-            'username' => $data['applicant']['username'],
-        ];
+            $formdata1 = [
+                'user_id' => $data['applicant']['applicant_id'],
+                'app_life_token' => $token,
+                'username' => $data['applicant']['username'],
+            ];
 
-        $this->form1->save($formdata1);
+            $this->form1->save($formdata1);
 
-        $formdata2 = [
-            'user_id' => $data['applicant']['applicant_id'],
-            'aial_token'  => $token,
-        ];
-        
-        $this->form2->save($formdata2);
+            $formdata2 = [
+                'user_id' => $data['applicant']['applicant_id'],
+                'aial_token' => $token,
+            ];
+
+            $this->form2->save($formdata2);
+            $this->confirm->delete($data['applicant']['id']);
+            $con = ['confirm' => 'true'];
+            $this->user->set($con)->where('token', $token)->update();
+        } else {
+            $lastApplicationNo = $this->client->selectMax('applicationNo')->get()->getRowArray()['applicationNo'];
+            $newApplicationNo = $lastApplicationNo + 1;
+            $clientData = [
+                'client_id' => $data['applicant']['applicant_id'],
+                'username' => $data['applicant']['username'],
+                'number' => $data['applicant']['number'],
+                'firstname' => $data['applicant']['firstname'],
+                'lastname' => $data['applicant']['lastname'],
+                'middlename' => $data['applicant']['middlename'],
+                'email' => $data['applicant']['email'],
+                'refcode' => $data['applicant']['refcode'],
+                'client_token' => $data['applicant']['token'],
+                'plan' => $data['applicant']['plan'],
+                'applicationNo' => $newApplicationNo,
+            ];
+            $this->client->save($clientData);
+            $this->confirm->delete($data['applicant']['id']);
+            $con = ['confirm' => 'true'];
+            $this->user->set($con)->where('token', $token)->update();
+        }
 
         $verificationLink = site_url("login");
         $verificationLink = site_url("verify-email/{$verificationToken}");
@@ -424,10 +449,10 @@ class AdminController extends BaseController
         $data['pager'] = $this->confirm->pager;
         $search = $this->request->getPost('searchusers');
 
-        if (!empty($search)){
-            $data['applicant'] = $this->confirm->like('username',$search)->paginate(10, 'group1');
+        if (!empty($search)) {
+            $data['applicant'] = $this->confirm->like('username', $search)->paginate(10, 'group1');
         }
-        
+
         // var_dump($data);
         return view('Admin/confirmation', $data);
     }

@@ -63,7 +63,7 @@
 				<div class="main-responsive-menu">
 					<div class="logo">
 						<a href="/">
-							<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+							<h6 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB LIFE INSURANCE MIMAROPA</h6>
 						</a>
 					</div>
 				</div>
@@ -73,7 +73,7 @@
 			<div class="container-fluid">
 				<nav class="navbar navbar-expand-md navbar-light">
 					<a class="navbar-brand" href="/">
-						<h3 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB</h3>
+						<h5 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB LIFE INSURANCE MIMAROPA</h5>
 					</a>
 					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto">

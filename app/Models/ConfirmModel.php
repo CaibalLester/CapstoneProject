@@ -24,6 +24,8 @@ class ConfirmModel extends Model
         'refcode',
         'branch',
         'token',
+        'role',
+        'plan',
     ];
 
     // Dates

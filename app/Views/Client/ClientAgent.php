@@ -20,25 +20,25 @@
 		</div>
 	</div>
 
-
 	<div class="team-page-area pt-100 pb-100">
 		<div class="container">
 			<div class="section-title">
-				<span class="top-title">Our Agent</span>
-				<h2>Meet Our Great Agent</h2>
+				<span class="top-title">Choose Your Ideal Agent</span>
+				<h2>Get to Know Our Agents</h2>
 			</div>
 			<div class="row">
 				<?php foreach ($agents as $agent): ?>
-					<div class="col-lg-4 col-sm-6 col-md-6">
+					<div class="col-lg-3 col-sm-6 col-md-6">
 						<div class="single-team-card team-page-card">
 							<div class="team-img">
-								<a href="#">
+								<a href="#" data-bs-toggle="modal"
+											data-bs-target="#viewagent<?= $agent['agent_id'] ?>">
 									<img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
 										alt="team">
 								</a>
 							</div>
 							<div class="single-team-content">
-								<h3><?= $agent['lastname'] ?>, <?= $agent['firstname'] ?> 	<?= $agent['middlename'] ?>.</h3>
+								<h5><?= $agent['lastname'] ?>, <?= $agent['firstname'] ?> 	<?= $agent['middlename'] ?>.</h5>
 								<p><?= $agent['email'] ?></p>
 								<ul class="d-flex align-items-center justify-content-center">
 									<li class="list-inline">
@@ -49,7 +49,12 @@
 									</li>
 									<li class="list-inline">
 										<a href="">
-											<i class="bx bxl-twitter"></i>
+											<i class="bx bxl-gmail"></i>
+										</a>
+									</li>
+									<li class="list-inline">
+										<a href="">
+											<i class="bx bxl-messenger"></i>
 										</a>
 									</li>
 								</ul>
@@ -193,15 +198,15 @@
 					</div>
 				<?php endforeach; ?>
 			</div>
-			
+
 			<?= $pager->links('agent', 'clientpage') ?>
 		</div>
-		
+
 	</div>
 	<?= view('Home/chop1/footer') ?>
 	<?= view('Home/chop1/js') ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="<?= base_url() ?>add/ph-address-selector.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="<?= base_url() ?>add/ph-address-selector.js"></script>
 </body>
 
 </html>

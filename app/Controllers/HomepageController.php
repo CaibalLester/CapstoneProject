@@ -101,6 +101,7 @@ class HomepageController extends BaseController
                     'verification_token' => $verificationToken,
                     'accountStatus' => 'active',
                     'token' => $usertoken,
+                    'confirm' =>'false',
                 ];
                 $userModel->save($userData);
             } else {
@@ -235,7 +236,6 @@ class HomepageController extends BaseController
                     } elseif ($user['role'] == 'client') {
                         return redirect()->to('/ClientPage');
                     }
-
                 } else {
                     // Password mismatch
                     $session->setFlashdata('error', 'Invalid password.');
@@ -279,8 +279,8 @@ class HomepageController extends BaseController
                 $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
 
                 $userModel->update($userId, ['password' => $newPassword]);
-
-                return redirect()->to('/AgSetting');
+                $this->logout();
+                return redirect()->to('/logout')->with('success', 'Password Updated');
             } else {
                 echo 'Current password is incorrect.';
             }

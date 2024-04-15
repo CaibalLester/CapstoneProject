@@ -30,7 +30,9 @@ class ClientModel extends Model
         'city',
         'barangay',
         'street',
-        'profile'
+        'profile',
+        'plan',
+        'applicationNo'
     ];
 
     // Dates
