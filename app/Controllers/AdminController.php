@@ -376,7 +376,7 @@ class AdminController extends BaseController
                 'app_token' => $data['applicant']['token'],
             ];
 
-            // $this->applicant->save($appdata);
+            $this->applicant->save($appdata);
 
             $formdata1 = [
                 'user_id' => $data['applicant']['applicant_id'],
@@ -384,15 +384,15 @@ class AdminController extends BaseController
                 'username' => $data['applicant']['username'],
             ];
 
-            // $this->form1->save($formdata1);
+            $this->form1->save($formdata1);
 
             $formdata2 = [
                 'user_id' => $data['applicant']['applicant_id'],
                 'aial_token' => $token,
             ];
 
-            // $this->form2->save($formdata2);
-            // $this->confirm->delete($data['applicant']['id']);
+            $this->form2->save($formdata2);
+            $this->confirm->delete($data['applicant']['id']);
             $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         } else {
@@ -411,8 +411,8 @@ class AdminController extends BaseController
                 // 'plan' => $data['applicant']['plan'],
                 'applicationNo' => $newApplicationNo,
             ];
-            // $this->client->save($clientData);
-            // $this->confirm->delete($data['applicant']['id']);
+            $this->client->save($clientData);
+            $this->confirm->delete($data['applicant']['id']);
             $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         }
