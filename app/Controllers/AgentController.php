@@ -7,6 +7,7 @@ use \App\Models\AgentModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Controllers\AppController;
+use App\Models\ScheduleModel;
 
 class AgentController extends BaseController
 {
@@ -14,12 +15,14 @@ class AgentController extends BaseController
     private $user;
     private $applicant;
     private $agent;
+    protected $scheduleModel;
     public function __construct()
     {
         $this->appcon = new AppController();
         $this->agent = new AgentModel();
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
+        $this->scheduleModel = new ScheduleModel();
     }
     public function AgDash()
     {
@@ -77,15 +80,16 @@ class AgentController extends BaseController
 
         // Assuming that AgentModel is the correct model for managing agents
         $agentModel = new AgentModel();
-        $data = $this->getDataAge();
-
+        
         // Fetch the agent data
         $agents = $agentModel->where('FA', $userId)->paginate(10, 'group1');
         $data['pager'] = $agentModel->pager;
         $data['agent'] = $agents;
+        
         // Fetch the user data
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
+        
         return view('Agent/subagents', $data);
     }
 
@@ -216,5 +220,18 @@ class AgentController extends BaseController
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),
         $this->appcon->getform1Data(), $data);
         return view('Agent/AgForm1', $data);
+    }
+
+    public function sched()
+    {
+        // Load the model
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $scheduleModel = new ScheduleModel();
+
+        // Get all schedules from the database
+        $data['schedules'] = $scheduleModel->findAll();
+
+        // Pass data to the view
+        return view('Agent/Schedule', $data);
     }
 }

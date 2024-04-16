@@ -6,12 +6,12 @@
     <?= view('Agent/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AgDash">
+                            <a class="nav-link " aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -62,6 +62,13 @@
                             <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
                                 Sub Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agentsched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
                             </a>
                         </li>
 

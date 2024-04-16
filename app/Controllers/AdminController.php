@@ -14,6 +14,7 @@ use App\Models\Form2Model;
 use App\Models\Form3Model;
 use App\Models\AgentModel;
 use App\Models\ConfirmModel;
+use App\Models\ScheduleModel;
 
 class AdminController extends BaseController
 {
@@ -29,6 +30,7 @@ class AdminController extends BaseController
     private $form1;
     private $form2;
     private $form3;
+    protected $scheduleModel;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
@@ -43,6 +45,7 @@ class AdminController extends BaseController
         $this->form3 = new Form3Model();
         $this->homecon = new HomepageController();
         $this->client = new ClientModel();
+        $this->scheduleModel = new ScheduleModel();
     }
 
     public function AdDash()
@@ -358,7 +361,7 @@ class AdminController extends BaseController
     {
         $data['applicant'] = $this->confirm->where('token', $token)->first();
         // $form['applicant'] = $this->applicant->where('app_token', $token)->first();
-        $verificationToken = bin2hex(random_bytes(50));
+        $verificationToken = bin2hex(random_bytes(16));
 
         if ($data['applicant']['role'] != 'client') {
             $appdata = [
@@ -405,7 +408,7 @@ class AdminController extends BaseController
                 'email' => $data['applicant']['email'],
                 'refcode' => $data['applicant']['refcode'],
                 'client_token' => $data['applicant']['token'],
-                'plan' => $data['applicant']['plan'],
+                // 'plan' => $data['applicant']['plan'],
                 'applicationNo' => $newApplicationNo,
             ];
             $this->client->save($clientData);
@@ -414,10 +417,10 @@ class AdminController extends BaseController
             $this->user->set($con)->where('token', $token)->update();
         }
 
-        $verificationLink = site_url("login");
-        $verificationLink = site_url("verify-email/{$verificationToken}");
+        // $verificationLink = site_url("login");
+        // $verificationLink = site_url("verify-email/{$verificationToken}");
         $emailSubject = 'Register Confirmation';
-        $emailMessage = "Your Account was Confirmed please click the link to login and verify your account: $verificationLink";
+        $emailMessage = "Your Account was Confirmed";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
 
         return redirect()->to('/confirmation')->with('success', 'Acount Confirmed!');
@@ -456,4 +459,44 @@ class AdminController extends BaseController
         // var_dump($data);
         return view('Admin/confirmation', $data);
     }
+
+    public function sched()
+    {
+        // Load the model
+        $data = array_merge($this->getData(), $this->getDataAd());
+        $scheduleModel = new ScheduleModel();
+
+        // Get all schedules from the database
+        $data['schedules'] = $scheduleModel->findAll();
+
+        // Pass data to the view
+        return view('Admin/Schedule', $data);
+    }
+
+    public function schedsave()
+    {
+        $input = $this->request->getPost();
+        $validationRules = [
+            'title' => 'required',
+            'description' => 'required',
+            'start_datetime' => 'required|valid_date',
+            'end_datetime' => 'required|valid_date'
+        ];
+    
+        if (!$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+    
+        $data = [
+            'title' => $input['title'],
+            'description' => $input['description'],
+            'start_datetime' => $input['start_datetime'],
+            'end_datetime' => $input['end_datetime'],
+        ];
+    
+        $this->scheduleModel->insert($data);
+        return redirect()->back()->with('success', 'Schedule submitted successfully.');
+    }
+
+    
 }

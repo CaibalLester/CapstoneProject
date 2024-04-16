@@ -12,7 +12,7 @@
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AgDash">
+                            <a class="nav-link " aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -46,7 +46,7 @@
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">GROUP LIFE INSURANCE</span>
                                         </a><br>
-                                        <a class="nav-link" href="/AgForm4">
+                                        <a class="nav-link active" href="/AgForm4">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
                                         </a><br>
@@ -63,6 +63,13 @@
                             <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
                                 Sub Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agentsched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
                             </a>
                         </li>
 

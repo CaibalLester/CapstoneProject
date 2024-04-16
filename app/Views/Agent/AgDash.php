@@ -66,6 +66,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/agentsched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/AgSetting">
                                 <i class="bi-gear me-2"></i>
                                 Settings

@@ -46,6 +46,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/sched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents
@@ -480,6 +487,7 @@
                         </div>
                     </div>
                 </div>
+                <?=view('rtc/chat') ?>
             </main>
         </div>
     </div>

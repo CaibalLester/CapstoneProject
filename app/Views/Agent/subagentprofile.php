@@ -12,7 +12,7 @@
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AgDash">
+                            <a class="nav-link " aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -63,6 +63,13 @@
                             <a class="nav-link active" href="/subagent">
                                 <i class="bi-person me-2"></i>
                                 Sub Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agentsched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
                             </a>
                         </li>
 

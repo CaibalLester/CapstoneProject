@@ -101,7 +101,8 @@ class HomepageController extends BaseController
                     'verification_token' => $verificationToken,
                     'accountStatus' => 'active',
                     'token' => $usertoken,
-                    'confirm' =>'false',
+                    'confirm' =>'true',
+                    
                 ];
                 $userModel->save($userData);
             } else {
@@ -121,6 +122,7 @@ class HomepageController extends BaseController
                     'email' => $this->request->getVar('email'),
                     'refcode' => $ref,
                     'token' => $usertoken,
+                    'role' => 'applicant',
                 ];
                 $this->confirm->save($applicantData);
             }
@@ -279,7 +281,6 @@ class HomepageController extends BaseController
                 $newPassword = password_hash($this->request->getVar('new_password'), PASSWORD_DEFAULT);
 
                 $userModel->update($userId, ['password' => $newPassword]);
-                $this->logout();
                 return redirect()->to('/logout')->with('success', 'Password Updated');
             } else {
                 echo 'Current password is incorrect.';

@@ -11,7 +11,7 @@
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AdDash">
+                            <a class="nav-link " aria-current="page" href="/AdDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -46,6 +46,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/sched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/ManageAgent">
                                 <i class="fas fa-user-tie me-2"></i>
                                 Agents
@@ -58,6 +65,7 @@
                                 Applicants
                             </a>
                         </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">

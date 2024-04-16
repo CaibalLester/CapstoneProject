@@ -33,7 +33,9 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Policy Information</h5>
-                                                    <p class="card-text">Policy Number: POL123456</p>
+                                                    <p class="card-text">Policy Number:
+                                                        <?= isset ($client['applicationNo']) ? $client['applicationNo'] : '' ?>
+                                                    </p>
                                                     <p class="card-text">Coverage: Comprehensive</p>
                                                     <a href="#" class="btn btn-primary">View Policy Details</a>
                                                 </div>
@@ -87,10 +89,16 @@
                                     <div class="card mb-4">
                                         <div class="card-body">
                                             <h5 class="card-title">Contact Information</h5>
-                                            <p class="card-text">Phone: 123-456-7890</p>
-                                            <p class="card-text">Email: info@example.com</p>
-                                            <p class="card-text">Address: 123 Insurance St, City, Country</p>
-                                            <a href="#" class="btn btn-primary">Update Contact Info</a>
+                                            <p class="card-text">Phone:
+                                                <?php echo isset($client['number']) ? $client['number'] : '' ?></p>
+                                            <p class="card-text">Email:
+                                                <?php echo isset($client['email']) ? $client['email'] : '' ?></p>
+                                            <p class="card-text">Address:
+                                                <?= isset($client['province']) ? $client['province'] : '' ?>,
+                                                <?= isset($client['city']) ? $client['city'] : '' ?>,
+                                                <?= isset($client['barangay']) ? $client['barangay'] : '' ?>,
+                                                <?= isset($client['street']) ? $client['street'] : '' ?></p>
+                                            <a href="/clientprofile" class="btn btn-primary">Update Contact Info</a>
                                         </div>
                                     </div>
 
@@ -133,65 +141,65 @@
 
     </main><!-- End #main -->
     <script>
-        var ctx = document.getElementById('premiumsChart').getContext('2d');
-        var premiumsChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Premiums',
-                    data: [1000, 1200, 1100, 1300, 1250, 1400],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+    var ctx = document.getElementById('premiumsChart').getContext('2d');
+    var premiumsChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Premiums',
+                data: [1000, 1200, 1100, 1300, 1250, 1400],
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
     </script>
 
     <script>
-        var ctx = document.getElementById('claimsChart').getContext('2d');
-        var claimsChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Number of Claims',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+    var ctx = document.getElementById('claimsChart').getContext('2d');
+    var claimsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [{
+                label: 'Number of Claims',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
+        }
+    });
     </script>
 
 </body>

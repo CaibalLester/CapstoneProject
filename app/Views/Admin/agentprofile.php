@@ -7,11 +7,11 @@
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AdDash">
+                            <a class="nav-link " aria-current="page" href="/AdDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -26,7 +26,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/Forms">
-                            <i class="bi bi-file-earmark-slides me-2"></i>
+                                <i class="bi bi-file-earmark-slides me-2"></i>
                                 Forms
                             </a>
                         </li>
@@ -35,6 +35,20 @@
                             <a class="nav-link" aria-current="page" href="/promotion">
                                 <i class="fa fa-user me-2"></i>
                                 Promotion
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/confirmation">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Confirmation
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/sched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
                             </a>
                         </li>
 
@@ -52,12 +66,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/confirmation">
-                            <i class="bi bi-check-square-fill me-2"></i>
-                                Confirmation
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AdHelp">

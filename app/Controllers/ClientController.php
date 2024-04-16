@@ -143,23 +143,108 @@ class ClientController extends BaseController
 
     public function ClientPage()
     {
-        return view('Client/dashboard/dashboard');
+        $data = array_merge($this->getData(), $this->ClientData());
+        return view('Client/dashboard/dashboard', $data);
     }
 
     public function paymenthistory()
     {
-        return view('Client/dashboard/history');
+        $data = array_merge($this->getData(), $this->ClientData());
+        return view('Client/dashboard/history',$data);
     }
 
     public function viewplans()
     {
+        $data = array_merge($this->getData(), $this->ClientData());
         $data['plan'] = $this->plan->findAll();
         return view('Client/dashboard/plans' , $data);
     }
 
     public function clientprofile()
     {
-        return view('Client/dashboard/myprofile');
+        $data = array_merge($this->getData(), $this->ClientData());
+        return view('Client/dashboard/myprofile',$data);
     }
-    
+
+    public function getData()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['user'] = $this->user->find($userId);
+        return $data;
+    }
+    public function ClientData()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['client'] = $this->client->where('client_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
+        return $data;
+    }
+    public function svclient()
+    {
+        $session = session();
+        $userId = $session->get('id');
+
+        // Initialize $data array
+        $data = [];
+        $img = '';
+
+        // Get the old image file name from the database
+        $oldpic = $this->client->select('profile')->where('client_id', $userId)->first();
+
+        // Check if a file is uploaded
+        if ($imageFile = $this->request->getFile('profile')) {
+            // Check if the file is valid
+            if ($imageFile->isValid()) {
+                // Generate a unique name for the uploaded image
+                $imageName = $imageFile->getRandomName();
+
+                // Set the path to the upload directory
+                $uploadPath = FCPATH . 'uploads/';
+
+                // Move the uploaded image to the upload directory
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    // Image upload successful, store the image filename in the database
+                    $img['profile'] = $imageName;
+
+                    // Delete the old image file if it exists
+                    if (!empty($oldpic['profile'])) {
+                        $oldFilePath = $uploadPath . $oldpic['profile'];
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
+                    }
+                } else {
+                    $error = $imageFile->getError();
+                }
+            }
+        }
+
+        // Add other form data to the data array
+        $data = [
+            'lastName' => $this->request->getVar('lastname'),
+            'firstName' => $this->request->getVar('firstname'),
+            'middleName' => $this->request->getVar('middlename'),
+            'username' => $this->request->getVar('username'),
+            'number' => $this->request->getVar('number'),
+            'email' => $this->request->getVar('email'),
+            'birthday' => $this->request->getVar('birthday'),
+            'region' => $this->request->getVar('region_text'),
+            'province' => $this->request->getVar('province_text'),
+            'city' => $this->request->getVar('city_text'),
+            'image' => $img,
+            'barangay' => $this->request->getVar('barangay_text'),
+            'street' => $this->request->getVar('street'),
+        ];
+
+        // Check if $data array is not empty before updating the database
+        if (!empty($data)) {
+            // Update the admin data
+            $this->client->set($data)->where('client_id', $userId)->update();
+        }
+
+        return redirect()->to('/clientprofile');
+    }
 }

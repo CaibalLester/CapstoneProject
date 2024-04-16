@@ -11,7 +11,7 @@
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/AgDash">
+                            <a class="nav-link " aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
                             </a>
@@ -33,7 +33,7 @@
                             <div class="collapse" id="manageDropdown">
                                 <ul class="nav">
                                     <li class="nav-item">
-                                        <span><a class="nav-link " href="/AgForm1">
+                                        <span><a class="nav-link active" href="/AgForm1">
                                                 <i class="bi-pen me-2"></i>
                                                 <span class="align-middle">LIFE CHANGER</span>
                                             </a></span><br>
@@ -62,6 +62,13 @@
                             <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
                                 Sub Agents
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agentsched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Schedule
                             </a>
                         </li>
 

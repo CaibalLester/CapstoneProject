@@ -311,3 +311,536 @@ Page Not Found
 #4 {main}
 in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-04-16 08:49:11 --> require_once(db.php): Failed to open stream: No such file or directory
+in APPPATH\Views\Agent\Schedule.php on line 1.
+ 1 APPPATH\Views\Agent\Schedule.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(db.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php', 1)
+ 2 APPPATH\Views\Agent\Schedule.php(1): require_once()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/Schedule', [], true)
+ 6 APPPATH\Controllers\AgentController.php(233): view('Agent/Schedule', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->sched()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 08:49:36 --> require_once(Admin/db.php): Failed to open stream: No such file or directory
+in APPPATH\Views\Agent\Schedule.php on line 1.
+ 1 APPPATH\Views\Agent\Schedule.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(Admin/db.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php', 1)
+ 2 APPPATH\Views\Agent\Schedule.php(1): require_once()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/Schedule', [], true)
+ 6 APPPATH\Controllers\AgentController.php(233): view('Agent/Schedule', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->sched()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 08:49:37 --> require_once(Admin/db.php): Failed to open stream: No such file or directory
+in APPPATH\Views\Agent\Schedule.php on line 1.
+ 1 APPPATH\Views\Agent\Schedule.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(Admin/db.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php', 1)
+ 2 APPPATH\Views\Agent\Schedule.php(1): require_once()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/Schedule', [], true)
+ 6 APPPATH\Controllers\AgentController.php(233): view('Agent/Schedule', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->sched()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 08:49:37 --> require_once(Admin/db.php): Failed to open stream: No such file or directory
+in APPPATH\Views\Agent\Schedule.php on line 1.
+ 1 APPPATH\Views\Agent\Schedule.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(Admin/db.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php', 1)
+ 2 APPPATH\Views\Agent\Schedule.php(1): require_once()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/Schedule', [], true)
+ 6 APPPATH\Controllers\AgentController.php(233): view('Agent/Schedule', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->sched()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 08:49:37 --> require_once(Admin/db.php): Failed to open stream: No such file or directory
+in APPPATH\Views\Agent\Schedule.php on line 1.
+ 1 APPPATH\Views\Agent\Schedule.php(1): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(Admin/db.php): Failed to open stream: No such file or directory', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php', 1)
+ 2 APPPATH\Views\Agent\Schedule.php(1): require_once()
+ 3 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Agent\\Schedule.php')
+ 4 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/Schedule', [], true)
+ 6 APPPATH\Controllers\AgentController.php(233): view('Agent/Schedule', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->sched()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:06:03 --> mysqli_sql_exception: Unknown column 'role' in 'field list' in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `to...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\ClientController.php(96): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\ClientController->avail()
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 11:06:03 --> Unknown column 'role' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to_confirm` (`applicant_id`, `username`, `number`, `email`, `refcode`, `token`, `role`) VALUES (:applicant_id:, :username:, :number:, :email:, :refcode:, :token:, :role:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\ClientController.php(96): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->avail()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:07:40 --> mysqli_sql_exception: Column 'refcode' cannot be null in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `to...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\ClientController.php(96): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\ClientController->avail()
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 11:07:40 --> Column 'refcode' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to_confirm` (`applicant_id`, `username`, `number`, `email`, `refcode`, `token`, `role`) VALUES (:applicant_id:, :username:, :number:, :email:, :refcode:, :token:, :role:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\ClientController.php(96): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->avail()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:27:04 --> mysqli_sql_exception: Unknown column 'applicationNo' in 'field list' in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT MAX(`app...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT MAX(`app...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT MAX(`app...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`app...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', Array)
+#6 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265...')
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-04-16 11:27:04 --> Unknown column 'applicationNo' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`applicationNo`) AS `applicationNo`
+FROM `client`', [], false)
+ 2 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:27:33 --> mysqli_sql_exception: Unknown column 'applicationNo' in 'field list' in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT MAX(`app...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT MAX(`app...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT MAX(`app...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`app...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', Array)
+#6 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265...')
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-04-16 11:27:33 --> Unknown column 'applicationNo' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`applicationNo`) AS `applicationNo`
+FROM `client`', [], false)
+ 2 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:27:51 --> mysqli_sql_exception: Unknown column 'applicationNo' in 'field list' in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT MAX(`app...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT MAX(`app...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT MAX(`app...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`app...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', Array)
+#6 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265...')
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#11 {main}
+CRITICAL - 2024-04-16 11:27:51 --> Unknown column 'applicationNo' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT MAX(`applicationNo`) AS `applicationNo`
+FROM `client`', [], false)
+ 2 SYSTEMPATH\Model.php(871): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\AdminController.php(399): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:28:42 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 411.
+ 1 APPPATH\Controllers\AdminController.php(411): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 411)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:29:10 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 411.
+ 1 APPPATH\Controllers\AdminController.php(411): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 411)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:30:21 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 411.
+ 1 APPPATH\Controllers\AdminController.php(411): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 411)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:30:57 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 411.
+ 1 APPPATH\Controllers\AdminController.php(411): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 411)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:32:05 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`client`, CONSTRAINT `fk_client_token` FOREIGN KEY (`client_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cl...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cl...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cl...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cl...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(414): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265...')
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 11:32:05 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`client`, CONSTRAINT `fk_client_token` FOREIGN KEY (`client_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `client` (`client_id`, `username`, `number`, `email`, `client_token`, `applicationNo`) VALUES (:client_id:, :username:, :number:, :email:, :client_token:, :applicationNo:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(414): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 11:33:02 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`client`, CONSTRAINT `fk_client_token` FOREIGN KEY (`client_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cl...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cl...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cl...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cl...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(414): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265...')
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 11:33:02 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`client`, CONSTRAINT `fk_client_token` FOREIGN KEY (`client_token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `client` (`client_id`, `username`, `number`, `email`, `client_token`, `applicationNo`) VALUES (:client_id:, :username:, :number:, :email:, :client_token:, :applicationNo:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(414): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:34:57 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 427.
+ 1 APPPATH\Controllers\AdminController.php(427): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 427)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('f7e3f0c666b1265e2333d19791c196bfa3a333cef5190183bbf4abef0449e3dc')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 11:39:10 --> Undefined array key "plan"
+in APPPATH\Controllers\AdminController.php on line 411.
+ 1 APPPATH\Controllers\AdminController.php(411): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\AdminController.php', 411)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('13de6c95fc2a33204bc6a051ffe6429f2d70825b4c391836296f19a5b3371814')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 12:13:55 --> Updates are not allowed unless they contain a "where" or "like" clause.
+in SYSTEMPATH\Model.php on line 380.
+ 1 SYSTEMPATH\BaseModel.php(949): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(776): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\HomepageController.php(56): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->logout()
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 12:47:28 --> Undefined variable $img
+in APPPATH\Controllers\ClientController.php on line 236.
+ 1 APPPATH\Controllers\ClientController.php(236): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $img', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\ClientController.php', 236)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->svclient()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 12:48:14 --> Undefined variable $img
+in APPPATH\Controllers\ClientController.php on line 236.
+ 1 APPPATH\Controllers\ClientController.php(236): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $img', 'C:\\laragon\\www\\CapstoneSystem\\app\\Controllers\\ClientController.php', 236)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->svclient()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 13:13:48 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 128.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(93): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 13:16:26 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 128.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(94): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 13:18:53 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 128.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(96): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 14:03:57 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ai...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ai...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ai...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ai...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(394): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('5d61d1fd7817f26...')
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 14:03:57 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `aial` (`user_id`, `aial_token`) VALUES (:user_id:, :aial_token:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(394): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('5d61d1fd7817f26e16bec3d13d6e5b862aa0ebbce2596429d8c1296cc5c2ef69')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 14:08:01 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ai...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ai...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ai...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ai...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(394): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('c506963b9a64617...')
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#11 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#14 {main}
+CRITICAL - 2024-04-16 14:08:01 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`aial`, CONSTRAINT `fk_aial_token` FOREIGN KEY (`aial_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `aial` (`user_id`, `aial_token`) VALUES (:user_id:, :aial_token:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AdminController.php(394): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('c506963b9a6461700d63f82335ac2fa356e4d85436a0c70a44ecb49e1337772d')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 14:41:24 --> Email: sendWithSmtp throwed ErrorException: stream_socket_enable_crypto(): SSL: Handshake timed out in C:\laragon\www\CapstoneSystem\system\Email\Email.php:1909
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'stream_socket_e...', 'C:\\laragon\\www\\...', 1909)
+#1 C:\laragon\www\CapstoneSystem\system\Email\Email.php(1909): stream_socket_enable_crypto(Resource id #154, true, 121)
+#2 C:\laragon\www\CapstoneSystem\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\laragon\www\CapstoneSystem\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\laragon\www\CapstoneSystem\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\laragon\www\CapstoneSystem\app\Controllers\HomepageController.php(168): CodeIgniter\Email\Email->send()
+#6 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(430): App\Controllers\HomepageController->sendVerificationEmail('caiballesterm@g...', 'Register Confir...', 'Your Account wa...')
+#7 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('4895a39fe8245ef...')
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#12 {main}
+ERROR - 2024-04-16 14:41:24 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2024-04-16 14:41:24 --> 220 smtp.gmail.com ESMTP s198-20020a632ccf000000b005f76107db2dsm2540301pgs.17 - gsmtp
+
+hello: 250-smtp.gmail.com at your service, [175.176.61.114]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+starttls: 220 2.0.0 Ready to start TLS
+
+ERROR - 2024-04-16 14:58:33 --> mysqli_sql_exception: Unknown column 'bb19ffea592e67619383d49188c2d9e53f3e078cdaab59a2d17ce6a9d09b5640' in 'where clause' in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `users` ...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `users` ...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `users` ...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `users` ...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(949): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(776): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\laragon\www\CapstoneSystem\app\Controllers\AdminController.php(400): CodeIgniter\Model->update()
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AdminController->confirm('bb19ffea592e676...')
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-04-16 14:58:33 --> Unknown column 'bb19ffea592e67619383d49188c2d9e53f3e078cdaab59a2d17ce6a9d09b5640' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `users` SET `confirm` = :confirm:, `verification_token` = :verification_token:
+WHERE `bb19ffea592e67619383d49188c2d9e53f3e078cdaab59a2d17ce6a9d09b5640` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(949): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(776): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\AdminController.php(400): CodeIgniter\Model->update()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AdminController->confirm('bb19ffea592e67619383d49188c2d9e53f3e078cdaab59a2d17ce6a9d09b5640')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 15:02:07 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\chop\header.php on line 55.
+ 1 APPPATH\Views\Applicant\chop\header.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 55)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppDash.php(7): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\AppDash.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppDash', [], true)
+ 9 APPPATH\Controllers\AppController.php(37): view('Applicant/AppDash', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppDash()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 15:02:24 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\chop\header.php on line 55.
+ 1 APPPATH\Views\Applicant\chop\header.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 55)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppDash.php(7): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\AppDash.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppDash', [], true)
+ 9 APPPATH\Controllers\AppController.php(37): view('Applicant/AppDash', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppDash()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-04-16 15:03:59 --> Trying to access array offset on value of type null
+in APPPATH\Views\Applicant\chop\header.php on line 42.
+ 1 APPPATH\Views\Applicant\chop\header.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php', 42)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\chop\\header.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/chop/header', [], true)
+ 5 APPPATH\Views\Applicant\AppDash.php(7): view('Applicant/chop/header')
+ 6 SYSTEMPATH\View\View.php(226): include('C:\\laragon\\www\\CapstoneSystem\\app\\Views\\Applicant\\AppDash.php')
+ 7 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Applicant/AppDash', [], true)
+ 9 APPPATH\Controllers\AppController.php(37): view('Applicant/AppDash', [...])
+10 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->AppDash()
+11 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

@@ -105,10 +105,11 @@ $routes->get('/generatePdf/(:num)', 'AdminController::generatePdf/$1');
 $routes->get('/generatePdf3/(:num)', 'AdminController::generatePdf3/$1');
 
 //Clientt
-$routes->get('/ClientPage', 'ClientController::ClientPage');
-$routes->get('/history', 'ClientController::paymenthistory');
-$routes->get('/viewplans', 'ClientController::viewplans');
-$routes->get('/clientprofile', 'ClientController::clientprofile');
+$routes->get('/ClientPage', 'ClientController::ClientPage',['filter' => 'clientFilter']);
+$routes->get('/history', 'ClientController::paymenthistory',['filter' => 'clientFilter']);
+$routes->get('/viewplans', 'ClientController::viewplans',['filter' => 'clientFilter']);
+$routes->get('/clientprofile', 'ClientController::clientprofile',['filter' => 'clientFilter']);
+$routes->post('/svclient', 'ClientController::svclient',['filter' => 'clientFilter']);
 
 $routes->get('/ClientService', 'ClientController::ClientService');
 $routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
@@ -125,9 +126,16 @@ $routes->get('/comingsoon', 'HomepageController::comingsoon');
 $routes->match(['get', 'post'], '/feedback/saveFeedback', 'FeedbackController::saveFeedback');
 
 
+$routes->get('/sched', 'AdminController::sched');
+$routes->get('/calendar', 'AdminController::calendar');
+$routes->get('sched/create', 'AdminController::create');
+$routes->post('sched/schedsave', 'AdminController::schedsave');
+$routes->get('sched/edit/(:num)', 'AdminController::edit/$1');
+$routes->post('sched/update/(:num)', 'AdminController::update/$1');
+$routes->get('sched/delete/(:num)', 'AdminController::delete/$1');
 
 
-
+$routes->get('/agentsched', 'AgentController::sched');
 
 
 
