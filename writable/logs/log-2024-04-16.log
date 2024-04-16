@@ -844,3 +844,33 @@ in APPPATH\Views\Applicant\chop\header.php on line 42.
 12 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-04-16 22:02:17 --> mysqli_sql_exception: Unknown column 'token' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `to...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `to...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `to...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\CapstoneSystem\app\Controllers\HomepageController.php(127): CodeIgniter\BaseModel->save(Array)
+#9 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->Authreg('YREP63')
+#10 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#11 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#14 {main}
+CRITICAL - 2024-04-16 22:02:17 --> Unknown column 'token' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `to_confirm` (`applicant_id`, `username`, `number`, `firstname`, `lastname`, `middlename`, `email`, `refcode`, `token`, `role`) VALUES (:applicant_id:, :username:, :number:, :firstname:, :lastname:, :middlename:, :email:, :refcode:, :token:, :role:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\HomepageController.php(127): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->Authreg('YREP63')
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

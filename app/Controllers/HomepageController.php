@@ -83,7 +83,7 @@ class HomepageController extends BaseController
             'confirmpassword' => 'matches[password]',
         ];
 
-        $verificationToken = bin2hex(random_bytes(50));
+        // $verificationToken = bin2hex(random_bytes(50));
         $usertoken = bin2hex(random_bytes(50));
         if ($this->validate($rules)) {
             $userModel = new UserModel();
@@ -98,11 +98,10 @@ class HomepageController extends BaseController
                     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                     'role' => $this->request->getVar('role'),
                     'status' => 'unverified',
-                    'verification_token' => $verificationToken,
+                    // 'verification_token' => $verificationToken,
                     'accountStatus' => 'active',
                     'token' => $usertoken,
-                    'confirm' =>'true',
-                    
+                    'confirm' =>'false',
                 ];
                 $userModel->save($userData);
             } else {
@@ -126,9 +125,9 @@ class HomepageController extends BaseController
                 ];
                 $this->confirm->save($applicantData);
             }
-            $emailSubject = "Account Registration Confirmation";
-            $emailMessage = "Thank you for registering! Your account is currently registered. Please wait for confirmation from the admin before you can log in. An email has been sent to your registered email address.";
-            $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
+            // $emailSubject = "Account Registration Confirmation";
+            // $emailMessage = "Thank you for registering! Your account is currently registered. Please wait for confirmation from the admin before you can log in. An email has been sent to your registered email address.";
+            // $this->sendVerificationEmail($this->request->getVar('email'), $emailSubject, $emailMessage);
             return redirect()->to('/login')->with('success', 'Account Registered please be patient. An email has been sent to your registered email address.');
 
         } else {

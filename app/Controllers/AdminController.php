@@ -361,7 +361,7 @@ class AdminController extends BaseController
     {
         $data['applicant'] = $this->confirm->where('token', $token)->first();
         // $form['applicant'] = $this->applicant->where('app_token', $token)->first();
-        $verificationToken = bin2hex(random_bytes(16));
+        $verificationToken = bin2hex(random_bytes(25));
 
         if ($data['applicant']['role'] != 'client') {
             $appdata = [
@@ -376,7 +376,7 @@ class AdminController extends BaseController
                 'app_token' => $data['applicant']['token'],
             ];
 
-            $this->applicant->save($appdata);
+            // $this->applicant->save($appdata);
 
             $formdata1 = [
                 'user_id' => $data['applicant']['applicant_id'],
@@ -384,16 +384,16 @@ class AdminController extends BaseController
                 'username' => $data['applicant']['username'],
             ];
 
-            $this->form1->save($formdata1);
+            // $this->form1->save($formdata1);
 
             $formdata2 = [
                 'user_id' => $data['applicant']['applicant_id'],
                 'aial_token' => $token,
             ];
 
-            $this->form2->save($formdata2);
-            $this->confirm->delete($data['applicant']['id']);
-            $con = ['confirm' => 'true'];
+            // $this->form2->save($formdata2);
+            // $this->confirm->delete($data['applicant']['id']);
+            $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         } else {
             $lastApplicationNo = $this->client->selectMax('applicationNo')->get()->getRowArray()['applicationNo'];
@@ -411,22 +411,19 @@ class AdminController extends BaseController
                 // 'plan' => $data['applicant']['plan'],
                 'applicationNo' => $newApplicationNo,
             ];
-            $this->client->save($clientData);
-            $this->confirm->delete($data['applicant']['id']);
-            $con = ['confirm' => 'true'];
+            // $this->client->save($clientData);
+            // $this->confirm->delete($data['applicant']['id']);
+            $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         }
 
         // $verificationLink = site_url("login");
-        // $verificationLink = site_url("verify-email/{$verificationToken}");
-        $emailSubject = 'Register Confirmation';
-        $emailMessage = "Your Account was Confirmed";
+        $verificationLink = site_url("verify-email/{$verificationToken}");
+        $emailSubject = 'Registration Confirmation';
+        $emailMessage = "Your account has been confirmed. Please click the link verify your account: {$verificationLink}";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
 
         return redirect()->to('/confirmation')->with('success', 'Acount Confirmed!');
-        // var_dump($token);
-        // var_dump($formdata1);
-        // var_dump($formdata2);
     }
 
     public function deny($token)
@@ -482,21 +479,21 @@ class AdminController extends BaseController
             'start_datetime' => 'required|valid_date',
             'end_datetime' => 'required|valid_date'
         ];
-    
+
         if (!$this->validate($validationRules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-    
+
         $data = [
             'title' => $input['title'],
             'description' => $input['description'],
             'start_datetime' => $input['start_datetime'],
             'end_datetime' => $input['end_datetime'],
         ];
-    
+
         $this->scheduleModel->insert($data);
         return redirect()->back()->with('success', 'Schedule submitted successfully.');
     }
 
-    
+
 }
