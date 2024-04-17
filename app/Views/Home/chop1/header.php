@@ -84,12 +84,15 @@
 								<a href="/ClientService" class="nav-link">Services</a>
 							</li>
 							<li class="nav-item">
+								<a href="/registers" class="nav-link">Register</a>
+							</li>
+							<!-- <li class="nav-item">
 								<a href="#" class="nav-link">
 									Pages
 									<i class="bx bx-down-arrow-alt"></i>
 								</a>
 								<ul class="dropdown-menu">
-									<!-- <li class="nav-item">
+									<li class="nav-item">
 										<a href="#" class="nav-link">
 											About
 											<i class="bx bx-down-arrow-alt"></i>
@@ -108,8 +111,8 @@
 												<a href="#services" class="nav-link">Offers</a>
 											</li>
 										</ul>
-									</li> -->
-									<!-- <li class="nav-item">
+									</li>
+									<li class="nav-item">
 										<a href="#" class="nav-link">
 											User Pages
 											<i class="bx bx-down-arrow-alt"></i>
@@ -122,7 +125,7 @@
 												<a href="/login" class="nav-link">Forgot Password</a>
 											</li>
 										</ul>
-									</li> -->
+									</li>
 									<li class="nav-item">
 										<a href="/terms" class="nav-link">Terms and Conditions</a>
 									</li>
@@ -133,7 +136,7 @@
 										<a href="/comingsoon" class="nav-link">Coming Soon</a>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 							<li class="nav-item">
 								<a href="/contactus" class="nav-link">Contact Us</a>
 							</li>

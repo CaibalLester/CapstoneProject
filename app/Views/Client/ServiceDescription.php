@@ -139,7 +139,7 @@
                     </div>
                     <div class="download-app">
                         <h2>Inquire</h2>
-                        <a href="/applynow" class="default-btn">Get Insurance Now</a>
+                        <a href="/registers" class="default-btn">Get Insurance Now</a>
                     </div>
                     <div class="help-contact-card pb-2">
                         <div class="help-img">

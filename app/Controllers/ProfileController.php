@@ -15,15 +15,19 @@ class ProfileController extends BaseController
     {
         $agentModel = new AgentModel();
         $data = $this->getDataAd();
-        $data['agent'] = $agentModel->where('agent_token', $token)->first();
 
+        // Initialize the encryption service and pass it to the view
+        // $encryption = \Config\Services::encrypter();
+        // $dectoken = $encryption->decrypt($token);
+        $data['agent'] = $agentModel->where('agent_token', $token)->first();
         $agentid = $data['agent']['agent_id'];
         $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
 
         $data['pager'] = $agentModel->pager;
-
         return view("Admin/agentprofile", $data);
+
     }
+
 
     public function subagentprofile($token)
     {
@@ -70,5 +74,16 @@ class ProfileController extends BaseController
             ->first();
         return $data;
     }
+    // public function try()
+    // {
+    //     // Encrypt a string
+    //     $encryption = \Config\Services::encrypter();
+    //     $encryptedString = $encryption->encrypt('Hello, world!');
 
+    //     echo "Encrypted String: $encryptedString<br>";
+
+    //     // Decrypt the string
+    //     $decryptedString = $encryption->decrypt($encryptedString);
+    //     echo "Decrypted String: $decryptedString";
+    // }
 }

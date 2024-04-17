@@ -390,8 +390,14 @@ class AdminController extends BaseController
                 'user_id' => $data['applicant']['applicant_id'],
                 'aial_token' => $token,
             ];
-
             $this->form2->save($formdata2);
+
+            $formdata3 = [
+                'applicant_id' => $data['applicant']['applicant_id'],
+                'app_gli_token' => $token,
+            ];
+            $this->form3->save($formdata3);
+
             $this->confirm->delete($data['applicant']['id']);
             $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
             $this->user->set($con)->where('token', $token)->update();

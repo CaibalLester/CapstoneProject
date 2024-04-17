@@ -338,24 +338,24 @@ class AppController extends BaseController
         // Retrieve user_id from the session
         $userId = $session->get('id');
 
-        // Check if user_id is available
-        if (!$userId) {
-            // Redirect or handle the case when user_id is not available
-            return redirect()->to('/login');
-        }
+        // // Check if user_id is available
+        // if (!$userId) {
+        //     // Redirect or handle the case when user_id is not available
+        //     return redirect()->to('/login');
+        // }
 
         $data = [
             'applicant_id' => $this->request->getVar('applicant_id'),
             'app_gli_token' => $this->request->getVar('app_gli_token'),
             'lastName' => $this->request->getVar('lastName'),
             'firstName' => $this->request->getVar('firstName'),
-            'middleName ' => $this->request->getVar('middleName '),
+            'middleName' => $this->request->getVar('middleName'),
             'dateOfBirth' => $this->request->getVar('dateOfBirth'),
             'occupation' => $this->request->getVar('occupation'),
             'companyName' => $this->request->getVar('companyName'),
             'businessNature' => $this->request->getVar('businessNature'),
             'sex' => $this->request->getVar('sex'),
-            'civilStatus ' => $this->request->getVar('civilStatus '),
+            'civilStatus' => $this->request->getVar('civilStatus'),
             'nationality' => $this->request->getVar('nationality'),
             'residenceAddress' => $this->request->getVar('residenceAddress'),
             'residenceTelephone' => $this->request->getVar('residenceTelephone'),
@@ -363,45 +363,45 @@ class AppController extends BaseController
             'businessTelephone' => $this->request->getVar('businessTelephone'),
             'firstName1' => $this->request->getVar('firstName1'),
             'mi1' => $this->request->getVar('mi1'),
-            'lastName1 ' => $this->request->getVar('lastName1 '),
+            'lastName1' => $this->request->getVar('lastName1'),
             'month1' => $this->request->getVar('month1'),
             'day1' => $this->request->getVar('day1'),
             'year1' => $this->request->getVar('year1'),
             'relationship1' => $this->request->getVar('relationship1'),
-            'remarks1 ' => $this->request->getVar('remarks1 '),
-            'firstName2 ' => $this->request->getVar('firstName2 '),
-            'mi2 ' => $this->request->getVar('mi2 '),
-            'lastName2 ' => $this->request->getVar('lastName2 '),
+            'remarks1' => $this->request->getVar('remarks1'),
+            'firstName2' => $this->request->getVar('firstName2'),
+            'mi2' => $this->request->getVar('mi2'),
+            'lastName2' => $this->request->getVar('lastName2'),
             'month2' => $this->request->getVar('month2'),
             'day2' => $this->request->getVar('day2'),
             'year2' => $this->request->getVar('year2'),
             'relationship2' => $this->request->getVar('relationship2'),
             'remarks2' => $this->request->getVar('remarks2'),
-            'firstName3 ' => $this->request->getVar('firstName3 '),
-            'mi3 ' => $this->request->getVar('mi3 '),
-            'astName3' => $this->request->getVar('astName3'),
+            'firstName3' => $this->request->getVar('firstName3'),
+            'mi3' => $this->request->getVar('mi3'),
+            'lastName3' => $this->request->getVar('lastName3'),
             'month3' => $this->request->getVar('month3'),
             'day3' => $this->request->getVar('day3'),
             'year3' => $this->request->getVar('year3'),
-            'relationship3 ' => $this->request->getVar('relationship3 '),
-            'remarks3 ' => $this->request->getVar('remarks3 '),
+            'relationship3 ' => $this->request->getVar('relationship3'),
+            'remarks3' => $this->request->getVar('remarks3'),
             'firstName4' => $this->request->getVar('firstName4'),
-            'mi4 ' => $this->request->getVar('mi4 '),
+            'mi4' => $this->request->getVar('mi4'),
             'lastName4' => $this->request->getVar('lastName4'),
             'month4' => $this->request->getVar('month4'),
             'day4' => $this->request->getVar('day4'),
             'year4' => $this->request->getVar('year4'),
             'relationship4' => $this->request->getVar('relationship4'),
-            'remakrs4 ' => $this->request->getVar('remakrs4 '),
-            'trusteeMinorBenefic' => $this->request->getVar('trusteeMinorBenefic'),
-            'place ' => $this->request->getVar('place '),
+            'remarks4' => $this->request->getVar('remarks4'),
+            'trusteeMinorBeneficiary' => $this->request->getVar('trusteeMinorBeneficiary'),
+            'place' => $this->request->getVar('place'),
             'day' => $this->request->getVar('day'),
             'month' => $this->request->getVar('month'),
             'year' => $this->request->getVar('year'),
             'applicantSignature' => $this->request->getVar('applicantSignature'),
         ];
         $this->form3->set($data)->where('applicant_id', $userId)->update();
-        return redirect()->to('/AppForm3');
+        return redirect()->back();
         // var_dump($data);
     }
     public function AppForm2()

@@ -13,7 +13,6 @@ $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilt
 $routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
 $routes->get('/add', 'ProfileController::add', ['filter' => 'adminFilter']);
 $routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
-// $routes->get('/confirmation', 'AdminController::confirmation', ['filter' => 'adminFilter']);
 $routes->get('confirm/(:any)', 'AdminController::confirm/$1', ['filter' => 'adminFilter']);
 $routes->get('deny/(:any)', 'AdminController::deny/$1', ['filter' => 'adminFilter']);
 $routes->get('/plans', 'PlanController::plans', ['filter' => 'adminFilter']);
@@ -71,29 +70,27 @@ $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']
 $routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
 
 
-$routes->get('/', 'HomepageController::home');
+$routes->get('/', 'HomepageController::home', ['filter' => 'online']);
 
-$routes->get('/register/(:any)', 'HomepageController::register/$1');
+$routes->get('/register/(:any)', 'HomepageController::register/$1', ['filter' => 'online']);
 $routes->post('/Authreg/(:any)', 'HomepageController::Authreg/$1');
 
 $routes->post('/Authreg', 'HomepageController::Authreg');
 $routes->post('/updatePassword', 'HomepageController::updatePassword', ['filter' => 'authGuard']);
-$routes->get('/login', 'HomepageController::login');
+$routes->get('/login', 'HomepageController::login', ['filter' => 'online']);
 $routes->post('/authlog', 'HomepageController::authlog');
-// $routes->match(['get', 'post'], 'login', 'HomepageController::authlog', ["filter" => "role"]);
 
 //home
 $routes->get('/logout', 'HomepageController::logout');
-$routes->get('/forgot', 'HomepageController::forgot');
+$routes->get('/forgot', 'HomepageController::forgot', ['filter' => 'online']);
 $routes->post('send-reset-link', 'HomepageController::sendResetLink');
-$routes->get('reset-password/(:segment)', 'HomepageController::resetPassword/$1');
+$routes->get('reset-password/(:segment)', 'HomepageController::resetPassword/$1', ['filter' => 'online']);
 $routes->post('reset-password/(:segment)', 'HomepageController::processResetPassword/$1');
-$routes->get('verify-email/(:segment)', 'HomepageController::verifyEmail/$1');
+$routes->get('verify-email/(:segment)', 'HomepageController::verifyEmail/$1', ['filter' => 'authGuard']);
 
 //charts
 $routes->get('/monthlyAgentCount', 'ChartsController::monthlyAgentCount', ['filter' => 'authGuard']);
 $routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingApplicantCount', ['filter' => 'authGuard']);
-// $routes->get('/emailtest', 'HomepageController::emailtest');
 
 //RTC
 $routes->get('/homechat', 'RTCController::RTC');
@@ -111,18 +108,18 @@ $routes->get('/viewplans', 'ClientController::viewplans',['filter' => 'clientFil
 $routes->get('/clientprofile', 'ClientController::clientprofile',['filter' => 'clientFilter']);
 $routes->post('/svclient', 'ClientController::svclient',['filter' => 'clientFilter']);
 
-$routes->get('/ClientService', 'ClientController::ClientService');
+$routes->get('/ClientService', 'ClientController::ClientService', ['filter' => 'online']);
 $routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
 
 $routes->get('/ClientAgent/(:any)', 'ClientController::ClientAgent/$1');
-$routes->get('/applynow', 'ClientController::applynow');
+$routes->get('/registers', 'ClientController::applynow', ['filter' => 'online']);
 $routes->post('/avail', 'ClientController::avail');
 
 // $routes->get('/registers', 'ClientController::registers');
-$routes->get('/contactus', 'HomepageController::contactus');
-$routes->get('/terms', 'HomepageController::terms');
-$routes->get('/policy', 'HomepageController::policy');
-$routes->get('/comingsoon', 'HomepageController::comingsoon');
+$routes->get('/contactus', 'HomepageController::contactus', ['filter' => 'online']);
+$routes->get('/terms', 'HomepageController::terms', ['filter' => 'online']);
+$routes->get('/policy', 'HomepageController::policy', ['filter' => 'online']);
+$routes->get('/comingsoon', 'HomepageController::comingsoon', ['filter' => 'online']);
 $routes->match(['get', 'post'], '/feedback/saveFeedback', 'FeedbackController::saveFeedback');
 
 
@@ -136,6 +133,9 @@ $routes->get('sched/delete/(:num)', 'AdminController::delete/$1');
 
 
 $routes->get('/agentsched', 'AgentController::sched');
+
+
+// $routes->get('/try', 'ProfileController::try');
 
 
 

@@ -30,6 +30,7 @@ class Filters extends BaseConfig
         'agentFilter'   => \App\Filters\AgentFilter::class,
         'applicantFilter'   => \App\Filters\ApplicantFilter::class,
         'clientFilter'   => \App\Filters\ClientFilter::class,
+        'online' => \App\Filters\Online::class,
     ];
 
     /**
