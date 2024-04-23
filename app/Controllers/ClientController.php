@@ -284,15 +284,15 @@ class ClientController extends BaseController
         $session = session();
         $userId = $session->get('id');
         $client['info'] = $this->client->where('client_id', $userId)->first();
-        
+
         $dat = [
             'client_id' => $client['info']['client_id'],
             'applicationNo' => $client['info']['applicationNo'],
             'username' => $client['info']['username'],
-            'clientName' => $client['info']['lastName'] . ', ' . $client['info']['firstName'] . ' ' . $client['info']['middleName']. '.',
-            'number'=> $client['info']['number'],
+            'clientName' => $client['info']['lastName'] . ', ' . $client['info']['firstName'] . ' ' . $client['info']['middleName'] . '.',
+            'number' => $client['info']['number'],
             'email' => $client['info']['email'],
-            'complteaddress'=> $client['info']['region'] . ', ' . $client['info']['province'] . ', ' . $client['info']['city'] . ', ' . $client['info']['barangay'] . ', ' . $client['info']['street'],
+            'complteaddress' => $client['info']['region'] . ', ' . $client['info']['province'] . ', ' . $client['info']['city'] . ', ' . $client['info']['barangay'] . ', ' . $client['info']['street'],
             'selected_date' => $this->request->getVar('selected_date'),
             'agent' => $this->request->getVar('agent'),
             'plan' => $this->request->getVar('plan'),
@@ -308,11 +308,12 @@ class ClientController extends BaseController
     {
         $data = array_merge($this->getData(), $this->ClientData());
         $id = $data['client']['client_id'];
-        $data['schedule'] = $this->sched->where('client_id' , $id)->findAll();
+        // $data['schedule'] = $this->sched->where('client_id' , $id)->findAll();
+        $data['schedule'] = $this->sched->where('client_id', $id)->orderBy('selected_date', 'ASC')->findAll();
         $data['agent'] = $this->agent->findAll();
         $data['plan'] = $this->plan->findAll();
         // $data['plan'] = array_merge($this->agent->findAll(), $this->plan->findAll());
-        return view('Client/dashboard/mysched' ,$data);
+        return view('Client/dashboard/mysched', $data);
         // var_dump($data);
     }
 

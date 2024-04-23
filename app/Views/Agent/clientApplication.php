@@ -117,14 +117,10 @@
                                     <?php foreach ($schedule as $sched): ?>
                                         <tbody>
                                             <tr>
-                                            <td> <?= DateTime::createFromFormat('Y-F-d', $sched['selected_date']) !== false
-                                                    ? DateTime::createFromFormat('Y-F-d', $sched['selected_date'])->format('F j, Y')
-                                                    : 'Invalid Date';
-                                                ?></td>
-                                                <td><?= $sched['schedule_time'] ?></td>
+                                            <td><?= date('M j, Y', strtotime($sched['selected_date'])); ?></td>
+                                                <td><?= date('h:i A', strtotime($sched['schedule_time'])) ?></td>
                                                 <td><?= $sched['meeting_type'] ?></td>
                                                 <td><?= $sched['status'] ?></td>
-                                                <!-- <td><?= $sched['created_at'] ?></td> -->
                                             </tr>
                                         </tbody>
                                     <?php endforeach ?>
