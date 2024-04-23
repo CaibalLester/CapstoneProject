@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <?= view('/Home/chop/head'); ?>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <body>
     <?= view('/client/dashboard/topside'); ?>
@@ -17,6 +16,16 @@
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+        <?php if (session()->getFlashdata('error')): ?>
+            <div class="alert alert-danger mt-3 text-center" role="alert">
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        <?php endif; ?>
+        <?php if (session()->getFlashdata('success')): ?>
+            <div class="alert alert-success mt-3 text-center" role="alert">
+                <?= session()->getFlashdata('success') ?>
+            </div>
+        <?php endif; ?>
 
         <section class="section">
             <div class="row">
@@ -42,18 +51,87 @@
                                         <?php foreach ($schedule as $sched): ?>
                                             <tr>
                                                 <td><?= date('M j, Y', strtotime($sched['selected_date'])); ?></td>
-                                                <td><?= $sched['schedule_time'] ?></td>
+                                                <td><?= date('h:i A', strtotime($sched['schedule_time'])) ?></td>
                                                 <td><?= $sched['meeting_type'] ?></td>
                                                 <td><?= $sched['status'] ?></td>
                                                 <td><?= date('M j, Y', strtotime($sched['created_at'])); ?></td>
+
                                                 <td><a href="#" data-bs-toggle="modal"
                                                         data-bs-target="#dat<?= $sched['plan'] ?>"><i
-                                                            style="font-size: 30px;" class="ri-eye-line"></i></a></td>
+                                                            style="font-size: 30px;" class="ri-eye-line"></i>
+                                                    </a>
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#edit<?= $sched['id'] ?>"><i
+                                                            style="font-size: 25px;" class="bi bi-pencil-square"></i>
+                                                    </a>
+                                                    <a href="<?= base_url('delsched/' . base64_encode($sched['id'])) ?>"
+                                                        style="font-size: 25px;"
+                                                        onclick="return confirm('Are you sure you want to remove this Schedule?');">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
+                                            <div class="modal fade" id="edit<?= $sched['id'] ?>" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Update Schedule
+                                                            </h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- Your registration form goes here -->
+                                                            <form action="/upsched" method="post" role="form"
+                                                                enctype="multipart/form-data">
+                                                                <div class="mb-1">
+                                                                    <label for="selected_date" class="form-label">Date
+                                                                        Schedule</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="selected_date" name="selected_date"
+                                                                        value="<?= isset($sched['selected_date']) ? date('Y-m-d', strtotime($sched['selected_date'])) : '' ?>"
+                                                                        required>
+                                                                </div>
+
+                                                                <div class="mb-1">
+                                                                    <label for="schedule_time" class="form-label">Brief
+                                                                        Description</label>
+                                                                    <input type="time" class="form-control"
+                                                                        id="schedule_time" name="schedule_time" required
+                                                                        value="<?= isset($sched['schedule_time']) ? date('H:i', strtotime($sched['schedule_time'])) : '' ?>">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="meeting_type">Type of
+                                                                        Meeting</label>
+                                                                    <select class="form-select form-control"
+                                                                        id="meeting-type" name="meeting_type" required>
+                                                                        <option value="">Type of meeting...</option>
+                                                                        <option value="phone-call" <?php echo $sched['meeting_type'] === 'phone-call' ? 'selected' : ''; ?>>
+                                                                            Phone Call</option>
+                                                                        <option value="office-meeting" <?php echo $sched['meeting_type'] === 'office-meeting' ? 'selected' : ''; ?>>Meeting in Office</option>
+                                                                        <option value="zoom" <?php echo $sched['meeting_type'] === 'zoom' ? 'selected' : ''; ?>>Zoom Meeting</option>
+                                                                    </select>
+                                                                </div>
+                                                                <input type="hidden" name="schedID"
+                                                                    value="<?= $sched['id'] ?>">
+
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Save</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
+
+
+
                             <?php foreach ($plan as $plans): ?>
                                 <div class="modal fade" id="dat<?= $plans['token'] ?>" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -64,7 +142,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <?php foreach ($agent as $agents): ?>
-                                                <?php if ($agents['agent_id'] == $sched['agent']): ?>
+                                                <?php if (isset($agents['agent_id']) && isset($sched['agent']) && $agents['agent_id'] == $sched['agent']): ?>
                                                     <div class="modal-body text-lg">
                                                         <div class="row">
                                                             <div class="col-xl-4">
@@ -72,7 +150,8 @@
                                                                     <div
                                                                         class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                                                                         <img src="<?= isset($agents['agentprofile']) ? base_url('/uploads/' . $agents['agentprofile']) : '' ?>"
-                                                                            alt="Profile" class="rounded-circle" style=" width: 150px; height: 150px;object-fit: cover; border-radius: 50%; ">
+                                                                            alt="Profile" class="rounded-circle"
+                                                                            style=" width: 150px; height: 150px;object-fit: cover; border-radius: 50%; ">
                                                                         <h2><?= isset($agents['username']) ? $agents['username'] : '' ?>
                                                                         </h2>
                                                                         <h4>Agent</h4>

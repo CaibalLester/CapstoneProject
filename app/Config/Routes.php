@@ -113,6 +113,8 @@ $routes->get('/seeprofile/(:any)', 'ClientController::seeprofile/$1',['filter' =
 $routes->match(['get','post'],'/createSchedule', 'ClientController::createSchedule',['filter' => 'clientFilter']);
 $routes->post('/sched', 'ClientController::sched',['filter' => 'clientFilter']);
 $routes->get('/mysched', 'ClientController::mysched',['filter' => 'clientFilter']);
+$routes->get('/delsched/(:any)', 'ClientController::delsched/$1',['filter' => 'clientFilter']);
+$routes->post('/upsched', 'ClientController::upsched',['filter' => 'clientFilter']);
 
 
 $routes->get('/ClientService', 'ClientController::ClientService', ['filter' => 'online']);

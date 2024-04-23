@@ -60,7 +60,7 @@
                 }
                 // Set onClick handler for clicking a date
                 // Set onClick handler for clicking a date
-                curr_date.click({ events: events, month: months[month], day: day, year: year }, date_click);
+                curr_date.click({ events: events, month: month, day: day, year: year }, date_click);
 
                 row.append(curr_date);
             }

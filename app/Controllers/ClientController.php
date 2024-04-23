@@ -296,7 +296,7 @@ class ClientController extends BaseController
             'selected_date' => $this->request->getVar('selected_date'),
             'agent' => $this->request->getVar('agent'),
             'plan' => $this->request->getVar('plan'),
-            'schedule_time' => $this->formatTime($this->request->getVar('schedule_time')),
+            'schedule_time' => $this->request->getVar('schedule_time'),
             'meeting_type' => $this->request->getVar('meeting_type'),
         ];
         // var_dump($dat);
@@ -308,7 +308,6 @@ class ClientController extends BaseController
     {
         $data = array_merge($this->getData(), $this->ClientData());
         $id = $data['client']['client_id'];
-
         $data['schedule'] = $this->sched->where('client_id' , $id)->findAll();
         $data['agent'] = $this->agent->findAll();
         $data['plan'] = $this->plan->findAll();
@@ -317,20 +316,38 @@ class ClientController extends BaseController
         // var_dump($data);
     }
 
-    
-    // Function to convert time to 12-hour format with AM or PM
-    private function formatTime($time)
+    public function delsched($id)
     {
-        // Create a DateTime object from the input time
-        $dateTime = \DateTime::createFromFormat('H:i', $time);
-
-        // Check if DateTime object is valid
-        if ($dateTime) {
-            // Format the time in 12-hour format with AM or PM
-            return $dateTime->format('h:i A');
-        } else {
-            // Return empty string or handle invalid time input
-            return '';
-        }
+        $delId = base64_decode($id);
+        $this->sched->delete($delId);
+        return redirect()->to('mysched')->with('success', 'Schedule deleted!');
     }
+
+    public function upsched()
+    {
+        $id = $this->request->getVar('schedID');
+        $data = [
+            'selected_date' => $this->request->getVar('selected_date'),
+            'schedule_time' => $this->request->getVar('schedule_time'),
+            'meeting_type' => $this->request->getVar('meeting_type'),
+        ];
+        $this->sched->set($data)->where('id', $id)->update();
+        return redirect()->to('mysched')->with('success', 'Schedule Updated!');
+    }
+
+    // Function to convert time to 12-hour format with AM or PM
+    // private function formatTime($time)
+    // {
+    //     // Create a DateTime object from the input time
+    //     $dateTime = \DateTime::createFromFormat('H:i', $time);
+
+    //     // Check if DateTime object is valid
+    //     if ($dateTime) {
+    //         // Format the time in 12-hour format with AM or PM
+    //         return $dateTime->format('h:i A');
+    //     } else {
+    //         // Return empty string or handle invalid time input
+    //         return '';
+    //     }
+    // }
 }
