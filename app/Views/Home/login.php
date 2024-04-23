@@ -4,7 +4,7 @@
 <?= view('/Home/chop/head'); ?>
 
 <body>
-    
+
     <main>
         <div class="container">
             <section
@@ -15,7 +15,7 @@
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="/" class="logo d-flex align-items-center w-auto">
-                                    <img src="<?= base_url()?>req/allianzlogo1.png" alt="">
+                                    <img src="<?= base_url() ?>req/allianzlogo1.png" alt="">
                                     <span class="d-none d-lg-block">ALLIANZ PNB</span>
                                 </a>
                             </div><!-- End Logo -->
@@ -78,10 +78,13 @@
                                             <button class="btn btn-primary w-100" type="submit"
                                                 onclick="showConfirmation()">Login</button>
                                             <br><br>
-                                            <!-- <p class="small mb-0">Don't have an account? <a href="/register">Create an
-                                                    account</a></p> -->
+                                            <p class="small mb-0">Don't have an account? <a
+                                                    href="/ClientRegister">Create an
+                                                    account</a></p>
                                             <p class="small mb-0">Have You Forgot your password? <a
                                                     href="/forgot">Forgot</a></p>
+                                            <p class="small mb-0">Go back to <a
+                                                    href="/">Home</a></p>
                                         </div>
                                     </form>
                                 </div>

@@ -8,9 +8,11 @@ use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Controllers\AppController;
 use App\Models\ScheduleModel;
+use App\Models\Scheduler;
 
 class AgentController extends BaseController
 {
+    private $sched;
     private $appcon;
     private $user;
     private $applicant;
@@ -23,6 +25,7 @@ class AgentController extends BaseController
         $this->user = new UserModel();
         $this->applicant = new ApplicantModel();
         $this->scheduleModel = new ScheduleModel();
+        $this->sched = new Scheduler();
     }
     public function AgDash()
     {
@@ -233,5 +236,15 @@ class AgentController extends BaseController
 
         // Pass data to the view
         return view('Agent/Schedule', $data);
+    }
+
+    public function cliSched()
+    {
+        $session = session();
+        $agent = $session->get('id');
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data['schedule'] = $this->sched->where('agent' , $agent)->findAll();
+        return view('Agent/clientApplication' ,$data);
+        // var_dump($agent);
     }
 }

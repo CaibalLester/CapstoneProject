@@ -83,9 +83,7 @@
                             <li class="nav-item">
 								<a href="/ClientService" class="nav-link">Services</a>
 							</li>
-							<li class="nav-item">
-								<a href="/registers" class="nav-link">Register</a>
-							</li>
+							
 							<!-- <li class="nav-item">
 								<a href="#" class="nav-link">
 									Pages

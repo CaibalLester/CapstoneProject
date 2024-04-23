@@ -68,6 +68,7 @@ $routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']
 $routes->get('/AgForm4', 'AgentController::AgForm4', ['filter' => 'agentFilter']);
 $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
+$routes->get('/cliSched', 'AgentController::cliSched', ['filter' => 'agentFilter']);
 
 
 $routes->get('/', 'HomepageController::home', ['filter' => 'online']);
@@ -107,13 +108,19 @@ $routes->get('/history', 'ClientController::paymenthistory',['filter' => 'client
 $routes->get('/viewplans', 'ClientController::viewplans',['filter' => 'clientFilter']);
 $routes->get('/clientprofile', 'ClientController::clientprofile',['filter' => 'clientFilter']);
 $routes->post('/svclient', 'ClientController::svclient',['filter' => 'clientFilter']);
+$routes->get('/agents', 'ClientController::agents',['filter' => 'clientFilter']);
+$routes->get('/seeprofile/(:any)', 'ClientController::seeprofile/$1',['filter' => 'clientFilter']);
+$routes->match(['get','post'],'/createSchedule', 'ClientController::createSchedule',['filter' => 'clientFilter']);
+$routes->post('/sched', 'ClientController::sched',['filter' => 'clientFilter']);
+$routes->get('/mysched', 'ClientController::mysched',['filter' => 'clientFilter']);
+
 
 $routes->get('/ClientService', 'ClientController::ClientService', ['filter' => 'online']);
 $routes->get('/ServiceDescription/(:any)', 'ClientController::ServiceDescription/$1');
 
 $routes->get('/ClientAgent/(:any)', 'ClientController::ClientAgent/$1');
-$routes->get('/registers', 'ClientController::applynow', ['filter' => 'online']);
-$routes->post('/avail', 'ClientController::avail');
+$routes->get('/ClientRegister', 'ClientController::register', ['filter' => 'online']);
+$routes->post('/clientreg', 'ClientController::clientreg');
 
 // $routes->get('/registers', 'ClientController::registers');
 $routes->get('/contactus', 'HomepageController::contactus', ['filter' => 'online']);

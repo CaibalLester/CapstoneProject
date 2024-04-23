@@ -22,7 +22,7 @@
 
                         <div class="d-flex justify-content-center py-4">
                             <a href="/" class="logo d-flex align-items-center w-auto">
-                                <img src="home/images/allianzlogo1.png" alt="">
+                                <img src="req/allianzlogo1.png" alt="">
                                 <span class="d-none d-lg-block">ALLIANZ PNB</span>
                             </a>
                         </div><!-- End Logo -->
@@ -30,9 +30,11 @@
                         <div class="card mb-6">
 
                             <div class="card-body">
-                                <?php if (session()->getFlashdata('error')): ?>
+                                <?php if (session()->has('errors')): ?>
                                     <div class="alert alert-danger mt-3 text-center" role="alert">
-                                        <?= session()->getFlashdata('error') ?>
+                                        <?php foreach (session('errors') as $error): ?>
+                                            <?= $error ?><br>
+                                        <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
                                 <div class="pt-4 pb-2">
@@ -40,8 +42,7 @@
                                     <p class="text-center">Enter your personal details to create account</p>
                                 </div>
 
-
-                                <form class="row g-3 needs-validation" novalidate method="post" action="/Authreg"
+                                <form class="row g-3 needs-validation" novalidate method="post" action="/clientreg"
                                     onsubmit="return confirmSubmit()">
 
                                     <div class="col-md-4 col-4">
@@ -52,8 +53,6 @@
                                             <div class="invalid-feedback">Please Enter Last Name!</div>
                                         </div>
                                     </div>
-
-                                    <input type="hidden" name="role" class="form-control " id="role" value="client">
 
                                     <div class="col-md-5 col-5">
                                         <label for="firstname" class="form-label">First Name</label>
@@ -74,23 +73,23 @@
                                     </div>
 
                                     <div class="col-md-6 col-6">
-                                        <label for="yourUsername" class="form-label">Username</label>
+                                        <label for="username" class="form-label">Username</label>
                                         <div class="input-group has-validation">
-                                            <input type="text" name="username" class="form-control " id="yourUsername"
+                                            <input type="text" name="username" class="form-control " id="username"
                                                 required>
                                             <div class="invalid-feedback">Please Enter your username!</div>
                                         </div>
                                     </div>
 
                                     <div class="col-md-6 col-6">
-                                        <label for="number" class="form-label">Number</label>
-                                        <input type="text" name="number" class="form-control " id="number" required>
+                                        <label for="phone" class="form-label">Number</label>
+                                        <input type="text" name="phone" class="form-control " id="phone" required>
                                         <div class="invalid-feedback">Please enter a valid number!</div>
                                     </div>
 
                                     <div class="col-md-12 col-12">
-                                        <label for="yourEmail" class="form-label">Your Email</label>
-                                        <input type="email" name="email" class="form-control " id="yourEmail" required>
+                                        <label for="email" class="form-label">Your Email</label>
+                                        <input type="email" name="email" class="form-control " id="email" required>
                                         <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                                     </div>
 
@@ -124,7 +123,10 @@
                                             Account</button>
                                     </div>
                                     <div class="col-md-12">
-                                        <p class=mb-0">Already have an account? <a href="/login">Log in</a></p>
+                                        <p class="mb-0">Already have an account? <a href="/login">Log in</a></p>
+                                        <p class="small mb-0">Have You Forgot your password? <a
+                                                href="/forgot">Forgot</a></p>
+                                        <p class="small mb-0">Go back to <a href="/">Home</a></p>
                                     </div>
                                 </form>
                             </div>

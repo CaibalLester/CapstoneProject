@@ -25,9 +25,9 @@ class Online implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('IsLoggin')) {
-            return redirect()->back();
-        }
+        // if (session()->get('IsLoggin')) {
+        //     return redirect()->back();
+        // }
     }
 
     /**

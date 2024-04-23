@@ -25,13 +25,13 @@ class AgentFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
+        $session = session();
         if (!session()->get('IsLoggin')) {
             return redirect()->to('/login');
         }
-        $session = session();
         if ($session->get('role') !== 'agent') {
             return redirect()->to('/');
-        }   
+        }
         if ($session->get('accountStatus') == 'restricted') {
             $session->setFlashdata('error', 'Your account has been restricted. Please contact customer service for assistance.');
             return redirect()->to('/login');
@@ -39,7 +39,6 @@ class AgentFilter implements FilterInterface
             $session->setFlashdata('warning', 'Account Inactive. Due to 30 days without login');
             return redirect()->to('/login');
         }
-        
     }
 
     /**

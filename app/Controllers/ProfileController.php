@@ -52,7 +52,6 @@ class ProfileController extends BaseController
     }
 
 
-
     public function ManageAgent()
     {
         $agentModel = new AgentModel();

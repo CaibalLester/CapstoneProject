@@ -77,7 +77,7 @@
 
                   <h5 class="card-title">Profile Details</h5>
 
-                  <div class="row">
+                  <div class="row mb-2">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
                     <div class="col-lg-9 col-md-8">
                       <?php if (isset($client['lastName']) && isset($client['firstName']) && isset($client['middleName'])): ?>
@@ -118,6 +118,7 @@
                   <div class="row mb-2">
                     <div class="col-lg-3 col-md-4 label">Adress</div>
                     <div class="col-lg-9 col-md-8">
+                    <?= isset($client['region']) ? $client['region'] : '' ?>,
                       <?= isset($client['province']) ? $client['province'] : '' ?>,
                       <?= isset($client['city']) ? $client['city'] : '' ?>,
                       <?= isset($client['barangay']) ? $client['barangay'] : '' ?>,

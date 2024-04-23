@@ -232,23 +232,37 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="ClientPage">
+        <a class="nav-link " href="<?= base_url() ?>ClientPage">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/history">
+        <a class="nav-link collapsed" href="<?= base_url() ?>history">
         <i class="bi bi-clock-history"></i>
           <span>Payment History</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/viewplans">
+        <a class="nav-link collapsed" href="<?= base_url() ?>viewplans">
         <i class="bi bi-fingerprint"></i>
           <span>Plans</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url() ?>agents">
+        <i class="bi bi-people"></i>
+          <span>Agents</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url() ?>mysched">
+        <i class="bi bi-people"></i>
+          <span>My Schedules</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
