@@ -9,9 +9,13 @@ use App\Models\ApplicantModel;
 use App\Controllers\AppController;
 use App\Models\ScheduleModel;
 use App\Models\Scheduler;
+use App\Models\ClientModel;
+use App\Models\PlanModel;
 
 class AgentController extends BaseController
 {
+    private $plan;
+    private $client;
     private $sched;
     private $appcon;
     private $user;
@@ -26,6 +30,8 @@ class AgentController extends BaseController
         $this->applicant = new ApplicantModel();
         $this->scheduleModel = new ScheduleModel();
         $this->sched = new Scheduler();
+        $this->client = new ClientModel();
+        $this->plan = new PlanModel();
     }
     public function AgDash()
     {
@@ -83,16 +89,16 @@ class AgentController extends BaseController
 
         // Assuming that AgentModel is the correct model for managing agents
         $agentModel = new AgentModel();
-        
+
         // Fetch the agent data
         $agents = $agentModel->where('FA', $userId)->paginate(10, 'group1');
         $data['pager'] = $agentModel->pager;
         $data['agent'] = $agents;
-        
+
         // Fetch the user data
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
-        
+
         return view('Agent/subagents', $data);
     }
 
@@ -184,7 +190,7 @@ class AgentController extends BaseController
             'city' => $this->request->getVar('city_text'),
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
-            
+
         ];
 
         // Check if $data array is not empty before updating the database
@@ -220,8 +226,13 @@ class AgentController extends BaseController
     {
         $data['agents'] = $this->agent->findAll();
         // Merge arrays while retaining the 'agents' key
-        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),
-        $this->appcon->getform1Data(), $data);
+        $data = array_merge(
+            $this->getData(),
+            $this->appcon->getDataApp(),
+            $this->getDataAge(),
+            $this->appcon->getform1Data(),
+            $data
+        );
         return view('Agent/AgForm1', $data);
     }
 
@@ -243,8 +254,51 @@ class AgentController extends BaseController
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
-        $data['schedule'] = $this->sched->where('agent' , $agent)->findAll();
-        return view('Agent/clientApplication' ,$data);
+        $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'pending')->findAll();
+        $data['plans'] = $this->plan->findAll();
+        $data['client'] = $this->client->findAll();
+        return view('Agent/cliSched', $data);
         // var_dump($agent);
+    }
+
+    public function inprog()
+    {
+        $session = session();
+        $agent = $session->get('id');
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'inprogress')->findAll();
+        $data['plans'] = $this->plan->findAll();
+        $data['client'] = $this->client->findAll();
+        return view('Agent/cliSched', $data);
+        // var_dump($agent);
+    }
+
+    public function comp()
+    {
+        $session = session();
+        $agent = $session->get('id');
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'completed')->findAll();
+        $data['plans'] = $this->plan->findAll();
+        $data['client'] = $this->client->findAll();
+        return view('Agent/cliSched', $data);
+        // var_dump($agent);
+    }
+
+    public function con($dec)
+    {
+        $id = base64_decode($dec);
+
+        $status = $this->sched->where('id', $id)->get()->getRow()->status;
+
+        if ($status !== 'inprogress') {
+            $con = ['status' => 'inprogress'];
+            $this->sched->set($con)->where('id', $id)->update();
+        } 
+        // elseif ($status === 'inprogress') {
+        //     $con = ['status' => 'inprogress'];
+        //     $this->sched->set($con)->where('id', $id)->update();
+        // }
+        return redirect()->to('cliSched');
     }
 }

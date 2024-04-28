@@ -32,10 +32,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">My Schedules</h5>
-
+                            <!-- <h5 class="card-title">My Schedules</h5> -->
                             <!-- Default Table -->
-                            <div class="table-responsive">
+                            <div class="table-responsive pt-3">
                                 <table class="table datatable">
                                     <thead>
                                         <tr>
@@ -56,19 +55,24 @@
                                                 <td><?= $sched['status'] ?></td>
                                                 <td><?= date('M j, Y', strtotime($sched['created_at'])); ?></td>
 
-                                                <td><a href="#" data-bs-toggle="modal"
+                                                <td>
+                                                    <a href="#" data-bs-toggle="modal" class="btn btn-outline-primary"
                                                         data-bs-target="#dat<?= $sched['plan'] ?>"><i
-                                                            style="font-size: 30px;" class="ri-eye-line"></i>
+                                                             class="ri-eye-line"></i>
                                                     </a>
-                                                    <a href="#" data-bs-toggle="modal"
+                                                    <a href="#" data-bs-toggle="modal" class="btn btn-outline-secondary"
                                                         data-bs-target="#edit<?= $sched['id'] ?>"><i
-                                                            style="font-size: 25px;" class="bi bi-pencil-square"></i>
+                                                           class="bi bi-pencil-square"></i>
                                                     </a>
                                                     <a href="<?= base_url('delsched/' . base64_encode($sched['id'])) ?>"
-                                                        style="font-size: 25px;"
+                                                    class="btn btn-outline-danger"
                                                         onclick="return confirm('Are you sure you want to remove this Schedule?');">
                                                         <i class="bi bi-trash"></i>
                                                     </a>
+
+                                                    <!-- <a href="" class="btn btn-outline-success">view</a>
+                                                    <a href="" class="btn btn-outline-warning">update</a>
+                                                    <a href="" class="btn btn-outline-danger">view</a> -->
                                                 </td>
                                             </tr>
                                             <div class="modal fade" id="edit<?= $sched['id'] ?>" tabindex="-1"
@@ -130,8 +134,6 @@
                                 </table>
                             </div>
 
-
-
                             <?php foreach ($plan as $plans): ?>
                                 <div class="modal fade" id="dat<?= $plans['token'] ?>" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -174,9 +176,9 @@
                                                                         <div class="tab-content pt-2">
                                                                             <div class="tab-pane fade show active profile-overview">
                                                                                 <h5 class="card-title">Plan</h5>
-                                                                                <h5 class="modal-title">
+                                                                                <h3 class="modal-title">
                                                                                     <?= $plans['plan_name'] ?>
-                                                                                </h5>
+                                                                                </h3>
 
                                                                                 <h5 class="card-title">Agent Contact Details</h5>
 

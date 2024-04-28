@@ -27,6 +27,7 @@ class Scheduler extends Model
         'schedule_time',
         'meeting_type',
         'created_at',
+        'status'
     ];
 
     // Dates

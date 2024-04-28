@@ -68,7 +68,11 @@ $routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']
 $routes->get('/AgForm4', 'AgentController::AgForm4', ['filter' => 'agentFilter']);
 $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
+
 $routes->get('/cliSched', 'AgentController::cliSched', ['filter' => 'agentFilter']);
+$routes->get('/con/(:any)', 'AgentController::con/$1', ['filter' => 'agentFilter']);
+$routes->get('/inprog', 'AgentController::inprog', ['filter' => 'agentFilter']);
+$routes->get('/comp', 'AgentController::comp', ['filter' => 'agentFilter']);
 
 
 $routes->get('/', 'HomepageController::home', ['filter' => 'online']);
