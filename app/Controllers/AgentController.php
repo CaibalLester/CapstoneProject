@@ -254,9 +254,10 @@ class AgentController extends BaseController
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
-        $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'pending')->findAll();
+        $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'pending')->orderBy('created_at', 'desc')->findAll();
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
+        $data['status'] = 'Awaiting';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
@@ -269,6 +270,7 @@ class AgentController extends BaseController
         $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'inprogress')->findAll();
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
+        $data['status'] = 'In Progress';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
@@ -281,8 +283,21 @@ class AgentController extends BaseController
         $data['schedule'] = $this->sched->where('agent', $agent)->where('status', 'completed')->findAll();
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
+        $data['status'] = 'Completed';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
+    }
+    public function compost()
+    {
+        $data = [
+            'username' => $this->request->getVar('username'),
+            'email' => $this->request->getVar('email'),
+            'id' => $this->request->getVar('id'),
+            'plan' => $this->request->getVar('plan'),
+            'agent' => $this->request->getVar('agent'),
+            'client_id' => $this->request->getVar('client_id'),
+        ];
+        var_dump($data);
     }
 
     public function con($dec)

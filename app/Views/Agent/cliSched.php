@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js'></script>
 <?= view('head') ?>
 
 <body>
@@ -116,6 +116,7 @@
                             </li>
                         </ul>
                         <div class="table-responsive">
+                        <h6 class="card-title mx-2"><?= $status?></h5>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -127,23 +128,51 @@
                                     </tr>
                                 </thead>
                                 <?php foreach ($schedule as $sched): ?>
+                                    <?php
+                                    $status = $sched['status'];
+                                    $prog = $sched['status'];
+                                    $showCheckLink = $status == 'pending';
+                                    $showAdd = $prog == 'inprogress';
+                                    ?>
                                     <tbody>
                                         <tr>
                                             <td><?= $sched['username'] ?></td>
                                             <td><?= date('M j, Y', strtotime($sched['selected_date'])); ?></td>
                                             <td><?= date('h:i A', strtotime($sched['schedule_time'])) ?></td>
                                             <td><?= $sched['meeting_type'] ?></td>
-                                            <td><a data-bs-toggle="modal" data-bs-target="#detail<?= $sched['id'] ?>"
-                                                    class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                                    <a href="<?= base_url('con/' . base64_encode($sched['id'])) ?>" class="btn btn-info"
-                                                onclick="return confirm('Are you sure you want to Confirm?');">
-                                                <i class="fas fa-check"></i></a>
+                                            <td>
+                                                <a data-bs-toggle="modal" data-bs-target="#detail<?= $sched['id'] ?>"
+                                                    class="btn btn-success">
+                                                    <i class="bi bi-eye"></i>
+                                                </a>
+                                                <?php if ($showCheckLink): ?>
+                                                    <a href="<?= base_url('con/' . base64_encode($sched['id'])) ?>"
+                                                        class="btn btn-info"
+                                                        onclick="return confirm('Are you sure you want to Confirm?');">
+                                                        <i class="fas fa-check"></i>
+                                                    </a>
+                                                <?php endif; ?>
+                                                <?php if ($showAdd): ?>
+                                                    <a href="#" class="btn btn-info"
+                                                        onclick="submitForm('form<?= $sched['id'] ?>')">
+                                                        <i class="bi bi-send"></i>
+                                                    </a>
+                                                <?php endif; ?>
                                             </td>
+                                            <form action="compost" method="post" id="form<?= $sched['id'] ?>">
+                                                <input type="hidden" name="id" value="<?= $sched['id'] ?>">
+                                                <input type="hidden" name="username" value="<?= $sched['username'] ?>">
+                                                <input type="hidden" name="plan" value="<?= $sched['plan'] ?>">
+                                                <input type="hidden" name="email" value="<?= $sched['email'] ?>">
+                                                <input type="hidden" name="agent" value="<?= $sched['agent'] ?>">
+                                                <input type="hidden" name="client_id" value="<?= $sched['client_id'] ?>">
+                                            </form>
                                         </tr>
                                     </tbody>
                                 <?php endforeach ?>
                             </table>
                         </div>
+
                     </div>
                 </div>
 
@@ -184,13 +213,10 @@
                                                 </div>
 
                                                 <div class="col-xl-8">
-
                                                     <div class="card">
                                                         <div class="card-body pt-3">
                                                             <div class="tab-content pt-2">
                                                                 <div class="tab-pane fade show active profile-overview">
-                                                                    <!-- <h5 class="card-title">Plan</h5> -->
-
                                                                     <h5 class="card-title">Client Contact Details</h5>
                                                                     <div class="row mb-2">
                                                                         <div class="col-lg-3 col-md-4 label ">Full
@@ -204,15 +230,6 @@
                                                                             <?php endif; ?>
                                                                         </div>
                                                                     </div>
-
-                                                                    <!-- <div class="row mb-2">
-                                                                        <div class="col-lg-3 col-md-4 label">
-                                                                            Username
-                                                                        </div>
-                                                                        <div class="col-lg-9 col-md-8">
-                                                                            <?php echo isset($cli['username']) ? $cli['username'] : '' ?>
-                                                                        </div>
-                                                                    </div> -->
 
                                                                     <div class="row mb-2">
                                                                         <div class="col-lg-3 col-md-4 label">Email
@@ -229,26 +246,6 @@
                                                                             <?php echo isset($cli['number']) ? $cli['number'] : '' ?>
                                                                         </div>
                                                                     </div>
-
-                                                                    <!-- <div class="row mb-2">
-                                                                        <div class="col-lg-3 col-md-4 label">
-                                                                            Birthday
-                                                                        </div>
-                                                                        <div class="col-lg-9 col-md-8">
-                                                                            <?= isset($cli['birthday']) ? date('M j, Y', strtotime($cli['birthday'])) : ''; ?>
-                                                                        </div>
-                                                                    </div> -->
-                                                                    <!-- <div class="row mb-2">
-                                                                        <div class="col-lg-3 col-md-4 label">Adress
-                                                                        </div>
-                                                                        <div class="col-lg-9 col-md-8">
-                                                                            <?= isset($cli['region']) ? $cli['region'] : '' ?>,
-                                                                            <?= isset($cli['province']) ? $cli['province'] : '' ?>,
-                                                                            <?= isset($cli['city']) ? $cli['city'] : '' ?>,
-                                                                            <?= isset($cli['barangay']) ? $cli['barangay'] : '' ?>,
-                                                                            <?= isset($cli['street']) ? $cli['street'] : '' ?>
-                                                                        </div>
-                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -270,5 +267,11 @@
     </div>
     <?= view('js'); ?>
 </body>
+<script>
+    function submitForm(formId) {
+        var form = document.getElementById(formId);
+        form.submit();
+    }
+</script>
 
 </html>

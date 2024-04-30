@@ -73,7 +73,7 @@ $routes->get('/cliSched', 'AgentController::cliSched', ['filter' => 'agentFilter
 $routes->get('/con/(:any)', 'AgentController::con/$1', ['filter' => 'agentFilter']);
 $routes->get('/inprog', 'AgentController::inprog', ['filter' => 'agentFilter']);
 $routes->get('/comp', 'AgentController::comp', ['filter' => 'agentFilter']);
-
+$routes->post('/compost', 'AgentController::compost', ['filter' => 'agentFilter']);
 
 $routes->get('/', 'HomepageController::home', ['filter' => 'online']);
 
