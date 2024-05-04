@@ -11,9 +11,11 @@ use App\Models\ScheduleModel;
 use App\Models\Scheduler;
 use App\Models\ClientModel;
 use App\Models\PlanModel;
+use App\Models\ClientPlanModel;
 
 class AgentController extends BaseController
 {
+    private $client_plan;
     private $plan;
     private $client;
     private $sched;
@@ -32,6 +34,7 @@ class AgentController extends BaseController
         $this->sched = new Scheduler();
         $this->client = new ClientModel();
         $this->plan = new PlanModel();
+        $this->client_plan = new ClientPlanModel();
     }
     public function AgDash()
     {
@@ -63,7 +66,7 @@ class AgentController extends BaseController
     {
         return view('Agent/AgHelp');
     }
-    private function getData()
+    public function getData()
     {
         $session = session();
 
@@ -83,22 +86,16 @@ class AgentController extends BaseController
 
     public function subagent()
     {
+        
         $session = session();
-
         $userId = $session->get('id');
-
-        // Assuming that AgentModel is the correct model for managing agents
-        $agentModel = new AgentModel();
-
         // Fetch the agent data
-        $agents = $agentModel->where('FA', $userId)->paginate(10, 'group1');
-        $data['pager'] = $agentModel->pager;
-        $data['agent'] = $agents;
-
+        $agents = $this->agent->where('FA', $userId)->paginate(10, 'group1');
+        $data = array_merge($this->getData(), $this->getDataAge());
+        $data['pager'] = $this->agent->pager;
+        $data['subagent'] = $agents;
         // Fetch the user data
-        $userModel = new UserModel();
-        $data['user'] = $userModel->find($userId);
-
+        $data['user'] = $this->user->find($userId);
         return view('Agent/subagents', $data);
     }
 
@@ -127,7 +124,7 @@ class AgentController extends BaseController
         return view('Agent/subagents', $data);
     }
 
-    private function getDataAge()
+    public function getDataAge()
     {
         $session = session();
         $userId = $session->get('id');
@@ -258,6 +255,7 @@ class AgentController extends BaseController
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
         $data['status'] = 'Awaiting';
+        $data['class'] = 'Awaiting';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
@@ -271,6 +269,7 @@ class AgentController extends BaseController
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
         $data['status'] = 'In Progress';
+        $data['class'] = 'In Progress';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
@@ -284,20 +283,31 @@ class AgentController extends BaseController
         $data['plans'] = $this->plan->findAll();
         $data['client'] = $this->client->findAll();
         $data['status'] = 'Completed';
+        $data['class'] = 'Completed';
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
     public function compost()
     {
+        $schedId = $this->request->getVar('schedId');
+        $plan = $this->request->getVar('plan');
+        $email = $this->request->getVar('email');
+
         $data = [
-            'username' => $this->request->getVar('username'),
-            'email' => $this->request->getVar('email'),
-            'id' => $this->request->getVar('id'),
             'plan' => $this->request->getVar('plan'),
             'agent' => $this->request->getVar('agent'),
             'client_id' => $this->request->getVar('client_id'),
+            'mode_payment' => $this->request->getVar('typeofpayment'),
+            'term' => $this->request->getVar('term'),
+            'applicationNo' => $this->request->getVar('applicationNo'),
         ];
-        var_dump($data);
+        $this->client_plan->save($data);
+
+        $s = ['status' => 'completed'];
+        $this->sched->set($s)->where('id', $schedId)->update();
+        // $this->user->set($con)->where('token', $token)->update();
+        return redirect()->to('cliSched')->with('success', 'Transaction Completed');
+        // var_dump($data);
     }
 
     public function con($dec)
@@ -306,7 +316,7 @@ class AgentController extends BaseController
 
         $status = $this->sched->where('id', $id)->get()->getRow()->status;
 
-        if ($status !== 'inprogress') {
+        if ($status === 'pending') {
             $con = ['status' => 'inprogress'];
             $this->sched->set($con)->where('id', $id)->update();
         } 
@@ -314,6 +324,6 @@ class AgentController extends BaseController
         //     $con = ['status' => 'inprogress'];
         //     $this->sched->set($con)->where('id', $id)->update();
         // }
-        return redirect()->to('cliSched');
+        return redirect()->to('cliSched')->with('success', 'Transaction In Progress');
     }
 }

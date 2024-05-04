@@ -10,7 +10,7 @@
     <?= view('Agent/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -18,13 +18,6 @@
                             <a class="nav-link" aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
                             </a>
                         </li>
 
@@ -70,23 +63,23 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/client">
+                                <i class="bi-person me-2"></i>
+                                Clients
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link active" href="/agentsched">
                                 <i class="bi bi-check-lg me-2"></i>
                                 Schedule
                             </a>
                         </li>
-
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
+                            <a class="nav-link" href="/cliSched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Transactions
                             </a>
                         </li>
 

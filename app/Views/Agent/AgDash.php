@@ -18,13 +18,6 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link " href="#" data-bs-toggle="collapse" data-bs-target="#manageDropdown"
                                 aria-expanded="false">
                                 <i class="bi-book me-2"></i>
@@ -66,23 +59,23 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/client">
+                                <i class="bi-person me-2"></i>
+                                Clients
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/agentsched">
                                 <i class="bi bi-check-lg me-2"></i>
                                 Schedule
                             </a>
                         </li>
-
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
+                            <a class="nav-link" href="/cliSched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Transactions
                             </a>
                         </li>
 

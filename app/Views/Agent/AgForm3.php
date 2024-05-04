@@ -1,26 +1,20 @@
 <!doctype html>
 <html lang="en">
 <?= view('head'); ?>
+
 <body>
     <?= view('Agent/chop/header'); ?>
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/AgDash">
+                            <a class="nav-link" aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
                             </a>
                         </li>
 
@@ -41,7 +35,7 @@
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AIAL</span>
                                         </a><br>
-                                        <a class="nav-link active" href="/AgForm3">
+                                        <a class="nav-link" href="/AgForm3">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">GROUP LIFE INSURANCE</span>
                                         </a><br>
@@ -66,6 +60,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/client">
+                                <i class="bi-person me-2"></i>
+                                Clients
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/agentsched">
                                 <i class="bi bi-check-lg me-2"></i>
                                 Schedule
@@ -73,16 +74,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
+                            <a class="nav-link" href="/cliSched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Transactions
                             </a>
                         </li>
 
@@ -132,15 +126,25 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><input type="text" id="lastName" name="lastName"
-                                                                    class="form-control" value="<?= isset($gli['lastName']) ? $gli['lastName'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['lastName']) ? $gli['lastName'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" id="firstName" name="firstName"
-                                                                    class="form-control"value="<?= isset($gli['firstName']) ? $gli['firstName'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['firstName']) ? $gli['firstName'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" id="middleName" name="middleName"
-                                                                    class="form-control" value="<?= isset($gli['middleName']) ? $gli['middleName'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['middleName']) ? $gli['middleName'] : '' ?>">
+                                                            </td>
                                                             <td><input type="date" id="dateOfBirth" name="dateOfBirth"
-                                                                    class="form-control" value="<?= isset($gli['dateOfBirth']) ? $gli['dateOfBirth'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['dateOfBirth']) ? $gli['dateOfBirth'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" id="occupation" name="occupation"
-                                                                    class="form-control" value="<?= isset($gli['occupation']) ? $gli['occupation'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['occupation']) ? $gli['occupation'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <th>Name Of Company</th>
@@ -151,12 +155,19 @@
                                                         </tr>
                                                         <tr>
                                                             <td><input type="text" id="companyName" name="companyName"
-                                                                    class="form-control" value="<?= isset($gli['companyName']) ? $gli['companyName'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['companyName']) ? $gli['companyName'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" id="businessNature"
-                                                                    name="businessNature" class="form-control" value="<?= isset($gli['businessNature']) ? $gli['businessNature'] : '' ?>"></td>
+                                                                    name="businessNature" class="form-control"
+                                                                    value="<?= isset($gli['businessNature']) ? $gli['businessNature'] : '' ?>">
+                                                            </td>
                                                             <td>
                                                                 <select id="sex" name="sex" class="form-control">
-                                                                    <option value="<?= isset($gli['sex']) ? $gli['sex'] : '' ?>"><?= isset($gli['sex']) ? $gli['sex'] : '' ?></option>
+                                                                    <option
+                                                                        value="<?= isset($gli['sex']) ? $gli['sex'] : '' ?>">
+                                                                        <?= isset($gli['sex']) ? $gli['sex'] : '' ?>
+                                                                    </option>
                                                                     <option value="male">Male</option>
                                                                     <option value="female">Female</option>
                                                                 </select>
@@ -164,7 +175,10 @@
                                                             <td>
                                                                 <select id="civilStatus" name="civilStatus"
                                                                     class="form-control">
-                                                                    <option value="<?= isset($gli['civilStatus']) ? $gli['civilStatus'] : '' ?>"><?= isset($gli['civilStatus']) ? $gli['civilStatus'] : '' ?></option>
+                                                                    <option
+                                                                        value="<?= isset($gli['civilStatus']) ? $gli['civilStatus'] : '' ?>">
+                                                                        <?= isset($gli['civilStatus']) ? $gli['civilStatus'] : '' ?>
+                                                                    </option>
                                                                     <option value="Single">Single</option>
                                                                     <option value="Married">Married</option>
                                                                     <option value="Divorced">Divorced</option>
@@ -172,7 +186,9 @@
                                                                 </select>
                                                             </td>
                                                             <td><input type="text" id="nationality" name="nationality"
-                                                                    class="form-control" value="<?= isset($gli['nationality']) ? $gli['nationality'] : '' ?>"></td>
+                                                                    class="form-control"
+                                                                    value="<?= isset($gli['nationality']) ? $gli['nationality'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <th rowspan="5" style="text-align: center;">ADDRESS</th>
@@ -184,9 +200,13 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"><input type="text" id="residenceAddress"
-                                                                    name="residenceAddress" class="form-control" value="<?= isset($gli['residenceAddress']) ? $gli['residenceAddress'] : '' ?>"></td>
+                                                                    name="residenceAddress" class="form-control"
+                                                                    value="<?= isset($gli['residenceAddress']) ? $gli['residenceAddress'] : '' ?>">
+                                                            </td>
                                                             <td colspan="2"><input type="text" id="residenceTelephone"
-                                                                    name="residenceTelephone" class="form-control" value="<?= isset($gli['residenceTelephone']) ? $gli['residenceTelephone'] : '' ?>"></td>
+                                                                    name="residenceTelephone" class="form-control"
+                                                                    value="<?= isset($gli['residenceTelephone']) ? $gli['residenceTelephone'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <th colspan="2">Business/Office (NO., Street,
@@ -195,9 +215,13 @@
                                                         </tr>
                                                         <tr>
                                                             <td colspan="2"><input type="text" id="businessAddress"
-                                                                    name="businessAddress" class="form-control" value="<?= isset($gli['businessAddress']) ? $gli['businessAddress'] : '' ?>"></td>
+                                                                    name="businessAddress" class="form-control"
+                                                                    value="<?= isset($gli['businessAddress']) ? $gli['businessAddress'] : '' ?>">
+                                                            </td>
                                                             <td colspan="2"><input type="text" id="businessTelephone"
-                                                                    name="businessTelephone" class="form-control" value="<?= isset($gli['businessTelephone']) ? $gli['businessTelephone'] : '' ?>"></td>
+                                                                    name="businessTelephone" class="form-control"
+                                                                    value="<?= isset($gli['businessTelephone']) ? $gli['businessTelephone'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -224,81 +248,146 @@
                                                             <TH>YY
                                                         <tr>
                                                             <td><input type="text" class="form-control" id="firstName1"
-                                                                    name="firstName1" value="<?= isset($gli['firstName1']) ? $gli['firstName1'] : '' ?>"></td>
+                                                                    name="firstName1"
+                                                                    value="<?= isset($gli['firstName1']) ? $gli['firstName1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="mi1"
-                                                                    name="mi1" value="<?= isset($gli['mi1']) ? $gli['mi1'] : '' ?>"></td>
+                                                                    name="mi1"
+                                                                    value="<?= isset($gli['mi1']) ? $gli['mi1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="lastName1"
-                                                                    name="lastName1" value="<?= isset($gli['lastName1']) ? $gli['lastName1'] : '' ?>"></td>
+                                                                    name="lastName1"
+                                                                    value="<?= isset($gli['lastName1']) ? $gli['lastName1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="month1"
-                                                                    name="month1" value="<?= isset($gli['month1']) ? $gli['month1'] : '' ?>"></td>
+                                                                    name="month1"
+                                                                    value="<?= isset($gli['month1']) ? $gli['month1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="day1"
-                                                                    name="day1" value="<?= isset($gli['day1']) ? $gli['day1'] : '' ?>"></td>
+                                                                    name="day1"
+                                                                    value="<?= isset($gli['day1']) ? $gli['day1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="year1"
-                                                                    name="year1" value="<?= isset($gli['year1']) ? $gli['year1'] : '' ?>"></td>
+                                                                    name="year1"
+                                                                    value="<?= isset($gli['year1']) ? $gli['year1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control"
-                                                                    id="relationship1" name="relationship1" value="<?= isset($gli['relationship1']) ? $gli['relationship1'] : '' ?>"></td>
+                                                                    id="relationship1" name="relationship1"
+                                                                    value="<?= isset($gli['relationship1']) ? $gli['relationship1'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="remarks1"
-                                                                    name="remarks1" value="<?= isset($gli['remarks1']) ? $gli['remarks1'] : '' ?>"></td>
+                                                                    name="remarks1"
+                                                                    value="<?= isset($gli['remarks1']) ? $gli['remarks1'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td><input type="text" class="form-control" id="firstName2"
-                                                                    name="firstName2" value="<?= isset($gli['firstName2']) ? $gli['firstName2'] : '' ?>"></td>
+                                                                    name="firstName2"
+                                                                    value="<?= isset($gli['firstName2']) ? $gli['firstName2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="mi2"
-                                                                    name="mi2" value="<?= isset($gli['mi2']) ? $gli['mi2'] : '' ?>"></td>
+                                                                    name="mi2"
+                                                                    value="<?= isset($gli['mi2']) ? $gli['mi2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="lastName2"
-                                                                    name="lastName2" value="<?= isset($gli['lastName2']) ? $gli['lastName2'] : '' ?>"></td>
+                                                                    name="lastName2"
+                                                                    value="<?= isset($gli['lastName2']) ? $gli['lastName2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="month2"
-                                                                    name="month2" value="<?= isset($gli['month2']) ? $gli['month2'] : '' ?>"></td>
+                                                                    name="month2"
+                                                                    value="<?= isset($gli['month2']) ? $gli['month2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="day2"
-                                                                    name="day2" value="<?= isset($gli['day2']) ? $gli['day2'] : '' ?>"></td>
+                                                                    name="day2"
+                                                                    value="<?= isset($gli['day2']) ? $gli['day2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="year2"
-                                                                    name="year2" value="<?= isset($gli['year2']) ? $gli['year2'] : '' ?>"></td>
+                                                                    name="year2"
+                                                                    value="<?= isset($gli['year2']) ? $gli['year2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control"
-                                                                    id="relationship2" name="relationship2" value="<?= isset($gli['relationship2']) ? $gli['relationship2'] : '' ?>"></td>
+                                                                    id="relationship2" name="relationship2"
+                                                                    value="<?= isset($gli['relationship2']) ? $gli['relationship2'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="remarks2"
-                                                                    name="remarks2" value="<?= isset($gli['remarks2']) ? $gli['remarks2'] : '' ?>"></td>
+                                                                    name="remarks2"
+                                                                    value="<?= isset($gli['remarks2']) ? $gli['remarks2'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td><input type="text" class="form-control" id="firstName3"
-                                                                    name="firstName3" value="<?= isset($gli['firstName3']) ? $gli['firstName3'] : '' ?>"></td>
+                                                                    name="firstName3"
+                                                                    value="<?= isset($gli['firstName3']) ? $gli['firstName3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="mi3"
-                                                                    name="mi3" value="<?= isset($gli['mi3']) ? $gli['mi3'] : '' ?>"></td>
+                                                                    name="mi3"
+                                                                    value="<?= isset($gli['mi3']) ? $gli['mi3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="lastName3"
-                                                                    name="lastName3" value="<?= isset($gli['lastName3']) ? $gli['lastName3'] : '' ?>"></td>
+                                                                    name="lastName3"
+                                                                    value="<?= isset($gli['lastName3']) ? $gli['lastName3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="month3"
-                                                                    name="month3" value="<?= isset($gli['month3']) ? $gli['month3'] : '' ?>"></td>
+                                                                    name="month3"
+                                                                    value="<?= isset($gli['month3']) ? $gli['month3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="day3"
-                                                                    name="day3" value="<?= isset($gli['day3']) ? $gli['day3'] : '' ?>"></td>
+                                                                    name="day3"
+                                                                    value="<?= isset($gli['day3']) ? $gli['day3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="year3"
-                                                                    name="year3" value="<?= isset($gli['year3']) ? $gli['year3'] : '' ?>"></td>
+                                                                    name="year3"
+                                                                    value="<?= isset($gli['year3']) ? $gli['year3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control"
-                                                                    id="relationship3" name="relationship3" value="<?= isset($gli['relationship3']) ? $gli['relationship3'] : '' ?>"></td>
+                                                                    id="relationship3" name="relationship3"
+                                                                    value="<?= isset($gli['relationship3']) ? $gli['relationship3'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="remarks3"
-                                                                    name="remarks3" value="<?= isset($gli['remarks3']) ? $gli['remarks3'] : '' ?>"></td>
+                                                                    name="remarks3"
+                                                                    value="<?= isset($gli['remarks3']) ? $gli['remarks3'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td><input type="text" class="form-control" id="firstName4"
-                                                                    name="firstName4" value="<?= isset($gli['firstName4']) ? $gli['firstName4'] : '' ?>"></td>
+                                                                    name="firstName4"
+                                                                    value="<?= isset($gli['firstName4']) ? $gli['firstName4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="mi4"
-                                                                    name="mi4" value="<?= isset($gli['mi4']) ? $gli['mi4'] : '' ?>"></td>
+                                                                    name="mi4"
+                                                                    value="<?= isset($gli['mi4']) ? $gli['mi4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="lastName4"
-                                                                    name="lastName4" value="<?= isset($gli['lastName4']) ? $gli['lastName4'] : '' ?>"></td>
+                                                                    name="lastName4"
+                                                                    value="<?= isset($gli['lastName4']) ? $gli['lastName4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="month4"
-                                                                    name="month4" value="<?= isset($gli['month4']) ? $gli['month4'] : '' ?>"></td>
+                                                                    name="month4"
+                                                                    value="<?= isset($gli['month4']) ? $gli['month4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="day4"
-                                                                    name="day4" value="<?= isset($gli['day4']) ? $gli['day4'] : '' ?>"></td>
+                                                                    name="day4"
+                                                                    value="<?= isset($gli['day4']) ? $gli['day4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="year4"
-                                                                    name="year4" value="<?= isset($gli['year4']) ? $gli['year4'] : '' ?>"></td>
+                                                                    name="year4"
+                                                                    value="<?= isset($gli['year4']) ? $gli['year4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control"
-                                                                    id="relationship4" name="relationship4" value="<?= isset($gli['relationship4']) ? $gli['relationship4'] : '' ?>"></td>
+                                                                    id="relationship4" name="relationship4"
+                                                                    value="<?= isset($gli['relationship4']) ? $gli['relationship4'] : '' ?>">
+                                                            </td>
                                                             <td><input type="text" class="form-control" id="remarks4"
-                                                                    name="remarks4" value="<?= isset($gli['remarks4']) ? $gli['remarks4'] : '' ?>"></td>
+                                                                    name="remarks4"
+                                                                    value="<?= isset($gli['remarks4']) ? $gli['remarks4'] : '' ?>">
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <th colspan="1">Trustee of minor benificiary/ies;</th>
                                                             <th colspan="7"><input type="text"
                                                                     id="trusteeMinorBeneficiary"
-                                                                    name="trusteeMinorBeneficiary" class="form-control" value="<?= isset($gli['trusteeMinorBeneficiary']) ? $gli['trusteeMinorBeneficiary'] : '' ?>">
+                                                                    name="trusteeMinorBeneficiary" class="form-control"
+                                                                    value="<?= isset($gli['trusteeMinorBeneficiary']) ? $gli['trusteeMinorBeneficiary'] : '' ?>">
                                                             </th>
                                                         </tr>
                                                     </tbody>
@@ -315,18 +404,23 @@
                                                     provided in accordance with the Data Privacy Act.</p><br>
                                                 <p>Signed at <input type="text"
                                                         style="width: 100px; border-radius: 7px;" id="place"
-                                                        name="place" value="<?= isset($gli['place']) ? $gli['place'] : '' ?>">
+                                                        name="place"
+                                                        value="<?= isset($gli['place']) ? $gli['place'] : '' ?>">
                                                     this <input type="text" style="width: 50px; border-radius: 7px;"
-                                                        id="day" name="day" value="<?= isset($gli['day']) ? $gli['day'] : '' ?>">
+                                                        id="day" name="day"
+                                                        value="<?= isset($gli['day']) ? $gli['day'] : '' ?>">
                                                     day of <input type="text" style="width: 100px; border-radius: 7px;"
-                                                        id="month" name="month" value="<?= isset($gli['month']) ? $gli['month'] : '' ?>">,
+                                                        id="month" name="month"
+                                                        value="<?= isset($gli['month']) ? $gli['month'] : '' ?>">,
                                                     <input type="text" style="width: 50px; border-radius: 7px;"
-                                                        id="year" name="year" value="<?= isset($gli['year']) ? $gli['year'] : '' ?>">.<br><br><br><br>
+                                                        id="year" name="year"
+                                                        value="<?= isset($gli['year']) ? $gli['year'] : '' ?>">.<br><br><br><br>
                                                 </p>
                                                 <p style="text-align: right;">
                                                     <input type="text" style="width: 45%; border-radius: 10px;"
                                                         id="applicantSignature" name="applicantSignature"
-                                                        placeholder="Applicant" value="<?= isset($gli['applicantSignature']) ? $gli['applicantSignature'] : '' ?>">
+                                                        placeholder="Applicant"
+                                                        value="<?= isset($gli['applicantSignature']) ? $gli['applicantSignature'] : '' ?>">
                                                 <h6 style="text-align: right;">Printed Name and Signiture of Applicant
                                                 </h6>
                                                 </p>

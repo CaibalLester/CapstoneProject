@@ -150,7 +150,3 @@ $routes->get('/agentsched', 'AgentController::sched');
 
 // $routes->get('/try', 'ProfileController::try');
 
-
-
-
-

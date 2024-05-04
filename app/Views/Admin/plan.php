@@ -151,7 +151,7 @@
                                                             </div>
 
                                                             <div class="mb-1">
-                                                                <label for="price" class="form-label">Price</label>
+                                                                <label for="price" class="form-label">Annual Payment</label>
                                                                 <input type="number" class="form-control" id="price"
                                                                     name="price" required
                                                                     value="<?php echo isset($plans['price']) ? $plans['price'] : '' ?>">
@@ -241,7 +241,7 @@
                                                         <div class="col-lg-12"></div>
 
                                                         <div class="mb-1">
-                                                            <label for="price" class="form-label">Price</label>
+                                                            <label for="price" class="form-label">Annual Payment</label>
                                                             <input type="number" class="form-control" id="price"
                                                                 name="price" required>
                                                         </div>

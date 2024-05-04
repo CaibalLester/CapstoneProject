@@ -8,9 +8,15 @@ use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\AgentModel;
+use App\Controllers\AgentController;
 
 class ProfileController extends BaseController
 {
+    private $agcon;
+    public function __construct()
+    {
+        $this->agcon = new AgentController();
+    }
     public function agentprofile($token)
     {
         $agentModel = new AgentModel();
@@ -33,7 +39,8 @@ class ProfileController extends BaseController
     {
         $agentModel = new AgentModel();
         $data = $this->getDataAd();
-        $data['agent'] = $agentModel->where('agent_token', $token)->first();
+        $data = array_merge($this->agcon->getData(), $this->agcon->getDataAge());
+        $data['subagent'] = $agentModel->where('agent_token', $token)->first();
 
         $agentid = $data['agent']['agent_id'];
         $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page

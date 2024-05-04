@@ -1,0 +1,304 @@
+ERROR - 2024-05-04 21:15:00 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:185
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(185): mysqli->real_connect('localhost', 'root', '', 'erecruit', 3306, '', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\CapstoneSystem\system\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+#6 C:\CapstoneSystem\app\Controllers\ClientController.php(115): CodeIgniter\BaseModel->paginate(8, 'agent')
+#7 C:\CapstoneSystem\app\Controllers\HomepageController.php(40): App\Controllers\ClientController->ag()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->home()
+#9 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#10 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:229
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\CapstoneSystem\system\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\CapstoneSystem\system\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#4 C:\CapstoneSystem\system\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+#5 C:\CapstoneSystem\app\Controllers\ClientController.php(115): CodeIgniter\BaseModel->paginate(8, 'agent')
+#6 C:\CapstoneSystem\app\Controllers\HomepageController.php(40): App\Controllers\ClientController->ag()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\HomepageController->home()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-05-04 21:15:00 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1699): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `agent`', [], false)
+ 3 SYSTEMPATH\Model.php(599): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 4 SYSTEMPATH\BaseModel.php(1203): CodeIgniter\Model->countAllResults(false)
+ 5 APPPATH\Controllers\ClientController.php(115): CodeIgniter\BaseModel->paginate(8, 'agent')
+ 6 APPPATH\Controllers\HomepageController.php(40): App\Controllers\ClientController->ag()
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\HomepageController->home()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomepageController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:04:08 --> syntax error, unexpected identifier "redirect"
+in APPPATH\Controllers\AgentController.php on line 310.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\CapstoneSystem\\app\\Controllers\\AgentController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AgentController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AgentController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AgentController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:04:15 --> syntax error, unexpected identifier "redirect"
+in APPPATH\Controllers\AgentController.php on line 310.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\CapstoneSystem\\app\\Controllers\\AgentController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AgentController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AgentController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AgentController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:04:17 --> syntax error, unexpected identifier "redirect"
+in APPPATH\Controllers\AgentController.php on line 310.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\CapstoneSystem\\app\\Controllers\\AgentController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AgentController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AgentController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AgentController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:04:18 --> syntax error, unexpected identifier "redirect"
+in APPPATH\Controllers\AgentController.php on line 310.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\CapstoneSystem\\app\\Controllers\\AgentController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AgentController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AgentController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AgentController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:06:17 --> Call to a member function save() on null
+in APPPATH\Controllers\AgentController.php on line 306.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:23:05 --> Undefined variable $awaiting
+in APPPATH\Views\Agent\cliSched.php on line 121.
+ 1 APPPATH\Views\Agent\cliSched.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $awaiting', 'C:\\CapstoneSystem\\app\\Views\\Agent\\cliSched.php', 121)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\cliSched.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/cliSched', [], true)
+ 5 APPPATH\Controllers\AgentController.php(279): view('Agent/cliSched', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->inprog()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-05-04 22:26:32 --> mysqli_sql_exception: Column 'applicationNo' cannot be null in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `cl...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `cl...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `cl...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `cl...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\CapstoneSystem\system\BaseModel.php(788): CodeIgniter\Model->doInsert(Array)
+#6 C:\CapstoneSystem\system\Model.php(715): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\CapstoneSystem\system\BaseModel.php(698): CodeIgniter\Model->insert(Array, false)
+#8 C:\CapstoneSystem\app\Controllers\AgentController.php(310): CodeIgniter\BaseModel->save(Array)
+#9 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+#10 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+#11 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#14 {main}
+CRITICAL - 2024-05-04 22:26:32 --> Column 'applicationNo' cannot be null
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `client_plan` (`plan`, `agent`, `client_id`, `mode_payment`, `term`, `applicationNo`) VALUES (:plan:, :agent:, :client_id:, :mode_payment:, :term:, :applicationNo:)', [...], false)
+ 2 SYSTEMPATH\Model.php(319): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(788): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(715): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(698): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\AgentController.php(310): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 8 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 9 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:30:26 --> Undefined variable $con
+in APPPATH\Controllers\AgentController.php on line 314.
+ 1 APPPATH\Controllers\AgentController.php(314): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $con', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 314)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:43:44 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 121.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(102): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:45:23 --> Undefined variable $subagent
+in APPPATH\Views\Agent\subagentprofile.php on line 96.
+ 1 APPPATH\Views\Agent\subagentprofile.php(96): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagentprofile.php', 96)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagentprofile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagentprofile', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(43): view('Agent/subagentprofile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->subagentprofile('5c27e8fdbbd3ddee891b2b031cdd52d8617b9038b573fb4084')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:45:53 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 121.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(102): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:46:10 --> Undefined variable $agent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(101): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:48:48 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 121.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(98): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:51:43 --> Undefined variable $subagent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(98): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:52:04 --> Undefined variable $subagent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(98): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:52:37 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 121.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(98): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:52:52 --> Cannot access offset of type string on string
+in APPPATH\Views\Agent\subagents.php on line 121.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 4 APPPATH\Controllers\AgentController.php(99): view('Agent/subagents', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:53:00 --> Undefined variable $agent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $agent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(99): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:53:22 --> Undefined variable $subagent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(99): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:53:27 --> Undefined variable $subagent
+in APPPATH\Views\Agent\subagents.php on line 117.
+ 1 APPPATH\Views\Agent\subagents.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php', 117)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagents.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagents', [], true)
+ 5 APPPATH\Controllers\AgentController.php(100): view('Agent/subagents', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->subagent()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:56:23 --> Call to private method App\Controllers\AgentController::getData() from scope App\Controllers\ProfileController
+in APPPATH\Controllers\ProfileController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->subagentprofile('5c27e8fdbbd3ddee891b2b031cdd52d8617b9038b573fb4084')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:56:46 --> Call to private method App\Controllers\AgentController::getData() from scope App\Controllers\ProfileController
+in APPPATH\Controllers\ProfileController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->subagentprofile('5c27e8fdbbd3ddee891b2b031cdd52d8617b9038b573fb4084')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-04 22:58:27 --> Call to protected method App\Controllers\AgentController::getData() from scope App\Controllers\ProfileController
+in APPPATH\Controllers\ProfileController.php on line 43.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->subagentprofile('5c27e8fdbbd3ddee891b2b031cdd52d8617b9038b573fb4084')
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

@@ -7,21 +7,14 @@
     <?= view('Agent/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/AgDash">
+                            <a class="nav-link" aria-current="page" href="/AgDash">
                                 <i class="bi-house-fill me-2"></i>
                                 Overview
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
                             </a>
                         </li>
 
@@ -67,6 +60,13 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="/client">
+                                <i class="bi-person me-2"></i>
+                                Clients
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="/agentsched">
                                 <i class="bi bi-check-lg me-2"></i>
                                 Schedule
@@ -74,16 +74,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/AgSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AgHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
+                            <a class="nav-link" href="/cliSched">
+                                <i class="bi bi-check-lg me-2"></i>
+                                Transactions
                             </a>
                         </li>
 
@@ -100,19 +93,19 @@
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">
-                        <?= $agent['username'] ?>'s Profile
+                        <?= $subagent['username'] ?>'s Profile
                     </h1>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 mb-1">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
+                                <img src="<?= isset($subagent['agentprofile']) ? base_url('/uploads/' . $subagent['agentprofile']) : '' ?>"
                                     alt="Profile" class="rounded-circle"
                                     style="width: 150px; height: 150px; cursor: pointer;" data-bs-placement="bottom"
                                     title="Click to see QR code">
                                 <h5>
-                                    <?= $agent['username'] ?>
+                                    <?= $subagent['username'] ?>
                                 </h5>
                                 <div class="social-links mt-2">
                                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -172,10 +165,10 @@
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php if (isset($agent['lastname']) && isset($agent['firstname']) && isset($agent['middlename'])): ?>
-                                                    <?= $agent['lastname'] ?>,
-                                                    <?= $agent['firstname'] ?>
-                                                    <?= $agent['middlename'] ?>
+                                                <?php if (isset($subagent['lastname']) && isset($subagent['firstname']) && isset($subagent['middlename'])): ?>
+                                                    <?= $subagent['lastname'] ?>,
+                                                    <?= $subagent['firstname'] ?>
+                                                    <?= $subagent['middlename'] ?>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -183,44 +176,44 @@
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($agent['username']) ? $agent['username']: '' ?>
+                                                <?php echo isset($subagent['username']) ? $subagent['username'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Agent Code</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($agent['AgentCode']) ? $agent['AgentCode']: '' ?>
+                                                <?php echo isset($subagent['AgentCode']) ? $subagent['AgentCode'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Email</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($agent['email']) ? $agent['email']: '' ?>
+                                                <?php echo isset($subagent['email']) ? $subagent['email'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Phone</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($agent['number']) ? $agent['number']: '' ?>
+                                                <?php echo isset($subagent['number']) ? $subagent['number'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Birthday</div>
                                             <div class="col-lg-8 col-md-8">
-                                            <?php echo isset($agent['birthday']) ? date('M j, Y', strtotime($agent['birthday'])) : ''; ?>
+                                                <?php echo isset($subagent['birthday']) ? date('M j, Y', strtotime($subagent['birthday'])) : ''; ?>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Adress</div>
                                             <div class="col-lg-8 col-md-8">
-                                            <?= isset ($agent['province']) ? $agent['province'] : '' ?>, 
-                                            <?= isset ($agent['city']) ? $agent['city'] : '' ?>,
-                                            <?= isset ($agent['barangay']) ? $agent['barangay'] : '' ?>,
-                                            <?= isset ($agent['street']) ? $agent['street'] : '' ?>
+                                                <?= isset($subagent['province']) ? $subagent['province'] : '' ?>,
+                                                <?= isset($subagent['city']) ? $subagent['city'] : '' ?>,
+                                                <?= isset($subagent['barangay']) ? $subagent['barangay'] : '' ?>,
+                                                <?= isset($subagent['street']) ? $subagent['street'] : '' ?>
                                             </div>
                                         </div>
                                     </div>
@@ -274,21 +267,21 @@
                                         <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
                                             <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm/<?= $agent['agent_token'] ?>">
+                                                <a href="/ViewAppForm/<?= $subagent['agent_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="Life Changer Form Image">
                                                     LIFE
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm2/<?= $agent['agent_token'] ?>">
+                                                <a href="/ViewAppForm2/<?= $subagent['agent_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="AIAL">
                                                     AIAL
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm3/<?= $agent['agent_token'] ?>">
+                                                <a href="/ViewAppForm3/<?= $subagent['agent_token'] ?>">
                                                     <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
                                                         alt="Life Changer Form Image">
                                                     GLI
