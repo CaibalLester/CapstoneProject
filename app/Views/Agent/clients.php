@@ -1,16 +1,13 @@
-<?php require_once ('db.php') ?>
 <!doctype html>
 <html lang="en">
 <?= view('head') ?>
 
-<?= view('Admin/chop/head') ?>
-
-
 <body>
     <?= view('Agent/chop/header') ?>
+
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -63,19 +60,19 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/clients">
+                            <a class="nav-link active" href="/clients">
                                 <i class="bi-person me-2"></i>
                                 Clients
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/agentsched">
+                            <a class="nav-link" href="/agentsched">
                                 <i class="bi bi-check-lg me-2"></i>
                                 Schedule
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/cliSched">
                                 <i class="bi bi-check-lg me-2"></i>
@@ -93,73 +90,65 @@
                 </div>
             </nav>
 
-
-
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">Schedule</h1>
+                    <h1 class="h2 mb-0">Sub Agents</h1>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-15">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card"
-                                    style="width: 100%; max-width: 1000px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
-                                    <div class="card-body" style="padding: 20px;">
-                                        <div id="calendar"></div>
+                <div class="row my-4">
+
+                    <div class="col-lg-12 col-12">
+                        <div class="custom-block bg-white">
+                            <form class="custom-form search-form" action="clients" method="post" role="form">
+                                <div class="row">
+                                    <div class="col-lg-4 col-8">
+                                        <input class="form-control mb-lg-0 mb-md-0" name="filterclient" type="text"
+                                            placeholder="Search" aria-label="Search" required>
+                                    </div>
+                                    <div class="col-lg-1 col-4">
+                                        <button type="submit" class="form-control">
+                                            <i class="bi bi-search"></i>
+                                        </button>
                                     </div>
                                 </div>
+                            </form>
+                            <hr>
+                            <div class="row row-cols-3">
+                                <?php foreach ($client as $ag): ?>
+                                    <div class="col-lg-2 col-md-4 mb-3">
+                                        <div class="custom-block-profile-front text-center">
+                                            <div class="custom-block-profile-image-wrap mb-1">
+                                                <a href="/myclientprofile/<?= $ag['client_token']; ?>">
+                                                    <img src="<?= isset($ag['profile']) ? base_url('/uploads/' . $ag['profile']) : '' ?>"
+                                                        class="img-fluid" alt="" style="height: 100px; width: auto"></a>
+                                            </div>
+                                            <strong>
+                                                <?= $ag['username']; ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
+                            <?php if ($pager): ?>
+                                <?= $pager->links('group1', 'page') ?>
+                            <?php endif; ?>
                         </div>
-                    </div><br><br>
+                    </div>
                 </div>
+                <footer class="site-footer">
+                    <div class="container">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </footer>
             </main>
+
         </div>
     </div>
 
-
-    <?= view('Admin/chop/js'); ?>
-    <script>
-        // JavaScript to toggle password visibility
-        const passwordInput = document.getElementById('password');
-        const confirmInput = document.getElementById('confirmpassword');
-        const showPasswordToggle = document.getElementById('showPasswordToggle');
-        const showConfirmPasswordToggle = document.getElementById('showConfirmPasswordToggle');
-
-        function togglePasswordVisibility(input, toggleButton) {
-            const type = input.type === 'password' ? 'text' : 'password';
-            input.type = type;
-            toggleButton.innerHTML = type === 'text' ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
-        }
-
-        showPasswordToggle.addEventListener('click', function () {
-            togglePasswordVisibility(passwordInput, showPasswordToggle);
-        });
-
-        showConfirmPasswordToggle.addEventListener('click', function () {
-            togglePasswordVisibility(confirmInput, showConfirmPasswordToggle);
-        });
-    </script>
-
-
-    <?php
-    $schedules = $conn->query("SELECT * FROM `schedules`");
-    $sched_res = [];
-    foreach ($schedules->fetch_all(MYSQLI_ASSOC) as $row) {
-        $row['sdate'] = date("F d, Y h:i A", strtotime($row['start_datetime']));
-        $row['edate'] = date("F d, Y h:i A", strtotime($row['end_datetime']));
-        $sched_res[$row['id']] = $row;
-    }
-    ?>
-    <?php
-    if (isset($conn))
-        $conn->close();
-    ?>
+    <!-- JAVASCRIPT FILES -->
+    <?= view('js') ?>
 </body>
-<script>
-    var scheds = $.parseJSON('<?= json_encode($sched_res) ?>')
-</script>
-<script src="<?= base_url(); ?>req/js/script.js"></script>
 
 </html>

@@ -8,7 +8,7 @@
 
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -61,7 +61,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/client">
+                            <a class="nav-link" href="/clients">
                                 <i class="bi-person me-2"></i>
                                 Clients
                             </a>
@@ -73,7 +73,7 @@
                                 Schedule
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/cliSched">
                                 <i class="bi bi-check-lg me-2"></i>
@@ -129,8 +129,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        
                         <!-- end of left side -->
                     </div>
                     <div class="col-xl-8">
@@ -321,8 +319,6 @@
             $('#profileModal').modal('show');
         });
     });
-
-    
     </script>
 </body>
 

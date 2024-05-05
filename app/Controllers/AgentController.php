@@ -86,7 +86,7 @@ class AgentController extends BaseController
 
     public function subagent()
     {
-        
+
         $session = session();
         $userId = $session->get('id');
         // Fetch the agent data
@@ -319,11 +319,36 @@ class AgentController extends BaseController
         if ($status === 'pending') {
             $con = ['status' => 'inprogress'];
             $this->sched->set($con)->where('id', $id)->update();
-        } 
-        // elseif ($status === 'inprogress') {
-        //     $con = ['status' => 'inprogress'];
-        //     $this->sched->set($con)->where('id', $id)->update();
-        // }
+        }
         return redirect()->to('cliSched')->with('success', 'Transaction In Progress');
     }
+
+    public function client()
+    {
+        $session = session();
+        $agId = $session->get('id');
+
+        $data['client'] = $this->client_plan->where('agent', $agId)->findAll();
+        // var_dump($data);
+        $clientIds = array_column($data['client'], 'client_id');
+        $clientId = array_unique($clientIds);
+
+        $filter = $this->request->getVar('filterclient');
+        if (!empty($clientId)) { // Check if $clientId array is not empty
+            if (!empty($filter)) {
+                $clients = $this->client->like('username', $filter)->whereIn('client_id', $clientId)->findAll();
+            } else {
+                $clients = $this->client->whereIn('client_id', $clientId)->findAll();
+            }
+        } else {
+            $clients = [];
+        }
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data['pager'] = $this->client->pager;
+        $data['client'] = $clients;
+        // var_dump($client);
+        return view('Agent/clients', $data);
+    }
+
+
 }

@@ -61,7 +61,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/client">
+                            <a class="nav-link" href="/clients">
                                 <i class="bi-person me-2"></i>
                                 Clients
                             </a>

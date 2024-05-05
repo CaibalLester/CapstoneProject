@@ -53,14 +53,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/subagent">
+                            <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
                                 Sub Agents
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/clients">
+                            <a class="nav-link active" href="/clients">
                                 <i class="bi-person me-2"></i>
                                 Clients
                             </a>
@@ -93,19 +93,19 @@
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">
-                        <?= $subagent['username'] ?>'s Profile
+                        <?= $client['username'] ?>'s Profile
                     </h1>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 mb-1">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                <img src="<?= isset($subagent['agentprofile']) ? base_url('/uploads/' . $subagent['agentprofile']) : '' ?>"
+                                <img src="<?= isset($client['profile']) ? base_url('/uploads/' . $client['profile']) : '' ?>"
                                     alt="Profile" class="rounded-circle"
                                     style="width: 150px; height: 150px; cursor: pointer;" data-bs-placement="bottom"
                                     title="Click to see QR code">
                                 <h5>
-                                    <?= $subagent['username'] ?>
+                                    <?= $client['username'] ?>
                                 </h5>
                                 <div class="social-links mt-2">
                                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -123,7 +123,10 @@
                             <div class="modal-content">
                                 <div class="d-flex align-items-center justify-content-center">
                                     <div class="text-center">
-                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
+                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $client['applicationNo'] ?>"
+                                                alt="QR Code">
+                                        </div>
                                         <button type="button" class="btn btn-dark" id="downloadButton"><i
                                                 class="bi bi-download"></i></button>
                                     </div>
@@ -131,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="col-xl-8">
                         <div class="card">
@@ -144,15 +146,9 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sub-agents">Sub
-                                            Agents</button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sub-agents">
+                                            Plan</button>
                                     </li>
-
-                                    <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                            data-bs-target="#forms">Forms</button>
-                                    </li>
-
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -165,10 +161,10 @@
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php if (isset($subagent['lastname']) && isset($subagent['firstname']) && isset($subagent['middlename'])): ?>
-                                                    <?= $subagent['lastname'] ?>,
-                                                    <?= $subagent['firstname'] ?>
-                                                    <?= $subagent['middlename'] ?>
+                                                <?php if (isset($client['lastName']) && isset($client['firstName']) && isset($client['middleName'])): ?>
+                                                    <?= $client['lastName'] ?>,
+                                                    <?= $client['firstName'] ?>
+                                                    <?= $client['middleName'] ?>
                                                 <?php endif; ?>
                                             </div>
                                         </div>
@@ -176,118 +172,42 @@
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset($subagent['username']) ? $subagent['username'] : '' ?>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-2">
-                                            <div class="col-lg-3 col-md-4 label">Agent Code</div>
-                                            <div class="col-lg-8 col-md-8">
-                                                <?php echo isset($subagent['AgentCode']) ? $subagent['AgentCode'] : '' ?>
+                                                <?php echo isset($client['username']) ? $client['username'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Email</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset($subagent['email']) ? $subagent['email'] : '' ?>
+                                                <?php echo isset($client['email']) ? $client['email'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Phone</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset($subagent['number']) ? $subagent['number'] : '' ?>
+                                                <?php echo isset($client['number']) ? $client['number'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Birthday</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset($subagent['birthday']) ? date('M j, Y', strtotime($subagent['birthday'])) : ''; ?>
+                                                <?php echo isset($client['birthday']) ? date('M j, Y', strtotime($client['birthday'])) : ''; ?>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Adress</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?= isset($subagent['province']) ? $subagent['province'] : '' ?>,
-                                                <?= isset($subagent['city']) ? $subagent['city'] : '' ?>,
-                                                <?= isset($subagent['barangay']) ? $subagent['barangay'] : '' ?>,
-                                                <?= isset($subagent['street']) ? $subagent['street'] : '' ?>
+                                                <?= isset($client['province']) ? $client['province'] : '' ?>,
+                                                <?= isset($client['city']) ? $client['city'] : '' ?>,
+                                                <?= isset($client['barangay']) ? $client['barangay'] : '' ?>,
+                                                <?= isset($client['street']) ? $client['street'] : '' ?>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade sub-agents pt-3 text-center" id="sub-agents">
-                                        <h1 class="h2 mb-2">Sub Agents</h1>
-                                        <div class="table-responsive">
-                                            <!-- Table with hoverable rows -->
-                                            <div class="table-container mx-auto">
-                                                <table class="table table-hover">
-                                                    <thead class="thead-light bg-white">
-                                                        <tr>
-                                                            <th scope="col">User Name</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Number</th>
-                                                            <th scope="col">Date</th>
-                                                            <th scope="col">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <?php foreach ($FA as $sub): ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <?= $sub['username'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?= $sub['email'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?= $sub['number'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?= date('M j, Y', strtotime($sub['created_at'])); ?>
-                                                                </td>
-                                                                <td><a
-                                                                        href="<?= base_url(); ?>agentprofile/<?= $sub['agent_token']; ?>">profile</a>
-                                                                </td>
-                                                            </tr>
-                                                        <?php endforeach ?>
-                                                    </tbody>
-                                                </table>
-                                                <nav aria-label="Page navigation">
-                                                    <ul class="pagination justify-content-center">
-                                                        <?= $pager->only(['previous', 'first', 'links', 'last', 'next'])->links() ?>
-                                                    </ul>
-                                                </nav>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade pt-3" id="forms">
-                                        <h1 class="h2 mb-0">Forms</h1>
-                                        <div class="row text-center">
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm/<?= $subagent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
-                                                    LIFE
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm2/<?= $subagent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="AIAL">
-                                                    AIAL
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm3/<?= $subagent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
-                                                    GLI
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
                                 </div><!-- End Bordered Tabs -->
                             </div>
                         </div>
@@ -305,38 +225,21 @@
 
     <?= view('js') ?>
     <script>
-        // I-create ang QR code gamit ang actual na data
-        var profileData = JSON.stringify({
-            username: "<?= $agent['username'] ?>",
-            fullname: "<?= $agent['Agentfullname'] ?>",
-            email: "<?= $agent['email'] ?>",
-            number: "<?= $agent['number'] ?>",
-            code: "<?= $agent['AgentCode'] ?>",
-            birthday: "<?= date('M j, Y', strtotime($agent['birthday'])); ?>"
+        document.addEventListener('DOMContentLoaded', function () {
+            const downloadButton = document.getElementById('downloadButton');
+            const qrCodeImage = document.querySelector('#qrCodeContainer img');
+
+            downloadButton.addEventListener('click', function () {
+                fetch(qrCodeImage.src)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = URL.createObjectURL(blob);
+                        downloadLink.download = '<?= $client['username']?> Application Number qr-code.png';
+                        downloadLink.click();
+                    });
+            });
         });
-
-        // Set ang data ng QR code container gamit ang profileData
-        var qrCodeContainer = document.getElementById("qrCodeContainer");
-
-        // Set the size of the QR code (adjust as needed)
-
-        new QRCode(qrCodeContainer, {
-            text: profileData,
-        });
-
-        // Kung gusto mo i-download ang QR code
-        var downloadButton = document.getElementById("downloadButton");
-        downloadButton.addEventListener("click", function () {
-            // Kunin ang data URL ng QR code at gawing anchor link
-            var dataURL = qrCodeContainer.querySelector("img").src;
-            var downloadLink = document.createElement("a");
-            downloadLink.href = dataURL;
-            downloadLink.download = "profile_qr_code_" + "<?= $agent['username'] ?>.png";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        });
-
 
         // JavaScript code to show the modal when the profile image is clicked
         $(document).ready(function () {
@@ -344,7 +247,6 @@
                 $('#profileModal').modal('show');
             });
         });
-
     </script>
 </body>
 

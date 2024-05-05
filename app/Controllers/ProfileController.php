@@ -9,22 +9,21 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\AgentModel;
 use App\Controllers\AgentController;
+use App\Models\ClientModel;
 
 class ProfileController extends BaseController
 {
     private $agcon;
+    private $client;
     public function __construct()
     {
+        $this->client = new ClientModel();
         $this->agcon = new AgentController();
     }
     public function agentprofile($token)
     {
         $agentModel = new AgentModel();
         $data = $this->getDataAd();
-
-        // Initialize the encryption service and pass it to the view
-        // $encryption = \Config\Services::encrypter();
-        // $dectoken = $encryption->decrypt($token);
         $data['agent'] = $agentModel->where('agent_token', $token)->first();
         $agentid = $data['agent']['agent_id'];
         $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
@@ -92,4 +91,11 @@ class ProfileController extends BaseController
     //     $decryptedString = $encryption->decrypt($encryptedString);
     //     echo "Decrypted String: $decryptedString";
     // }
+
+    public function myclientprofile($token)
+    {
+        $data = array_merge($this->agcon->getData(), $this->agcon->getDataAge());
+        $data['client'] = $this->client->where('client_token', $token)->first();
+        return view('Agent/clientprofile', $data);
+    }
 }
