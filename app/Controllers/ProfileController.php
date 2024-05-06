@@ -10,15 +10,18 @@ use App\Models\Form1Model;
 use App\Models\AgentModel;
 use App\Controllers\AgentController;
 use App\Models\ClientModel;
+use App\Models\ClientPlanModel;
 
 class ProfileController extends BaseController
 {
+    private $client_plan;
     private $agcon;
     private $client;
     public function __construct()
     {
         $this->client = new ClientModel();
         $this->agcon = new AgentController();
+        $this->client_plan = new ClientPlanModel();
     }
     public function agentprofile($token)
     {
@@ -96,6 +99,13 @@ class ProfileController extends BaseController
     {
         $data = array_merge($this->agcon->getData(), $this->agcon->getDataAge());
         $data['client'] = $this->client->where('client_token', $token)->first();
+
+        $data['myplan'] = $this->client_plan->select('agent.username as agent_name, plan.plan_name, client_plan.created_at, 
+        client_plan.mode_payment, client_plan.term, client_plan.status, client_plan.id, client_plan.token ')
+            ->join('agent', 'agent.agent_id = client_plan.agent')
+            ->join('plan', 'plan.token = client_plan.plan')
+            ->where('client_plan.client_id', $data['client']['client_id'])
+            ->findAll();
         return view('Agent/clientprofile', $data);
     }
 }

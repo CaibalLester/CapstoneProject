@@ -1,0 +1,107 @@
+CRITICAL - 2024-05-07 00:00:10 --> Undefined array key "mode_commi"
+in APPPATH\Views\Agent\mycommi.php on line 138.
+ 1 APPPATH\Views\Agent\mycommi.php(138): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "mode_commi"', 'C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php', 138)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/mycommi', [], true)
+ 5 APPPATH\Controllers\AgentController.php(369): view('Agent/mycommi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 00:34:39 --> Undefined variable $payment
+in APPPATH\Views\Agent\mycommi.php on line 147.
+ 1 APPPATH\Views\Agent\mycommi.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $payment', 'C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php', 147)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/mycommi', [], true)
+ 5 APPPATH\Controllers\AgentController.php(400): view('Agent/mycommi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-05-07 00:39:00 --> mysqli_sql_exception: Unknown column 'plan. token' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `client`...', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `client`...')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `client`...')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `client`...', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\CapstoneSystem\app\Controllers\AgentController.php(381): CodeIgniter\BaseModel->findAll()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-05-07 00:39:00 --> Unknown column 'plan. token' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `client`.`username` as `client_name`, `client_plan`.*, `plan`.` token` as `plantoken*`
+FROM `client_plan`
+JOIN `client` ON `client`.`client_id` = `client_plan`.`client_id`
+JOIN `plan` ON `plan`.`token` = `client_plan`.`plan`
+WHERE `client_plan`.`agent` = :client_plan.agent:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\AgentController.php(381): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 00:39:22 --> Undefined array key "price"
+in APPPATH\Controllers\AgentController.php on line 387.
+ 1 APPPATH\Controllers\AgentController.php(387): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "price"', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 387)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 01:04:17 --> Cannot access offset of type string on string
+in APPPATH\Controllers\AgentController.php on line 302.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 01:05:32 --> Cannot access offset of type string on string
+in APPPATH\Controllers\AgentController.php on line 327.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 01:06:18 --> Cannot access offset of type string on string
+in APPPATH\Controllers\AgentController.php on line 327.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 01:13:58 --> Undefined array key "commission_amount"
+in APPPATH\Views\Agent\mycommi.php on line 145.
+ 1 APPPATH\Views\Agent\mycommi.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "commission_amount"', 'C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php', 145)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/mycommi', [], true)
+ 5 APPPATH\Controllers\AgentController.php(443): view('Agent/mycommi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 01:16:09 --> Undefined array key "commission"
+in APPPATH\Views\Agent\mycommi.php on line 145.
+ 1 APPPATH\Views\Agent\mycommi.php(145): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "commission"', 'C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php', 145)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\mycommi.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/mycommi', [], true)
+ 5 APPPATH\Controllers\AgentController.php(443): view('Agent/mycommi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->mycommi()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

@@ -91,6 +91,16 @@
             </nav>
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+                <?php if (session()->getFlashdata('error')): ?>
+                    <div class="alert alert-danger mt-3 text-center" role="alert">
+                        <?= session()->getFlashdata('error') ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (session()->getFlashdata('success')): ?>
+                    <div class="alert alert-success mt-3 text-center" role="alert">
+                        <?= session()->getFlashdata('success') ?>
+                    </div>
+                <?php endif; ?>
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">
                         <?= $client['username'] ?>'s Profile
@@ -146,17 +156,12 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sub-agents">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#plan">
                                             Plan</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                        <h1 class="h2 mb-0">About</h1>
-                                        <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam
-                                            maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
-                                            Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
-                                            sed ea saepe at unde.</p>
                                         <h5 class="card-title">Profile Details</h5>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
@@ -207,7 +212,38 @@
                                         </div>
                                     </div>
 
-
+                                    <div class="tab-pane fade plan" id="plan">
+                                        <div class="table-responsive">
+                                            <!-- Table with hoverable rows -->
+                                            <div class="table-container mx-auto">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Plan</th>
+                                                            <th scope="col">Start Date</th>
+                                                            <th scope="col">Due Dates</th>
+                                                            <th scope="col">Terms</th>
+                                                            <th scope="col">Status</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach ($myplan as $payment): ?>
+                                                            <tr>
+                                                                <td><?= $payment['plan_name'] ?></td>
+                                                                <!-- Assuming plan name is retrieved from the join -->
+                                                                <td><?= date('M j, Y', strtotime($payment['created_at'])); ?>
+                                                                </td>
+                                                                <td><?= $payment['mode_payment'] ?></td>
+                                                                <td><?= $payment['term'] ?></td>
+                                                                <td><?= $payment['status'] ?></td>
+                                                            </tr>
+                                                        <?php endforeach ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div><!-- End Bordered Tabs -->
                             </div>
                         </div>
@@ -235,7 +271,7 @@
                     .then(blob => {
                         const downloadLink = document.createElement('a');
                         downloadLink.href = URL.createObjectURL(blob);
-                        downloadLink.download = '<?= $client['username']?> Application Number qr-code.png';
+                        downloadLink.download = '<?= $client['username'] ?> Application Number qr-code.png';
                         downloadLink.click();
                     });
             });

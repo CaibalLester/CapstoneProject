@@ -34,7 +34,7 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title">Policy Information</h5>
                                                     <p class="card-text">Policy Number:
-                                                        <?= isset ($client['applicationNo']) ? $client['applicationNo'] : '' ?>
+                                                        <?= isset($client['applicationNo']) ? $client['applicationNo'] : '' ?>
                                                     </p>
                                                     <p class="card-text">Coverage: Comprehensive</p>
                                                     <a href="#" class="btn btn-primary">View Policy Details</a>
@@ -57,26 +57,31 @@
                                         <!-- Billing and Payment History -->
                                         <div class="col-lg-12">
                                             <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Billing and Payment History</h5>
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Date</th>
-                                                                <th>Description</th>
-                                                                <th>Amount</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>2024-04-15</td>
-                                                                <td>Payment Received</td>
-                                                                <td>$100.00</td>
-                                                            </tr>
-                                                            <!-- More payment history rows here -->
-                                                        </tbody>
-                                                    </table>
-                                                    <a href="#" class="btn btn-primary">View Payment History</a>
+                                                <div class="table-responsive pt-3">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Billing and Payment History</h5>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">Start Date</th>
+                                                                    <th scope="col">Due Dates</th>
+                                                                    <th scope="col">Terms</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php foreach ($myplan as $payment): ?>
+                                                                    <tr>
+                                                                        <td><?= date('M j, Y h:i A', strtotime($payment['created_at'])); ?>
+                                                                        </td>
+                                                                        <td><?= $payment['mode_payment'] ?></td>
+                                                                        <td><?= $payment['term'] ?></td>
+                                                                    </tr>
+                                                                <?php endforeach ?>
+                                                            </tbody>
+                                                        </table>
+                                                        <a href="/history" class="btn btn-primary">View Payment
+                                                            History</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,24 +95,21 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Contact Information</h5>
                                             <p class="card-text">Phone:
-                                                <?php echo isset($client['number']) ? $client['number'] : '' ?></p>
+                                                <?php echo isset($client['number']) ? $client['number'] : '' ?>
+                                            </p>
                                             <p class="card-text">Email:
-                                                <?php echo isset($client['email']) ? $client['email'] : '' ?></p>
-                                            <p class="card-text">Address:
-                                                <?= isset($client['province']) ? $client['province'] : '' ?>,
-                                                <?= isset($client['city']) ? $client['city'] : '' ?>,
-                                                <?= isset($client['barangay']) ? $client['barangay'] : '' ?>,
-                                                <?= isset($client['street']) ? $client['street'] : '' ?></p>
-                                            <a href="/clientprofile" class="btn btn-primary">Update Contact Info</a>
+                                                <?php echo isset($client['email']) ? $client['email'] : '' ?>
+                                            </p>
+
+                                            <a href="/clientprofile" class="btn btn-primary">Update Contact</a>
                                         </div>
                                     </div>
-
                                     <!-- FAQs and Help Center -->
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">FAQs and Help Center</h5>
-                                            <p class="card-text">Find answers to common questions.</p>
-                                            <a href="#" class="btn btn-primary">Go to Help Center</a>
+                                            <h5 class="card-title">Explore Our Amazing Plans!</h5>
+                                            <p class="card-text">Discover the perfect plan tailored just for you.</p>
+                                            <a href="/viewplans" class="btn btn-primary">View Plans</a>
                                         </div>
                                     </div>
                                 </div><!-- End Right side column -->
@@ -120,87 +122,30 @@
                     <div class="col-lg-12">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h5 class="card-title">Insurance Claims Chart</h5>
-                                <canvas id="claimsChart"></canvas>
+                                <?php if (!empty($activeinsurances)): ?>
+                                    <h5 class="card-title">My Insurance</h5>
+                                    <?php foreach ($activeinsurances as $insurance): ?>
+                                        <div class="image-container">
+                                            <img src="<?= base_url('/uploads/plans/' . $insurance['image']) ?>"
+                                                class="card-img-top img-fluid" alt="...">
+                                        </div>
+                                        <h6 class="title"><?= $insurance['plan_name'] ?></h6>
+                                        <h6 class="title">Due Date: 
+                                            <?= date('M j, Y', strtotime($insurance['duedate'])); ?>
+                                        </h6>
+                                        <hr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <h5 class="card-title">No Active Insurance Available</h5>
+                                    <p class="card-text">Click below to view available plans.</p>
+                                    <a href="/viewplans" class="btn btn-primary">View Plans</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h5 class="card-title">Insurance Premiums Chart</h5>
-                                <canvas id="premiumsChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
                 </div><!-- End Right side columns -->
             </div>
-
         </section>
-
     </main><!-- End #main -->
-    <script>
-    var ctx = document.getElementById('premiumsChart').getContext('2d');
-    var premiumsChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [{
-                label: 'Premiums',
-                data: [1000, 1200, 1100, 1300, 1250, 1400],
-                fill: false,
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
-
-    <script>
-    var ctx = document.getElementById('claimsChart').getContext('2d');
-    var claimsChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [{
-                label: 'Number of Claims',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
-
 </body>
 <?= view('/Home/chop/jsh'); ?>

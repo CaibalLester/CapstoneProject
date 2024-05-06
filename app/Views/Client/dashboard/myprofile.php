@@ -24,7 +24,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="<?= isset($client['profile']) ? base_url('/uploads/' . $client['profile']) : '' ?>"
+              <img src="<?= isset($client['profile']) && !empty($client['profile']) ? base_url('/uploads/' . $client['profile']) : base_url('/uploads/def.png') ?>"
                 alt="Profile" class="rounded-circle">
               <h2><?php echo isset($client['username']) ? $client['username'] : '' ?></h2>
               <h3><?php echo isset($user['role']) ? $user['role'] : '' ?></h3>
@@ -68,12 +68,6 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores
-                    cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt
-                    iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea
-                    saepe at unde.</p>
-
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row mb-2">
@@ -111,13 +105,13 @@
                   <div class="row mb-2">
                     <div class="col-lg-3 col-md-4 label">Birthday</div>
                     <div class="col-lg-9 col-md-8">
-                    <?= isset($client['birthday']) ? date('M j, Y', strtotime($client['birthday'])) : ''; ?>
+                      <?= isset($client['birthday']) ? date('M j, Y', strtotime($client['birthday'])) : ''; ?>
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col-lg-3 col-md-4 label">Adress</div>
                     <div class="col-lg-9 col-md-8">
-                    <?= isset($client['region']) ? $client['region'] : '' ?>,
+                      <?= isset($client['region']) ? $client['region'] : '' ?>,
                       <?= isset($client['province']) ? $client['province'] : '' ?>,
                       <?= isset($client['city']) ? $client['city'] : '' ?>,
                       <?= isset($client['barangay']) ? $client['barangay'] : '' ?>,

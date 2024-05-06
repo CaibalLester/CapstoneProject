@@ -9,9 +9,12 @@ use App\Models\AgentModel;
 use App\Models\PlanModel;
 use App\Models\ConfirmModel;
 use App\Models\Scheduler;
+use App\Models\ClientPlanModel;
+
 
 class ClientController extends BaseController
 {
+    private $client_plan;
     private $sched;
     private $confirm;
     private $plan;
@@ -27,6 +30,7 @@ class ClientController extends BaseController
         $this->plan = new PlanModel();
         $this->confirm = new ConfirmModel();
         $this->sched = new Scheduler();
+        $this->client_plan = new ClientPlanModel();
     }
 
     public function ClientService()
@@ -149,12 +153,51 @@ class ClientController extends BaseController
     public function ClientPage()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->where('status', 'paid')->limit(3)->findAll();
+        $data['activeinsurances'] = [];
+
+        foreach ($data['myplan'] as $plan) {
+            $insurance = $this->plan->where('token', $plan['plan'])->first();
+
+            // Calculate due date based on mode_payment
+            $dueDate = null;
+            switch ($plan['mode_payment']) {
+                case 'Annual':
+                    $dueDate = date('Y-m-d', strtotime('+1 year', strtotime($plan['created_at'])));
+                    break;
+                case 'Semi-Annual':
+                    $dueDate = date('Y-m-d', strtotime('+6 months', strtotime($plan['created_at'])));
+                    break;
+                case 'Quarterly':
+                    $dueDate = date('Y-m-d', strtotime('+3 months', strtotime($plan['created_at'])));
+                    break;
+                case 'Monthly':
+                    $dueDate = date('Y-m-d', strtotime('+1 month', strtotime($plan['created_at'])));
+                    break;
+                default:
+                    // Default due date if mode_payment is not recognized
+                    $dueDate = 'One Time Payment';
+                    break;
+            }
+
+            // Add insurance data including due date to activeinsurances array
+            $data['activeinsurances'][] = [
+                'plan_name' => $insurance['plan_name'],
+                'image' => $insurance['image'],
+                'duedate' => $dueDate,
+            ];
+        }
         return view('Client/dashboard/dashboard', $data);
     }
 
     public function paymenthistory()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $data['myplan'] = $this->client_plan->select('agent.username as agent_name, plan.plan_name, client_plan.created_at, client_plan.mode_payment, client_plan.term, client_plan.status')
+            ->join('agent', 'agent.agent_id = client_plan.agent')
+            ->join('plan', 'plan.token = client_plan.plan')
+            ->where('client_plan.client_id', $data['client']['client_id'])
+            ->findAll();
         return view('Client/dashboard/history', $data);
     }
 
@@ -351,4 +394,5 @@ class ClientController extends BaseController
     //         return '';
     //     }
     // }
+
 }

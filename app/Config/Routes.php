@@ -70,6 +70,9 @@ $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']
 $routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/clients', 'AgentController::client', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/myclientprofile/(:any)', 'ProfileController::myclientprofile/$1', ['filter' => 'agentFilter']);
+$routes->get('/upstatusplan/(:any)', 'AgentController::upstatusplan/$1', ['filter' => 'agentFilter']);
+$routes->get('/mycommi', 'AgentController::mycommi', ['filter' => 'agentFilter']);
+
 
 $routes->get('/cliSched', 'AgentController::cliSched', ['filter' => 'agentFilter']);
 $routes->get('/con/(:any)', 'AgentController::con/$1', ['filter' => 'agentFilter']);

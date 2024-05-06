@@ -177,7 +177,7 @@
                                             <div class="modal-dialog modal-sm">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Mode Of Payment</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Plan Due Dates</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
@@ -189,11 +189,11 @@
                                                                 <select class="form-select" name="typeofpayment"
                                                                     aria-label="Default select example" required>
                                                                     <option value="" selected>Select</option>
-                                                                    <option value="onetimepayment">One Time</option>
-                                                                    <option value="annualpayment">Annual</option>
-                                                                    <option value="semianualpayment">Semi Annual</option>
-                                                                    <option value="quarterlypayment">Quarterly</option>
-                                                                    <option value="monthlypayment">Monthly</option>
+                                                                    <option value="One Time">One Time</option>
+                                                                    <option value="Annual">Annual</option>
+                                                                    <option value="Semi-Annual">Semi-Annual</option>
+                                                                    <option value="Quarterly">Quarterly</option>
+                                                                    <option value="Monthly">Monthly</option>
                                                                 </select>
                                                             </div>
                                                             <div class="mb-2">

@@ -287,11 +287,59 @@ class AgentController extends BaseController
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
+    // public function compost()
+    // {
+    //     $schedId = $this->request->getVar('schedId');
+    //     $plan = $this->request->getVar('plan');
+    //     $email = $this->request->getVar('email');
+    //     $token = bin2hex(random_bytes(25));
+    //     $data = [
+    //         'plan' => $this->request->getVar('plan'),
+    //         'agent' => $this->request->getVar('agent'),
+    //         'client_id' => $this->request->getVar('client_id'),
+    //         'mode_payment' => $this->request->getVar('typeofpayment'),
+    //         'term' => $this->request->getVar('term'),
+    //         'applicationNo' => $this->request->getVar('applicationNo'),
+    //         'status' => 'paid',
+    //         'token' => $token,
+    //     ];
+    //     $this->client_plan->save($data);
+
+    //     $s = ['status' => 'completed'];
+    //     $this->sched->set($s)->where('id', $schedId)->update();
+    //     // $this->user->set($con)->where('token', $token)->update();
+    //     return redirect()->to('cliSched')->with('success', 'Transaction Completed');
+    //     // var_dump($data);
+    // }
+
     public function compost()
     {
+        $token = bin2hex(random_bytes(25));
         $schedId = $this->request->getVar('schedId');
         $plan = $this->request->getVar('plan');
         $email = $this->request->getVar('email');
+        $plantoken = $this->request->getVar('plan');
+        $modepayment = $this->request->getVar('typeofpayment');
+        $cal['plan'] = $this->plan->where('token', $plantoken)->first();
+
+        if ($cal['plan']) {
+            switch ($modepayment) {
+                case 'Annual':
+                    $commissionAmount = $cal['plan']['price'] / 1 * ($cal['plan']['com_percentage'] / 100);
+                    break;
+                case 'Semi-Annual':
+                    $commissionAmount = $cal['plan']['price'] / 2 * ($cal['plan']['com_percentage'] / 100);
+                    break;
+                case 'Quarterly':
+                    $commissionAmount = $cal['plan']['price'] / 4 * ($cal['plan']['com_percentage'] / 100);
+                    break;
+                case 'Monthly':
+                    $commissionAmount = $cal['plan']['price'] / 12 * ($cal['plan']['com_percentage'] / 100);
+                    break;
+                default:
+                    $commissionAmount = 0;
+            }
+        }
 
         $data = [
             'plan' => $this->request->getVar('plan'),
@@ -300,14 +348,23 @@ class AgentController extends BaseController
             'mode_payment' => $this->request->getVar('typeofpayment'),
             'term' => $this->request->getVar('term'),
             'applicationNo' => $this->request->getVar('applicationNo'),
+            'status' => 'paid',
+            'token' => $token,
+            'commission' => $commissionAmount,
         ];
         $this->client_plan->save($data);
-
         $s = ['status' => 'completed'];
         $this->sched->set($s)->where('id', $schedId)->update();
-        // $this->user->set($con)->where('token', $token)->update();
         return redirect()->to('cliSched')->with('success', 'Transaction Completed');
         // var_dump($data);
+        // var_dump($commissionAmount);
+    }
+
+    public function upstatusplan($token)
+    {
+        $stats = ['status' => 'paid'];
+        $this->client_plan->set($stats)->where('token', $token)->update();
+        return redirect()->back()->with('success', 'Plan status updated successfully');
     }
 
     public function con($dec)
@@ -350,5 +407,26 @@ class AgentController extends BaseController
         return view('Agent/clients', $data);
     }
 
+    // public function mycommi()
+    // {
+    //     $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+    //     $data['mycommission'] = $this->client_plan->select('client.username as client_name, client_plan.*, plan.*')
+    //         ->join('client', 'client.client_id = client_plan.client_id')
+    //         ->join('plan', 'plan.token = client_plan.plan')
+    //         ->where('client_plan.agent', $data['agent']['agent_id'])
+    //         ->findAll();
+    //     return view('Agent/mycommi' , $data);
+    //     // var_dump($data['mycommission']);
+    // }
 
+    public function mycommi()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data['mycommission'] = $this->client_plan->select('client.username as client_name, client.client_token, client_plan.token as tokin, client_plan.*, plan.*')
+            ->join('client', 'client.client_id = client_plan.client_id')
+            ->join('plan', 'plan.token = client_plan.plan')
+            ->where('client_plan.agent', $data['agent']['agent_id'])
+            ->findAll();
+        return view('Agent/mycommi', $data);
+    }
 }
