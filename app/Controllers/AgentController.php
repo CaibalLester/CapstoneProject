@@ -42,6 +42,8 @@ class AgentController extends BaseController
         $agentid = $data['agent']['agent_id'];
         $data['FA'] = $this->agent->where('FA', $agentid)->findAll();
         $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
+        $totalCommis = $this->client_plan->selectSum('commission')->where('agent', $agentid)->findAll();
+        $data['totalcommi'] = !empty($totalCommis) ? $totalCommis[0]['commission'] : 0;
         return view('Agent/AgDash', $data);
     }
     public function AgProfile()
@@ -362,10 +364,36 @@ class AgentController extends BaseController
 
     public function upstatusplan($token)
     {
-        $stats = ['status' => 'paid'];
+        $data['commi'] = $this->client_plan->where('token', $token)->first();
+        $data['percentage'] = $this->plan->where('token', $data['commi']['plan'])->first();
+
+        $annualpay = $data['percentage']['price'];
+        $per = $data['percentage']['com_percentage'];
+        $paymentmode = $data['commi']['mode_payment'];
+        $oldcommi = $data['commi']['commission'];
+
+        // Calculate new commission based on payment mode
+        $newcommi = $oldcommi;
+        if ($paymentmode == 'Annual') {
+            $newcommi += $annualpay * ($per / 100);
+        } elseif ($paymentmode == 'Semi-Annual') {
+            $newcommi += $annualpay * ($per / 100) / 2;
+        } elseif ($paymentmode == 'Quarterly') {
+            $newcommi += $annualpay * ($per / 100) / 4;
+        } elseif ($paymentmode == 'Monthly') {
+            $newcommi += $annualpay * ($per / 100) / 12;
+        }
+
+        // Update the commission and status in the database
+        $stats = [
+            'status' => 'paid',
+            'commission' => $newcommi,
+        ];
         $this->client_plan->set($stats)->where('token', $token)->update();
-        return redirect()->back()->with('success', 'Plan status updated successfully');
+
+        return redirect()->back()->with('success', 'Plan updated successfully');
     }
+
 
     public function con($dec)
     {

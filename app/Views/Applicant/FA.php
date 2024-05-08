@@ -74,13 +74,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
-                            </a>
-                        </li>
-
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
                                 <i class="bi-box-arrow-left me-2"></i>
@@ -99,7 +92,6 @@
                 <div class="row my-4">
                     <div class="col-lg-12 col-12">
                         <div class="custom-block bg-white">
-
 
                             <form class="custom-form search-form" action="/FA" method="post" role="form">
                                 <div class="row">
@@ -157,15 +149,9 @@
                                                     <p><strong>Phone:</strong>
                                                         <?= $ag['number']; ?>
                                                     </p>
-                                                    <p><strong>Rank:</strong>
-                                                        <?= $ag['rank']; ?>
-                                                    </p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <div class="row">
-                                                        <a href="" class="btn btn-primary">
-                                                            <i class="bi bi-envelope-fill"></i> Contact
-                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

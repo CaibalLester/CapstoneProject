@@ -105,3 +105,69 @@ in APPPATH\Views\Agent\mycommi.php on line 145.
  8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 22:25:17 --> Undefined array key "commission"
+in APPPATH\Controllers\AgentController.php on line 367.
+ 1 APPPATH\Controllers\AgentController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "commission"', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('1a58b1a72c57bff2a31ee23b5569e70b7784f9b31eb6f3cf98')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 22:25:40 --> Undefined array key "commission"
+in APPPATH\Controllers\AgentController.php on line 367.
+ 1 APPPATH\Controllers\AgentController.php(367): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "commission"', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 367)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('1a58b1a72c57bff2a31ee23b5569e70b7784f9b31eb6f3cf98')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 22:34:33 --> Undefined array key "plan"
+in APPPATH\Controllers\AgentController.php on line 366.
+ 1 APPPATH\Controllers\AgentController.php(366): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 366)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('1a58b1a72c57bff2a31ee23b5569e70b7784f9b31eb6f3cf98')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 22:44:24 --> syntax error, unexpected variable "$paymentmode"
+in APPPATH\Controllers\AgentController.php on line 369.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\CapstoneSystem\\app\\Controllers\\AgentController.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AgentController')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AgentController')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\AgentController', true)
+ 5 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 22:44:33 --> Undefined array key "plan"
+in APPPATH\Controllers\AgentController.php on line 379.
+ 1 APPPATH\Controllers\AgentController.php(379): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "plan"', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 379)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('1a58b1a72c57bff2a31ee23b5569e70b7784f9b31eb6f3cf98')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 23:40:32 --> Undefined variable $client
+in APPPATH\Views\Agent\subagentprofile.php on line 127.
+ 1 APPPATH\Views\Agent\subagentprofile.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $client', 'C:\\CapstoneSystem\\app\\Views\\Agent\\subagentprofile.php', 127)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\subagentprofile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/subagentprofile', [], true)
+ 5 APPPATH\Controllers\ProfileController.php(52): view('Agent/subagentprofile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProfileController->subagentprofile('05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9')
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProfileController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-07 23:44:20 --> Undefined variable $subagent
+in APPPATH\Views\Agent\AgProfile.php on line 97.
+ 1 APPPATH\Views\Agent\AgProfile.php(97): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $subagent', 'C:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php', 97)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Agent\\AgProfile.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/AgProfile', [], true)
+ 5 APPPATH\Controllers\AgentController.php(59): view('Agent/AgProfile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->AgProfile()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

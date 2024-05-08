@@ -123,7 +123,10 @@
                             <div class="modal-content">
                                 <div class="d-flex align-items-center justify-content-center">
                                     <div class="text-center">
-                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer"></div>
+                                        <div class="qr-code-container mt-3 mb-3" id="qrCodeContainer">
+                                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?php echo base_url() ?>register/<?= $subagent['AgentCode'] ?>"
+                                                alt="QR Code">
+                                        </div>
                                         <button type="button" class="btn btn-dark" id="downloadButton"><i
                                                 class="bi bi-download"></i></button>
                                     </div>
@@ -131,7 +134,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="col-xl-8">
                         <div class="card">
@@ -156,11 +158,6 @@
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                        <h1 class="h2 mb-0">About</h1>
-                                        <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam
-                                            maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
-                                            Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
-                                            sed ea saepe at unde.</p>
                                         <h5 class="card-title">Profile Details</h5>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
@@ -217,8 +214,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade sub-agents pt-3 text-center" id="sub-agents">
-                                        <h1 class="h2 mb-2">Sub Agents</h1>
+                                    <div class="tab-pane fade sub-agents" id="sub-agents">
+                                    <h5 class="card-title">Sub Agents</h5>
                                         <div class="table-responsive">
                                             <!-- Table with hoverable rows -->
                                             <div class="table-container mx-auto">
@@ -226,10 +223,7 @@
                                                     <thead class="thead-light bg-white">
                                                         <tr>
                                                             <th scope="col">User Name</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Number</th>
                                                             <th scope="col">Date</th>
-                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -239,31 +233,17 @@
                                                                     <?= $sub['username'] ?>
                                                                 </td>
                                                                 <td>
-                                                                    <?= $sub['email'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?= $sub['number'] ?>
-                                                                </td>
-                                                                <td>
                                                                     <?= date('M j, Y', strtotime($sub['created_at'])); ?>
-                                                                </td>
-                                                                <td><a
-                                                                        href="<?= base_url(); ?>agentprofile/<?= $sub['agent_token']; ?>">profile</a>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach ?>
                                                     </tbody>
                                                 </table>
-                                                <nav aria-label="Page navigation">
-                                                    <ul class="pagination justify-content-center">
-                                                        <?= $pager->only(['previous', 'first', 'links', 'last', 'next'])->links() ?>
-                                                    </ul>
-                                                </nav>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade pt-3" id="forms">
-                                        <h1 class="h2 mb-0">Forms</h1>
+                                    <div class="tab-pane fade" id="forms">
+                                    <h5 class="card-title">Forms</h5>
                                         <div class="row text-center">
                                             <div class="col-xl-2 my-3">
                                                 <a href="/ViewAppForm/<?= $subagent['agent_token'] ?>">
@@ -305,38 +285,21 @@
 
     <?= view('js') ?>
     <script>
-        // I-create ang QR code gamit ang actual na data
-        var profileData = JSON.stringify({
-            username: "<?= $agent['username'] ?>",
-            fullname: "<?= $agent['Agentfullname'] ?>",
-            email: "<?= $agent['email'] ?>",
-            number: "<?= $agent['number'] ?>",
-            code: "<?= $agent['AgentCode'] ?>",
-            birthday: "<?= date('M j, Y', strtotime($agent['birthday'])); ?>"
+        document.addEventListener('DOMContentLoaded', function () {
+            const downloadButton = document.getElementById('downloadButton');
+            const qrCodeImage = document.querySelector('#qrCodeContainer img');
+
+            downloadButton.addEventListener('click', function () {
+                fetch(qrCodeImage.src)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = URL.createObjectURL(blob);
+                        downloadLink.download = '<?= $subagent['username'] ?> Application Number qr-code.png';
+                        downloadLink.click();
+                    });
+            });
         });
-
-        // Set ang data ng QR code container gamit ang profileData
-        var qrCodeContainer = document.getElementById("qrCodeContainer");
-
-        // Set the size of the QR code (adjust as needed)
-
-        new QRCode(qrCodeContainer, {
-            text: profileData,
-        });
-
-        // Kung gusto mo i-download ang QR code
-        var downloadButton = document.getElementById("downloadButton");
-        downloadButton.addEventListener("click", function () {
-            // Kunin ang data URL ng QR code at gawing anchor link
-            var dataURL = qrCodeContainer.querySelector("img").src;
-            var downloadLink = document.createElement("a");
-            downloadLink.href = dataURL;
-            downloadLink.download = "profile_qr_code_" + "<?= $agent['username'] ?>.png";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        });
-
 
         // JavaScript code to show the modal when the profile image is clicked
         $(document).ready(function () {
@@ -344,7 +307,6 @@
                 $('#profileModal').modal('show');
             });
         });
-
     </script>
 </body>
 

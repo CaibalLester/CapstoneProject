@@ -134,7 +134,7 @@
                                             <tbody>
                                                 <?php foreach ($mycommission as $commi): ?>
                                                     <tr>
-                                                        <td><a href="/myclientprofile/<?= $commi['client_token']; ?>"><?= $commi['client_name'] ?></a></td>
+                                                        <td><a class="btn btn-info" href="/myclientprofile/<?= $commi['client_token']; ?>"><?= $commi['client_name'] ?></a></td>
                                                         <!-- Assuming agent name is retrieved from the join -->
                                                         <td><?= $commi['plan_name'] ?></td>
                                                         <!-- Assuming plan name is retrieved from the join -->

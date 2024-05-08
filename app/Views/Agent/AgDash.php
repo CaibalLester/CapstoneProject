@@ -71,7 +71,7 @@
                                 Schedule
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/cliSched">
                                 <i class="bi bi-check-lg me-2"></i>
@@ -139,7 +139,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                            <div id="areaChart"></div>
+                                <div id="areaChart"></div>
                             </div>
                         </div>
                         <script>
@@ -608,9 +608,9 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <i class="bi bi-cash-coin fa-2x"></i>
-                                <small class="d-block mt-2">Total Commisions</small>
-                                <h3 class="card-title mt-2">
-                                    <?= $ranking ?>
+                                <small class="d-block mt-2" style="font-size: 14px;">Total Commissions</small>
+                                <h3 class="card-title mt-2" style="font-size: 19px;">
+                                    ₱ <?= number_format($totalcommi, 2, '.', ',') ?>
                                 </h3>
                             </div>
                         </div>

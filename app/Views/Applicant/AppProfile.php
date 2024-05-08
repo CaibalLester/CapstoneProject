@@ -136,11 +136,6 @@
                             <div class="card-body pt-3">
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active profile-overview">
-                                        <h1 class="h2 mb-0">About</h1>
-                                        <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam
-                                            maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
-                                            Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
-                                            sed ea saepe at unde.</p>
                                         <h5 class="card-title">Profile Details</h5>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
@@ -152,7 +147,6 @@
                                                 <?php endif; ?>
                                             </div>
                                         </div>
-
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
                                             <div class="col-lg-8 col-md-8">
