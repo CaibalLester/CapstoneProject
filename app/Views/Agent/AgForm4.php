@@ -81,6 +81,13 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link " href="/mycommi">
+                                <i class="bi bi-wallet2 me-2"></i>
+                                My Commission
+                            </a>
+                        </li>
+
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
                                 <i class="bi-box-arrow-left me-2"></i>

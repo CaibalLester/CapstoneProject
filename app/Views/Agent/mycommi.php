@@ -81,7 +81,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active" href="/cliSched">
+                            <a class="nav-link active" href="/mycommi">
                                 <i class="bi bi-wallet2 me-2"></i>
                                 My Commission
                             </a>
