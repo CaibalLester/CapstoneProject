@@ -103,6 +103,8 @@ $routes->get('verify-email/(:segment)', 'HomepageController::verifyEmail/$1', ['
 //charts
 $routes->get('/monthlyAgentCount', 'ChartsController::monthlyAgentCount', ['filter' => 'authGuard']);
 $routes->get('/monthlyPendingApplicantCount', 'ChartsController::monthlyPendingApplicantCount', ['filter' => 'authGuard']);
+$routes->get('/getMonthlyCommissions', 'ChartsController::getMonthlyCommissions', ['filter' => 'authGuard']);
+$routes->get('/getYearlyCommissions', 'ChartsController::getYearlyCommissions', ['filter' => 'authGuard']);
 
 //RTC
 $routes->get('/homechat', 'RTCController::RTC');

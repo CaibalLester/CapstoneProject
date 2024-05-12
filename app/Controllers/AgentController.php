@@ -12,9 +12,11 @@ use App\Models\Scheduler;
 use App\Models\ClientModel;
 use App\Models\PlanModel;
 use App\Models\ClientPlanModel;
+use App\Models\CommiModel;
 
 class AgentController extends BaseController
 {
+    private $commission;
     private $client_plan;
     private $plan;
     private $client;
@@ -35,6 +37,7 @@ class AgentController extends BaseController
         $this->client = new ClientModel();
         $this->plan = new PlanModel();
         $this->client_plan = new ClientPlanModel();
+        $this->commission = new CommiModel();
     }
     public function AgDash()
     {
@@ -289,34 +292,12 @@ class AgentController extends BaseController
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
-    // public function compost()
-    // {
-    //     $schedId = $this->request->getVar('schedId');
-    //     $plan = $this->request->getVar('plan');
-    //     $email = $this->request->getVar('email');
-    //     $token = bin2hex(random_bytes(25));
-    //     $data = [
-    //         'plan' => $this->request->getVar('plan'),
-    //         'agent' => $this->request->getVar('agent'),
-    //         'client_id' => $this->request->getVar('client_id'),
-    //         'mode_payment' => $this->request->getVar('typeofpayment'),
-    //         'term' => $this->request->getVar('term'),
-    //         'applicationNo' => $this->request->getVar('applicationNo'),
-    //         'status' => 'paid',
-    //         'token' => $token,
-    //     ];
-    //     $this->client_plan->save($data);
 
-    //     $s = ['status' => 'completed'];
-    //     $this->sched->set($s)->where('id', $schedId)->update();
-    //     // $this->user->set($con)->where('token', $token)->update();
-    //     return redirect()->to('cliSched')->with('success', 'Transaction Completed');
-    //     // var_dump($data);
-    // }
 
     public function compost()
     {
         $token = bin2hex(random_bytes(25));
+        $tokens = bin2hex(random_bytes(50));
         $schedId = $this->request->getVar('schedId');
         $plan = $this->request->getVar('plan');
         $email = $this->request->getVar('email');
@@ -357,6 +338,15 @@ class AgentController extends BaseController
         $this->client_plan->save($data);
         $s = ['status' => 'completed'];
         $this->sched->set($s)->where('id', $schedId)->update();
+
+        $commi = [
+            'token' => $tokens,
+            'commi' => $commissionAmount,
+            'agent_id' => $this->request->getVar('agent'),
+            'client_id' => $this->request->getVar('client_id'),
+        ];
+        $this->commission->save($commi);
+        
         return redirect()->to('cliSched')->with('success', 'Transaction Completed');
         // var_dump($data);
         // var_dump($commissionAmount);
@@ -364,6 +354,7 @@ class AgentController extends BaseController
 
     public function upstatusplan($token)
     {
+        $tokens = bin2hex(random_bytes(50));
         $data['commi'] = $this->client_plan->where('token', $token)->first();
         $data['percentage'] = $this->plan->where('token', $data['commi']['plan'])->first();
 
@@ -371,29 +362,48 @@ class AgentController extends BaseController
         $per = $data['percentage']['com_percentage'];
         $paymentmode = $data['commi']['mode_payment'];
         $oldcommi = $data['commi']['commission'];
+        $agentid = $data['commi']['agent'];
+        $clientid = $data['commi']['client_id'];
 
         // Calculate new commission based on payment mode
-        $newcommi = $oldcommi;
+        // $newcommi = $oldcommi;
+        // if ($paymentmode == 'Annual') {
+        //     $newcommi += $annualpay * ($per / 100);
+        // } elseif ($paymentmode == 'Semi-Annual') {
+        //     $newcommi += $annualpay * ($per / 100) / 2;
+        // } elseif ($paymentmode == 'Quarterly') {
+        //     $newcommi += $annualpay * ($per / 100) / 4;
+        // } elseif ($paymentmode == 'Monthly') {
+        //     $newcommi += $annualpay * ($per / 100) / 12;
+        // }
+
         if ($paymentmode == 'Annual') {
-            $newcommi += $annualpay * ($per / 100);
+            $commi = $annualpay * ($per / 100);
         } elseif ($paymentmode == 'Semi-Annual') {
-            $newcommi += $annualpay * ($per / 100) / 2;
+            $commi = $annualpay * ($per / 100) / 2;
         } elseif ($paymentmode == 'Quarterly') {
-            $newcommi += $annualpay * ($per / 100) / 4;
+            $commi = $annualpay * ($per / 100) / 4;
         } elseif ($paymentmode == 'Monthly') {
-            $newcommi += $annualpay * ($per / 100) / 12;
+            $commi = $annualpay * ($per / 100) / 12;
         }
 
         // Update the commission and status in the database
         $stats = [
             'status' => 'paid',
-            'commission' => $newcommi,
+            // 'commission' => $newcommi,
         ];
         $this->client_plan->set($stats)->where('token', $token)->update();
-
+        
+        $commi = [
+            'token' => $tokens,
+            'commi' => $commi,
+            'agent_id' => $agentid,
+            'client_id' => $clientid
+        ];
+        $this->commission->save($commi);
+        // var_dump($commi);
         return redirect()->back()->with('success', 'Plan updated successfully');
     }
-
 
     public function con($dec)
     {
@@ -434,18 +444,6 @@ class AgentController extends BaseController
         // var_dump($client);
         return view('Agent/clients', $data);
     }
-
-    // public function mycommi()
-    // {
-    //     $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
-    //     $data['mycommission'] = $this->client_plan->select('client.username as client_name, client_plan.*, plan.*')
-    //         ->join('client', 'client.client_id = client_plan.client_id')
-    //         ->join('plan', 'plan.token = client_plan.plan')
-    //         ->where('client_plan.agent', $data['agent']['agent_id'])
-    //         ->findAll();
-    //     return view('Agent/mycommi' , $data);
-    //     // var_dump($data['mycommission']);
-    // }
 
     public function mycommi()
     {

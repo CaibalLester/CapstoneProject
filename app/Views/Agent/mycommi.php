@@ -134,7 +134,9 @@
                                             <tbody>
                                                 <?php foreach ($mycommission as $commi): ?>
                                                     <tr>
-                                                        <td><a class="btn btn-info" href="/myclientprofile/<?= $commi['client_token']; ?>"><?= $commi['client_name'] ?></a></td>
+                                                        <td><a class="btn btn-info"
+                                                                href="/myclientprofile/<?= $commi['client_token']; ?>"><?= $commi['client_name'] ?></a>
+                                                        </td>
                                                         <!-- Assuming agent name is retrieved from the join -->
                                                         <td><?= $commi['plan_name'] ?></td>
                                                         <!-- Assuming plan name is retrieved from the join -->
@@ -144,10 +146,26 @@
                                                         <!-- <td>₱ <?= number_format($commi['price'], 2, '.', ',') ?></td> -->
                                                         <td>₱ <?= number_format($commi['commission'], 2, '.', ',') ?>
                                                         </td>
-                                                        <td><?= $commi['status'] ?></td>
+                                                        <td style="color: 
+                                                                <?php
+                                                                switch ($commi['status']) {
+                                                                    case 'paid':
+                                                                        echo 'green';
+                                                                        break;
+                                                                    case 'unpaid':
+                                                                        echo 'red';
+                                                                        break;
+                                                                    default:
+                                                                        echo 'black'; // Default color if status is not recognized
+                                                                }
+                                                                ?>
+                                                            ">
+                                                            <?= $commi['status'] ?>
+                                                        </td>
                                                         <?php if ($commi['status'] != 'paid'): ?>
                                                             <td><a href="<?= base_url() ?>upstatusplan/<?= $commi['tokin'] ?>"
-                                                                    class="btn btn-info"><i class="fas fa-check"></i></a></td>
+                                                                    class="btn btn-info"
+                                                                    onclick="return confirm('Are you sure you want to Update?');"><i class="fas fa-check"></i></a></td>
                                                         <?php endif; ?>
                                                     </tr>
                                                 <?php endforeach ?>

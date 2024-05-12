@@ -63,7 +63,7 @@
 				<div class="main-responsive-menu">
 					<div class="logo">
 						<a href="/">
-							<h6 style="font-family: Arial Black; color: #013781;">ALLIANZ PNB LIFE INSURANCE MIMAROPA</h6>
+							<h6 style="font-family: Arial Black; color: #013781; font-size: 8pt">ALLIANZ PNB LIFE INSURANCE MIMAROPA</h6>
 						</a>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
                             <li class="nav-item">
 								<a href="/ClientService" class="nav-link">Services</a>
 							</li>
-							
+
 							<!-- <li class="nav-item">
 								<a href="#" class="nav-link">
 									Pages
@@ -138,13 +138,16 @@
 							<li class="nav-item">
 								<a href="/contactus" class="nav-link">Contact Us</a>
 							</li>
+							<!-- <li class="nav-item">
+                                <a href="/login" class="nav-link">Login  </a>
+                            </li> -->
 						</ul>
 						<div class="others-options d-flex align-items-center">
-							<div class="option-item">
+							<!-- <div class="option-item">
 								<button class="searchbtn" type="button">
 									<i class="bx bx-search"></i>
 								</button>
-							</div>
+							</div> -->
 							<div class="option-item">
 								<a href="/login" class="default-btn btn-style-2">Login</a>
 							</div>
@@ -165,13 +168,16 @@
                 <div class="container">
                     <div class="option-inner">
                         <div class="others-options d-flex align-items-center">
-                            <div class="option-item">
+                            <!-- <div class="option-item">
                                 <button class="searchbtn" type="button">
                                     <i class="bx bx-search"></i>
                                 </button>
+                            </div> -->
+							<div class="option-item mx-1">
+                                <a href="/login" class="default-btn">Register   </a>
                             </div>
-                            <div class="option-item">
-                                <a href="/login" class="default-btn btn-style-2">Login   </a>
+                            <div class="option-item mx-1">
+                                <a href="/login" class="default-btn">Login   </a>
                             </div>
                         </div>
                     </div>
