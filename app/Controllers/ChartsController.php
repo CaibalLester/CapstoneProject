@@ -2,105 +2,37 @@
 
 namespace App\Controllers;
 
+use App\Models\AgentModel;
 use App\Controllers\BaseController;
 use App\Models\CommiModel;
+use App\Models\ApplicantModel;
 
 class ChartsController extends BaseController
 {
   private $commission;
-
+  private $agent;
+  private $app;
   public function __construct()
   {
+    $this->agent = new AgentModel();
     $this->commission = new CommiModel();
+    $this->app = new ApplicantModel();
   }
 
   public function monthlyAgentCount()
   {
-    header('Content-Type: application/json');
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "erecruit";
-
-    $conn = new \mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $query = "SELECT 
-                    DATE_FORMAT(created_at, '%Y-%m') AS month,
-                    COUNT(id) AS agent_count
-                  FROM 
-                    agent
-                  GROUP BY 
-                    month 
-                  ORDER BY 
-                    month ASC";
-
-    $result = $conn->query($query);
-
-    if ($result) {
-      $data = array();
-      while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-      }
-
-      $result->free_result();
-
-      $conn->close();
-
-      echo json_encode($data);
-    } else {
-      echo "Error: " . $conn->error;
-    }
+    $query = $this->agent->query("SELECT MONTH(created_at) AS month, YEAR(created_at) AS year, COUNT(agent_id) AS agent_count FROM agent GROUP BY YEAR(created_at), MONTH(created_at) ORDER BY year ASC, month ASC");
+    $result = $query->getResultArray();
+    return json_encode($result);
   }
 
-  public function monthlyPendingApplicantCount()
+  public function getApplicantsCount()
   {
-    header('Content-Type: application/json');
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "erecruit";
-
-    $conn = new \mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    $query = "SELECT 
-                    DATE_FORMAT(created_at, '%Y-%m') AS month,
-                    COUNT(id) AS applicant_count
-                  FROM 
-                    applicant
-                  -- WHERE 
-                  --   status = 'pending'
-                  GROUP BY 
-                    month 
-                  ORDER BY 
-                    month ASC";
-
-    $result = $conn->query($query);
-
-    if ($result) {
-      $data = array();
-      while ($row = $result->fetch_assoc()) {
-        $data[] = $row;
-      }
-
-      $result->free_result();
-
-      $conn->close();
-
-      echo json_encode($data);
-    } else {
-      echo "Error: " . $conn->error;
-    }
+    $query = $this->app->query("SELECT MONTH(created_at) AS month, YEAR(created_at) AS year, COUNT(applicant_id) AS applicant_count FROM applicant GROUP BY YEAR(created_at), MONTH(created_at) ORDER BY year ASC, month ASC");
+    $result = $query->getResultArray();
+    return json_encode($result);
   }
+
   // Controller method to fetch monthly commission data
   public function getMonthlyCommissions()
   {

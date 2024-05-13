@@ -465,14 +465,8 @@ class AdminController extends BaseController
 
     public function sched()
     {
-        // Load the model
         $data = array_merge($this->getData(), $this->getDataAd());
-        $scheduleModel = new ScheduleModel();
-
-        // Get all schedules from the database
-        $data['schedules'] = $scheduleModel->findAll();
-
-        // Pass data to the view
+        $data['schedules'] = $this->scheduleModel->findAll();
         return view('Admin/Schedule', $data);
     }
 
@@ -500,6 +494,4 @@ class AdminController extends BaseController
         $this->scheduleModel->insert($data);
         return redirect()->back()->with('success', 'Schedule submitted successfully.');
     }
-
-
 }

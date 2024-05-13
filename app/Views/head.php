@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    
 
     <link href="<?= base_url(); ?>req/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>req/css/bootstrap-icons.css" rel="stylesheet">

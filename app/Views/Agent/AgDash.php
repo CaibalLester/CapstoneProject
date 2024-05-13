@@ -112,97 +112,10 @@
                         <div class="custom-block bg-white">
                             <div id="barChart"></div>
                         </div>
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                fetch('/getMonthlyCommissions')
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.length === 0) {
-                                            document.querySelector("#barChart").innerHTML = '<div style="text-align: center; padding: 20px;">No Commissions yet</div>';
-                                        } else {
-                                            const months = data.map(item => getMonthName(item.month));
-                                            const commissions = data.map(item => item.total_commission);
-
-                                            new ApexCharts(document.querySelector("#barChart"), {
-                                                series: [{
-                                                    data: commissions
-                                                }],
-                                                chart: {
-                                                    type: 'bar',
-                                                    height: 300
-                                                },
-                                                plotOptions: {
-                                                    bar: {
-                                                        borderRadius: 4,
-                                                        horizontal: true,
-                                                    }
-                                                },
-                                                dataLabels: {
-                                                    enabled: true
-                                                },
-                                                xaxis: {
-                                                    categories: months
-                                                },
-                                                title: {
-                                                    text: 'Monthly Commissions',
-                                                    // align: 'center',
-                                                }
-                                            }).render();
-                                        }
-                                    });
-                            });
-
-                            function getMonthName(monthNumber) {
-                                const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-                                return months[monthNumber - 1];
-                            }
-                        </script>
 
                         <div class="custom-block bg-white">
                             <div id="yearlyComm"></div>
                         </div>
-                        <script>
-                            document.addEventListener("DOMContentLoaded", () => {
-                                fetch('/getYearlyCommissions')
-                                    .then(response => response.json())
-                                    .then(data => {
-                                        if (data.length === 0) {
-                                            document.querySelector("#yearlyComm").innerHTML = '<div style="text-align: center; padding: 20px;">No Commissions yet</div>';
-                                        } else {
-                                            const years = data.map(item => item.year);
-                                            const commissions = data.map(item => item.total_commission);
-
-                                            new ApexCharts(document.querySelector("#yearlyComm"), {
-                                                series: [{
-                                                    data: commissions
-                                                }],
-                                                chart: {
-                                                    type: 'bar',
-                                                    height: 300
-                                                },
-                                                plotOptions: {
-                                                    bar: {
-                                                        borderRadius: 4,
-                                                        // horizontal: true,
-                                                        horizontal: false,
-                                                    }
-                                                },
-                                                dataLabels: {
-                                                    enabled: true
-                                                },
-                                                xaxis: {
-                                                    categories: years
-                                                },
-                                                title: {
-                                                    text: 'Yearly Commissions',
-                                                    // align: 'center',
-                                                }
-                                            }).render();
-                                        }
-                                    });
-                            });
-                        </script>
-                        
                     </div>
 
                     <!-- end of left side -->
@@ -296,8 +209,8 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FILES -->
     <?= view('js') ?>
+    <?= view('Charts/visuals') ?>
 
     <script>
         function copyToClipboard() {
@@ -309,7 +222,5 @@
             alert('Text copied to clipboard: ' + input.value);
         }
     </script>
-
 </body>
-
 </html>

@@ -105,16 +105,12 @@
                     <div class="col-lg-8">
                         <div class="row">
 
-                            <!-- Agents monthlyAgentCount -->
                             <div class="col-lg-12 col-12">
-                                <!-- First Chart for Agents -->
                                 <div class="custom-block bg-white">
                                     <div id="agentChart"></div>
                                 </div>
-
-                                <!-- Second Chart for Pending Applicants -->
                                 <div class="custom-block bg-white">
-                                    <div id="pendingApplicantChart"></div>
+                                    <div id="ApplicantChart"></div>
                                 </div>
                             </div>
 
@@ -142,34 +138,7 @@
                                                         <td>28</td>
                                                         <td>2016-05-25</td>
                                                     </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Bridie Kessler</td>
-                                                        <td>Developer</td>
-                                                        <td>35</td>
-                                                        <td>2014-12-05</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Ashleigh Langosh</td>
-                                                        <td>Finance</td>
-                                                        <td>45</td>
-                                                        <td>2011-08-12</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Angus Grady</td>
-                                                        <td>HR</td>
-                                                        <td>34</td>
-                                                        <td>2012-06-11</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">5</th>
-                                                        <td>Raheem Lehner</td>
-                                                        <td>Dynamic Division Officer</td>
-                                                        <td>47</td>
-                                                        <td>2011-04-19</td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                             <!-- End Table with hoverable rows -->
@@ -181,7 +150,6 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-
                                         <!-- Table with hoverable rows -->
                                         <div class="table-responsive">
                                             <table class="account-table table">
@@ -206,118 +174,6 @@
 
                                                 <tbody>
                                                     <tr>
-                                                        <td scope="row">July 5, 2023</td>
-
-                                                        <td scope="row">10:00 PM</td>
-
-                                                        <td scope="row">Shopping</td>
-
-                                                        <td scope="row">C2C Transfer</td>
-
-                                                        <td class="text-danger" scope="row">
-                                                            <span class="me-1">-</span>
-                                                            $100.00
-                                                        </td>
-
-                                                        <td scope="row">$5,500.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-danger">
-                                                                Pending
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">July 2, 2023</td>
-
-                                                        <td scope="row">10:42 AM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-1">+</span>
-                                                            $250
-                                                        </td>
-
-                                                        <td scope="row">$5,600.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">June 28, 2023</td>
-
-                                                        <td scope="row">8:20 PM</td>
-
-                                                        <td scope="row">Billing</td>
-
-                                                        <td scope="row">Goverment</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$50
-                                                        </td>
-
-                                                        <td scope="row">$5,350.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">June 24, 2023</td>
-
-                                                        <td scope="row">10:48 PM</td>
-
-                                                        <td scope="row">Shopee</td>
-
-                                                        <td scope="row">QR Code</td>
-
-                                                        <td class="text-danger" scope="row">
-                                                            <span class="me-2">-</span>$380
-                                                        </td>
-
-                                                        <td scope="row">$5,300.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-dark">
-                                                                Cancelled
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">June 12, 2023</td>
-
-                                                        <td scope="row">12:30 AM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$250
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
                                                         <td scope="row">May 31, 2023</td>
 
                                                         <td scope="row">2:40 PM</td>
@@ -335,94 +191,6 @@
                                                         <td scope="row">
                                                             <span class="badge text-bg-success">
                                                                 Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">May 22, 2023</td>
-
-                                                        <td scope="row">8:50 AM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$50
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">May 20, 2023</td>
-
-                                                        <td scope="row">6:45 PM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-danger" scope="row">
-                                                            <span class="me-2">-</span>$500
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-danger">
-                                                                Pending
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">April 28, 2023</td>
-
-                                                        <td scope="row">11:20 AM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$856
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td scope="row">April 16, 2023</td>
-
-                                                        <td scope="row">11:00 PM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$50
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-danger">
-                                                                Pending
                                                             </span>
                                                         </td>
                                                     </tr>
@@ -462,106 +230,45 @@
                                 <div class="card mb-3 text-center">
                                     <h5 class="card-title mt-3">Top 3 Recruiters</h5>
                                     <?php foreach ($top as $topagent): ?>
-                                    <div class="card-body">
-                                        <img src="<?= isset ($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
-                                            class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                            style="width: 80px; height: 80px;">
-                                        <h5 class="card-title mt-2 small">
-                                            <?= $topagent['username'] ?>
-                                            <?= $topagent['total_fA'] ?>
-                                        </h5>
-                                        <!-- Add other relevant information as needed -->
-                                    </div>
+                                        <div class="card-body">
+                                            <img src="<?= isset($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
+                                                class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                                style="width: 80px; height: 80px;">
+                                            <h5 class="card-title mt-2 small">
+                                                <?= $topagent['username'] ?>
+                                                <?= $topagent['total_fA'] ?>
+                                            </h5>
+                                            <!-- Add other relevant information as needed -->
+                                        </div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
+
                             <div class="col-lg-12">
-                                <div class="card" style="height: 300px;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Your Heading</h5>
-                                        <p class="card-text">Your text goes here. You can add more content or
-                                            components.</p>
-                                    </div>
+                                <div class="card mb-3 text-center">
+                                    <h6 class="card-title mt-3">Top 3 Commissionies</>
+                                    <?php foreach ($top as $topagent): ?>
+                                        <div class="card-body">
+                                            <img src="<?= isset($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
+                                                class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                                style="width: 80px; height: 80px;">
+                                            <h5 class="card-title mt-2 small">
+                                                <?= $topagent['username'] ?>
+                                                <?= $topagent['total_fA'] ?>
+                                            </h5>
+                                            <!-- Add other relevant information as needed -->
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <?=view('rtc/chat') ?>
             </main>
         </div>
     </div>
     <?= view('js'); ?>
-    <script type="text/javascript">
-    // Function to create a chart
-    function createChart(chartId, data, title) {
-        var options = {
-            series: [{
-                name: title,
-                data: data.map(entry => entry.agent_count || entry.applicant_count)
-            }],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: data.map(entry => entry.month),
-            },
-            yaxis: {
-                title: {
-                    text: title
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function(val) {
-                        return val + " " + title.toLowerCase();
-                    }
-                }
-            }
-        };
-
-        // Create and render the chart
-        var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
-        chart.render();
-    }
-
-    // Fetch dynamic data from the server for agents
-    fetch('/monthlyAgentCount')
-        .then(response => response.json())
-        .then(data => {
-            createChart('agentChart', data, 'Agents');
-        })
-        .catch(error => console.error('Error fetching data for agents:', error));
-
-    // Fetch dynamic data from the server for pending applicants
-    fetch('/monthlyPendingApplicantCount')
-        .then(response => response.json())
-        .then(data => {
-            createChart('pendingApplicantChart', data, 'Applicants');
-        })
-        .catch(error => console.error('Error fetching data for pending applicants:', error));
-
-    </script>
-
+    <?= view('Charts/visuals') ?>
 </body>
 
 </html>
