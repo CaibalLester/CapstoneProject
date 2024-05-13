@@ -297,8 +297,7 @@
                                                         <div class="modal-dialog modal-sm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">User
-                                                                        Details</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Update Status</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
@@ -306,20 +305,20 @@
                                                                 <div class="modal-body">
                                                                     <form action="/upuser/<?= $user['token'] ?>"
                                                                         method="post" role="form">
-                                                                        <div class="mb-3">
+                                                                        <!-- <div class="mb-3">
                                                                             <label for="upusername" class="form-label">User
                                                                                 Name</label>
                                                                             <input type="text" class="form-control"
                                                                                 id="username" name="upusername"
                                                                                 value="<?= $user['username'] ?>" required>
-                                                                        </div>
-                                                                        <div class="mb-3">
+                                                                        </div> -->
+                                                                        <!-- <div class="mb-3">
                                                                             <label for="upemail"
                                                                                 class="form-label">Email</label>
                                                                             <input type="email" class="form-control"
                                                                                 id="email" name="upemail"
                                                                                 value="<?= $user['email'] ?>" required>
-                                                                        </div>
+                                                                        </div> -->
 
                                                                         <div class="mb-3">
                                                                             <label for="accountStatus"

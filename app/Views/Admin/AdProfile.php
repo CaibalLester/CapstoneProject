@@ -99,7 +99,7 @@
                     <div class="col-xl-4">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                <img src="<?= isset ($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : '' ?>"
+                                <img src="<?= isset($admin['adminProfile']) && !empty($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : base_url('/uploads/def.png') ?>"
                                     alt="Profile" class="rounded-circle"
                                     style="width: 150px; height: 150px; cursor: pointer;" data-bs-toggle="tooltip"
                                     data-bs-placement="bottom" title="Click to see QR code">
@@ -133,11 +133,6 @@
                     <div class="col-xl-8">
                         <div class="card">
                             <div class="card-body pt-3">
-                                <h1 class="h2 mb-0">About</h1>
-                                <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam
-                                    maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor.
-                                    Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi
-                                    sed ea saepe at unde.</p>
                                 <h5 class="card-title">Profile Details</h5>
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label ">Full Name</div>

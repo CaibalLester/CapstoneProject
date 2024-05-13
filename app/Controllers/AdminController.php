@@ -15,9 +15,11 @@ use App\Models\Form3Model;
 use App\Models\AgentModel;
 use App\Models\ConfirmModel;
 use App\Models\ScheduleModel;
+use App\Models\CommiModel;
 
 class AdminController extends BaseController
 {
+    private $commi;
     private $client;
     private $confirm;
     private $db;
@@ -46,6 +48,7 @@ class AdminController extends BaseController
         $this->homecon = new HomepageController();
         $this->client = new ClientModel();
         $this->scheduleModel = new ScheduleModel();
+        $this->commi = new CommiModel();
     }
 
     public function AdDash()
@@ -53,7 +56,7 @@ class AdminController extends BaseController
         $totalAgents = count($this->agent->findAll());
         $totalApplicants = count($this->applicant->findAll());
         $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent(), $this->rtc->RTC());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent(), $this->topcommi());
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
@@ -64,13 +67,42 @@ class AdminController extends BaseController
     {
         // Load the database service
         $builder = \Config\Database::connect()->table('agent a');
-        $builder->select('a.username, a.FA, a.agentprofile, (SELECT COUNT(*) FROM agent b WHERE b.FA = a.agent_id) AS total_fA');
+        $builder->select('a.username, a.FA, a.agentprofile, a.agent_token, (SELECT COUNT(*) FROM agent b WHERE b.FA = a.agent_id) AS total_fA');
         $builder->orderBy('total_fa', 'DESC');
         $builder->limit(3);
         // Get the result as an array
         $result = $builder->get()->getResultArray();
         // Pass the data to your view or perform any other actions
         $data['top'] = $result;
+        // Return the data
+        return $data;
+    }
+
+    public function topcommi()
+    {
+        // Select the agent_id and sum of commissions for each agent
+        $this->commi->select('agent_id, SUM(commi) AS total_commissions')
+            ->groupBy('agent_id')
+            ->orderBy('total_commissions', 'DESC')
+            ->limit(3);
+
+        // Get the query result
+        $result = $this->commi->get()->getResultArray();
+
+        // Fetch additional agent data for the top agents
+        $topAgents = [];
+        foreach ($result as $row) {
+            $agentId = $row['agent_id'];
+            $agentData = $this->agent->where('agent_id', $agentId)->first();
+            if ($agentData) {
+                $agentData['total_commissions'] = $row['total_commissions'];
+                $topAgents[] = $agentData;
+            }
+        }
+
+        // Prepare the data to be returned
+        $data['top_commi'] = $topAgents;
+
         // Return the data
         return $data;
     }
@@ -399,7 +431,7 @@ class AdminController extends BaseController
             $this->form3->save($formdata3);
 
             $this->confirm->delete($data['applicant']['id']);
-            $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
+            $con = ['confirm' => 'true', 'verification_token' => $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         } else {
             $lastApplicationNo = $this->client->selectMax('applicationNo')->get()->getRowArray()['applicationNo'];
@@ -419,7 +451,7 @@ class AdminController extends BaseController
             ];
             $this->client->save($clientData);
             $this->confirm->delete($data['applicant']['id']);
-            $con = ['confirm' => 'true', 'verification_token'=> $verificationToken];
+            $con = ['confirm' => 'true', 'verification_token' => $verificationToken];
             $this->user->set($con)->where('token', $token)->update();
         }
 

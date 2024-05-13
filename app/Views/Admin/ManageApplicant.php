@@ -120,7 +120,7 @@
                                         <div class="custom-block-profile-front text-center">
                                             <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/applicantprofile/<?= $app['app_token']; ?>">
-                                                    <img src="<?= isset($app['profile']) ? base_url('/uploads/' . $app['profile']) : 'default_path_here' ?>"
+                                                    <img src="<?= isset($app['profile']) && !empty($app['profile']) ? base_url('/uploads/' . $app['profile']) : base_url('/uploads/def.png') ?>"
                                                         class="img-fluid" alt="" style="height: 100px; width: auto">
                                                 </a>
                                             </div>

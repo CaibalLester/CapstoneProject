@@ -66,14 +66,14 @@
                             </a>
                         </li>
 
-
+                        <hr>
                         <li class="nav-item">
-                            <a class="nav-link" href="/AdHelp">
-                                <i class="fas fa-hands-helping me-2"></i>
-                                Help Center
+                            <a class="nav-link " aria-current="page" href="/ManageClient">
+                                <i class="fa fa-users me-2"></i>
+                                Clients
                             </a>
                         </li>
-                        <hr>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/plans">
                                 <i class="bi bi-hospital me-2"></i>
@@ -102,7 +102,7 @@
 
                 <div class="row">
                     <!-- left side columns -->
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 mb-3">
                         <div class="row">
 
                             <div class="col-lg-12 col-12">
@@ -114,7 +114,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-lg-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Table with hoverable rows</h5>
@@ -141,62 +141,7 @@
 
                                                 </tbody>
                                             </table>
-                                            <!-- End Table with hoverable rows -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <!-- Table with hoverable rows -->
-                                        <div class="table-responsive">
-                                            <table class="account-table table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Date</th>
-
-                                                        <th scope="col">Time</th>
-
-                                                        <th scope="col">Description</th>
-
-                                                        <th scope="col">Payment Type</th>
-
-                                                        <th scope="col">Amount</th>
-
-                                                        <th scope="col">Balance</th>
-
-                                                        <th scope="col">Status</th>
-
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                    <tr>
-                                                        <td scope="row">May 31, 2023</td>
-
-                                                        <td scope="row">2:40 PM</td>
-
-                                                        <td scope="row">Food Delivery</td>
-
-                                                        <td scope="row">Mobile Reload</td>
-
-                                                        <td class="text-success" scope="row">
-                                                            <span class="me-2">+</span>$50
-                                                        </td>
-
-                                                        <td scope="row">$4,920.00</td>
-
-                                                        <td scope="row">
-                                                            <span class="badge text-bg-success">
-                                                                Success
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- End Table with hoverable rows -->
                                         </div>
                                     </div>
                                 </div>
@@ -209,34 +154,44 @@
                     <div class="col-lg-4">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12">
-                                <div class="card mb-3">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-users fa-2x"></i>
-                                        <small class="d-block mt-2">Total Agents</small>
-                                        <h3 class="card-title mt-2">
-                                            <?= $totalAgents ?>
-                                        </h3>
+                                <div class="row">
+                                    <div class="col-lg-6 col-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-users fa-2x"></i>
+                                                <small class="d-block mt-2">Agents</small>
+                                                <h3 class="card-title mt-2">
+                                                    <?= $totalAgents ?>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-6">
+                                        <div class="card mb-3">
+                                            <div class="card-body text-center">
+                                                <i class="fas fa-user-tie fa-2x"></i>
+                                                <small class="d-block mt-2">Applicants</small>
+                                                <h3 class="card-title mt-2">
+                                                    <?= $pendingApplicants ?>
+                                                </h3>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card mb-3">
-                                    <div class="card-body text-center">
-                                        <i class="fas fa-user-tie fa-2x"></i>
-                                        <small class="d-block mt-2">Total Applicants</small>
-                                        <h3 class="card-title mt-2">
-                                            <?= $pendingApplicants ?>
-                                        </h3>
-                                    </div>
-                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-sm-12">
                                 <div class="card mb-3 text-center">
                                     <h5 class="card-title mt-3">Top 3 Recruiters</h5>
                                     <?php foreach ($top as $topagent): ?>
                                         <div class="card-body">
-                                            <img src="<?= isset($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
+                                        <a href="<?=base_url()?>/agentprofile/<?= $topagent['agent_token']; ?>">
+                                            <img src="<?= isset($topagent['agentprofile']) && !empty($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                 class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                                style="width: 80px; height: 80px;">
+                                                style="width: 80px; height: 80px;"></a>
                                             <h5 class="card-title mt-2 small">
                                                 <?= $topagent['username'] ?>
-                                                <?= $topagent['total_fA'] ?>
+                                                <!-- <?= $topagent['total_fA'] ?> -->
                                             </h5>
                                             <!-- Add other relevant information as needed -->
                                         </div>
@@ -246,19 +201,20 @@
 
                             <div class="col-lg-12">
                                 <div class="card mb-3 text-center">
-                                    <h6 class="card-title mt-3">Top 3 Commissionies</>
-                                    <?php foreach ($top as $topagent): ?>
-                                        <div class="card-body">
-                                            <img src="<?= isset($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : '' ?>"
-                                                class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
-                                                style="width: 80px; height: 80px;">
-                                            <h5 class="card-title mt-2 small">
-                                                <?= $topagent['username'] ?>
-                                                <?= $topagent['total_fA'] ?>
-                                            </h5>
-                                            <!-- Add other relevant information as needed -->
-                                        </div>
-                                    <?php endforeach; ?>
+                                    <h6 class="card-title mt-3">Top 3 Awardies</>
+                                        <?php foreach ($top_commi as $topagent): ?>
+                                            <div class="card-body">
+                                            <a href="<?=base_url()?>/agentprofile/<?= $topagent['agent_token']; ?>">
+                                                <img src="<?= isset($topagent['agentprofile']) && !empty($topagent['agentprofile']) ? base_url('/uploads/' . $topagent['agentprofile']) : base_url('/uploads/def.png') ?>"
+                                                    class="card-img-top img-fluid rounded-circle mx-auto" alt="Agent Image"
+                                                    style="width: 80px; height: 80px;"></a>
+                                                <h5 class="card-title mt-2 small">
+                                                    <?= $topagent['username'] ?>
+                                                    <!-- <?= number_format($topagent['total_commissions']) ?> -->
+                                                </h5>
+                                                <!-- Add other relevant information as needed -->
+                                            </div>
+                                        <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

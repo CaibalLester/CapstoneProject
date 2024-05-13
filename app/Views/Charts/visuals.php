@@ -12,11 +12,12 @@
                     new ApexCharts(document.querySelector("#agentChart"), {
                         series: [{
                             name: 'Number of Agents',
-                            data: agentCounts
+                            data: agentCounts,
+                            colors: ['#002379'] // Specify custom color here
                         }],
                         chart: {
                             type: 'bar',
-                            height: 300
+                            height: 250
                         },
                         plotOptions: {
                             bar: {
@@ -36,6 +37,9 @@
                                     fontSize: '12px'
                                 }
                             }
+                        },
+                        grid: {
+                            show: false // Hide grid lines
                         },
                         yaxis: {
                             title: {
@@ -78,7 +82,7 @@
                         }],
                         chart: {
                             type: 'bar',
-                            height: 300
+                            height: 250
                         },
                         plotOptions: {
                             bar: {
@@ -124,7 +128,7 @@
                         }],
                         chart: {
                             type: 'bar',
-                            height: 300
+                            height: 250
                         },
                         plotOptions: {
                             bar: {
@@ -167,7 +171,7 @@
                         }],
                         chart: {
                             type: 'bar',
-                            height: 350
+                            height: 250
                         },
                         plotOptions: {
                             bar: {
@@ -187,6 +191,9 @@
                                     fontSize: '12px'
                                 }
                             }
+                        },
+                        grid: {
+                            show: false // Hide grid lines
                         },
                         yaxis: {
                             title: {
