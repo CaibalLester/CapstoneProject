@@ -115,7 +115,7 @@
                                             <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="http://" data-bs-toggle="modal"
                                                     data-bs-target="#verticalycentered<?= $ag['agent_id']; ?>">
-                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : '' ?>"
+                                                    <img src="<?= isset($ag['agentprofile']) && !empty($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                         class="img-fluid" alt="" style="height: 100px; width: auto"></a>
                                             </div>
                                             <strong>
@@ -136,7 +136,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="text-center">
-                                                        <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : 'default_path_here' ?>"
+                                                        <img src="<?= isset($ag['agentprofile']) && !empty($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                             class="img-fluid" alt="Agent Image">
                                                     </div>
                                                     <br>

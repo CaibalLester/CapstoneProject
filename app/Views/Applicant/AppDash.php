@@ -105,13 +105,13 @@
                     <div class="col-lg-7 col-12">
                         <!-- Chart for Pending Applicants -->
                         <div class="custom-block bg-white">
-                            <div id="pendingApplicantChart"></div>
+                            <div id="ApplicantChart"></div>
                         </div>
                     </div>
                     <div class="col-lg-5 col-12">
                         <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
                             <div class="custom-block-profile-image-wrap mb-4">
-                                <img src="<?= isset($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                <img src="<?= isset($applicant['profile']) && !empty($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : base_url('/uploads/def.png') ?>"
                                     class="custom-block-profile-image img-fluid" alt="">
 
                                 <a href="/AppSetting" class="bi-pencil-square custom-block-edit-icon"></a>
@@ -184,82 +184,13 @@
                         </div>
                     </footer>
                 </div>
-                <?= view('rtc/chat'); ?>
             </main>
         </div>
     </div>
 
     <!-- JAVASCRIPT FILES -->
     <?= view('js'); ?>
-    <script type="text/javascript">
-        // Function to create a chart
-        function createChart(chartId, data, title) {
-            var options = {
-                series: [{
-                    name: title,
-                    data: data.map(entry => entry.agent_count || entry.applicant_count)
-                }],
-                chart: {
-                    type: 'bar',
-                    height: 350
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                    },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: data.map(entry => entry.month),
-                },
-                yaxis: {
-                    title: {
-                        text: title
-                    }
-                },
-                fill: {
-                    opacity: 1
-                },
-                tooltip: {
-                    y: {
-                        formatter: function (val) {
-                            return val + " " + title.toLowerCase();
-                        }
-                    }
-                }
-            };
-
-            // Create and render the chart
-            var chart = new ApexCharts(document.querySelector(`#${chartId}`), options);
-            chart.render();
-        }
-
-        // Fetch dynamic data from the server for agents
-        fetch('/monthlyAgentCount')
-            .then(response => response.json())
-            .then(data => {
-                createChart('agentChart', data, 'Agents');
-            })
-            .catch(error => console.error('Error fetching data for agents:', error));
-
-        // Fetch dynamic data from the server for pending applicants
-        fetch('/monthlyPendingApplicantCount')
-            .then(response => response.json())
-            .then(data => {
-                createChart('pendingApplicantChart', data, 'Applicants');
-            })
-            .catch(error => console.error('Error fetching data for pending applicants:', error));
-    </script>
-
+    <?= view('Charts/visuals');?>
 </body>
 
 </html>

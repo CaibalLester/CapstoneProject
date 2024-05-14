@@ -259,7 +259,7 @@
                                                 <div class="col-lg-6 col-6">
                                                     <div class="input-group mb-1">
                                                         <img id="preview-image"
-                                                            src="<?= isset ($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : 'default_path_here' ?>"
+                                                            src="<?= isset($applicant['profile']) && !empty($applicant['profile']) ? base_url('/uploads/' . $applicant['profile']) : base_url('/uploads/def.png') ?>"
                                                             class="profile-image img-fluid" alt="profile">
                                                         <input type="file" name="profile" class="form-control"
                                                             id="inputGroupFile02" onchange="previewImage()">

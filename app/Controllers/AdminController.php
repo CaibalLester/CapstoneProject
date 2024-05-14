@@ -428,6 +428,7 @@ class AdminController extends BaseController
                 'applicant_id' => $data['applicant']['applicant_id'],
                 'app_gli_token' => $token,
             ];
+            
             $this->form3->save($formdata3);
 
             $this->confirm->delete($data['applicant']['id']);

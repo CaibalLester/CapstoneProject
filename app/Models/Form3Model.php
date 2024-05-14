@@ -8,12 +8,14 @@ class Form3Model extends Model
 {
     protected $DBGroup = 'default';
     protected $table = 'gli';
-    protected $primaryKey = 'id';   
+    protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     protected $useSoftDeletes = false;
     protected $protectFields = true;
     protected $allowedFields = [
+        'applicant_id',
+        'app_gli_token',
         'lastName',
         'firstName',
         'middleName',
@@ -65,7 +67,7 @@ class Form3Model extends Model
         'day',
         'month',
         'year',
-        'applicantSignature',
+        'applicantSignature'
     ];
 
     // Dates
