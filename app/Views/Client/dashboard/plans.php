@@ -35,7 +35,7 @@
                     <div class="row row-cols-2">
                         <!-- First card column -->
                         <?php foreach ($plan as $plans): ?>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="card">
                                     <div class="col-lg-12">
                                         <div class="image-container">
@@ -94,7 +94,7 @@
                                                                 onclick="captureAgentId('<?= $agents['agent_id'] ?>')"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#seeProfile<?= $agents['agent_token'] ?>">
-                                                                <img src="<?= isset($agents['agentprofile']) ? base_url('/uploads/' . $agents['agentprofile']) : '' ?>"
+                                                                <img src="<?= isset($agents['agentprofile']) && !empty($agents['agentprofile']) ? base_url('/uploads/' . $agents['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                                     alt="Profile" class="rounded-circle">
                                                             </a>
                                                             <h2><?= isset($agents['username']) ? $agents['username'] : '' ?>
@@ -137,7 +137,7 @@
                                                     <div class="card">
                                                         <div
                                                             class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                                            <img src="<?= isset($agents['agentprofile']) ? base_url('/uploads/' . $agents['agentprofile']) : '' ?>"
+                                                            <img src="<?= isset($agents['agentprofile']) && !empty($agents['agentprofile']) ? base_url('/uploads/' . $agents['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                                 alt="Profile" class="rounded-circle">
                                                             <h2><?php echo isset($agents['username']) ? $agents['username'] : '' ?>
                                                             </h2>
@@ -158,16 +158,8 @@
                                                         <div class="card-body pt-3">
                                                             <div class="tab-content pt-2">
                                                                 <div class="tab-pane fade show active profile-overview">
-                                                                    <h5 class="card-title">About</h5>
-                                                                    <p class="small fst-italic">Sunt est soluta
-                                                                        temporibus accusantium neque nam maiores
-                                                                        cumque temporibus. Tempora libero non est unde
-                                                                        veniam est qui dolor. Ut sunt
-                                                                        iure rerum quae quisquam autem eveniet
-                                                                        perspiciatis odit. Fuga sequi sed ea
-                                                                        saepe at unde.</p>
 
-                                                                    <h5 class="card-title">Profile Details</h5>
+                                                                    <h5 class="card-title">Agent Details</h5>
 
                                                                     <div class="row mb-2">
                                                                         <div class="col-lg-3 col-md-4 label ">Full Name

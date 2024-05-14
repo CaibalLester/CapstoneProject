@@ -22,7 +22,7 @@
         <div class="col-xl-4">
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
+              <img src="<?= isset($agent['agentprofile']) && !empty($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : base_url('/uploads/def.png') ?>"
                 alt="Profile" class="rounded-circle">
               <h2><?php echo isset($agent['username']) ? $agent['username'] : '' ?></h2>
               <div class="social-links mt-2">

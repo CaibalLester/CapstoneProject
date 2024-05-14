@@ -126,7 +126,7 @@
                                         <div class="custom-block-profile-front text-center">
                                             <div class="custom-block-profile-image-wrap mb-1">
                                                 <a href="/subagentprofile/<?= $ag['agent_token']; ?>">
-                                                    <img src="<?= isset($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']): ''?>"
+                                                    <img src="<?= isset($ag['agentprofile']) && !empty($ag['agentprofile']) ? base_url('/uploads/' . $ag['agentprofile']) : base_url('/uploads/def.png') ?>"
                                                         class="img-fluid" alt="" style="height: 100px; width: auto"></a>
                                             </div>
                                             <strong>
