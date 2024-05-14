@@ -51,7 +51,7 @@ class PlanController extends BaseController
 
     public function newplanUpdate($token)
     {
-        $token2 = bin2hex(random_bytes(50));
+        // $token2 = bin2hex(random_bytes(50));
         $id = $this->request->getVar('id');
         $oldproduct = $this->plan->select('image')->where('id', $id)->first();
         $plan = []; // Idagdag ang pagdeklara ng $plan dito
@@ -75,7 +75,7 @@ class PlanController extends BaseController
             'brief_description' => $this->request->getVar('brief_description'),
             'description' => $this->request->getVar('description'),
             'price' => $this->request->getVar('price'),
-            'token' => $token2,
+            // 'token' => $token2,
             'coverage' => $this->request->getVar('coverage'),
             'com_percentage' => $this->request->getVar('com_percentage'),
         ];

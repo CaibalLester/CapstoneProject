@@ -162,12 +162,47 @@
                                                             ">
                                                             <?= $commi['status'] ?>
                                                         </td>
+
                                                         <?php if ($commi['status'] != 'paid'): ?>
+                                                            <td><a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#update<?= $commi['id'] ?>">
+                                                                    <i class="fas fa-check"></i></a></td>
+                                                        <?php endif; ?>
+
+                                                        <!-- <?php if ($commi['status'] != 'paid'): ?>
                                                             <td><a href="<?= base_url() ?>upstatusplan/<?= $commi['tokin'] ?>"
                                                                     class="btn btn-info"
-                                                                    onclick="return confirm('Are you sure you want to Update?');"><i class="fas fa-check"></i></a></td>
-                                                        <?php endif; ?>
+                                                                    onclick="return confirm('Are you sure you want to Update?');"><i
+                                                                        class="fas fa-check"></i></a></td>
+                                                        <?php endif; ?> -->
                                                     </tr>
+
+                                                    <div class="modal fade" id="update<?= $commi['id'] ?>"
+                                                        tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-sm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Plan Update</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <!-- Your registration form goes here -->
+                                                                    <form action="upstatusplan/<?= $commi['tokin'] ?>" method="post" role="form"
+                                                                        enctype="multipart/form-data">
+                                                                        <div class="mb-2">
+                                                                            <label for="receipt"
+                                                                                class="form-label">Receipt</label>
+                                                                            <input type="file" class="form-control"
+                                                                                id="receipt" name="receipt" required>
+                                                                        </div>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Save</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 <?php endforeach ?>
                                             </tbody>
                                         </table>

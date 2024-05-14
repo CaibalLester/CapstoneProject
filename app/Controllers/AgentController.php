@@ -47,7 +47,7 @@ class AgentController extends BaseController
         $data['FA'] = $this->agent->where('FA', $agentid)->findAll();
         $data['applicants'] = $this->applicant->where('refcode', $agentcode)->countAllResults();
         $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
-        $data['clients'] =  $this->client_plan->where('agent' , $agentcode)->countAllResults();
+        $data['clients'] = $this->client_plan->where('agent', $agentid)->countAllResults();
         $totalCommis = $this->client_plan->selectSum('commission')->where('agent', $agentid)->findAll();
         $data['totalcommi'] = !empty($totalCommis) ? $totalCommis[0]['commission'] : 0;
         return view('Agent/AgDash', $data);
@@ -195,7 +195,6 @@ class AgentController extends BaseController
             'city' => $this->request->getVar('city_text'),
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
-
         ];
 
         // Check if $data array is not empty before updating the database
@@ -299,6 +298,18 @@ class AgentController extends BaseController
 
     public function compost()
     {
+        $data = [];
+        if ($imageFile = $this->request->getFile('receipt')) {
+            if ($imageFile->isValid()) {
+                $imageName = $imageFile->getRandomName();
+                $uploadPath = FCPATH . 'uploads/clients/receipts/';
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    $data['receipt'] = $imageName;
+                } else {
+                    $error = $imageFile->getError();
+                }
+            }
+        }
         $token = bin2hex(random_bytes(25));
         $tokens = bin2hex(random_bytes(50));
         $schedId = $this->request->getVar('schedId');
@@ -327,7 +338,7 @@ class AgentController extends BaseController
             }
         }
 
-        $data = [
+        $data += [
             'plan' => $this->request->getVar('plan'),
             'agent' => $this->request->getVar('agent'),
             'client_id' => $this->request->getVar('client_id'),
@@ -347,16 +358,47 @@ class AgentController extends BaseController
             'commi' => $commissionAmount,
             'agent_id' => $this->request->getVar('agent'),
             'client_id' => $this->request->getVar('client_id'),
+
         ];
         $this->commission->save($commi);
-        
         return redirect()->to('cliSched')->with('success', 'Transaction Completed');
-        // var_dump($data);
-        // var_dump($commissionAmount);
     }
 
     public function upstatusplan($token)
     {
+        $stats = [];
+        // Get the old image file name from the database
+
+        $oldreceipt = $this->client_plan->select('receipt')->where('token', $token)->first();
+        // Check if a file is uploaded
+        if ($imageFile = $this->request->getFile('receipt')) {
+            // Check if the file is valid
+            if ($imageFile->isValid()) {
+                // Generate a unique name for the uploaded image
+                $imageName = $imageFile->getRandomName();
+
+                // Set the path to the upload directory
+                $uploadPath = FCPATH . 'uploads/clients/receipts/';
+
+                // Move the uploaded image to the upload directory
+                if ($imageFile->move($uploadPath, $imageName)) {
+                    // Image upload successful, store the image filename in the database
+                    $data['receipt'] = $imageName;
+
+                    // Delete the old image file if it exists
+                    if (!empty($oldreceipt['receipt'])) {
+                        $oldFilePath = $uploadPath . $oldreceipt['receipt'];
+                        if (file_exists($oldFilePath)) {
+                            unlink($oldFilePath);
+                        }
+                    }
+                } else {
+                    $error = $imageFile->getError();
+                    // Handle the error as needed
+                }
+            }
+        }
+
         $tokens = bin2hex(random_bytes(50));
         $data['commi'] = $this->client_plan->where('token', $token)->first();
         $data['percentage'] = $this->plan->where('token', $data['commi']['plan'])->first();
@@ -369,16 +411,16 @@ class AgentController extends BaseController
         $clientid = $data['commi']['client_id'];
 
         // Calculate new commission based on payment mode
-        // $newcommi = $oldcommi;
-        // if ($paymentmode == 'Annual') {
-        //     $newcommi += $annualpay * ($per / 100);
-        // } elseif ($paymentmode == 'Semi-Annual') {
-        //     $newcommi += $annualpay * ($per / 100) / 2;
-        // } elseif ($paymentmode == 'Quarterly') {
-        //     $newcommi += $annualpay * ($per / 100) / 4;
-        // } elseif ($paymentmode == 'Monthly') {
-        //     $newcommi += $annualpay * ($per / 100) / 12;
-        // }
+        $newcommi = $oldcommi;
+        if ($paymentmode == 'Annual') {
+            $newcommi += $annualpay * ($per / 100);
+        } elseif ($paymentmode == 'Semi-Annual') {
+            $newcommi += $annualpay * ($per / 100) / 2;
+        } elseif ($paymentmode == 'Quarterly') {
+            $newcommi += $annualpay * ($per / 100) / 4;
+        } elseif ($paymentmode == 'Monthly') {
+            $newcommi += $annualpay * ($per / 100) / 12;
+        }
 
         if ($paymentmode == 'Annual') {
             $commi = $annualpay * ($per / 100);
@@ -391,12 +433,12 @@ class AgentController extends BaseController
         }
 
         // Update the commission and status in the database
-        $stats = [
+        $stats += [
             'status' => 'paid',
-            // 'commission' => $newcommi,
+            'commission' => $newcommi,
         ];
         $this->client_plan->set($stats)->where('token', $token)->update();
-        
+
         $commi = [
             'token' => $tokens,
             'commi' => $commi,

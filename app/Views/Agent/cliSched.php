@@ -7,7 +7,7 @@
     <?= view('Agent/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -72,7 +72,7 @@
                                 Schedule
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link active" href="/cliSched">
                                 <i class="bi bi-check-lg me-2"></i>
@@ -121,8 +121,7 @@
                                     class="nav-link <?= $class == 'Awaiting' ? 'active' : ''; ?>">Awaiting</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a href="inprog"
-                                    class="nav-link <?= $class == 'In Progress' ? 'active' : ''; ?>">In
+                                <a href="inprog" class="nav-link <?= $class == 'In Progress' ? 'active' : ''; ?>">In
                                     Progress</a>
                             </li>
                             <li class="nav-item" role="presentation">
@@ -176,7 +175,6 @@
                                                         </a>
                                                     <?php endif; ?>
                                                 </td>
-
                                             </tr>
                                         </tbody>
                                         <div class="modal fade" id="typeofpayment<?= $sched['id'] ?>" tabindex="-1"
@@ -208,21 +206,26 @@
                                                                     Term</label>
                                                                 <input type="number" class="form-control" id="term"
                                                                     name="term" placeholder="ex. 10y" required>
-                                                                <input type="hidden" name="schedId"
-                                                                    value="<?= $sched['id'] ?>">
-                                                                <input type="hidden" name="username"
-                                                                    value="<?= $sched['username'] ?>">
-                                                                <input type="hidden" name="plan"
-                                                                    value="<?= $sched['plan'] ?>">
-                                                                <input type="hidden" name="email"
-                                                                    value="<?= $sched['email'] ?>">
-                                                                <input type="hidden" name="agent"
-                                                                    value="<?= $sched['agent'] ?>">
-                                                                <input type="hidden" name="client_id"
-                                                                    value="<?= $sched['client_id'] ?>">
-                                                                    <input type="hidden" name="applicationNo"
-                                                                    value="<?= $sched['applicationNo'] ?>">
                                                             </div>
+
+                                                            <div class="mb-2">
+                                                                <label for="receipt" class="form-label">Receipt</label>
+                                                                <input type="file" class="form-control" id="receipt"
+                                                                    name="receipt" placeholder="ex. 10y" required>
+                                                            </div>
+
+                                                            <input type="hidden" name="schedId" value="<?= $sched['id'] ?>">
+                                                            <input type="hidden" name="username"
+                                                                value="<?= $sched['username'] ?>">
+                                                            <input type="hidden" name="plan" value="<?= $sched['plan'] ?>">
+                                                            <input type="hidden" name="email"
+                                                                value="<?= $sched['email'] ?>">
+                                                            <input type="hidden" name="agent"
+                                                                value="<?= $sched['agent'] ?>">
+                                                            <input type="hidden" name="client_id"
+                                                                value="<?= $sched['client_id'] ?>">
+                                                            <input type="hidden" name="applicationNo"
+                                                                value="<?= $sched['applicationNo'] ?>">
                                                             <button type="submit" class="btn btn-primary">Save</button>
                                                         </form>
                                                     </div>
