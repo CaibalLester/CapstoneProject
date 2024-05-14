@@ -99,7 +99,7 @@
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
-                    <h1 class="h2 mb-0">Sub Agents</h1>
+                    <h1 class="h2 mb-0">Clients</h1>
                 </div>
                 <div class="row my-4">
                     <div class="col-lg-12 col-12">

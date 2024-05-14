@@ -434,9 +434,9 @@ class AgentController extends BaseController
         $filter = $this->request->getVar('filterclient');
         if (!empty($clientId)) { // Check if $clientId array is not empty
             if (!empty($filter)) {
-                $clients = $this->client->like('username', $filter)->whereIn('client_id', $clientId)->findAll();
+                $clients = $this->client->like('username', $filter)->whereIn('client_id', $clientId)->paginate(10, 'group1');
             } else {
-                $clients = $this->client->whereIn('client_id', $clientId)->findAll();
+                $clients = $this->client->whereIn('client_id', $clientId)->paginate(10, 'group1');
             }
         } else {
             $clients = [];
