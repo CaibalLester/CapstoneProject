@@ -223,7 +223,7 @@
 					<div class="col-lg-3 col-sm-6 col-md-6">
 						<div class="single-team-card team-page-card">
 							<div class="team-img">
-								<img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
+								<img src="<?= isset($agent['agentprofile']) && !empty($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : base_url('/uploads/def.png') ?>"
 									alt="team">
 							</div>
 							<div class="single-team-content">

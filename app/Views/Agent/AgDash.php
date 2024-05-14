@@ -107,7 +107,7 @@
 
                 <div class="row">
                     <!-- left side columns -->
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
 
                         <div class="custom-block bg-white">
                             <div id="barChart"></div>
@@ -121,88 +121,127 @@
                     <!-- end of left side -->
 
                     <!-- right side columns -->
-                    <div class="col-lg-3">
-                        <div class="card mb-2">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <!-- Set max-width and max-height to constrain the image within the card body -->
-                                <div class="image-container"
-                                    style="position: relative; max-width: 100%; max-height: 100%; overflow: hidden;">
-                                    <?php
-                                    $imageSrc = '/req/rank/bronze.png'; // Default image source
-                                    switch ($ranking) {
-                                        case ($ranking >= 1 && $ranking <= 10):
-                                            $imageSrc = '/req/rank/bronze.png';
-                                            break;
-                                        case ($ranking >= 11 && $ranking <= 20):
-                                            $imageSrc = '/req/rank/silver.png';
-                                            break;
-                                        case ($ranking >= 21 && $ranking <= 30):
-                                            $imageSrc = '/req/rank/gold.png';
-                                            break;
-                                        case ($ranking >= 31 && $ranking <= 40):
-                                            $imageSrc = '/req/rank/diamond.png';
-                                            break;
-                                        default:
-                                            $imageSrc = '/req/rank/platinum.png';
-                                            break;
-                                    }
-                                    ?>
-                                    <img src="<?= $imageSrc ?>" alt=""
-                                        style="width: 50%; height: 50%; transform: scale(3); display: block; margin: 0 auto;">
-                                </div>
-                                <!-- Rank text -->
-                                <h5 class="">
-                                    <?php
-                                    switch ($ranking) {
-                                        case ($ranking >= 1 && $ranking <= 10):
-                                            echo 'Bronze';
-                                            break;
-                                        case ($ranking >= 11 && $ranking <= 20):
-                                            echo 'Silver';
-                                            break;
-                                        case ($ranking >= 21 && $ranking <= 30):
-                                            echo 'Gold';
-                                            break;
-                                        case ($ranking >= 31 && $ranking <= 40):
-                                            echo 'Diamond';
-                                            break;
-                                        default:
-                                            echo 'Platinum';
-                                            break;
-                                    }
-                                    ?>
-                                </h5>
-                            </div>
-                            <div class="card">
-                                <!-- The hidden input field -->
-                                <input type="text" value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
-                                    id="myInput" style="display: none;">
+                    <div class="col-lg-4">
 
-                                <!-- The clipboard icon button with tooltip -->
-                                <button class="btn btn-secondary btn-sm" onclick="copyToClipboard()"
-                                    data-toggle="tooltip" data-placement="top" title="Copy Verification Code">
-                                    <i class="bi bi-clipboard"></i>
-                                </button>
+
+                        <div class="col-lg-12 col-sm-12">
+                            <div class="row">
+
+                                <div class="col-lg-12 col-12">
+                                    <div class="card mb-2">
+                                        <div class="card-body d-flex flex-column align-items-center">
+                                            <!-- Set max-width and max-height to constrain the image within the card body -->
+                                            <div class="image-container"
+                                                style="position: relative; max-width: 80%; max-height: 80%; overflow: hidden;">
+                                                <?php
+                                                $imageSrc = '/req/rank/bronze.png'; // Default image source
+                                                switch ($ranking) {
+                                                    case ($ranking >= 1 && $ranking <= 10):
+                                                        $imageSrc = '/req/rank/bronze.png';
+                                                        break;
+                                                    case ($ranking >= 11 && $ranking <= 20):
+                                                        $imageSrc = '/req/rank/silver.png';
+                                                        break;
+                                                    case ($ranking >= 21 && $ranking <= 30):
+                                                        $imageSrc = '/req/rank/gold.png';
+                                                        break;
+                                                    case ($ranking >= 31 && $ranking <= 40):
+                                                        $imageSrc = '/req/rank/diamond.png';
+                                                        break;
+                                                    default:
+                                                        $imageSrc = '/req/rank/platinum.png';
+                                                        break;
+                                                }
+                                                ?>
+                                                <img src="<?= $imageSrc ?>" alt=""
+                                                    style="width: 50%; height: 50%; transform: scale(3); display: block; margin: 0 auto;">
+                                            </div>
+                                            <!-- Rank text -->
+                                            <div class="fs-4 mt-2">
+
+                                                <?php
+                                                switch ($ranking) {
+                                                    case ($ranking >= 1 && $ranking <= 10):
+                                                        echo 'Bronze';
+                                                        break;
+                                                    case ($ranking >= 11 && $ranking <= 20):
+                                                        echo 'Silver';
+                                                        break;
+                                                    case ($ranking >= 21 && $ranking <= 30):
+                                                        echo 'Gold';
+                                                        break;
+                                                    case ($ranking >= 31 && $ranking <= 40):
+                                                        echo 'Diamond';
+                                                        break;
+                                                    default:
+                                                        echo 'Platinum';
+                                                        break;
+                                                }
+                                                ?>
+                                            </div>
+                                            <!-- The hidden input field -->
+                                            <input type="text"
+                                                value="<?php echo base_url() ?>register/<?= $agent['AgentCode'] ?>"
+                                                id="myInput" style="display: none;">
+
+                                            <!-- The clipboard icon button with tooltip -->
+                                            <button class="btn btn-secondary btn-sm w-100" onclick="copyToClipboard()"
+                                                data-toggle="tooltip" data-placement="top"
+                                                title="Copy Verification Code">
+                                                <i class="bi bi-clipboard"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-users fa-2x"></i>
+                                            <small class="d-block mt-2">Sub Agents</small>
+                                            <div class="fs-4 mt-2">
+                                                <?= $ranking ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-users fa-2x"></i>
+                                            <small class="d-block mt-2">Applicants</small>
+                                            <div class="fs-4 mt-2">
+                                                <?= $applicants ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-users fa-2x"></i>
+                                            <small class="d-block mt-2">Clients</small>
+                                            <div class="fs-4 mt-2">
+                                                <?= $clients ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-6">
+                                    <div class="card mb-2">
+                                        <div class="card-body text-center">
+                                            <i class="bi bi-cash-coin fa-2x"></i>
+                                            <small class="d-block mt-1">Commissions</small>
+                                            <div class="fs-7 mt-2">
+                                                ₱ <?= number_format($totalcommi, 2, '.', ',') ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="card mb-2">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users fa-2x"></i>
-                                <small class="d-block mt-2">Total Sub Agents</small>
-                                <h3 class="card-title mt-2">
-                                    <?= $ranking ?>
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <i class="bi bi-cash-coin fa-2x"></i>
-                                <small class="d-block mt-2" style="font-size: 14px;">Total Commissions</small>
-                                <h3 class="card-title mt-2" style="font-size: 19px;">
-                                    ₱ <?= number_format($totalcommi, 2, '.', ',') ?>
-                                </h3>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </main>
@@ -223,4 +262,5 @@
         }
     </script>
 </body>
+
 </html>

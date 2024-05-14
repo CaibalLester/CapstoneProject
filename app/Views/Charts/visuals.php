@@ -90,6 +90,9 @@
                                 horizontal: true,
                             }
                         },
+                        grid: {
+                            show: false // Hide grid lines
+                        },
                         dataLabels: {
                             enabled: true
                         },
@@ -139,6 +142,9 @@
                         },
                         dataLabels: {
                             enabled: true
+                        },
+                        grid: {
+                            show: false // Hide grid lines
                         },
                         xaxis: {
                             categories: years
