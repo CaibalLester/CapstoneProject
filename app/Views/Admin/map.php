@@ -139,19 +139,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="card col-lg-6 ">
+                            <div class="card col-lg-5 m-2">
                                 <div class="card-body text-center">
                                     <h6>Applicants</h6>
                                     <div id="map" style="height: 500px;"></div>
                                 </div>
                             </div>
-                            <div class="card col-lg-6">
+                            <div class="card col-lg-5 m-2">
                                 <div class="card-body text-center">
                                     <h6>Agents</h6>
                                     <div id="map2" style="height: 500px;"></div>
                                 </div>
                             </div>
-                            <div class="card col-lg-12">
+                            <div class="card col-lg-10 m-2">
                                 <div class="card-body text-center">
                                     <h6>Clients</h6>
                                     <div id="map3" style="height: 500px;"></div>
@@ -180,9 +180,16 @@
 
     // Marker data
     var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Mindoro Oriental' },
-        { lat: 12.8518, lng: 121.4153, popupText: 'Mindoro Occidental' },
-        // Other markers data...
+        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
+            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
+            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
+            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
+            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
+            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
+            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
+            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
+            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
+            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
     ];
 
     // Add markers to the map
@@ -205,9 +212,16 @@
 
     // Marker data
     var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Mindoro Oriental' },
-        { lat: 12.8518, lng: 121.4153, popupText: 'Mindoro Occidental' },
-        // Other markers data...
+        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
+            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
+            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
+            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
+            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
+            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
+            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
+            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
+            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
+            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
     ];
 
     // Add markers to the map
@@ -230,9 +244,16 @@
 
     // Marker data
     var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Mindoro Oriental' },
-        { lat: 12.8518, lng: 121.4153, popupText: 'Mindoro Occidental' },
-        // Other markers data...
+        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
+            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
+            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
+            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
+            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
+            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
+            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
+            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
+            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
+            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
     ];
 
     // Add markers to the map
