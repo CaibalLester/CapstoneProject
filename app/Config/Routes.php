@@ -38,6 +38,8 @@ $routes->get('/RTC', 'AdminController::RTC', ['filter' => 'adminFilter']);
 $routes->match(['get', 'post'], '/agentprofile/(:any)', 'ProfileController::agentprofile/$1', ['filter' => 'adminFilter']);
 $routes->match(['get', 'post'], '/applicantprofile/(:any)', 'ProfileController::applicantprofile/$1', ['filter' => 'adminFilter']);
 
+$routes->get('/map', 'MapController::map', ['filter' => 'adminFilter'] , );
+
 
 $routes->get('/AppDash', 'AppController::AppDash', ['filter' => 'applicantFilter']);
 $routes->get('/AppProfile', 'AppController::AppProfile', ['filter' => 'applicantFilter']);
