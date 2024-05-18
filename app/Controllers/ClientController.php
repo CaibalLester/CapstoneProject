@@ -156,7 +156,8 @@ class ClientController extends BaseController
     public function ClientPage()
     {
         $data = array_merge($this->getData(), $this->ClientData());
-        $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->where('status', 'paid')->limit(3)->findAll();
+        $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
+        // $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->where('status', 'paid')->limit(3)->findAll();
         $data['history'] = $this->commission->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
         $data['activeinsurances'] = [];
 
@@ -189,6 +190,7 @@ class ClientController extends BaseController
                 'plan_name' => $insurance['plan_name'],
                 'image' => $insurance['image'],
                 'duedate' => $dueDate,
+                'status' => $plan['status'], // Add status here
             ];
         }
         return view('Client/dashboard/dashboard', $data);

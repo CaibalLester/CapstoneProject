@@ -27,17 +27,20 @@
                 <table class="table datatable">
                   <thead>
                     <tr>
+                      <th scope="col">Year</th>
+                      <th scope="col">Month</th>
                       <th scope="col">Amount Paid</th>
-                      <th scope="col">Date</th>
+                      <th scope="col">Remarks</th>
                       <th scope="col">Receipt</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($myplan as $payment): ?>
                       <tr>
+                        <td><?= date('Y', strtotime($payment['created_at'])); ?></td>
+                        <td><?= date('M', strtotime($payment['created_at'])); ?></td>
                         <td>₱ <?= number_format($payment['amount_paid'], 2, '.', ',') ?></td>
-                        <!-- Assuming plan name is retrieved from the join -->
-                        <td><?= date('M j, Y h:i A', strtotime($payment['created_at'])); ?></td>
+                        <td>Paid</td>
                         <td>
                           <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
                             data-bs-target="#receipt<?= $payment['id'] ?>">
