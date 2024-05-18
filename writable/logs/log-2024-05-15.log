@@ -1,0 +1,190 @@
+CRITICAL - 2024-05-15 00:12:46 --> Call to a member function links() on null
+in APPPATH\Views\Agent\clients.php on line 138.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/clients', [], true)
+ 4 APPPATH\Controllers\AgentController.php(448): view('Agent/clients', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:13:27 --> Call to a member function links() on null
+in APPPATH\Views\Agent\clients.php on line 137.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/clients', [], true)
+ 4 APPPATH\Controllers\AgentController.php(448): view('Agent/clients', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:13:51 --> Undefined variable $clients
+in APPPATH\Controllers\AgentController.php on line 444.
+ 1 APPPATH\Controllers\AgentController.php(444): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $clients', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 444)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:13:59 --> Call to a member function links() on null
+in APPPATH\Views\Agent\clients.php on line 137.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/clients', [], true)
+ 4 APPPATH\Controllers\AgentController.php(446): view('Agent/clients', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:14:05 --> Call to a member function links() on null
+in APPPATH\Views\Agent\clients.php on line 137.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/clients', [], true)
+ 4 APPPATH\Controllers\AgentController.php(448): view('Agent/clients', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:14:11 --> Call to a member function links() on null
+in APPPATH\Views\Agent\clients.php on line 137.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Agent/clients', [], true)
+ 4 APPPATH\Controllers\AgentController.php(448): view('Agent/clients', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 00:15:17 --> Undefined variable $clients
+in APPPATH\Controllers\AgentController.php on line 446.
+ 1 APPPATH\Controllers\AgentController.php(446): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $clients', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 446)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->client()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 01:02:45 --> Could not move file "php224E.tmp" to "C:\CapstoneSystem\public\uploads/". Reason: 
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 158.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(158): CodeIgniter\HTTP\Exceptions\HTTPException::forMoveFailed('php224E.tmp', 'C:\\CapstoneSystem\\public\\uploads/', '')
+ 2 APPPATH\Controllers\AgentController.php(310): CodeIgniter\HTTP\Files\UploadedFile->move('C:\\CapstoneSystem\\public\\uploads/', 'C:\\wamp64\\tmp\\php224E.tmp')
+ 3 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->compost()
+ 4 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 5 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 01:28:36 --> Trying to access array offset on value of type null
+in APPPATH\Controllers\AgentController.php on line 404.
+ 1 APPPATH\Controllers\AgentController.php(404): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 404)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('add', 'ph-json', 'region.json')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 01:32:03 --> Undefined variable $imageName
+in APPPATH\Controllers\AgentController.php on line 402.
+ 1 APPPATH\Controllers\AgentController.php(402): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $imageName', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 402)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('5180fe1a3bb040db13148666932c32fba70c36e5adca5e96ce')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+ERROR - 2024-05-15 11:41:44 --> mysqli_sql_exception: Unknown column 'client_plan.reciepts' in 'field list' in C:\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `agent`....', 0)
+#1 C:\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `agent`....')
+#2 C:\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `agent`....')
+#3 C:\CapstoneSystem\system\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `agent`....', Array, false)
+#4 C:\CapstoneSystem\system\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\CapstoneSystem\system\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\CapstoneSystem\app\Controllers\ClientController.php(201): CodeIgniter\BaseModel->findAll()
+#7 C:\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+#8 C:\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+#9 C:\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSyst...')
+#12 {main}
+CRITICAL - 2024-05-15 11:41:44 --> Unknown column 'client_plan.reciepts' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query('SELECT `agent`.`username` as `agent_name`, `plan`.`plan_name`, `client_plan`.`created_at`, `client_plan`.`mode_payment`, `client_plan`.`term`, `client_plan`.`status`, `client_plan`.`reciepts`
+FROM `client_plan`
+JOIN `agent` ON `agent`.`agent_id` = `client_plan`.`agent`
+JOIN `plan` ON `plan`.`token` = `client_plan`.`plan`
+WHERE `client_plan`.`client_id` = :client_plan.client_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(237): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(624): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\ClientController.php(201): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+ 6 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 7 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 11:48:34 --> Undefined array key "token"
+in APPPATH\Views\Client\dashboard\history.php on line 49.
+ 1 APPPATH\Views\Client\dashboard\history.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "token"', 'C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php', 49)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/dashboard/history', [], true)
+ 5 APPPATH\Controllers\ClientController.php(202): view('Client/dashboard/history', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 11:48:54 --> Undefined array key "tokin"
+in APPPATH\Views\Client\dashboard\history.php on line 49.
+ 1 APPPATH\Views\Client\dashboard\history.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tokin"', 'C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php', 49)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/dashboard/history', [], true)
+ 5 APPPATH\Controllers\ClientController.php(202): view('Client/dashboard/history', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 12:06:19 --> Undefined array key "id"
+in APPPATH\Views\Client\dashboard\history.php on line 49.
+ 1 APPPATH\Views\Client\dashboard\history.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', 'C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php', 49)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/dashboard/history', [], true)
+ 5 APPPATH\Controllers\ClientController.php(203): view('Client/dashboard/history', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 12:08:30 --> Undefined array key "tokin"
+in APPPATH\Views\Client\dashboard\history.php on line 49.
+ 1 APPPATH\Views\Client\dashboard\history.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "tokin"', 'C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php', 49)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\CapstoneSystem\\app\\Views\\Client\\dashboard\\history.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1188): CodeIgniter\View\View->render('Client/dashboard/history', [], true)
+ 5 APPPATH\Controllers\ClientController.php(203): view('Client/dashboard/history', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ClientController->paymenthistory()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 12:28:05 --> Undefined variable $commi
+in APPPATH\Controllers\AgentController.php on line 444.
+ 1 APPPATH\Controllers\AgentController.php(444): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $commi', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 444)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('f4e45e1346e8508f383b8d8dff5bf02731db415378d6cee74d')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')
+CRITICAL - 2024-05-15 12:29:50 --> Undefined variable $commi
+in APPPATH\Controllers\AgentController.php on line 444.
+ 1 APPPATH\Controllers\AgentController.php(444): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $commi', 'C:\\CapstoneSystem\\app\\Controllers\\AgentController.php', 444)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AgentController->upstatusplan('f4e45e1346e8508f383b8d8dff5bf02731db415378d6cee74d')
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AgentController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\CapstoneSystem\\public\\index.php')

@@ -16,6 +16,12 @@
         init_calendar(date);
         var events = check_events(today, date.getMonth() + 1, date.getFullYear());
         show_events(events, months[date.getMonth()], today);
+        // Automatically select the current date if no date is clicked
+        if ($(".active-date").length === 0) {
+            $(".table-date").filter(function () {
+                return $(this).text() == today;
+            }).addClass("active-date");
+        }
     });
 
     // Initialize the calendar by appending the HTML dates
@@ -59,9 +65,7 @@
                     curr_date.addClass("event-date");
                 }
                 // Set onClick handler for clicking a date
-                // Set onClick handler for clicking a date
                 curr_date.click({ events: events, month: month, day: day, year: year }, date_click);
-
                 row.append(curr_date);
             }
         }
@@ -78,18 +82,9 @@
     }
 
     // Event handler for when a date is clicked
-    // function date_click(event) {
-    //     $(".events-container").show(250);
-    //     $("#dialog").hide(250);
-    //     $(".active-date").removeClass("active-date");
-    //     $(this).addClass("active-date");
-    //     show_events(event.data.events, event.data.month, event.data.day);
-    // };
-
-    // Event handler for when a date is clicked
     function date_click(event) {
         // Store the selected date in a hidden input field
-        var selectedDate = event.data.year + '-' + event.data.month + '-' + event.data.day;
+        var selectedDate = event.data.year + '-' + (event.data.month + 1) + '-' + event.data.day;
         $("#selectedDateInput").val(selectedDate);
 
         // Additional code as per your existing logic
@@ -97,9 +92,8 @@
         $("#dialog").hide(250);
         $(".active-date").removeClass("active-date");
         $(this).addClass("active-date");
-        show_events(event.data.events, event.data.month, event.data.day);
-    };
-
+        show_events(event.data.events, months[event.data.month], event.data.day);
+    }
 
     // Event handler for when a month is clicked
     function month_click(event) {
@@ -118,7 +112,7 @@
         $("#dialog").hide(250);
         var date = event.data.date;
         var new_year = date.getFullYear() + 1;
-        $("year").html(new_year);
+        $(".year").html(new_year);
         date.setFullYear(new_year);
         init_calendar(date);
     }
@@ -128,7 +122,7 @@
         $("#dialog").hide(250);
         var date = event.data.date;
         var new_year = date.getFullYear() - 1;
-        $("year").html(new_year);
+        $(".year").html(new_year);
         date.setFullYear(new_year);
         init_calendar(date);
     }
@@ -143,8 +137,6 @@
             $(this).removeClass("error-input");
         })
         // empty inputs and hide events
-        // $("#dialog input[type=text]").val('');
-        // $("#dialog input[type=number]").val('');
         $(".events-container").hide(250);
         $("#dialog").show(250);
         // Event handler for cancel button
@@ -183,7 +175,7 @@
             "occasion": name,
             "invited_count": count,
             "year": date.getFullYear(),
-            "month": date.getMonth() + 1,
+            "month": date.getMonth() + 1, // Corrected month index
             "day": day
         };
         event_data["events"].push(event);

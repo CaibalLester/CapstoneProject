@@ -17,8 +17,8 @@
     </div><!-- End Page Title -->
 
     <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
           <div class="card">
             <div class="table-responsive pt-3">
               <div class="card-body">
@@ -27,24 +27,45 @@
                 <table class="table datatable">
                   <thead>
                     <tr>
-                      <th scope="col">Agent</th>
-                      <th scope="col">Plan</th>
-                      <th scope="col">Start Date</th>
-                      <th scope="col">Due Dates</th>
-                      <th scope="col">Terms</th>
-                      <th scope="col">Status</th>
+                      <th scope="col">Amount Paid</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Receipt</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php foreach ($myplan as $payment): ?>
                       <tr>
-                        <td><?= $payment['agent_name'] ?></td> <!-- Assuming agent name is retrieved from the join -->
-                        <td><?= $payment['plan_name'] ?></td> <!-- Assuming plan name is retrieved from the join -->
+                        <td>₱ <?= number_format($payment['amount_paid'], 2, '.', ',') ?></td>
+                        <!-- Assuming plan name is retrieved from the join -->
                         <td><?= date('M j, Y h:i A', strtotime($payment['created_at'])); ?></td>
-                        <td><?= $payment['mode_payment'] ?></td>
-                        <td><?= $payment['term'] ?></td>
-                        <td><?= $payment['status'] ?></td>
+                        <td>
+                          <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            data-bs-target="#receipt<?= $payment['id'] ?>">
+                            <i class="bi bi-receipt"></i>
+                          </a>
+                        </td>
                       </tr>
+                      <div class="modal fade" id="receipt<?= $payment['id'] ?>" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Receipt Details</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <?php if (isset($payment['receipts']) && !empty($payment['receipts'])): ?>
+                                <?php $image_path = base_url('uploads/clients/receipts/' . $payment['receipts']); ?>
+                                <img src="<?= $image_path ?>" alt="Receipt Image" class="img-fluid">
+                              <?php else: ?>
+                                <p>No receipt available.</p>
+                              <?php endif; ?>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     <?php endforeach ?>
                   </tbody>
                 </table>

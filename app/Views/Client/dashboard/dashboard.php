@@ -63,18 +63,19 @@
                                                         <table class="table">
                                                             <thead>
                                                                 <tr>
-                                                                    <th scope="col">Start Date</th>
-                                                                    <th scope="col">Due Dates</th>
-                                                                    <th scope="col">Terms</th>
+                                                                    <th scope="col">Amount Paid</th>
+                                                                    <th scope="col">Date</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?php foreach ($myplan as $payment): ?>
+                                                                <?php foreach ($history as $hist): ?>
                                                                     <tr>
-                                                                        <td><?= date('M j, Y h:i A', strtotime($payment['created_at'])); ?>
+                                                                        <td>₱
+                                                                            <?= number_format($hist['amount_paid'], 2, '.', ',') ?>
                                                                         </td>
-                                                                        <td><?= $payment['mode_payment'] ?></td>
-                                                                        <td><?= $payment['term'] ?></td>
+                                                                        <!-- Assuming plan name is retrieved from the join -->
+                                                                        <td><?= date('M j, Y h:i A', strtotime($hist['created_at'])); ?>
+                                                                        </td>
                                                                     </tr>
                                                                 <?php endforeach ?>
                                                             </tbody>
@@ -130,7 +131,7 @@
                                                 class="card-img-top img-fluid" alt="...">
                                         </div>
                                         <h6 class="title"><?= $insurance['plan_name'] ?></h6>
-                                        <h6 class="title">Due Date: 
+                                        <h6 class="title">Due Date:
                                             <?= date('M j, Y', strtotime($insurance['duedate'])); ?>
                                         </h6>
                                         <hr>

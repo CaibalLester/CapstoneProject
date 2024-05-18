@@ -128,6 +128,7 @@
                                                     <!-- <th scope="col">Amount</th> -->
                                                     <th scope="col">Commission</th>
                                                     <th scope="col">Status</th>
+                                                    <th scope="col">Receipt</th>
                                                     <th scope="col"></th>
                                                 </tr>
                                             </thead>
@@ -162,12 +163,18 @@
                                                             ">
                                                             <?= $commi['status'] ?>
                                                         </td>
-
+                                                        <td>
+                                                            <a href="#" class="btn btn-outline-primary"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#receipt<?= $commi['id'] ?>">
+                                                                <i class="bi bi-receipt"></i>
+                                                            </a>
+                                                        </td>
                                                         <?php if ($commi['status'] != 'paid'): ?>
-                                                            <td><a href="#" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#update<?= $commi['id'] ?>">
+                                                            <td><a href="#" class="btn btn-info" data-bs-toggle="modal"
+                                                                    data-bs-target="#update<?= $commi['id'] ?>">
                                                                     <i class="fas fa-check"></i></a></td>
                                                         <?php endif; ?>
-
                                                         <!-- <?php if ($commi['status'] != 'paid'): ?>
                                                             <td><a href="<?= base_url() ?>upstatusplan/<?= $commi['tokin'] ?>"
                                                                     class="btn btn-info"
@@ -175,20 +182,20 @@
                                                                         class="fas fa-check"></i></a></td>
                                                         <?php endif; ?> -->
                                                     </tr>
-
-                                                    <div class="modal fade" id="update<?= $commi['id'] ?>"
-                                                        tabindex="-1" aria-labelledby="exampleModalLabel"
-                                                        aria-hidden="true">
+                                                    <div class="modal fade" id="update<?= $commi['id'] ?>" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-sm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Plan Update</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Plan
+                                                                        Update</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <!-- Your registration form goes here -->
-                                                                    <form action="upstatusplan/<?= $commi['tokin'] ?>" method="post" role="form"
+                                                                    <form action="upstatusplan/<?= $commi['tokin'] ?>"
+                                                                        method="post" role="form"
                                                                         enctype="multipart/form-data">
                                                                         <div class="mb-2">
                                                                             <label for="receipt"
@@ -199,6 +206,31 @@
                                                                         <button type="submit"
                                                                             class="btn btn-primary">Save</button>
                                                                     </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" id="receipt<?= $commi['id'] ?>" tabindex="-1">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Receipt Details</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <?php if (isset($commi['receipt']) && !empty($commi['receipt'])): ?>
+                                                                        <?php $image_path = base_url('uploads/clients/receipts/' . $commi['receipt']); ?>
+                                                                        <img src="<?= $image_path ?>" alt="Receipt Image"
+                                                                            class="img-fluid">
+                                                                    <?php else: ?>
+                                                                        <p>No receipt available.</p>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
                                                                 </div>
                                                             </div>
                                                         </div>
