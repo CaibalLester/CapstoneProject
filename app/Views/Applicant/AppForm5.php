@@ -36,11 +36,11 @@
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AIAL</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm3">
+                                        <a class="nav-link" href="/AppForm3">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">GROUP LIFE INSURANCE</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm4">
+                                        <a class="nav-link" href="/AppForm4">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AFFIDAVIT OF NON-FILING</span>
                                         </a><br>
@@ -59,6 +59,13 @@
                                 Profile
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
@@ -66,7 +73,6 @@
                                 Settings
                             </a>
                         </li>
-
 
 
                         <li class="nav-item border-top mt-auto pt-2">

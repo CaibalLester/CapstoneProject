@@ -8,7 +8,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
 
@@ -36,7 +36,7 @@
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">AIAL</span>
                                         </a><br>
-                                        <a class="nav-link " href="/AppForm3">
+                                        <a class="nav-link" href="/AppForm3">
                                             <i class="bi-pen me-2"></i>
                                             <span class="align-middle">GROUP LIFE INSURANCE</span>
                                         </a><br>
@@ -59,6 +59,13 @@
                                 Profile
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/FA">
+                                <i class="bi-person me-2"></i>
+                                Agents
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
