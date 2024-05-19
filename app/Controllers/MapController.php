@@ -34,7 +34,7 @@ class MapController extends BaseController
 
         // Define the coordinates for the cities
         $cities = [
-            'Puerto Princesa' => ['lat' => 9.7392, 'lng' => 118.7353],
+            'Puerto Princesa City (Capital)' => ['lat' => 9.7392, 'lng' => 118.7353],
             // 'Calapan' => ['lat' => 13.4117, 'lng' => 121.1806],
             'Coron' => ['lat' => 12.0042, 'lng' => 120.1993],
             'Rizal' => ['lat' => 9.4988, 'lng' => 118.4412],
@@ -45,17 +45,17 @@ class MapController extends BaseController
             'San Jose' => ['lat' => 12.3517, 'lng' => 121.0679],
             'Puerto Galera' => ['lat' => 13.5006, 'lng' => 120.9568],
             'Odiongan' => ['lat' => 12.4011, 'lng' => 121.9900],
-            'Mamburao' => ['lat' => 13.2291, 'lng' => 120.5972],
+            'Mamburao (Capital)' => ['lat' => 13.2291, 'lng' => 120.5972],
             'El Nido' => ['lat' => 11.2014, 'lng' => 119.4288],
             'Brooke\'s Point' => ['lat' => 8.7807, 'lng' => 117.8276],
-            'Boac' => ['lat' => 13.4434, 'lng' => 121.8416],
+            'Boac (Capital)' => ['lat' => 13.4434, 'lng' => 121.8416],
             'Mansalay' => ['lat' => 12.5226, 'lng' => 121.4545],
             'Aborlan' => ['lat' => 9.4380, 'lng' => 118.5478],
             'Ferrol' => ['lat' => 12.3631, 'lng' => 121.8672],
             'Calintaan' => ['lat' => 12.5643, 'lng' => 121.0633],
             'Looc' => ['lat' => 13.0434, 'lng' => 120.9802],
             'Magsaysay' => ['lat' => 9.8946, 'lng' => 123.4660],
-            'Bulalacao' => ['lat' => 12.3271, 'lng' => 121.3566],
+            'Bulalacao (San Pedro)' => ['lat' => 12.3271, 'lng' => 121.3566],
             'Gloria' => ['lat' => 12.5943, 'lng' => 121.4258],
             'Cajidiocan' => ['lat' => 12.3644, 'lng' => 122.3961],
             'Municipality of Concepcion' => ['lat' => 11.9925, 'lng' => 121.9216],
@@ -66,7 +66,7 @@ class MapController extends BaseController
             'Mogpog' => ['lat' => 13.4722, 'lng' => 121.8564],
             'Torrijos' => ['lat' => 13.3131, 'lng' => 122.0847],
             'Lubang' => ['lat' => 13.8583, 'lng' => 120.1262],
-            'Abra de Ilog' => ['lat' => 13.4419, 'lng' => 120.7336],
+            'Abra De Ilog' => ['lat' => 13.4419, 'lng' => 120.7336],
             'Sablayan' => ['lat' => 12.8348, 'lng' => 120.7886],
             'Pola' => ['lat' => 13.0625, 'lng' => 121.3806],
             'Bataraza' => ['lat' => 8.4594, 'lng' => 117.2604],
@@ -76,7 +76,9 @@ class MapController extends BaseController
             'Baco' => ['lat' => 13.3981, 'lng' => 121.0983],
             'Banton' => ['lat' => 12.9333, 'lng' => 122.0667],
             'Araceli' => ['lat' => 10.5667, 'lng' => 119.8667],
-            'City Of Calapan (Capital)' => ['lat' => 13.4117, 'lng' => 121.1806]
+            'City Of Calapan (Capital)' => ['lat' => 13.4117, 'lng' => 121.1806],
+            'Santa Maria (Imelda)' => ['lat' => 12.4000, 'lng' => 122.0500],
+            'Romblon (Capital)' => ['lat' => 12.5703, 'lng' => 122.2870],
         ];
 
         // Initialize city counts
