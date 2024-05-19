@@ -110,7 +110,7 @@
                                     <form class="container mt-5" method="post" action="/form1sv"
                                         enctype="multipart/form-data">
                                         <fieldset>
-
+                                        <div class="page" id="page1" style="display:none;">
                                             <div class="form-group">
                                                 <label for="position">Position applying for:</label>
                                                 <input type="text" id="position" name="positionApplying"
@@ -255,6 +255,9 @@
                                                 <input type="email" id="email" name="email" class="form-control"
                                                     value="<?= isset($lifechangerform['email']) ? $lifechangerform['email'] : '' ?>"><br>
                                             </div>
+                                        </div>
+
+                                        <div class="page" id="page2" style="display:none;">
                                             <div class="form-group">
                                                 <label for="citizenship">Citizenship:</label><br>
                                                 <input type="checkbox" id="citizenship" name="citizenship"
@@ -339,7 +342,9 @@
                                                     name="recentInsuranceCompany" class="form-control"
                                                     value="<?= isset($lifechangerform['recentInsuranceCompany']) ? $lifechangerform['recentInsuranceCompany'] : '' ?>"><br>
                                             </div>
+                                        </div>
 
+                                        <div class="page" id="page3" style="display:none;">
                                             <h6>Educational Background</h6>
                                             <div class="table-responsive" style="font-size: 10pt">
                                                 <table class="table table-bordered">
@@ -455,8 +460,9 @@
                                                     </tr>
                                                 </table>
                                             </div>
+                                        </div>
 
-
+                                        <div class="page" id="page4" style="display:none;">
                                             <h6>Most recent employer's contact details</h6>
                                             <table class="table" border="1">
                                                 <tr>
@@ -721,7 +727,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
 
+                                        <div class="page" id="page5" style="display:none;">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <strong>That I hereby expressly authorize Allianz PNB Life
@@ -813,6 +821,23 @@
                                             </div>
                                             <input type="submit" value="Save" class="btn btn-primary"
                                                 onclick="saveSignature(event)">
+                                        </div>
+
+
+                                        <!-- Pagination Controls -->
+                                        <nav aria-label="Page navigation example" class="mt-4">
+                                            <ul class="pagination justify-content-center">
+
+                                                <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 5px;">
+                                                    <button type="button" class="page-link" id="prevBtn" onclick="showPage(-1)" disabled>Previous</button>
+                                                    <div id="pageNumberContainer" class="d-flex flex-wrap justify-content-center"></div>
+                                                    <button type="button" class="page-link" id="nextBtn" onclick="showPage(1)" disabled>Next</button>
+                                                </div>
+
+                                            </ul>
+                                        </nav>
+
+
                                         </fieldset>
                                     </form>
                                 </div>
@@ -824,6 +849,81 @@
         </div>
     </div>
     <?= view('js'); ?>
+
+    <!-- Pagination Script -->
+    <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function showPage(step) {
+            const pages = document.querySelectorAll('.page');
+            pages[currentPage - 1].style.display = 'none';
+            currentPage += step;
+            pages[currentPage - 1].style.display = 'block';
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+
+        // Initializing the first page view and page numbers
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach((page, index) => {
+                page.style.display = index === 0 ? 'block' : 'none';
+            });
+            updatePageNumbers();
+        });
+
+        function updatePageNumbers() {
+            const pageNumberContainer = document.getElementById('pageNumberContainer');
+            pageNumberContainer.innerHTML = ''; // Clear previous page numbers
+
+            for (let i = 0; i < totalPages; i++) {
+                const pageNumber = i + 1;
+                const pageButton = document.createElement('button');
+                pageButton.type = 'button';
+                pageButton.classList.add('page-link');
+                pageButton.textContent = pageNumber;
+                pageButton.onclick = function() { showPageByNumber(pageNumber); };
+
+                const pageItem = document.createElement('li');
+                pageItem.classList.add('page-item');
+                pageItem.appendChild(pageButton);
+
+                const containerDiv = document.createElement('div');
+                containerDiv.classList.add('p-2');
+                containerDiv.appendChild(pageItem);
+
+                pageNumberContainer.appendChild(containerDiv);
+            }
+
+            // Set initial active class to the first page number
+            const firstPageButton = document.querySelectorAll('.page-item button')[0];
+            firstPageButton.closest('.page-item').classList.add('active');
+
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+
+        function showPage(step) {
+            const pages = document.querySelectorAll('.page');
+            pages[currentPage - 1].style.display = 'none';
+
+            // Remove 'active' class from the previously active page number
+            document.querySelector('.page-item.active').classList.remove('active');
+
+            currentPage += step;
+            pages[currentPage - 1].style.display = 'block';
+
+            // Add 'active' class to the newly active page number
+            const pageNumberButtons = document.querySelectorAll('.page-item button');
+            if (currentPage <= totalPages && currentPage >= 1) {
+                pageNumberButtons[currentPage - 1].closest('.page-item').classList.add('active');
+            }
+
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+    </script>
 </body>
 
 </html>

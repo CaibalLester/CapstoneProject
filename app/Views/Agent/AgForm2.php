@@ -110,6 +110,8 @@
 
                                     <form class="container mt-5" method="post" action="/form2sv">
                                         <fieldset>
+
+                                        <div class="page" id="page1" style="display:none;">
                                             <div class="form-group">
                                                 <h6>To the Insurance Commissioner:</h6>
                                                 <p style="text-align: justify;">The undersigned hereby applies for a
@@ -177,8 +179,9 @@
                                                 <input type="tel" id="mobileNumber" name="mobileNumber"
                                                     class="form-control"><br><br>
                                             </div>
+                                        </div>
 
-
+                                        <div class="page" id="page2" style="display:none;">
                                             <div class="form-group">
                                                 <label>4. Birth:</label>
                                                 <label>a) Date:</label>
@@ -235,7 +238,9 @@
                                                     name="filipinoParticipation" class="form-control"
                                                     placeholder="N/A"><br><br>
                                             </div>
+                                        </div>
 
+                                        <div class="page" id="page3" style="display:none;">
                                             <div class="form-group">
                                                 <label>10. Any license previously granted to act as insurance/general
                                                     agent in this country? State name of insurance company
@@ -375,7 +380,9 @@
                                                         class="form-control" placeholder="applicant"></label><br>
                                                 <label for="applicant">Applicant</label>
                                             </div><br><br><br>
+                                        </div>
 
+                                        <div class="page" id="page4" style="display:none;">
                                             <div class="form-group">
                                                 <h4>AFFIDAVIT OF VERIFICATION</h4>
 
@@ -418,7 +425,9 @@
                                                     PNB Life Insurance, Inc. for the solicitation or procurement of
                                                     application for life/variable/non-life insurance</p>
                                             </div><br><br>
-
+                                        </div>
+                                        
+                                        <div class="page" id="page5" style="display:none;">
                                             <div class="form-group">
                                                 <h4>CERTIFICATE OF WAIVER</h4>
 
@@ -476,6 +485,20 @@
                                                     placeholder="Province/City"><br> Authorized Representative of the
                                                 Company</p><br><br>
                                             <input type="submit" value="Submit" class="btn btn-primary">
+                                        </div>
+
+                                             <!-- Pagination Controls -->
+                                            <nav aria-label="Page navigation example" class="mt-4">
+                                                <ul class="pagination justify-content-center">
+
+                                                    <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 5px;">
+                                                        <button type="button" class="page-link" id="prevBtn" onclick="showPage(-1)" disabled>Previous</button>
+                                                        <div id="pageNumberContainer" class="d-flex flex-wrap justify-content-center"></div>
+                                                        <button type="button" class="page-link" id="nextBtn" onclick="showPage(1)" disabled>Next</button>
+                                                    </div>
+
+                                                </ul>
+                                            </nav>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -494,6 +517,80 @@
         </div>
     </div>
     <?= view('js') ?>
+     <!-- Pagination Script -->
+     <script>
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function showPage(step) {
+            const pages = document.querySelectorAll('.page');
+            pages[currentPage - 1].style.display = 'none';
+            currentPage += step;
+            pages[currentPage - 1].style.display = 'block';
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+
+        // Initializing the first page view and page numbers
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach((page, index) => {
+                page.style.display = index === 0 ? 'block' : 'none';
+            });
+            updatePageNumbers();
+        });
+
+        function updatePageNumbers() {
+            const pageNumberContainer = document.getElementById('pageNumberContainer');
+            pageNumberContainer.innerHTML = ''; // Clear previous page numbers
+
+            for (let i = 0; i < totalPages; i++) {
+                const pageNumber = i + 1;
+                const pageButton = document.createElement('button');
+                pageButton.type = 'button';
+                pageButton.classList.add('page-link');
+                pageButton.textContent = pageNumber;
+                pageButton.onclick = function() { showPageByNumber(pageNumber); };
+
+                const pageItem = document.createElement('li');
+                pageItem.classList.add('page-item');
+                pageItem.appendChild(pageButton);
+
+                const containerDiv = document.createElement('div');
+                containerDiv.classList.add('p-2');
+                containerDiv.appendChild(pageItem);
+
+                pageNumberContainer.appendChild(containerDiv);
+            }
+
+            // Set initial active class to the first page number
+            const firstPageButton = document.querySelectorAll('.page-item button')[0];
+            firstPageButton.closest('.page-item').classList.add('active');
+
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+
+        function showPage(step) {
+            const pages = document.querySelectorAll('.page');
+            pages[currentPage - 1].style.display = 'none';
+
+            // Remove 'active' class from the previously active page number
+            document.querySelector('.page-item.active').classList.remove('active');
+
+            currentPage += step;
+            pages[currentPage - 1].style.display = 'block';
+
+            // Add 'active' class to the newly active page number
+            const pageNumberButtons = document.querySelectorAll('.page-item button');
+            if (currentPage <= totalPages && currentPage >= 1) {
+                pageNumberButtons[currentPage - 1].closest('.page-item').classList.add('active');
+            }
+
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
+    </script>
 </body>
 
 </html>
