@@ -166,105 +166,37 @@
     </div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-    // Initialize the map
-    var map = L.map('map', {
-        center: [12.345, 121.0],
-        zoom: 7,
-        scrollWheelZoom: false  // Disable scroll zoom
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            var applicantCounts = <?= json_encode($applicantCounts) ?>;
+            var clientCounts = <?= json_encode($clientCounts) ?>;
+            var agentCounts = <?= json_encode($agentCounts) ?>;
 
-    // Add the OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+            function createMap(mapId, counts) {
+                var map = L.map(mapId, {
+                    center: [12.345, 121.0],
+                    zoom: 7,
+                    scrollWheelZoom: false  // Disable scroll zoom
+                });
 
-    // Marker data
-    var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
-            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
-            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
-            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
-            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
-            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
-            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
-            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
-            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
-            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
-    ];
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
 
-    // Add markers to the map
-    markersData.forEach(function (marker) {
-        L.marker([marker.lat, marker.lng])
-            .addTo(map)
-            .bindPopup(marker.popupText);
-    });
+                Object.keys(counts).forEach(function(city) {
+                    if (counts[city].count > 0) {
+                        var marker = L.marker([counts[city].lat, counts[city].lng])
+                            .addTo(map)
+                            .bindPopup(city + ': ' + counts[city].count + ' users')
+                            .openPopup();
+                    }
+                });
+            }
 
-    var map = L.map('map2', {
-        center: [12.345, 121.0],
-        zoom: 7,
-        scrollWheelZoom: false  // Disable scroll zoom
-    });
-
-    // Add the OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Marker data
-    var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
-            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
-            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
-            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
-            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
-            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
-            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
-            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
-            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
-            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
-    ];
-
-    // Add markers to the map
-    markersData.forEach(function (marker) {
-        L.marker([marker.lat, marker.lng])
-            .addTo(map)
-            .bindPopup(marker.popupText);
-    });
-
-    var map = L.map('map3', {
-        center: [12.345, 121.0],
-        zoom: 7,
-        scrollWheelZoom: false  // Disable scroll zoom
-    });
-
-    // Add the OpenStreetMap tiles
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Marker data
-    var markersData = [
-        { lat: 13.2017, lng: 121.1046, popupText: 'Calapan City' },
-            { lat: 12.8518, lng: 121.4153, popupText: 'San Jose' },
-            { lat: 13.3773, lng: 121.2195, popupText: 'Roxas' },
-            { lat: 12.1393, lng: 121.0488, popupText: 'Abra de Ilog' },
-            { lat: 13.5032, lng: 120.9876, popupText: 'Mamburao' },
-            { lat: 12.7682, lng: 121.0409, popupText: 'Sablayan' },
-            { lat: 12.6233, lng: 121.0493, popupText: 'Mansalay' },
-            { lat: 12.3478, lng: 121.0614, popupText: 'Bongabong' },
-            { lat: 12.7448, lng: 121.0560, popupText: 'Pinamalayan' },
-            { lat: 13.0967, lng: 121.5169, popupText: 'Puerto Galera' }
-    ];
-
-    // Add markers to the map
-    markersData.forEach(function (marker) {
-        L.marker([marker.lat, marker.lng])
-            .addTo(map)
-            .bindPopup(marker.popupText);
-    });
-</script>
-
-
+            createMap('map', applicantCounts);
+            createMap('map2', agentCounts);
+            createMap('map3', clientCounts);
+        });
+    </script>
     <?= view('js'); ?>
 
 </body>
