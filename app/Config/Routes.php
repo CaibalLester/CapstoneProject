@@ -10,7 +10,7 @@ $routes->get('/AdDash', 'AdminController::AdDash', ['filter' => 'adminFilter'] ,
 $routes->get('/ManageAgent', 'AdminController::ManageAgent', ['filter' => 'adminFilter']);
 $routes->get('/AdProfile', 'AdminController::AdProfile', ['filter' => 'adminFilter']);
 $routes->get('/AdSetting', 'AdminController::AdSetting', ['filter' => 'adminFilter']);
-$routes->get('/AdHelp', 'AdminController::AdHelp', ['filter' => 'adminFilter']);
+
 $routes->get('/add', 'ProfileController::add', ['filter' => 'adminFilter']);
 $routes->get('/Forms', 'AdminController::Forms', ['filter' => 'adminFilter']);
 $routes->get('confirm/(:any)', 'AdminController::confirm/$1', ['filter' => 'adminFilter']);
@@ -45,7 +45,7 @@ $routes->get('/AppDash', 'AppController::AppDash', ['filter' => 'applicantFilter
 $routes->get('/AppProfile', 'AppController::AppProfile', ['filter' => 'applicantFilter']);
 $routes->get('/AppSetting', 'AppController::AppSetting', ['filter' => 'applicantFilter']);
 $routes->post('/svap', 'AppController::svap');
-$routes->get('/AppHelp', 'AppController::AppHelp', ['filter' => 'applicantFilter']);
+
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
 $routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'authGuard']);
 $routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'authGuard']);
@@ -60,7 +60,7 @@ $routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applic
 $routes->get('/AgDash', 'AgentController::AgDash', ['filter' => 'agentFilter']);
 $routes->get('/AgProfile', 'AgentController::AgProfile', ['filter' => 'agentFilter']);
 $routes->get('/AgSetting', 'AgentController::AgSetting', ['filter' => 'agentFilter']);
-$routes->get('/AgHelp', 'AgentController::AgHelp', ['filter' => 'agentFilter']);
+
 $routes->post('/svag', 'AgentController::svag', ['filter' => 'agentFilter']);
 $routes->get('/subagent', 'AgentController::subagent', ['filter' => 'agentFilter']);
 $routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' => 'agentFilter']);

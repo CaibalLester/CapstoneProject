@@ -7,7 +7,7 @@
     <?= view('Admin/chop/header') ?>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
                 <div class="position-sticky py-4 px-3 sidebar-sticky">
                     <ul class="nav flex-column h-100">
                         <li class="nav-item">
@@ -66,14 +66,14 @@
                             </a>
                         </li>
 
-                        <hr>
                         <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="/ManageClient">
-                                <i class="fa fa-users me-2"></i>
-                                Clients
+                            <a class="nav-link " aria-current="page" href="/map">
+                                <i class="bi bi-map me-2"></i>
+                                Maps
                             </a>
                         </li>
 
+                        <hr>
                         <li class="nav-item">
                             <a class="nav-link" href="/plans">
                                 <i class="bi bi-hospital me-2"></i>

@@ -75,12 +75,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
-                            </a>
-                        </li>
 
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
@@ -121,11 +115,11 @@
                                 <strong>Name:</strong>
 
                                 <a href="#">
-                                <?php if (isset($applicant['lastname']) && isset($applicant['firstname']) && isset($applicant['middlename'])): ?>
-                                                    <?= $applicant['lastname'] ?>,
-                                                    <?= $applicant['firstname'] ?>
-                                                    <?= $applicant['middlename'] ?>
-                                                <?php endif; ?>
+                                    <?php if (isset($applicant['lastname']) && isset($applicant['firstname']) && isset($applicant['middlename'])): ?>
+                                        <?= $applicant['lastname'] ?>,
+                                        <?= $applicant['firstname'] ?>
+                                        <?= $applicant['middlename'] ?>
+                                    <?php endif; ?>
                                 </a>
                             </p>
 
@@ -133,7 +127,7 @@
                                 <strong>Email:</strong>
 
                                 <a href="#">
-                                <?php echo isset ($applicant['email']) ? $applicant['email']: '' ?>
+                                    <?php echo isset($applicant['email']) ? $applicant['email'] : '' ?>
                                 </a>
                             </p>
 
@@ -141,7 +135,7 @@
                                 <strong>Phone:</strong>
 
                                 <a href="#">
-                                <?php echo isset ($applicant['number']) ? $applicant['number']: '' ?>
+                                    <?php echo isset($applicant['number']) ? $applicant['number'] : '' ?>
                                 </a>
                             </p>
                         </div>
@@ -190,7 +184,7 @@
 
     <!-- JAVASCRIPT FILES -->
     <?= view('js'); ?>
-    <?= view('Charts/visuals');?>
+    <?= view('Charts/visuals'); ?>
 </body>
 
 </html>

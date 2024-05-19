@@ -75,14 +75,14 @@
                                 Applicants
                             </a>
                         </li>
-
-
+                        
                         <li class="nav-item">
-                            <a class="nav-link" href="/AdHelp">
-                                <i class="fas fa-hands-helping me-2"></i>
-                                Help Center
+                            <a class="nav-link " aria-current="page" href="/map">
+                                <i class="bi bi-map me-2"></i>
+                                Maps
                             </a>
                         </li>
+
                         <hr>
                         <li class="nav-item">
                             <a class="nav-link" href="/plans">

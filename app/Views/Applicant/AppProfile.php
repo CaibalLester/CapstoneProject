@@ -77,13 +77,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppHelp">
-                                <i class="bi-question-circle me-2"></i>
-                                Help Center
-                            </a>
-                        </li>
-
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
                                 <i class="bi-box-arrow-left me-2"></i>

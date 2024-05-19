@@ -44,12 +44,13 @@ class ProfileController extends BaseController
         $data = array_merge($this->agcon->getData(), $this->agcon->getDataAge());
         $data['subagent'] = $agentModel->where('agent_token', $token)->first();
 
-        $agentid = $data['agent']['agent_id'];
+        $agentid = $data['subagent']['agent_id'];
         $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
 
         $data['pager'] = $agentModel->pager;
 
         return view("Agent/subagentprofile", $data);
+        // var_dump($agentid);
     }
 
     public function applicantprofile($token)
@@ -59,7 +60,6 @@ class ProfileController extends BaseController
         $data['applicant'] = $appmodel->where('app_token', $token)->first();
         return view("Admin/applicantprofile", $data);
     }
-
 
     public function ManageAgent()
     {
