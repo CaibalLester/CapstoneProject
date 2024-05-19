@@ -111,9 +111,9 @@
                 </div>
             </nav>
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3">
+                <!-- <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Map</h1>
-                </div>
+                </div> -->
                 <!-- <div class="row m-2">
 
                     <div class="col-lg-12">
@@ -139,19 +139,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="card col-lg-5 m-2">
+                            <div class="card col-lg-11 m-2">
                                 <div class="card-body text-center">
                                     <h6>Applicants</h6>
                                     <div id="map" style="height: 500px;"></div>
                                 </div>
                             </div>
-                            <div class="card col-lg-5 m-2">
+                            <div class="card col-lg-11 m-2">
                                 <div class="card-body text-center">
                                     <h6>Agents</h6>
                                     <div id="map2" style="height: 500px;"></div>
                                 </div>
                             </div>
-                            <div class="card col-lg-10 m-2">
+                            <div class="card col-lg-11 m-2">
                                 <div class="card-body text-center">
                                     <h6>Clients</h6>
                                     <div id="map3" style="height: 500px;"></div>
