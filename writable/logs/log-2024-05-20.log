@@ -1,0 +1,29 @@
+ERROR - 2024-05-20 09:57:37 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`gli`, CONSTRAINT `fk_gli_app_token` FOREIGN KEY (`app_gli_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE) in C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\laragon\www\CapstoneSystem\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `gli` SE...', 0)
+#1 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `gli` SE...')
+#2 C:\laragon\www\CapstoneSystem\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `gli` SE...')
+#3 C:\laragon\www\CapstoneSystem\system\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `gli` SE...', Array, false)
+#4 C:\laragon\www\CapstoneSystem\system\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\laragon\www\CapstoneSystem\system\BaseModel.php(949): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 C:\laragon\www\CapstoneSystem\system\Model.php(776): CodeIgniter\BaseModel->update(NULL, Array)
+#7 C:\laragon\www\CapstoneSystem\app\Controllers\AppController.php(403): CodeIgniter\Model->update()
+#8 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(919): App\Controllers\AppController->form3sv()
+#9 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+#10 C:\laragon\www\CapstoneSystem\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\CapstoneSystem\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\CapstoneSystem\system\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-05-20 09:57:37 --> Cannot add or update a child row: a foreign key constraint fails (`erecruit`.`gli`, CONSTRAINT `fk_gli_app_token` FOREIGN KEY (`app_gli_token`) REFERENCES `applicant` (`app_token`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\BaseConnection.php on line 646.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2475): CodeIgniter\Database\BaseConnection->query('UPDATE `gli` SET `applicant_id` = :applicant_id.1:, `app_gli_token` = :app_gli_token:, `lastName` = :lastName:, `firstName` = :firstName:, `middleName` = :middleName:, `dateOfBirth` = :dateOfBirth:, `occupation` = :occupation:, `companyName` = :companyName:, `businessNature` = :businessNature:, `sex` = :sex:, `civilStatus` = :civilStatus:, `nationality` = :nationality:, `residenceAddress` = :residenceAddress:, `residenceTelephone` = :residenceTelephone:, `businessAddress` = :businessAddress:, `businessTelephone` = :businessTelephone:, `firstName1` = :firstName1:, `mi1` = :mi1:, `lastName1` = :lastName1:, `month1` = :month1:, `day1` = :day1:, `year1` = :year1:, `relationship1` = :relationship1:, `remarks1` = :remarks1:, `firstName2` = :firstName2:, `mi2` = :mi2:, `lastName2` = :lastName2:, `month2` = :month2:, `day2` = :day2:, `year2` = :year2:, `relationship2` = :relationship2:, `remarks2` = :remarks2:, `firstName3` = :firstName3:, `mi3` = :mi3:, `lastName3` = :lastName3:, `month3` = :month3:, `day3` = :day3:, `year3` = :year3:, `remarks3` = :remarks3:, `firstName4` = :firstName4:, `mi4` = :mi4:, `lastName4` = :lastName4:, `month4` = :month4:, `day4` = :day4:, `year4` = :year4:, `relationship4` = :relationship4:, `remarks4` = :remarks4:, `trusteeMinorBeneficiary` = :trusteeMinorBeneficiary:, `place` = :place:, `day` = :day:, `month` = :month:, `year` = :year:, `applicantSignature` = :applicantSignature:
+WHERE `applicant_id` = :applicant_id:', [...], false)
+ 2 SYSTEMPATH\Model.php(385): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(949): CodeIgniter\Model->doUpdate(null, [...])
+ 4 SYSTEMPATH\Model.php(776): CodeIgniter\BaseModel->update(null, [...])
+ 5 APPPATH\Controllers\AppController.php(403): CodeIgniter\Model->update()
+ 6 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\AppController->form3sv()
+ 7 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AppController))
+ 8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\CapstoneSystem\\public\\index.php')

@@ -729,7 +729,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="page" id="page5" style="display:none;">
+                                        <div class="page" id="page5" >
                                             <div class="row">
                                                 <div class="col-12">
                                                     <strong>That I hereby expressly authorize Allianz PNB Life
