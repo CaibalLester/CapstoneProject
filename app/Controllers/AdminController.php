@@ -364,7 +364,7 @@ class AdminController extends BaseController
         }
 
         // Add other form data to the data array
-        $data = [
+        $data += [
             'lastname' => $this->request->getVar('lastname'),
             'firstname' => $this->request->getVar('firstname'),
             'middlename' => $this->request->getVar('middlename'),
@@ -375,9 +375,9 @@ class AdminController extends BaseController
             'region' => $this->request->getVar('region_text'),
             'province' => $this->request->getVar('province_text'),
             'city' => $this->request->getVar('city_text'),
-            'image' => $img,
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
+            'zipcode' => $this->request->getVar('zipcode'),
         ];
 
         // Check if $data array is not empty before updating the database

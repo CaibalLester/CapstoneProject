@@ -24,7 +24,8 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="<?= isset($client['profile']) && !empty($client['profile']) ? base_url('/uploads/' . $client['profile']) : base_url('/uploads/def.png') ?>"
+              <img
+                src="<?= isset($client['profile']) && !empty($client['profile']) ? base_url('/uploads/' . $client['profile']) : base_url('/uploads/def.png') ?>"
                 alt="Profile" class="rounded-circle">
               <h2><?php echo isset($client['username']) ? $client['username'] : '' ?></h2>
               <h3><?php echo isset($user['role']) ? $user['role'] : '' ?></h3>
@@ -118,6 +119,12 @@
                       <?= isset($client['street']) ? $client['street'] : '' ?>
                     </div>
                   </div>
+                  <div class="row mb-2">
+                    <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                    <div class="col-lg-8 col-md-8">
+                      <?= isset($client['zipcode']) ? $client['zipcode'] : '' ?>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
@@ -173,14 +180,6 @@
                       </div>
                     </div>
 
-                    <!-- <div class="row mb-3">
-                                            <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <textarea name="about" class="form-control" id="about"
-                                                    style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
-                                            </div>
-                                        </div> -->
-
                     <div class="row mb-3">
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Region</label>
                       <div class="col-md-8 col-lg-9">
@@ -235,7 +234,7 @@
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Street</label>
                       <div class="col-md-8 col-lg-9">
                         <input class="form-control" type="text" name="street"
-                          value="<?= isset($admin['street']) ? $admin['street'] : '' ?>" id="street"
+                          value="<?= isset($client['street']) ? $client['street'] : '' ?>" id="street"
                           placeholder="Street">
                       </div>
                     </div>

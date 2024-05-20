@@ -199,6 +199,12 @@
                                             <?= isset ($applicant['street']) ? $applicant['street'] : '' ?>
                                             </div>
                                         </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset ($applicant['zipcode']) ? $applicant['zipcode'] : '' ?>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="tab-pane fade pt-3" id="forms">

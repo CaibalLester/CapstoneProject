@@ -220,6 +220,14 @@
                                                 <?= isset($subagent['street']) ? $subagent['street'] : '' ?>
                                             </div>
                                         </div>
+
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset ($subagent['zipcode']) ? $subagent['zipcode'] : '' ?>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="tab-pane fade sub-agents" id="sub-agents">
                                     <h5 class="card-title">Sub Agents</h5>

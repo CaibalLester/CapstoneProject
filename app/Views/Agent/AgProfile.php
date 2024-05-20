@@ -108,7 +108,7 @@
                     <div class="col-xl-4 mb-1">
                         <div class="card">
                             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                                <img src="<?= isset($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : '' ?>"
+                                <img src="<?= isset($agent['agentprofile']) && !empty($agent['agentprofile']) ? base_url('/uploads/' . $agent['agentprofile']) : base_url('/uploads/def.png') ?>"
                                     alt="Profile" class="rounded-circle"
                                     style="width: 150px; height: 150px; cursor: pointer;" data-bs-placement="bottom"
                                     title="Click to see QR code">
@@ -212,6 +212,12 @@
                                                 <?= isset($agent['city']) ? $agent['city'] : '' ?>,
                                                 <?= isset($agent['barangay']) ? $agent['barangay'] : '' ?>,
                                                 <?= isset($agent['street']) ? $agent['street'] : '' ?>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset ($agent['zipcode']) ? $agent['zipcode'] : '' ?>
                                             </div>
                                         </div>
                                     </div>                                   

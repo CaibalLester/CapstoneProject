@@ -35,6 +35,7 @@ class AgentModel extends Model
         'city',
         'barangay',
         'street',
+        'zipcode'
     ];
 
     // Dates

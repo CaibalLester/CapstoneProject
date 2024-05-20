@@ -34,7 +34,7 @@ class AdminModel extends Model
         'city',
         'barangay',
         'street',
-
+        'zipcode'
     ];
     // Dates
     protected $useTimestamps = false;

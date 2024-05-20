@@ -212,6 +212,12 @@
                                             <?= isset ($agent['street']) ? $agent['street'] : '' ?>
                                             </div>
                                         </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset ($agent['zipcode']) ? $agent['zipcode'] : '' ?>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane fade sub-agents pt-3 text-center" id="sub-agents">
                                         <h1 class="h2 mb-2">Sub Agents</h1>

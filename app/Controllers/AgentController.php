@@ -195,6 +195,7 @@ class AgentController extends BaseController
             'city' => $this->request->getVar('city_text'),
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
+            'zipcode' => $this->request->getVar('zipcode'),
         ];
 
         // Check if $data array is not empty before updating the database
@@ -533,13 +534,20 @@ class AgentController extends BaseController
     public function con($dec)
     {
         $id = base64_decode($dec);
-
         $status = $this->sched->where('id', $id)->get()->getRow()->status;
+        // $agentId = $this->sched->where('id', $id)->select('agent')->find();
+        // $agent = $this->agent->where('agent_id' , $agentId)->select('email')->find();
+        // $agentEmail = $agent ? $agent['email'] : null;
 
+        $clientEmail = $this->sched->where('id', $id)->get()->getRow()->email;
         if ($status === 'pending') {
             $con = ['status' => 'inprogress'];
             $this->sched->set($con)->where('id', $id)->update();
         }
+        $emailSubject = "Appointment In Progress";
+        $emailMessage = "Your Appointment has been confirm";
+        $this->sendVerificationEmail($clientEmail, $emailSubject, $emailMessage);
+        // var_dump($clientEmail);
         return redirect()->to('cliSched')->with('success', 'Transaction In Progress');
     }
 
@@ -579,5 +587,37 @@ class AgentController extends BaseController
             ->where('client_plan.agent', $data['agent']['agent_id'])
             ->findAll();
         return view('Agent/mycommi', $data);
+    }
+
+    private function sendVerificationEmail($to, $subject, $message)
+    {
+        // Load Email Library
+        $email = \Config\Services::email();
+
+        // SMTP Configuration (replace with your actual SMTP settings)
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'smtp.gmail.com',
+            'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
+            'SMTPPass' => 'kiewkcfnftnigkvh',
+            'SMTPPort' => 587,
+            'SMTPCrypto' => 'tls',
+            'mailType' => 'html',
+            'charset' => 'utf-8'
+        ];
+        $email->initialize($config);
+
+        // Set Email Parameters
+        $email->setTo($to);
+        $email->setFrom('alejandrogino950@gmail.com', 'ALLIANZ PNB CALAPAN'); // Set the "From" address and name
+        $email->setSubject($subject);
+        $email->setMessage($message);
+
+        // Try sending the email
+        if ($email->send()) {
+            echo 'Email sent successfully.';
+        } else {
+            echo 'Error: ' . $email->printDebugger(['headers']);
+        }
     }
 }

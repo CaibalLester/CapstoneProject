@@ -69,7 +69,6 @@
                             </a>
                         </li>
 
-
                         <li class="nav-item">
                             <a class="nav-link" href="/AppSetting">
                                 <i class="bi-gear me-2"></i>
@@ -174,6 +173,12 @@
                                             <?= isset ($applicant['city']) ? $applicant['city'] : '' ?>,
                                             <?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>,
                                             <?= isset ($applicant['street']) ? $applicant['street'] : '' ?>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                            <div class="col-lg-8 col-md-8">
+                                            <?php echo isset ($applicant['zipcode']) ? $applicant['zipcode'] : '' ?>
                                             </div>
                                         </div>
                                     </div>

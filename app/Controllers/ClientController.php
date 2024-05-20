@@ -96,9 +96,9 @@ class ClientController extends BaseController
                 'applicant_id' => $userId,
                 'username' => $this->request->getVar('username'),
                 'number' => $this->request->getVar('phone'),
-                'firstName' => $this->request->getVar('firstname'),
-                'lastName' => $this->request->getVar('lastname'),
-                'middleName' => $this->request->getVar('middlename'),
+                'firstname' => $this->request->getVar('firstname'),
+                'lastname' => $this->request->getVar('lastname'),
+                'middlename' => $this->request->getVar('middlename'),
                 'email' => $this->request->getVar('email'),
                 'refcode' => NULL,
                 'token' => $userToken,
@@ -131,21 +131,29 @@ class ClientController extends BaseController
 
     private function sendVerificationEmail($to, $subject, $message)
     {
+        // Load Email Library
         $email = \Config\Services::email();
+
+        // SMTP Configuration (replace with your actual SMTP settings)
         $config = [
             'protocol' => 'smtp',
             'SMTPHost' => 'smtp.gmail.com',
-            'SMTPUser' => 'alejandrogino950@gmail.com',
-            'SMTPPass' => 'ktngmlxxdppfemnx',
+            'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
+            'SMTPPass' => 'kiewkcfnftnigkvh',
             'SMTPPort' => 587,
             'SMTPCrypto' => 'tls',
             'mailType' => 'html',
             'charset' => 'utf-8'
         ];
         $email->initialize($config);
+
+        // Set Email Parameters
         $email->setTo($to);
-        $email->setFrom('alejandrogino950@gmail.com', 'ALLIANZ PNB CALAPAN');
+        $email->setFrom('alejandrogino950@gmail.com', 'ALLIANZ PNB CALAPAN'); // Set the "From" address and name
+        $email->setSubject($subject);
         $email->setMessage($message);
+
+        // Try sending the email
         if ($email->send()) {
             echo 'Email sent successfully.';
         } else {
@@ -329,6 +337,8 @@ class ClientController extends BaseController
         $session = session();
         $userId = $session->get('id');
         $client['info'] = $this->client->where('client_id', $userId)->first();
+        $agent = $this->agent->select('email')->where('agent_id', $this->request->getVar('agent'))->first();
+        $agentEmail = $agent ? $agent['email'] : null;
 
         $dat = [
             'client_id' => $client['info']['client_id'],
@@ -344,8 +354,16 @@ class ClientController extends BaseController
             'schedule_time' => $this->request->getVar('schedule_time'),
             'meeting_type' => $this->request->getVar('meeting_type'),
         ];
-        // var_dump($dat);
+        // var_dump($agentEmail);
         $this->sched->save($dat);
+        $emailSubject = "New Appointment Scheduled";
+        $emailMessage = "You have a new appointment scheduled, please see at yout trsansations tab";
+        $this->sendVerificationEmail($agentEmail, $emailSubject, $emailMessage);
+
+        $emailSub = "Schedule Confirmation";
+        $emailMes = "Thank you for scheduling an appointment with us";
+        $this->sendVerificationEmail($client['info']['email'], $emailSub, $emailMes);
+
         return redirect()->to('/viewplans')->with('success', 'Schedule created!');
     }
 

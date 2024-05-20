@@ -178,7 +178,7 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-3 text-center">
+                                                <div class="col-md-4 text-center">
                                                     <label for="region" class="small">Region</label>
                                                     <select class="form-control text-center" name="region" id="region">
                                                         <option
@@ -193,7 +193,7 @@
                                                         id="region-text" required>
                                                 </div>
 
-                                                <div class="col-md-3 text-center">
+                                                <div class="col-md-4 text-center">
                                                     <label for="province" class="small">Province</label>
                                                     <select class="form-control text-center" name="province"
                                                         id="province">
@@ -208,7 +208,7 @@
                                                         value="<?= isset($admin['province']) ? $admin['province'] : '' ?>"
                                                         id="province-text" required>
                                                 </div>
-                                                <div class="col-md-3 text-center">
+                                                <div class="col-md-4 text-center">
                                                     <label for="city" class="small">City/Municipality</label>
                                                     <select class="form-control text-center" name="city" id="city">
                                                         <option
@@ -222,7 +222,7 @@
                                                         value="<?= isset($admin['city']) ? $admin['city'] : '' ?>"
                                                         id="city-text" required>
                                                 </div>
-                                                <div class="col-md-3 text-center">
+                                                <div class="col-md-4 text-center">
                                                     <label for="barangay" class="small">Barangay</label>
                                                     <select class="form-control text-center" name="barangay"
                                                         id="barangay">
@@ -237,14 +237,17 @@
                                                         value="<?= isset($admin['barangay']) ? $admin['barangay'] : '' ?>"
                                                         id="barangay-text" required>
                                                 </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12 text-center">
+                                                <div class="col-md-4 text-center">
                                                     <label for="street" class="small">Street (optional)</label>
                                                     <input class="form-control text-center" type="text" name="street"
                                                         value="<?= isset($admin['street']) ? $admin['street'] : '' ?>"
                                                         id="street" placeholder="Street">
+                                                </div>
+                                                <div class="col-md-4 text-center">
+                                                    <label for="zipcode" class="small">Zip Code</label>
+                                                    <input class="form-control text-center" type="text" name="zipcode"
+                                                        value="<?= isset($admin['zipcode']) ? $admin['zipcode'] : '' ?>"
+                                                        id="zipcode" placeholder="zipcode" required>
                                                 </div>
                                             </div>
 
@@ -252,7 +255,7 @@
                                                 <div class="col-md-12">
                                                     <div class="input-group mb-1">
                                                         <img id="preview-image"
-                                                            src="<?= isset($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : 'default_path_here' ?>"
+                                                            src="<?= isset($admin['adminProfile']) && !empty($admin['adminProfile']) ? base_url('/uploads/' . $admin['adminProfile']) : base_url('/uploads/def.png') ?>"
                                                             class="profile-image img-fluid" alt="">
                                                         <input type="file" name="profile" class="form-control"
                                                             id="inputGroupFile02" onchange="previewImage()">
@@ -301,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <footer class="site-footer">
                     <div class="container">

@@ -137,7 +137,7 @@
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?php if (isset ($admin['lastname']) && isset ($admin['firstname']) && isset ($admin['middlename'])): ?>
+                                        <?php if (isset($admin['lastname']) && isset($admin['firstname']) && isset($admin['middlename'])): ?>
                                             <?= $admin['lastname'] ?>,
                                             <?= $admin['firstname'] ?>
                                             <?= $admin['middlename'] ?>
@@ -148,50 +148,49 @@
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Username</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?php echo isset ($admin['username']) ? $admin['username'] : '' ?>
+                                        <?php echo isset($admin['username']) ? $admin['username'] : '' ?>
                                     </div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Email</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?php echo isset ($admin['email']) ? $admin['email'] : '' ?>
+                                        <?php echo isset($admin['email']) ? $admin['email'] : '' ?>
                                     </div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Phone</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?php echo isset ($admin['number']) ? $admin['number'] : '' ?>
+                                        <?php echo isset($admin['number']) ? $admin['number'] : '' ?>
                                     </div>
                                 </div>
 
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Birthday</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?php echo isset ($admin['birthday']) ? date('M j, Y', strtotime($admin['birthday'])) : ''; ?>
+                                        <?php echo isset($admin['birthday']) ? date('M j, Y', strtotime($admin['birthday'])) : ''; ?>
                                     </div>
                                 </div>
                                 <div class="row mb-2">
                                     <div class="col-lg-3 col-md-4 label">Adress</div>
                                     <div class="col-lg-8 col-md-8">
-                                        <?= isset ($admin['province']) ? $admin['province'] : '' ?>,
-                                        <?= isset ($admin['city']) ? $admin['city'] : '' ?>,
-                                        <?= isset ($admin['barangay']) ? $admin['barangay'] : '' ?>,
-                                        <?= isset ($admin['street']) ? $admin['street'] : '' ?>
+                                        <?= isset($admin['province']) ? $admin['province'] : '' ?>,
+                                        <?= isset($admin['city']) ? $admin['city'] : '' ?>,
+                                        <?= isset($admin['barangay']) ? $admin['barangay'] : '' ?>,
+                                        <?= isset($admin['street']) ? $admin['street'] : '' ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-3 col-md-4 label">Zip Code</div>
+                                    <div class="col-lg-8 col-md-8">
+                                        <?php echo isset($admin['zipcode']) ? $admin['zipcode'] : '' ?>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- End Bordered Tabs -->
                     </div>
                 </div>
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
-                    </div>
-                </footer>
             </main>
         </div>
     </div>

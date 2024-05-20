@@ -151,7 +151,7 @@ class HomepageController extends BaseController
             'protocol' => 'smtp',
             'SMTPHost' => 'smtp.gmail.com',
             'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
-            'SMTPPass' => 'ktngmlxxdppfemnx',
+            'SMTPPass' => 'kiewkcfnftnigkvh',
             'SMTPPort' => 587,
             'SMTPCrypto' => 'tls',
             'mailType' => 'html',
@@ -315,7 +315,7 @@ class HomepageController extends BaseController
                 'protocol' => 'smtp',
                 'SMTPHost' => 'smtp.gmail.com',
                 'SMTPUser' => 'alejandrogino950@gmail.com', // Your Gmail address
-                'SMTPPass' => 'ktngmlxxdppfemnx',
+                'SMTPPass' => 'kiewkcfnftnigkvh',
                 'SMTPPort' => 587,
                 'SMTPCrypto' => 'tls',
                 'mailType' => 'html',
@@ -417,5 +417,4 @@ class HomepageController extends BaseController
 
         return view('Home/feedback', $data);
     }
-
 }
