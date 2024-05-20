@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 14, 2024 at 05:55 PM
+-- Generation Time: May 20, 2024 at 05:43 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -46,6 +46,7 @@ CREATE TABLE `admin` (
   `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `zipcode` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `division` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `branch` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `admin_token` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
@@ -55,8 +56,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `firstname`, `lastname`, `middlename`, `email`, `adminProfile`, `number`, `address`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `division`, `branch`, `admin_token`) VALUES
-(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'Crispin', 'Tabirara', 'M', 'chris@gmail.com', '1709393806_d613a70a78cdeff37c9a.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Lumang Bayan', '', NULL, 'Calapan', '61da7cf3e778297e58c4c60774bb26e47ddc7771a9aa1cc833');
+INSERT INTO `admin` (`id`, `admin_id`, `adminCode`, `username`, `Adminfullname`, `firstname`, `lastname`, `middlename`, `email`, `adminProfile`, `number`, `address`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `zipcode`, `division`, `branch`, `admin_token`) VALUES
+(1, 92, 'RTRV24', 'Chris123', 'Chrispin Tabirara', 'Crispin', 'Tabirara', 'M', 'chris@gmail.com', '1709393806_d613a70a78cdeff37c9a.jpg', '09366581432', 'Lumangbayan Calapan City', '2024-02-17', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Lumang Bayan', '123 street', '5200', NULL, 'Calapan', '18fcd6050b792cd4212b8375c64a65899825f7c28cc2433b68');
 
 -- --------------------------------------------------------
 
@@ -80,6 +81,7 @@ CREATE TABLE `agent` (
   `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `zipcode` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `rank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -94,11 +96,11 @@ CREATE TABLE `agent` (
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `firstname`, `lastname`, `middlename`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`, `agent_token`) VALUES
-(1, 135, 'CBF556', 'ellenleido@gmail.com', 'Ellen', 'Ellen Leido Afable', 'Eleanor', 'Afable', 'L', '2024-03-01', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', 'Asturias', '09366581432', 'Lumanbayan', 'Silver', '1709395970_95d866c1ae43570ab923.jpg', NULL, 'Calapan', '2024-02-29 16:57:36', 'd000fd7c8315f1964e7e4a6e755daed0bd8ee44ef37d278597'),
-(2, 133, 'YREP63', 'jandeleido@gmail.com', 'janz', 'Escalera Jandel Leido', 'Jandel', 'Escalera', 'L', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', 'Asturias', '09366581432', 'Lumangbayan calapan City', 'Bronze', '1709393944_676e93ab4bbbd6e68983.jpg', 135, 'Calapan', '2024-02-29 17:12:37', 'e75e323fe40fab8c5e3cb19316f8670f35c8af44ed07ac59fc'),
-(5, 145, 'EJE9WK', 'alejandrogino950@gmail.com', 'Lineth', NULL, 'May Lineth', 'Candolita', 'F', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Calero (Pob.)', 'Nable', '09366588812', NULL, NULL, '', 133, NULL, '2024-04-05 13:09:36', '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9'),
-(6, 203, 'RVLATV', 'smithlednaj@gmail.com', 'Lednaj123', NULL, 'Lednaj', 'Arelacse', 'O', '', 'MIMAROPA', 'Oriental Mindoro', NULL, 'Canubing I', '', '09366581432', NULL, NULL, NULL, 133, NULL, '2024-05-14 16:41:42', 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c');
+INSERT INTO `agent` (`id`, `agent_id`, `AgentCode`, `email`, `username`, `Agentfullname`, `firstname`, `lastname`, `middlename`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `zipcode`, `number`, `address`, `rank`, `agentprofile`, `FA`, `branch`, `created_at`, `agent_token`) VALUES
+(1, 135, 'CBF556', 'ellenleido@gmail.com', 'Ellen', 'Ellen Leido Afable', 'Eleanor', 'Afable', 'L', '2024-03-01', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', 'Asturias', '', '09366581432', 'Lumanbayan', 'Silver', '', NULL, 'Calapan', '2024-02-29 16:57:36', 'd000fd7c8315f1964e7e4a6e755daed0bd8ee44ef37d278597'),
+(2, 133, 'YREP63', 'jandeleido@gmail.com', 'janz', 'Escalera Jandel Leido', 'Jandel', 'Escalera', 'L', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', 'Asturias', '5200', '09366581432', 'Lumangbayan calapan City', 'Bronze', '', 135, 'Calapan', '2024-02-29 17:12:37', '1ada57e0792c8d6fd170d05acea87ad7aba4147a9e96484017'),
+(5, 145, 'EJE9WK', 'alejandrogino950@gmail.com', 'Lineth', NULL, 'May Lineth', 'Candolita', 'F', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Calero (Pob.)', 'Nable', '', '09366588812', NULL, NULL, '', 133, NULL, '2024-04-05 13:09:36', '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9'),
+(7, 138, 'P5S8QQ', 'escalerajandel@gmail.com', 'jandel', NULL, 'Jandel', 'Escalera', 'L', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', '', 'Tibag', '', '', '09366581432', NULL, NULL, '', 133, NULL, '2024-05-20 05:21:12', '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6');
 
 -- --------------------------------------------------------
 
@@ -188,8 +190,7 @@ CREATE TABLE `aial` (
 --
 
 INSERT INTO `aial` (`id`, `username`, `user_id`, `aial_token`, `nonLife`, `life`, `variableLife`, `accidentAndHealth`, `others`, `othersSpecification`, `agencyName`, `surname`, `firstName`, `middleName`, `agentType`, `homeAddress`, `zipCode`, `businessAddress`, `tin`, `email`, `mobileNumber`, `birthDate`, `birthPlace`, `citizenship`, `sex`, `civilStatus`, `maidenName`, `husbandsName`, `naturalizationDetails`, `foreignerDetails`, `certifiedCopyDetails`, `filipinoParticipation`, `company1`, `licenseType1`, `licenseNo1`, `yearIssued1`, `company2`, `licenseType2`, `licenseNo2`, `yearIssued2`, `company3`, `licenseType3`, `licenseNo3`, `yearIssued3`, `taxReturnFiled`, `taxReturnNotFiledReason`, `employer1`, `position1`, `dates1`, `employer2`, `position2`, `dates2`, `insuranceEmployee`, `positionHeld`, `governmentEmployee`, `date`, `month2`, `year`, `place`, `applicantName`, `provinceCity`, `affiant`, `tin2`, `sss`, `day`, `month`, `year2`, `exhibit`, `applicant`, `companyName`, `place2`, `date2`, `authorizedRepresentative`, `created_at`) VALUES
-(1, 'Jandel', 138, '84a4c1dbbf9ea65aa0ec88ffb8ddeb7c733df4bc3971424d64', 'nonLife', 'life', 'variableLife', 'accidentAndHealth', 'others', '123', '123', '123', '123', '123', 'OrdinaryAgent', '123', '123', '123', '123', 'jan@gmail.com', '123123', '2024-04-03', '123', '123123', 'Male', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', 'NO', 'PANDEMIC', '123', '123', '2024-04-10', '123', '123', '2024-04-10', 'NO', 'N/A', 'NO', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '132', '123', '123', '132', 'ALLIANZ PNB LIFE INSURANCE, INC.', '123', '123', '123', '2024-04-09 15:15:22'),
-(9, '', 203, 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-14 14:54:29');
+(1, 'Jandel', 138, '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6', 'nonLife', 'life', 'variableLife', 'accidentAndHealth', 'others', '123', '123', '123', '123', '123', 'OrdinaryAgent', '123', '123', '123', '123', 'jan@gmail.com', '123123', '2024-04-03', '123', '123123', 'Male', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', 'NO', 'PANDEMIC', '123', '123', '2024-04-10', '123', '123', '2024-04-10', 'NO', 'N/A', 'NO', '123', '123', '123', '123', '123', '123', '123', '123', '123', '123', '132', '123', '123', '132', 'ALLIANZ PNB LIFE INSURANCE, INC.', '123', '123', '123', '2024-04-09 15:15:22');
 
 -- --------------------------------------------------------
 
@@ -233,6 +234,7 @@ CREATE TABLE `applicant` (
   `city` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `barangay` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `street` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `zipcode` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `branch` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pending',
   `profile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -244,13 +246,12 @@ CREATE TABLE `applicant` (
 -- Dumping data for table `applicant`
 --
 
-INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `refcode`, `firstname`, `lastname`, `middlename`, `number`, `email`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `branch`, `status`, `profile`, `created_at`, `app_token`) VALUES
-(2, 133, 'janz', NULL, NULL, NULL, NULL, '09366581432', 'jandeleido@gmail.com', '', NULL, NULL, NULL, NULL, NULL, 'Calapan', 'confirmed', '1702140342_0f4bffae9348708e674c.jpg', '2024-02-29 16:41:42', 'e75e323fe40fab8c5e3cb19316f8670f35c8af44ed07ac59fc'),
-(3, 134, 'Jansen', NULL, 'Jansen', 'Afable', 'L.', '09366581432', 'jansenafable@gmail.com', '2013-04-28', 'MIMAROPA', 'Oriental Mindoro', 'Calapan City', 'Lumangbayan', 'street 123', 'Calapan', 'pending', '1709394150_a815fc9df645e369a39b.jpg', '2024-02-29 16:46:28', 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b'),
-(6, 138, 'jandel', 'YREP63', 'Jandel', 'Escalera', 'L', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', '', 'Calapan', 'pending', '1710051491_6b8980d7d5f1379ae034.jpg', '2024-03-10 06:15:55', '84a4c1dbbf9ea65aa0ec88ffb8ddeb7c733df4bc3971424d64'),
-(8, 145, 'Lineth', 'YREP63', 'May Lineth', 'Candolita', 'F', '09366588812', 'alejandrogino950@gmail.com', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Calero (Pob.)', 'Nable', 'Calapan', 'confirmed', 'def.jpg', '2024-03-11 16:53:33', '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9'),
-(42, 176, 'Les', 'YREP63', 'Lester', 'Caibal', 'M', '09366581432', 'Lester@gmail.com', '', NULL, NULL, NULL, NULL, NULL, NULL, 'pending', '', '2024-04-06 13:11:01', 'f90d700cb8e2c779da224bc8422f8c0766e0c0d8c71f3f43'),
-(54, 203, 'Lednaj123', 'YREP63', 'Lednaj', 'Arelacse', 'O', '09366581432', 'smithlednaj@gmail.com', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Canubing I', '', NULL, 'confirmed', NULL, '2024-05-14 14:54:29', 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c');
+INSERT INTO `applicant` (`id`, `applicant_id`, `username`, `refcode`, `firstname`, `lastname`, `middlename`, `number`, `email`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `zipcode`, `branch`, `status`, `profile`, `created_at`, `app_token`) VALUES
+(2, 133, 'janz', NULL, NULL, NULL, NULL, '09366581432', 'jandeleido@gmail.com', '', NULL, NULL, NULL, NULL, NULL, '', 'Calapan', 'confirmed', '1702140342_0f4bffae9348708e674c.jpg', '2024-02-29 16:41:42', '1ada57e0792c8d6fd170d05acea87ad7aba4147a9e96484017'),
+(3, 134, 'Jansen', NULL, 'Jansen', 'Afable', 'L.', '09366581432', 'jansenafable@gmail.com', '2013-04-28', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Lumangbayan', 'street 123', '', 'Calapan', 'pending', '1709394150_a815fc9df645e369a39b.jpg', '2024-02-29 16:46:28', 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b'),
+(6, 138, 'jandel', 'YREP63', 'Jandel', 'Escalera', 'L', '09366581432', 'escalerajandel@gmail.com', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', '', '', 'Calapan', 'confirmed', '1710051491_6b8980d7d5f1379ae034.jpg', '2024-03-10 06:15:55', '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6'),
+(8, 145, 'Lineth', 'YREP63', 'May Lineth', 'Candolita', 'F', '09366588812', 'alejandrogino950@gmail.com', '', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Calero (Pob.)', 'Nable', '', 'Calapan', 'confirmed', 'def.jpg', '2024-03-11 16:53:33', '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9'),
+(42, 176, 'Les', 'YREP63', 'Lester', 'Caibal', 'M', '09366581432', 'Lester@gmail.com', '2024-05-19', 'MIMAROPA', 'Oriental Mindoro', 'Bulalacao (San Pedro)', 'Benli (Mangyan Settlement)', '123 street', '4450', NULL, 'pending', '', '2024-04-06 13:11:01', 'bcf764c296774e53ef6f0dc1d21cf7c628509df5f5b36f4789');
 
 --
 -- Triggers `applicant`
@@ -335,6 +336,7 @@ CREATE TABLE `client` (
   `city` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `barangay` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `street` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `zipcode` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `profile` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'def.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -343,10 +345,10 @@ CREATE TABLE `client` (
 -- Dumping data for table `client`
 --
 
-INSERT INTO `client` (`id`, `client_id`, `client_token`, `applicationNo`, `username`, `lastName`, `firstName`, `middleName`, `email`, `number`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `created_at`, `profile`) VALUES
-(4, 196, '0ac8fc72bd4fe444a0a3ce5e2c80feaaef30ca1a46681dd89b', 581039807, 'client', 'Escalera', 'Jandel', 'L', 'client@gmail.com', '09366581432', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', 'Asturias', '2024-04-15 17:05:10', 'def.png'),
-(8, 197, '53b9f97948d1b77cb60f145038acb24b94e59fe6ade2514f2b', 581039808, 'client2', 'client2', 'client', 'client', 'client2@gmail.com', '09366581432', '2024-04-28', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Canubing I', '', '2024-04-15 17:33:08', 'def.png'),
-(9, 201, '7ccdaf5a8ead0cd16d4993d50d21d11a1d03a8ed56f24612dd', 581039809, 'test', 'Test', 'Test', 'T', 'test@gmail.com', '0909', '2024-04-18', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Bayanan I', 'Asturias', '2024-04-18 12:22:32', 'def.png');
+INSERT INTO `client` (`id`, `client_id`, `client_token`, `applicationNo`, `username`, `lastName`, `firstName`, `middleName`, `email`, `number`, `birthday`, `region`, `province`, `city`, `barangay`, `street`, `zipcode`, `created_at`, `profile`) VALUES
+(4, 196, '849bf2e081ac98fafe80c0bdd8f0f8f6fb67198f39ed412fcc', 581039807, 'client', 'Escalera', 'Jandel', 'L', 'client@gmail.com', '09366581432', '2003-01-26', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tibag', '123 street', '', '2024-04-15 17:05:10', 'def.png'),
+(8, 197, '53b9f97948d1b77cb60f145038acb24b94e59fe6ade2514f2b', 581039808, 'client2', 'client2', 'client', 'client', 'client2@gmail.com', '09366581432', '2024-04-28', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Canubing I', '', '', '2024-04-15 17:33:08', 'def.png'),
+(10, 206, '23a652c451309299db59c66528552d7e9c9d055dc8c88c88c9', 581039809, 'ClientJandel', 'Client', 'Jandel', 'C', 'smithlednaj@gmail.com', '09366581432', '2024-05-21', 'MIMAROPA', 'Oriental Mindoro', 'City Of Calapan (Capital)', 'Tawagan', '123', '5200', '2024-05-20 16:38:50', 'def.png');
 
 -- --------------------------------------------------------
 
@@ -375,7 +377,7 @@ CREATE TABLE `client_plan` (
 --
 
 INSERT INTO `client_plan` (`id`, `token`, `client_id`, `agent`, `plan`, `mode_payment`, `term`, `created_at`, `updated_at`, `applicationNo`, `status`, `commission`, `receipt`) VALUES
-(26, '7e4069c62e0a130ab184a063c016981e4171c3cb1949000131', 196, 133, '62951ea5e91e573d76bbf6ad8d0e874c53eb4404343cebae527a2a0dffcb52378288230ea70a61dbe19ed987e79102c83560', 'Semi-Annual', 10, '2024-05-14 17:50:12', '2024-05-14 17:50:46', '581039807', 'paid', 30000, '1715709012_32f3fd863e12893939ef.png');
+(33, '508f815dca6b1e08f0b6e6707ab5bba8375441710a80b6b03e', 206, 133, '62951ea5e91e573d76bbf6ad8d0e874c53eb4404343cebae527a2a0dffcb52378288230ea70a61dbe19ed987e79102c83560', 'Annual', 10, '2024-05-20 17:35:14', '2024-05-20 17:35:52', '581039809', 'paid', 60000, '1716226569_366cfd187f0eb066eecf.png');
 
 -- --------------------------------------------------------
 
@@ -406,7 +408,9 @@ CREATE TABLE `client_scheduler` (
 --
 
 INSERT INTO `client_scheduler` (`id`, `username`, `clientName`, `number`, `applicationNo`, `email`, `complteaddress`, `selected_date`, `agent`, `plan`, `schedule_time`, `meeting_type`, `status`, `created_at`, `client_id`) VALUES
-(38, 'client', 'Escalera, Jandel L.', '09366581432', '581039807', 'client@gmail.com', 'MIMAROPA, Oriental Mindoro, City Of Calapan (Capital), Tibag, Asturias', '2024-4-16', '133', '62951ea5e91e573d76bbf6ad8d0e874c53eb4404343cebae527a2a0dffcb52378288230ea70a61dbe19ed987e79102c83560', '01:49', 'office-meeting', 'completed', '2024-05-14 17:49:43', 196);
+(53, 'client', 'Escalera, Jandel L.', '09366581432', '581039807', 'client@gmail.com', 'MIMAROPA, Oriental Mindoro, City Of Calapan (Capital), Tibag, Asturias', '2024-5-21', '133', '62951ea5e91e573d76bbf6ad8d0e874c53eb4404343cebae527a2a0dffcb52378288230ea70a61dbe19ed987e79102c83560', '21:46', 'phone-call', 'completed', '2024-05-18 13:46:34', 196),
+(57, 'ClientJandel', 'Client, Jandel C.', '09366581432', '581039809', 'smithlednaj@gmail.com', ', , , , ', '2024-5-22', '133', 'e87752f8a2c53bd4e3b99ac5a11b998edbf761944ef7b0680a1a8aa35cae179e7534f895a53971a312130fe954b6d364fc66', '00:46', 'phone-call', 'completed', '2024-05-20 16:46:44', 206),
+(58, 'ClientJandel', 'Client, Jandel C.', '09366581432', '581039809', 'smithlednaj@gmail.com', 'MIMAROPA, Oriental Mindoro, City Of Calapan (Capital), Tawagan, 123', '2024-5-23', '133', '62951ea5e91e573d76bbf6ad8d0e874c53eb4404343cebae527a2a0dffcb52378288230ea70a61dbe19ed987e79102c83560', '01:31', 'office-meeting', 'completed', '2024-05-20 17:31:37', 206);
 
 -- --------------------------------------------------------
 
@@ -420,16 +424,18 @@ CREATE TABLE `commissions` (
   `agent_id` int NOT NULL,
   `client_id` int NOT NULL,
   `commi` float NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `amount_paid` float NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `receipts` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `commissions`
 --
 
-INSERT INTO `commissions` (`id`, `token`, `agent_id`, `client_id`, `commi`, `created_at`) VALUES
-(17, 'd20e49f4af240752b928f0100e67e9ec6556a5fec002e555e9', 133, 196, 15000, '2024-05-14 17:50:12'),
-(18, 'a95e60d82a0645dac4be2e06b66d8692dddfe00cf92462e6ea', 133, 196, 15000, '2024-05-14 17:51:37');
+INSERT INTO `commissions` (`id`, `token`, `agent_id`, `client_id`, `commi`, `amount_paid`, `created_at`, `receipts`) VALUES
+(37, '37fc7c46e384fdeef84e07e13388678e07acd4d43f8c095f67', 133, 206, 30000, 100000, '2024-05-20 17:35:14', '1716226514_b43042fefa5ac93f9db0.png'),
+(38, 'e8f03e3191996ef735e689e868292d44f72e8b26266d675cc2', 133, 206, 30000, 100000, '2024-05-20 17:36:09', '1716226569_366cfd187f0eb066eecf.png');
 
 -- --------------------------------------------------------
 
@@ -523,11 +529,10 @@ CREATE TABLE `gli` (
 
 INSERT INTO `gli` (`id`, `applicant_id`, `app_gli_token`, `lastName`, `firstName`, `middleName`, `dateOfBirth`, `occupation`, `companyName`, `businessNature`, `sex`, `civilStatus`, `nationality`, `residenceAddress`, `residenceTelephone`, `businessAddress`, `businessTelephone`, `firstName1`, `mi1`, `lastName1`, `month1`, `day1`, `year1`, `relationship1`, `remarks1`, `firstName2`, `mi2`, `lastName2`, `month2`, `day2`, `year2`, `relationship2`, `remarks2`, `firstName3`, `mi3`, `lastName3`, `month3`, `day3`, `year3`, `relationship3`, `remarks3`, `firstName4`, `mi4`, `lastName4`, `month4`, `day4`, `year4`, `relationship4`, `remarks4`, `trusteeMinorBeneficiary`, `place`, `day`, `month`, `year`, `applicantSignature`) VALUES
 (1, 145, '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9', 'Candolita', 'Lieth', 'l', '2024-03-07', 'Nothing', 'ABC Compony', 'Ewan', 'Female', 'Married', 'Filipino', 'Calero', 123, 'Calero nablle', 321, 'Mama', 'ko', '123123123', 1, 26, 2000, 'mother', '123123', '123123', 'asd', '123123123', 2, 2, 0, 'qwe', 'qwe', '123123', 'asd', 'asd', 2, 2, 2, 'qwe', '123123', 'qwe', 'asd', 'qwe', 2, 2, 2, 'qwe', 'qwe', 'Sya', 'asd', 26, 1, 2000, 'qweqwe'),
-(2, 133, 'e75e323fe40fab8c5e3cb19316f8670f35c8af44ed07ac59fc', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 133, '1ada57e0792c8d6fd170d05acea87ad7aba4147a9e96484017', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 134, 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 138, '84a4c1dbbf9ea65aa0ec88ffb8ddeb7c733df4bc3971424d64', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 176, 'f90d700cb8e2c779da224bc8422f8c0766e0c0d8c71f3f43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 203, 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 138, '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 176, 'bcf764c296774e53ef6f0dc1d21cf7c628509df5f5b36f4789', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -641,12 +646,11 @@ CREATE TABLE `lifechangerform` (
 --
 
 INSERT INTO `lifechangerform` (`id`, `username`, `user_id`, `app_life_token`, `created_at`, `position`, `preferredArea`, `referralBy`, `referral`, `onlineAd`, `walkIn`, `othersRef`, `fname`, `nickname`, `birthdate`, `placeOfBirth`, `gender`, `bloodType`, `homeAddress`, `mobileNo`, `landline`, `email`, `citizenship`, `othersCitizenship`, `naturalizationInfo`, `maritalStatus`, `maidenName`, `spouseName`, `sssNo`, `tin`, `lifeInsuranceExperience`, `traditional`, `variable`, `recentInsuranceCompany`, `highSchool`, `highSchoolCourse`, `highSchoolYear`, `college`, `collegeCourse`, `collegeYear`, `graduateSchool`, `graduateCourse`, `graduateYear`, `companyName1`, `position1`, `employmentFrom1`, `employmentTo1`, `reason1`, `companyName2`, `position2`, `employmentFrom2`, `employmentTo2`, `reason2`, `companyName3`, `position3`, `employmentFrom3`, `employmentTo3`, `reason3`, `companyName`, `resposition`, `contactName`, `contactPosition`, `emailAddress`, `contactNumber`, `yescuremployed`, `nocuremployed`, `allowed`, `notallowed`, `ifnoProvdtls`, `persontonotif`, `moNo`, `n1`, `p1`, `c1`, `e1`, `n2`, `p2`, `c2`, `e2`, `n3`, `p3`, `c3`, `e3`, `g1y`, `g1n`, `accused`, `g2y`, `g2n`, `bankruptcy`, `g3y`, `g3n`, `investigated`, `g4y`, `g4n`, `terminat`, `printedName`, `botdate`, `signature`) VALUES
-(2, 'janz', 133, 'e75e323fe40fab8c5e3cb19316f8670f35c8af44ed07ac59fc', '2024-02-29 16:41:42', 'Agent', 'Calapan', 'Afable, Eleanor L', 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', 'test', 'asdasd', '123', '123', 'No', 'traditional', 'variable', 'sa bahay namin', 'asd', 'asd', '2024-04-08', 'asd', 'asd', '2024-04-16', 'asd', 'asd', '2024-04-08', 'asd', 'asd', '2024-04-08', '2024-04-09', 'asdasd', 'asd', 'asd', '2024-04-08', '2024-04-02', 'asdasdasd', 'asd', 'asd', '2024-04-09', '2024-04-08', 'asdasdasd', 'asdasd', 'N/A', 'asdasd', 'asdasd', 'test@gmail.com', '123', 'no', 'N/A', 'no', 'N/A', 'asd', 'asdasd', 'asd', 'asd1', 'asd1', 'asd1', 'asd1', 'asd2', 'asd2', 'asd2', 'asd2', 'asd3', 'asd3', 'asd3', 'asd3', 'yes', 'no', 'asd', 'yes', 'no', 'asd', 'yes', 'no', 'asdasd', 'yes', 'no', 'asd', 'Jandel L. Escalera', '2024-04-08', 'signature_1715702930.png'),
+(2, 'janz', 133, '1ada57e0792c8d6fd170d05acea87ad7aba4147a9e96484017', '2024-02-29 16:41:42', 'Agent', 'Calapan', 'Afable, Eleanor L', 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2003-01-26', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', 'test', 'asdasd', '123', '123', 'No', 'traditional', 'variable', 'sa bahay namin', 'asd', 'asd', '2024-04-08', 'asd', 'asd', '2024-04-16', 'asd', 'asd', '2024-04-08', 'asd', 'asd', '2024-04-08', '2024-04-09', 'asdasd', 'asd', 'asd', '2024-04-08', '2024-04-02', 'asdasdasd', 'asd', 'asd', '2024-04-09', '2024-04-08', 'asdasdasd', 'asdasd', 'N/A', 'asdasd', 'asdasd', 'test@gmail.com', '123', 'no', 'N/A', 'no', 'N/A', 'asd', 'asdasd', 'asd', 'asd1', 'asd1', 'asd1', 'asd1', 'asd2', 'asd2', 'asd2', 'asd2', 'asd3', 'asd3', 'asd3', 'asd3', 'yes', 'no', 'asd', 'yes', 'no', 'asd', 'yes', 'no', 'asdasd', 'yes', 'no', 'asd', 'Jandel L. Escalera', '2024-04-08', 'signature_1716122612.png'),
 (3, 'Jansen', 134, 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b', '2024-02-29 16:46:28', 'Agent', 'Calapan', '133', 'yes', 'No', 'No', 'No', 'Jansen L. Afable', 'Jansen', '2013-04-28', 'Lumangbayan', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jansenafable@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'jandel', 138, '84a4c1dbbf9ea65aa0ec88ffb8ddeb7c733df4bc3971424d64', '2024-03-10 06:15:55', 'Agent', 'Calapan City', 'Escalera, Jandel L', 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2024-04-07', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'traditional', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '', 'aasd', 'asd', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, 'asdasd', 'Jandel L. Escalera', '2024-04-08', 'signature_1712559038.png'),
+(6, 'jandel', 138, '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6', '2024-03-10 06:15:55', 'Agent', 'Calapan City', 'Escalera, Jandel L', 'yes', 'No', 'No', 'No', 'Escalera Jandel Leido', 'Jandel', '2024-04-07', 'Laguna', 'Male', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'jandeleido@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'traditional', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '', 'aasd', 'asd', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, 'asdasd', 'Jandel L. Escalera', '2024-04-08', 'signature_1712559038.png'),
 (8, 'Lineth', 145, '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9', '2024-03-11 16:53:33', 'Agent', 'Calapan', '133', 'yes', 'No', 'No', 'No', 'Candolita, May Lineth F.', 'May', '2024-03-13', 'Laguna', 'Female', 'N/A', 'Lumangbayan calapan City', '09366581432', '123', 'alejandrogino950@gmail.com', 'Filipino', 'N/A', '', 'Single', '', '', '123', '123', 'No', 'No', 'No', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'N/A', '', '', '', '', 'N/A', 'N/A', 'N/A', 'N/A', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(21, 'Les', 176, 'f90d700cb8e2c779da224bc8422f8c0766e0c0d8c71f3f43', '2024-04-06 13:11:01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'Lednaj123', 203, 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c', '2024-05-14 14:54:29', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(21, 'Les', 176, 'bcf764c296774e53ef6f0dc1d21cf7c628509df5f5b36f4789', '2024-04-06 13:11:01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'N/A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -762,17 +766,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `token`, `email`, `username`, `password`, `time_log`, `role`, `status`, `accountStatus`, `confirm`, `verification_token`, `created_at`, `pass_token`) VALUES
-(92, '61da7cf3e778297e58c4c60774bb26e47ddc7771a9aa1cc833', 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', '2024-05-14 16:40:49', 'admin', 'verified', '', 'true', '', '2023-12-09 16:58:18', ''),
-(133, 'e75e323fe40fab8c5e3cb19316f8670f35c8af44ed07ac59fc', 'jandeleido@gmail.com', 'janz', '$2y$10$LI1W4xM0wac5oXkVy9P9YeuD8uihYhZE7K9i.PICUKVQ.iFq25NyW', '2024-05-14 16:46:41', 'agent', 'verified', 'active', 'true', '99', '2024-02-29 16:41:42', ''),
+(92, '18fcd6050b792cd4212b8375c64a65899825f7c28cc2433b68', 'chris@gmail.com', 'Chris', '$2y$10$ggzG3p6epFA1KwsNK3Hx7.TP0xAdweahPtxGHLnqP10pk91pRgxuu', '2024-05-20 16:32:07', 'admin', 'verified', '', 'true', '', '2023-12-09 16:58:18', ''),
+(133, '1ada57e0792c8d6fd170d05acea87ad7aba4147a9e96484017', 'jandeleido@gmail.com', 'janz', '$2y$10$7p4wLbtAgfUWSbHKBpROGOV212nBJYr7Dos60Yo3V59oufB4nxfk6', '2024-05-20 17:23:56', 'agent', 'verified', 'active', 'true', '99', '2024-02-29 16:41:42', ''),
 (134, 'fe1acc0f7424c413008113258112a2171d08f3e149b4933b', 'jansenafable@gmail.com', 'Jansen', '$2y$10$15KatkX.X04sUNVaUauONutwK8FMzGb4casktDC5ldtP8aDWX.NJG', '2024-04-14 17:11:05', 'applicant', 'verified', 'active', 'true', 'eedc19e7c7097173fd847a42d9a19623', '2024-02-29 16:46:28', ''),
 (135, 'd000fd7c8315f1964e7e4a6e755daed0bd8ee44ef37d278597', 'ellenleido@gmail.com', 'Ellen', '$2y$10$Ypotf4Rphg/pUfGrE8XKOOD94spI5IX01xlRjwsiWv9zsJV5vNUby', '2024-05-12 16:45:32', 'agent', 'verified', 'active', 'true', '', '2024-02-29 16:55:53', ''),
-(138, '84a4c1dbbf9ea65aa0ec88ffb8ddeb7c733df4bc3971424d64', 'escalerajandel@gmail.com', 'jandel', '$2y$10$a8OaE2qHCOXkzWPCrrMLY.1zHWXrGnPnnMJhy2Xk/oimvgZBsQz.S', '2024-05-08 16:49:56', 'applicant', 'verified', 'active', 'true', '921932e9c00eba63493b1226d1491998', '2024-03-10 06:15:55', ''),
+(138, '6ac375885b352b7cc1555d5f36398a6a7e4f44e8d5a2a0d7a6', 'escalerajandel@gmail.com', 'jandel', '$2y$10$a8OaE2qHCOXkzWPCrrMLY.1zHWXrGnPnnMJhy2Xk/oimvgZBsQz.S', '2024-05-20 05:21:58', 'agent', 'verified', 'active', 'true', '921932e9c00eba63493b1226d1491998', '2024-03-10 06:15:55', ''),
 (145, '05fd60d38fc468347b4122a5685a0dfca55de4b78721435de9', 'alejandrogino950@gmail.com', 'Lineth', '$2y$10$XD54H8NJd2BC4Src4V1IguDbzR5NrClVNvN/Vr9ERYXDlimnMWDze', '2024-05-05 03:43:29', 'agent', 'verified', 'active', 'true', '43bd99ce34b88bc2a3ed5a4079dd6ec2', '2024-03-11 16:53:33', ''),
-(176, 'f90d700cb8e2c779da224bc8422f8c0766e0c0d8c71f3f43', 'Lester@gmail.com', 'Les', '$2y$10$MssN7JDnVyZki4UkZ5ShVumbCZvGT74HLFvN0BqnLk5TOxAwZFKjq', '2024-04-06 16:42:37', 'applicant', 'verified', 'active', 'true', 'db85b52bef570b057b11747327fc56dc', '2024-04-06 13:08:03', ''),
-(196, '0ac8fc72bd4fe444a0a3ce5e2c80feaaef30ca1a46681dd89b', 'client@gmail.com', 'client', '$2y$10$SX.IR0nW8HFyxMzq..yCLeIPI2wQlL9NVEYKsd0WDMAzKaahQysli', '2024-05-14 17:43:12', 'client', 'verified', 'active', 'true', '', '2024-04-15 16:36:17', ''),
+(176, 'bcf764c296774e53ef6f0dc1d21cf7c628509df5f5b36f4789', 'Lester@gmail.com', 'Les', '$2y$10$MssN7JDnVyZki4UkZ5ShVumbCZvGT74HLFvN0BqnLk5TOxAwZFKjq', '2024-05-20 14:50:37', 'applicant', 'verified', 'active', 'true', 'db85b52bef570b057b11747327fc56dc', '2024-04-06 13:08:03', ''),
+(196, '849bf2e081ac98fafe80c0bdd8f0f8f6fb67198f39ed412fcc', 'client@gmail.com', 'client', '$2y$10$kKLpAiMdO25stakT8x9xOeQY1OSBhe8FYKDaRSK6CLsT4yWlrvti.', '2024-05-20 15:59:07', 'client', 'verified', 'active', 'true', '', '2024-04-15 16:36:17', ''),
 (197, '53b9f97948d1b77cb60f145038acb24b94e59fe6ade2514f2b', 'client2@gmail.com', 'client2', '$2y$10$8fdJQ3L2buJqIw7F/VRjFOSvjnV75wH2xSAf11gmsI6DlRCCK1JYW', '2024-05-14 16:46:27', 'client', 'verified', 'active', 'true', '', '2024-04-15 17:29:25', ''),
 (201, '7ccdaf5a8ead0cd16d4993d50d21d11a1d03a8ed56f24612dd', 'test@gmail.com', 'test', '$2y$10$lugkVMUPGu93iEOO2Ra4g.k8JLoifsZWA8uVw80jq6ZM7WkS5W.sC', '2024-04-25 13:03:42', 'client', 'verified', 'active', 'true', 'e33bfae66f2d5d64186120a9d0df64b2a2cea57402494c8a97', '2024-04-18 12:22:10', ''),
-(203, 'ae8abbfd6ae5348573cb45ce4c94adc6acff2e74f6ba562a6c', 'smithlednaj@gmail.com', 'Lednaj123', '$2y$10$3hIlydLttiyIsvwKeM5SrOoRdbV3OYSwWT/zZUiE0CfK3LTyYbkG.', '2024-05-14 14:54:54', 'agent', 'verified', 'active', 'true', '', '2024-05-14 14:53:24', '');
+(206, '23a652c451309299db59c66528552d7e9c9d055dc8c88c88c9', 'smithlednaj@gmail.com', 'ClientJandel', '$2y$10$/t6KafEvLuxBzZaNbZBfS.uraBp.P9X22Q/SuNvlwBAdPicRPZIca', '2024-05-20 17:13:26', 'client', 'verified', 'active', 'true', '', '2024-05-20 16:38:17', '');
 
 --
 -- Triggers `users`
@@ -941,7 +945,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `aial`
@@ -965,25 +969,25 @@ ALTER TABLE `chat`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `client_plan`
 --
 ALTER TABLE `client_plan`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `client_scheduler`
 --
 ALTER TABLE `client_scheduler`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `commissions`
 --
 ALTER TABLE `commissions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `fback`
@@ -1025,13 +1029,13 @@ ALTER TABLE `sou`
 -- AUTO_INCREMENT for table `to_confirm`
 --
 ALTER TABLE `to_confirm`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=207;
 
 --
 -- Constraints for dumped tables

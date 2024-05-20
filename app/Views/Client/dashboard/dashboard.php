@@ -29,7 +29,7 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <!-- Policy Information -->
-                                        <div class="col-lg-6 mb-4">
+                                        <div class="col-lg-6">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Policy Information</h5>
@@ -43,7 +43,7 @@
                                         </div>
 
                                         <!-- Claims Management -->
-                                        <div class="col-lg-6 mb-4">
+                                        <div class="col-lg-6">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 class="card-title">Claims Management</h5>
@@ -57,7 +57,7 @@
                                         <!-- Billing and Payment History -->
                                         <div class="col-lg-12">
                                             <div class="card">
-                                                <div class="table-responsive pt-3">
+                                                <div class="table-responsive">
                                                     <div class="card-body">
                                                         <h5 class="card-title">Billing and Payment History</h5>
                                                         <table class="table">
