@@ -30,6 +30,7 @@ class ClientModel extends Model
         'city',
         'barangay',
         'street',
+        'zipcode',
         'profile',
         'plan',
         'applicationNo'

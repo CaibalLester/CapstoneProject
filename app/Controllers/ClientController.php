@@ -296,6 +296,7 @@ class ClientController extends BaseController
             'image' => $img,
             'barangay' => $this->request->getVar('barangay_text'),
             'street' => $this->request->getVar('street'),
+            'zipcode' => $this->request->getVar('zipcode'),
         ];
 
         // Check if $data array is not empty before updating the database

@@ -238,6 +238,14 @@
                           placeholder="Street">
                       </div>
                     </div>
+                    <div class="row mb-3">
+                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Zip Code</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input class="form-control" type="text" name="zipcode"
+                          value="<?= isset($client['zipcode']) ? $client['zipcode'] : '' ?>" id="zipcode"
+                          placeholder="zipcode">
+                      </div>
+                    </div>
 
                     <div class="row mb-3">
                       <label for="number" class="col-md-4 col-lg-3 col-form-label">number</label>
