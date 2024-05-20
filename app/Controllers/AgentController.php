@@ -318,28 +318,33 @@ class AgentController extends BaseController
             }
         }
 
-        // Calculate commission based on the mode of payment
-        $cal['plan'] = $this->plan->where('token', $this->request->getVar('plan'))->first();
-        if ($cal['plan']) {
-            $price = $cal['plan']['price'];
-            $percentage = $cal['plan']['com_percentage'] / 100;
-            switch ($this->request->getVar('typeofpayment')) {
-                case 'Annual':
-                    $commissionAmount = $price * $percentage;
-                    break;
-                case 'Semi-Annual':
-                    $commissionAmount = ($price / 2) * $percentage;
-                    break;
-                case 'Quarterly':
-                    $commissionAmount = ($price / 4) * $percentage;
-                    break;
-                case 'Monthly':
-                    $commissionAmount = ($price / 12) * $percentage;
-                    break;
-                default:
-                    $commissionAmount = 0;
-            }
+         // Calculate commission based on the mode of payment
+    $cal['plan'] = $this->plan->where('token', $this->request->getVar('plan'))->first();
+    if ($cal['plan']) {
+        $price = $cal['plan']['price'];
+        $percentage = $cal['plan']['com_percentage'] / 100;
+        switch ($this->request->getVar('typeofpayment')) {
+            case 'Annual':
+                $commissionAmount = $price * $percentage;
+                $amountPaid = $price; // Amount Paid = Annual Price - Commission
+                break;
+            case 'Semi-Annual':
+                $commissionAmount = ($price / 2) * $percentage;
+                $amountPaid = ($price / 2); // Amount Paid = Half of Annual Price
+                break;
+            case 'Quarterly':
+                $commissionAmount = ($price / 4) * $percentage;
+                $amountPaid = ($price / 4); // Amount Paid = Quarter of Annual Price
+                break;
+            case 'Monthly':
+                $commissionAmount = ($price / 12) * $percentage;
+                $amountPaid = ($price / 12); // Amount Paid = Twelfth of Annual Price
+                break;
+            default:
+                $commissionAmount = 0;
+                $amountPaid = 0;
         }
+    }
 
         $token = bin2hex(random_bytes(25));
         $tokens = bin2hex(random_bytes(50));
@@ -363,6 +368,8 @@ class AgentController extends BaseController
             'commi' => $commissionAmount,
             'agent_id' => $this->request->getVar('agent'),
             'client_id' => $this->request->getVar('client_id'),
+            'amount_paid' => $amountPaid,
+            'receipts' => $imageName,
         ]);
 
         return redirect()->to('cliSched')->with('success', 'Transaction Completed');
