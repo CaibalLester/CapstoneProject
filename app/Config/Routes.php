@@ -55,6 +55,7 @@ $routes->get('/AppForm3', 'AppController::AppForm3', ['filter' => 'applicantFilt
 $routes->get('/AppForm4', 'AppController::AppForm4', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm5', 'AppController::AppForm5', ['filter' => 'applicantFilter']);
 $routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applicantFilter']);
+$routes->get('/AppForms', 'AppController::AppForms', ['filter' => 'applicantFilter']);
 
 
 $routes->get('/AgDash', 'AgentController::AgDash', ['filter' => 'agentFilter']);

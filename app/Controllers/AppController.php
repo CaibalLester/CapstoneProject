@@ -48,6 +48,12 @@ class AppController extends BaseController
         return view('Applicant/AppProfile', $data);
     }
 
+    public function AppForms()
+    {
+        $data = array_merge($this->getData(), $this->getDataApp());
+        return view('Applicant/forms', $data);
+    }
+
     private function getData()
     {
         $cacheKey = 'applicant_getData_data';

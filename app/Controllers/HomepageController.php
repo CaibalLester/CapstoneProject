@@ -330,6 +330,7 @@ class HomepageController extends BaseController
 
                 switch ($user['role']) {
                     case 'admin':
+                        $this->cache->clean();
                         return redirect()->to('/AdDash');
                     case 'applicant':
                         return redirect()->to('/AppDash');
@@ -338,6 +339,7 @@ class HomepageController extends BaseController
                     case 'client':
                         return redirect()->to('/ClientPage');
                 }
+                
             } else {
                 // Password mismatch
                 $session->setFlashdata('error', 'Invalid password.');
