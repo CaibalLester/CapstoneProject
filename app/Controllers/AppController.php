@@ -20,6 +20,8 @@ class AppController extends BaseController
     private $form3;
     private $user;
     private $applicant;
+    protected $cache;
+
     public function __construct()
     {
         $this->agent = new AgentModel();
@@ -29,6 +31,8 @@ class AppController extends BaseController
         $this->user = new UserModel();
         $this->RTC = new RTCController();
         $this->applicant = new ApplicantModel();
+        $this->cache = \Config\Services::cache();
+
     }
 
     public function AppDash()
@@ -46,6 +50,8 @@ class AppController extends BaseController
 
     private function getData()
     {
+        $cacheKey = 'applicant_getData_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
 
         // Check if the user is logged in
@@ -57,62 +63,80 @@ class AppController extends BaseController
         $userId = $session->get('id');
         // Find the user by ID
         $data['user'] = $this->user->find($userId);
-
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getDataApp()
     {
+        $cacheKey = 'applicant_getDataApp_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['applicant'] = $this->applicant->where('applicant_id', $userId)
             ->orderBy('id', 'desc')
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getform1Data()
     {
+        $cacheKey = 'applicant_getform1Data_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['lifechangerform'] = $this->form1->where('user_id', $userId)
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getform2Data()
     {
+        $cacheKey = 'applicant_getform2Data_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['aial'] = $this->form2->where('user_id', $userId)
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getform3Data()
     {
+        $cacheKey = 'applicant_getform3Data_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['gli'] = $this->form3->where('applicant_id', $userId)
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getform4Data()
     {
+        $cacheKey = 'applicant_getform4Data_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['aonff'] = $this->form1->where('user_id', $userId)
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function getform5Data()
     {
+        $cacheKey = 'applicant_getform5Data_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['sou'] = $this->form1->where('user_id', $userId)
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
@@ -124,6 +148,8 @@ class AppController extends BaseController
 
     public function svap()
     {
+        $cacheKey = 'applicant_svap_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         // Initialize $data array
@@ -182,7 +208,7 @@ class AppController extends BaseController
             // Update the applicant data
             $this->applicant->set($data)->where('applicant_id', $userId)->update();
         }
-
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return redirect()->to('/AppSetting');
     }
 
@@ -428,6 +454,8 @@ class AppController extends BaseController
 
     public function FA()
     {
+        $cacheKey = 'applicant_FA_data';
+        $data = $this->cache->get($cacheKey);
         $data = array_merge($this->getData(), $this->getDataApp());
 
         // Get the search input from the form
@@ -444,6 +472,7 @@ class AppController extends BaseController
         // Correctly assign the pager
         $data['pager'] = $this->agent->pager;
         $data['agents'] = $agents;
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
 
         return view('Applicant/FA', $data);
     }
@@ -532,6 +561,6 @@ class AppController extends BaseController
             'authorizedRepresentative' => $this->request->getVar('authorizedRepresentative'),
         ];
         $this->form2->set($data)->where('user_id', $userId)->update();
-        return redirect()->back(); 
+        return redirect()->back();
     }
 }

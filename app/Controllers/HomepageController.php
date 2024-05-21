@@ -23,6 +23,7 @@ class HomepageController extends BaseController
     private $plan;
     protected $feedbackModel;
     private $conclient;
+    protected $cache;
 
     public function __construct()
     {
@@ -34,12 +35,16 @@ class HomepageController extends BaseController
         $this->plan = new PlanModel();
         $this->feedbackModel = new FeedbackModel();
         $this->conclient = new ClientController();
+        $this->cache = \Config\Services::cache();
     }
     public function home()
     {
+        $cacheKey = 'home_data';
+        $data = $this->cache->get($cacheKey);
         $data = $this->conclient->ag();
         $data['feed'] = $this->feedbackModel->findAll();
         $data['plan'] = $this->plan->findAll();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Home/home', $data);
     }
 
@@ -47,34 +52,39 @@ class HomepageController extends BaseController
     {
         $updatetoken = bin2hex(random_bytes(50));
         $session = session();
-
         // Get the user ID from the session
         $userId = $session->get('id');
-
         // Update the user's token in the database
         $userModel = new UserModel(); // Assuming you have a UserModel
         $userModel->update($userId, ['token' => $updatetoken]);
-
         $session->destroy(); // Destroy the user's session data
         return redirect()->to('/'); // Redirect to the login page or any other page you prefer
     }
 
     public function login()
     {
+        $cacheKey = 'home_login_data';
+        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $data = [];
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view("Home/login");
     }
     //applicant reg
 
     public function register($ref)
     {
+        $cacheKey = 'home_register_data';
+        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $data['ref'] = $ref; // Define and pass $ref to the view
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view("Home/register", $data);
     }
     public function Authreg($ref)
     {
+        $cacheKey = 'home_Authreg_data';
+        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $rules = [
             'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username,id]',
@@ -101,9 +111,10 @@ class HomepageController extends BaseController
                     // 'verification_token' => $verificationToken,
                     'accountStatus' => 'active',
                     'token' => $usertoken,
-                    'confirm' =>'false',
+                    'confirm' => 'false',
                 ];
                 $userModel->save($userData);
+                $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
             } else {
                 return redirect()->to('/register/' . $ref)->with('error', 'Invalid Referal Code');
             }
@@ -124,6 +135,7 @@ class HomepageController extends BaseController
                     'role' => 'applicant',
                 ];
                 $this->confirm->save($applicantData);
+
             }
             $emailSubject = "Account Registration Confirmation";
             $emailMessage = "Thank you for registering! Your account is currently registered. Please wait for confirmation from the admin before you can log in.";
@@ -175,13 +187,15 @@ class HomepageController extends BaseController
 
     public function verifyEmail($token)
     {
+        $cacheKey = 'home_verifyEmail_data_' . $token;
+        $data = $this->cache->get($cacheKey);
         $userModel = new UserModel();
 
         // Find user by verification token
         $user = $userModel->where('verification_token', $token)
             ->where('status', 'unverified')
             ->first();
-
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         if ($user) {
             // Update user status to 'verified'
             $userModel->update($user['id'], [
@@ -189,12 +203,78 @@ class HomepageController extends BaseController
                 'verification_token' => null
             ]);
             // Redirect to a success page or login page
+
             return redirect()->to('/login')->with('success', 'Email verified! You can now log in with your account.');
         } else {
             // Invalid or expired token
             return redirect()->to('/login')->with('error', 'Invalid or expired verification token.');
         }
     }
+
+    // public function authlog()
+    // {
+    //     $session = session();
+    //     $userModel = new UserModel();
+    //     $email = $this->request->getVar('email');
+    //     $password = $this->request->getVar('password');
+
+    //     // Check if the email is valid
+    //     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //         $session->setFlashdata('error', 'Invalid email address.');
+    //         return redirect()->to('/login');
+    //     }
+
+    //     // Attempt to retrieve user data from cache
+    //     $cacheKey = 'user_data_' . md5($email); // Create a cache key based on email
+    //     $cachedUserData = $this->cache->get($cacheKey);
+
+    //     $user = $userModel->where('email', $email)->first();
+    //     // Check if the user exists
+    //     if ($user) {
+    //         // Check if the user's status is 'verified'
+    //         if ($user['status'] == 'verified') {
+    //             // Check if the password matches
+    //             if (password_verify($password, $user['password'])) {
+    //                 $sessionData = [
+    //                     'id' => $user['id'],
+    //                     'role' => $user['role'],
+    //                     'IsLoggin' => true,
+    //                     'accountStatus' => $user['accountStatus'],
+    //                     'confirm' => $user['confirm'],
+    //                 ];
+    //                 $session->set($sessionData);
+
+    //                 $log = ['time_log' => date('Y-m-d H:i:s'),];
+    //                 $this->user->set($log)->where('id', $user['id'])->update();
+
+    //                 if ($user['role'] == 'admin') {
+    //                     return redirect()->to('/AdDash');
+    //                 } elseif ($user['role'] == 'applicant') {
+    //                     return redirect()->to('/AppDash');
+    //                 } elseif ($user['role'] == 'agent') {
+    //                     return redirect()->to('/AgDash');
+    //                 } elseif ($user['role'] == 'client') {
+    //                     return redirect()->to('/ClientPage');
+    //                 }
+    //             } else {
+    //                 // Password mismatch
+    //                 $session->setFlashdata('error', 'Invalid password.');
+    //                 return redirect()->to('/login');
+    //             }
+    //             $this->cache->save($cacheKey, $cachedUserData, 3600); // Cache for 1 hour
+    //         } else {
+    //             // User status is not 'verified'
+    //             $session->setFlashdata('warning', 'Your account has not been verified. Please check your email for the verification link.');
+    //             return redirect()->to('/login');
+    //         }
+
+    //     } else {
+    //         // User not found
+    //         $session->setFlashdata('error', 'Email address not found.');
+    //         return redirect()->to('/login');
+    //     }
+    // }
+
 
     public function authlog()
     {
@@ -209,52 +289,67 @@ class HomepageController extends BaseController
             return redirect()->to('/login');
         }
 
-        $user = $userModel->where('email', $email)->first();
-        // Check if the user exists
-        if ($user) {
-            // Check if the user's status is 'verified'
-            if ($user['status'] == 'verified') {
-                // Check if the password matches
-                if (password_verify($password, $user['password'])) {
-                    $sessionData = [
-                        'id' => $user['id'],
-                        'role' => $user['role'],
-                        'IsLoggin' => true,
-                        'accountStatus' => $user['accountStatus'],
-                        'confirm' => $user['confirm'],
-                    ];
-                    $session->set($sessionData);
+        // Create a cache key based on the email
+        $cacheKey = 'user_data_' . md5($email);
 
-                    $log = ['time_log' => date('Y-m-d H:i:s'),];
-                    $this->user->set($log)->where('id', $user['id'])->update();
+        // Attempt to retrieve user data from cache
+        $cachedUserData = $this->cache->get($cacheKey);
 
-                    if ($user['role'] == 'admin') {
-                        return redirect()->to('/AdDash');
-                    } elseif ($user['role'] == 'applicant') {
-                        return redirect()->to('/AppDash');
-                    } elseif ($user['role'] == 'agent') {
-                        return redirect()->to('/AgDash');
-                    } elseif ($user['role'] == 'client') {
-                        return redirect()->to('/ClientPage');
-                    }
-                } else {
-                    // Password mismatch
-                    $session->setFlashdata('error', 'Invalid password.');
-                    return redirect()->to('/login');
-                }
+        if (!$cachedUserData) {
+            // If user data is not found in the cache, fetch it from the database
+            $user = $userModel->where('email', $email)->first();
 
+            if ($user) {
+                // Cache the user data for future requests
+                $this->cache->save($cacheKey, $user, 3600); // Cache for 1 hour
             } else {
-                // User status is not 'verified'
-                $session->setFlashdata('warning', 'Your account has not been verified. Please check your email for the verification link.');
+                // User not found
+                $session->setFlashdata('error', 'Email address not found.');
                 return redirect()->to('/login');
             }
-
         } else {
-            // User not found
-            $session->setFlashdata('error', 'Email address not found.');
+            // Use the cached user data
+            $user = $cachedUserData;
+        }
+
+        // Check if the user's status is 'verified'
+        if ($user['status'] == 'verified') {
+            // Check if the password matches
+            if (password_verify($password, $user['password'])) {
+                $sessionData = [
+                    'id' => $user['id'],
+                    'role' => $user['role'],
+                    'IsLoggin' => true,
+                    'accountStatus' => $user['accountStatus'],
+                    'confirm' => $user['confirm'],
+                ];
+                $session->set($sessionData);
+
+                $log = ['time_log' => date('Y-m-d H:i:s')];
+                $this->user->set($log)->where('id', $user['id'])->update();
+
+                switch ($user['role']) {
+                    case 'admin':
+                        return redirect()->to('/AdDash');
+                    case 'applicant':
+                        return redirect()->to('/AppDash');
+                    case 'agent':
+                        return redirect()->to('/AgDash');
+                    case 'client':
+                        return redirect()->to('/ClientPage');
+                }
+            } else {
+                // Password mismatch
+                $session->setFlashdata('error', 'Invalid password.');
+                return redirect()->to('/login');
+            }
+        } else {
+            // User status is not 'verified'
+            $session->setFlashdata('warning', 'Your account has not been verified. Please check your email for the verification link.');
             return redirect()->to('/login');
         }
     }
+
 
     public function updatePassword()
     {
@@ -386,35 +481,67 @@ class HomepageController extends BaseController
 
     public function terms()
     {
-        $data['plan'] = $this->plan->findAll();
+        $cacheKey = 'home_terms_data';
+        $data = $this->cache->get($cacheKey);
+
+        if (!$data) {
+            $data['plan'] = $this->plan->findAll();
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
+
         return view('Home/terms', $data);
     }
 
     public function policy()
     {
-        $data['plan'] = $this->plan->findAll();
+        $cacheKey = 'home_policy_data';
+        $data = $this->cache->get($cacheKey);
+
+        if (!$data) {
+            $data['plan'] = $this->plan->findAll();
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
 
         return view('Home/policy', $data);
     }
 
     public function comingsoon()
     {
-        $data['plan'] = $this->plan->findAll();
+        $cacheKey = 'home_comingsoon_data';
+        $data = $this->cache->get($cacheKey);
+
+        if (!$data) {
+            $data['plan'] = $this->plan->findAll();
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
 
         return view('Home/comingsoon', $data);
     }
 
     public function contactus()
     {
-        $data['plan'] = $this->plan->findAll();
+        $cacheKey = 'home_contactus_data';
+        $data = $this->cache->get($cacheKey);
+
+        if (!$data) {
+            $data['plan'] = $this->plan->findAll();
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
 
         return view('Home/contactus', $data);
     }
 
     public function feedback()
     {
-        $data['plan'] = $this->plan->findAll();
+        $cacheKey = 'home_feedback_data';
+        $data = $this->cache->get($cacheKey);
+
+        if (!$data) {
+            $data['plan'] = $this->plan->findAll();
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
 
         return view('Home/feedback', $data);
     }
+
 }

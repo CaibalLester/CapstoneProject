@@ -26,6 +26,7 @@ class AgentController extends BaseController
     private $applicant;
     private $agent;
     protected $scheduleModel;
+    protected $cache;
     public function __construct()
     {
         $this->appcon = new AppController();
@@ -38,9 +39,12 @@ class AgentController extends BaseController
         $this->plan = new PlanModel();
         $this->client_plan = new ClientPlanModel();
         $this->commission = new CommiModel();
+        $this->cache = \Config\Services::cache();
     }
     public function AgDash()
     {
+        $cacheKey = 'agent_AgDash_data';
+        $data = $this->cache->get($cacheKey);
         $data = array_merge($this->getData(), $this->getDataAge());
         $agentid = $data['agent']['agent_id'];
         $agentcode = $data['agent']['AgentCode'];
@@ -50,20 +54,29 @@ class AgentController extends BaseController
         $data['clients'] = $this->client_plan->where('agent', $agentid)->countAllResults();
         $totalCommis = $this->client_plan->selectSum('commission')->where('agent', $agentid)->findAll();
         $data['totalcommi'] = !empty($totalCommis) ? $totalCommis[0]['commission'] : 0;
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/AgDash', $data);
     }
+
     public function AgProfile()
     {
-        $agentModel = new AgentModel();
+        $cacheKey = 'agent_AgProfile_data';
+        $data = $this->cache->get($cacheKey);
 
-        $data = array_merge($this->getData(), $this->getDataAge());
+        if (!$data) {
+            $agentModel = new AgentModel();
+            $data = array_merge($this->getData(), $this->getDataAge());
+            $agentid = $data['agent']['agent_id'];
 
-        $agentid = $data['agent']['agent_id'];
-        // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
-        $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
-        $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
+            // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
+            $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
+            $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
+
+            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+        }
         return view('Agent/AgProfile', $data);
     }
+
 
     public function AgSetting()
     {
@@ -76,6 +89,8 @@ class AgentController extends BaseController
     }
     public function getData()
     {
+        $cacheKey = 'agent_getData_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
 
         // Check if the user is logged in
@@ -89,12 +104,14 @@ class AgentController extends BaseController
         $userModel = new UserModel();
         // Find the user by ID
         $data['user'] = $userModel->find($userId);
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function subagent()
     {
-
+        $cacheKey = 'agent_subagent_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         // Fetch the agent data
@@ -104,6 +121,7 @@ class AgentController extends BaseController
         $data['subagent'] = $agents;
         // Fetch the user data
         $data['user'] = $this->user->find($userId);
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/subagents', $data);
     }
 
@@ -134,12 +152,15 @@ class AgentController extends BaseController
 
     public function getDataAge()
     {
+        $cacheKey = 'agent_getDataAge_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $agentModel = new AgentModel();
         $data['agent'] = $agentModel->where('agent_id', $userId)
             // ->orderBy('id', 'desc')
             ->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
     public function svag()
@@ -229,6 +250,8 @@ class AgentController extends BaseController
 
     public function AgForm1()
     {
+        $cacheKey = 'agent_sched_data';
+        $data = $this->cache->get($cacheKey);
         $data['agents'] = $this->agent->findAll();
         // Merge arrays while retaining the 'agents' key
         $data = array_merge(
@@ -238,11 +261,14 @@ class AgentController extends BaseController
             $this->appcon->getform1Data(),
             $data
         );
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/AgForm1', $data);
     }
 
     public function sched()
     {
+        $cacheKey = 'agent_sched_data';
+        $data = $this->cache->get($cacheKey);
         // Load the model
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
         $scheduleModel = new ScheduleModel();
@@ -251,11 +277,14 @@ class AgentController extends BaseController
         $data['schedules'] = $scheduleModel->findAll();
 
         // Pass data to the view
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/Schedule', $data);
     }
 
     public function cliSched()
     {
+        $cacheKey = 'agent_cliSched_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
@@ -264,12 +293,15 @@ class AgentController extends BaseController
         $data['client'] = $this->client->findAll();
         $data['status'] = 'Awaiting';
         $data['class'] = 'Awaiting';
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
 
     public function inprog()
     {
+        $cacheKey = 'agent_inprog_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
@@ -278,12 +310,15 @@ class AgentController extends BaseController
         $data['client'] = $this->client->findAll();
         $data['status'] = 'In Progress';
         $data['class'] = 'In Progress';
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
 
     public function comp()
     {
+        $cacheKey = 'agent_comp_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
@@ -292,12 +327,14 @@ class AgentController extends BaseController
         $data['client'] = $this->client->findAll();
         $data['status'] = 'Completed';
         $data['class'] = 'Completed';
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
 
     public function compost()
     {
+
         $data = [];
         $uploadPath = FCPATH . 'uploads/clients/receipts/';
 
@@ -318,33 +355,33 @@ class AgentController extends BaseController
             }
         }
 
-         // Calculate commission based on the mode of payment
-    $cal['plan'] = $this->plan->where('token', $this->request->getVar('plan'))->first();
-    if ($cal['plan']) {
-        $price = $cal['plan']['price'];
-        $percentage = $cal['plan']['com_percentage'] / 100;
-        switch ($this->request->getVar('typeofpayment')) {
-            case 'Annual':
-                $commissionAmount = $price * $percentage;
-                $amountPaid = $price; // Amount Paid = Annual Price - Commission
-                break;
-            case 'Semi-Annual':
-                $commissionAmount = ($price / 2) * $percentage;
-                $amountPaid = ($price / 2); // Amount Paid = Half of Annual Price
-                break;
-            case 'Quarterly':
-                $commissionAmount = ($price / 4) * $percentage;
-                $amountPaid = ($price / 4); // Amount Paid = Quarter of Annual Price
-                break;
-            case 'Monthly':
-                $commissionAmount = ($price / 12) * $percentage;
-                $amountPaid = ($price / 12); // Amount Paid = Twelfth of Annual Price
-                break;
-            default:
-                $commissionAmount = 0;
-                $amountPaid = 0;
+        // Calculate commission based on the mode of payment
+        $cal['plan'] = $this->plan->where('token', $this->request->getVar('plan'))->first();
+        if ($cal['plan']) {
+            $price = $cal['plan']['price'];
+            $percentage = $cal['plan']['com_percentage'] / 100;
+            switch ($this->request->getVar('typeofpayment')) {
+                case 'Annual':
+                    $commissionAmount = $price * $percentage;
+                    $amountPaid = $price; // Amount Paid = Annual Price - Commission
+                    break;
+                case 'Semi-Annual':
+                    $commissionAmount = ($price / 2) * $percentage;
+                    $amountPaid = ($price / 2); // Amount Paid = Half of Annual Price
+                    break;
+                case 'Quarterly':
+                    $commissionAmount = ($price / 4) * $percentage;
+                    $amountPaid = ($price / 4); // Amount Paid = Quarter of Annual Price
+                    break;
+                case 'Monthly':
+                    $commissionAmount = ($price / 12) * $percentage;
+                    $amountPaid = ($price / 12); // Amount Paid = Twelfth of Annual Price
+                    break;
+                default:
+                    $commissionAmount = 0;
+                    $amountPaid = 0;
+            }
         }
-    }
 
         $token = bin2hex(random_bytes(25));
         $tokens = bin2hex(random_bytes(50));
@@ -371,7 +408,6 @@ class AgentController extends BaseController
             'amount_paid' => $amountPaid,
             'receipts' => $imageName,
         ]);
-
         return redirect()->to('cliSched')->with('success', 'Transaction Completed');
     }
 
@@ -533,13 +569,13 @@ class AgentController extends BaseController
             'amount_paid' => $amountPaid,
         ];
         $this->commission->save($commiS);
-
         return redirect()->back()->with('success', 'Plan updated successfully');
     }
 
 
     public function con($dec)
     {
+
         $id = base64_decode($dec);
         $status = $this->sched->where('id', $id)->get()->getRow()->status;
         // $agentId = $this->sched->where('id', $id)->select('agent')->find();
@@ -560,6 +596,8 @@ class AgentController extends BaseController
 
     public function client()
     {
+        $cacheKey = 'agent_client_data';
+        $data = $this->cache->get($cacheKey);
         $session = session();
         $agId = $session->get('id');
 
@@ -582,17 +620,21 @@ class AgentController extends BaseController
         $data['pager'] = $this->client->pager;
         $data['client'] = $clients;
         // var_dump($client);
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/clients', $data);
     }
 
     public function mycommi()
     {
+        $cacheKey = 'agent_mycommi_data';
+        $data = $this->cache->get($cacheKey);
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
         $data['mycommission'] = $this->client_plan->select('client.username as client_name, client.client_token, client_plan.token as tokin, client_plan.*, plan.*')
             ->join('client', 'client.client_id = client_plan.client_id')
             ->join('plan', 'plan.token = client_plan.plan')
             ->where('client_plan.agent', $data['agent']['agent_id'])
             ->findAll();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/mycommi', $data);
     }
 

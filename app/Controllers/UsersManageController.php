@@ -18,6 +18,8 @@ class UsersManageController extends BaseController
     private $applicant;
     private $admin;
     private $form;
+    protected $cache;
+
     public function __construct()
     {
         $this->user = new UserModel();
@@ -26,10 +28,17 @@ class UsersManageController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
         $this->rtc = new RTCController();
+        $this->cache = \Config\Services::cache();
     }
     private function alluser()
     {
-        $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
+        // Check if the cached data exists
+        if (!$data = cache('all_users_cache')) {
+            // If data is not cached, fetch it from the database
+            $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
+            // Cache the data for 1 hour (3600 seconds)
+            cache()->save('all_users_cache', $data, 3600); // Cache will automatically expire after 1 hour
+        }
         return $data;
     }
     public function usermanagement()
@@ -45,7 +54,7 @@ class UsersManageController extends BaseController
         // Check if filter roles are selected
         if (!empty($filterroles)) {
             if ($filterroles == 'all') {
-                $data['users'] = $this->user->where(['role !=' => 'admin','confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
+                $data['users'] = $this->user->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
             } else {
                 // If another role is selected, filter by role
@@ -54,11 +63,11 @@ class UsersManageController extends BaseController
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided
-            $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin' , 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
+            $data['users'] = $this->user->like('username', $search)->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         } else {
             // If neither filter roles nor search query is provided, get all users
-            $data['users'] = $this->user->where(['role !=' => 'admin','confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
+            $data['users'] = $this->user->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         }
         $data['pager'] = $this->user->pager;
@@ -67,11 +76,18 @@ class UsersManageController extends BaseController
 
     private function getDataAd()
     {
-        $session = session();
-        $userId = $session->get('id');
-        $data['admin'] = $this->admin->where('admin_id', $userId)
-            ->orderBy('id', 'desc')
-            ->first();
+        // Check if the cached data exists
+        if (!$data = cache('admin_data_cache')) {
+            // If data is not cached, fetch it from the database
+            $session = session();
+            $userId = $session->get('id');
+            $data['admin'] = $this->admin->where('admin_id', $userId)
+                ->orderBy('id', 'desc')
+                ->first();
+            // Cache the data for 1 hour (3600 seconds)
+            cache()->save('admin_data_cache', $data, 3600); // Cache will automatically expire after 1 hour
+        }
+
         return $data;
     }
 
@@ -107,7 +123,7 @@ class UsersManageController extends BaseController
             'email' => $this->request->getVar('upemail'),
             'accountStatus' => $this->request->getPost('accountStatus'),
         ];
-        if ($this->request->getPost('accountStatus')== 'active'){
+        if ($this->request->getPost('accountStatus') == 'active') {
             $timelog = ['time_log' => date('Y-m-d H:i:s')];
             $this->user->set($timelog)->where('token', $token)->update();
         }
