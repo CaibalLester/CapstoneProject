@@ -23,6 +23,8 @@ class ClientController extends BaseController
     private $user;
     private $client;
     protected $agent;
+    protected $cache;
+
 
     public function __construct()
     {
@@ -34,19 +36,26 @@ class ClientController extends BaseController
         $this->sched = new Scheduler();
         $this->client_plan = new ClientPlanModel();
         $this->commission = new CommiModel();
+        $this->cache = \Config\Services::cache();
     }
 
     public function ClientService()
     {
+        $cacheKey = 'ClientService_data';
+        $data = $this->cache->get($cacheKey);
         $data['plan'] = $this->plan->paginate(6, 'plan');
         $data['pager'] = $this->plan->pager;
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Client/ClientService', $data);
     }
 
     public function ServiceDescription($token)
     {
+        $cacheKey = 'ClientService_data';
+        $data = $this->cache->get($cacheKey);
         $data['plan'] = $this->plan->findAll();
         $data['plandesc'] = $this->plan->where('token', $token)->first();
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Client/ServiceDescription', $data);
     }
 
@@ -164,6 +173,15 @@ class ClientController extends BaseController
     public function ClientPage()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_data_' . $data['client']['client_token'];
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/dashboard', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
         // $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->where('status', 'paid')->limit(3)->findAll();
         $data['history'] = $this->commission->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
@@ -201,29 +219,77 @@ class ClientController extends BaseController
                 'status' => $plan['status'], // Add status here
             ];
         }
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/dashboard', $data);
     }
+
 
     public function paymenthistory()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_paymenthistory_' . $data['client']['client_token'];
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/history', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['myplan'] = $this->commission->where('client_id', $data['client']['client_id'])->findAll();
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/history', $data);
     }
+
 
     public function viewplans()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_viewplans_' . $data['client']['client_token'];
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/plans', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['plan'] = $this->plan->findAll();
         $data['agent'] = $this->agent->findAll();
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/plans', $data);
     }
+
 
     public function clientprofile()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_clientprofile_' . $data['client']['client_token'];
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/myprofile', $cachedData);
+        }
+
+        // If not cached, process the data
+        // No additional processing needed, just caching the combined data
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/myprofile', $data);
     }
+
 
     public function getData()
     {
@@ -310,18 +376,46 @@ class ClientController extends BaseController
     public function agents()
     {
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_agents_' . $data['client']['client_token'] . '_page_' . ($this->request->getGet('page_group1') ?? 1);
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/agents', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['agent'] = $this->agent->paginate(8, 'group1');
         $data['pager'] = $this->agent->pager;
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/agents', $data);
     }
+
 
     public function seeprofile($token)
     {
         $decodedToken = base64_decode($token);
         $data = array_merge($this->getData(), $this->ClientData());
+        $cacheKey = 'ClientService_seeprofile_' . $data['client']['client_token'] . '_' . $decodedToken;
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/agentsProfile', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['agent'] = $this->agent->where('agent_token', $decodedToken)->first();
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/agentsProfile', $data);
     }
+
 
     public function createSchedule()
     {
@@ -372,14 +466,25 @@ class ClientController extends BaseController
     {
         $data = array_merge($this->getData(), $this->ClientData());
         $id = $data['client']['client_id'];
-        // $data['schedule'] = $this->sched->where('client_id' , $id)->findAll();
+        $cacheKey = 'ClientService_mysched_' . $data['client']['client_token'];
+
+        // Check if the data is already cached
+        $cachedData = $this->cache->get($cacheKey);
+        if ($cachedData) {
+            return view('Client/dashboard/mysched', $cachedData);
+        }
+
+        // If not cached, process the data
         $data['schedule'] = $this->sched->where('client_id', $id)->orderBy('selected_date', 'ASC')->findAll();
         $data['agent'] = $this->agent->findAll();
         $data['plan'] = $this->plan->findAll();
-        // $data['plan'] = array_merge($this->agent->findAll(), $this->plan->findAll());
+
+        // Cache the processed data
+        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
+
         return view('Client/dashboard/mysched', $data);
-        // var_dump($data);
     }
+
 
     public function delsched($id)
     {
