@@ -69,6 +69,9 @@ class Database extends Config
         'port'        => 3306,
         'foreignKeys' => true,
         'busyTimeout' => 1000,
+
+        'cacheOn'     => true, // Enable caching
+        'cachedir'    => WRITEPATH . 'cache', // Cache directory
     ];
 
     public function __construct()
