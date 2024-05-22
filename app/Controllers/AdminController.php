@@ -33,7 +33,7 @@ class AdminController extends BaseController
     private $form2;
     private $form3;
     protected $scheduleModel;
-    protected $cache;
+    // protected $cache;
     public function __construct()
     {
         $this->db = \Config\Database::connect();
@@ -50,15 +50,11 @@ class AdminController extends BaseController
         $this->client = new ClientModel();
         $this->scheduleModel = new ScheduleModel();
         $this->commi = new CommiModel();
-
-        $this->cache = \Config\Services::cache();
+        // $this->cache = \Config\Services::cache();
     }
 
     public function AdDash()
     {
-        $cacheKey = 'admin_dash_data';
-        $data = $this->cache->get($cacheKey);
-
         $totalAgents = count($this->agent->findAll());
         $totalApplicants = count($this->applicant->findAll());
         $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
@@ -66,16 +62,11 @@ class AdminController extends BaseController
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
-
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/AdDash', $data);
     }
     //Top 3 Agents
     private function topagent()
     {
-        $cacheKey = 'top_agent_data';
-        $data = $this->cache->get($cacheKey);
-
         // Load the database service
         $builder = \Config\Database::connect()->table('agent a');
         $builder->select('a.username, a.FA, a.agentprofile, a.agent_token, (SELECT COUNT(*) FROM agent b WHERE b.FA = a.agent_id) AS total_fA');
@@ -85,16 +76,11 @@ class AdminController extends BaseController
         $result = $builder->get()->getResultArray();
         // Pass the data to your view or perform any other actions
         $data['top'] = $result;
-        // Return the data
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function topcommi()
     {
-        $cacheKey = 'top_commi_data';
-        $data = $this->cache->get($cacheKey);
-
         // Select the agent_id and sum of commissions for each agent
         $this->commi->select('agent_id, SUM(commi) AS total_commissions')
             ->groupBy('agent_id')
@@ -117,7 +103,6 @@ class AdminController extends BaseController
 
         // Prepare the data to be returned
         $data['top_commi'] = $topAgents;
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         // Return the data
         return $data;
     }
@@ -130,30 +115,22 @@ class AdminController extends BaseController
 
     public function ManageAgent()
     {
-        $cacheKey = 'manageAgent_admin_data';
-        $data = $this->cache->get($cacheKey);
         // $agentModel = new AgentModel();
         $data = $this->usermerge();
         $data['agent'] = $this->agent->paginate(10, 'group1'); // Change 10 to the number of items per page
         $data['pager'] = $this->agent->pager;
-
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/ManageAgent', $data);
     }
 
     public function Forms()
     {
-        $cacheKey = 'admin_Forms_data';
-        $data = $this->cache->get($cacheKey);
         $data = array_merge($this->getData(), $this->getDataAd());
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/Forms', $data);
     }
 
     public function formsTable($form)
     {
-        $cacheKey = 'admin_formsTable_data';
-        $data = $this->cache->get($cacheKey);
+
         $data = array_merge($this->getData(), $this->getDataAd());
         $data['user'] = $this->user->where(['role !=' => 'admin'])->Where(['role !=' => 'client'])->findAll();
         $data['link'] = $form;
@@ -162,48 +139,38 @@ class AdminController extends BaseController
         if (!empty($search)) {
             $data['user'] = $this->user->like('username', $search)->where(['role !=' => 'admin'])->findAll();
         }
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/formsTable', $data);
         // var_dump( $search);
     }
 
     public function ManageApplicant()
     {
-        $cacheKey = 'admin_ManageApplicant_data';
-        $data = $this->cache->get($cacheKey);
         // $appmodel = new ApplicantModel();
         $data = $this->usermerge();
         // Add a where condition to retrieve only records with status = 'confirmed'
         $applicants = $this->applicant->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
         $data['pager'] = $this->applicant->pager;
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/ManageApplicant', $data);
     }
 
     private function usermerge()
     {
-        $cacheKey = 'admin_usermerge_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data = $this->getDataAd();
         $userModel = new UserModel();
         $data['user'] = $userModel->find($userId);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function userSearch()
     {
-        $cacheKey = 'admin_userSearch_data';
-        $data = $this->cache->get($cacheKey);
         $data = $this->usermerge();
         $filterUser = $this->request->getPost('filterUser');
         $applicants = $this->applicant->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
         $data['pager'] = $this->applicant->pager;
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/ManageApplicant', $data);
     }
 
@@ -211,27 +178,21 @@ class AdminController extends BaseController
     public function agentSearch()
     {
         $agentModel = new AgentModel();
-        $cacheKey = 'admin_agentSearch_data';
-        $data = $this->cache->get($cacheKey);
         $data = $this->usermerge();
         $filterUser = $this->request->getPost('filterAgent');
         $agents = $this->agent->like('username', $filterUser)->paginate(10, 'group1');
         $data['pager'] = $this->agent->pager; // Use $agentModel->pager
         $data['agent'] = $agents;
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Admin/ManageAgent', $data);
     }
 
     public function getDataAd()
     {
-        $cacheKey = 'admin_getDataAd_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['admin'] = $this->admin->where('admin_id', $userId)
             ->orderBy('id', 'desc')
             ->first();
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
@@ -268,12 +229,9 @@ class AdminController extends BaseController
 
     public function getData()
     {
-        $cacheKey = 'admin_getData_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $data['user'] = $this->user->find($userId);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
@@ -334,15 +292,9 @@ class AdminController extends BaseController
 
     public function viewAppForm5($token)
     {
-        // Check if the cached data exists
-        $cacheKey = 'form5_data_' . $token;
-        if (!$data = cache($cacheKey)) {
-            // If data is not cached, fetch it from the database
-            $data = $this->form1->where('app_life_token', $token)->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save($cacheKey, $data, 3600);
-        }
-
+        // If data is not cached, fetch it from the database
+        $data = $this->form1->where('app_life_token', $token)->first();
+        // Cache the data for 1 hour (3600 seconds)
         return view('Admin/Forms/details5', ['lifechangerform' => $data]);
     }
 
@@ -361,8 +313,6 @@ class AdminController extends BaseController
 
     public function newAgent($app_token)
     {
-        $cacheKey = 'admin_newAgent_data';
-        $data = $this->cache->get($cacheKey);
         $data['applicant'] = $this->applicant->where('app_token', $app_token)->first();
         $username = $data['applicant']['username'];
         $agentCode = $this->random();
@@ -402,14 +352,11 @@ class AdminController extends BaseController
         $emailMessage = "Congratulations on your promotion! We're thrilled to see your hard work and dedication pay off. 
         Please click the link below to login and access your new responsibilities: $verificationLink";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return redirect()->to('promotion')->with('success', "$username was Promoted To Agent");
     }
 
     public function svad()
     {
-        $cacheKey = 'admin_svad_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
 
@@ -469,14 +416,11 @@ class AdminController extends BaseController
             // Update the admin data
             $this->admin->set($data)->where('admin_id', $userId)->update();
         }
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return redirect()->to('/AdSetting');
     }
 
     public function confirm($token)
     {
-        $cacheKey = 'admin_confirm_data';
-        $data = $this->cache->get($cacheKey);
         $data['applicant'] = $this->confirm->where('token', $token)->first();
         // $form['applicant'] = $this->applicant->where('app_token', $token)->first();
         $verificationToken = bin2hex(random_bytes(25));
@@ -547,14 +491,11 @@ class AdminController extends BaseController
         $emailSubject = 'Registration Confirmation';
         $emailMessage = "Your account has been confirmed. Please click the link verify your account: {$verificationLink}";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return redirect()->to('/confirmation')->with('success', 'Acount Confirmed!');
     }
 
     public function deny($token)
     {
-        $cacheKey = 'admin_deny_data';
-        $data = $this->cache->get($cacheKey);
         $data['applicant'] = $this->confirm->where('token', $token)->first();
         $id = $data['applicant']['id'];
 
@@ -563,15 +504,12 @@ class AdminController extends BaseController
         $emailSubject = 'Register Deny';
         $emailMessage = "Your Account was Deny Where sorry to inform you";
         $this->homecon->sendVerificationEmail($data['applicant']['email'], $emailSubject, $emailMessage);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         // var_dump($id);
         return redirect()->to('/confirmation')->with('warning', 'Acount Denied');
     }
 
     public function confirmation()
     {
-        $cacheKey = 'admin_confirmation_data';
-        $data = $this->cache->get($cacheKey);
         $data = array_merge($this->getData(), $this->getDataAd());
         $con = $this->confirm->paginate(10, 'group1');
         $data['applicant'] = $con;
@@ -581,7 +519,6 @@ class AdminController extends BaseController
         if (!empty($search)) {
             $data['applicant'] = $this->confirm->like('username', $search)->paginate(10, 'group1');
         }
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         // var_dump($data);
         return view('Admin/confirmation', $data);
     }

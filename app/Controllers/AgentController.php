@@ -26,7 +26,7 @@ class AgentController extends BaseController
     private $applicant;
     private $agent;
     protected $scheduleModel;
-    protected $cache;
+    // protected $cache;
     public function __construct()
     {
         $this->appcon = new AppController();
@@ -39,56 +39,38 @@ class AgentController extends BaseController
         $this->plan = new PlanModel();
         $this->client_plan = new ClientPlanModel();
         $this->commission = new CommiModel();
-        $this->cache = \Config\Services::cache();
+        // $this->cache = \Config\Services::cache();
     }
     public function AgDash()
     {
-        $cacheKey = 'agent_AgDash_data';
-        $data = $this->cache->get($cacheKey);
 
-        // Check if the data is already cached
-        if (!$data) {
-            // If data is not cached, fetch and process the data
-            $data = array_merge(
-                $this->getData(), // Assuming this method fetches general user data
-                $this->getDataAge() // Assuming this method fetches agent-specific data
-            );
+        // If data is not cached, fetch and process the data
+        $data = array_merge(
+            $this->getData(), // Assuming this method fetches general user data
+            $this->getDataAge() // Assuming this method fetches agent-specific data
+        );
+        $agentid = $data['agent']['agent_id'];
+        $agentcode = $data['agent']['AgentCode'];
 
-            $agentid = $data['agent']['agent_id'];
-            $agentcode = $data['agent']['AgentCode'];
-
-            $data['FA'] = $this->agent->where('FA', $agentid)->findAll();
-            $data['applicants'] = $this->applicant->where('refcode', $agentcode)->countAllResults();
-            $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
-            $data['clients'] = $this->client_plan->where('agent', $agentid)->countAllResults();
-
-            $totalCommis = $this->client_plan->selectSum('commission')->where('agent', $agentid)->findAll();
-            $data['totalcommi'] = !empty($totalCommis) ? $totalCommis[0]['commission'] : 0;
-
-            // Cache the processed data
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['FA'] = $this->agent->where('FA', $agentid)->findAll();
+        $data['applicants'] = $this->applicant->where('refcode', $agentcode)->countAllResults();
+        $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
+        $data['clients'] = $this->client_plan->where('agent', $agentid)->countAllResults();
+        $totalCommis = $this->client_plan->selectSum('commission')->where('agent', $agentid)->findAll();
+        $data['totalcommi'] = !empty($totalCommis) ? $totalCommis[0]['commission'] : 0;
         return view('Agent/AgDash', $data);
     }
 
 
     public function AgProfile()
     {
-        $cacheKey = 'agent_AgProfile_data';
-        $data = $this->cache->get($cacheKey);
+        $agentModel = new AgentModel();
+        $data = array_merge($this->getData(), $this->getDataAge());
+        $agentid = $data['agent']['agent_id'];
 
-        if (!$data) {
-            $agentModel = new AgentModel();
-            $data = array_merge($this->getData(), $this->getDataAge());
-            $agentid = $data['agent']['agent_id'];
+        // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
+        $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
 
-            // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
-            $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
-            $data['ranking'] = $this->agent->where('FA', $agentid)->countAllResults();
-
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
         return view('Agent/AgProfile', $data);
     }
 
@@ -104,8 +86,7 @@ class AgentController extends BaseController
     }
     public function getData()
     {
-        $cacheKey = 'agent_getData_data';
-        $data = $this->cache->get($cacheKey);
+
         $session = session();
 
         // Check if the user is logged in
@@ -119,14 +100,11 @@ class AgentController extends BaseController
         $userModel = new UserModel();
         // Find the user by ID
         $data['user'] = $userModel->find($userId);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
 
     public function subagent()
     {
-        $cacheKey = 'agent_subagent_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         // Fetch the agent data
@@ -136,7 +114,6 @@ class AgentController extends BaseController
         $data['subagent'] = $agents;
         // Fetch the user data
         $data['user'] = $this->user->find($userId);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/subagents', $data);
     }
 
@@ -167,15 +144,12 @@ class AgentController extends BaseController
 
     public function getDataAge()
     {
-        $cacheKey = 'agent_getDataAge_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $userId = $session->get('id');
         $agentModel = new AgentModel();
         $data['agent'] = $agentModel->where('agent_id', $userId)
             // ->orderBy('id', 'desc')
             ->first();
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return $data;
     }
     public function svag()
@@ -265,8 +239,6 @@ class AgentController extends BaseController
 
     public function AgForm1()
     {
-        $cacheKey = 'agent_sched_data';
-        $data = $this->cache->get($cacheKey);
         $data['agents'] = $this->agent->findAll();
         // Merge arrays while retaining the 'agents' key
         $data = array_merge(
@@ -276,23 +248,16 @@ class AgentController extends BaseController
             $this->appcon->getform1Data(),
             $data
         );
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/AgForm1', $data);
     }
 
     public function sched()
     {
-        $cacheKey = 'agent_sched_data';
-        $data = $this->cache->get($cacheKey);
-        // Load the model
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
         $scheduleModel = new ScheduleModel();
-
         // Get all schedules from the database
         $data['schedules'] = $scheduleModel->findAll();
-
         // Pass data to the view
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/Schedule', $data);
     }
 
@@ -300,27 +265,20 @@ class AgentController extends BaseController
     {
         $session = session();
         $agentId = $session->get('id');
-        $cacheKey = 'agent_cliSched_data_' . $agentId;
 
-        // Check if the data is already cached
-        $data = $this->cache->get($cacheKey);
-        if (!$data) {
-            // If data is not cached, fetch and process the data
-            $data = array_merge(
-                $this->getData(), // Assuming this method fetches general user data
-                $this->appcon->getDataApp(), // Assuming this method fetches application-related data
-                $this->getDataAge() // Assuming this method fetches agent-specific data
-            );
 
-            $data['schedule'] = $this->sched->where('agent', $agentId)->where('status', 'pending')->orderBy('created_at', 'desc')->findAll();
-            $data['plans'] = $this->plan->findAll();
-            $data['client'] = $this->client->findAll();
-            $data['status'] = 'Awaiting';
-            $data['class'] = 'Awaiting';
+        // If data is not cached, fetch and process the data
+        $data = array_merge(
+            $this->getData(), // Assuming this method fetches general user data
+            $this->appcon->getDataApp(), // Assuming this method fetches application-related data
+            $this->getDataAge() // Assuming this method fetches agent-specific data
+        );
 
-            // Cache the processed data
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
+        $data['schedule'] = $this->sched->where('agent', $agentId)->where('status', 'pending')->orderBy('created_at', 'desc')->findAll();
+        $data['plans'] = $this->plan->findAll();
+        $data['client'] = $this->client->findAll();
+        $data['status'] = 'Awaiting';
+        $data['class'] = 'Awaiting';
 
         return view('Agent/cliSched', $data);
     }
@@ -328,8 +286,6 @@ class AgentController extends BaseController
 
     public function inprog()
     {
-        $cacheKey = 'agent_inprog_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
@@ -338,15 +294,12 @@ class AgentController extends BaseController
         $data['client'] = $this->client->findAll();
         $data['status'] = 'In Progress';
         $data['class'] = 'In Progress';
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
 
     public function comp()
     {
-        $cacheKey = 'agent_comp_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $agent = $session->get('id');
         $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
@@ -355,7 +308,6 @@ class AgentController extends BaseController
         $data['client'] = $this->client->findAll();
         $data['status'] = 'Completed';
         $data['class'] = 'Completed';
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/cliSched', $data);
         // var_dump($agent);
     }
@@ -603,7 +555,6 @@ class AgentController extends BaseController
 
     public function con($dec)
     {
-
         $id = base64_decode($dec);
         $status = $this->sched->where('id', $id)->get()->getRow()->status;
         // $agentId = $this->sched->where('id', $id)->select('agent')->find();
@@ -624,8 +575,6 @@ class AgentController extends BaseController
 
     public function client()
     {
-        $cacheKey = 'agent_client_data';
-        $data = $this->cache->get($cacheKey);
         $session = session();
         $agId = $session->get('id');
 
@@ -648,36 +597,23 @@ class AgentController extends BaseController
         $data['pager'] = $this->client->pager;
         $data['client'] = $clients;
         // var_dump($client);
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Agent/clients', $data);
     }
 
     public function mycommi()
     {
-        $session = session();
-        $agentId = $session->get('id');
-        $cacheKey = 'agent_mycommi_data_' . $agentId;
+        // If data is not cached, fetch and process the data
+        $data = array_merge(
+            $this->getData(), // Assuming this method fetches general user data
+            $this->appcon->getDataApp(), // Assuming this method fetches application-related data
+            $this->getDataAge() // Assuming this method fetches agent-specific data
+        );
 
-        // Check if the data is already cached
-        $data = $this->cache->get($cacheKey);
-        if (!$data) {
-            // If data is not cached, fetch and process the data
-            $data = array_merge(
-                $this->getData(), // Assuming this method fetches general user data
-                $this->appcon->getDataApp(), // Assuming this method fetches application-related data
-                $this->getDataAge() // Assuming this method fetches agent-specific data
-            );
-
-            $data['mycommission'] = $this->client_plan->select('client.username as client_name, client.client_token, client_plan.token as tokin, client_plan.*, plan.*')
-                ->join('client', 'client.client_id = client_plan.client_id')
-                ->join('plan', 'plan.token = client_plan.plan')
-                ->where('client_plan.agent', $data['agent']['agent_id'])
-                ->findAll();
-
-            // Cache the processed data
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['mycommission'] = $this->client_plan->select('client.username as client_name, client.client_token, client_plan.token as tokin, client_plan.*, plan.*')
+            ->join('client', 'client.client_id = client_plan.client_id')
+            ->join('plan', 'plan.token = client_plan.plan')
+            ->where('client_plan.agent', $data['agent']['agent_id'])
+            ->findAll();
         return view('Agent/mycommi', $data);
     }
     private function sendVerificationEmail($to, $subject, $message)

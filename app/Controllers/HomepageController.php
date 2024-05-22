@@ -23,7 +23,7 @@ class HomepageController extends BaseController
     private $plan;
     protected $feedbackModel;
     private $conclient;
-    protected $cache;
+    // protected $cache;
 
     public function __construct()
     {
@@ -35,16 +35,13 @@ class HomepageController extends BaseController
         $this->plan = new PlanModel();
         $this->feedbackModel = new FeedbackModel();
         $this->conclient = new ClientController();
-        $this->cache = \Config\Services::cache();
+        // $this->cache = \Config\Services::cache();
     }
     public function home()
     {
-        $cacheKey = 'home_data';
-        $data = $this->cache->get($cacheKey);
         $data = $this->conclient->ag();
         $data['feed'] = $this->feedbackModel->findAll();
         $data['plan'] = $this->plan->findAll();
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view('Home/home', $data);
     }
 
@@ -63,28 +60,20 @@ class HomepageController extends BaseController
 
     public function login()
     {
-        $cacheKey = 'home_login_data';
-        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $data = [];
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view("Home/login");
     }
     //applicant reg
 
     public function register($ref)
     {
-        $cacheKey = 'home_register_data';
-        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $data['ref'] = $ref; // Define and pass $ref to the view
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         return view("Home/register", $data);
     }
     public function Authreg($ref)
     {
-        $cacheKey = 'home_Authreg_data';
-        $data = $this->cache->get($cacheKey);
         helper(['form']);
         $rules = [
             'username' => 'required|min_length[3]|max_length[50]|is_unique[users.username,id]',
@@ -114,7 +103,6 @@ class HomepageController extends BaseController
                     'confirm' => 'false',
                 ];
                 $userModel->save($userData);
-                $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
             } else {
                 return redirect()->to('/register/' . $ref)->with('error', 'Invalid Referal Code');
             }
@@ -157,7 +145,6 @@ class HomepageController extends BaseController
     {
         // Load Email Library
         $email = \Config\Services::email();
-
         // SMTP Configuration (replace with your actual SMTP settings)
         $config = [
             'protocol' => 'smtp',
@@ -187,15 +174,12 @@ class HomepageController extends BaseController
 
     public function verifyEmail($token)
     {
-        $cacheKey = 'home_verifyEmail_data_' . $token;
-        $data = $this->cache->get($cacheKey);
         $userModel = new UserModel();
 
         // Find user by verification token
         $user = $userModel->where('verification_token', $token)
             ->where('status', 'unverified')
             ->first();
-        $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
         if ($user) {
             // Update user status to 'verified'
             $userModel->update($user['id'], [
@@ -288,30 +272,7 @@ class HomepageController extends BaseController
             $session->setFlashdata('error', 'Invalid email address.');
             return redirect()->to('/login');
         }
-
-        // Create a cache key based on the email
-        $cacheKey = 'user_data_' . md5($email);
-
-        // Attempt to retrieve user data from cache
-        $cachedUserData = $this->cache->get($cacheKey);
-
-        if (!$cachedUserData) {
-            // If user data is not found in the cache, fetch it from the database
-            $user = $userModel->where('email', $email)->first();
-
-            if ($user) {
-                // Cache the user data for future requests
-                $this->cache->save($cacheKey, $user, 3600); // Cache for 1 hour
-            } else {
-                // User not found
-                $session->setFlashdata('error', 'Email address not found.');
-                return redirect()->to('/login');
-            }
-        } else {
-            // Use the cached user data
-            $user = $cachedUserData;
-        }
-
+        $user = $userModel->where('email', $email)->first();
         // Check if the user's status is 'verified'
         if ($user['status'] == 'verified') {
             // Check if the password matches
@@ -330,7 +291,6 @@ class HomepageController extends BaseController
 
                 switch ($user['role']) {
                     case 'admin':
-                        $this->cache->clean();
                         return redirect()->to('/AdDash');
                     case 'applicant':
                         return redirect()->to('/AppDash');
@@ -339,7 +299,7 @@ class HomepageController extends BaseController
                     case 'client':
                         return redirect()->to('/ClientPage');
                 }
-                
+
             } else {
                 // Password mismatch
                 $session->setFlashdata('error', 'Invalid password.');
@@ -483,66 +443,31 @@ class HomepageController extends BaseController
 
     public function terms()
     {
-        $cacheKey = 'home_terms_data';
-        $data = $this->cache->get($cacheKey);
-
-        if (!$data) {
-            $data['plan'] = $this->plan->findAll();
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['plan'] = $this->plan->findAll();
         return view('Home/terms', $data);
     }
 
     public function policy()
     {
-        $cacheKey = 'home_policy_data';
-        $data = $this->cache->get($cacheKey);
-
-        if (!$data) {
-            $data['plan'] = $this->plan->findAll();
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['plan'] = $this->plan->findAll();
         return view('Home/policy', $data);
     }
 
     public function comingsoon()
     {
-        $cacheKey = 'home_comingsoon_data';
-        $data = $this->cache->get($cacheKey);
-
-        if (!$data) {
-            $data['plan'] = $this->plan->findAll();
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['plan'] = $this->plan->findAll();
         return view('Home/comingsoon', $data);
     }
 
     public function contactus()
     {
-        $cacheKey = 'home_contactus_data';
-        $data = $this->cache->get($cacheKey);
-
-        if (!$data) {
-            $data['plan'] = $this->plan->findAll();
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['plan'] = $this->plan->findAll();
         return view('Home/contactus', $data);
     }
 
     public function feedback()
     {
-        $cacheKey = 'home_feedback_data';
-        $data = $this->cache->get($cacheKey);
-
-        if (!$data) {
-            $data['plan'] = $this->plan->findAll();
-            $this->cache->save($cacheKey, $data, 3600); // Cache for 1 hour
-        }
-
+        $data['plan'] = $this->plan->findAll();
         return view('Home/feedback', $data);
     }
 
