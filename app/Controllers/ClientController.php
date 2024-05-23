@@ -166,7 +166,6 @@ class ClientController extends BaseController
     public function ClientPage()
     {
         $data = array_merge($this->getData(), $this->ClientData());
-        // If not cached, process the data
         $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
         // $data['myplan'] = $this->client_plan->where('client_id', $data['client']['client_id'])->where('status', 'paid')->limit(3)->findAll();
         $data['history'] = $this->commission->where('client_id', $data['client']['client_id'])->limit(3)->findAll();
@@ -218,7 +217,6 @@ class ClientController extends BaseController
     public function viewplans()
     {
         $data = array_merge($this->getData(), $this->ClientData());
-        // If not cached, process the data
         $data['plan'] = $this->plan->findAll();
         $data['agent'] = $this->agent->findAll();
         return view('Client/dashboard/plans', $data);

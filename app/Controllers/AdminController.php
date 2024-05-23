@@ -86,10 +86,8 @@ class AdminController extends BaseController
             ->groupBy('agent_id')
             ->orderBy('total_commissions', 'DESC')
             ->limit(3);
-
         // Get the query result
         $result = $this->commi->get()->getResultArray();
-
         // Fetch additional agent data for the top agents
         $topAgents = [];
         foreach ($result as $row) {
@@ -100,7 +98,6 @@ class AdminController extends BaseController
                 $topAgents[] = $agentData;
             }
         }
-
         // Prepare the data to be returned
         $data['top_commi'] = $topAgents;
         // Return the data
@@ -237,64 +234,31 @@ class AdminController extends BaseController
 
     public function viewAppForm($token)
     {
-        // Check if the cached data exists
-        $cacheKey = 'form1_data_' . $token;
-        if (!$data = cache($cacheKey)) {
-            // If data is not cached, fetch it from the database
-            $data = $this->form1->where('app_life_token', $token)->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save($cacheKey, $data, 3600);
-        }
+        $data = $this->form1->where('app_life_token', $token)->first();
         return view('Admin/Forms/details', ['lifechangerform' => $data]);
     }
 
     public function viewAppForm2($token)
     {
-        // Check if the cached data exists
-        $cacheKey = 'form2_data_' . $token;
-        if (!$data = cache($cacheKey)) {
-            // If data is not cached, fetch it from the database
-            $data = $this->form2->where('aial_token', $token)->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save($cacheKey, $data, 3600);
-        }
-
+        $data = $this->form2->where('aial_token', $token)->first();
         return view('Admin/Forms/details2', ['aial' => $data]);
     }
 
     public function viewAppForm3($token)
     {
-        // Check if the cached data exists
-        $cacheKey = 'form3_data_' . $token;
-        if (!$data = cache($cacheKey)) {
-            // If data is not cached, fetch it from the database
-            $data = $this->form3->where('app_gli_token', $token)->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save($cacheKey, $data, 3600);
-        }
-
+        $data = $this->form3->where('app_gli_token', $token)->first();
         return view('Admin/Forms/details3', ['gli' => $data]);
     }
 
     public function viewAppForm4($token)
     {
-        // Check if the cached data exists
-        $cacheKey = 'form4_data_' . $token;
-        if (!$data = cache($cacheKey)) {
-            // If data is not cached, fetch it from the database
-            $data = $this->form1->where('app_life_token', $token)->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save($cacheKey, $data, 3600);
-        }
-
+        $data = $this->form1->where('app_life_token', $token)->first();
         return view('Admin/Forms/details4', ['lifechangerform' => $data]);
     }
 
     public function viewAppForm5($token)
     {
-        // If data is not cached, fetch it from the database
         $data = $this->form1->where('app_life_token', $token)->first();
-        // Cache the data for 1 hour (3600 seconds)
         return view('Admin/Forms/details5', ['lifechangerform' => $data]);
     }
 

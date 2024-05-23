@@ -43,8 +43,6 @@ class AgentController extends BaseController
     }
     public function AgDash()
     {
-
-        // If data is not cached, fetch and process the data
         $data = array_merge(
             $this->getData(), // Assuming this method fetches general user data
             $this->getDataAge() // Assuming this method fetches agent-specific data
@@ -61,25 +59,27 @@ class AgentController extends BaseController
         return view('Agent/AgDash', $data);
     }
 
-
     public function AgProfile()
     {
         $agentModel = new AgentModel();
         $data = array_merge($this->getData(), $this->getDataAge());
         $agentid = $data['agent']['agent_id'];
-
-        // Assuming 'FA' is a field and you want to retrieve agents where agent_id is equal to 'FA'
         $data['FA'] = $agentModel->where('FA', $agentid)->findAll();
-
         return view('Agent/AgProfile', $data);
     }
-
 
     public function AgSetting()
     {
         $data = array_merge($this->getData(), $this->getDataAge());
         return view('Agent/AgSetting', $data);
     }
+
+    public function AgForms()
+    {
+        $data = array_merge($this->getData(), $this->getDataAge());
+        return view('Agent/forms', $data);
+    }
+
     public function AgHelp()
     {
         return view('Agent/AgHelp');
@@ -265,9 +265,6 @@ class AgentController extends BaseController
     {
         $session = session();
         $agentId = $session->get('id');
-
-
-        // If data is not cached, fetch and process the data
         $data = array_merge(
             $this->getData(), // Assuming this method fetches general user data
             $this->appcon->getDataApp(), // Assuming this method fetches application-related data
@@ -602,7 +599,6 @@ class AgentController extends BaseController
 
     public function mycommi()
     {
-        // If data is not cached, fetch and process the data
         $data = array_merge(
             $this->getData(), // Assuming this method fetches general user data
             $this->appcon->getDataApp(), // Assuming this method fetches application-related data

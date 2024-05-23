@@ -285,10 +285,9 @@ class HomepageController extends BaseController
                     'confirm' => $user['confirm'],
                 ];
                 $session->set($sessionData);
-
                 $log = ['time_log' => date('Y-m-d H:i:s')];
                 $this->user->set($log)->where('id', $user['id'])->update();
-
+                
                 switch ($user['role']) {
                     case 'admin':
                         return redirect()->to('/AdDash');

@@ -57,7 +57,6 @@ $routes->get('/AppForm5', 'AppController::AppForm5', ['filter' => 'applicantFilt
 $routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applicantFilter']);
 $routes->get('/AppForms', 'AppController::AppForms', ['filter' => 'applicantFilter']);
 
-
 $routes->get('/AgDash', 'AgentController::AgDash', ['filter' => 'agentFilter']);
 $routes->get('/AgProfile', 'AgentController::AgProfile', ['filter' => 'agentFilter']);
 $routes->get('/AgSetting', 'AgentController::AgSetting', ['filter' => 'agentFilter']);
@@ -65,6 +64,7 @@ $routes->get('/AgSetting', 'AgentController::AgSetting', ['filter' => 'agentFilt
 $routes->post('/svag', 'AgentController::svag', ['filter' => 'agentFilter']);
 $routes->get('/subagent', 'AgentController::subagent', ['filter' => 'agentFilter']);
 $routes->post('/subagentSearch', 'AgentController::subagentSearch', ['filter' => 'agentFilter']);
+$routes->get('/AgForms', 'AgentController::AgForms', ['filter' => 'agentFilter']);
 $routes->get('/AgForm1', 'AgentController::AgForm1', ['filter' => 'agentFilter']);
 $routes->get('/AgForm2', 'AgentController::AgForm2', ['filter' => 'agentFilter']);
 $routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']);
@@ -160,5 +160,6 @@ $routes->get('sched/delete/(:num)', 'AdminController::delete/$1');
 $routes->get('/agentsched', 'AgentController::sched');
 
 
-// $routes->get('/try', 'ProfileController::try');
+
+
 

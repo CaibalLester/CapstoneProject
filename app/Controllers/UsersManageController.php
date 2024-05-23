@@ -18,7 +18,7 @@ class UsersManageController extends BaseController
     private $applicant;
     private $admin;
     private $form;
-    protected $cache;
+    // protected $cache;
 
     public function __construct()
     {
@@ -28,17 +28,11 @@ class UsersManageController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
         $this->rtc = new RTCController();
-        $this->cache = \Config\Services::cache();
+        // $this->cache = \Config\Services::cache();
     }
     private function alluser()
     {
-        // Check if the cached data exists
-        if (!$data = cache('all_users_cache')) {
-            // If data is not cached, fetch it from the database
-            $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save('all_users_cache', $data, 3600); // Cache will automatically expire after 1 hour
-        }
+        $data['users'] = $this->user->where(['role !=' => 'admin'])->orderBy('username')->findAll();
         return $data;
     }
     public function usermanagement()
@@ -76,18 +70,12 @@ class UsersManageController extends BaseController
 
     private function getDataAd()
     {
-        // Check if the cached data exists
-        if (!$data = cache('admin_data_cache')) {
-            // If data is not cached, fetch it from the database
-            $session = session();
-            $userId = $session->get('id');
-            $data['admin'] = $this->admin->where('admin_id', $userId)
-                ->orderBy('id', 'desc')
-                ->first();
-            // Cache the data for 1 hour (3600 seconds)
-            cache()->save('admin_data_cache', $data, 3600); // Cache will automatically expire after 1 hour
-        }
 
+        $session = session();
+        $userId = $session->get('id');
+        $data['admin'] = $this->admin->where('admin_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
         return $data;
     }
 

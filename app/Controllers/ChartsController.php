@@ -12,14 +12,14 @@ class ChartsController extends BaseController
   private $commission;
   private $agent;
   private $app;
-  protected $cache;
+  // protected $cache;
 
   public function __construct()
   {
     $this->agent = new AgentModel();
     $this->commission = new CommiModel();
     $this->app = new ApplicantModel();
-    $this->cache = \Config\Services::cache();
+    // $this->cache = \Config\Services::cache();
   }
 
   public function monthlyAgentCount()

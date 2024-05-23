@@ -31,3 +31,4 @@
     <link href="<?= base_url(); ?>req/css/chat.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?= base_url(); ?>req/allianzlogo1.png" />
 </head>
+
