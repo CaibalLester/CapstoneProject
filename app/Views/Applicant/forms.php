@@ -134,10 +134,7 @@
             </main>
         </div>
     </div>
-
-    <!-- JAVASCRIPT FILES -->
     <?= view('js'); ?>
-    <?= view('Charts/visuals'); ?>
 </body>
 
 </html>
