@@ -219,19 +219,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade sub-agents pt-3 text-center" id="sub-agents">
-                                        <h1 class="h2 mb-2">Sub Agents</h1>
+                                    <div class="tab-pane fade sub-agents " id="sub-agents">
+                                        <h5 class="card-title">Sub Agents</h5>
                                         <div class="table-responsive">
                                             <!-- Table with hoverable rows -->
                                             <div class="table-container mx-auto">
-                                                <table class="table table-hover">
+                                            <table class="table table-hover">
                                                     <thead class="thead-light bg-white">
                                                         <tr>
                                                             <th scope="col">User Name</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Number</th>
                                                             <th scope="col">Date</th>
-                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -241,16 +238,7 @@
                                                                     <?= $sub['username'] ?>
                                                                 </td>
                                                                 <td>
-                                                                    <?= $sub['email'] ?>
-                                                                </td>
-                                                                <td>
-                                                                    <?= $sub['number'] ?>
-                                                                </td>
-                                                                <td>
                                                                     <?= date('M j, Y', strtotime($sub['created_at'])); ?>
-                                                                </td>
-                                                                <td><a
-                                                                        href="<?= base_url(); ?>agentprofile/<?= $sub['agent_token']; ?>">profile</a>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach ?>
@@ -263,10 +251,9 @@
                                                 </nav>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div class="tab-pane fade pt-3" id="forms">
-                                        <h1 class="h2 mb-0">Forms</h1>
+                                    <div class="tab-pane fade" id="forms">
+                                        <h5 class="card-title">Forms</h5>
                                         <div class="row text-center">
                                             <div class="col-xl-2 my-3">
                                                 <a href="/ViewAppForm/<?= $agent['agent_token'] ?>">

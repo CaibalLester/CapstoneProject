@@ -107,15 +107,14 @@ class UsersManageController extends BaseController
     public function upuser($token)
     {
         $newuser = [
-            'username' => $this->request->getVar('upusername'),
-            'email' => $this->request->getVar('upemail'),
-            'accountStatus' => $this->request->getPost('accountStatus'),
+            'accountStatus' => $this->request->getVar('accountStatus'),
         ];
-        if ($this->request->getPost('accountStatus') == 'active') {
+        if ($this->request->getVar('accountStatus') == 'active') {
             $timelog = ['time_log' => date('Y-m-d H:i:s')];
             $this->user->set($timelog)->where('token', $token)->update();
         }
         $this->user->set($newuser)->where('token', $token)->update();
         return redirect()->to('usermanagement')->with('success', 'Account updated');
+        // var_dump($newuser);
     }
 }

@@ -236,12 +236,12 @@
                                         <table class="table table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">User Name</th>
-                                                    <th scope="col">Email</th>
+                                                    <th scope="col" style="font-size: small">User Name</th>
+                                                    <!-- <th scope="col">Email</th> -->
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Role</th>
                                                     <th scope="col">Date</th>
-                                                    <th scope="col">Action</th>
+                                                    <!-- <th scope="col">Action</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -250,9 +250,9 @@
                                                         <td>
                                                             <?= $user['username'] ?>
                                                         </td>
-                                                        <td>
+                                                        <!-- <td>
                                                             <?= $user['email'] ?>
-                                                        </td>
+                                                        </td> -->
                                                         <td style="color: 
                                                                 <?php
                                                                 switch ($user['accountStatus']) {
@@ -301,22 +301,8 @@
                                                                 </div>
 
                                                                 <div class="modal-body">
-                                                                    <form action="/upuser/<?= $user['token'] ?>"
+                                                                    <form action="<?=base_url()?>/upuser/<?= $user['token'] ?>"
                                                                         method="post" role="form">
-                                                                        <!-- <div class="mb-3">
-                                                                            <label for="upusername" class="form-label">User
-                                                                                Name</label>
-                                                                            <input type="text" class="form-control"
-                                                                                id="username" name="upusername"
-                                                                                value="<?= $user['username'] ?>" required>
-                                                                        </div> -->
-                                                                        <!-- <div class="mb-3">
-                                                                            <label for="upemail"
-                                                                                class="form-label">Email</label>
-                                                                            <input type="email" class="form-control"
-                                                                                id="email" name="upemail"
-                                                                                value="<?= $user['email'] ?>" required>
-                                                                        </div> -->
 
                                                                         <div class="mb-3">
                                                                             <label for="accountStatus"

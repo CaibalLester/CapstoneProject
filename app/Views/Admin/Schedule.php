@@ -2,7 +2,6 @@
 <!doctype html>
 <html lang="en">
 <?= view('head') ?>
-<?= view('Admin/chop/head') ?>
 
 <body>
     <?= view('Admin/chop/header') ?>
@@ -193,8 +192,7 @@
         </div>
     </div>
 
-
-    <?= view('Admin/chop/js'); ?>
+    <?= view('js'); ?>
     <script>
         // JavaScript to toggle password visibility
         const passwordInput = document.getElementById('password');

@@ -25,6 +25,12 @@
                                 Forms
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/appfiles">
+                                <i class="bi bi-files"></i></i>
+                                Files
+                            </a>
+                        </li>
 
                         
                         <li class="nav-item">
@@ -33,22 +39,6 @@
                                 Agents
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
-                            </a>
-                        </li>
-
 
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">

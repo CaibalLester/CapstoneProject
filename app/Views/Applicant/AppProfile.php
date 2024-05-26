@@ -26,26 +26,17 @@
                                 Forms
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/appfiles">
+                                <i class="bi bi-files"></i></i>
+                                Files
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/FA">
                                 <i class="bi-person me-2"></i>
                                 Agents
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/AppProfile">
-                                <i class="bi-person me-2"></i>
-                                Profile
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/AppSetting">
-                                <i class="bi-gear me-2"></i>
-                                Settings
                             </a>
                         </li>
 
