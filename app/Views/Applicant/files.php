@@ -51,7 +51,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/appfiles">
-                                <i class="bi bi-files"></i></i>
+                                <i class="bi bi-files me-2"></i></i>
                                 Files
                             </a>
                         </li>

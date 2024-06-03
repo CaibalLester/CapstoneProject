@@ -58,6 +58,8 @@ $routes->get('/AppForm5', 'AppController::AppForm5', ['filter' => 'applicantFilt
 $routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applicantFilter']);
 $routes->get('/AppForms', 'AppController::AppForms', ['filter' => 'applicantFilter']);
 $routes->get('/appfiles', 'FilesController::applicantfiles', ['filter' => 'applicantFilter']);
+$routes->get('/signature', 'AppController::signature', ['filter' => 'applicantFilter']);
+$routes->post('/signsave', 'AppController::signsave', ['filter' => 'applicantFilter']);
 $routes->post('/fileuploads', 'FilesController::fileuploads', ['filter' => 'applicantFilter']);
 
 
