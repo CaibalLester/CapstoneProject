@@ -99,7 +99,6 @@
                                                         <?php endforeach; ?>
                                                     </select>
 
-
                                                     <input type="checkbox" id="onlineAd" name="onlineAd"
                                                         value="Online Advertisement" disabled
                                                         <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
@@ -791,20 +790,23 @@
                                                 <div class="row">
                                                     <div class="col-lg-5">
                                                         <div class="w-75" style="border-bottom: 1px solid black"
-                                                            id="signature"></div>
+                                                            id="signature">
+                                                            <img id="signatureImage"
+                                                                src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>">
+                                                        </div>
                                                         <input type="hidden" name="sign" id="sign">
                                                         <label for="signature">Signature</label>
-                                                        <button class="btn btn-danger btn-sm m-1" type="button"
-                                                            onclick="clearSignature()">Clear</button>
+                                                        <!-- <button class="btn btn-danger btn-sm m-1" type="button"
+                                                            onclick="clearSignature()">Clear</button> -->
                                                     </div>
-                                                    <div class="col-lg-5">
+                                                    <!-- <div class="col-lg-5">
 
                                                         <div id="signaturePreview">
                                                             <img id="signatureImage"
                                                                 src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>">
                                                         </div>
                                                         <label for="signaturePreview">Signature Preview</label>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <input type="submit" value="Save" class="btn btn-primary"
                                                     onclick="saveSignature(event)">
@@ -919,7 +921,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jSignature/2.1.2/jSignature.min.js"></script>
 
 <!-- Sa iyong view file -->
-<script>
+<!-- <script>
 // Initialize jSignature
 var $sigdiv = $("#signature");
 $sigdiv.jSignature({
@@ -947,4 +949,4 @@ function clearSignature() {
     $('#signature').jSignature('reset');
     $('#sign').val('');
 }
-</script>
+</script> -->

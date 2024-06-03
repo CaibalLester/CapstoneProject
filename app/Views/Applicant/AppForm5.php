@@ -116,7 +116,7 @@
                                             <p><input type="text" id="signature" name="signature" class="form-control"
                                                     placeholder="Signature over Printed Name">Signature over Printed
                                                 Name<br>
-                                                Date of signature: <?= isset($sou['name']) ? $sou['name'] : '' ?></p><br><br>
+                                                Date of signature: <?= isset($sou['updated_at']) ? $sou['updated_at'] : '' ?></p><br><br>
                                             <input type="submit" value="Submit" class="btn btn-primary">
                                         </fieldset>
                                     </form>
