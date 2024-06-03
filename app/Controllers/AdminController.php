@@ -404,26 +404,26 @@ class AdminController extends BaseController
 
             $this->applicant->save($appdata);
 
-            $formdata1 = [
-                'user_id' => $data['applicant']['applicant_id'],
-                'app_life_token' => $token,
-                'username' => $data['applicant']['username'],
-            ];
+            // $formdata1 = [
+            //     'user_id' => $data['applicant']['applicant_id'],
+            //     'app_life_token' => $token,
+            //     'username' => $data['applicant']['username'],
+            // ];
 
-            $this->form1->save($formdata1);
+            // $this->form1->save($formdata1);
 
-            $formdata2 = [
-                'user_id' => $data['applicant']['applicant_id'],
-                'aial_token' => $token,
-            ];
-            $this->form2->save($formdata2);
+            // $formdata2 = [
+            //     'user_id' => $data['applicant']['applicant_id'],
+            //     'aial_token' => $token,
+            // ];
+            // $this->form2->save($formdata2);
 
-            $formdata3 = [
-                'applicant_id' => $data['applicant']['applicant_id'],
-                'app_gli_token' => $token,
-            ];
+            // $formdata3 = [
+            //     'applicant_id' => $data['applicant']['applicant_id'],
+            //     'app_gli_token' => $token,
+            // ];
 
-            $this->form3->save($formdata3);
+            // $this->form3->save($formdata3);
 
             $this->confirm->delete($data['applicant']['id']);
             $con = ['confirm' => 'true', 'verification_token' => $verificationToken];

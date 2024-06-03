@@ -61,17 +61,18 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <form class="container mt-5" method="post" action="/form1sv">
+                                    <form class="container mt-5" method="post" action="/form5sv">
                                         <fieldset>
                                             <h5 style="text-align: center;">Statement of Undertaking<br>
                                                 Submission of Hard Copies of Application Forms</h5><br>
-
                                             <p style="text-align: justify;">I, <input type="text" id="name" name="name"
                                                     style="width: 150px;  padding:5px 5px; border-radius: 13px;"
-                                                    placeholder="Name"> in my capacity as <input type="text"
+                                                    placeholder="Name"
+                                                    value="<?= isset($sou['name']) ? $sou['name'] : '' ?>"> in my capacity as <input type="text"
                                                     id="position" name="position"
                                                     style="width: 200px;  padding:5px 5px; border-radius: 13px;"
-                                                    placeholder="Intm. Position">
+                                                    placeholder="Intm. Position"
+                                                    value="<?= isset($sou['position']) ? $sou['position'] : '' ?>">
                                                 at ALLIANZ PNB LIFE INSURANCE, INC. (the, “Company”), hereby undertake
                                                 the responsibility
                                                 of ensuring the timely submission of hard copies of the application
@@ -115,7 +116,7 @@
                                             <p><input type="text" id="signature" name="signature" class="form-control"
                                                     placeholder="Signature over Printed Name">Signature over Printed
                                                 Name<br>
-                                                Date of signature: </p><br><br>
+                                                Date of signature: <?= isset($sou['name']) ? $sou['name'] : '' ?></p><br><br>
                                             <input type="submit" value="Submit" class="btn btn-primary">
                                         </fieldset>
                                     </form>

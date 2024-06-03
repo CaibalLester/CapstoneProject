@@ -283,6 +283,7 @@ class HomepageController extends BaseController
                     'IsLoggin' => true,
                     'accountStatus' => $user['accountStatus'],
                     'confirm' => $user['confirm'],
+                    'token' => $user['token'],
                 ];
                 $session->set($sessionData);
                 $log = ['time_log' => date('Y-m-d H:i:s')];

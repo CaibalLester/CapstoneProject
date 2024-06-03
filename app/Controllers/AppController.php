@@ -8,6 +8,8 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\Form2Model;
 use App\Models\Form3Model;
+use App\Models\Form4Model;
+use App\Models\Form5Model;
 use \App\Models\UserModel;
 use \App\Models\AgentModel;
 
@@ -18,6 +20,9 @@ class AppController extends BaseController
     private $form1;
     private $form2;
     private $form3;
+    private $form4;
+    private $form5;
+
     private $user;
     private $applicant;
     // protected $cache;
@@ -28,6 +33,8 @@ class AppController extends BaseController
         $this->form1 = new Form1Model();
         $this->form2 = new Form2Model();
         $this->form3 = new Form3Model();
+        $this->form4 = new Form4Model();
+        $this->form5 = new Form5Model();
         $this->user = new UserModel();
         $this->RTC = new RTCController();
         $this->applicant = new ApplicantModel();
@@ -110,7 +117,7 @@ class AppController extends BaseController
     {
         $session = session();
         $userId = $session->get('id');
-        $data['aonff'] = $this->form1->where('user_id', $userId)
+        $data['aonff'] = $this->form4->where('applicant_id', $userId)
             ->first();
         return $data;
     }
@@ -119,7 +126,7 @@ class AppController extends BaseController
     {
         $session = session();
         $userId = $session->get('id');
-        $data['sou'] = $this->form1->where('user_id', $userId)
+        $data['sou'] = $this->form5->where('applicant_id', $userId)
             ->first();
         return $data;
     }
@@ -211,6 +218,7 @@ class AppController extends BaseController
         $session = session();
         // Retrieve user_id from the session
         $userId = $session->get('id');
+        $token = $session->get('token');
 
         // Decode the base64 signature data
         $base64Image = $this->request->getVar('sign');
@@ -219,10 +227,15 @@ class AppController extends BaseController
         // Define the upload path and filename
         $uploadPath = FCPATH . 'uploads/signatures/'; // Adjust the path as needed
         $filename = 'signature_' . time() . '.png'; // Generate a unique filename
+
+        // Check if user_id exists in the database
+        $existingUser = $this->form1->select('signature')->where('user_id', $userId)->first();
+
         if (file_put_contents($uploadPath . $filename, $imageData)) {
-            // Image saved successfully, update the database
+            // Image saved successfully, prepare data for insertion/updation
             $data = [
-                // 'user_id' => $userId,
+                'user_id' => $userId,
+                'app_life_token' => $token,
                 'position' => $this->request->getVar('positionApplying'),
                 'preferredArea' => $this->request->getVar('preferredArea'),
                 'referral' => $this->request->getVar('referral') ?? 'No',
@@ -248,23 +261,19 @@ class AppController extends BaseController
                 'spouseName' => $this->request->getVar('spouseName') ?? 'N/A',
                 'sssNo' => $this->request->getVar('sssNo'),
                 'tin' => $this->request->getVar('tin'),
-
                 'lifeInsuranceExperience' => $this->request->getVar('lifeInsuranceExperience') ?? 'No',
                 'traditional' => $this->request->getVar('traditional') ?? 'No',
                 'variable' => $this->request->getVar('variable') ?? 'No',
                 'recentInsuranceCompany' => $this->request->getVar('recentInsuranceCompany') ?? 'N/A',
-
                 'highSchool' => $this->request->getVar('highSchool') ?? 'N/A',
                 'highSchoolCourse' => $this->request->getVar('highSchoolCourse') ?? 'N/A',
                 'highSchoolYear' => $this->request->getVar('highSchoolYear') ?? 'N/A',
-
                 'college' => $this->request->getVar('college') ?? 'N/A',
                 'collegeCourse' => $this->request->getVar('collegeCourse') ?? 'N/A',
                 'collegeYear' => $this->request->getVar('collegeYear') ?? 'N/A',
                 'graduateSchool' => $this->request->getVar('graduateSchool') ?? 'N/A',
                 'graduateCourse' => $this->request->getVar('graduateCourse') ?? 'N/A',
                 'graduateYear' => $this->request->getVar('graduateYear') ?? 'N/A',
-
                 'companyName1' => $this->request->getVar('companyName1') ?? 'N/A',
                 'position1' => $this->request->getVar('position1') ?? 'N/A',
                 'employmentFrom1' => $this->request->getVar('employmentFrom1') ?? 'N/A',
@@ -280,7 +289,6 @@ class AppController extends BaseController
                 'employmentFrom3' => $this->request->getVar('employmentFrom3') ?? 'N/A',
                 'employmentTo3' => $this->request->getVar('employmentTo3') ?? 'N/A',
                 'reason3' => $this->request->getVar('reason3') ?? 'N/A',
-
                 'companyName' => $this->request->getVar('companyName') ?? 'N/A',
                 'resposition' => $this->request->getVar('position') ?? 'N/A',
                 'contactName' => $this->request->getVar('contactName') ?? 'N/A',
@@ -292,7 +300,6 @@ class AppController extends BaseController
                 'allowed' => $this->request->getVar('allowed') ?? 'N/A',
                 'notallowed' => $this->request->getVar('notallowed') ?? 'N/A',
                 'ifnoProvdtls' => $this->request->getVar('ifnoProvdtls') ?? 'N/A',
-
                 'persontonotif' => $this->request->getVar('persontonotif'),
                 'moNo' => $this->request->getVar('moNo'),
                 'n1' => $this->request->getVar('n1'),
@@ -316,45 +323,49 @@ class AppController extends BaseController
                 'g3y' => $this->request->getVar('g3y'),
                 'g3n' => $this->request->getVar('g3n'),
                 'investigated' => $this->request->getVar('investigated'),
-                'g4y' => $this->request->getVar('g3y'),
-                'g4n' => $this->request->getVar('g3n'),
+                'g4y' => $this->request->getVar('g4y'),
+                'g4n' => $this->request->getVar('g4n'),
                 'terminat' => $this->request->getVar('terminated'),
                 'printedName' => $this->request->getVar('printedName'),
                 'botdate' => $this->request->getVar('botdate'),
                 'signature' => $filename,
             ];
 
-            // Retrieve the old signature filename from the database
-            $oldSign = $this->form1->select('signature')->where('user_id', $userId)->first();
-
-            // Delete the old image file if it exists
-            if (!empty($oldSign['signature'])) {
-                $oldFilePath = $uploadPath . $oldSign['signature'];
-                if (file_exists($oldFilePath)) {
-                    unlink($oldFilePath);
+            if ($existingUser) {
+                // Delete the old image file if it exists
+                if (!empty($existingUser['signature'])) {
+                    $oldFilePath = $uploadPath . $existingUser['signature'];
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
                 }
+
+                // Update existing record
+                $this->form1->set($data)->where('user_id', $userId)->update();
+            } else {
+                // Insert new record
+                $this->form1->insert($data);
             }
 
-            $this->form1->set($data)->where('user_id', $userId)->update();
-            return redirect()->back();
+            return redirect()->back()->with('status', 'Form saved successfully');
+        } else {
+            // Handle error in saving the image
+            return redirect()->back()->with('error', 'Failed to save signature image');
         }
     }
+
 
     public function form3sv()
     {
         $session = session();
         // Retrieve user_id from the session
         $userId = $session->get('id');
+        $token = $session->get('token');
 
-        // // Check if user_id is available
-        // if (!$userId) {
-        //     // Redirect or handle the case when user_id is not available
-        //     return redirect()->to('/login');
-        // }
-
+        // Prepare the data array
         $data = [
-            'applicant_id' => $this->request->getVar('applicant_id'),
-            'app_gli_token' => $this->request->getVar('app_gli_token'),
+            'applicant_id' => $userId,
+            'app_gli_token' => $token,
             'lastName' => $this->request->getVar('lastName'),
             'firstName' => $this->request->getVar('firstName'),
             'middleName' => $this->request->getVar('middleName'),
@@ -391,7 +402,7 @@ class AppController extends BaseController
             'month3' => $this->request->getVar('month3'),
             'day3' => $this->request->getVar('day3'),
             'year3' => $this->request->getVar('year3'),
-            'relationship3 ' => $this->request->getVar('relationship3'),
+            'relationship3' => $this->request->getVar('relationship3'),
             'remarks3' => $this->request->getVar('remarks3'),
             'firstName4' => $this->request->getVar('firstName4'),
             'mi4' => $this->request->getVar('mi4'),
@@ -408,10 +419,21 @@ class AppController extends BaseController
             'year' => $this->request->getVar('year'),
             'applicantSignature' => $this->request->getVar('applicantSignature'),
         ];
-        $this->form3->set($data)->where('applicant_id', $userId)->update();
-        return redirect()->back();
-        // var_dump($data);
+
+        // Check if the applicant_id exists in the database
+        $existingApplicant = $this->form3->where('applicant_id', $userId)->first();
+
+        if ($existingApplicant) {
+            // Update existing record
+            $this->form3->set($data)->where('applicant_id', $userId)->update();
+        } else {
+            // Insert new record
+            $this->form3->insert($data);
+        }
+        return redirect()->back()->with('status', 'Form saved successfully');
     }
+
+
     public function AppForm2()
     {
         $data = array_merge($this->getData(), $this->getDataApp(), $this->getform2Data());
@@ -424,12 +446,12 @@ class AppController extends BaseController
     }
     public function AppForm4()
     {
-        $data = array_merge($this->getData(), $this->getDataApp());
+        $data = array_merge($this->getData(), $this->getDataApp(),$this->getform4Data());
         return view('Applicant/AppForm4', $data);
     }
     public function AppForm5()
     {
-        $data = array_merge($this->getData(), $this->getDataApp());
+        $data = array_merge($this->getData(), $this->getDataApp(),$this->getform5Data());
         return view('Applicant/AppForm5', $data);
     }
 
@@ -458,13 +480,18 @@ class AppController extends BaseController
         $session = session();
         // Retrieve user_id from the session
         $userId = $session->get('id');
+        $token = $session->get('token');
 
         // Check if user_id is available
         if (!$userId) {
             // Redirect or handle the case when user_id is not available
             return redirect()->to('/login');
         }
+
+        // Prepare the data array
         $data = [
+            'applicant_id' => $userId,
+            'aial_token' => $token,
             'nonLife' => $this->request->getVar('nonLife'),
             'life' => $this->request->getVar('life'),
             'variableLife' => $this->request->getVar('variableLife'),
@@ -525,7 +552,6 @@ class AppController extends BaseController
             'affiant' => $this->request->getVar('affiant'),
             'tin2' => $this->request->getVar('tin2'),
             'sss' => $this->request->getVar('sss'),
-
             'day' => $this->request->getVar('day'),
             'month' => $this->request->getVar('month'),
             'year2' => $this->request->getVar('year2'),
@@ -536,7 +562,82 @@ class AppController extends BaseController
             'date2' => $this->request->getVar('date2'),
             'authorizedRepresentative' => $this->request->getVar('authorizedRepresentative'),
         ];
-        $this->form2->set($data)->where('user_id', $userId)->update();
-        return redirect()->back();
+
+        // Check if the user_id exists in the form2 table
+        $existingRecord = $this->form2->where('user_id', $userId)->first();
+
+        if ($existingRecord) {
+            // Update existing record
+            $this->form2->set($data)->where('user_id', $userId)->update();
+        } else {
+            // Insert new record
+            $data['user_id'] = $userId; // Make sure to set the user_id for the new record
+            $this->form2->insert($data);
+        }
+
+        return redirect()->back()->with('status', 'Form saved successfully');
+    }
+
+    public function form4sv()
+    {
+        $session = session();
+        // Retrieve user_id from the session
+        $userId = $session->get('id');
+        $token = $session->get('token');
+
+        $data = [
+            'applicant_id' => $userId,
+            'app_aonff_token' => $token,
+            'name' => $this->request->getVar('name'),
+            'place' => $this->request->getVar('place'),
+            'reason' => $this->request->getVar('reason'),
+            'day' => $this->request->getVar('day'),
+            'month' => $this->request->getVar('month'),
+            'year' => $this->request->getVar('year'),
+            'affiant' => $this->request->getVar('affiant'),
+            'ctc_no' => $this->request->getVar('ctc_no'),
+            'witness_place' => $this->request->getVar('witness_place'),
+            'ctc_issue_date' => $this->request->getVar('ctc_issue_date'),
+            'ctc_issue_place' => $this->request->getVar('ctc_issue_place'),
+            'sworn_day' => $this->request->getVar('sworn_day'),
+            'sworn_month' => $this->request->getVar('sworn_month'),
+            'sworn_year' => $this->request->getVar('sworn_year'),
+        ];
+        $existingRecord = $this->form4->where('applicant_id', $userId)->first();
+        if ($existingRecord) {
+            // Update existing record
+            $this->form4->set($data)->where('applicant_id', $userId)->update();
+        } else {
+            // Insert new record
+            $data['applicant_id'] = $userId; // Make sure to set the user_id for the new record
+            $this->form4->insert($data);
+        }
+        return redirect()->back()->with('status', 'Form saved successfully');
+    }
+
+    public function form5sv()
+    {
+        $session = session();
+        // Retrieve user_id from the session
+        $userId = $session->get('id');
+        $token = $session->get('token');
+
+        $data = [
+            'applicant_id' => $userId, 
+            'app_sou_token' => $token, 
+            'name' => $this->request->getVar('name'), 
+            'position' => $this->request->getVar('position'),
+            'signature' => $this->request->getVar('signature'),
+        ];
+        $existingRecord = $this->form5->where('applicant_id', $userId)->first();
+        if ($existingRecord) {
+            // Update existing record
+            $this->form5->set($data)->where('applicant_id', $userId)->update();
+        } else {
+            // Insert new record
+            $data['applicant_id'] = $userId; // Make sure to set the user_id for the new record
+            $this->form5->insert($data);
+        }
+        return redirect()->back()->with('status', 'Form saved successfully');
     }
 }
