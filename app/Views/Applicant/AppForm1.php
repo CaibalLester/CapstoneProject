@@ -66,7 +66,6 @@
                                     <form class="container mt-5" method="post" action="/form1sv"
                                         enctype="multipart/form-data">
                                         <fieldset>
-
                                             <div class="page" id="page1" style="display:none;">
                                                 <div class="form-group">
                                                     <label for="position">Position applying for:</label>
@@ -83,14 +82,14 @@
 
                                                 <div class="form-group">
                                                     <label>Source:</label><br>
-                                                    <input type="checkbox" id="referral" name="referral" value="yes"
+                                                    <input type="checkbox" id="referral" name="referral" value="yes" disabled
                                                         <?= isset($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
                                                     <label for="referral">Referral</label>
                                                     <label for="referralBy">by whom:</label>
 
                                                     <select id="referralBy" name="referralBy" class="form-control"
                                                         required>
-                                                        <option value="" disabled selected>Select Agent</option>
+                                                        <option value="" selected>Select Agent</option>
                                                         <?php foreach ($agents as $agent): ?>
                                                         <?php $agentFullName = $agent['lastname'] . ', ' . $agent['firstname'] . ' ' . $agent['middlename']; ?>
                                                         <option value="<?= $agentFullName; ?>"
@@ -102,15 +101,15 @@
 
 
                                                     <input type="checkbox" id="onlineAd" name="onlineAd"
-                                                        value="Online Advertisement"
+                                                        value="Online Advertisement" disabled
                                                         <?= isset($lifechangerform['onlineAd']) && $lifechangerform['onlineAd'] === 'Online Advertisement' ? 'checked' : '' ?>>
                                                     <label for="onlineAd">Online Advertisement</label>
 
-                                                    <input type="checkbox" id="walkIn" name="walkIn" value="yes"
+                                                    <input type="checkbox" id="walkIn" name="walkIn" value="yes" disabled
                                                         <?= isset($lifechangerform['walkIn']) && $lifechangerform['walkIn'] === 'yes' ? 'checked' : '' ?>>
                                                     <label for="walkIn">Walk-In</label>
 
-                                                    <input type="checkbox" id="others" name="othersRef" value="yes"
+                                                    <input type="checkbox" id="others" name="othersRef" value="yes" disabled
                                                         <?= isset($lifechangerform['othersRef']) && $lifechangerform['othersRef'] === 'yes' ? 'checked' : '' ?>>
                                                     <label for="others">Others</label><br><br>
 
