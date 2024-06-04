@@ -82,7 +82,7 @@
 
                                                 <div class="form-group">
                                                     <label>Source:</label><br>
-                                                    <input type="checkbox" id="referral" name="referral" value="yes" disabled
+                                                    <input type="checkbox" id="referral" name="referral" value="yes"
                                                         <?= isset($lifechangerform['referral']) && $lifechangerform['referral'] === 'yes' ? 'checked' : '' ?>>
                                                     <label for="referral">Referral</label>
                                                     <label for="referralBy">by whom:</label>
@@ -789,12 +789,11 @@
 
                                                 <div class="row">
                                                     <div class="col-lg-5">
-                                                        <div class="w-75" style="border-bottom: 1px solid black"
-                                                            id="signature">
-                                                            <img id="signatureImage"
-                                                                src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>">
+                                                        <div class="w-75" style="border-bottom: 1px solid black">
+                                                            <img id="signatureImage" class="w-100"
+                                                                src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>">
                                                         </div>
-                                                        <input type="hidden" name="sign" id="sign">
+                                                        <!-- <input type="hidden" name="sign" id="sign"> -->
                                                         <label for="signature">Signature</label>
                                                         <!-- <button class="btn btn-danger btn-sm m-1" type="button"
                                                             onclick="clearSignature()">Clear</button> -->
@@ -808,6 +807,7 @@
                                                         <label for="signaturePreview">Signature Preview</label>
                                                     </div> -->
                                                 </div>
+                                                <br>
                                                 <input type="submit" value="Save" class="btn btn-primary"
                                                     onclick="saveSignature(event)">
                                             </div>
@@ -815,7 +815,6 @@
                                             <!-- Pagination Controls -->
                                             <nav aria-label="Page navigation example" class="mt-4">
                                                 <ul class="pagination justify-content-center">
-
                                                     <div class="d-flex flex-wrap justify-content-center align-items-center"
                                                         style="gap: 5px;">
                                                         <button type="button" class="page-link" id="prevBtn"
@@ -825,7 +824,6 @@
                                                         <button type="button" class="page-link" id="nextBtn"
                                                             onclick="showPage(1)" disabled>Next</button>
                                                     </div>
-
                                                 </ul>
                                             </nav>
                                         </fieldset>
@@ -918,7 +916,7 @@
 </body>
 
 </html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jSignature/2.1.2/jSignature.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jSignature/2.1.2/jSignature.min.js"></script> -->
 
 <!-- Sa iyong view file -->
 <!-- <script>

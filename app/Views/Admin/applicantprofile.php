@@ -148,6 +148,10 @@
                                         <button class="nav-link" data-bs-toggle="tab"
                                             data-bs-target="#forms">Forms</button>
                                     </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#files">Files</button>
+                                    </li>
 
                                 </ul>
                                 <div class="tab-content">
@@ -212,23 +216,77 @@
                                         <div class="row text-center">
                                             <div class="col-xl-2 my-3">
                                                 <a href="/ViewAppForm/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
+                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png" class="card-img-top"
+                                                        alt="form">
                                                     LIFE
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
                                                 <a href="/ViewAppForm2/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
+                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png" class="card-img-top"
                                                         alt="AIAL">
                                                     AIAL
                                                 </a>
                                             </div>
                                             <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>"">
-                                                    <img src=" <?= base_url(); ?>uploads/folder.png"
-                                                    class="card-img-top" alt="Life Changer Form Image">
+                                                <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/grouplife.png"
+                                                    class="card-img-top" alt="form">
                                                     GLI
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm4/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/affidavit.png"
+                                                    class="card-img-top" alt="form">
+                                                    AONF
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm5/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/statement.png"
+                                                    class="card-img-top" alt="form">
+                                                    SOU
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade pt-3" id="files">
+                                        <h1 class="h2 mb-0">Files</h1>
+                                        <div class="row text-center">
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm/<?= $applicant['app_token'] ?>">
+                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png" class="card-img-top"
+                                                        alt="form">
+                                                    LIFE
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm2/<?= $applicant['app_token'] ?>">
+                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png" class="card-img-top"
+                                                        alt="AIAL">
+                                                    AIAL
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/grouplife.png"
+                                                    class="card-img-top" alt="form">
+                                                    GLI
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm4/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/affidavit.png"
+                                                    class="card-img-top" alt="form">
+                                                    AONF
+                                                </a>
+                                            </div>
+                                            <div class="col-xl-2 my-3">
+                                                <a href="/ViewAppForm5/<?= $applicant['app_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/statement.png"
+                                                    class="card-img-top" alt="form">
+                                                    SOU
                                                 </a>
                                             </div>
                                         </div>

@@ -10,7 +10,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
     <title>LIFE CHANGER FORM</title>
     <style>
         body {
@@ -27,10 +26,13 @@
         }
 
         input[type="text"],
-    input[type="checkbox"] {
-        pointer-events: none;
-        background-color: #ffffff; /* Optional: change the background color to indicate disabled state */
-    }
+        input[type="checkbox"] {
+            pointer-events: none;
+            background-color: #ffffff;
+            /* Optional: change the background color to indicate disabled state */
+            text-transform:uppercase;
+            text-align:center;
+        }
 
     .btn {
         background-color: DodgerBlue;
@@ -100,8 +102,7 @@
     }
 
         .page {
-            width: 210mm;
-            /* A4 width */
+            width: 210mm;/* A4 width */
             /* height: 297mm; */
             /* A4 height */
             margin: 20px auto;
@@ -125,7 +126,6 @@
             align-items: center;
             margin-left: 0.5in;
             margin-right: 0.5in;
-
         }
 
         .head {
@@ -280,7 +280,7 @@
                 </div>
                 <div>
                     <!-- <h1 class="logo">Allianz</h1> -->
-                    <img src="logo.png" alt="">
+                    <img src="<?= base_url() ?>uploads/logo.png" alt="">
                 </div>
             </div>
             <div class="line">
@@ -448,7 +448,7 @@
                 <label for="variable">Variable</label>
             </div>
 
-            <div class="line">
+            <!-- <div class="line">
                 <strong>EDUCATIONAL BACKGROUND</strong><br>
                 <table class="educationaltable" border="1">
                     <thead>
@@ -498,9 +498,9 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
-            <div class="line">
+            <!-- <div class="line">
                 <strong>EMPLOYMENT HISTORY</strong>(List your last 3 employers, beginning with the current or most
                 recent one)<br>
                 <table class="employmenthistorytable" border="1">
@@ -576,7 +576,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
             <div class="line">
                 <strong>Most recent employer's contact details</strong>(Preferably HR, Immediate Supervisor or
@@ -611,7 +611,7 @@
                                     placeholder="Contact Number:"></td>
                         </tr>
 
-                        <tr>
+                        <!-- <tr>
                             <td colspan="2">If currently employed, have you already tendered your resignation?
                                 Yes<input type="text" style="width: 10%;" name="yescuremployed" id="" readonly
                                     value="<?= isset ($lifechangerform['yescuremployed']) && $lifechangerform['yescuremployed'] === 'yes' ? 'checked' : '' ?>">No<input
@@ -632,11 +632,11 @@
                                     style="width: 50%;" name="ifnoProvdtls" readonly
                                     value="<?= isset ($lifechangerform['ifnoProvdtls']) ? $lifechangerform['ifnoProvdtls'] : '' ?>">
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
-            <div class="line">
+            <!-- <div class="line">
                 <strong>CONTACT PERSON</strong> (In case of emergency):
                 <table class="contactpersontable" style="border-collapse: collapse;
                 width: 100%;" border="1">
@@ -648,8 +648,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="line">
+            </div> -->
+            <!-- <div class="line">
                 <strong>CHARACTER REFERENCES </strong> (Non-relative, not residing in the same address)
                 <table class="characterreftable" border="1">
                     <thead>
@@ -681,7 +681,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <br>
             <div class="line">
                 <strong>GENERAL INFORMATION</strong>
@@ -746,7 +746,8 @@
                     </div>
                 </div>
             </div>
-            <br>
+            <br><br><br><br><br><br><br><br>
+            <h6 style="text-align: center">Internal</h6>
             <div class="line" style="font-size: 8pt;">
                 <p style="font-size: 9pt; font-weight: bold;">That I hereby expressly authorize Allianz PNB Life
                     Insurance, Inc.:</p>
@@ -800,10 +801,10 @@
 
             <div class="line">
                 <div style="margin-top: 10px; text-align: left;">
-                    <div id="signaturePreview" style="width: 200px">
-                        <img id="signatureImage" src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>" style="max-width: 100%; height: auto;">
+                    <div id="signaturePreview" style="max-width: 200px">
+                        <img id="signatureImage" src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>" style="max-width: 80%; height: auto; margin: 0">
                     </div>
-                    <input type="text" name="" id="" style="margin-bottom: 10px;"><br>
+                    __________________________
                     <span style="display: block;">Signature</span>
                 </div>
             </div>
@@ -832,9 +833,9 @@
     // you need to load html2canvas (and dompurify if you pass a string to html)
     const opt = {
         callback: function (jsPdf) {
-            // jsPdf.save("Life Changer.pdf");
+            jsPdf.save("Life Changer_<?= $lifechangerform['user_id']?>.pdf");
             // to open the generated PDF in browser window
-            window.open(jsPdf.output('bloburl'));
+            // window.open(jsPdf.output('bloburl'));
         },
         // margin: [72, 0, 72, 0],
         // autoPaging: 'text',
@@ -845,7 +846,7 @@
             dpi: 300,
             letterRendering: true,
             logging: false,
-            scale: .8
+            scale: .75
         }
     };
 

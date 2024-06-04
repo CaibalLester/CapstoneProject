@@ -161,7 +161,7 @@ class AppController extends BaseController
         // Retrieve user_id from the session
         $session = session();
         $userId = $session->get('id');
-
+        $token = $session->get('token');
         // Decode the base64 signature data
         $base64Image = $this->request->getVar('sign');
         $imageData = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $base64Image));
@@ -178,6 +178,7 @@ class AppController extends BaseController
             // Prepare data for insertion/updation
             $signatureData = [
                 'user_id' => $userId,
+                'user_token' => $token,
                 'signature' => $filename,
             ];
 
@@ -280,7 +281,7 @@ class AppController extends BaseController
     {
         $data['agents'] = $this->agent->findAll();
         // Merge arrays while retaining the 'agents' key
-        $data = array_merge($this->getData(), $this->getDataApp(), $this->getform1Data(), $data);
+        $data = array_merge($this->getData(), $this->getDataApp(), $this->getform1Data(), $this->esign(), $data);
         return view('Applicant/AppForm1', $data);
     }
 

@@ -30,11 +30,13 @@
     }
 
     input[type="text"],
-    input[type="checkbox"] {
-        pointer-events: none;
-        background-color: #ffffff;
-        /* Optional: change the background color to indicate disabled state */
-    }
+        input[type="checkbox"] {
+            pointer-events: none;
+            background-color: #ffffff;
+            /* Optional: change the background color to indicate disabled state */
+            text-transform: uppercase;
+            text-align: center;
+        }
 
     .btn {
         background-color: DodgerBlue;
@@ -107,7 +109,7 @@
         width: 210mm; /* A4 width */
         /* height: 297mm;  */
         /* A4 height */
-        margin: 0 auto; 
+        margin: 20px auto; 
         /* Centered on the page */
         background-color: #ffffff;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -312,7 +314,7 @@
                 <div>
                     REMARKS:
                 </div>
-            </div>
+            </div><br><br><br><br><br><br><br><br><br><br><br>
             <div style="margin-bottom: 10px;">
                 <p>Application for Insurance Agent's License<br>
                     Insurance Commission
@@ -453,8 +455,8 @@
             </div>
 
 
-            <br><br><br><br>
-            <div>
+            
+            <div style="margin-top: 400px">
                 <p style="font-size: 10pt;">Application for Insurance Agent's License <br>
                     Insurance Commission</p>
             </div>
@@ -530,7 +532,8 @@
                     Note: This form may be revised without prior notice
                 </div>
                 <br><br>
-                <div>Application for Insurance Agent's License <br>
+                
+                <div style="margin-top: 400px">Application for Insurance Agent's License <br>
                     Insurance Commission
                 </div>
                 <div style="text-align: center;">
@@ -588,7 +591,7 @@
                         Authorized Representative of the Company</p>
                 </div>
                 <br>
-                <div style="text-align: justify; font-size: 8pt;">
+                <div style="text-align: justify; font-size: 10pt;">
                     N.B. No person, partnership, association or corporation required by Law to file an income tax return
                     shall be
                     issued a license to engage in any trade, business or occupation o practice a profession unless he
@@ -602,8 +605,8 @@
                     authorized representative that the aforesaid income tax return, and the corresponding receipts
                     showing payment
                     of all income taxes due thereon, shall be sufficient proof.
-                </div>
-                <div style="text-align: justify;font-size: 8pt;">
+                </div><br>
+                <div style="text-align: justify;font-size: 10pt;">
                     Any person, partnership, association or corporation who obtains a license mentioned in the preceding
                     paragraph
                     without presenting the aforementioned certification of the Collector of Internal Revenue or his duly
@@ -618,7 +621,7 @@
                     addition, the license
                     shall be revoked. (Section 1, Republic Act No. 1538)
                 </div>
-                <div style="font-size: 8pt;">
+                <div style="font-size: 10pt;">
                     <p><b>IC-LLI-DP-002-F-01 <br>
                             Rev.1</b></p>
                 </div>
@@ -646,11 +649,11 @@
     // you need to load html2canvas (and dompurify if you pass a string to html)
     const opt = {
         callback: function (jsPdf) {
-            // jsPdf.save("Life Changer.pdf");
+            jsPdf.save("AIAL_<?= $aial['user_id']?>.pdf");
             // to open the generated PDF in browser window
-            window.open(jsPdf.output('bloburl'));
+            // window.open(jsPdf.output('bloburl'));
         },
-        margin: [36, 0, 36, 0],
+        // margin: [36, 0, 36, 0],
         // autoPaging: 'text',
         autoPaging: true, // Enable auto pagination
         html2canvas: {
@@ -658,7 +661,7 @@
             dpi: 300,
             letterRendering: true,
             logging: false,
-            scale: 0.8
+            scale: 0.75
         }
     };
 

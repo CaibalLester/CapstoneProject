@@ -12,10 +12,13 @@ use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\Form2Model;
 use App\Models\Form3Model;
+use App\Models\Form4Model;
+use App\Models\Form5Model;
 use App\Models\AgentModel;
 use App\Models\ConfirmModel;
 use App\Models\ScheduleModel;
 use App\Models\CommiModel;
+use App\Models\SignatureModel;
 
 class AdminController extends BaseController
 {
@@ -32,6 +35,10 @@ class AdminController extends BaseController
     private $form1;
     private $form2;
     private $form3;
+    private $form4;
+    private $esign;
+    private $form5;
+
     protected $scheduleModel;
     // protected $cache;
     public function __construct()
@@ -46,9 +53,12 @@ class AdminController extends BaseController
         $this->form1 = new Form1Model();
         $this->form2 = new Form2Model();
         $this->form3 = new Form3Model();
+        $this->form4 = new Form4Model();
+        $this->form5 = new Form5Model();
         $this->homecon = new HomepageController();
         $this->client = new ClientModel();
         $this->scheduleModel = new ScheduleModel();
+        $this->esign = new SignatureModel();
         $this->commi = new CommiModel();
         // $this->cache = \Config\Services::cache();
     }
@@ -234,32 +244,37 @@ class AdminController extends BaseController
 
     public function viewAppForm($token)
     {
-        $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details', ['lifechangerform' => $data]);
+        $data['lifechangerform'] = $this->form1->where('app_life_token', $token)->first();
+        $data['sign'] = $this->esign->where('user_token', $token)->first();
+        return view('Admin/Forms/details', $data);
     }
 
     public function viewAppForm2($token)
     {
-        $data = $this->form2->where('aial_token', $token)->first();
-        return view('Admin/Forms/details2', ['aial' => $data]);
+        $data['aial'] = $this->form2->where('aial_token', $token)->first();
+        $data['sign'] = $this->esign->where('user_token', $token)->first();
+        return view('Admin/Forms/details2', $data);
     }
 
     public function viewAppForm3($token)
     {
-        $data = $this->form3->where('app_gli_token', $token)->first();
-        return view('Admin/Forms/details3', ['gli' => $data]);
+        $data['gli'] = $this->form3->where('app_gli_token', $token)->first();
+        $data['sign'] = $this->esign->where('user_token', $token)->first();
+        return view('Admin/Forms/details3', $data);
     }
 
     public function viewAppForm4($token)
     {
-        $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details4', ['lifechangerform' => $data]);
+        $data['aonff'] = $this->form4->where('app_aonff_token', $token)->first();
+        $data['sign'] = $this->esign->where('user_token', $token)->first();
+        return view('Admin/Forms/details4', $data);
     }
 
     public function viewAppForm5($token)
     {
-        $data = $this->form1->where('app_life_token', $token)->first();
-        return view('Admin/Forms/details5', ['lifechangerform' => $data]);
+        $data['sou'] = $this->form5->where('app_sou_token', $token)->first();
+        $data['sign'] = $this->esign->where('user_token', $token)->first();
+        return view('Admin/Forms/details5', $data);
     }
 
 

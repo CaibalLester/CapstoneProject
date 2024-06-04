@@ -386,11 +386,11 @@
                                                         value="<?= isset($gli['year']) ? $gli['year'] : '' ?>">.<br><br><br><br>
                                                 </p>
                                                 <p style="text-align: right;">
-                                                    <input type="text" style="width: 45%; border-radius: 10px;"
+                                                    <input type="text" style="width: 30%; border-radius: 10px;"
                                                         id="applicantSignature" name="applicantSignature"
                                                         placeholder="Applicant"
                                                         value="<?= isset($gli['applicantSignature']) ? $gli['applicantSignature'] : '' ?>">
-                                                <h6 style="text-align: right;">Printed Name and Signiture of Applicant
+                                                <h6 style="text-align: right;">Printed Name
                                                 </h6>
                                                 </p>
                                             </div><br><br>
