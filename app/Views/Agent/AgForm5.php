@@ -24,7 +24,12 @@
                                 Forms
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Agsignature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="/subagent">
@@ -72,7 +77,7 @@
             </nav>
 
             <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                <div class="title-group mb-3 text-center">
+                <div class="title-group mb-3">
                     <h4>STATEMENT OF UNDERTAKING FORM</h4>
                 </div>
                 <section class="section">
@@ -80,18 +85,18 @@
                         <div class="col-lg-10">
                             <div class="card">
                                 <div class="card-body">
-
-                                    <form class="container mt-5" method="post" action="/form1sv">
+                                    <form class="container mt-5" method="post" action="/form5sv">
                                         <fieldset>
                                             <h5 style="text-align: center;">Statement of Undertaking<br>
                                                 Submission of Hard Copies of Application Forms</h5><br>
-
                                             <p style="text-align: justify;">I, <input type="text" id="name" name="name"
                                                     style="width: 150px;  padding:5px 5px; border-radius: 13px;"
-                                                    placeholder="Name"> in my capacity as <input type="text"
+                                                    placeholder="Name"
+                                                    value="<?= isset($sou['name']) ? $sou['name'] : '' ?>"> in my capacity as <input type="text"
                                                     id="position" name="position"
                                                     style="width: 200px;  padding:5px 5px; border-radius: 13px;"
-                                                    placeholder="Intm. Position">
+                                                    placeholder="Intm. Position"
+                                                    value="<?= isset($sou['position']) ? $sou['position'] : '' ?>">
                                                 at ALLIANZ PNB LIFE INSURANCE, INC. (the, “Company”), hereby undertake
                                                 the responsibility
                                                 of ensuring the timely submission of hard copies of the application
@@ -132,12 +137,11 @@
                                                 responsibilities as outlined
                                                 in this undertaking.</p><br>
 
-                                            <p><input type="text" id="signature" name="signature" class="form-control"
-                                                    placeholder="Signature over Printed Name">Signature over Printed
+                                            <p><input type="text" id="printedname" name="printedname" class="form-control" value="<?= isset($sou['printedname']) ? $sou['printedname'] : '' ?>"
+                                                    placeholder="Printed Name">Printed
                                                 Name<br>
-                                                Date of signature: </p><br><br>
+                                                Date of signature: <?= isset($sou['updated_at']) ? $sou['updated_at'] : '' ?></p><br><br>
                                             <input type="submit" value="Submit" class="btn btn-primary">
-                                            
                                         </fieldset>
                                     </form>
                                 </div>
@@ -146,19 +150,13 @@
                     </div>
                 </section>
 
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-
-                        </div>
-                    </div>
-                </footer>
             </main>
 
         </div>
     </div>
 
     <?= view('js') ?>
+
 </body>
 
 </html>

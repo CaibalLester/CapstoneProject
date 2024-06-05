@@ -23,7 +23,12 @@
                                 Forms
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Agsignature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/subagent">
                                 <i class="bi-person me-2"></i>

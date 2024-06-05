@@ -65,7 +65,7 @@
                                 Applicants
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link " aria-current="page" href="/map">
                                 <i class="bi bi-map me-2"></i>
@@ -170,43 +170,43 @@
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Username</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($applicant['username']) ? $applicant['username']: '' ?>
+                                                <?php echo isset($applicant['username']) ? $applicant['username'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Email</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($applicant['email']) ? $applicant['email']: '' ?>
+                                                <?php echo isset($applicant['email']) ? $applicant['email'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Phone</div>
                                             <div class="col-lg-8 col-md-8">
-                                                <?php echo isset ($applicant['number']) ? $applicant['number']: '' ?>
+                                                <?php echo isset($applicant['number']) ? $applicant['number'] : '' ?>
                                             </div>
                                         </div>
 
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Birthday</div>
                                             <div class="col-lg-8 col-md-8">
-                                            <?php echo isset($applicant['birthday']) ? date('M j, Y', strtotime($applicant['birthday'])) : ''; ?>
+                                                <?php echo isset($applicant['birthday']) ? date('M j, Y', strtotime($applicant['birthday'])) : ''; ?>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Adress</div>
                                             <div class="col-lg-8 col-md-8">
-                                            <?= isset ($applicant['province']) ? $applicant['province'] : '' ?>, 
-                                            <?= isset ($applicant['city']) ? $applicant['city'] : '' ?>,
-                                            <?= isset ($applicant['barangay']) ? $applicant['barangay'] : '' ?>,
-                                            <?= isset ($applicant['street']) ? $applicant['street'] : '' ?>
+                                                <?= isset($applicant['province']) ? $applicant['province'] : '' ?>,
+                                                <?= isset($applicant['city']) ? $applicant['city'] : '' ?>,
+                                                <?= isset($applicant['barangay']) ? $applicant['barangay'] : '' ?>,
+                                                <?= isset($applicant['street']) ? $applicant['street'] : '' ?>
                                             </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="col-lg-3 col-md-4 label">Zip Code</div>
                                             <div class="col-lg-8 col-md-8">
-                                            <?php echo isset ($applicant['zipcode']) ? $applicant['zipcode'] : '' ?>
+                                                <?php echo isset($applicant['zipcode']) ? $applicant['zipcode'] : '' ?>
                                             </div>
                                         </div>
                                     </div>
@@ -214,83 +214,87 @@
                                     <div class="tab-pane fade pt-3" id="forms">
                                         <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png" class="card-img-top"
-                                                        alt="form">
+                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png"
+                                                        class="card-img-top" alt="form">
                                                     LIFE
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm2/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png" class="card-img-top"
-                                                        alt="AIAL">
+                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png"
+                                                        class="card-img-top" alt="AIAL">
                                                     AIAL
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>">
                                                     <img src=" <?= base_url(); ?>uploads/forms/grouplife.png"
-                                                    class="card-img-top" alt="form">
+                                                        class="card-img-top" alt="form">
                                                     GLI
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm4/<?= $applicant['app_token'] ?>">
                                                     <img src=" <?= base_url(); ?>uploads/forms/affidavit.png"
-                                                    class="card-img-top" alt="form">
+                                                        class="card-img-top" alt="form">
                                                     AONF
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm5/<?= $applicant['app_token'] ?>">
                                                     <img src=" <?= base_url(); ?>uploads/forms/statement.png"
-                                                    class="card-img-top" alt="form">
+                                                        class="card-img-top" alt="form">
                                                     SOU
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="tab-pane fade pt-3" id="files">
                                         <h1 class="h2 mb-0">Files</h1>
                                         <div class="row text-center">
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png" class="card-img-top"
-                                                        alt="form">
-                                                    LIFE
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm2/<?= $applicant['app_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png" class="card-img-top"
-                                                        alt="AIAL">
-                                                    AIAL
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm3/<?= $applicant['app_token'] ?>">
-                                                    <img src=" <?= base_url(); ?>uploads/forms/grouplife.png"
-                                                    class="card-img-top" alt="form">
-                                                    GLI
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm4/<?= $applicant['app_token'] ?>">
-                                                    <img src=" <?= base_url(); ?>uploads/forms/affidavit.png"
-                                                    class="card-img-top" alt="form">
-                                                    AONF
-                                                </a>
-                                            </div>
-                                            <div class="col-xl-2 my-3">
-                                                <a href="/ViewAppForm5/<?= $applicant['app_token'] ?>">
-                                                    <img src=" <?= base_url(); ?>uploads/forms/statement.png"
-                                                    class="card-img-top" alt="form">
-                                                    SOU
-                                                </a>
-                                            </div>
+                                            <?php foreach (range(1, 6) as $i): ?>
+                                                <?php if (isset($files["file$i"]) && $files["file$i"]): ?>
+                                                    <?php
+                                                    // Determine the file type for icon
+                                                    $filePath = base_url('uploads/files/' . $username . '/' . $files["file$i"]);
+                                                    $fileExt = pathinfo($files["file$i"], PATHINFO_EXTENSION);
+                                                    $iconClass = 'fa-file'; // Default icon
+                                            
+                                                    // Set icon class based on file extension
+                                                    if (in_array($fileExt, ['jpg', 'jpeg', 'png', 'gif'])) {
+                                                        $iconClass = 'fa-file-image';
+                                                    } elseif ($fileExt === 'pdf') {
+                                                        $iconClass = 'fa-file-pdf';
+                                                    } elseif (in_array($fileExt, ['doc', 'docx'])) {
+                                                        $iconClass = 'fa-file-word';
+                                                    } elseif (in_array($fileExt, ['ppt', 'pptx'])) {
+                                                        $iconClass = 'fa-file-powerpoint';
+                                                    }
+                                                    ?>
+                                                    <div class="col-lg-2 col-4">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p class="">File <?= $i ?></p>
+                                                                <p class="card-text">
+                                                                    <a href="<?= $filePath ?>" target="_blank">
+                                                                        <i class="fas <?= $iconClass ?> fa-3x"></i>
+                                                                    </a>
+                                                                </p>
+                                                                <!-- <a href="<?= $filePath ?>" target="_blank" class="btn btn-link">
+                                                                    <span style="font-size: 9px;"><?= $files["file$i"] ?></span>
+                                                                </a> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
+
                                 </div><!-- End Bordered Tabs -->
                             </div>
                         </div>

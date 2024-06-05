@@ -68,16 +68,22 @@
                                     </div>
                                 <?php endif; ?>
                                 <div class="card-body">
-                                    <form id="signatureForm" action="signsave" method="post" enctype="multipart/form-data">
+                                    <form id="signatureForm" action="signsave" method="post"
+                                        enctype="multipart/form-data">
                                         <div class="row justify-content-center">
                                             <!-- Signature pad -->
                                             <div class="col-lg-6 col-md-8 col-12 mt-3 text-center">
+                                                <div id="signaturePreview">
+                                                    <img src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>"
+                                                        alt="">
+                                                </div>
                                                 <div class="w-100 border border-dark p-2 mb-3" id="signaturePad"></div>
                                                 <input type="hidden" name="sign" id="sign">
                                                 <label for="signaturePad">Signature</label>
-                                                <button class="btn btn-danger btn-sm m-1" type="button" onclick="clearSignature()">Clear</button>
-                                                <button class="btn btn-primary btn-sm m-1" type="submit" onclick="saveSignature(event)">Save</button>
-                                                <div id="signaturePreview"></div>
+                                                <button class="btn btn-danger btn-sm m-1" type="button"
+                                                    onclick="clearSignature()">Clear</button>
+                                                <button class="btn btn-primary btn-sm m-1" type="submit"
+                                                    onclick="saveSignature(event)">Save</button>
                                             </div>
                                         </div>
                                     </form>

@@ -30,10 +30,11 @@ class Form4Model extends Model
         'sworn_day',
         'sworn_month',
         'sworn_year',
+        'sworn_place',
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';

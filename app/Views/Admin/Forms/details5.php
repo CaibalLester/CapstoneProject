@@ -303,7 +303,7 @@
         // you need to load html2canvas (and dompurify if you pass a string to html)
         const opt = {
             callback: function (jsPdf) {
-                jsPdf.save("SOU_<?= $sou['applicant_id']?>.pdf");
+                jsPdf.save("SOU_<?= isset($sou['applicant_id']) ? $sou['applicant_id'] : '' ?>.pdf");
                 // to open the generated PDF in browser window
                 // window.open(jsPdf.output('bloburl'));
             },

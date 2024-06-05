@@ -26,6 +26,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/signature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/appfiles">
                                 <i class="bi bi-files"></i></i>
                                 Files
@@ -168,9 +174,7 @@
     </div>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="AdminInfo/js/jquery.min.js"></script>
-    <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-    <script src="AdminInfo/js/custom.js"></script>
+    <?= view('js') ?>
 
 </body>
 

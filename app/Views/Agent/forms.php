@@ -33,7 +33,12 @@
                                 Forms
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Agsignature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
@@ -79,68 +84,67 @@
                 </div>
             </nav>
 
-            <main class="main-wrapper col-md-10 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+            <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
                 <div class="title-group mb-3">
                     <h1 class="h2 mb-0">Application Forms</h1>
                 </div>
 
                 <div class="row justify-content-center m-2">
-                    <!-- left side columns -->
                     <div class="col-lg-12">
-                        <div class="row justify-content-center row-cols-3">
-                            <div class="card col-lg-3 m-3">
-                                <div class="card-body text-center">
-                                    <!-- Card Content -->
-                                    <h6>Life Changer</h6>
-                                    <a href="AgForm1">
-                                        <img src="uploads/forms/life_changer.png" class="card-img img-fluid"
-                                            alt="Card Image">
-                                    </a>
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <h6>Life Changer</h6>
+                                        <a href="AgForm1">
+                                            <img src="uploads/forms/life_changer.png" class="card-img img-fluid" alt="Life Changer">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card col-lg-3 m-3">
-                                <div class="card-body text-center">
-                                    <h6>AIAL</h6>
-                                    <a href="AgForm2">
-                                        <img src="uploads/forms/aial.png" class="card-img img-fluid" alt="Card Image">
-                                    </a>
-                                    <!-- Card Content -->
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <h6>AIAL</h6>
+                                        <a href="AgForm2">
+                                            <img src="uploads/forms/aial.png" class="card-img img-fluid" alt="AIAL">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card col-lg-3 m-3">
-                                <div class="card-body text-center">
-                                    <!-- Card Content -->
-                                    <h6>Group Life Insurance</h6>
-                                    <a href="AgForm3">
-                                        <img src="uploads/forms/grouplife.png" class="card-img img-fluid"
-                                            alt="Card Image">
-                                    </a>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <h6>Group Life Insurance</h6>
+                                        <a href="AgForm3">
+                                            <img src="uploads/forms/grouplife.png" class="card-img img-fluid" alt="Group Life Insurance">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card col-lg-3 m-3">
-                                <div class="card-body text-center">
-                                    <!-- Card Content -->
-                                    <h6>Affidavit of Non Filing</h6>
-                                    <a href="AgForm4">
-                                        <img src="uploads/forms/affidavit.png" class="card-img img-fluid"
-                                            alt="Card Image">
-                                    </a>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <h6>Affidavit of Non Filing</h6>
+                                        <a href="AgForm4">
+                                            <img src="uploads/forms/affidavit.png" class="card-img img-fluid" alt="Affidavit of Non Filing">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card col-lg-3 m-3">
-                                <div class="card-body text-center">
-                                    <!-- Card Content -->
-                                    <h6>Statement of Undertaking</h6>
-                                    <a href="AgForm5">
-                                        <img src="uploads/forms/statement.png" class="card-img img-fluid"
-                                            alt="Card Image">
-                                    </a>
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body text-center">
+                                        <h6>Statement of Undertaking</h6>
+                                        <a href="AgForm5">
+                                            <img src="uploads/forms/statement.png" class="card-img img-fluid" alt="Statement of Undertaking">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- end of left side -->
             </main>
         </div>
     </div>

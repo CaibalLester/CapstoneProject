@@ -199,10 +199,10 @@ class AppController extends BaseController
             }
 
             // Redirect or display a success message
-            return redirect()->to('/signature')->with('success', 'Signature saved successfully');
+            return redirect()->back()->with('success', 'Signature saved successfully');
         } else {
             // Handle error in saving the image
-            return redirect()->to('/signature')->with('error', 'Failed to save signature image');
+            return redirect()->back()->with('error', 'Failed to save signature image');
         }
     }
 
@@ -802,6 +802,7 @@ class AppController extends BaseController
             'sworn_day' => $this->request->getVar('sworn_day'),
             'sworn_month' => $this->request->getVar('sworn_month'),
             'sworn_year' => $this->request->getVar('sworn_year'),
+            'sworn_place' => $this->request->getVar('sworn_place'),
         ];
         $existingRecord = $this->form4->where('applicant_id', $userId)->first();
         if ($existingRecord) {
@@ -827,7 +828,7 @@ class AppController extends BaseController
             'app_sou_token' => $token,
             'name' => $this->request->getVar('name'),
             'position' => $this->request->getVar('position'),
-            'signature' => $this->request->getVar('signature'),
+            'printedname' => $this->request->getVar('printedname'),
         ];
         $existingRecord = $this->form5->where('applicant_id', $userId)->first();
         if ($existingRecord) {

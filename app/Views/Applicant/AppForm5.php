@@ -26,6 +26,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/signature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/appfiles">
                                 <i class="bi bi-files"></i></i>
                                 Files
@@ -113,7 +119,7 @@
                                                 responsibilities as outlined
                                                 in this undertaking.</p><br>
 
-                                            <p><input type="text" id="signature" name="signature" class="form-control"
+                                            <p><input type="text" id="printedname" name="printedname" class="form-control" value="<?= isset($sou['printedname']) ? $sou['printedname'] : '' ?>"
                                                     placeholder="Printed Name">Printed
                                                 Name<br>
                                                 Date of signature: <?= isset($sou['updated_at']) ? $sou['updated_at'] : '' ?></p><br><br>
@@ -126,22 +132,13 @@
                     </div>
                 </section>
 
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
 
-                        </div>
-                    </div>
-                </footer>
             </main>
 
         </div>
     </div>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="AdminInfo/js/jquery.min.js"></script>
-    <script src="AdminInfo/js/bootstrap.bundle.min.js"></script>
-    <script src="AdminInfo/js/custom.js"></script>
+    <?= view('js') ?>
 
 </body>
 

@@ -6,17 +6,20 @@ use App\Controllers\BaseController;
 use App\Models\AdminModel;
 use \App\Models\UserModel;
 use App\Models\ApplicantModel;
-use App\Models\Form1Model;
 use App\Models\AgentModel;
 use App\Controllers\AgentController;
 use App\Models\ClientModel;
 use App\Models\ClientPlanModel;
+use App\Models\FilesModel;
 
 class ProfileController extends BaseController
 {
     private $client_plan;
     private $agcon;
     private $client;
+    private $user;
+    private $app;
+    private $file;
     // protected $cache;
 
     public function __construct()
@@ -24,12 +27,15 @@ class ProfileController extends BaseController
         $this->client = new ClientModel();
         $this->agcon = new AgentController();
         $this->client_plan = new ClientPlanModel();
+        $this->user = new UserModel();
+        $this->app = new ApplicantModel();
+        $this->file = new FilesModel();
         // $this->cache = \Config\Services::cache();
     }
     public function agentprofile($token)
     {
         $agentModel = new AgentModel();
-        $data = $this->getDataAd(); // Get admin data
+        $data = array_merge($this->getDataAd());
 
         // Get agent data
         $data['agent'] = $agentModel->where('agent_token', $token)->first();
@@ -37,13 +43,16 @@ class ProfileController extends BaseController
             $agentid = $data['agent']['agent_id'];
             $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
             $data['pager'] = $agentModel->pager;
+
+            // Retrieve files and add to $data
+            $data = $this->files($data, $agentid, 'agent');
         } else {
             // Handle the case where the agent is not found
             return redirect()->to('some_error_page')->with('error', 'Agent not found');
         }
+
         return view("Admin/agentprofile", $data);
     }
-
 
     public function subagentprofile($token)
     {
@@ -55,26 +64,66 @@ class ProfileController extends BaseController
             $agentid = $data['subagent']['agent_id'];
             $data['FA'] = $agentModel->where('FA', $agentid)->paginate(10); // Change 10 to the number of items per page
             $data['pager'] = $agentModel->pager;
+
+            // Retrieve files and add to $data
+            $data = $this->files($data, $agentid, 'subagent');
         } else {
             // Handle the case where the subagent is not found
             return redirect()->to('some_error_page')->with('error', 'Subagent not found');
         }
+
         return view("Agent/subagentprofile", $data);
     }
-
 
     public function applicantprofile($token)
     {
         $appmodel = new ApplicantModel();
-        $data = $this->getDataAd();
+        $data = array_merge($this->getDataAd());
         $data['applicant'] = $appmodel->where('app_token', $token)->first();
+
         if ($data['applicant']) {
+            $data = $this->files($data, $data['applicant']['applicant_id'], 'applicant'); // Pass $data to the files method
         } else {
             // Handle the case where the applicant is not found
             return redirect()->to('some_error_page')->with('error', 'Applicant not found');
         }
+
         return view("Admin/applicantprofile", $data);
     }
+
+    public function files($data, $userId, $userType)
+    {
+
+        $files = $this->file->where('user_id', $userId)->first();
+
+        // Initialize an array with null values to handle non-existing files
+        $fileData = [
+            'file1' => null,
+            'file2' => null,
+            'file3' => null,
+            'file4' => null,
+            'file5' => null,
+            'file6' => null,
+        ];
+
+        if ($files) {
+            // Merge existing files into the array
+            $fileData = array_merge($fileData, $files);
+        }
+
+        // Set file data based on user type
+        if ($userType === 'applicant') {
+            $data['username'] = $data['applicant']['username'];
+        } else {
+            $data['username'] = $data[$userType]['username'];
+        }
+
+        $data['files'] = $fileData;
+        $data['userIdExists'] = $files ? true : false;
+
+        return $data;
+    }
+
 
 
     public function ManageAgent()
@@ -131,5 +180,21 @@ class ProfileController extends BaseController
         }
         return view('Agent/clientprofile', $data);
     }
+    private function getData()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['user'] = $this->user->find($userId);
+        return $data;
+    }
 
+    private function getDataApp()
+    {
+        $session = session();
+        $userId = $session->get('id');
+        $data['applicant'] = $this->app->where('applicant_id', $userId)
+            ->orderBy('id', 'desc')
+            ->first();
+        return $data;
+    }
 }

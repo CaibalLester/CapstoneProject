@@ -218,7 +218,7 @@ class AgentController extends BaseController
     }
     public function AgForm2()
     {
-        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),$this->appcon->getform2Data());
         return view('Agent/AgForm2', $data);
     }
     public function AgForm3()
@@ -228,14 +228,20 @@ class AgentController extends BaseController
     }
     public function AgForm4()
     {
-        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),$this->appcon->getform4Data());
         return view('Agent/AgForm4', $data);
     }
     public function AgForm5()
     {
-        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge());
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),$this->appcon->getform5Data());
         return view('Agent/AgForm5', $data);
     }
+    public function Agsignature()
+    {
+        $data = array_merge($this->getData(), $this->appcon->getDataApp(), $this->getDataAge(),$this->appcon->esign());
+        return view('Agent/signature', $data);
+    }
+
 
     public function AgForm1()
     {
@@ -246,7 +252,7 @@ class AgentController extends BaseController
             $this->appcon->getDataApp(),
             $this->getDataAge(),
             $this->appcon->getform1Data(),
-            $data
+            $this->appcon->esign(),$data
         );
         return view('Agent/AgForm1', $data);
     }

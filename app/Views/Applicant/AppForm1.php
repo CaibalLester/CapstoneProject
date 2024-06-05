@@ -28,6 +28,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/signature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/appfiles">
                                 <i class="bi bi-files"></i></i>
                                 Files
@@ -776,36 +782,14 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- <div class="row">
-                                                <div class="col-lg-5">
-                                                    <div class="w-75" style="border-bottom: 1px solid black"
-                                                        id="signature"></div>
-                                                    <input type="hidden" name="sign" id="sign">
-                                                    <label for="signature">Signature</label>
-                                                    <button class="btn btn-danger btn-sm m-1" type="button"
-                                                        onclick="clearSignature()">Clear</button>
-                                                </div>
-                                            </div> -->
-
                                                 <div class="row">
                                                     <div class="col-lg-5">
                                                         <div class="w-75" style="border-bottom: 1px solid black">
                                                             <img id="signatureImage" class="w-100"
                                                                 src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>">
                                                         </div>
-                                                        <!-- <input type="hidden" name="sign" id="sign"> -->
                                                         <label for="signature">Signature</label>
-                                                        <!-- <button class="btn btn-danger btn-sm m-1" type="button"
-                                                            onclick="clearSignature()">Clear</button> -->
                                                     </div>
-                                                    <!-- <div class="col-lg-5">
-
-                                                        <div id="signaturePreview">
-                                                            <img id="signatureImage"
-                                                                src="<?= isset($lifechangerform['signature']) ? base_url('uploads/signatures/' . $lifechangerform['signature']) : '' ?>">
-                                                        </div>
-                                                        <label for="signaturePreview">Signature Preview</label>
-                                                    </div> -->
                                                 </div>
                                                 <br>
                                                 <input type="submit" value="Save" class="btn btn-primary"
@@ -916,35 +900,3 @@
 </body>
 
 </html>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jSignature/2.1.2/jSignature.min.js"></script> -->
-
-<!-- Sa iyong view file -->
-<!-- <script>
-// Initialize jSignature
-var $sigdiv = $("#signature");
-$sigdiv.jSignature({
-    'background-color': 'white'
-});
-
-// Function to save signature
-function saveSignature() {
-    var dataUrl = $sigdiv.jSignature("getData", "image");
-    if (dataUrl && dataUrl.length > 1) {
-        var imageData = dataUrl[1]; // Get the base64 image data
-        $('#sign').val(imageData);
-        // Optionally, you can submit the form here if needed
-        // document.getElementById("yourFormId").submit();
-        alert("Life Changer Form Submitted!")
-        // Update the signature preview
-        $('#signaturePreview').html('<img src="' + imageData + '" alt="Signature Preview">');
-    } else {
-        alert("No signature data found.");
-    }
-}
-
-
-function clearSignature() {
-    $('#signature').jSignature('reset');
-    $('#sign').val('');
-}
-</script> -->

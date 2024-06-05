@@ -153,7 +153,10 @@
                                         <button class="nav-link" data-bs-toggle="tab"
                                             data-bs-target="#forms">Forms</button>
                                     </li>
-
+                                    <li class="nav-item">
+                                        <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#files">Files</button>
+                                    </li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
@@ -253,29 +256,84 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="forms">
-                                        <h5 class="card-title">Forms</h5>
+                                        <h1 class="h2 mb-0">Forms</h1>
                                         <div class="row text-center">
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm/<?= $agent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
+                                                    <img src="<?= base_url(); ?>uploads/forms/life_changer.png"
+                                                        class="card-img-top" alt="form">
                                                     LIFE
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm2/<?= $agent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="AIAL">
+                                                    <img src="<?= base_url(); ?>uploads/forms/aial.png"
+                                                        class="card-img-top" alt="AIAL">
                                                     AIAL
                                                 </a>
                                             </div>
-                                            <div class="col-xl-2 my-3">
+                                            <div class="col-lg-2 col-4 my-3">
                                                 <a href="/ViewAppForm3/<?= $agent['agent_token'] ?>">
-                                                    <img src="<?= base_url(); ?>uploads/folder.png" class="card-img-top"
-                                                        alt="Life Changer Form Image">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/grouplife.png"
+                                                        class="card-img-top" alt="form">
                                                     GLI
                                                 </a>
                                             </div>
+                                            <div class="col-lg-2 col-4 my-3">
+                                                <a href="/ViewAppForm4/<?= $agent['agent_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/affidavit.png"
+                                                        class="card-img-top" alt="form">
+                                                    AONF
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-2 col-4 my-3">
+                                                <a href="/ViewAppForm5/<?= $agent['agent_token'] ?>">
+                                                    <img src=" <?= base_url(); ?>uploads/forms/statement.png"
+                                                        class="card-img-top" alt="form">
+                                                    SOU
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade pt-3" id="files">
+                                        <h1 class="h2 mb-0">Files</h1>
+                                        <div class="row text-center">
+                                            <?php foreach (range(1, 6) as $i): ?>
+                                                <?php if (isset($files["file$i"]) && $files["file$i"]): ?>
+                                                    <?php
+                                                    // Determine the file type for icon
+                                                    $filePath = base_url('uploads/files/' . $username . '/' . $files["file$i"]);
+                                                    $fileExt = pathinfo($files["file$i"], PATHINFO_EXTENSION);
+                                                    $iconClass = 'fa-file'; // Default icon
+                                            
+                                                    // Set icon class based on file extension
+                                                    if (in_array($fileExt, ['jpg', 'jpeg', 'png', 'gif'])) {
+                                                        $iconClass = 'fa-file-image';
+                                                    } elseif ($fileExt === 'pdf') {
+                                                        $iconClass = 'fa-file-pdf';
+                                                    } elseif (in_array($fileExt, ['doc', 'docx'])) {
+                                                        $iconClass = 'fa-file-word';
+                                                    } elseif (in_array($fileExt, ['ppt', 'pptx'])) {
+                                                        $iconClass = 'fa-file-powerpoint';
+                                                    }
+                                                    ?>
+                                                    <div class="col-lg-2 col-4">
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+                                                                <p class="">File <?= $i ?></p>
+                                                                <p class="card-text">
+                                                                    <a href="<?= $filePath ?>" target="_blank">
+                                                                        <i class="fas <?= $iconClass ?> fa-3x"></i>
+                                                                    </a>
+                                                                </p>
+                                                                <!-- <a href="<?= $filePath ?>" target="_blank" class="btn btn-link">
+                                                                    <span style="font-size: 9px;"><?= $files["file$i"] ?></span>
+                                                                </a> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div><!-- End Bordered Tabs -->

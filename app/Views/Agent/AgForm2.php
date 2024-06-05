@@ -24,7 +24,12 @@
                             </a>
                         </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/Agsignature">
+                                <i class="bi bi-pen me-2"></i>
+                                Signature
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/subagent">
                                 <i class="bi-person me-2"></i>
@@ -75,16 +80,13 @@
                     <h3>APPLICATION FOR INSURANCE AGENT'S LICENSE</h3>
                 </div>
 
-
                 <section class="section">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
                             <div class="card">
                                 <div class="card-body">
-
                                     <form class="container mt-5" method="post" action="/form2sv">
                                         <fieldset>
-
                                         <div class="page" id="page1" style="display:none;">
                                             <div class="form-group">
                                                 <h6>To the Insurance Commissioner:</h6>
@@ -94,64 +96,80 @@
                                                     Insurance, Inc. in respect of the kind of insurance indicated
                                                     herein:</p>
 
-                                                <input type="checkbox" id="nonLife" name="nonLife" value="Non-Life">
+                                                <input type="checkbox" id="nonLife" name="nonLife" value="nonLife"
+                                                <?= isset($aial['nonLife']) && $aial['nonLife'] === 'nonLife' ? 'checked' : '' ?>>
                                                 <label for="nonLife">Non-Life</label><br>
-                                                <input type="checkbox" id="life" name="life" value="Life">
+                                                <input type="checkbox" id="life" name="life" value="life"
+                                                <?= isset($aial['life']) && $aial['life'] === 'life' ? 'checked' : '' ?>>
                                                 <label for="life">Life</label><br>
                                                 <input type="checkbox" id="variableLife" name="variableLife"
-                                                    value="Variable Life">
+                                                    value="variableLife"
+                                                    <?= isset($aial['variableLife']) && $aial['variableLife'] === 'variableLife' ? 'checked' : '' ?>>
                                                 <label for="variableLife">Variable Life</label><br>
                                                 <input type="checkbox" id="accidentAndHealth" name="accidentAndHealth"
-                                                    value="Accident and Health">
+                                                    value="accidentAndHealth"
+                                                    <?= isset($aial['accidentAndHealth']) && $aial['accidentAndHealth'] === 'accidentAndHealth' ? 'checked' : '' ?>>
                                                 <label for="accidentAndHealth">Accident and Health</label><br>
-                                                <input type="checkbox" id="others" name="others" value="Others">
+                                                <input type="checkbox" id="others" name="others" value="others"
+                                                <?= isset($aial['others']) && $aial['others'] === 'others' ? 'checked' : '' ?>>
                                                 <label for="others">Others (please specify)</label><br>
                                                 <input type="text" id="othersSpecification" name="othersSpecification"
-                                                    class="form-control"><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['othersSpecification']) ? $aial['othersSpecification'] : '' ?>"><br>
                                                 <p>and for that purpose submits the following statements and information
                                                     required herein.</p>
                                                 <label for="agencyName">Agency Name (if any):</label>
-                                                <input type="text" id="agencyName" name="agencyName"
+                                                <input type="text" id="agencyName" name="agencyName" 
+                                                value="<?= isset($aial['agencyName']) ? $aial['agencyName'] : '' ?>"
                                                     class="form-control"><br><br>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>1. Name of applicant:</label><br>
                                                 <label for="surname">Surname:</label>
-                                                <input type="text" id="surname" name="surname" class="form-control">
+                                                <input type="text" id="surname" name="surname" class="form-control"
+                                                value="<?= isset($aial['surname']) ? $aial['surname'] : '' ?>">
                                                 <label for="firstName">First Name:</label>
-                                                <input type="text" id="firstName" name="firstName" class="form-control">
+                                                <input type="text" id="firstName" name="firstName" class="form-control"
+                                                value="<?= isset($aial['firstName']) ? $aial['firstName'] : '' ?>">
                                                 <label for="middleName">Middle Name:</label>
                                                 <input type="text" id="middleName" name="middleName"
-                                                    class="form-control"><br><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['middleName']) ? $aial['middleName'] : '' ?>"><br><br>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>2. Agent Type:</label><br>
-                                                <input type="radio" id="ordinaryAgent" name="agentType"
-                                                    value="Ordinary Agent">
+                                                <input type="checkbox" id="ordinaryAgent" name="agentType"
+                                                    value="OrdinaryAgent" 
+                                                    <?= isset($aial['agentType']) && $aial['agentType'] === 'OrdinaryAgent' ? 'checked' : 'checked' ?>>
                                                 <label for="ordinaryAgent">Ordinary Agent</label>
-                                                <input type="radio" id="generalAgent" name="agentType"
-                                                    value="General Agent">
+                                                <input type="checkbox" id="generalAgent" name="agentType"
+                                                    value="GeneralAgent"
+                                                    <?= isset($aial['agentType']) && $aial['agentType'] === 'GeneralAgent' ? 'checked' : '' ?>>
                                                 <label for="generalAgent">General Agent</label><br><br>
                                             </div>
 
                                             <div class="form-group">
                                                 <label>Home Address:</label><br>
                                                 <textarea id="homeAddress" name="homeAddress" rows="3"
-                                                    class="form-control"></textarea>
+                                                    class="form-control"><?= isset($aial['homeAddress']) ? $aial['homeAddress'] : '' ?></textarea>
                                                 <label>Zip code:</label>
-                                                <input type="text" id="zipCode" name="zipCode" class="form-control">
+                                                <input type="text" id="zipCode" name="zipCode" class="form-control"
+                                                value="<?= isset($aial['zipCode']) ? $aial['zipCode'] : '' ?>">
                                                 <label>Business Address:</label>
                                                 <textarea id="businessAddress" name="businessAddress" rows="3"
-                                                    class="form-control"></textarea>
+                                                    class="form-control"><?= isset($aial['businessAddress']) ? $aial['businessAddress'] : '' ?></textarea>
                                                 <label>TIN:</label>
-                                                <input type="text" id="tin" name="tin" class="form-control">
+                                                <input type="text" id="tin" name="tin" class="form-control"
+                                                value="<?= isset($aial['tin']) ? $aial['tin'] : '' ?>">
                                                 <label>Email Address:</label>
-                                                <input type="email" id="email" name="email" class="form-control">
+                                                <input type="email" id="email" name="email" class="form-control"
+                                                value="<?= isset($aial['email']) ? $aial['email'] : '' ?>">
                                                 <label>Mobile Number:</label>
                                                 <input type="tel" id="mobileNumber" name="mobileNumber"
-                                                    class="form-control"><br><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['mobileNumber']) ? $aial['mobileNumber'] : '' ?>"><br><br>
                                             </div>
                                         </div>
 
@@ -159,34 +177,49 @@
                                             <div class="form-group">
                                                 <label>4. Birth:</label>
                                                 <label>a) Date:</label>
-                                                <input type="date" id="birthDate" name="birthDate" class="form-control">
+                                                <input type="date" id="birthDate" name="birthDate" class="form-control"
+                                                value="<?= isset($aial['birthDate']) ? $aial['birthDate'] : '' ?>">
                                                 <label>b) Place:</label>
                                                 <input type="text" id="birthPlace" name="birthPlace"
-                                                    class="form-control"><br><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['birthPlace']) ? $aial['birthPlace'] : '' ?>"><br><br>
                                                 <label>5. Citizenship:</label>
                                                 <input type="text" id="citizenship" name="citizenship"
-                                                    class="form-control">
+                                                    class="form-control"
+                                                    value="<?= isset($aial['citizenship']) ? $aial['citizenship'] : '' ?>">
                                                 <label>Sex:</label>
-                                                <select id="sex" name="sex" class="form-control">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
+
+                                                <select id="sex" name="sex" class="form-control" required>
+                                                    <option value="">Select</option>
+                                                    <option value="Male"
+                                                        <?= isset($aial['sex']) && $aial['sex'] === 'Male' ? 'selected' : '' ?>>
+                                                        Male
+                                                    </option>
+                                                    <option value="Female"
+                                                        <?= isset($aial['sex']) && $aial['sex'] === 'Female' ? 'selected' : '' ?>>
+                                                        Female</option>
                                                 </select>
+
                                                 <label>Civil Status:</label>
                                                 <input type="text" id="civilStatus" name="civilStatus"
-                                                    class="form-control"><br><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['civilStatus']) ? $aial['civilStatus'] : '' ?>"><br><br>
                                                 <label>6. If married:</label><br>
                                                 <label>a) Maiden Name:</label>
                                                 <input type="text" id="maidenName" name="maidenName"
-                                                    class="form-control">
+                                                    class="form-control"
+                                                    value="<?= isset($aial['maidenName']) ? $aial['maidenName'] : '' ?>">
                                                 <label>b) Husband’s Name:</label>
                                                 <input type="text" id="husbandsName" name="husbandsName"
-                                                    class="form-control"><br><br>
+                                                    class="form-control"
+                                                    value="<?= isset($aial['husbandsName']) ? $aial['husbandsName'] : '' ?>"><br><br>
                                                 <label>7. If naturalized citizen of the Philippines, give date and place
                                                     of naturalization and attach photocopy of certificate of
                                                     naturalization.</label>
                                                 <input type="text" id="naturalizationDetails"
                                                     name="naturalizationDetails" class="form-control"
-                                                    placeholder="N/A"><br><br>
+                                                    placeholder="N/A"
+                                                    value="<?= isset($aial['naturalizationDetails']) ? $aial['naturalizationDetails'] : '' ?>"><br><br>
                                             </div>
 
                                             <div class="form-group">
@@ -195,7 +228,8 @@
                                                     immigrant certificate of residence (ICR) for the current year and
                                                     attach photocopy of each thereof:</label>
                                                 <input type="text" id="foreignerDetails" name="foreignerDetails"
-                                                    class="form-control" placeholder="N/A"><br><br>
+                                                    class="form-control" placeholder="N/A"
+                                                    value="<?= isset($aial['foreignerDetails']) ? $aial['foreignerDetails'] : '' ?>"><br><br>
 
                                                 <label>9. If applicant is a partnership, association or
                                                     corporation:</label><br>
@@ -204,13 +238,15 @@
                                                     registration, articles of partnership, association or incorporation
                                                     and by-laws:</label>
                                                 <input type="text" id="certifiedCopyDetails" name="certifiedCopyDetails"
-                                                    class="form-control" placeholder="N/A">
+                                                    class="form-control" placeholder="N/A"
+                                                    value="<?= isset($aial['certifiedCopyDetails']) ? $aial['certifiedCopyDetails'] : '' ?>">
 
                                                 <label>b) State percentage of Filipino participation in the partnership,
                                                     association or corporation:</label>
                                                 <input type="text" id="filipinoParticipation"
                                                     name="filipinoParticipation" class="form-control"
-                                                    placeholder="N/A"><br><br>
+                                                    placeholder="N/A"
+                                                    value="<?= isset($aial['filipinoParticipation']) ? $aial['filipinoParticipation'] : '' ?>"><br><br>
                                             </div>
                                         </div>
 
@@ -232,34 +268,46 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <td><input type="text" id="company1" name="company1"
-                                                                        class="form-control" placeholder="N/A"></td>
+                                                                <td><input type="text" id="company1" name="company1" 
+                                                                        class="form-control" placeholder="N/A"
+                                                                        value="<?= isset($aial['company1']) ? $aial['company1'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseType1"
-                                                                        name="licenseType1" class="form-control"></td>
+                                                                        name="licenseType1" class="form-control"
+                                                                        value="<?= isset($aial['licenseType1']) ? $aial['licenseType1'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseNo1" name="licenseNo1"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['licenseNo1']) ? $aial['licenseNo1'] : '' ?>"></td>
                                                                 <td><input type="text" id="yearIssued1"
-                                                                        name="yearIssued1" class="form-control"></td>
+                                                                        name="yearIssued1" class="form-control"
+                                                                        value="<?= isset($aial['yearIssued1']) ? $aial['yearIssued1'] : '' ?>"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" id="company2" name="company2"
-                                                                        class="form-control" placeholder="N/A"></td>
+                                                                <td><input type="text" id="company2" name="company2" 
+                                                                        class="form-control" placeholder="N/A"
+                                                                        value="<?= isset($aial['company2']) ? $aial['company2'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseType2"
-                                                                        name="licenseType2" class="form-control"></td>
+                                                                        name="licenseType2" class="form-control"
+                                                                        value="<?= isset($aial['licenseType2']) ? $aial['licenseType2'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseNo2" name="licenseNo2"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['licenseNo2']) ? $aial['licenseNo2'] : '' ?>"></td>
                                                                 <td><input type="text" id="yearIssued2"
-                                                                        name="yearIssued2" class="form-control"></td>
+                                                                        name="yearIssued2" class="form-control"
+                                                                        value="<?= isset($aial['yearIssued2']) ? $aial['yearIssued2'] : '' ?>"></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><input type="text" id="company3" name="company3"
-                                                                        class="form-control" placeholder="N/A"></td>
+                                                                <td><input type="text" id="company3" name="company3" 
+                                                                        class="form-control" placeholder="N/A"
+                                                                        value="<?= isset($aial['company3']) ? $aial['company3'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseType3"
-                                                                        name="licenseType3" class="form-control"></td>
+                                                                        name="licenseType3" class="form-control"
+                                                                        value="<?= isset($aial['licenseType3']) ? $aial['licenseType3'] : '' ?>"></td>
                                                                 <td><input type="text" id="licenseNo3" name="licenseNo3"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['licenseNo3']) ? $aial['licenseNo3'] : '' ?>"></td>
                                                                 <td><input type="text" id="yearIssued3"
-                                                                        name="yearIssued3" class="form-control"></td>
+                                                                        name="yearIssued3" class="form-control"
+                                                                        value="<?= isset($aial['yearIssued3']) ? $aial['yearIssued3'] : '' ?>"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -292,19 +340,25 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td><input type="text" id="employer1" name="employer1"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['employer1']) ? $aial['employer1'] : '' ?>"></td>
                                                                 <td><input type="text" id="position1" name="position1"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['position1']) ? $aial['position1'] : '' ?>"></td>
                                                                 <td><input type="date" id="dates1" name="dates1"
-                                                                        class="form-control"></td>
+                                                                        class="form-control" 
+                                                                        value="<?= isset($aial['dates1']) ? $aial['dates1'] : '' ?>"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td><input type="text" id="employer2" name="employer2"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['employer2']) ? $aial['employer2'] : '' ?>"></td>
                                                                 <td><input type="text" id="position2" name="position2"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['position2']) ? $aial['position2'] : '' ?>"></td>
                                                                 <td><input type="date" id="dates2" name="dates2"
-                                                                        class="form-control"></td>
+                                                                        class="form-control"
+                                                                        value="<?= isset($aial['dates2']) ? $aial['dates2'] : '' ?>"></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -338,20 +392,25 @@
                                                     Executed this
                                                     <input type="text" id="date" name="date"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="date">
-                                                    day of <input type="text" id="month" name="month"
+                                                        placeholder="date"
+                                                        value="<?= isset($aial['date']) ? $aial['date'] : '' ?>">
+                                                    day of <input type="text" id="month2" name="month2"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="month">,
+                                                        placeholder="month"
+                                                        value="<?= isset($aial['month2']) ? $aial['month2'] : '' ?>">,
                                                     <input type="text" id="year" name="year"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="year">, at
+                                                        placeholder="year"
+                                                        value="<?= isset($aial['year']) ? $aial['year'] : '' ?>">, at
                                                     <input type="text" id="place" name="place"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="place">, Philippines.
+                                                        placeholder="place"
+                                                        value="<?= isset($aial['place']) ? $aial['place'] : '' ?>">, Philippines.
                                                 </label><br><br>
 
                                                 <label><input type="text" id="applicantName" name="applicantName"
-                                                        class="form-control" placeholder="applicant"></label><br>
+                                                        class="form-control" placeholder="applicant"
+                                                        value="<?= isset($aial['applicantName']) ? $aial['applicantName'] : '' ?>"></label><br>
                                                 <label for="applicant">Applicant</label>
                                             </div><br><br><br>
                                         </div>
@@ -364,35 +423,44 @@
                                                     Province/City of <input type="text" id="provinceCity"
                                                         name="provinceCity"
                                                         style="width: 170px;;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="Province/City"> S.S.</p>
+                                                        placeholder="Province/City"
+                                                        value="<?= isset($aial['provinceCity']) ? $aial['provinceCity'] : '' ?>"> S.S.</p>
 
                                                 <p>I, <input type="text" id="applicantName" name="applicantName"
                                                         style="width: 150px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="Name">, being duly sworn, depose and say that I am
+                                                        placeholder="Name"
+                                                        value="<?= isset($aial['applicantName']) ? $aial['applicantName'] : '' ?>">, being duly sworn, depose and say that I am
                                                     the person named in and who signed the foregoing application; that I
                                                     know the contents thereof and the statements made and answers to
                                                     question therein are true.</p><br>
 
                                                 <p><input type="text" id="affiant" name="affiant" class="form-control"
-                                                        placeholder="Affiant">
+                                                        placeholder="Affiant"
+                                                        value="<?= isset($aial['affiant']) ? $aial['affiant'] : '' ?>">
                                                     Affiant</p><br>
 
-                                                <p>TIN <input type="text" id="tin" name="tin" class="form-control">
-                                                    SSS No. <input type="text" id="sss" name="sss" class="form-control">
+                                                <p>TIN <input type="text" id="tin2" name="tin2" class="form-control"
+                                                value="<?= isset($aial['tin2']) ? $aial['tin2'] : '' ?>">
+                                                    SSS No. <input type="text" id="sss" name="sss" class="form-control"
+                                                    value="<?= isset($aial['sss']) ? $aial['sss'] : '' ?>">
                                                 </p>
 
                                                 <p style="text-align: justify;">SUBSCRIBED AND SWORN TO before me this
                                                     <input type="text" id="day" name="day"
+                                                    value="<?= isset($aial['day']) ? $aial['day'] : '' ?>"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;">
                                                     day of <input type="text" id="month" name="month"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="month">,
-                                                    <input type="text" id="year" name="year"
+                                                        placeholder="month"
+                                                        value="<?= isset($aial['month']) ? $aial['month'] : '' ?>">,
+                                                    <input type="text" id="year" name="year2"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="year">,<br>
+                                                        placeholder="year"
+                                                        value="<?= isset($aial['year2']) ? $aial['year2'] : '' ?>">,<br>
                                                     Affiant/s exhibited to me his/her TIN/SSS/Passport/Postal/LTO/
                                                     <input type="text" id="exhibit" name="exhibit"
-                                                        style="width: 150px;  padding:5px 5px; border-radius: 13px;">.
+                                                        style="width: 150px;  padding:5px 5px; border-radius: 13px;"
+                                                        value="<?= isset($aial['place']) ? $aial['place'] : '' ?>">.
                                                 </p><br><br>
 
                                                 <p style="text-align: justify;">APPROVED AND COUNTERSIGNED for Allianz
@@ -400,7 +468,7 @@
                                                     application for life/variable/non-life insurance</p>
                                             </div><br><br>
                                         </div>
-                                        
+
                                         <div class="page" id="page5" style="display:none;">
                                             <div class="form-group">
                                                 <h4>CERTIFICATE OF WAIVER</h4>
@@ -409,6 +477,7 @@
 
                                                 <p style="text-align: justify;">That we know the applicant <input
                                                         type="text" id="applicant" name="applicant"
+                                                        value="<?= isset($aial['applicant']) ? $aial['applicant'] : '' ?>"
                                                         style="width: 150px;  padding:5px 5px; border-radius: 13px;"
                                                         placeholder="applicant">, that a thorough investigation has been
                                                     made into his/her character, conduct and fitness; he/she is of good
@@ -447,32 +516,35 @@
                                                     the contract of agency between said applicant and the company upon
                                                     receipt of the notice of revocation.</p>
 
-                                                <p>Executed in <input type="text" id="place" name="place"
+                                                <p>Executed in <input type="text" id="place2" name="place2"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="place"> on <input type="text" id="date" name="date"
+                                                        placeholder="place"
+                                                        value="<?= isset($aial['place2']) ? $aial['place2'] : '' ?>"> on <input type="text" id="date2" name="date2"
                                                         style="width: 100px;  padding:5px 5px; border-radius: 13px;"
-                                                        placeholder="date"> TIN 204-145-589-000.</p><br>
+                                                        placeholder="date"
+                                                        value="<?= isset($aial['date2']) ? $aial['date2'] : '' ?>"> TIN 204-145-589-000.</p><br>
                                             </div>
                                             <p>By <input type="text" id="authorizedRepresentative"
                                                     name="authorizedRepresentative"
                                                     style="width: 40%;  padding:5px 5px; border-radius: 13px;"
-                                                    placeholder="Province/City"><br> Authorized Representative of the
+                                                    placeholder="Province/City"
+                                                    value="<?= isset($aial['authorizedRepresentative']) ? $aial['authorizedRepresentative'] : '' ?>"><br> Authorized Representative of the
                                                 Company</p><br><br>
                                             <input type="submit" value="Submit" class="btn btn-primary">
                                         </div>
+                                        
+                                        <!-- Pagination Controls -->
+                                        <nav aria-label="Page navigation example" class="mt-4">
+                                            <ul class="pagination justify-content-center">
 
-                                             <!-- Pagination Controls -->
-                                            <nav aria-label="Page navigation example" class="mt-4">
-                                                <ul class="pagination justify-content-center">
+                                                <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 5px;">
+                                                    <button type="button" class="page-link" id="prevBtn" onclick="showPage(-1)" disabled>Previous</button>
+                                                    <div id="pageNumberContainer" class="d-flex flex-wrap justify-content-center"></div>
+                                                    <button type="button" class="page-link" id="nextBtn" onclick="showPage(1)" disabled>Next</button>
+                                                </div>
 
-                                                    <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 5px;">
-                                                        <button type="button" class="page-link" id="prevBtn" onclick="showPage(-1)" disabled>Previous</button>
-                                                        <div id="pageNumberContainer" class="d-flex flex-wrap justify-content-center"></div>
-                                                        <button type="button" class="page-link" id="nextBtn" onclick="showPage(1)" disabled>Next</button>
-                                                    </div>
-
-                                                </ul>
-                                            </nav>
+                                            </ul>
+                                        </nav>
                                         </fieldset>
                                     </form>
                                 </div>
@@ -480,19 +552,12 @@
                         </div>
                     </div>
                 </section>
-
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
-                        </div>
-                    </div>
-                </footer>
             </main>
         </div>
     </div>
-    <?= view('js') ?>
-     <!-- Pagination Script -->
-     <script>
+    <?= view('js'); ?>
+         <!-- Pagination Script -->
+         <script>
         let currentPage = 1;
         const totalPages = 5;
 

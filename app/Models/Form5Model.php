@@ -18,7 +18,7 @@ class Form5Model extends Model
         'app_sou_token', 
         'position',
         'name',
-        'signature',
+        'printedname',
     ];
 
     // Dates

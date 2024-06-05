@@ -59,7 +59,7 @@ $routes->match(['get', 'post'], '/FA', 'AppController::FA', ['filter' => 'applic
 $routes->get('/AppForms', 'AppController::AppForms', ['filter' => 'applicantFilter']);
 $routes->get('/appfiles', 'FilesController::applicantfiles', ['filter' => 'applicantFilter']);
 $routes->get('/signature', 'AppController::signature', ['filter' => 'applicantFilter']);
-$routes->post('/signsave', 'AppController::signsave', ['filter' => 'applicantFilter']);
+$routes->post('/signsave', 'AppController::signsave', ['filter' => 'authGuard']);
 $routes->post('/fileuploads', 'FilesController::fileuploads', ['filter' => 'applicantFilter']);
 
 
@@ -75,6 +75,7 @@ $routes->get('/AgForm2', 'AgentController::AgForm2', ['filter' => 'agentFilter']
 $routes->get('/AgForm3', 'AgentController::AgForm3', ['filter' => 'agentFilter']);
 $routes->get('/AgForm4', 'AgentController::AgForm4', ['filter' => 'agentFilter']);
 $routes->get('/AgForm5', 'AgentController::AgForm5', ['filter' => 'agentFilter']);
+$routes->get('/Agsignature', 'AgentController::Agsignature', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/subagentprofile/(:any)', 'ProfileController::subagentprofile/$1', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/clients', 'AgentController::client', ['filter' => 'agentFilter']);
 $routes->match(['get', 'post'], '/myclientprofile/(:any)', 'ProfileController::myclientprofile/$1', ['filter' => 'agentFilter']);

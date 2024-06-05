@@ -649,7 +649,7 @@
     // you need to load html2canvas (and dompurify if you pass a string to html)
     const opt = {
         callback: function (jsPdf) {
-            jsPdf.save("AIAL_<?= $aial['user_id']?>.pdf");
+            jsPdf.save("AIAL_<?= isset($aial['user_id']) ? $aial['user_id'] : '' ?>.pdf");
             // to open the generated PDF in browser window
             // window.open(jsPdf.output('bloburl'));
         },

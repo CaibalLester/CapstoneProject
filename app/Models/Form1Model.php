@@ -119,11 +119,10 @@ class Form1Model extends Model
         'terminat',
         'printedName',
         'botdate',
-        'signature',
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
