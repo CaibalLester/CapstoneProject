@@ -191,9 +191,10 @@
                         </div>
                         <table>
                                 <tr>
-                                        <td colspan="12"
-                                                style="font-size: 18px; font-family: Arial, sans-serif; font-weight: bold; text-align: center;vertical-align: middle; line-height: .2;">
-                                                ENROLLMENT FORM FOR MEMBERSHIP IN THE GROUP LIFE INSURANCE PLAN</td>
+                                <td colspan="12" style="font-size: 18px; font-family: Arial, sans-serif; font-weight: bold; text-align: center; vertical-align: middle; line-height: .2; background-color: #16163b; color: white;">
+    ENROLLMENT FORM FOR MEMBERSHIP IN THE GROUP LIFE INSURANCE PLAN
+</td>
+
                                 </tr>
 
                                 <tr>
@@ -258,12 +259,15 @@
                                         Nationality</td>
                                 </tr>
                                 <tr>
-                                        <td colspan="4" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;"><?= isset($gli['companyName']) ? $gli['companyName'] : '' ?>
+                                        <td colspan="4"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['companyName']) ? $gli['companyName'] : '' ?>
                                         </td>
-                                        <td colspan="3" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;">
+                                        <td colspan="3"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;">
                                                 <?= isset($gli['businessNature']) ? $gli['businessNature'] : '' ?>
                                         </td>
-                                        <td colspan="1" >
+                                        <td colspan="1">
                                                 <input type="checkbox"
                                                         style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"
                                                         <?= (isset($gli['sex']) && $gli['sex'] == 'Male') ? 'checked' : '' ?>>
@@ -277,7 +281,7 @@
                                                 <input type="checkbox"
                                                         style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;"
                                                         <?= (isset($gli['civilStatus']) && $gli['civilStatus'] == 'Single') ? 'checked' : '' ?>>
-                                                Single
+                                                Single&nbsp;&nbsp;  
                                                 <input type="checkbox"
                                                         style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"
                                                         <?= (isset($gli['civilStatus']) && $gli['civilStatus'] == 'Divorced') ? 'checked' : '' ?>>
@@ -292,7 +296,9 @@
                                                 Widowed
                                         </td>
 
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['nationality']) ? $gli['nationality'] : '' ?>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['nationality']) ? $gli['nationality'] : '' ?>
                                         </td>
                                 </tr>
 
@@ -314,8 +320,14 @@
                                                 Telephone Number</td>
                                 </tr>
                                 <tr>
-                                        <td colspan="9" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;"><?= isset($gli['residenceAddress']) ? $gli['residenceAddress'] : '' ?></td>
-                                        <td colspan="3" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['residenceTelephone']) ? $gli['residenceTelephone'] : '' ?></td>
+                                        <td colspan="9"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['residenceAddress']) ? $gli['residenceAddress'] : '' ?>
+                                        </td>
+                                        <td colspan="3"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['residenceTelephone']) ? $gli['residenceTelephone'] : '' ?>
+                                        </td>
                                 </tr>
                                 <tr>
                                         <td colspan="9"
@@ -326,8 +338,14 @@
                                                 Telephone Number</td>
                                 </tr>
                                 <tr>
-                                        <td colspan="9" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;"><?= isset($gli['businessAddress']) ? $gli['businessAddress'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['businessTelephone']) ? $gli['businessTelephone'] : '' ?></td>
+                                        <td colspan="9"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['businessAddress']) ? $gli['businessAddress'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['businessTelephone']) ? $gli['businessTelephone'] : '' ?>
+                                        </td>
                                 </tr>
                                 <tr>
                                         <td colspan="12"
@@ -376,54 +394,152 @@
                                 </tr>
                                 <!-- EMPTY BOX -->
                                 <tr>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['firstName1']) ? $gli['firstName1'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['mi1']) ? $gli['mi1'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['lastName1']) ? $gli['lastName1'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['month1']) ? $gli['month1'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['day1']) ? $gli['day1'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['year1']) ? $gli['year1'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['relationship1']) ? $gli['relationship1'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['remarks1']) ? $gli['remarks1'] : '' ?></td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['firstName1']) ? $gli['firstName1'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['mi1']) ? $gli['mi1'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['lastName1']) ? $gli['lastName1'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['month1']) ? $gli['month1'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['day1']) ? $gli['day1'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['year1']) ? $gli['year1'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['relationship1']) ? $gli['relationship1'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['remarks1']) ? $gli['remarks1'] : '' ?>
+                                        </td>
                                 </tr>
 
                                 <tr>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['firstName2']) ? $gli['firstName2'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['mi2']) ? $gli['mi2'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['lastName2']) ? $gli['lastName2'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['month2']) ? $gli['month2'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['day2']) ? $gli['day2'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['year2']) ? $gli['year2'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['relationship2']) ? $gli['relationship2'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['remarks2']) ? $gli['remarks2'] : '' ?></td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['firstName2']) ? $gli['firstName2'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['mi2']) ? $gli['mi2'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['lastName2']) ? $gli['lastName2'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['month2']) ? $gli['month2'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['day2']) ? $gli['day2'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['year2']) ? $gli['year2'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['relationship2']) ? $gli['relationship2'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['remarks2']) ? $gli['remarks2'] : '' ?>
+                                        </td>
                                 </tr>
 
                                 <tr>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['firstName3']) ? $gli['firstName3'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['mi3']) ? $gli['mi3'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['lastName3']) ? $gli['lastName3'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['month3']) ? $gli['month3'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['day3']) ? $gli['day3'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['year3']) ? $gli['year3'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['relationship3']) ? $gli['relationship3'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['remarks3']) ? $gli['remarks3'] : '' ?></td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['firstName3']) ? $gli['firstName3'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['mi3']) ? $gli['mi3'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['lastName3']) ? $gli['lastName3'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['month3']) ? $gli['month3'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['day3']) ? $gli['day3'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['year3']) ? $gli['year3'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['relationship3']) ? $gli['relationship3'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['remarks3']) ? $gli['remarks3'] : '' ?>
+                                        </td>
                                 </tr>
 
                                 <tr>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['firstName4']) ? $gli['firstName4'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['mi4']) ? $gli['mi4'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['lastName4']) ? $gli['lastName4'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['month4']) ? $gli['month4'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['day4']) ? $gli['day4'] : '' ?></td>
-                                        <td colspan="1" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['year4']) ? $gli['year4'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['relationship4']) ? $gli['relationship4'] : '' ?></td>
-                                        <td colspan="2" style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;"><?= isset($gli['remarks4']) ? $gli['remarks4'] : '' ?></td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['firstName4']) ? $gli['firstName4'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['mi4']) ? $gli['mi4'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['lastName4']) ? $gli['lastName4'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['month4']) ? $gli['month4'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['day4']) ? $gli['day4'] : '' ?>
+                                        </td>
+                                        <td colspan="1"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['year4']) ? $gli['year4'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['relationship4']) ? $gli['relationship4'] : '' ?>
+                                        </td>
+                                        <td colspan="2"
+                                                style="font-size: 13px; font-family: Arial, sans-serif;  text-align:center;  vertical-align: middle; line-height: .2;">
+                                                <?= isset($gli['remarks4']) ? $gli['remarks4'] : '' ?>
+                                        </td>
                                 </tr>
                                 <!-- END EMPTY BOX -->
 
                                 <tr>
                                         <td colspan="12"
                                                 style="font-size: 17px; font-family: Arial, sans-serif;  text-align:left;  vertical-align: middle; line-height: .9;letter-spacing: -1px;">
-                                                Trustee for minor beneficiary/ies: <?= isset($gli['trusteeMinorBeneficiary']) ? $gli['trusteeMinorBeneficiary'] : '' ?></td>
+                                                Trustee for minor beneficiary/ies:
+                                                <?= isset($gli['trusteeMinorBeneficiary']) ? $gli['trusteeMinorBeneficiary'] : '' ?>
+                                        </td>
                                 </tr>
 
 
@@ -431,7 +547,7 @@
 
                         </table>
                         <p
-                                style="font-size: 17px; font-family: Arial, sans-serif;  text-align:justify;  vertical-align: middle; line-height: .9;letter-spacing: -1px;">
+                                style="font-size: 17px; font-family: Arial, sans-serif;  text-align:justify;  vertical-align: middle; line-height: .9;letter-spacing: -.5px;">
                                 I hereby apply for participation in the group life insurance plan for which I am or may
                                 become
                                 eligible for subject to the terms and conditions of the Group Policy. I further agree
@@ -447,18 +563,31 @@
 
                         <p>Signed at <input type="text" style="width: 100px; border-radius: 7px;" id="place"
                                         name="place" value="<?= isset($gli['place']) ? $gli['place'] : '' ?>" readonly>
-                                    this <input type="text" style="width: 50px; border-radius: 7px;" id="day" name="day"
+                                this <input type="text" style="width: 50px; border-radius: 7px;" id="day" name="day"
                                         value="<?= isset($gli['day']) ? $gli['day'] : '' ?>" readonly>
-                                    day of <input type="text" style="width: 100px; border-radius: 7px;" id="month"
+                                day of <input type="text" style="width: 100px; border-radius: 7px;" id="month"
                                         name="month" value="<?= isset($gli['month']) ? $gli['month'] : '' ?>" readonly>,
-                                    <input type="text" style="width: 50px; border-radius: 7px;" id="year" name="year"
-                                        value="<?= isset($gli['year']) ? $gli['year'] : '' ?>"
-                                        readonly>.
-                                </p><br>
-
+                                <input type="text" style="width: 50px; border-radius: 7px;" id="year" name="year"
+                                        value="<?= isset($gli['year']) ? $gli['year'] : '' ?>" readonly>.
+                        </p>
                         <p
-                                style="font-size: 18px; font-family: Arial, sans-serif; text-align:left; font-style: italic; vertical-align: middle; line-height: .2;">
+                                style="font-size: 18px; font-family: Arial, sans-serif; text-align:left; font-style: italic; vertical-align: middle; line-height: .2;margin-top: 40px;">
                                 FDAS-GAD-FOR-GTLAPP-2016-08</p>
+                       
+</div>
+
+<div class="line" style="float:right;margin-top:-60px">
+        
+    <div style="margin-top: 10px; ">
+        <div id="signaturePreview" style="max-width: 200px;">
+            <img id="signatureImage" src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>" style="max-width: 80%; height: auto; margin-bottom: -30px;">
+            <input type="text" value="<?= isset($sou['name']) ? $sou['name'] : '' ?>">
+        </div>
+        <span style="display: block;">Printed Name and Signature of Applicant</span>
+
+    </div>
+
+                        
                 </div>
 
                 <div class="download-button-container">
