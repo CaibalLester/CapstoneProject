@@ -1,5 +1,5 @@
 <header class="navbar sticky-top flex-md-nowrap">
-<div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
+    <div class="col-md-3 col-lg-3 me-0 px-2 fs-6">
         <a class="navbar-brand" href="/AdDash">
             ALLIANZ ADMIN
         </a>
@@ -88,8 +88,12 @@
                     aria-labelledby="navbarLightDropdownMenuLink">
                     <small>Notifications</small>
                     <?php if (!empty($notifications)): ?>
+                        <li class="notifications-block border-bottom pb-2 mb-2">
+                            <a href="clearnotif" class="dropdown-item text-center">Mark All as Read</a>
+                        </li>
                         <?php foreach ($notifications as $notification): ?>
-                            <li class="notifications-block border-bottom pb-2 mb-2">
+                            <li class="notifications-block border-bottom pb-2 mb-2 notification-item"
+                                data-id="<?= $notification['id']; ?>">
                                 <a class="dropdown-item d-flex align-items-center"
                                     href="<?= base_url($notification['link']); ?>">
                                     <div class="notifications-icon-wrap bg-success">
@@ -150,4 +154,3 @@
         </div>
     </div>
 </header>
-

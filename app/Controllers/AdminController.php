@@ -80,7 +80,7 @@ class AdminController extends BaseController
     }
     public function notif()
     {
-        $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
+        $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->findAll();
         return $data;
     }
     //Top 3 Agents

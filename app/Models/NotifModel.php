@@ -13,7 +13,7 @@ class NotifModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'link', 'notif',];
+    protected $allowedFields    = ['user_id', 'link', 'notif', 'role'];
 
     // Dates
     protected $useTimestamps = true;

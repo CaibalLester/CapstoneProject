@@ -560,7 +560,8 @@ class AppController extends BaseController
             $notificationsave =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm1/'. $token,
-                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see'
+                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationsave);
             // Insert new record
@@ -569,7 +570,8 @@ class AppController extends BaseController
             $notificationupdate =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm1/'. $token,
-                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see'
+                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationupdate);
             $this->form1->insert($data);
@@ -652,7 +654,8 @@ class AppController extends BaseController
             $notificationsave =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm3/'. $token,
-                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see'
+                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationsave);
             // Update existing record
@@ -662,7 +665,8 @@ class AppController extends BaseController
             $notificationupdate =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm3/'. $token,
-                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see'
+                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationupdate);
             $this->form3->insert($data);
@@ -802,7 +806,8 @@ class AppController extends BaseController
             $notificationsave =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm2/'. $token,
-                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see'
+                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationsave);
             // Update existing record
@@ -813,7 +818,8 @@ class AppController extends BaseController
             $notificationupdate =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm2/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see'
+                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationupdate);
             $this->form2->insert($data);
@@ -855,7 +861,8 @@ class AppController extends BaseController
             $notificationupdate =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm4/'. $token,
-                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see'
+                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationupdate);
             // Update existing record
@@ -866,7 +873,8 @@ class AppController extends BaseController
             $notificationsave =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm4/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see'
+                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationsave);
             $this->form4->insert($data);
@@ -906,7 +914,8 @@ class AppController extends BaseController
             $notificationsave =[
                 'user_id' => $userId,
                 'link' => 'ViewAppForm5/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see'
+                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
+                'role' => 'admin'
             ];
             $this->notif->save($notificationsave);
             $this->form5->insert($data);

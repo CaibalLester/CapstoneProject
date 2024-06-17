@@ -44,7 +44,7 @@ $routes->get('/map', 'MapController::map', ['filter' => 'adminFilter'] , );
 $routes->get('/AppDash', 'AppController::AppDash', ['filter' => 'applicantFilter']);
 $routes->get('/AppProfile', 'AppController::AppProfile', ['filter' => 'applicantFilter']);
 $routes->get('/AppSetting', 'AppController::AppSetting', ['filter' => 'applicantFilter']);
-$routes->post('/svap', 'AppController::svap');
+$routes->post('/svap', 'AppController::svap', ['filter' => 'applicantFilter']);
 $routes->get('/AppForm1', 'AppController::AppForm1', ['filter' => 'applicantFilter']);
 $routes->post('/form1sv', 'AppController::form1sv', ['filter' => 'authGuard']);
 $routes->post('/form2sv', 'AppController::form2sv', ['filter' => 'authGuard']);
@@ -161,9 +161,10 @@ $routes->post('sched/schedsave', 'AdminController::schedsave');
 $routes->get('sched/edit/(:num)', 'AdminController::edit/$1');
 $routes->post('sched/update/(:num)', 'AdminController::update/$1');
 $routes->get('sched/delete/(:num)', 'AdminController::delete/$1');
-
-
 $routes->get('/agentsched', 'AgentController::sched');
+
+//notification
+$routes->get('/clearnotif', 'NotifController::clearnotif', ['filter' => 'authGuard']);  
 
 
 
