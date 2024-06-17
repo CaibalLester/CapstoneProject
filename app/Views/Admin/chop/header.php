@@ -16,7 +16,7 @@
 
     <div class="navbar-nav me-lg-2">
         <div class="nav-item text-nowrap d-flex align-items-center">
-            <div class="dropdown ps-3">
+            <!-- <div class="dropdown ps-3">
                 <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false" id="navbarLightDropdownMenuLink">
                     <i class="bi-bell"></i>
@@ -71,6 +71,49 @@
                             </div>
                         </a>
                     </li>
+                </ul>
+            </div> -->
+            <div class="dropdown ps-3">
+                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false" id="navbarLightDropdownMenuLink">
+                    <i class="bi-bell"></i>
+                    <?php if (!empty($notifications)): ?>
+                        <span
+                            class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    <?php endif; ?>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow"
+                    aria-labelledby="navbarLightDropdownMenuLink">
+                    <small>Notifications</small>
+                    <?php if (!empty($notifications)): ?>
+                        <?php foreach ($notifications as $notification): ?>
+                            <li class="notifications-block border-bottom pb-2 mb-2">
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="<?= base_url($notification['link']); ?>">
+                                    <div class="notifications-icon-wrap bg-success">
+                                        <i class="notifications-icon bi-check-circle-fill"></i>
+                                    </div>
+                                    <div>
+                                        <span><?= esc($notification['notif']); ?></span>
+                                        <p><?= \CodeIgniter\I18n\Time::parse($notification['created_at'])->humanize(); ?></p>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li class="notifications-block">
+                            <div class="dropdown-item d-flex align-items-center">
+                                <div class="notifications-icon-wrap bg-info">
+                                    <i class="notifications-icon bi-info-circle"></i>
+                                </div>
+                                <div>
+                                    <span>No notifications found.</span>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
 

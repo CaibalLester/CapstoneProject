@@ -5,20 +5,24 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Controllers\AdminController;
 use App\Models\PlanModel;
+use App\Models\NotifModel;
 
 class PlanController extends BaseController
 {
     private $plan;
     private $adcon;
+    private $notif;
     public function __construct()
     {
         $this->plan = new PlanModel();
         $this->adcon = new AdminController();
+        $this->notif = new NotifModel();
     }
     public function plans()
     {
         $data = array_merge($this->adcon->getData(), $this->adcon->getDataAd());
         $data['plan'] = $this->plan->findAll();
+        $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
         return view("Admin/plan", $data);
     }
 

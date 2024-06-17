@@ -6,17 +6,20 @@ use App\Controllers\BaseController;
 use App\Models\ApplicantModel;
 use App\models\AgentModel;
 use App\Models\ClientModel;
+use App\Models\NotifModel;
 
 class MapController extends BaseController
 {
     private $applicants;
     private $agents;
     private $clients;
+    private $notif;
     public function __construct()
     {
         $this->applicants = new ApplicantModel();
         $this->agents = new AgentModel();
         $this->clients = new ClientModel();
+        $this->notif = new NotifModel();
     }
     // public function map()
     // {
@@ -127,6 +130,7 @@ class MapController extends BaseController
         $data['applicantCounts'] = $applicantCounts;
         $data['clientCounts'] = $clientCounts;
         $data['agentCounts'] = $agentCounts;
+        $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
         return view('Admin/map', $data);
     }
 }

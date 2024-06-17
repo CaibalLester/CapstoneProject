@@ -8,6 +8,7 @@ use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\AgentModel;
+use App\Models\NotifModel;
 
 
 class UsersManageController extends BaseController
@@ -18,6 +19,7 @@ class UsersManageController extends BaseController
     private $applicant;
     private $admin;
     private $form;
+    private $notif;
     // protected $cache;
 
     public function __construct()
@@ -28,6 +30,7 @@ class UsersManageController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
         $this->rtc = new RTCController();
+        $this->notif = new NotifModel();
         // $this->cache = \Config\Services::cache();
     }
     private function alluser()
@@ -64,6 +67,7 @@ class UsersManageController extends BaseController
             $data['users'] = $this->user->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         }
+        $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
         $data['pager'] = $this->user->pager;
         return view('Admin/usermanagement', $data);
     }
