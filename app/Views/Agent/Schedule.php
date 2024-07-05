@@ -90,10 +90,9 @@
                     <div class="col-lg-15">
                         <div class="row">
                             <div class="col-12">
-                                <div class="card"
-                                    style="width: 100%; max-width: 1000px; margin: 0 auto; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;">
-                                    <div class="card-body" style="padding: 20px;">
-                                        <div id="calendar"></div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="calendar" ></div>
                                     </div>
                                 </div>
                             </div>
