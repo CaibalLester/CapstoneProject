@@ -15,7 +15,7 @@
 						<p>Allianz PNB Agency is a leading name in the insurance industry, providing services since its
 							inception.</p>
 						<div class="banner-btn d-flex align-items-center">
-							<a href="#" class="default-btn btn-style-3">Get Started</a>
+							<a href="/login" class="default-btn btn-style-3">Get Started</a>
 							<a href="/contactus" class="default-btn btn-style30">Contact Us</a>
 						</div>
 					</div>

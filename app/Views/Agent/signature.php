@@ -100,7 +100,7 @@
                                             <div class="col-lg-6 col-md-8 col-12 mt-3 text-center">
                                                 <div id="signaturePreview">
                                                     <img src="<?= isset($sign['signature']) ? base_url('uploads/signatures/' . $sign['signature']) : '' ?>"
-                                                        alt="">
+                                                        alt="" style="max-width: 100%; height: auto;">
                                                 </div>
                                                 <div class="w-100 border border-dark p-2 mb-3" id="signaturePad"></div>
                                                 <input type="hidden" name="sign" id="sign">
