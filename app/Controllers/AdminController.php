@@ -77,12 +77,26 @@ class AdminController extends BaseController
         $data['pendingApplicants'] = $pendingApplicants;
         return view('Admin/AdDash', $data);
         // var_dump($data['notification']);
+        // $data = $this->notif();
     }
     public function notif()
     {
-        $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->findAll();
+        $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->limit(5)->findAll();
+        if (!empty($data['notifications'])) {
+            foreach ($data['notifications'] as &$notification) {
+                if (isset($notification['user_id'])) {
+                    $id = $notification['user_id'];
+                    $usertoken = $this->user->where('id', $id)->findColumn('token');
+                    if (!empty($usertoken)) {
+                        $notification['token'] = $usertoken[0]; // Assuming 'token' is a single value
+                    }
+                }
+            }
+        }
         return $data;
     }
+
+
     //Top 3 Agents
     private function topagent()
     {
@@ -132,7 +146,7 @@ class AdminController extends BaseController
     public function ManageAgent()
     {
         // $agentModel = new AgentModel();
-        $data = array_merge($this->notif(),$this->usermerge());
+        $data = array_merge($this->notif(), $this->usermerge());
         $data['agent'] = $this->agent->paginate(10, 'group1'); // Change 10 to the number of items per page
         $data['pager'] = $this->agent->pager;
         return view('Admin/ManageAgent', $data);
@@ -162,7 +176,7 @@ class AdminController extends BaseController
     public function ManageApplicant()
     {
         // $appmodel = new ApplicantModel();
-        $data = array_merge($this->notif(),$this->usermerge());
+        $data = array_merge($this->notif(), $this->usermerge());
         // Add a where condition to retrieve only records with status = 'confirmed'
         $applicants = $this->applicant->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
@@ -182,7 +196,7 @@ class AdminController extends BaseController
 
     public function userSearch()
     {
-         $data = array_merge($this->notif(),$this->usermerge());
+        $data = array_merge($this->notif(), $this->usermerge());
         $filterUser = $this->request->getPost('filterUser');
         $applicants = $this->applicant->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
@@ -194,7 +208,7 @@ class AdminController extends BaseController
     public function agentSearch()
     {
         $agentModel = new AgentModel();
-         $data = array_merge($this->notif(),$this->usermerge());
+        $data = array_merge($this->notif(), $this->usermerge());
         $filterUser = $this->request->getPost('filterAgent');
         $agents = $this->agent->like('username', $filterUser)->paginate(10, 'group1');
         $data['pager'] = $this->agent->pager; // Use $agentModel->pager

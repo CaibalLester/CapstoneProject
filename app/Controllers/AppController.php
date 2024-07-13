@@ -14,6 +14,7 @@ use App\Models\SignatureModel;
 use \App\Models\UserModel;
 use \App\Models\AgentModel;
 use \App\Models\NotifModel;
+use \App\Controllers\NotifController;
 
 class AppController extends BaseController
 {
@@ -28,6 +29,7 @@ class AppController extends BaseController
     private $user;
     private $applicant;
     private $notif;
+    private $notificationcontroller;
     // protected $cache;
 
     public function __construct()
@@ -43,6 +45,7 @@ class AppController extends BaseController
         $this->RTC = new RTCController();
         $this->applicant = new ApplicantModel();
         $this->notif = new NotifModel();
+        $this->notificationcontroller = new NotifController();
         // $this->cache = \Config\Services::cache();
     }
 
@@ -556,24 +559,17 @@ class AppController extends BaseController
             'botdate' => $this->request->getVar('botdate')
         ];
         if ($existingUser) {
-            // Update existing record
-            $notificationsave =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm1/'. $token,
-                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationsave);
+            $link = 'ViewAppForm/';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             // Insert new record
             $this->form1->set($data)->where('user_id', $userId)->update();
         } else {
-            $notificationupdate =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm1/'. $token,
-                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationupdate);
+            $link = 'ViewAppForm/';
+            $message = $role . ' ' . $username .' has save their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form1->insert($data);
         }
         // Redirect back with a status message
@@ -651,24 +647,17 @@ class AppController extends BaseController
         $existingApplicant = $this->form3->where('applicant_id', $userId)->first();
 
         if ($existingApplicant) {
-            $notificationsave =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm3/'. $token,
-                'notif' => $role . '_' . $username .' has updated their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationsave);
-            // Update existing record
+            $link = 'ViewAppForm3/';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form3->set($data)->where('applicant_id', $userId)->update();
         } else {
             // Insert new record
-            $notificationupdate =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm3/'. $token,
-                'notif' => $role . '_' . $username . ' has save their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationupdate);
+            $link = 'ViewAppForm3/';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form3->insert($data);
         }
         return redirect()->back()->with('status', 'Form saved successfully');
@@ -803,25 +792,19 @@ class AppController extends BaseController
         $existingRecord = $this->form2->where('user_id', $userId)->first();
 
         if ($existingRecord) {
-            $notificationsave =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm2/'. $token,
-                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationsave);
+            $link = 'ViewAppForm/2';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             // Update existing record
             $this->form2->set($data)->where('user_id', $userId)->update();
         } else {
             // Insert new record
             $data['user_id'] = $userId;
-            $notificationupdate =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm2/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationupdate);
+            $link = 'ViewAppForm2/';
+            $message = $role . ' ' . $username .' has save their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form2->insert($data);
         }
 
@@ -858,25 +841,19 @@ class AppController extends BaseController
         ];
         $existingRecord = $this->form4->where('applicant_id', $userId)->first();
         if ($existingRecord) {
-            $notificationupdate =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm4/'. $token,
-                'notif' => $role . '_' . $username . ' has updated their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationupdate);
+            $link = 'ViewAppForm4/';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             // Update existing record
             $this->form4->set($data)->where('applicant_id', $userId)->update();
         } else {
             // Insert new record
             $data['applicant_id'] = $userId; // Make sure to set the user_id for the new record
-            $notificationsave =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm4/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationsave);
+            $link = 'ViewAppForm4/';
+            $message = $role . ' ' . $username .' has save their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form4->insert($data);
         }
         return redirect()->back()->with('status', 'Form saved successfully');
@@ -901,23 +878,18 @@ class AppController extends BaseController
         $existingRecord = $this->form5->where('applicant_id', $userId)->first();
         if ($existingRecord) {
             // Update existing record
-            $notificationupdate =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm5/'. $token,
-                'notif' => $role . $username . ' has updated their form. Please click the link to see'
-            ];
-            $this->notif->save($notificationupdate);
+            $link = 'ViewAppForm5/';
+            $message = $role . ' ' . $username .' has updated their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form5->set($data)->where('applicant_id', $userId)->update();
         } else {
             // Insert new record
             $data['applicant_id'] = $userId; // Make sure to set the user_id for the new record
-            $notificationsave =[
-                'user_id' => $userId,
-                'link' => 'ViewAppForm5/'. $token,
-                'notif' => $role . '_' . $username .' has save their form. Please click the link to see',
-                'role' => 'admin'
-            ];
-            $this->notif->save($notificationsave);
+            $link = 'ViewAppForm5/';
+            $message = $role . ' ' . $username .' has save their form. Please click the link to see';
+            $r = 'admin';
+            $this->notificationcontroller->newnotif($userId, $link, $message, $r);
             $this->form5->insert($data);
         }
         return redirect()->back()->with('status', 'Form saved successfully');

@@ -95,7 +95,7 @@
                             <li class="notifications-block border-bottom pb-2 mb-2 notification-item"
                                 data-id="<?= $notification['id']; ?>">
                                 <a class="dropdown-item d-flex align-items-center"
-                                    href="<?= base_url($notification['link']); ?>">
+                                href="<?= base_url($notification['link']) . $notification['token']; ?>">
                                     <div class="notifications-icon-wrap bg-success">
                                         <i class="notifications-icon bi-check-circle-fill"></i>
                                     </div>
