@@ -8,7 +8,9 @@ use \App\Models\UserModel;
 use App\Models\ApplicantModel;
 use App\Models\Form1Model;
 use App\Models\AgentModel;
-use App\Models\NotifModel;
+// use App\Models\NotifModel;
+use App\Controllers\AdminController;
+use App\Controllers\NotifController;
 
 
 class UsersManageController extends BaseController
@@ -19,7 +21,8 @@ class UsersManageController extends BaseController
     private $applicant;
     private $admin;
     private $form;
-    private $notif;
+    private $notifcont;
+    private $admincon;
     // protected $cache;
 
     public function __construct()
@@ -30,7 +33,8 @@ class UsersManageController extends BaseController
         $this->admin = new AdminModel();
         $this->form = new Form1Model();
         $this->rtc = new RTCController();
-        $this->notif = new NotifModel();
+        $this->notifcont = new NotifController();
+        $this->admincon = new AdminController();
         // $this->cache = \Config\Services::cache();
     }
     private function alluser()
@@ -45,7 +49,7 @@ class UsersManageController extends BaseController
             $data['validation'] = session('validation');
             session()->remove('validation'); // Clear the session variable
         }
-        $data = array_merge($this->getDataAd(), $this->alluser(), $this->rtc->RTC());
+        $data = array_merge($this->getDataAd(), $this->alluser(), $this->rtc->RTC(), $this->notifcont->notification());
         $filterroles = $this->request->getPost('filterDropdown');
         $search = $this->request->getPost('searchusers');
         // Check if filter roles are selected
@@ -56,7 +60,6 @@ class UsersManageController extends BaseController
             } else {
                 // If another role is selected, filter by role
                 $data['users'] = $this->user->where('role', $filterroles)->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
-
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided
@@ -67,10 +70,27 @@ class UsersManageController extends BaseController
             $data['users'] = $this->user->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
 
         }
-        $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
+        // $data['notifications'] = $this->notif->orderBy('created_at', 'DESC')->findAll();
         $data['pager'] = $this->user->pager;
         return view('Admin/usermanagement', $data);
     }
+
+    // public function notif()
+    // {
+    //     $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->limit(5)->findAll();
+    //     if (!empty($data['notifications'])) {
+    //         foreach ($data['notifications'] as &$notification) {
+    //             if (isset($notification['user_id'])) {
+    //                 $id = $notification['user_id'];
+    //                 $usertoken = $this->user->where('id', $id)->findColumn('token');
+    //                 if (!empty($usertoken)) {
+    //                     $notification['token'] = $usertoken[0]; // Assuming 'token' is a single value
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return $data;
+    // }
 
     private function getDataAd()
     {

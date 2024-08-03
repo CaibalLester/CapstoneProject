@@ -164,7 +164,7 @@ $routes->get('sched/delete/(:num)', 'AdminController::delete/$1');
 $routes->get('/agentsched', 'AgentController::sched');
 
 //notification
-$routes->get('/clearnotif', 'NotifController::clearnotif', ['filter' => 'authGuard']);  
+$routes->get('/clearnotif', 'NotifController::clearnotif', ['filter' => 'authGuard']);
 
 
 

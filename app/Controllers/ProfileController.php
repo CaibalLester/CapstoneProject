@@ -11,6 +11,7 @@ use App\Controllers\AgentController;
 use App\Models\ClientModel;
 use App\Models\ClientPlanModel;
 use App\Models\FilesModel;
+use App\Controllers\NotifController;
 
 class ProfileController extends BaseController
 {
@@ -20,6 +21,7 @@ class ProfileController extends BaseController
     private $user;
     private $app;
     private $file;
+    private $notifcont;
     // protected $cache;
 
     public function __construct()
@@ -31,11 +33,12 @@ class ProfileController extends BaseController
         $this->app = new ApplicantModel();
         $this->file = new FilesModel();
         // $this->cache = \Config\Services::cache();
+        $this->notifcont = new NotifController();
     }
     public function agentprofile($token)
     {
         $agentModel = new AgentModel();
-        $data = array_merge($this->getDataAd());
+        $data = array_merge($this->getDataAd(), $this->notifcont->notification());
 
         // Get agent data
         $data['agent'] = $agentModel->where('agent_token', $token)->first();
@@ -57,7 +60,7 @@ class ProfileController extends BaseController
     public function subagentprofile($token)
     {
         $agentModel = new AgentModel();
-        $data = array_merge($this->getDataAd(), $this->agcon->getData(), $this->agcon->getDataAge());
+        $data = array_merge($this->getDataAd(), $this->agcon->getData(), $this->agcon->getDataAge(), $this->notifcont->notification());
 
         $data['subagent'] = $agentModel->where('agent_token', $token)->first();
         if ($data['subagent']) {
@@ -71,14 +74,13 @@ class ProfileController extends BaseController
             // Handle the case where the subagent is not found
             return redirect()->to('some_error_page')->with('error', 'Subagent not found');
         }
-
         return view("Agent/subagentprofile", $data);
     }
 
     public function applicantprofile($token)
     {
         $appmodel = new ApplicantModel();
-        $data = array_merge($this->getDataAd());
+        $data = array_merge($this->getDataAd(), $this->notifcont->notification());
         $data['applicant'] = $appmodel->where('app_token', $token)->first();
 
         if ($data['applicant']) {

@@ -19,7 +19,8 @@ use App\Models\ConfirmModel;
 use App\Models\ScheduleModel;
 use App\Models\CommiModel;
 use App\Models\SignatureModel;
-use App\Models\NotifModel;
+// use App\Models\NotifModel;
+use App\Controllers\NotifController;
 
 class AdminController extends BaseController
 {
@@ -39,7 +40,8 @@ class AdminController extends BaseController
     private $form4;
     private $esign;
     private $form5;
-    private $notif;
+    // private $notif;
+    private $notifcont;
 
     protected $scheduleModel;
     // protected $cache;
@@ -62,8 +64,9 @@ class AdminController extends BaseController
         $this->scheduleModel = new ScheduleModel();
         $this->esign = new SignatureModel();
         $this->commi = new CommiModel();
-        $this->notif = new NotifModel();
+        // $this->notif = new NotifModel();
         // $this->cache = \Config\Services::cache();
+        $this->notifcont = new NotifController();
     }
 
     public function AdDash()
@@ -71,30 +74,30 @@ class AdminController extends BaseController
         $totalAgents = count($this->agent->findAll());
         $totalApplicants = count($this->applicant->findAll());
         $pendingApplicants = $this->applicant->where('status', 'pending')->countAllResults();
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent(), $this->topcommi(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->topagent(), $this->getagent(), $this->topcommi(), $this->notifcont->notification());
         $data['totalAgents'] = $totalAgents;
         $data['totalApplicants'] = $totalApplicants;
         $data['pendingApplicants'] = $pendingApplicants;
         return view('Admin/AdDash', $data);
         // var_dump($data['notification']);
-        // $data = $this->notif();
+        // $data = $this->notifcont->notification();
     }
-    public function notif()
-    {
-        $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->limit(5)->findAll();
-        if (!empty($data['notifications'])) {
-            foreach ($data['notifications'] as &$notification) {
-                if (isset($notification['user_id'])) {
-                    $id = $notification['user_id'];
-                    $usertoken = $this->user->where('id', $id)->findColumn('token');
-                    if (!empty($usertoken)) {
-                        $notification['token'] = $usertoken[0]; // Assuming 'token' is a single value
-                    }
-                }
-            }
-        }
-        return $data;
-    }
+    // public function notif()
+    // {
+    //     $data['notifications'] = $this->notif->where('role', 'admin')->orderBy('created_at', 'DESC')->limit(5)->findAll();
+    //     if (!empty($data['notifications'])) {
+    //         foreach ($data['notifications'] as &$notification) {
+    //             if (isset($notification['user_id'])) {
+    //                 $id = $notification['user_id'];
+    //                 $usertoken = $this->user->where('id', $id)->findColumn('token');
+    //                 if (!empty($usertoken)) {
+    //                     $notification['token'] = $usertoken[0]; // Assuming 'token' is a single value
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return $data;
+    // }
 
 
     //Top 3 Agents
@@ -146,7 +149,7 @@ class AdminController extends BaseController
     public function ManageAgent()
     {
         // $agentModel = new AgentModel();
-        $data = array_merge($this->notif(), $this->usermerge());
+        $data = array_merge($this->notifcont->notification(), $this->usermerge());
         $data['agent'] = $this->agent->paginate(10, 'group1'); // Change 10 to the number of items per page
         $data['pager'] = $this->agent->pager;
         return view('Admin/ManageAgent', $data);
@@ -154,14 +157,14 @@ class AdminController extends BaseController
 
     public function Forms()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         return view('Admin/Forms', $data);
     }
 
     public function formsTable($form)
     {
 
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         $data['user'] = $this->user->where(['role !=' => 'admin'])->Where(['role !=' => 'client'])->findAll();
         $data['link'] = $form;
         $search = $this->request->getPost('searchusers');
@@ -176,7 +179,7 @@ class AdminController extends BaseController
     public function ManageApplicant()
     {
         // $appmodel = new ApplicantModel();
-        $data = array_merge($this->notif(), $this->usermerge());
+        $data = array_merge($this->notifcont->notification(), $this->usermerge());
         // Add a where condition to retrieve only records with status = 'confirmed'
         $applicants = $this->applicant->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
@@ -196,7 +199,7 @@ class AdminController extends BaseController
 
     public function userSearch()
     {
-        $data = array_merge($this->notif(), $this->usermerge());
+        $data = array_merge($this->notifcont->notification(), $this->usermerge());
         $filterUser = $this->request->getPost('filterUser');
         $applicants = $this->applicant->like('username', $filterUser)->where('status', 'pending')->paginate(10, 'group1');
         $data['applicant'] = $applicants;
@@ -208,7 +211,7 @@ class AdminController extends BaseController
     public function agentSearch()
     {
         $agentModel = new AgentModel();
-        $data = array_merge($this->notif(), $this->usermerge());
+        $data = array_merge($this->notifcont->notification(), $this->usermerge());
         $filterUser = $this->request->getPost('filterAgent');
         $agents = $this->agent->like('username', $filterUser)->paginate(10, 'group1');
         $data['pager'] = $this->agent->pager; // Use $agentModel->pager
@@ -228,25 +231,25 @@ class AdminController extends BaseController
 
     public function AdProfile()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         return view('Admin/AdProfile', $data);
     }
 
     public function AdSetting()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         return view('Admin/AdSetting', $data);
     }
 
     public function AdHelp()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         return view('Admin/AdHelp', $data);
     }
 
     public function promotion()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         $search = $this->request->getPost('searchusers');
         if (!empty($search)) {
             $data['applicant'] = $this->applicant->like('username', $search)->findAll();
@@ -512,7 +515,7 @@ class AdminController extends BaseController
 
     public function confirmation()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         $con = $this->confirm->paginate(10, 'group1');
         $data['applicant'] = $con;
         $data['pager'] = $this->confirm->pager;
@@ -527,7 +530,7 @@ class AdminController extends BaseController
 
     public function sched()
     {
-        $data = array_merge($this->getData(), $this->getDataAd(), $this->notif());
+        $data = array_merge($this->getData(), $this->getDataAd(), $this->notifcont->notification());
         $data['schedules'] = $this->scheduleModel->findAll();
         return view('Admin/Schedule', $data);
     }
