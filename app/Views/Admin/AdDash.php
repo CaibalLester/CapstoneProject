@@ -80,7 +80,6 @@
                                 Plans
                             </a>
                         </li>
-
                         <li class="nav-item border-top mt-auto pt-2">
                             <a class="nav-link" href="/logout">
                                 <i class="bi-box-arrow-left me-2"></i>
@@ -114,11 +113,10 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 col-12">
+                            <!-- <div class="col-lg-12 col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">Table with hoverable rows</h5>
-                                        <!-- Table with hoverable rows -->
                                         <div class="table-responsive">
                                             <table class="table table-hover">
                                                 <thead>
@@ -145,7 +143,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- end of left side -->

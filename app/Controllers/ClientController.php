@@ -11,6 +11,7 @@ use App\Models\ConfirmModel;
 use App\Models\Scheduler;
 use App\Models\ClientPlanModel;
 use App\Models\CommiModel;
+use App\Controllers\NotifController;
 
 
 class ClientController extends BaseController
@@ -23,6 +24,7 @@ class ClientController extends BaseController
     private $user;
     private $client;
     protected $agent;
+    private $notifcont;
     // protected $cache;
 
     public function __construct()
@@ -36,6 +38,7 @@ class ClientController extends BaseController
         $this->client_plan = new ClientPlanModel();
         $this->commission = new CommiModel();
         // $this->cache = \Config\Services::cache();
+        $this->notifcont = new NotifController();
     }
 
     public function ClientService()
@@ -106,6 +109,10 @@ class ClientController extends BaseController
                 'token' => $userToken,
                 'role' => 'client',
             ];
+            $link = 'confirmation';
+            $message = 'A new Client, ' . $this->request->getVar('username') . ', has just signed up.';
+            $r = 'admin';
+            $this->notifcont->newnotif($userId, $link, $message, $r);
             $this->confirm->save($clientData);
             // var_dump($data);
             // var_dump($clientData);

@@ -53,4 +53,5 @@ class NotifController extends BaseController
         }
         return $data;
     }
+
 }

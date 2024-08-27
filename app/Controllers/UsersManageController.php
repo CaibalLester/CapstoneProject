@@ -59,7 +59,7 @@ class UsersManageController extends BaseController
 
             } else {
                 // If another role is selected, filter by role
-                $data['users'] = $this->user->where('role', $filterroles)->where(['role !=' => 'admin'])->orderBy('username')->paginate(10, 'group1');
+                $data['users'] = $this->user->where('role', $filterroles)->where(['role !=' => 'admin', 'confirm !=' => 'false'])->orderBy('username')->paginate(10, 'group1');
             }
         } else if (!empty($search)) {
             // If no filter roles, check if search query is provided

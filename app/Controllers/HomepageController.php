@@ -12,6 +12,8 @@ use App\Models\ConfirmModel;
 use App\Models\FeedbackModel;
 use App\Models\PlanModel;
 use App\Controllers\ClientController;
+use App\Controllers\NotifController;
+
 
 class HomepageController extends BaseController
 {
@@ -24,6 +26,8 @@ class HomepageController extends BaseController
     protected $feedbackModel;
     private $conclient;
     // protected $cache;
+    private $notifcont;
+
 
     public function __construct()
     {
@@ -36,6 +40,7 @@ class HomepageController extends BaseController
         $this->feedbackModel = new FeedbackModel();
         $this->conclient = new ClientController();
         // $this->cache = \Config\Services::cache();
+        $this->notifcont = new NotifController();
     }
     public function home()
     {
@@ -122,8 +127,11 @@ class HomepageController extends BaseController
                     'token' => $usertoken,
                     'role' => 'applicant',
                 ];
+                $link = 'confirmation';
+                $message = 'A new applicant, ' . $this->request->getVar('username') . ', has just signed up.';
+                $r = 'admin';
+                $this->notifcont->newnotif($userId, $link, $message, $r);
                 $this->confirm->save($applicantData);
-
             }
             $emailSubject = "Account Registration Confirmation";
             $emailMessage = "Thank you for registering! Your account is currently registered. Please wait for confirmation from the admin before you can log in.";
@@ -272,6 +280,17 @@ class HomepageController extends BaseController
             $session->setFlashdata('error', 'Invalid email address.');
             return redirect()->to('/login');
         }
+        
+        // Fetch the user from the database
+        $user = $userModel->where('email', $email)->first();
+
+        // Check if the user exists
+        if (!$user) {
+            // No user found with that email
+            $session->setFlashdata('error', 'No account found with that email address.');
+            return redirect()->to('/login');
+        }
+
         $user = $userModel->where('email', $email)->first();
         // Check if the user's status is 'verified'
         if ($user['status'] == 'verified') {
@@ -289,7 +308,7 @@ class HomepageController extends BaseController
                 $session->set($sessionData);
                 $log = ['time_log' => date('Y-m-d H:i:s')];
                 $this->user->set($log)->where('id', $user['id'])->update();
-                
+
                 switch ($user['role']) {
                     case 'admin':
                         return redirect()->to('/AdDash');
